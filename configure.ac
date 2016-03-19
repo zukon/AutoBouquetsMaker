@@ -31,7 +31,6 @@ Makefile
 AutoBouquetsMaker/Makefile
 AutoBouquetsMaker/images/Makefile
 AutoBouquetsMaker/lib/Makefile
-AutoBouquetsMaker/meta/Makefile
 AutoBouquetsMaker/po/Makefile
 AutoBouquetsMaker/providers/Makefile
 AutoBouquetsMaker/src/Makefile
