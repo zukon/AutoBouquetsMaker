@@ -511,27 +511,27 @@ class AutoBouquetsMaker(Screen):
 		return False
 
 	def printconfig(self):
-		print "[ABM-config] level: ",config.autobouquetsmaker.level.value
-		print "[ABM-config] providers: ",config.autobouquetsmaker.providers.value
+		print>>log, "[ABM-config] level: ",config.autobouquetsmaker.level.value
+		print>>log, "[ABM-config] providers: ",config.autobouquetsmaker.providers.value
 		if config.autobouquetsmaker.bouquetsorder.value:
-			print "[ABM-config] bouquetsorder: ",config.autobouquetsmaker.bouquetsorder.value
+			print>>log, "[ABM-config] bouquetsorder: ",config.autobouquetsmaker.bouquetsorder.value
 		if config.autobouquetsmaker.keepallbouquets.value:
-			print "[ABM-config] keepbouquets: All"
+			print>>log, "[ABM-config] keepbouquets: All"
 		else:
-			print "[ABM-config] keepbouquets: ",config.autobouquetsmaker.keepbouquets.value
+			print>>log, "[ABM-config] keepbouquets: ",config.autobouquetsmaker.keepbouquets.value
 		if config.autobouquetsmaker.hidesections.value:
-			print "[ABM-config] hidesections: ",config.autobouquetsmaker.hidesections.value
-		print "[ABM-config] add provider prefix: ",config.autobouquetsmaker.addprefix.value
-		print "[ABM-config] show in extensions menu: ",config.autobouquetsmaker.extensions.value
-		print "[ABM-config] placement: ",config.autobouquetsmaker.placement.value
-		print "[ABM-config] skip services on non-configured satellites: ",config.autobouquetsmaker.skipservices.value
-		print "[ABM-config] show non-indexed: ",config.autobouquetsmaker.showextraservices.value
+			print>>log, "[ABM-config] hidesections: ",config.autobouquetsmaker.hidesections.value
+		print>>log, "[ABM-config] add provider prefix: ",config.autobouquetsmaker.addprefix.value
+		print>>log, "[ABM-config] show in extensions menu: ",config.autobouquetsmaker.extensions.value
+		print>>log, "[ABM-config] placement: ",config.autobouquetsmaker.placement.value
+		print>>log, "[ABM-config] skip services on non-configured satellites: ",config.autobouquetsmaker.skipservices.value
+		print>>log, "[ABM-config] show non-indexed: ",config.autobouquetsmaker.showextraservices.value
 		if config.autobouquetsmaker.FTA_only.value:
-			print "[ABM-config] FTA_only: ",config.autobouquetsmaker.FTA_only.value
-		print "[ABM-config] schedule: ",config.autobouquetsmaker.schedule.value
+			print>>log, "[ABM-config] FTA_only: ",config.autobouquetsmaker.FTA_only.value
+		print>>log, "[ABM-config] schedule: ",config.autobouquetsmaker.schedule.value
 		if config.autobouquetsmaker.schedule.value:
-			print "[ABM-config] schedule time: ",config.autobouquetsmaker.scheduletime.value
-			print "[ABM-config] schedule repeat: ",config.autobouquetsmaker.repeattype.value
+			print>>log, "[ABM-config] schedule time: ",config.autobouquetsmaker.scheduletime.value
+			print>>log, "[ABM-config] schedule repeat: ",config.autobouquetsmaker.repeattype.value
 
 	def getABMsettings(self):
 		providers_extra = []
