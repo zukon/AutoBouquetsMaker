@@ -230,9 +230,9 @@ class AutoBouquetsMaker(Screen):
 
 		nimList = []
 		for nim in nimmanager.nim_slots:
-			if self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.isCompatible("DVB-S") and nim.config_mode == 'advanced':
+			if self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.isCompatible("DVB-S"):
 				try:
-					if config.Nims[nim.slot].advanced.unicableconnected is not None and config.Nims[nim.slot].advanced.unicableconnected.value == True:
+					if nim.isFBCTuner() and not nim.isFBCRoot():
 						continue # do not load FBC links, only root tuners
 				except:
 					pass
