@@ -32,8 +32,12 @@ import os, sys, log
 
 class AutoBouquetsMaker_Menu(Screen):
 	skin = """
-<screen position="center,center" size="560,360">
-	<widget source="list" render="Listbox" position="0,0" size="560,360" scrollbarMode="showOnDemand">
+<screen position="center,center" size="600,500">
+	<widget name="key_red" position="0,0" size="140,40" valign="center" halign="center" zPosition="5" transparent="1" foregroundColor="white" backgroundColor="#9f1313" font="Regular;18"/>
+	<widget name="key_green" position="150,0" size="140,40" valign="center" halign="center" zPosition="5"  transparent="1" foregroundColor="white" backgroundColor="#1f771f" font="Regular;18"/>
+	<ePixmap name="red" position="0,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/red.png" transparent="1" alphatest="on"/>
+	<ePixmap name="green" position="150,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/green.png" transparent="1" alphatest="on"/>
+	<widget source="list" render="Listbox" position="0,50" size="600,420" scrollbarMode="showOnDemand">
 		<convert type="TemplatedMultiContent">
 			{"template": [
 				MultiContentEntryPixmapAlphaTest(pos = (12, 4), size = (32, 32), png = 0),
@@ -62,12 +66,17 @@ class AutoBouquetsMaker_Menu(Screen):
 
 		self["list"] = List(l)
 
-		self["setupActions"] = ActionMap(["SetupActions", "MenuActions"],
+		self["setupActions"] = ActionMap(["ColorActions", "SetupActions", "MenuActions"],
 		{
+			"red": self.quit,
+			"green": self.startScan,
 			"cancel": self.quit,
 			"ok": self.openSelected,
 			"menu": self.quit,
 		}, -2)
+		self["key_red"] = Button(_("Exit"))
+		self["key_green"] = Button(_("Scan"))		
+		
 
 		self.createsetup()
 		if len(config.autobouquetsmaker.providers.value) < 1:
@@ -176,6 +185,9 @@ class AutoBouquetsMaker_Menu(Screen):
 			self.session.open(AutoBouquetsMaker_About)
 			return
 
+	def startScan(self):
+		self.session.open(AutoBouquetsMaker)
+	
 	def quit(self):
 		self.close()
 
@@ -204,10 +216,13 @@ class AutoBouquetsMaker_MenuSummary(Screen):
 class AutoBouquetsMaker_Log(Screen):
 	skin = """
 <screen name="AutoBouquetsMakerLogView" position="center,center" size="600,500" title="Backup Log">
-	<widget name="list" position="0,0" size="600,500" font="Regular;16"/>
-	<widget name="key_yellow" position="0,310" size="140,40" valign="center" halign="center" zPosition="5" transparent="1" foregroundColor="white" font="Regular;18"/>
-	<ePixmap name="yellow" pixmap="skin_default/buttons/yellow.png" position="0,310" size="140,40" zPosition="4" transparent="1" alphatest="on"/>
+	<widget name="key_red" position="0,0" size="140,40" valign="center" halign="center" zPosition="5" transparent="1" foregroundColor="white" backgroundColor="#9f1313" font="Regular;18"/>
+	<widget name="key_green" position="150,0" size="140,40" valign="center" halign="center" zPosition="5" transparent="1" foregroundColor="white" font="Regular;18"/>
+	<ePixmap name="red" position="0,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/red.png" transparent="1" alphatest="on"/>
+	<ePixmap name="green" position="150,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/green.png" transparent="1" alphatest="on"/>
+	<widget name="list" position="0,50" size="600,420" font="Regular;22"/>
 </screen>"""
+	
 	def __init__(self, session):
 		self.session = session
 		Screen.__init__(self, session)
@@ -220,17 +235,17 @@ class AutoBouquetsMaker_Log(Screen):
 			"up": self["list"].pageUp,
 			"down": self["list"].pageDown,
 			"menu": self.closeRecursive,
-			"yellow": self.save,
+			"green": self.save,
 		}, -2)
 
-		self["key_yellow"] = Button(_("Save Log"))
+		self["key_green"] = Button(_("Save Log"))
 		self["key_red"] = Button(_("Close"))		
 
 	def save(self):
 		output = open('/tmp/abm.log', 'w')
 		output.write(log.getvalue())
 		output.close()
-		self.session.open(MessageBox,_("Log now saved to /tmp/abm.log"),MessageBox.TYPE_INFO, timeout = 5)
+		self.session.open(MessageBox,_("ABM log file has been saved to the tmp directory"),MessageBox.TYPE_INFO, timeout = 45)
 
 	def cancel(self):
 		self.close()

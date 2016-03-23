@@ -203,4 +203,3 @@ class AutoBouquetsMaker_Ordering(Screen):
 	def createSummary(self):
 		from menu import AutoBouquetsMaker_MenuSummary
 		return AutoBouquetsMaker_MenuSummary
-
