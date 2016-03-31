@@ -182,7 +182,7 @@
 	</sections>
 	<!-- channelsontop affect only HD bouquets -->
 	<hdchannelsontop>
-		<channel number="141" /><!-- BBC 1 HD -->
+		<channel number="115" /><!-- BBC 1 HD -->
 		<channel number="102" /><!-- BBC Two HD some regions -->
 		<channel number="142" /><!-- BBC Two HD -->
 		<channel number="178" /><!-- ITV HD -->
@@ -196,11 +196,10 @@
 		<channel number="112" /><!-- Comedy Central HD -->
 		<channel number="113" /><!-- Universal HD -->
 		<channel number="114" /><!-- Syfy HD -->
-		<channel number="210" /><!-- BBC Three HD -->
 		<channel number="211" /><!-- BBC Four HD -->
 	</hdchannelsontop>
 	<sdchannelsontop>
-		<channel number="141" /><!-- BBC 1 HD -->
+		<channel number="115" /><!-- BBC 1 HD -->
 		<channel number="142" /><!-- BBC Two HD -->
 		<channel number="178" /><!-- ITV HD -->
 		<channel number="227" /><!-- Channel 4 HD -->
@@ -213,7 +212,6 @@
 		<channel number="205" /><!-- Comedy Central HD -->
 		<channel number="204" /><!-- Universal HD -->
 		<channel number="201" /><!-- Syfy HD -->
-		<channel number="210" /><!-- BBC Three HD -->
 		<channel number="211" /><!-- BBC Four HD -->
 		<channel number="225" /><!-- ITV2 HD -->
 		<channel number="263" /><!-- ITV3 HD -->
@@ -221,12 +219,11 @@
 	</sdchannelsontop>
 	<!-- swapchannels affects main and sections bouquets. "number" is the SD channel. "with" is the HD channel. Swap will not occur if target is not HD -->
 	<swapchannels>
-		<channel number="101" with="141" /><!-- BBC One HD -->
+		<channel number="101" with="115" /><!-- BBC One HD -->
 		<channel number="102" with="142" /><!-- BBC Two HD -->
 		<channel number="103" with="178" /><!-- ITV HD -->
 		<channel number="104" with="227" /><!-- Channel 4 HD -->
 		<channel number="105" with="171" /><!-- Channel 5 HD -->
-		<channel number="115" with="210" /><!-- BBC Three HD -->
 		<channel number="116" with="211" /><!-- BBC Four HD -->
 		<channel number="118" with="225" /><!-- ITV2 HD -->
 		<channel number="119" with="263" /><!-- ITV3 HD -->
