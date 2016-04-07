@@ -144,6 +144,7 @@ except:
 	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD','ITV Encore HD',752,'BoxNation HD','BT Preview HD']
 	whitelist_by_id = [
 		1003, # MUTV HD
+		1047, # Insight HD		
 		3141, # BT Sport/ESPN
 		3622, # 50682
 		3623, # 50683
@@ -159,8 +160,8 @@ except:
 		5152, # Setanta HD
 		5153, # Premier HD
 		5154, # Setanta HD
-		5662, # 50662
-		5663  # 50683
+		5662, # 50662 BT Sport 1 HD
+		5663  # 50683 BT Sport 2 HD
 	]
 	blacklist = [899,950]
 	
