@@ -184,7 +184,7 @@
 	<hdchannelsontop>
 		<channel number="115" /><!-- BBC 1 HD -->
 		<channel number="102" /><!-- BBC Two HD some regions -->
-		<channel number="142" /><!-- BBC Two HD -->
+		<channel number="141" /><!-- BBC Two HD -->
 		<channel number="178" /><!-- ITV HD -->
 		<channel number="227" /><!-- Channel 4 HD -->
 		<channel number="105" /><!-- Channel 5 HD -->
@@ -196,11 +196,11 @@
 		<channel number="112" /><!-- Comedy Central HD -->
 		<channel number="113" /><!-- Universal HD -->
 		<channel number="114" /><!-- Syfy HD -->
-		<channel number="211" /><!-- BBC Four HD -->
+		<channel number="143" /><!-- BBC Four HD -->
 	</hdchannelsontop>
 	<sdchannelsontop>
 		<channel number="115" /><!-- BBC 1 HD -->
-		<channel number="142" /><!-- BBC Two HD -->
+		<channel number="141" /><!-- BBC Two HD -->
 		<channel number="178" /><!-- ITV HD -->
 		<channel number="227" /><!-- Channel 4 HD -->
 		<channel number="171" /><!-- Channel 5 HD -->
@@ -212,7 +212,7 @@
 		<channel number="205" /><!-- Comedy Central HD -->
 		<channel number="204" /><!-- Universal HD -->
 		<channel number="201" /><!-- Syfy HD -->
-		<channel number="211" /><!-- BBC Four HD -->
+		<channel number="143" /><!-- BBC Four HD -->
 		<channel number="225" /><!-- ITV2 HD -->
 		<channel number="263" /><!-- ITV3 HD -->
 		<channel number="268" /><!-- ITV4 HD -->
@@ -220,11 +220,11 @@
 	<!-- swapchannels affects main and sections bouquets. "number" is the SD channel. "with" is the HD channel. Swap will not occur if target is not HD -->
 	<swapchannels>
 		<channel number="101" with="115" /><!-- BBC One HD -->
-		<channel number="102" with="142" /><!-- BBC Two HD -->
+		<channel number="102" with="141" /><!-- BBC Two HD -->
 		<channel number="103" with="178" /><!-- ITV HD -->
 		<channel number="104" with="227" /><!-- Channel 4 HD -->
 		<channel number="105" with="171" /><!-- Channel 5 HD -->
-		<channel number="116" with="211" /><!-- BBC Four HD -->
+		<channel number="116" with="143" /><!-- BBC Four HD -->
 		<channel number="118" with="225" /><!-- ITV2 HD -->
 		<channel number="119" with="263" /><!-- ITV3 HD -->
 		<channel number="120" with="268" /><!-- ITV4 HD -->
@@ -376,12 +376,10 @@ except:
 	bt_sports_id = [5030,5381,5031,5382,5383,5384,5385,5386]
 
 # BBC HD channel numbers
-if service["channel_id"] in (2075,) and 115 in service["numbers"] and 142 not in LCNs_in_use: # BBC2 HD
-	LCNs_in_use[LCNs_in_use.index(115)] = 142
-	service["numbers"][service["numbers"].index(115)] = 142
-	service["number"] = 142
-if service["channel_id"] in (2076,2081,2082,2083) and 141 in service["numbers"] and 115 not in LCNs_in_use: # BBC1 HD
-	LCNs_in_use[LCNs_in_use.index(141)] = 115
+if service["channel_id"] in (2075,) and 115 in service["numbers"]: # BBC2 HD
+	service["numbers"][service["numbers"].index(115)] = 141
+	service["number"] = 141
+if service["channel_id"] in (2076,2081,2082,2083) and 141 in service["numbers"]: # BBC1 HD
 	service["numbers"][service["numbers"].index(141)] = 115
 	service["number"] = 115
 
