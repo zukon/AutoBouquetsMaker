@@ -757,6 +757,7 @@ PyObject *ss_parse_sdt(unsigned char *data, int length) {
 		int lcn_id = 0;
 		int bouquets_id = 0;
 		int service_group_id = 0;
+		int category_id = 0;
 		memset(service_name, '\0', 256);
 		memset(provider_name, '\0', 256);
 		
@@ -788,6 +789,10 @@ PyObject *ss_parse_sdt(unsigned char *data, int length) {
 				memcpy(provider_name, data + offset2 + 4, service_provider_name_length);
 				memcpy(service_name, data + offset2 + 5 + service_provider_name_length, service_name_length);
 			}
+			if (tag == 0xb2 && size > 5)	//User defined. SKY category
+			{
+				category_id = (data[offset2 + 4] << 8) | data[offset2 + 5];
+			}
 			if (tag == 0xc0)	// Sky protocol. Used for NVOD service names.
 			{
 				memset(service_name, '\0', 256);
@@ -817,7 +822,7 @@ PyObject *ss_parse_sdt(unsigned char *data, int length) {
 		else if (service_name[0] == 0x05)
 				service_name_ptr++;
 		
-		PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:s,s:s,s:i,s:i,s:i}",
+		PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:s,s:s,s:i,s:i,s:i,s:i}",
 					"transport_stream_id", transport_stream_id,
 					"original_network_id", original_network_id,
 					"service_id", service_id,
@@ -827,7 +832,8 @@ PyObject *ss_parse_sdt(unsigned char *data, int length) {
 					"provider_name", provider_name_ptr,
 					"logical_channel_number", lcn_id,
 					"bouquets_id", bouquets_id,
-					"service_group_id", service_group_id);
+					"service_group_id", service_group_id,
+					"category_id", category_id);
 		PyList_Append(list, item);
 		Py_DECREF(item);
 	}
