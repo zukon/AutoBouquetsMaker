@@ -981,6 +981,8 @@ class DvbScanner():
 				service["free_ca"] = section["free_ca"]
 				service["service_name"] = section["service_name"]
 				service["provider_name"] = section["provider_name"]
+				if section["category_id"] > 0:
+					service["category_id"] = section["category_id"]
 
 		video_services = {}
 		radio_services = {}
