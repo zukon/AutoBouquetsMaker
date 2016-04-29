@@ -981,8 +981,7 @@ class DvbScanner():
 				service["free_ca"] = section["free_ca"]
 				service["service_name"] = section["service_name"]
 				service["provider_name"] = section["provider_name"]
-				if section["category_id"] > 0:
-					service["category_id"] = section["category_id"]
+				service["category_name"] = self.skyCategoryName(section["category_id"])
 
 		video_services = {}
 		radio_services = {}
@@ -1320,3 +1319,50 @@ class DvbScanner():
 	def LCN_order(self, tmp_services_dict):
 		sort_list = [(x[0], min(x[1]['numbers'])) for x in tmp_services_dict.items()]
 		return [x[0] for x in sorted(sort_list, key=lambda listItem: listItem[1])]
+
+	def skyCategoryName(self, category_id):
+		if category_id == 0:
+			return "Unknown"
+		cat_0 = category_id >> 8
+		cat_f = category_id & 0xFF
+		cat_0_dict = {
+			0x10: "Sky Info",
+			0x30: "Shopping",
+			0x50: "Kids",
+			0x70: "Entertainment",
+			0x90: "Radio",
+			0xB0: "News",
+			0xD0: "Movies",
+			0xF0: "Sports",
+			0x00: "Sky Help",
+			0x20: "Unknown (0x20)",
+			0x40: "Unknown (0x40)",
+			0x60: "Unknown (0x60)",
+			0x80: "Unknown (0x80)",
+			0xA0: "Unknown (0xA0)",
+			0xC0: "Unknown (0xC0)",
+			0xE0: "Sports Pub"
+		}
+		cat_f_dict = {
+			0x1F: "Lifestyle and Culture",
+			0x3F: "Adult",
+			0x5F: "Gaming and Dating",
+			0x7F: "Documentaries",
+			0x9F: "Music",
+			0xBF: "Religion",
+			0xDF: "International",
+			0xFF: "Specialist",
+			0x0F: "Unknown (0x0F)",
+			0x2F: "Unknown (0x2F)",
+			0x4F: "Unknown (0x4F)",
+			0x6F: "Unknown (0x6F)",
+			0x8F: "Unknown (0x8F)",
+			0xAF: "Unknown (0xAF)",
+			0xCF: "Unknown (0xCF)",
+			0xEF: "Unknown (0xEF)"
+		}
+		if cat_0 in cat_0_dict:
+			return cat_0_dict[cat_0]
+		if cat_f in cat_f_dict:
+			return cat_f_dict[cat_f]
+		return "Unknown"
