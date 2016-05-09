@@ -297,7 +297,7 @@ class AutoBouquetsMaker(Screen):
 						if self.rawchannel:
 							print>>log, "[AutoBouquetsMaker] Nim found on slot id %d with sat %s" % (slotid, sat[1])
 							current_slotid = slotid
-							break
+						break
 			else:
 				if current_slotid == -1:	# mark the first valid slotid in case of no other one is free
 					current_slotid = slotid
@@ -306,7 +306,6 @@ class AutoBouquetsMaker(Screen):
  					print>>log, "[AutoBouquetsMaker] Nim found on slot id %d" % (slotid)
 					current_slotid = slotid
 					break
-
 
 			if self.rawchannel:
 				break
@@ -321,19 +320,25 @@ class AutoBouquetsMaker(Screen):
 			if currentlyPlayingNIM in nimList:
 				slotid = currentlyPlayingNIM
 				if self.providers[self.currentAction]["streamtype"] == "dvbs":
-					sats = nimmanager.getSatListForNim(currentlyPlayingNIM)
+					sats = nimmanager.getSatListForNim(slotid)
 					for sat in sats:
 						if sat[0] == transponder["orbital_position"]:
-							print>>log, "[AutoBouquetsMaker] Nim found on slot id %d but it's busy. Stopping active service" % currentlyPlayingNIM
+							print>>log, "[AutoBouquetsMaker] Nim found on slot id %d but it's busy. Stopping active service" % slotid
 							self.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
 							self.session.nav.stopService()
 							self.rawchannel = resmanager.allocateRawChannel(slotid)
+							if self.rawchannel:
+								print>>log, "[AutoBouquetsMaker] The active service was stopped, and the NIM is now free to use."
+								current_slotid = slotid
 							break
 				else:
-					print>>log, "[AutoBouquetsMaker] Nim found on slot id %d but it's busy. Stopping active service" % currentlyPlayingNIM
+					print>>log, "[AutoBouquetsMaker] Nim found on slot id %d but it's busy. Stopping active service" % slotid
 					self.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
 					self.session.nav.stopService()
 					self.rawchannel = resmanager.allocateRawChannel(slotid)
+					if self.rawchannel:
+						print>>log, "[AutoBouquetsMaker] The active service was stopped, and the NIM is now free to use."
+						current_slotid = slotid
 
 			if not self.rawchannel:
 				if self.session.nav.RecordTimer.isRecording():
@@ -346,7 +351,7 @@ class AutoBouquetsMaker(Screen):
 					return
 
 		# set extended timeout for rotors
-		if self.providers[self.currentAction]["streamtype"] == "dvbs" and self.isRotorSat(slotid, transponder["orbital_position"]):
+		if self.providers[self.currentAction]["streamtype"] == "dvbs" and self.isRotorSat(current_slotid, transponder["orbital_position"]):
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_ROTOR
 			print>>log, "[AutoBouquetsMaker] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10)
 		else:
