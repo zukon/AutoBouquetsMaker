@@ -214,7 +214,12 @@ class Tools():
 				elif node.tagName == "customtransponders":
 					for node2 in node.childNodes:
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "customtransponder":
-							customtransponder = {} # add some defaults. Key, frequency and TSID must come from the provider file.
+							# The following are lamedb values for use directly in lamedb.
+							# For information on lamedb values look in README.txt in AutoBouquetsMaker custom folder.
+							# Key, frequency and TSID must come from the provider file. 
+							# In the case of T2, "system" should also be present in the provider file.
+							# The following adds default values which can be overridden from the providers file.
+							customtransponder = {}
 							customtransponder["bandwidth"] = 0
 							customtransponder["code_rate_hp"] = 5
 							customtransponder["code_rate_lp"] = 5
