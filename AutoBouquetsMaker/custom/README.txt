@@ -356,7 +356,7 @@ lamedb format explained
 -----------------------
 
 Lamedb format:
-	File is basically a fixed format file where some fields contain multiple values separated by commas of colons. Lines may not exceed 256 characters.
+	File is basically a fixed format file where some fields contain multiple values separated by commas or colons. Lines may not exceed 256 characters.
 	It contains two sections.
 	Transponders started by a line transponders. Contains transponder frequencies, symbol rates, polarization and satellite position.
 	Services started by a line services. Contains SSID, Card ID for channels on a particular transponder.
@@ -393,7 +393,7 @@ Transponders section:
 		System: 0=DVB-S 1=DVB-S2.
 		Modulation: 0=Auto, 1=QPSK, 2=QAM16, 3=8PSK.
 		Rolloff (Only used in DVB-S2): 0=0.35, 1=0.25, 3=0.20
-		Pilot (Only used in DVB-S2): 0=Auto, 1=Off, 1=On.
+		Pilot (Only used in DVB-S2): 0=Auto, 1=Off, 2=On.
 
 
 	Terrestrial lines start with <TAB>t:
@@ -433,12 +433,12 @@ Services section:
 		Service number in Decimal.
 
 
-	The Channel name is on a line by itself in some character encoding (to be investigated)
+	The Channel name is on a line by itself in some character encoding (to be investigated, probably UTF-8)
 	The last line contains Provider Service data. Variable number of fields, separated by commas. Fields formed like <tag>:value. For example p:Sky Digital,c:000202,c:010282,c:020242,c:030202,c:0500 01,C:0963,C:0961,C:0960.
 
 		Provider name field. Field tag p: Name of provider.
-		Cached data. Field tag c: followed by two decimal digits and four hexadecimal digits. For example c:010282 is composed of 01 decimal cache id, 0282 hexadecimal value to cache.
-		Card ID (CIAD). Field tag C: follwed by four hexadecimal digits: Card ID. For example C:0100.
+		Cached data. Field tag [lower case] c: followed by two decimal digits and four hexadecimal digits. For example c:010282 is composed of 01 decimal cache id, 0282 hexadecimal value to cache.
+		Card ID (CAID). Field tag [upper case] C: follwed by four hexadecimal digits: Card ID. For example C:0100.
 		Flag data: Field tag f: followed by hexadecimal digits.
 
 ----------------------------------------------------------------------------------------------
