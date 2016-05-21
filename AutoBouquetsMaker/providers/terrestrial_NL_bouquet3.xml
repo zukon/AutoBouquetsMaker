@@ -1,0 +1,345 @@
+<provider>
+	<name>NL Terrestrial 3/5</name>
+	<dependent>terrestrial_NL_bouquet5</dependent>
+	<streamtype>dvbt</streamtype>
+	<protocol>lcn</protocol>
+	<dvbtconfigs>
+		<configuration key="alkmaar" frequency="578000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Alkmaar</configuration>
+		<configuration key="almere" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Almere</configuration>
+		<configuration key="alphen_aan_den_rijn" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Alphen aan den Rijn</configuration>
+		<configuration key="amersfoort" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Amersfoort</configuration>
+		<configuration key="amsterdam_hemweg" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Amsterdam Hemweg</configuration>
+		<configuration key="amsterdam_rai" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Amsterdam Rai</configuration>
+		<configuration key="apeldoorn" frequency="770000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Apeldoorn</configuration>
+		<configuration key="arnhem" frequency="770000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Arnhem</configuration>
+		<configuration key="breda" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Breda</configuration>
+		<configuration key="delft" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Delft</configuration>
+		<configuration key="den_bosch" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Den Bosch</configuration>
+		<configuration key="den_burg" frequency="602000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Den Burg</configuration>
+		<configuration key="den_haag_beatrixlaan" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Den Haag Beatrixlaan</configuration>
+		<configuration key="den_haag_kerkelanden" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Den Haag Kerkelanden</configuration>
+		<configuration key="deventer" frequency="490000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Deventer</configuration>
+		<configuration key="doetinchem" frequency="770000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Doetinchem</configuration>
+		<configuration key="eindhoven_1" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Eindhoven</configuration>
+		<configuration key="enkhuizen" frequency="578000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Enkhuizen</configuration>
+		<configuration key="enschede" frequency="490000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Enschede</configuration>
+		<configuration key="goes" frequency="538000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Goes</configuration>
+		<configuration key="gorinchem" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Gorinchem</configuration>
+		<configuration key="gouda" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Gouda</configuration>
+		<configuration key="groningen" frequency="738000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Groningen</configuration>
+		<configuration key="haarlem" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Haarlem</configuration>
+		<configuration key="heerlen" frequency="498000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Heerlen</configuration>
+		<configuration key="helmond" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Helmond</configuration>
+		<configuration key="hengelo" frequency="490000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Hengelo</configuration>
+		<configuration key="hilversum" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Hilversum</configuration>
+		<configuration key="hoorn" frequency="578000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Hoorn</configuration>
+		<configuration key="ijsselstein_lopik" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">IJsselstein (Lopik)</configuration>
+		<configuration key="krimpen_aan_den_ijssel" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Krimpen aan den IJssel</configuration>
+		<configuration key="leeuwarden" frequency="578000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Leeuwarden</configuration>
+		<configuration key="lelystad" frequency="490000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Lelystad</configuration>
+		<configuration key="loon_op_zand" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Loon op Zand</configuration>
+		<configuration key="maarssen" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Maarssen</configuration>
+		<configuration key="maastricht" frequency="498000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Maastricht</configuration>
+		<configuration key="nijmegen" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Nijmegen</configuration>
+		<configuration key="oegstgeest" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Oegstgeest</configuration>
+		<configuration key="oss_noord_brabant" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Oss (Noord-Brabant)</configuration>
+		<configuration key="oss_gelderland" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Oss (gelderland)</configuration>
+		<configuration key="roermond" frequency="498000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Roermond</configuration>
+		<configuration key="roosendaal" frequency="538000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Roosendaal</configuration>
+		<configuration key="rotterdam_maastoren" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Rotterdam Maastoren</configuration>
+		<configuration key="sittard" frequency="498000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Sittard</configuration>
+		<configuration key="sliedrecht" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Sliedrecht</configuration>
+		<configuration key="smilde" frequency="738000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Smilde</configuration>
+		<configuration key="utrecht" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Utrecht</configuration>
+		<configuration key="veenendaal_gelderland" frequency="770000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Veenendaal (Gelderland)</configuration>
+		<configuration key="veenendaal_utrecht" frequency="770000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Veenendaal (Utrecht)</configuration>
+		<configuration key="venlo" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Venlo</configuration>
+		<configuration key="vlaardingen" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Vlaardingen</configuration>
+		<configuration key="wormer" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Wormer</configuration>
+		<configuration key="zoetermeer" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Zoetermeer</configuration>
+		<configuration key="zwolle" frequency="490000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Zwolle</configuration>
+	</dvbtconfigs>
+	<customtransponders>
+		<customtransponder key="alkmaar" transport_stream_id="08A6" frequency="618000000" />
+		<customtransponder key="alkmaar" transport_stream_id="08A3" frequency="666000000" />
+		<customtransponder key="alkmaar" transport_stream_id="08A4" frequency="578000000" />
+		<customtransponder key="alkmaar" transport_stream_id="08A5" frequency="586000000" />
+		<customtransponder key="alkmaar" transport_stream_id="08C4" frequency="658000000" />
+		<customtransponder key="almere" transport_stream_id="08A6" frequency="514000000" />
+		<customtransponder key="almere" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="almere" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="almere" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="almere" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="alphen_aan_den_rijn" transport_stream_id="08A6" frequency="722000000" />
+		<customtransponder key="alphen_aan_den_rijn" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="alphen_aan_den_rijn" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="alphen_aan_den_rijn" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="alphen_aan_den_rijn" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="amersfoort" transport_stream_id="08A6" frequency="706000000" />
+		<customtransponder key="amersfoort" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="amersfoort" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="amersfoort" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="amersfoort" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="amsterdam_hemweg" transport_stream_id="08A6" frequency="618000000" />
+		<customtransponder key="amsterdam_hemweg" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="amsterdam_hemweg" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="amsterdam_hemweg" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="amsterdam_hemweg" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="amsterdam_rai" transport_stream_id="08A6" frequency="618000000" />
+		<customtransponder key="amsterdam_rai" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="amsterdam_rai" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="amsterdam_rai" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="amsterdam_rai" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="apeldoorn" transport_stream_id="08A6" frequency="642000000" />
+		<customtransponder key="apeldoorn" transport_stream_id="08A3" frequency="594000000" />
+		<customtransponder key="apeldoorn" transport_stream_id="08A4" frequency="770000000" />
+		<customtransponder key="apeldoorn" transport_stream_id="08A5" frequency="730000000" />
+		<customtransponder key="apeldoorn" transport_stream_id="08C4" frequency="530000000" />
+		<customtransponder key="arnhem" transport_stream_id="08A6" frequency="642000000" />
+		<customtransponder key="arnhem" transport_stream_id="08A3" frequency="594000000" />
+		<customtransponder key="arnhem" transport_stream_id="08A4" frequency="770000000" />
+		<customtransponder key="arnhem" transport_stream_id="08A5" frequency="730000000" />
+		<customtransponder key="arnhem" transport_stream_id="08C4" frequency="530000000" />
+		<customtransponder key="breda" transport_stream_id="08A6" frequency="546000000" />
+		<customtransponder key="breda" transport_stream_id="08A3" frequency="786000000" />
+		<customtransponder key="breda" transport_stream_id="08A4" frequency="554000000" />
+		<customtransponder key="breda" transport_stream_id="08A5" frequency="562000000" />
+		<customtransponder key="breda" transport_stream_id="08C4" frequency="570000000" />
+		<customtransponder key="delft" transport_stream_id="08A6" frequency="722000000" />
+		<customtransponder key="delft" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="delft" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="delft" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="delft" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="den_bosch" transport_stream_id="08A6" frequency="546000000" />
+		<customtransponder key="den_bosch" transport_stream_id="08A3" frequency="786000000" />
+		<customtransponder key="den_bosch" transport_stream_id="08A4" frequency="554000000" />
+		<customtransponder key="den_bosch" transport_stream_id="08A5" frequency="754000000" />
+		<customtransponder key="den_bosch" transport_stream_id="08C4" frequency="570000000" />
+		<customtransponder key="den_burg" transport_stream_id="08A6" frequency="618000000" />
+		<customtransponder key="den_burg" transport_stream_id="08A3" frequency="538000000" />
+		<customtransponder key="den_burg" transport_stream_id="08A4" frequency="602000000" />
+		<customtransponder key="den_burg" transport_stream_id="08A5" frequency="586000000" />
+		<customtransponder key="den_burg" transport_stream_id="08C4" frequency="554000000" />
+		<customtransponder key="den_haag_beatrixlaan" transport_stream_id="08A6" frequency="722000000" />
+		<customtransponder key="den_haag_beatrixlaan" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="den_haag_beatrixlaan" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="den_haag_beatrixlaan" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="den_haag_beatrixlaan" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="den_haag_kerkelanden" transport_stream_id="08A6" frequency="722000000" />
+		<customtransponder key="den_haag_kerkelanden" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="den_haag_kerkelanden" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="den_haag_kerkelanden" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="den_haag_kerkelanden" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="deventer" transport_stream_id="08A6" frequency="482000000" />
+		<customtransponder key="deventer" transport_stream_id="08A3" frequency="594000000" />
+		<customtransponder key="deventer" transport_stream_id="08A4" frequency="490000000" />
+		<customtransponder key="deventer" transport_stream_id="08A5" frequency="682000000" />
+		<customtransponder key="deventer" transport_stream_id="08C4" frequency="530000000" />
+		<customtransponder key="doetinchem" transport_stream_id="08A6" frequency="642000000" />
+		<customtransponder key="doetinchem" transport_stream_id="08A3" frequency="594000000" />
+		<customtransponder key="doetinchem" transport_stream_id="08A4" frequency="770000000" />
+		<customtransponder key="doetinchem" transport_stream_id="08A5" frequency="730000000" />
+		<customtransponder key="doetinchem" transport_stream_id="08C4" frequency="530000000" />
+		<customtransponder key="eindhoven_1" transport_stream_id="08A6" frequency="546000000" />
+		<customtransponder key="eindhoven_1" transport_stream_id="08A3" frequency="786000000" />
+		<customtransponder key="eindhoven_1" transport_stream_id="08A4" frequency="554000000" />
+		<customtransponder key="eindhoven_1" transport_stream_id="08A5" frequency="754000000" />
+		<customtransponder key="eindhoven_1" transport_stream_id="08C4" frequency="570000000" />
+		<customtransponder key="enkhuizen" transport_stream_id="08A6" frequency="618000000" />
+		<customtransponder key="enkhuizen" transport_stream_id="08A3" frequency="666000000" />
+		<customtransponder key="enkhuizen" transport_stream_id="08A4" frequency="578000000" />
+		<customtransponder key="enkhuizen" transport_stream_id="08A5" frequency="586000000" />
+		<customtransponder key="enkhuizen" transport_stream_id="08C4" frequency="658000000" />
+		<customtransponder key="enschede" transport_stream_id="08A6" frequency="482000000" />
+		<customtransponder key="enschede" transport_stream_id="08A3" frequency="594000000" />
+		<customtransponder key="enschede" transport_stream_id="08A4" frequency="490000000" />
+		<customtransponder key="enschede" transport_stream_id="08A5" frequency="682000000" />
+		<customtransponder key="enschede" transport_stream_id="08C4" frequency="530000000" />
+		<customtransponder key="goes" transport_stream_id="08A6" frequency="738000000" />
+		<customtransponder key="goes" transport_stream_id="08A3" frequency="690000000" />
+		<customtransponder key="goes" transport_stream_id="08A4" frequency="538000000" />
+		<customtransponder key="goes" transport_stream_id="08A5" frequency="562000000" />
+		<customtransponder key="goes" transport_stream_id="08C4" frequency="586000000" />
+		<customtransponder key="gorinchem" transport_stream_id="08A6" frequency="474000000" />
+		<customtransponder key="gorinchem" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="gorinchem" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="gorinchem" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="gorinchem" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="gouda" transport_stream_id="08A6" frequency="722000000" />
+		<customtransponder key="gouda" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="gouda" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="gouda" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="gouda" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="groningen" transport_stream_id="08A6" frequency="674000000" />
+		<customtransponder key="groningen" transport_stream_id="08A3" frequency="546000000" />
+		<customtransponder key="groningen" transport_stream_id="08A4" frequency="738000000" />
+		<customtransponder key="groningen" transport_stream_id="08A5" frequency="570000000" />
+		<customtransponder key="groningen" transport_stream_id="08C4" frequency="506000000" />
+		<customtransponder key="haarlem" transport_stream_id="08A6" frequency="618000000" />
+		<customtransponder key="haarlem" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="haarlem" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="haarlem" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="haarlem" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="heerlen" transport_stream_id="08A6" frequency="738000000" />
+		<customtransponder key="heerlen" transport_stream_id="08A3" frequency="578000000" />
+		<customtransponder key="heerlen" transport_stream_id="08A4" frequency="498000000" />
+		<customtransponder key="heerlen" transport_stream_id="08A5" frequency="714000000" />
+		<customtransponder key="heerlen" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="helmond" transport_stream_id="08A6" frequency="546000000" />
+		<customtransponder key="helmond" transport_stream_id="08A3" frequency="786000000" />
+		<customtransponder key="helmond" transport_stream_id="08A4" frequency="554000000" />
+		<customtransponder key="helmond" transport_stream_id="08A5" frequency="754000000" />
+		<customtransponder key="helmond" transport_stream_id="08C4" frequency="570000000" />
+		<customtransponder key="hengelo" transport_stream_id="08A6" frequency="482000000" />
+		<customtransponder key="hengelo" transport_stream_id="08A3" frequency="594000000" />
+		<customtransponder key="hengelo" transport_stream_id="08A4" frequency="490000000" />
+		<customtransponder key="hengelo" transport_stream_id="08A5" frequency="682000000" />
+		<customtransponder key="hengelo" transport_stream_id="08C4" frequency="530000000" />
+		<customtransponder key="hilversum" transport_stream_id="08A6" frequency="618000000" />
+		<customtransponder key="hilversum" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="hilversum" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="hilversum" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="hilversum" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="hoorn" transport_stream_id="08A6" frequency="618000000" />
+		<customtransponder key="hoorn" transport_stream_id="08A3" frequency="666000000" />
+		<customtransponder key="hoorn" transport_stream_id="08A4" frequency="578000000" />
+		<customtransponder key="hoorn" transport_stream_id="08A5" frequency="586000000" />
+		<customtransponder key="hoorn" transport_stream_id="08C4" frequency="658000000" />
+		<customtransponder key="ijsselstein_lopik" transport_stream_id="08A6" frequency="706000000" />
+		<customtransponder key="ijsselstein_lopik" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="ijsselstein_lopik" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="ijsselstein_lopik" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="ijsselstein_lopik" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="krimpen_aan_den_ijssel" transport_stream_id="08A6" frequency="474000000" />
+		<customtransponder key="krimpen_aan_den_ijssel" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="krimpen_aan_den_ijssel" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="krimpen_aan_den_ijssel" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="krimpen_aan_den_ijssel" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="leeuwarden" transport_stream_id="08A6" frequency="562000000" />
+		<customtransponder key="leeuwarden" transport_stream_id="08A3" frequency="746000000" />
+		<customtransponder key="leeuwarden" transport_stream_id="08A4" frequency="578000000" />
+		<customtransponder key="leeuwarden" transport_stream_id="08A5" frequency="474000000" />
+		<customtransponder key="leeuwarden" transport_stream_id="08C4" frequency="658000000" />
+		<customtransponder key="lelystad" transport_stream_id="08A6" frequency="514000000" />
+		<customtransponder key="lelystad" transport_stream_id="08A3" frequency="594000000" />
+		<customtransponder key="lelystad" transport_stream_id="08A4" frequency="490000000" />
+		<customtransponder key="lelystad" transport_stream_id="08A5" frequency="682000000" />
+		<customtransponder key="lelystad" transport_stream_id="08C4" frequency="658000000" />
+		<customtransponder key="loon_op_zand" transport_stream_id="08A6" frequency="546000000" />
+		<customtransponder key="loon_op_zand" transport_stream_id="08A3" frequency="786000000" />
+		<customtransponder key="loon_op_zand" transport_stream_id="08A4" frequency="554000000" />
+		<customtransponder key="loon_op_zand" transport_stream_id="08A5" frequency="754000000" />
+		<customtransponder key="loon_op_zand" transport_stream_id="08C4" frequency="570000000" />
+		<customtransponder key="maarssen" transport_stream_id="08A6" frequency="706000000" />
+		<customtransponder key="maarssen" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="maarssen" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="maarssen" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="maarssen" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="maastricht" transport_stream_id="08A6" frequency="738000000" />
+		<customtransponder key="maastricht" transport_stream_id="08A3" frequency="578000000" />
+		<customtransponder key="maastricht" transport_stream_id="08A4" frequency="498000000" />
+		<customtransponder key="maastricht" transport_stream_id="08A5" frequency="714000000" />
+		<customtransponder key="maastricht" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="nijmegen" transport_stream_id="08A6" frequency="642000000" />
+		<customtransponder key="nijmegen" transport_stream_id="08A3" frequency="786000000" />
+		<customtransponder key="nijmegen" transport_stream_id="08A4" frequency="554000000" />
+		<customtransponder key="nijmegen" transport_stream_id="08A5" frequency="754000000" />
+		<customtransponder key="nijmegen" transport_stream_id="08C4" frequency="570000000" />
+		<customtransponder key="oegstgeest" transport_stream_id="08A6" frequency="722000000" />
+		<customtransponder key="oegstgeest" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="oegstgeest" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="oegstgeest" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="oegstgeest" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="oss_noord_brabant" transport_stream_id="08A6" frequency="546000000" />
+		<customtransponder key="oss_noord_brabant" transport_stream_id="08A3" frequency="786000000" />
+		<customtransponder key="oss_noord_brabant" transport_stream_id="08A4" frequency="554000000" />
+		<customtransponder key="oss_noord_brabant" transport_stream_id="08A5" frequency="754000000" />
+		<customtransponder key="oss_noord_brabant" transport_stream_id="08C4" frequency="570000000" />
+		<customtransponder key="oss_gelderland" transport_stream_id="08A6" frequency="642000000" />
+		<customtransponder key="oss_gelderland" transport_stream_id="08A3" frequency="786000000" />
+		<customtransponder key="oss_gelderland" transport_stream_id="08A4" frequency="554000000" />
+		<customtransponder key="oss_gelderland" transport_stream_id="08A5" frequency="754000000" />
+		<customtransponder key="oss_gelderland" transport_stream_id="08C4" frequency="570000000" />
+		<customtransponder key="roermond" transport_stream_id="08A6" frequency="738000000" />
+		<customtransponder key="roermond" transport_stream_id="08A3" frequency="578000000" />
+		<customtransponder key="roermond" transport_stream_id="08A4" frequency="498000000" />
+		<customtransponder key="roermond" transport_stream_id="08A5" frequency="714000000" />
+		<customtransponder key="roermond" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="roosendaal" transport_stream_id="08A6" frequency="546000000" />
+		<customtransponder key="roosendaal" transport_stream_id="08A3" frequency="690000000" />
+		<customtransponder key="roosendaal" transport_stream_id="08A4" frequency="538000000" />
+		<customtransponder key="roosendaal" transport_stream_id="08A5" frequency="562000000" />
+		<customtransponder key="roosendaal" transport_stream_id="08C4" frequency="586000000" />
+		<customtransponder key="rotterdam_maastoren" transport_stream_id="08A6" frequency="474000000" />
+		<customtransponder key="rotterdam_maastoren" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="rotterdam_maastoren" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="rotterdam_maastoren" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="rotterdam_maastoren" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="sittard" transport_stream_id="08A6" frequency="738000000" />
+		<customtransponder key="sittard" transport_stream_id="08A3" frequency="578000000" />
+		<customtransponder key="sittard" transport_stream_id="08A4" frequency="498000000" />
+		<customtransponder key="sittard" transport_stream_id="08A5" frequency="714000000" />
+		<customtransponder key="sittard" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="sliedrecht" transport_stream_id="08A6" frequency="474000000" />
+		<customtransponder key="sliedrecht" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="sliedrecht" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="sliedrecht" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="sliedrecht" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="smilde" transport_stream_id="08A6" frequency="786000000" />
+		<customtransponder key="smilde" transport_stream_id="08A3" frequency="546000000" />
+		<customtransponder key="smilde" transport_stream_id="08A4" frequency="738000000" />
+		<customtransponder key="smilde" transport_stream_id="08A5" frequency="570000000" />
+		<customtransponder key="smilde" transport_stream_id="08C4" frequency="506000000" />
+		<customtransponder key="utrecht" transport_stream_id="08A6" frequency="706000000" />
+		<customtransponder key="utrecht" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="utrecht" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="utrecht" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="utrecht" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="veenendaal_gelderland" transport_stream_id="08A6" frequency="642000000" />
+		<customtransponder key="veenendaal_gelderland" transport_stream_id="08A3" frequency="594000000" />
+		<customtransponder key="veenendaal_gelderland" transport_stream_id="08A4" frequency="770000000" />
+		<customtransponder key="veenendaal_gelderland" transport_stream_id="08A5" frequency="730000000" />
+		<customtransponder key="veenendaal_gelderland" transport_stream_id="08C4" frequency="530000000" />
+		<customtransponder key="veenendaal_utrecht" transport_stream_id="08A6" frequency="706000000" />
+		<customtransponder key="veenendaal_utrecht" transport_stream_id="08A3" frequency="594000000" />
+		<customtransponder key="veenendaal_utrecht" transport_stream_id="08A4" frequency="770000000" />
+		<customtransponder key="veenendaal_utrecht" transport_stream_id="08A5" frequency="730000000" />
+		<customtransponder key="veenendaal_utrecht" transport_stream_id="08C4" frequency="530000000" />
+		<customtransponder key="venlo" transport_stream_id="08A6" frequency="738000000" />
+		<customtransponder key="venlo" transport_stream_id="08A3" frequency="578000000" />
+		<customtransponder key="venlo" transport_stream_id="08A4" frequency="554000000" />
+		<customtransponder key="venlo" transport_stream_id="08A5" frequency="754000000" />
+		<customtransponder key="venlo" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="vlaardingen" transport_stream_id="08A6" frequency="474000000" />
+		<customtransponder key="vlaardingen" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="vlaardingen" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="vlaardingen" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="vlaardingen" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="wormer" transport_stream_id="08A6" frequency="618000000" />
+		<customtransponder key="wormer" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="wormer" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="wormer" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="wormer" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="zoetermeer" transport_stream_id="08A6" frequency="722000000" />
+		<customtransponder key="zoetermeer" transport_stream_id="08A3" frequency="698000000" />
+		<customtransponder key="zoetermeer" transport_stream_id="08A4" frequency="762000000" />
+		<customtransponder key="zoetermeer" transport_stream_id="08A5" frequency="498000000" />
+		<customtransponder key="zoetermeer" transport_stream_id="08C4" frequency="522000000" />
+		<customtransponder key="zwolle" transport_stream_id="08A6" frequency="482000000" />
+		<customtransponder key="zwolle" transport_stream_id="08A3" frequency="594000000" />
+		<customtransponder key="zwolle" transport_stream_id="08A4" frequency="490000000" />
+		<customtransponder key="zwolle" transport_stream_id="08A5" frequency="682000000" />
+		<customtransponder key="zwolle" transport_stream_id="08C4" frequency="530000000" />
+	</customtransponders>
+	<sections>
+		<section number="1">NL terrestrial</section>
+	</sections>
+	<servicehacks>
+		<![CDATA[
+
+service["number"] = service["service_id"]
+service["numbers"] = [service["service_id"]]
+
+		]]>
+	</servicehacks>
+</provider>
