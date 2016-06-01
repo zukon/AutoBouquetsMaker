@@ -289,6 +289,7 @@ except:
 		1043: "ITV Tyne Tees HD",
 		1044: "ITV Yorkshire HD",
 		1045: "ITV Anglia HD",
+		2296: "S4C HD",
 		3527: "STV Edinburgh",
 		4012: "UTV Ireland",
 		4055: "STV HD",
@@ -355,22 +356,10 @@ except:
 		1003, # MUTV HD
 		1019, # CNN HD
 		1047, # Insight HD
-		3141, # BT Sport/ESPN
-		3622, # 50682 BT SportEurHD
-		3623, # 50683 BT SportEurHD
-		3625, # BT Sport 1 HD
-		3627, # BT Sport 2 HD
-		3629, # BT SportEurHD
-		3661, # BT Sport 1
-		3663, # BT Sport 2
-		4040, # BT Sport/ESPNHD
-		5032, # BT Sport Europe
 		5152, # Setanta HD
 		5153, # Premier HD
 		5154, # Setanta HD
-		5272, # Racing UK HD
-		5662, # 50662 BT Sport 1 HD
-		5663  # 50683 BT Sport 2 HD
+		5272 # Racing UK HD
 	]
 	blacklist = []
 	bt_sports_id = [5030,5381,5031,5382,5383,5384,5385,5386]

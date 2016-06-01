@@ -95,9 +95,13 @@ except:
 	
 	ITVs = {
 		1020: "ITV Border Scotland",
+		1043: "ITV Tyne Tees HD",
+		1044: "ITV Yorkshire HD",
+		1045: "ITV Anglia HD",
+		2296: "S4C HD",
 		3527: "STV Edinburgh",
-		4055: "STV HD",
 		4012: "UTV Ireland",
+		4055: "STV HD",
 		5070: "STV Glasgow",
 		6000: "ITV London",
 		6010: "ITV Central South",
@@ -132,7 +136,7 @@ except:
 		6220: "STV Scotland West",
 		6230: "UTV",
 		6371: "STV Scotland East",
-		6500: "ITV Yorkshire West",
+		6500: "ITV Yorkshire West HD",
 		6501: "ITV Wales HD",
 		6502: "ITV Meridian South HD",
 		6503: "ITV Central West HD",
@@ -146,21 +150,10 @@ except:
 		1003, # MUTV HD
 		1019, # CNN HD
 		1047, # Insight HD
-		3141, # BT Sport/ESPN
-		3622, # 50682
-		3623, # 50683
-		3625, # BT Sport 1 HD
-		3627, # BT Sport 2 HD
-		3629, # BT SportEurHD
-		3661, # BT Sport 1
-		3663, # BT Sport 2
-		4040, # BT Sport/ESPNHD
-		5032, # BT Sport Europe
 		5152, # Setanta HD
 		5153, # Premier HD
 		5154, # Setanta HD
-		5662, # 50662 BT Sport 1 HD
-		5663  # 50683 BT Sport 2 HD
+		5272 # Racing UK HD
 	]
 	blacklist = [899,950]
 	
