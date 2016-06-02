@@ -29,7 +29,7 @@
 		<section number="300">Regionales</section>
 	</sections>
 	<dvbsconfigs>
-		<configuration key="sd_00112" bouquet="0x70" region="0x83">Fransat SD</configuration>
+		<!--<configuration key="sd_00112" bouquet="0x70" region="0x83">Fransat SD</configuration>-->
 		<configuration key="hd_00113" bouquet="0x71" region="0x83">Fransat HD</configuration>
 		<!--<configuration key="hd_00127" bouquet="0x7f" region="0x83">France 3 Regionales</configuration>-->
 		<!--<configuration key="hd_01360" bouquet="0x550" region="0x83">1360</configuration>-->

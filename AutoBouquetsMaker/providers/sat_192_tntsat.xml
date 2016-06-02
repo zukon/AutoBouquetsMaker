@@ -26,7 +26,7 @@
 		<!--<configuration key="hd_49163" bouquet="0xc00b" region="0x83">TNTSAT SPS</configuration>--><!-- empty -->
 		<!--<configuration key="hd_49164" bouquet="0xc00c" region="0x83">TNTSAT C1</configuration>--><!-- 1 info channel -->
 		<!--<configuration key="hd_49165" bouquet="0xc00d" region="0x83">CanalSat HD</configuration>--><!-- 271 channels -->
-		<configuration key="sd_49166" bouquet="0xc00e" region="0x83">TNTSAT SD</configuration><!-- 53 channels -->
+		<!--<configuration key="sd_49166" bouquet="0xc00e" region="0x83">TNTSAT SD</configuration>--><!-- 53 channels -->
 		<configuration key="hd_49167" bouquet="0xc00f" region="0x83">TNTSAT HD</configuration><!-- 53 channels -->
 		<!--<configuration key="hd_49169" bouquet="0xc011" region="0x83">Hospitality Ref</configuration>--><!-- empty -->
 		<!--<configuration key="hd_49170" bouquet="0xc012" region="0x83">TNT TRIAX</configuration>--><!-- empty -->
