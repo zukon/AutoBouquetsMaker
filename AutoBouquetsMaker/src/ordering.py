@@ -101,17 +101,17 @@ class AutoBouquetsMaker_Ordering(Screen):
 		self.providers_configs = {}
 		for tmp in self.providers_order:
 			provider_config = ProviderConfig(tmp)
-			
+
 			if not provider_config.isValid():
 				continue
-				
+
 			if provider_config.getProvider() not in self.providers:
 				continue
-				
+
 			providers = (str(self.providers[provider_config.getProvider()]["name"]), provider_config.getProvider())
 			self.list.append(providers)
 			self.providers_configs[provider_config.getProvider()] = provider_config
-			
+
 		self["list"].setList(self.list)
 		self["pleasewait"].hide()
 		self["actions"].setEnabled(True)
@@ -178,9 +178,9 @@ class AutoBouquetsMaker_Ordering(Screen):
 			provider = provider[1]
 			if len(config_string) > 0:
 				config_string += "|"
-				
+
 			config_string += self.providers_configs[provider].serialize()
-			
+
 		config.autobouquetsmaker.providers.setValue(config_string)
 		config.autobouquetsmaker.providers.save()
 		configfile.save()

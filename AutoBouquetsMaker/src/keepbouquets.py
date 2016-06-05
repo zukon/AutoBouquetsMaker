@@ -41,7 +41,7 @@ class AutoBouquetsMaker_KeepBouquets(Screen):
 		</screen>"""
 
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
-		
+
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self.session = session

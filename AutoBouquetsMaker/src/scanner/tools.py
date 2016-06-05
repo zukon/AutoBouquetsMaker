@@ -82,10 +82,10 @@ class Tools():
 									customlcndict[channelnumber] = lcn
 									if channelnumber in services[type]:
 										sort_order.append(channelnumber)
-				
+
 				temp_services = {}
 				extra_services = {}
-				
+
 				# add channels not in the CustomLCN file to the sort list.
 				for number in sorted(services[type].keys()):
 					if number not in sort_order:
@@ -118,7 +118,7 @@ class Tools():
 				services[type] = temp_services
 
 		return services
-		
+
 	def sortServicesAlpha(self, services):
 		# services is a dict with LCNs as keys
 		# returns keys, sorted flat alphabetic by service name (or interactive name if it is set).
@@ -171,7 +171,7 @@ class Tools():
 									target = int(node2.attributes.item(i).value)
 									if target and target in customised["video"]:
 										del customised["video"][target]
-										
+
 				elif node.tagName == "sections":
 					for node2 in node.childNodes:
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "section":
@@ -185,7 +185,7 @@ class Tools():
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
 									sections[number] = node2.childNodes[0].data.encode("utf-8")
-							
+
 				elif node.tagName == "hacks":
 					node.normalize()
 					for i in range(0, len(node.childNodes)):
@@ -216,7 +216,7 @@ class Tools():
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "customtransponder":
 							# The following are lamedb values for use directly in lamedb.
 							# For information on lamedb values look in README.txt in AutoBouquetsMaker custom folder.
-							# Key, frequency and TSID must come from the provider file. 
+							# Key, frequency and TSID must come from the provider file.
 							# In the case of T2, "system" should also be present in the provider file.
 							# The following adds default values which can be overridden from the providers file.
 							customtransponder = {}
@@ -337,14 +337,14 @@ class Tools():
 							node2.normalize()
 							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and node2.childNodes[0].data != "1":
 								bouquets["sections"] = 0
-								
+
 				elif node.tagName == "placement":
 					node.normalize()
 					if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE:
 						placement = min(int(node.childNodes[0].data) -1, len(bouquetsOrder))
 						if placement < 0:
 							placement = 0
-							
+
 				elif node.tagName == "hacks":
 					node.normalize()
 					for i in range(0, len(node.childNodes)):

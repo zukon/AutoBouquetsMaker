@@ -9,7 +9,7 @@ class ProviderConfig():
 			chunks = value.split(":")
 			if len(chunks) != 4:
 				return
-	
+
 			try:
 				self.provider = str(chunks[0].strip())
 				self.area = str(chunks[1].strip())
@@ -17,7 +17,7 @@ class ProviderConfig():
 				self.customfilename = str(chunks[3].strip())
 			except Exception, e:
 				return
-	
+
 	def isValid(self):
 		return len(self.provider) > 0
 

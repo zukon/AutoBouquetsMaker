@@ -9,9 +9,9 @@ from dvbscanner import DvbScanner
 import os, codecs, re
 
 class BouquetsWriter():
-	
+
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
-		
+
 	def writeLamedb(self, path, transponders):
 		print>>log, "[BouquetsWriter] Writing lamedb..."
 
@@ -143,22 +143,22 @@ class BouquetsWriter():
 
 		content = bouquet_in.read()
 		bouquet_in.close()
-		
+
 		seperator_name = "/%s%s.separator.tv" % (self.ABM_BOUQUET_PREFIX, filename[:len(filename)-3])
 		try:
 			bouquet_out = open(path + seperator_name, "w")
 		except Exception, e:
 			print>>log, "[BouquetsWriter]", e
 			return
-			
+
 		rows = content.split("\n")
 		count = 0
-		
+
 		name = ''
 		for row in rows:
 			if len(row.strip()) == 0:
 				break
-				
+
 			if row[:5] == "#NAME" and name == '':
 				name = row.strip()[6:]
 
@@ -168,9 +168,9 @@ class BouquetsWriter():
 					break
 
 			#bouquet_out_list.append(row + "\n")
-		
+
 		print>>log, "[BouquetsWriter] Custom seperator name: %s" % name
-		
+
 		bouquet_out_list = []
 
 		bouquet_out_list.append("#NAME CustomSeparatorMain for %s\n" % name)
@@ -185,7 +185,7 @@ class BouquetsWriter():
 		bouquet_out.write(''.join(bouquet_out_list))
 		bouquet_out.close()
 		del bouquet_out_list
-		
+
 		print>>log, "[BouquetsWriter] Custom seperator made. %s" % seperator_name
 
 	def containServices(self, path, filename):
@@ -228,7 +228,7 @@ class BouquetsWriter():
 		customfilenames = []
 		hidden_non_abm_bouquet = []
 		display_empty_bouquet = ['userbouquet.favourites.tv', 'userbouquet.favourites.radio', 'userbouquet.LastScanned.tv']
-		
+
 		if config.autobouquetsmaker.placement.getValue() == 'bottom':
 			for bouquet_type in ["tv", "radio"]:
 				for filename in currentBouquets[bouquet_type]:
@@ -284,7 +284,7 @@ class BouquetsWriter():
 				else:
 					bouquets_tv_list.append("#SERVICE 1:519:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s%s.%s.tv\" ORDER BY bouquet\n" % (self.ABM_BOUQUET_PREFIX, section_identifier, section_type))
 				bouquetsToKeep2["tv"].append("%s%s.%s.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier, section_type))
-				
+
 			if provider_configs[section_identifier].isMakeFTAHD():
 				section_type = "ftahd"
 				if self.containServicesLines(path, "%s%s.%s.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier, section_type)):
@@ -292,7 +292,7 @@ class BouquetsWriter():
 				else:
 					bouquets_tv_list.append("#SERVICE 1:519:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s%s.%s.tv\" ORDER BY bouquet\n" % (self.ABM_BOUQUET_PREFIX, section_identifier, section_type))
 				bouquetsToKeep2["tv"].append("%s%s.%s.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier, section_type))
-				
+
 			if provider_configs[section_identifier].isMakeFTA():
 				section_type = "fta"
 				if self.containServicesLines(path, "%s%s.%s.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier, section_type)):
@@ -300,7 +300,7 @@ class BouquetsWriter():
 				else:
 					bouquets_tv_list.append("#SERVICE 1:519:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s%s.%s.tv\" ORDER BY bouquet\n" % (self.ABM_BOUQUET_PREFIX, section_identifier, section_type))
 				bouquetsToKeep2["tv"].append("%s%s.%s.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier, section_type))
-			
+
 			bouquets_radio_list.append("#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s%s.main.radio\" ORDER BY bouquet\n" % (self.ABM_BOUQUET_PREFIX, section_identifier))
 			bouquetsToKeep2["radio"].append("%s%s.main.radio" % (self.ABM_BOUQUET_PREFIX, section_identifier))
 
@@ -321,7 +321,7 @@ class BouquetsWriter():
 		bouquets_tv.write(''.join(bouquets_tv_list))
 		bouquets_tv.close()
 		del bouquets_tv_list
-		
+
 		bouquets_radio.write(''.join(bouquets_radio_list))
 		bouquets_radio.close()
 		del bouquets_radio_list
@@ -343,7 +343,7 @@ class BouquetsWriter():
 		if len(section_prefix) > 0:
 			section_prefix = section_prefix + " - "
 		current_number = 0
-		
+
 		# as first thing we're going to cleanup channels
 		# with a numeration inferior to the first section
 		first_section_number = sorted(sections.keys())[0]
@@ -356,19 +356,19 @@ class BouquetsWriter():
 		print>>log, "[BouquetsWriter] Writing %s bouquet..." % section_identifier
 
 		force_keep_numbers = False
-		
+
 		# swap channels
 		swapDict = {}
 		for swaprule in preferred_order:
 			if swaprule[0] in services["video"] and swaprule[1] in services["video"] and services["video"][swaprule[1]]["service_type"] >= 17:
 				swapDict[swaprule[0]] = swaprule[1]
 				swapDict[swaprule[1]] = swaprule[0]
-		
+
 		if provider_config.isMakeNormalMain():
 			bouquet_current = open(path + "/%s%s.main.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier), "w")
 			current_bouquet_list = []
 			current_bouquet_list.append("#NAME %s%s\n" % (section_prefix, _('All channels')))
-			
+
 			# Clear unused sections
 			sections_c = sections.copy()
 			sections_c = Tools().clearsections(services, sections_c, 'ALL', "video")
@@ -388,7 +388,7 @@ class BouquetsWriter():
 					current_bouquet_list.append("#DESCRIPTION %s%s\n" % (section_prefix, sections_c[number]))
 					first_section = number
 					break
-					
+
 			# Use separate section counter. Preferred_order_tmp has swapped numbers. Can put sections on wrong places
 			section_number = 1
 			for number in preferred_order_tmp:
@@ -429,11 +429,11 @@ class BouquetsWriter():
 				current_bouquet_list.append("#NAME %s%s\n" % (section_prefix, _('FTA HD Channels')))
 
 			higher_number = sorted(sections.keys())[0]
-			
+
 			# Clear unused sections
 			sections_c = sections.copy()
 			sections_c = Tools().clearsections(services, sections_c, hd_or_ftahd, "video")
-			
+
 			section_keys_temp = sorted(sections_c.keys())
 			section_key_current = section_keys_temp[0]
 
@@ -571,7 +571,7 @@ class BouquetsWriter():
 			current_bouquet_list.append("#NAME %sSeparator\n" % section_prefix)
 			current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
 			current_bouquet_list.append("#DESCRIPTION %sSeparator\n" % section_prefix)
-	
+
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
 				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
 				current_bouquet_list.append("#DESCRIPTION  \n")
@@ -590,7 +590,7 @@ class BouquetsWriter():
 			# Clear unused sections
 			sections_c = sections.copy()
 			sections_c = Tools().clearsections(services, sections_c, "HD", "video")
-			
+
 			section_keys_temp = sorted(sections_c.keys())
 			section_key_current = section_keys_temp[0]
 
@@ -647,7 +647,7 @@ class BouquetsWriter():
 			bouquet_current = open(path + "/%s%s.ftahd.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier), "w")
 			current_bouquet_list = []
 			current_bouquet_list.append("#NAME %s%s\n" % (section_prefix, _('FTA HD Channels')))
-			
+
 			# Clear unused sections
 			sections_c = sections.copy()
 			sections_c = Tools().clearsections(services, sections_c, "FTAHD", "video")
@@ -708,16 +708,16 @@ class BouquetsWriter():
 			bouquet_current = open(path + "/%s%s.fta.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier), "w")
 			current_bouquet_list = []
 			current_bouquet_list.append("#NAME %s%s\n" % (section_prefix, _('FTA Channels')))
-			
+
 			# Clear unused sections
 			sections_c = sections.copy()
 			sections_c = Tools().clearsections(services, sections_c, "FTA", "video")
-			
+
 			section_keys_temp = sorted(sections_c.keys())
 			section_key_current = section_keys_temp[0]
 
 			higher_number = sorted(services["video"].keys())[-1]
-			
+
 			todo = None
 			for number in range(1, higher_number + 1):
 				if number >= section_key_current:
@@ -745,7 +745,7 @@ class BouquetsWriter():
 							))
 						if "interactive_name" in services["video"][number]:
 							current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
-						
+
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
 				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
 				current_bouquet_list.append("#DESCRIPTION  \n")

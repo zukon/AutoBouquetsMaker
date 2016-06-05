@@ -29,10 +29,8 @@ class AutoBouquetsMaker_DeleteBouquets():
 			BouquetsWriter().buildBouquetsIndex(path, [], None, bouquetsToKeep, currentBouquets, None, None)
 			eDVBDB.getInstance().reloadServicelist()
 			eDVBDB.getInstance().reloadBouquets()
-			
+
 class AutoBouquetsMaker_DeleteMsg(MessageBox):
 	def __init__(self, session):
 		MessageBox.__init__(self, session, _("Are you sure you want to remove all bouquets created by ABM?"), MessageBox.TYPE_YESNO, default=False)
 		self.skinName = "MessageBox"
-	
-		

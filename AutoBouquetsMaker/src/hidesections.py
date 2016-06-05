@@ -64,16 +64,16 @@ class AutoBouquetsMaker_HideSections(Screen):
 		providers_tmp = config.autobouquetsmaker.providers.value.split("|")
 		for provider_tmp in providers_tmp:
 			provider_config = ProviderConfig(provider_tmp)
-			
+
 			if not provider_config.isValid():
 				continue
-				
+
 			if provider_config.getProvider() not in self.providers:
 				continue
-				
+
 			self.providers_enabled.append(provider_config.getProvider())
 
-		self.housekeeping()	
+		self.housekeeping()
 		self.refresh()
 
 	def buildListEntry(self, enabled, name, type):
@@ -94,7 +94,7 @@ class AutoBouquetsMaker_HideSections(Screen):
 		self.providers_selected = config.autobouquetsmaker.hidesections.value.split("|")
 		self.drawList = []
 		self.listAll = []
-		
+
 		for provider in self.providers_enabled:
 			for section in sorted(self.providers[provider]["sections"].keys()):
 				key = provider + ":" + str(section)
@@ -134,7 +134,7 @@ class AutoBouquetsMaker_HideSections(Screen):
 			self.session.openWithCallback(self.cancelConfirm, MessageBox, _("Really close without saving settings?"))
 		else:
 			self.close()
-			
+
 	def housekeeping(self):
 		# remove non-existent hidden sections, due to changes in the provider file
 		hidden_sections = config.autobouquetsmaker.hidesections.value.split("|")
