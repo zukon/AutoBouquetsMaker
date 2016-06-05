@@ -406,7 +406,7 @@ class BouquetsWriter():
 							services["video"][number]["namespace"]
 						))
 					if "interactive_name" in services["video"][number]:
-						current_bouquet_list.append("#DESCRIPTION %s\n" % services["video"][number]["interactive_name"])
+						current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
 				else:
 					current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
 					current_bouquet_list.append("#DESCRIPTION  \n")
@@ -475,7 +475,7 @@ class BouquetsWriter():
 									services["video"][number]["namespace"]
 								))
 							if "interactive_name" in services["video"][number]:
-								current_bouquet_list.append("#DESCRIPTION %s\n" % services["video"][number]["interactive_name"])
+								current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
 
 					if current_number == higher_number - 1:
 						break
@@ -548,7 +548,7 @@ class BouquetsWriter():
 								services["video"][number]["namespace"]
 							))
 						if "interactive_name" in services["video"][number]:
-							current_bouquet_list.append("#DESCRIPTION %s\n" % services["video"][number]["interactive_name"])
+							current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
 						current_number += 1
 					elif force_keep_numbers:
 						current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
@@ -631,7 +631,7 @@ class BouquetsWriter():
 								services["video"][number]["namespace"]
 							))
 						if "interactive_name" in services["video"][number]:
-							current_bouquet_list.append("#DESCRIPTION %s\n" % services["video"][number]["interactive_name"])
+							current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
 
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
 				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
@@ -692,7 +692,7 @@ class BouquetsWriter():
 								services["video"][number]["namespace"]
 							))
 						if "interactive_name" in services["video"][number]:
-							current_bouquet_list.append("#DESCRIPTION %s\n" % services["video"][number]["interactive_name"])
+							current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
 
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
 				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
@@ -744,7 +744,7 @@ class BouquetsWriter():
 								services["video"][number]["namespace"]
 							))
 						if "interactive_name" in services["video"][number]:
-							current_bouquet_list.append("#DESCRIPTION %s\n" % services["video"][number]["interactive_name"])
+							current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
 						
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
 				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
@@ -782,3 +782,17 @@ class BouquetsWriter():
 		del current_bouquet_list
 
 		print>>log, "[BouquetsWriter] Done"
+
+	def utf8_convert(self, text):
+		for encoding in ["utf8","latin-1"]:
+			try:
+				text.decode(encoding=encoding)
+			except UnicodeDecodeError:
+				encoding = None
+			else:
+				break
+		if encoding == "utf8":
+			return text
+		if encoding is None:
+			encoding = "utf8"
+		return text.decode(encoding, errors="ignore").encode("utf8")
