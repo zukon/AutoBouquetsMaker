@@ -145,6 +145,16 @@ except:
 		6510: "UTV HD"
 	}
 
+	BBC_RB = {
+		2051: ("BBC RB 1",0),
+		8602: ("BBC RB 2",1),
+		8603: ("BBC RB 3",2),
+		8604: ("BBC RB 4",3),
+		8605: ("BBC RB 5",4),
+		8606: ("BBC RB 6",5),
+		8611: ("BBC RB HD",6)
+	}
+
 	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD','ITV Encore HD',752,'BoxNation HD','BT Preview HD']
 	whitelist_by_id = [
 		1003, # MUTV HD
@@ -179,15 +189,19 @@ new_numbers = []
 for number in service["numbers"]:
 	if number >= 3000 and number <= 3999:
 		new_numbers.append(number - 3000)
+	elif service["channel_id"] in BBC_RB:
+		LCNs_in_use.append(1020 + BBC_RB[service["channel_id"]][1])
+		new_numbers.append(1020 + BBC_RB[service["channel_id"]][1])
+		service["interactive_name"] = BBC_RB[service["channel_id"]][0]
 	elif number >= 1050 and number <= max(LCNs_in_use): # not indexed channels
 		new_numbers.append(number)
 	elif number > 999 or number < 101:
 		if service["channel_id"] > 1470 and service["channel_id"] < 1486:
 				new_numbers.append(service["channel_id"] - 471)
 				service["interactive_name"] = "Sky Sports Interactive " + str(service["channel_id"])
-		elif service["channel_id"] > 2050 and service["channel_id"] < 2053:
-				new_numbers.append(service["channel_id"] - 1031)
-				service["interactive_name"] = "BBC Interactive " + str(service["channel_id"])
+		#elif service["channel_id"] > 2050 and service["channel_id"] < 2053:
+		#		new_numbers.append(service["channel_id"] - 1031)
+		#		service["interactive_name"] = "BBC Interactive " + str(service["channel_id"])
 		elif service["channel_id"] > 3542 and service["channel_id"] < 3545:
 				new_numbers.append(service["channel_id"] - 2521)
 				service["interactive_name"] = "BBC Interactive " + str(service["channel_id"])
