@@ -352,6 +352,31 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 					descriptor_length -= 4;
 				}
 			}
+			else if (descriptor_tag == 0xd0) // User defined UPC RoI cable LCN
+			{
+				// skip 2 bytes
+				offset3 += 2;
+				descriptor_length -= 2;
+				while (descriptor_length > 0)
+				{
+					int service_id = (data[offset3] << 8) | data[offset3 + 1];
+					int logical_channel_number = (data[offset3 + 7] << 8) | data[offset3 + 8];
+
+					PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:i}",
+							"bouquet_id", bouquet_id,
+							"transport_stream_id", transport_stream_id,
+							"original_network_id", original_network_id,
+							"service_id", service_id,
+							"logical_channel_number", logical_channel_number,
+							"descriptor_tag", descriptor_tag);
+							
+					PyList_Append(list, item);
+					Py_DECREF(item);
+					
+					offset3 += 9;
+					descriptor_length -= 9;
+				}
+			}
 			else if (descriptor_tag == 0xd3) // User defined
 			{
 				while (descriptor_length > 0)
@@ -791,11 +816,11 @@ PyObject *ss_parse_sdt(unsigned char *data, int length) {
 				memcpy(provider_name, data + offset2 + 4, service_provider_name_length);
 				memcpy(service_name, data + offset2 + 5 + service_provider_name_length, service_name_length);
 			}
-			if (tag == 0x81)	// UPC LCN.
+			if (tag == 0x81)	// UPC RoI cable LCN.
 			{
-				region_code = data[offset2 + 1];
-				city_code = (data[offset2 + 2] << 8) | data[offset2 + 3];
-				lcn_id = (data[offset2 + 4] << 8) | data[offset2 + 5];
+				region_code = data[offset2 + 3];
+				city_code = (data[offset2 + 4] << 8) | data[offset2 + 5];
+				lcn_id = (data[offset2 + 6] << 8) | data[offset2 + 7];
 			}
 			if (tag == 0xb2 && size > 5)	//User defined. SKY category
 			{
