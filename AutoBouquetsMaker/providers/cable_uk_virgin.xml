@@ -22,7 +22,7 @@
 		<configuration key="hd_00017_dvbc_uk" netid="00017" bouquettype="hd" frequency="643000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3">00017 Hemel</configuration>
 		<configuration key="hd_00018_dvbc_uk" netid="00018" bouquettype="hd" frequency="643000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3">00018 Northampton</configuration>
 		<configuration key="hd_00019_dvbc_uk" netid="00019" bouquettype="hd" frequency="643000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3">00019 Coventry</configuration>
-		<configuration key="hd_00020_dvbc_uk" netid="00020" bouquettype="hd" frequency="643000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3">00020 Oxford</configuration>
+		<configuration key="hd_00020_dvbc_uk" netid="00020" bouquettype="hd" frequency="642250" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3">00020 Oxford</configuration>
 		<configuration key="hd_00021_dvbc_uk" netid="00021" bouquettype="hd" frequency="643000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3">00021 Belfast</configuration>
 		<configuration key="hd_00022_dvbc_uk" netid="00022" bouquettype="hd" frequency="643000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3">00022 Grimsby</configuration>
 		<configuration key="hd_00023_dvbc_uk" netid="00023" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" fec_inner="3" inversion="2" modulation="3">00023 Derry (Londonderry)</configuration>
