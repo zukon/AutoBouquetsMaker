@@ -9,6 +9,7 @@ from hidesections import AutoBouquetsMaker_HideSections
 from keepbouquets import AutoBouquetsMaker_KeepBouquets
 from ordering import AutoBouquetsMaker_Ordering
 from deletebouquets import AutoBouquetsMaker_DeleteBouquets, AutoBouquetsMaker_DeleteMsg
+from updateproviders import AutoBouquetsMaker_UpdateProviders
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -94,6 +95,7 @@ class AutoBouquetsMaker_Menu(Screen):
 			l.append(self.buildListEntry(_("Keep bouquets"), "reorder.png"))
 		l.append(self.buildListEntry(_("Start scan"), "download.png"))
 		l.append(self.buildListEntry(_("Delete bouquets"), "reorder.png"))
+		l.append(self.buildListEntry(_("Update config files"), "reorder.png"))
 		l.append(self.buildListEntry(_("Show log"), "dbinfo.png"))
 		l.append(self.buildListEntry(_("About"), "about.png"))
 		self["list"].list = l
@@ -148,21 +150,21 @@ class AutoBouquetsMaker_Menu(Screen):
 			self.session.openWithCallback(self.refresh, AutoBouquetsMaker_ProvidersSetup)
 			return
 
-		if len(config.autobouquetsmaker.providers.getValue().split('|')) < 2:	# menu "ordering" not showed
+		if len(config.autobouquetsmaker.providers.getValue().split('|')) < 2:	# menu "ordering" not shown
 			index += 1
 
 		if index == 2:
 			self.session.open(AutoBouquetsMaker_Ordering)
 			return
 
-		if len(config.autobouquetsmaker.providers.getValue().split('|')) < 1:	# menu "hie sections" not showed
+		if len(config.autobouquetsmaker.providers.getValue().split('|')) < 1:	# menu "hide sections" not shown
 			index += 1
 
 		if index == 3:
 			self.session.open(AutoBouquetsMaker_HideSections)
 			return
 
-		if config.autobouquetsmaker.keepallbouquets.value:	# menu "keep bouquets" not showed
+		if config.autobouquetsmaker.keepallbouquets.value:	# menu "keep bouquets" not shown
 			index += 1
 
 		if index == 4:
@@ -178,10 +180,14 @@ class AutoBouquetsMaker_Menu(Screen):
 			return
 
 		if index == 7:
-			self.session.open(AutoBouquetsMaker_Log)
+			self.session.open(AutoBouquetsMaker_UpdateProviders)
 			return
 
 		if index == 8:
+			self.session.open(AutoBouquetsMaker_Log)
+			return
+
+		if index == 9:
 			self.session.open(AutoBouquetsMaker_About)
 			return
 
