@@ -1,5 +1,5 @@
 <provider>
-	<name>FreeSat (UK)</name>
+	<name>FreeSat UK</name>
 	<streamtype>dvbs</streamtype>
 	<protocol>freesat</protocol>
 	<transponder 
