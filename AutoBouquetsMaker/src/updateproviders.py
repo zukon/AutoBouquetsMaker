@@ -81,10 +81,6 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 		# get ABM config string including dependents
 		self.abm_settings_str = self.getABMsettings()
 
-		if len(self.abm_settings_str) < 1:
-			self.showError(_('No providers configured.'))
-			return
-
 		self.onFirstExecBegin.append(self.firstExec)
 
 	def showError(self, message):
@@ -96,6 +92,9 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 		self.close()
 
 	def firstExec(self):
+		if len(self.abm_settings_str) < 1:
+			self.showError(_('No providers configured.'))
+			return
 		try:
 			png = resolveFilename(SCOPE_ACTIVE_SKIN, "autobouquetsmaker/background.png")
 		except:
