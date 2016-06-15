@@ -137,6 +137,7 @@
 		<customtransponder key="sandy_heath________" frequency="474000000" transport_stream_id="4083" system="1"/>
 		<customtransponder key="sandy_heath________" frequency="562000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="stockland_hill_____" frequency="538000000" transport_stream_id="4082" system="1"/>
+		<customtransponder key="stockland_hill_____" frequency="506000000" transport_stream_id="3006" system="0"/>
 		<customtransponder key="sutton_coldfield___" frequency="626000000" transport_stream_id="4085" system="1"/>
 		<customtransponder key="sutton_coldfield___" frequency="570000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="the_wrekin_________" frequency="514000000" transport_stream_id="1045" system="0"/>
