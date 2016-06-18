@@ -163,7 +163,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 		except:
 			print>>log, '[UpdateProviders][checkRemoteVersion] Cannot read version.'
 			self.showError(_('Cannot read version'))
-			raise
+			return
 
 	def fetchProviders(self):
 		if self.index < len(self.actionsList):
