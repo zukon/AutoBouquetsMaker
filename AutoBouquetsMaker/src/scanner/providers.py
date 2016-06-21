@@ -215,12 +215,18 @@ class Providers():
 										configuration["system"] = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "modulation":
 										configuration["modulation"] = int(node2.attributes.item(i).value)
+									elif node2.attributes.item(i).name == "bouquet":
+										configuration["bouquet"] = int(node2.attributes.item(i).value, 16)
+									elif node2.attributes.item(i).name == "region":
+										configuration["region"] = int(node2.attributes.item(i).value, 16)
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
 									configuration["name"] = node2.childNodes[0].data
 
-								if len(configuration.keys()) == 10:
+								if len(configuration.keys()) == 10 and 'lcnbat' not in provider["protocol"] and 'region' not in configuration and 'bouquet' not in configuration:
+									provider["bouquets"][configuration["key"]] = configuration
+								elif len(configuration.keys()) == 12 and 'lcnbat' in provider["protocol"]:
 									provider["bouquets"][configuration["key"]] = configuration
 
 						if len(transponder.keys()) == 8:

@@ -1,0 +1,61 @@
+<provider>
+<name>Horizon IE</name>
+	<streamtype>dvbc</streamtype>
+	<protocol>lcnbat2</protocol>
+
+	<dvbcconfigs>
+		<configuration key="hd_43216" netid="43216" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="0" inversion="2" modulation="0" region="0xD0" bouquet="0x6600">43216 Cork HD</configuration><!-- These values are assumed -->
+		<configuration key="hd_43217" netid="43217" bouquettype="hd" frequency="299000" symbol_rate="6887000" system="0" fec_inner="0" inversion="2" modulation="0" region="0xD0" bouquet="0x6600">43217 Dublin HD</configuration><!-- bouquettype is part of LCN protocol. It is doing nothing here. -->
+		<configuration key="sd_43217" netid="43217" bouquettype="hd" frequency="299000" symbol_rate="6887000" system="0" fec_inner="0" inversion="2" modulation="0" region="0xD0" bouquet="0x6600">43217 Dublin SD</configuration><!-- bouquettype is part of LCN protocol. It is doing nothing here. -->
+		<configuration key="hd_43218" netid="43218" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="0" inversion="2" modulation="0" region="0xD0" bouquet="0x6600">43218 Galway City HD</configuration><!-- These values are assumed -->
+	</dvbcconfigs>
+
+	<sections>
+        <section number="100">Entertainment</section>
+        <section number="200">News and Documentaries</section>
+        <section number="300">Movies</section>
+        <section number="400">Sports</section>
+        <section number="500">Lifestyle</section>
+        <section number="600">Kids</section>
+        <section number="700">Music</section>
+        <section number="800">Specialist</section>
+        <section number="858">Adult</section>
+	</sections>
+
+	<swapchannels>
+		<channel number="109" with="140" /><!-- BBC Two HD -->
+		<channel number="111" with="142" /><!-- Channel 4 HD -->
+	</swapchannels>	
+	
+	<servicehacks>
+<![CDATA[
+
+try:
+	first_loop
+except:
+	first_loop = True
+	
+if first_loop:
+	first_loop = False
+	HD_channels = []
+	SD_channels = []
+	for key in tmp_services_dict:
+		x = tmp_services_dict[key]
+		if x['service_type'] in (1,25):
+			if x['service_type'] == 25:
+				HD_channels.append(x['number'])
+			else:
+				SD_channels.append(x['number'])
+				
+if service['service_type'] in (1,25):
+	if bouquet_key.startswith('sd') and service['service_type'] == 25 and service['number'] in SD_channels:
+		skip = True
+	elif bouquet_key.startswith('hd') and service['service_type'] == 1 and service['number'] in HD_channels:
+		skip = True
+
+service["service_name"] = service["provider_name"]
+service["interactive_name"] = service["provider_name"]
+
+]]>
+	</servicehacks>
+</provider>

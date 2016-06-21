@@ -223,14 +223,14 @@ class Manager():
 					scanner.setSdtCurrentTableId(providers[provider_key]["transponder"]["sdt_current_table_id"])
 					scanner.setSdtOtherTableId(providers[provider_key]["transponder"]["sdt_other_table_id"])
 
+					try:
+						bouquet_id = providers[provider_key]["bouquets"][bouquet_key]["bouquet"]
+					except:
+						bouquet_id = -1
 					if providers[provider_key]["streamtype"] == 'dvbc':
 						bouquet = providers[provider_key]["bouquets"][bouquet_key]
 						tmp = scanner.updateTransponders(self.transponders, True, customtransponders, bouquet["netid"], bouquet["bouquettype"])
 					else:
-						try:
-							bouquet_id = providers[provider_key]["bouquets"][bouquet_key]["bouquet"]
-						except:
-							bouquet_id = -1
 						tmp = scanner.updateTransponders(self.transponders, True, customtransponders, bouquet_id = bouquet_id)
 					if providers[provider_key]["protocol"] in ("lcnbat", "lcnbat2"):
 						scanner.setBatPid(providers[provider_key]["transponder"]["bat_pid"])
