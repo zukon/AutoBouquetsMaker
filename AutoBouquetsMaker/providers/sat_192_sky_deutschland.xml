@@ -30,7 +30,16 @@
 
 if service["service_type"] == 22:
 	service["service_type"] = 1
+	
+blacklist = ["."] # channel names have quotes. Channel numbers do not. Example: ['ITV HD', 250, 500]
 
+for number in service["numbers"]:
+	if number in blacklist:
+		skip = True		
+
+if service["service_name"] in blacklist:
+	skip = True
+	
 ]]>
 	</servicehacks>
 </provider>
