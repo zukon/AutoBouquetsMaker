@@ -267,17 +267,17 @@ except:
 	#
 	########################################################################
 	channels_to_add = {
-		"London Live": 117,
-		"Setanta Ireland": 423, #3601 and 5122
-		"Setanta Sports1": 424, #4551 and 5123
-		"Setanta HD": 460  	#5152 and 5154
+		"London Live": 117
 	}
 
 	channels_to_add_by_id = {
 		1251: 161, # RTE One
 		1252: 162, # RTE2
 		1253: 163, # TG4
+		5122: 423, # eir Sport 1 (also 3601)
+		5123: 424, # eir Sport 2 (also 4551)		
 		5311: 428, # Premier Sports
+		5152: 460, # eir Sport 2 HD (also 5154)
 		5153: 462, # Premier HD
 		1257: 574, # Oireachtas TV
 		2804: 578, # RTE News Now
@@ -357,9 +357,9 @@ except:
 		1003, # MUTV HD
 		1019, # CNN HD
 		1047, # Insight HD
-		5152, # Setanta HD
+		5152, # eir Sport 2 HD
 		5153, # Premier HD
-		5154, # Setanta HD
+		5154, # eir Sport 2 HD
 		5272 # Racing UK HD
 	]
 	blacklist = []
