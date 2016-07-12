@@ -6,6 +6,7 @@ from Screens.MessageBox import MessageBox
 from Components.Label import Label
 from Components.Pixmap import Pixmap
 from Components.ProgressBar import ProgressBar
+from Components.Sources.Progress import Progress
 
 from Components.config import config
 from Components.NimManager import nimmanager
@@ -49,6 +50,7 @@ class AutoBouquetsMaker(Screen):
 		self["action"] = Label(_("Starting scanner"))
 		self["status"] = Label("")
 		self["progress"] = ProgressBar()
+		self["progress_text"] = Progress()
 
 		self.frontend = None
 		self.rawchannel = None
@@ -174,6 +176,8 @@ class AutoBouquetsMaker(Screen):
 		self.progresscurrent = 1
 
 		if not inStandby:
+			self["progress_text"].range = self.progresscount
+			self["progress_text"].value = self.progresscurrent
 			self["progress"].setRange((0, self.progresscount))
 			self["progress"].setValue(self.progresscurrent)
 
@@ -186,6 +190,7 @@ class AutoBouquetsMaker(Screen):
 		if len(self.actionsList) == 0:
 			self.progresscurrent += 1
 			if not inStandby:
+				self["progress_text"].value = self.progresscurrent
 				self["progress"].setValue(self.progresscurrent)
 				self["action"].setText(_('Bouquets generation...'))
 				self["status"].setText(_("Services: %d video - %d radio") % (self.manager.getServiceVideoRead(), self.manager.getServiceAudioRead()))
@@ -199,6 +204,7 @@ class AutoBouquetsMaker(Screen):
 
 		self.progresscurrent += 1
 		if not inStandby:
+			self["progress_text"].value = self.progresscurrent
 			self["progress"].setValue(self.progresscurrent)
 			self["action"].setText(_("Tuning %s...") % str(self.providers[self.currentAction]["name"]))
 			self["status"].setText(_("Services: %d video - %d radio") % (self.manager.getServiceVideoRead(), self.manager.getServiceAudioRead()))
@@ -436,6 +442,7 @@ class AutoBouquetsMaker(Screen):
 			print>>log, "[AutoBouquetsMaker] ACQUIRING TSID/ONID"
 			self.progresscurrent += 1
 			if not inStandby:
+				self["progress_text"].value = self.progresscurrent
 				self["progress"].setValue(self.progresscurrent)
 				self["action"].setText(_("Reading %s...") % str(self.providers[self.currentAction]["name"]))
 				self["status"].setText(_("Services: %d video - %d radio") % (self.manager.getServiceVideoRead(), self.manager.getServiceAudioRead()))
@@ -499,6 +506,7 @@ class AutoBouquetsMaker(Screen):
 			self.postScanService = None
 		self.progresscurrent += 1
 		if not inStandby:
+			self["progress_text"].value = self.progresscurrent
 			self["progress"].setValue(self.progresscurrent)
 			self["action"].setText(_('Done'))
 			self["status"].setText(_("Services: %d video - %d radio") % (self.manager.getServiceVideoRead(), self.manager.getServiceAudioRead()))
