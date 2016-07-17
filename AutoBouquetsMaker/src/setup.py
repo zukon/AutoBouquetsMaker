@@ -127,7 +127,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 
 		if bouquets["tv"] is not None:
 			for bouquet in bouquets["tv"]:
-				if bouquet["filename"][:12] == "autobouquet." or bouquet["filename"][:len(self.ABM_BOUQUET_PREFIX)] == self.ABM_BOUQUET_PREFIX:
+				if bouquet["filename"][:len(self.ABM_BOUQUET_PREFIX)] == self.ABM_BOUQUET_PREFIX:
 					continue
 				bouquets_list.append((bouquet["filename"], bouquet["name"]))
 

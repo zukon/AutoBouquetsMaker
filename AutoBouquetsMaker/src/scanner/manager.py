@@ -8,8 +8,6 @@ from .. import log
 
 class Manager():
 
-	ABM_PREFIX = "userbouquet.abm."
-
 	def __init__(self):
 		self.path = "/etc/enigma2"
 		self.bouquetsToKeep = {}
