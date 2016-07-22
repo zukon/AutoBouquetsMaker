@@ -178,6 +178,7 @@
 		<section number="1000">Sky Sports Interactive</section>
 		<section number="1020">Sky Anytime</section>
 		<section number="1030">BT Sports Interactive</section>
+		<section number="1040">Olympics</section>
 		<section number="1050">Not indexed</section>
 	</sections>
 	<!-- channelsontop affect only HD bouquets -->
@@ -399,7 +400,9 @@ if custom and service["channel_id"] in channels_to_add_by_id and service["servic
 if service["service_type"] == 0x02 and service["number"] > 3000:
 	service["number"] -= 3000
 
-if service["service_type"] != 2 and (service["number"] in whitelist or service["service_name"] in whitelist or ("channel_id" in service and service["channel_id"] in whitelist_by_id)):
+if "channel_id" in service and service["channel_id"] > 1080 and service["channel_id"] < 1090: # Olympics... correct FreeCAmode
+	service["free_ca"] = 0
+elif service["service_type"] != 2 and (service["number"] in whitelist or service["service_name"] in whitelist or ("channel_id" in service and service["channel_id"] in whitelist_by_id)):
 	pass
 elif custom and service["service_type"] != 2 and (service["number"] in blacklist or service["service_name"] in blacklist):
 	skip = True
@@ -408,7 +411,10 @@ elif custom and service["service_type"] >= 17 and service["service_type"] <= 25 
 
 new_numbers = []
 for number in service["numbers"]:
-	if number >= 3000 and number <= 3999: # radio
+	if "channel_id" in service and service["channel_id"] > 1080 and service["channel_id"] < 1090: # Olympics
+		new_numbers.append(service["channel_id"] - 41)
+		service["interactive_name"] = "Olympics " + str(service["channel_id"] - 1080)
+	elif number >= 3000 and number <= 3999: # radio
 		new_numbers.append(number - 3000)
 	elif number >= 1050 and number <= max(LCNs_in_use): # not indexed channels
 		new_numbers.append(number)
