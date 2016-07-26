@@ -131,7 +131,8 @@ class Tools():
 		sort_list = sorted(sort_list, key=lambda listItem: listItem[1])
 		return [i[0] for i in sort_list]
 
-	def customMix(self, services, section_identifier, sections, providerConfig):
+	def customMix(self, services, section_identifier, providers, providerConfig):
+		sections = providers[section_identifier]["sections"]
 		custom_dir = os.path.dirname(__file__) + "/../custom"
 		customfile = custom_dir + "/" + section_identifier + "_CustomMix.xml"
 		customised = {"video":{}, "radio":{}}
