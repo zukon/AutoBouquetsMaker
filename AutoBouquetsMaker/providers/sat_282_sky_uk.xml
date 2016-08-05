@@ -178,6 +178,7 @@
 		<section number="1000">Sky Sports Interactive</section>
 		<section number="1020">Sky Anytime</section>
 		<section number="1030">BT Sports Interactive</section>
+		<section number="1040">Olympics HD</section>
 		<section number="1050">Not indexed</section>
 	</sections>
 	<!-- channelsontop affect only HD bouquets -->
@@ -229,6 +230,7 @@
 		<channel number="119" with="263" /><!-- ITV3 HD -->
 		<channel number="120" with="268" /><!-- ITV4 HD -->
 		<channel number="123" with="269" /><!-- ITV Encore HD -->
+		<channel number="134" with="280" /><!-- S4C HD -->
 		<channel number="162" with="224" /><!-- RTE2 HD -->
 		<channel number="192" with="276" /><!-- AMC from BT HD -->
 		<channel number="413" with="427" /><!-- BT Sport 1 HD -->
@@ -240,6 +242,14 @@
 		<channel number="428" with="462" /><!-- Premier HD -->
 		<channel number="432" with="466" /><!-- Racing UK HD -->
 		<channel number="437" with="490" /><!-- BoxNation HD -->
+		<channel number="472" with="480" /><!-- BBC Olym 1 HD -->
+		<channel number="473" with="481" /><!-- BBC Olym 2 HD -->
+		<channel number="474" with="482" /><!-- BBC Olym 3 HD -->
+		<channel number="475" with="483" /><!-- BBC Olym 4 HD -->
+		<channel number="476" with="484" /><!-- BBC Olym 5 HD -->
+		<channel number="477" with="485" /><!-- BBC Olym 6 HD -->
+		<channel number="478" with="486" /><!-- BBC Olym 7 HD -->
+		<channel number="479" with="487" /><!-- BBC Olym 8 HD -->
 		<channel number="501" with="516" /><!-- Sky News HD -->
 		<channel number="506" with="579" /><!-- CNN HD -->
 		<channel number="512" with="518" /><!-- RT HD -->
@@ -408,7 +418,12 @@ elif custom and service["service_type"] >= 17 and service["service_type"] <= 25 
 
 new_numbers = []
 for number in service["numbers"]:
-	if number >= 3000 and number <= 3999: # radio
+	if service["channel_id"] > 1080 and service["channel_id"] < 1089: # Olympic HD
+		new_numbers.append(number)
+		new_numbers.append(service["channel_id"] - 41)
+		service["interactive_name"] = "Olympics %d HD" % (service["channel_id"] - 1080)
+		break
+	elif number >= 3000 and number <= 3999: # radio
 		new_numbers.append(number - 3000)
 	elif number >= 1050 and number <= max(LCNs_in_use): # not indexed channels
 		new_numbers.append(number)
