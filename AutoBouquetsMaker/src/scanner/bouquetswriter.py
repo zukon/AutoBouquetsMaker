@@ -132,6 +132,124 @@ class BouquetsWriter():
 
 		print>>log, "[BouquetsWriter] Wrote %d transponders and %d services" % (transponders_count, services_count)
 
+	def writeLamedb5(self, path, transponders):
+		print>>log, "[BouquetsWriter] Writing lamedb V5..."
+
+		transponders_count = 0
+		services_count = 0
+
+		lamedblist = []
+		lamedblist.append("eDVB services /5/\n")
+		lamedblist.append("# Transponders: t:dvb_namespace:transport_stream_id:original_network_id,FEPARMS\n")
+		lamedblist.append("#     DVBS  FEPARMS:   s:frequency:symbol_rate:polarisation:fec:orbital_position:inversion:flags\n")
+		lamedblist.append("#     DVBS2 FEPARMS:   s:frequency:symbol_rate:polarisation:fec:orbital_position:inversion:flags:system:modulation:rolloff:pilot\n")
+		lamedblist.append("#     DVBT  FEPARMS:   t:frequency:bandwidth:code_rate_HP:code_rate_LP:modulation:transmission_mode:guard_interval:hierarchy:inversion:flags:system:plp_id\n")
+		lamedblist.append("#     DVBC  FEPARMS:   c:frequency:symbol_rate:inversion:modulation:fec_inner:flags:system\n")
+		lamedblist.append('# Services: s:service_id:dvb_namespace:transport_stream_id:original_network_id:service_type:0,"service_name"[,p:provider_name][,c:cached_pid]*[,C:cached_capid]*[,f:flags]\n')
+
+		for key in transponders.keys():
+			transponder = transponders[key]
+			lamedblist.append("t:%08x:%04x:%04x," %
+				(transponder["namespace"],
+				transponder["transport_stream_id"],
+				transponder["original_network_id"]))
+
+			if transponder["dvb_type"] == "dvbs":
+				if transponder["orbital_position"] > 1800:
+					orbital_position = transponder["orbital_position"] - 3600
+				else:
+					orbital_position = transponder["orbital_position"]
+					
+				if transponder["modulation_system"] == 0:
+					lamedblist.append("s:%d:%d:%d:%d:%d:%d:%d\n" %
+						(transponder["frequency"],
+						transponder["symbol_rate"],
+						transponder["polarization"],
+						transponder["fec_inner"],
+						orbital_position,
+						transponder["inversion"],
+						transponder["flags"]))
+				else:
+					lamedblist.append("s:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d\n" %
+						(transponder["frequency"],
+						transponder["symbol_rate"],
+						transponder["polarization"],
+						transponder["fec_inner"],
+						orbital_position,
+						transponder["inversion"],
+						transponder["flags"],
+						transponder["modulation_system"],
+						transponder["modulation_type"],
+						transponder["roll_off"],
+						transponder["pilot"]))
+			elif transponder["dvb_type"] == "dvbt":
+				lamedblist.append("t:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d\n" %
+					(transponder["frequency"],
+					transponder["bandwidth"],
+					transponder["code_rate_hp"],
+					transponder["code_rate_lp"],
+					transponder["modulation"],
+					transponder["transmission_mode"],
+					transponder["guard_interval"],
+					transponder["hierarchy"],
+					transponder["inversion"],
+					transponder["flags"],
+					transponder["system"],
+					transponder["plpid"]))
+			elif transponder["dvb_type"] == "dvbc":
+				lamedblist.append("c:%d:%d:%d:%d:%d:%d:%d\n" %
+					(transponder["frequency"],
+					transponder["symbol_rate"],
+					transponder["inversion"],
+					transponder["modulation_type"],
+					transponder["fec_inner"],
+					transponder["flags"],
+					transponder["modulation_system"]))
+			transponders_count += 1
+
+		for key in transponders.keys():
+			transponder = transponders[key]
+			if "services" not in transponder.keys():
+				continue
+
+			for key2 in transponder["services"].keys():
+				service = transponder["services"][key2]
+				lamedblist.append("s:%04x:%08x:%04x:%04x:%d:%d," %
+					(service["service_id"],
+					service["namespace"],
+					service["transport_stream_id"],
+					service["original_network_id"],
+					service["service_type"],
+					service["flags"]))
+
+				control_chars = ''.join(map(unichr, range(0,32) + range(127,160)))
+				control_char_re = re.compile('[%s]' % re.escape(control_chars))
+				if 'provider_name' in service.keys():
+					service_name = control_char_re.sub('', service["service_name"]).decode('latin-1').encode("utf8")
+					provider_name = control_char_re.sub('', service["provider_name"]).decode('latin-1').encode("utf8")
+				else:
+					service_name = service["service_name"]
+
+				lamedblist.append('"%s"' % service_name)
+
+				if 'free_ca' in service.keys() and service["free_ca"] != 0:
+					lamedblist.append(",p:%s,C:0000\n" % provider_name)
+				elif 'service_line' in service.keys():
+					if len(service["service_line"]):
+						lamedblist.append(",%s\n" % self.utf8_convert(service["service_line"]))
+					else:
+						lamedblist.append("\n")
+				else:
+					lamedblist.append(",p:%s\n" % provider_name)
+				services_count += 1
+
+		lamedb = codecs.open(path + "/lamedb", "w", "utf-8")
+		lamedb.write(''.join(lamedblist))
+		lamedb.close()
+		del lamedblist
+
+		print>>log, "[BouquetsWriter] Wrote %d transponders and %d services" % (transponders_count, services_count)
+
 	def makeCustomSeparator(self, path, filename, max_count):
 		print>>log, "[BouquetsWriter] Make custom seperator for %s in main bouquet..." % filename
 
