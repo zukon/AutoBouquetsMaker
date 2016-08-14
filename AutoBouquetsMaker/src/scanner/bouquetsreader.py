@@ -48,8 +48,6 @@ class BouquetsReader():
 		print>>log, "[BouquetsReader] Reading lamedb..."
 
 		transponders = {}
-		transponders_count = 0
-		services_count = 0
 
 		try:
 			lamedb = open(path + "/lamedb", "r")
@@ -58,6 +56,22 @@ class BouquetsReader():
 
 		content = lamedb.read()
 		lamedb.close()
+		
+		lamedb_ver = 4
+		result = re.match('eDVB services /([45])/', content)
+		if result:
+			lamedb_ver = int(result.group(1))
+			print>>log, "[BouquetsReader] lamedb ver", lamedb_ver
+		if lamedb_ver == 4:
+			transponders = self.parseLamedbV4Content(content)
+		elif  lamedb_ver == 5:
+			transponders = self.parseLamedbV5Content(content)
+		return transponders
+
+	def parseLamedbV4Content(self, content):
+		transponders = {}
+		transponders_count = 0
+		services_count = 0
 
 		tp_start = content.find("transponders\n")
 		tp_stop = content.find("end\n")
@@ -174,3 +188,109 @@ class BouquetsReader():
 		print>>log, "[BouquetsReader] Read %d transponders and %d services" % (transponders_count, services_count)
 		return transponders
 
+	def parseLamedbV5Content(self, content):
+		transponders = {}
+		transponders_count = 0
+		services_count = 0
+
+		lines = content.splitlines()
+		for line in lines:
+			if line.startswith("t:"):
+				first_part = line.strip().split(",")[0][2:].split(":")
+				if len(first_part) != 3:
+					continue
+					
+				transponder = {}
+				transponder["services"] = {}
+				transponder["namespace"] = int(first_part[0], 16)
+				transponder["transport_stream_id"] = int(first_part[1], 16)
+				transponder["original_network_id"] = int(first_part[2], 16)
+				
+				second_part = line.strip().split(",")[1]
+				transponder["dvb_type"] = 'dvb'+second_part[0]
+				if transponder["dvb_type"] not in ["dvbs", "dvbt", "dvbc"]:
+					continue
+
+				second_part = second_part[2:].split(":")
+
+				if transponder["dvb_type"] == "dvbs" and len(second_part) != 7 and len(second_part) != 11:
+					continue
+				if transponder["dvb_type"] == "dvbt" and len(second_part) != 12:
+					continue
+				if transponder["dvb_type"] == "dvbc" and len(second_part) != 7:
+					continue
+	
+				if transponder["dvb_type"] == "dvbs":
+					transponder["frequency"] = int(second_part[0])
+					transponder["symbol_rate"] = int(second_part[1])
+					transponder["polarization"] = int(second_part[2])
+					transponder["fec_inner"] = int(second_part[3])
+					orbital_position = int(second_part[4])
+					if orbital_position < 0:
+						transponder["orbital_position"] = orbital_position + 3600
+					else:
+						transponder["orbital_position"] = orbital_position
+	
+					transponder["inversion"] = int(second_part[5])
+					transponder["flags"] = int(second_part[6])
+					if len(second_part) == 11:
+						transponder["modulation_system"] = int(second_part[7])
+						transponder["modulation_type"] = int(second_part[8])
+						transponder["roll_off"] = int(second_part[9])
+						transponder["pilot"] = int(second_part[10])
+					else:
+						transponder["modulation_system"] = 0
+				elif transponder["dvb_type"] == "dvbt":
+					transponder["frequency"] = int(second_part[0])
+					transponder["bandwidth"] = int(second_part[1])
+					transponder["code_rate_hp"] = int(second_part[2])
+					transponder["code_rate_lp"] = int(second_part[3])
+					transponder["modulation"] = int(second_part[4])
+					transponder["transmission_mode"] = int(second_part[5])
+					transponder["guard_interval"] = int(second_part[6])
+					transponder["hierarchy"] = int(second_part[7])
+					transponder["inversion"] = int(second_part[8])
+					transponder["flags"] = int(second_part[9])
+					transponder["system"] = int(second_part[10])
+					transponder["plpid"] = int(second_part[11])
+				elif transponder["dvb_type"] == "dvbc":
+					transponder["frequency"] = int(second_part[0])
+					transponder["symbol_rate"] = int(second_part[1])
+					transponder["inversion"] = int(second_part[2])
+					transponder["modulation_type"] = int(second_part[3])
+					transponder["fec_inner"] = int(second_part[4])
+					transponder["flags"] = int(second_part[5])
+					transponder["modulation_system"] = int(second_part[6])
+	
+				key = "%x:%x:%x" % (transponder["namespace"], transponder["transport_stream_id"], transponder["original_network_id"])
+				transponders[key] = transponder
+				transponders_count += 1
+			elif line.startswith("s:"):
+				service_reference = line.strip().split(",")[0][2:]
+				service_name = line.strip().split('"', 1)[1].split('"')[0]
+				third_part = line.strip().split('"', 2)[2]
+				service_provider = ""
+				if len(third_part):
+					service_provider = third_part[1:]
+				service_reference = service_reference.split(":")
+				if len(service_reference) != 6:
+					continue
+	
+				service = {}
+				service["service_name"] = service_name
+				service["service_line"] = service_provider
+				service["service_id"] = int(service_reference[0], 16)
+				service["namespace"] = int(service_reference[1], 16)
+				service["transport_stream_id"] = int(service_reference[2], 16)
+				service["original_network_id"] = int(service_reference[3], 16)
+				service["service_type"] = int(service_reference[4])
+				service["flags"] = int(service_reference[5])
+	
+				key = "%x:%x:%x" % (service["namespace"], service["transport_stream_id"], service["original_network_id"])
+				if key not in transponders:
+					continue
+				transponders[key]["services"][service["service_id"]] = service
+				services_count += 1
+
+		print>>log, "[BouquetsReader] Read %d transponders and %d services" % (transponders_count, services_count)
+		return transponders
