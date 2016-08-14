@@ -155,8 +155,6 @@ class BouquetsReader():
 			if len(service_reference) != 6:
 				continue
 
-			provider_name = service_provider[0][2:]
-
 			service = {}
 			service["service_name"] = service_name
 			service["service_line"] = service_provider
