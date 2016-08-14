@@ -95,6 +95,9 @@
 		<customtransponder key="caldbeck_eng_______" frequency="482000000" transport_stream_id="40bb" system="0"/>
 		<customtransponder key="caldbeck_eng_______" frequency="562000000" transport_stream_id="a000" system="0"/>
 		<customtransponder key="caldbeck_eng_______" frequency="586000000" transport_stream_id="b000" system="0"/>
+		<customtransponder key="caradon_hill_______" frequency="482000000" transport_stream_id="4082" system="1"/>
+		<customtransponder key="caradon_hill_______" frequency="554000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="caradon_hill_______" frequency="602000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="chesterfield_______" frequency="538000000" transport_stream_id="4089" system="1"/>
 		<customtransponder key="chesterfield_______" frequency="554000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="chesterfield_______" frequency="602000000" transport_stream_id="b000" system="1"/>
