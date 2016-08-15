@@ -285,7 +285,7 @@ except:
 		1252: 162, # RTE2
 		1253: 163, # TG4
 		5122: 423, # eir Sport 1 (also 3601)
-		5123: 424, # eir Sport 2 (also 4551)		
+		5123: 424, # eir Sport 2 (also 4551)
 		5311: 428, # Premier Sports
 		5152: 460, # eir Sport 2 HD (also 5154)
 		5153: 462, # Premier HD
@@ -347,7 +347,7 @@ except:
 		6510: "UTV HD",
 
 		# BT Interactive
-		5381: "BT Sport Mosaic Extra",
+		5381: "BT Sport Mosaic 2",
 		5382: "BT Sport Extra 2",
 		5383: "BT Sport Extra 3",
 		5384: "BT Sport Extra 4",
