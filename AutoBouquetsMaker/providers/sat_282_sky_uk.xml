@@ -289,6 +289,11 @@ except:
 		5311: 428, # Premier Sports
 		5152: 460, # eir Sport 2 HD (also 5154)
 		5153: 462, # Premier HD
+		1309: 495, #Sky Sports 1 RoI
+		1308: 496, #Sky Sports 2 RoI
+		1323: 497, #Sky Sports 3 RoI
+		1324: 498, #Sky Sports 4 RoI
+		1312: 499, #Sky Sports 5 RoI
 		1257: 574, # Oireachtas TV
 		2804: 578, # RTE News Now
 		1256: 635  # RTEjr
@@ -359,9 +364,17 @@ except:
 		3623: "BT SportEurHD",
 		5662: "BT Sport 1 HD",
 		5663: "BT Sport 2 HD",
-		2079: "BBC One HD"
+		2079: "BBC One HD",
+
+		# RoI Sports channels
+		1309: "Sky Sports 1 RoI",
+		1308: "Sky Sports 2 RoI",
+		1323: "Sky Sports 3 RoI",
+		1324: "Sky Sports 4 RoI",
+		1312: "Sky Sports 5 RoI"
+
 	}
-	
+
 	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD','ITV Encore HD',752,'BoxNation HD','BT Preview HD']
 
 	whitelist_by_id = [
