@@ -24,6 +24,8 @@ class BouquetsWriter():
 
 		for key in transponders.keys():
 			transponder = transponders[key]
+			if "services" not in transponder.keys() or len(transponder["services"]) < 1:
+				continue
 			lamedblist.append("%08x:%04x:%04x\n" %
 				(transponder["namespace"],
 				transponder["transport_stream_id"],
@@ -149,6 +151,8 @@ class BouquetsWriter():
 
 		for key in transponders.keys():
 			transponder = transponders[key]
+			if "services" not in transponder.keys() or len(transponder["services"]) < 1:
+				continue
 			lamedblist.append("t:%08x:%04x:%04x," %
 				(transponder["namespace"],
 				transponder["transport_stream_id"],
