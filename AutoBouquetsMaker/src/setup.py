@@ -90,8 +90,14 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 				if sat[0] not in self.orbital_supported:
 					self.orbital_supported.append(sat[0])
 
-		self.dvbc_nims = nimmanager.getNimListOfType("DVB-C")
-		self.dvbt_nims = nimmanager.getNimListOfType("DVB-T")
+		self.dvbc_nims = []
+		self.dvbt_nims = []
+		for nim in nimmanager.nim_slots:
+			if nim.config_mode != "nothing":
+				if nim.isCompatible("DVB-C"):
+					self.dvbc_nims.append(nim.slot)
+				if nim.isCompatible("DVB-T"):
+					self.dvbt_nims.append(nim.slot)
 
 		# dependent providers
 		self.dependents_list = []
