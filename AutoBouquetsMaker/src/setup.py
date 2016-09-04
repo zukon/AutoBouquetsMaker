@@ -94,9 +94,9 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		self.dvbt_nims = []
 		for nim in nimmanager.nim_slots:
 			if nim.config_mode != "nothing":
-				if nim.isCompatible("DVB-C"):
+				if nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")):
 					self.dvbc_nims.append(nim.slot)
-				if nim.isCompatible("DVB-T"):
+				if nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T")):
 					self.dvbt_nims.append(nim.slot)
 
 		# dependent providers
