@@ -209,6 +209,7 @@ class DvbScanner():
 
 					if len(nit_current_sections_read) == nit_current_sections_count:
 						nit_current_completed = True
+						all_nit_others_completed = True
 
 			elif section["header"]["table_id"] == self.nit_other_table_id and not all_nit_others_completed:
 				network_id = section["header"]["network_id"]
