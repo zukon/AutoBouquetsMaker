@@ -278,6 +278,9 @@ Provider key: cable_nl
 Provider name: Virgin (UK)
 Provider key: cable_uk_virgin
 
+Provider name: Bis TV (Hot Bird) (FR)
+Provider key: sat_130_bistv
+
 Provider name: Sky Italia
 Provider key: sat_130_sky_italy
 
@@ -299,7 +302,7 @@ Provider key: sat_192_canal_plus_esp
 Provider name: Sky Deutschland
 Provider key: sat_192_sky_deutschland
 
-Provider name: TÈlÈSAT
+Provider name: T√©l√©SAT
 Provider key: sat_192_telesat
 
 Provider name: TNTSat
