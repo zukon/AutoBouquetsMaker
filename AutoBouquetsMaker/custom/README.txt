@@ -278,8 +278,8 @@ Provider key: cable_nl
 Provider name: Virgin (UK)
 Provider key: cable_uk_virgin
 
-Provider name: Bis TV (Hot Bird) (FR)
-Provider key: sat_130_bistv
+Provider name: Bis TV
+Provider key: sat_0130_bistv
 
 Provider name: Sky Italia
 Provider key: sat_130_sky_italy
@@ -355,7 +355,7 @@ Provider key: terrestrial_ie_saorview_PSB1
 
 ----------------------------------------------------------------------------------------------
 
-lamedb format explained
+lamedb (v4) format explained
 -----------------------
 
 Lamedb format:

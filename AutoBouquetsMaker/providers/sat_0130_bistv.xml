@@ -19,7 +19,7 @@
 		<section number="1">Bis TV</section>
 	</sections>
 	<dvbsconfigs>
-		<configuration key="hd_00306" bouquet="0x0132" region="0x83">Hot Bird</configuration>
+		<configuration key="hd_00306" bouquet="0x0132" region="0x83">Bis TV</configuration>
 	</dvbsconfigs>
 	<servicehacks>
 <![CDATA[
