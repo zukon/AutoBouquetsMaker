@@ -248,47 +248,17 @@ for this feature.
 Provider keys
 -------------
 
-Provider name: Caiway (NL)
-Provider key: cable_nl
-
-Provider name: Delta (NL)
-Provider key: cable_nl
-
-Provider name: Harderwijk (NL)
-Provider key: cable_nl
-
-Provider name: KabelNoord (NL)
-Provider key: cable_nl
-
-Provider name: Kabeltex (NL)
-Provider key: cable_nl
-
-Provider name: Pijnacker (NL)
-Provider key: cable_nl
-
-Provider name: SKV (NL)
-Provider key: cable_nl
-
-Provider name: UPC (NL)
-Provider key: cable_nl
-
-Provider name: Ziggo (NL)
-Provider key: cable_nl
-
-Provider name: Virgin (UK)
-Provider key: cable_uk_virgin
-
-Provider name: Bis TV
-Provider key: sat_0130_bistv
-
-Provider name: Sky Italia
-Provider key: sat_130_sky_italy
-
-Provider name: Tivusat
-Provider key: sat_130_tivusat
+Provider name: AustriaSat
+Provider key: sat_235_austriasat
 
 Provider name: AustriaSat
 Provider key: sat_192_austriasat
+
+Provider name: AustriaSat 9E
+Provider key: sat_90_austriasat
+
+Provider name: Bis TV 13E
+Provider key: sat_0130_bistv
 
 Provider name: Canal Digitaal HD
 Provider key: sat_192_canaldigitaal_hd
@@ -296,44 +266,38 @@ Provider key: sat_192_canaldigitaal_hd
 Provider name: Canal Digitaal SD
 Provider key: sat_192_canaldigitaal_sd
 
-Provider name: Canal+ Esp
-Provider key: sat_192_canal_plus_esp
-
-Provider name: Sky Deutschland
-Provider key: sat_192_sky_deutschland
-
-Provider name: TéléSAT
-Provider key: sat_192_telesat
-
-Provider name: TNTSat
-Provider key: sat_192_tntsat
-
-Provider name: TV Vlaanderen
-Provider key: sat_192_tvvlaanderen
-
-Provider name: AustriaSat
-Provider key: sat_235_austriasat
-
 Provider name: Canal Digitaal HD
 Provider key: sat_235_canaldigitaal_hd
 
 Provider name: Canal Digitaal SD
 Provider key: sat_235_canaldigitaal_sd
 
-Provider name: Skylink Czech Republic
-Provider key: sat_235_skylink_czech_republic
+Provider name: Canal+ Esp
+Provider key: sat_192_canal_plus_esp
 
-Provider name: Skylink Slovak Republic
-Provider key: sat_235_skylink_slovak_republic
+Provider name: FranSat
+Provider key: sat_3550_fransat
 
-Provider name: TeleSAT
-Provider key: sat_235_telesat
-
-Provider name: TV Vlaanderen
-Provider key: sat_235_tvvlaanderen
-
-Provider name: FreeSat (UK)
+Provider name: FreeSat UK
 Provider key: sat_282_freesat
+
+Provider name: FreeView (UK)
+Provider key: terrestrial_uk_freeview
+
+Provider name: Kabel (NL)
+Provider key: cable_nl
+
+Provider name: NL Terrestrial
+Provider key: terrestrial_NL_bouquet1
+
+Provider name: Saorview (IE)
+Provider key: terrestrial_ie_saorview_PSB1
+
+Provider name: Sky Deutschland
+Provider key: sat_192_sky_deutschland
+
+Provider name: Sky Italia
+Provider key: sat_130_sky_italy
 
 Provider name: Sky ROI
 Provider key: sat_282_sky_irl
@@ -341,17 +305,35 @@ Provider key: sat_282_sky_irl
 Provider name: Sky UK
 Provider key: sat_282_sky_uk
 
-Provider name: FranSat
-Provider key: sat_3550_fransat
+Provider name: Skylink Czech Republic
+Provider key: sat_235_skylink_czech_republic
+
+Provider name: Skylink Slovak Republic
+Provider key: sat_235_skylink_slovak_republic
+
+Provider name: TéléSAT
+Provider key: sat_192_telesat
+
+Provider name: TeleSAT
+Provider key: sat_235_telesat
+
+Provider name: Tivusat
+Provider key: sat_130_tivusat
+
+Provider name: TNTSat
+Provider key: sat_192_tntsat
 
 Provider name: Turksat
 Provider key: sat_420_turksat
 
-Provider name: FreeView (UK)
-Provider key: terrestrial_uk_freeview
+Provider name: TV Vlaanderen
+Provider key: sat_192_tvvlaanderen
 
-Provider name: Saorview (IE)
-Provider key: terrestrial_ie_saorview_PSB1
+Provider name: TV Vlaanderen
+Provider key: sat_235_tvvlaanderen
+
+Provider name: Virgin (UK)
+Provider key: cable_uk_virgin
 
 ----------------------------------------------------------------------------------------------
 
