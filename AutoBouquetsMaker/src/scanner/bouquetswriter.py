@@ -114,14 +114,7 @@ class BouquetsWriter():
 				if 'free_ca' in service.keys() and service["free_ca"] != 0:
 					lamedblist.append("p:%s,C:0000\n" % provider_name)
 				elif 'service_line' in service.keys():
-					try:
-						lamedblist.append("%s\n" % service["service_line"])
-					except UnicodeDecodeError:
-						try:
-							print>>log, "[BouquetsWriter] UnicodeDecodeError, service line for '%s' contains illegal characters." % service_name
-							lamedblist.append("%s\n" % service["service_line"].decode('latin-1').encode("utf8"))
-						except UnicodeDecodeError:
-							lamedblist.append("%s\n" % ("".join(i for i in service["service_line"] if ord(i)<128)))
+					lamedblist.append(self.utf8_convert("%s\n" % service["service_line"]))
 				else:
 					lamedblist.append("p:%s\n" % provider_name)
 				services_count += 1
