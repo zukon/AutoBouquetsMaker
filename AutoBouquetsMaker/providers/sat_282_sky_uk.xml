@@ -395,8 +395,34 @@ if service["channel_id"] in (2075,) and 115 in service["numbers"]: # BBC2 HD
 if service["channel_id"] in (2076,2081,2082,2083) and 141 in service["numbers"]: # BBC1 HD
 	service["numbers"][service["numbers"].index(141)] = 115
 	service["number"] = 115
+	
+# S4C swap problem when region is Wales
+if service["channel_id"] == 5701 and service["number"] == 104:
+	for k2 in tmp_services_dict.keys():
+		if tmp_services_dict[k2]["channel_id"] == 2296 and tmp_services_dict[k2]["number"] == 280:
+			service_tmp = service
+			service = tmp_services_dict[k2]
+			service["number"] = 104
+			service["numbers"] = [104]
+			service_tmp["number"] = 280
+			service_tmp["numbers"] = [280]
+			tmp_services_dict[k2] = service_tmp
+			del service_tmp
+			break;
+if service["channel_id"] == 1622 and service["number"] == 117:
+	for k2 in tmp_services_dict.keys():
+		if tmp_services_dict[k2]["channel_id"] == 4075 and tmp_services_dict[k2]["number"] == 227:
+			service_tmp = service
+			service = tmp_services_dict[k2]
+			service["number"] = 117
+			service["numbers"] = [117]
+			service_tmp["number"] = 227
+			service_tmp["numbers"] = [227]
+			tmp_services_dict[k2] = service_tmp
+			del service_tmp
+			break;
 
-# sort out ITV channel names
+# Rename channels
 if "channel_id" in service and service["channel_id"] in rename:
 	service["interactive_name"] = rename[service["channel_id"]]
 
