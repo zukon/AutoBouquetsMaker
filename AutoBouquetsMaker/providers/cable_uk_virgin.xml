@@ -189,7 +189,7 @@ for number in service["numbers"]:
 if service["service_name"] in blacklist:
 	skip = True
 		
-if service["service_name"].startswith("DL_") or service["service_name"].startswith("Hidden"):
+if service["service_name"].startswith("DL_") or service["service_name"].startswith("Hidden") or service["service_name"].startswith("BBC Olympics"):
 	skip = True
 	
 if service["service_name"].startswith("SptsETV"):
