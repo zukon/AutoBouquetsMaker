@@ -82,6 +82,16 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		self.providers_order = []
 		self.orbital_supported = []
 
+		# make config test for ATV Multituner
+		for slot in nimmanager.nim_slots:
+			if slot.canBeCompatible("DVB-S"):
+				try:
+					slot.config.dvbs
+					self.legacy = False
+				except:
+					self.legacy = True
+			break
+
 		# get supported orbital positions
 		dvbs_nims = nimmanager.getNimListOfType("DVB-S")
 		for nim in dvbs_nims:
@@ -93,7 +103,14 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		self.dvbc_nims = []
 		self.dvbt_nims = []
 		for nim in nimmanager.nim_slots:
-			if nim.config_mode != "nothing":
+			if not self.legacy:
+				config = nim.config.dvbs
+			else:
+				config = nim.config
+			
+			config_mode = config.configMode.value
+
+			if config_mode != "nothing":
 				if nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")):
 					self.dvbc_nims.append(nim.slot)
 				if nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T")):
