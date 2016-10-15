@@ -351,10 +351,7 @@ except:
 		5386: "BT Sport Extra 6",
 
 		# Other channels
-		3622: "BT SportEurHD",
-		3623: "BT SportEurHD",
-		5662: "BT Sport 1 HD",
-		5663: "BT Sport 2 HD",
+		1023: "Al Jazeera Eng HD",
 		2079: "BBC One HD",
 
 		# RoI Sports channels
@@ -366,7 +363,7 @@ except:
 
 	}
 
-	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD','ITV Encore HD',752,'BoxNation HD','BT Preview HD']
+	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD',752,'BoxNation HD']
 
 	whitelist_by_id = [
 		1003, # MUTV HD
@@ -378,7 +375,7 @@ except:
 		5272 # Racing UK HD
 	]
 
-	blacklist = []
+	blacklist = ["10001", "10002"]
 	
 	bt_sports_id = [5030,5381,5031,5382,5383,5384,5385,5386]
 
