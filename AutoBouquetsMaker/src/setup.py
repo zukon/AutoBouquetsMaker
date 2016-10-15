@@ -83,6 +83,8 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		self.orbital_supported = []
 
 		# make config test for ATV Multituner
+		self.legacy = True
+		
 		for slot in nimmanager.nim_slots:
 			if slot.canBeCompatible("DVB-S"):
 				try:
