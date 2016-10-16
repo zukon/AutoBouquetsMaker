@@ -157,7 +157,7 @@ class BouquetsReader():
 
 
 		srv_start = content.find("services\n")
-		srv_stop = content.find("end\n")
+		srv_stop = content.rfind("end\n")
 
 		srv_blocks = content[srv_start + 9:srv_stop].strip().split("\n")
 		for i in range(0, len(srv_blocks)/3):
