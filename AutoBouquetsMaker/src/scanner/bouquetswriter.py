@@ -469,7 +469,6 @@ class BouquetsWriter():
 			for type in ('video','radio'):
 				for lcn in services[provider][type]:
 					service = services[provider][type][lcn]
-					tmp_services[i] = service
 					# sort flat, alphabetic before numbers
 					ref = "%x:%x:%x:%x" % (
 						service["service_id"],
@@ -479,6 +478,7 @@ class BouquetsWriter():
 					)
 					if ref in avoid_duplicates:
 						continue
+					tmp_services[i] = service
 					avoid_duplicates.append(ref)
 					sort_list.append((i, re.sub('^(?![a-z])', 'zzzzz', service['service_name'].lower())))
 					i += 1
