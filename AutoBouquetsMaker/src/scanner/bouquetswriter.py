@@ -343,6 +343,11 @@ class BouquetsWriter():
 		customfilenames = []
 		hidden_non_abm_bouquet = []
 		display_empty_bouquet = ['userbouquet.favourites.tv', 'userbouquet.favourites.radio', 'userbouquet.LastScanned.tv']
+		
+		if 'userbouquet.LastScanned.tv' not in bouquetsToKeep["tv"]:
+			bouquetsToKeep["tv"].append('userbouquet.LastScanned.tv')		
+		if 'userbouquet.LastScanned.tv' not in currentBouquets["tv"]:
+			currentBouquets["tv"].append('userbouquet.LastScanned.tv')		
 
 		if config.autobouquetsmaker.placement.getValue() == 'bottom':
 			for bouquet_type in ["tv", "radio"]:
@@ -453,6 +458,51 @@ class BouquetsWriter():
 					continue
 		print>>log, "[BouquetsWriter] Done"
 
+	def buildLastScannedBouquet(self, path, services):
+		last_scanned_bouquet_list = ["#NAME " + _("Last Scanned") + "\n"]
+		tmp_services = {}
+		sort_list = []
+		avoid_duplicates = []
+		i = 1
+		import re
+		for provider in services.keys():
+			for type in ('video','radio'):
+				for lcn in services[provider][type]:
+					service = services[provider][type][lcn]
+					tmp_services[i] = service
+					# sort flat, alphabetic before numbers
+					ref = "%x:%x:%x:%x" % (
+						service["service_id"],
+						service["transport_stream_id"],
+						service["original_network_id"],
+						service["namespace"]
+					)
+					if ref in avoid_duplicates:
+						continue
+					avoid_duplicates.append(ref)
+					sort_list.append((i, re.sub('^(?![a-z])', 'zzzzz', service['service_name'].lower())))
+					i += 1
+		sort_list = sorted(sort_list, key=lambda listItem: listItem[1])
+		for item in sort_list:
+			service = tmp_services[item[0]]
+			last_scanned_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
+				service["service_type"],
+				service["service_id"],
+				service["transport_stream_id"],
+				service["original_network_id"],
+				service["namespace"]
+			))
+			if "interactive_name" in service:
+				last_scanned_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(service["interactive_name"]))
+		print>>log, "[BouquetsWriter] Writing Last Scanned bouquet..."
+		bouquet_current = open(path + "/userbouquet.LastScanned.tv", "w")
+		bouquet_current.write(''.join(last_scanned_bouquet_list))
+		bouquet_current.close()
+		del sort_list
+		del tmp_services
+		del last_scanned_bouquet_list
+		del avoid_duplicates
+	
 	def buildBouquets(self, path, provider_config, services, sections, section_identifier, preferred_order, channels_on_top, bouquets_to_hide, section_prefix):
 		channels_on_top = channels_on_top[0]
 		if len(section_prefix) > 0:

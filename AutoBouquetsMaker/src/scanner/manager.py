@@ -179,6 +179,8 @@ class Manager():
 
 		# add a custom favourites list
 		Tools().favourites(self.path, self.services, providers, self.providerConfigs, self.bouquetsOrder)
+		
+		writer.buildLastScannedBouquet(self.path, self.services)
 
 		writer.buildBouquetsIndex(self.path, self.bouquetsOrder, providers,
 				self.bouquetsToKeep, currentBouquets, self.bouquetsToHide,
