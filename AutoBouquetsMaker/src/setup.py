@@ -19,22 +19,14 @@ import log
 import itertools
 
 class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
-	skin = """
-		<screen position="center,center" size="600,500">
-			<widget name="key_red" position="0,0" size="140,40" valign="center" halign="center" zPosition="4" foregroundColor="white" backgroundColor="#9f1313" font="Regular;18" transparent="1"/>
-			<widget name="key_green" position="150,0" size="140,40" valign="center" halign="center" zPosition="4" foregroundColor="white" backgroundColor="#1f771f" font="Regular;18" transparent="1"/>
-			<ePixmap name="red" position="0,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/red.png" transparent="1" alphatest="on"/>
-			<ePixmap name="green" position="150,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/green.png" transparent="1" alphatest="on"/>
-			<widget name="config" position="10,50" size="580,350" scrollbarMode="showOnDemand"/>
-			<widget name="description" position="0,415" size="600,80" font="Regular;18" halign="center" valign="top" transparent="0" zPosition="1"/>
-			<widget name="pleasewait" position="10,60" size="580,350" font="Regular;18" halign="center" valign="center" transparent="0" zPosition="2"/>
-		</screen>"""
+
 
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
 
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self.session = session
+		self.skinName = "AutoBouquetsMaker_Setup"
 		self.setup_title = _("AutoBouquetsMaker Providers")
 		Screen.setTitle(self, self.setup_title)
 
