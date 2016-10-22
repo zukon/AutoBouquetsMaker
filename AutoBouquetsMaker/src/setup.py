@@ -182,7 +182,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 
 			if sorted(self.providers[provider]["sections"].keys())[0] > 1:
 				makemain_default = "no"
-				makemain_list = [("yes", _("yes"))]
+				makemain_list = [("yes", _("yes (all channels)"))]
 				if self.providers[provider]["protocol"] != "fastscan":
 					makemain_list.append(("hd", _("yes (only HD)")))
 					makemain_list.append(("ftahd", _("yes (only FTA HD)")))
