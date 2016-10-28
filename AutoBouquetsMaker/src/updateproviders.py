@@ -32,6 +32,7 @@ except:
 	pass
 
 class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
+# Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker'.
 	skin = """
 	<screen position="c-300,e-80" size="600,70" flags="wfNoBorder" >
 		<widget name="background" position="0,0" size="600,70" zPosition="-1" />
