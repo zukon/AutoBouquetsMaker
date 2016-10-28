@@ -74,18 +74,6 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		self.providers_order = []
 		self.orbital_supported = []
 
-		# make config test for ATV Multituner
-		self.legacy = True
-		
-		for slot in nimmanager.nim_slots:
-			if slot.canBeCompatible("DVB-S"):
-				try:
-					slot.config.dvbs
-					self.legacy = False
-				except:
-					self.legacy = True
-			break
-
 		# get supported orbital positions
 		dvbs_nims = nimmanager.getNimListOfType("DVB-S")
 		for nim in dvbs_nims:
@@ -96,18 +84,19 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 
 		self.dvbc_nims = []
 		self.dvbt_nims = []
-		for nim in nimmanager.nim_slots:
-			if not self.legacy:
-				if nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")):
-					self.dvbc_nims.append(nim.slot)
-				if nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T")):
-					self.dvbt_nims.append(nim.slot)
-			else:
+		try:
+			for nim in nimmanager.nim_slots:
 				if nim.config_mode != "nothing":
 					if nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")):
 						self.dvbc_nims.append(nim.slot)
 					if nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T")):
 						self.dvbt_nims.append(nim.slot)
+		except AttributeError: # OpenATV > 5.3
+			for nim in nimmanager.nim_slots:
+				if nim.canBeCompatible("DVB-C") and nim.config_mode_dvbc != "nothing":
+					self.dvbc_nims.append(nim.slot)
+				if nim.canBeCompatible("DVB-T") and nim.config_mode_dvbt != "nothing":
+					self.dvbt_nims.append(nim.slot)
 
 		# dependent providers
 		self.dependents_list = []

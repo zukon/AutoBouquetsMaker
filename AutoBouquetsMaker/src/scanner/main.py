@@ -242,11 +242,18 @@ class AutoBouquetsMaker(Screen):
 						continue # do not load FBC links, only root tuners
 				except:
 					pass
-			if (nim.config_mode not in ("loopthrough", "satposdepends", "nothing")) and \
-				((self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.isCompatible("DVB-S")) or \
-				(self.providers[self.currentAction]["streamtype"] == "dvbc" and (nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")))) or \
-				(self.providers[self.currentAction]["streamtype"] == "dvbt" and (nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T"))))):
-				nimList.append(nim.slot)
+			try:
+				if (nim.config_mode not in ("loopthrough", "satposdepends", "nothing")) and \
+					((self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.isCompatible("DVB-S")) or \
+					(self.providers[self.currentAction]["streamtype"] == "dvbc" and (nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")))) or \
+					(self.providers[self.currentAction]["streamtype"] == "dvbt" and (nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T"))))):
+					nimList.append(nim.slot)
+			except AttributeError: # OpenATV > 5.3
+				if (self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.canBeCompatible("DVB-S") and nim.config_mode_dvbs not in ("loopthrough", "satposdepends", "nothing")) or \
+					(self.providers[self.currentAction]["streamtype"] == "dvbc" and nim.canBeCompatible("DVB-C") and nim.config_mode_dvbc != "nothing") or \
+					(self.providers[self.currentAction]["streamtype"] == "dvbt" and nim.canBeCompatible("DVB-T") and nim.config_mode_dvbt != "nothing"):
+					nimList.append(nim.slot)
+					
 		if len(nimList) == 0:
 			print>>log, "[AutoBouquetsMaker] No NIMs found"
 			self.showError(_('No NIMs found for ') + self.providers[self.currentAction]["name"])
@@ -277,7 +284,10 @@ class AutoBouquetsMaker(Screen):
 		if frontendData is not None:
 			currentlyPlayingNIM = frontendData.get("tuner_number", None)
 			if self.providers[self.currentAction]["streamtype"] == "dvbs" and currentlyPlayingNIM is not None:
-				nimConfigMode = nimmanager.nim_slots[currentlyPlayingNIM].config_mode
+				try:
+					nimConfigMode = nimmanager.nim_slots[currentlyPlayingNIM].config_mode
+				except AttributeError: # OpenATV > 5.3
+					nimConfigMode = nimmanager.nim_slots[currentlyPlayingNIM].config_mode_dvbs
 				if nimConfigMode in ("loopthrough", "satposdepends"):
 					self.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
 					self.session.nav.stopService()
