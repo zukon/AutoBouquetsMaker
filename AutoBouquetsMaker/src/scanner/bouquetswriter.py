@@ -341,7 +341,6 @@ class BouquetsWriter():
 		bouquetsToKeep2["radio"] = []
 
 		customfilenames = []
-		hidden_non_abm_bouquet = []
 		display_empty_bouquet = ['userbouquet.favourites.tv', 'userbouquet.favourites.radio', 'userbouquet.LastScanned.tv']
 		
 		if 'userbouquet.LastScanned.tv' not in bouquetsToKeep["tv"] and config.autobouquetsmaker.keepallbouquets.getValue():
