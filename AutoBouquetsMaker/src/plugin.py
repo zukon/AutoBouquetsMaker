@@ -43,7 +43,7 @@ def AutoBouquetsMakerSetup(menuid, **kwargs):
 		return []
 
 def Plugins(**kwargs):
-	plist = [PluginDescriptor(where=PluginDescriptor.WHERE_SESSIONSTART, fnc=AutoBouquetsMakerautostart, needsRestart=True)]
+	plist = [PluginDescriptor(name="AutoBouquetsMakerSessionStart", where=PluginDescriptor.WHERE_SESSIONSTART, fnc=AutoBouquetsMakerautostart, needsRestart=True)]
 	plist.append(PluginDescriptor(name=_("AutoBouquetsMaker"), description="Scan and create bouquets.", where = PluginDescriptor.WHERE_MENU, fnc=AutoBouquetsMakerSetup))
 	if config.autobouquetsmaker.extensions.getValue():
 		plist.append(PluginDescriptor(name=_("AutoBouquetsMaker Scanner"), description="Scan and create bouquets.", where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=startscan))
