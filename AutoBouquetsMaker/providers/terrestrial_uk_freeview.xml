@@ -123,6 +123,11 @@
 		<customtransponder key="kilvey_hill________" frequency="530000000" transport_stream_id="6040" system="0"/>
 		<customtransponder key="mendip_____________" frequency="770000000" transport_stream_id="4082" system="1"/>
 		<customtransponder key="mendip_____________" frequency="570000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="oliversmount_______" frequency="698000000" transport_stream_id="6040" system="0"/>
+		<customtransponder key="oliversmount_______" frequency="730000000" transport_stream_id="4089" system="1"/>
+		<customtransponder key="oliversmount_______" frequency="738000000" transport_stream_id="3006" system="0"/>
+		<customtransponder key="oliversmount_______" frequency="770000000" transport_stream_id="5040" system="0"/>
+		<customtransponder key="oliversmount_______" frequency="786000000" transport_stream_id="2019" system="0"/>
 		<customtransponder key="pontop_pike________" frequency="570000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="pontop_pike________" frequency="578000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="pontop_pike________" frequency="698000000" transport_stream_id="4089" system="1"/>
