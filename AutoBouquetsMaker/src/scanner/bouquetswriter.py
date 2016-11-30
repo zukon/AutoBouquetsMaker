@@ -524,7 +524,7 @@ class BouquetsWriter():
 		# swap channels
 		swapDict = {}
 		for swaprule in preferred_order:
-			if swaprule[0] in services["video"] and swaprule[1] in services["video"] and services["video"][swaprule[1]]["service_type"] >= 17:
+			if swaprule[0] in services["video"] and swaprule[1] in services["video"] and services["video"][swaprule[1]]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and services["video"][swaprule[0]]["service_type"] not in DvbScanner.HD_ALLOWED_TYPES:
 				swapDict[swaprule[0]] = swaprule[1]
 				swapDict[swaprule[1]] = swaprule[0]
 
@@ -629,7 +629,7 @@ class BouquetsWriter():
 							section_key_current = 65535
 
 					if todo and number >= todo:
-						if services["video"][number]["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and services["video"][number]["service_type"] >= 17 and (provider_config.isMakeHDMain() or (provider_config.isMakeFTAHDMain() and services["video"][number]["free_ca"] == 0)):  # from 17 to higher are HD?
+						if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and (provider_config.isMakeHDMain() or (provider_config.isMakeFTAHDMain() and services["video"][number]["free_ca"] == 0)):
 							current_number += 1
 							current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
 									services["video"][number]["service_type"],
@@ -785,7 +785,7 @@ class BouquetsWriter():
 						section_key_current = 65535
 
 				if todo and number >= todo:
-					if services["video"][number]["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and services["video"][number]["service_type"] >= 17:  # from 17 to higher are HD?
+					if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES:
 						current_number += 1
 						current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
 								services["video"][number]["service_type"],
@@ -846,7 +846,7 @@ class BouquetsWriter():
 						section_key_current = 65535
 
 				if todo and number >= todo:
-					if services["video"][number]["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and services["video"][number]["service_type"] >= 17 and services["video"][number]["free_ca"] == 0: # from 17 to higher are HD?
+					if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and services["video"][number]["free_ca"] == 0:
 						current_number += 1
 						current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
 								services["video"][number]["service_type"],

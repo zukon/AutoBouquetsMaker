@@ -11,6 +11,7 @@ class DvbScanner():
 	VIDEO_ALLOWED_TYPES = [1, 4, 5, 17, 22, 24, 25, 27, 135]
 	AUDIO_ALLOWED_TYPES = [2, 10]
 	INTERACTIVE_ALLOWED_TYPES = [133]
+	HD_ALLOWED_TYPES = [17, 25, 27, 135]
 
 	def __init__(self):
 		self.adapter = 0
