@@ -290,7 +290,7 @@ except:
 		1256: 635  # RTEjr
 	}
 
-	rename = {
+	itv_rename = {
 		# ITV regions
 		1020: "ITV Border Scotland",
 		1043: "ITV Tyne Tees HD",
@@ -343,8 +343,10 @@ except:
 		6503: "ITV Central West HD",
 		6504: "ITV London HD",
 		6505: "ITV Granada HD",
-		6510: "UTV HD",
-
+		6510: "UTV HD"
+	}	
+	
+	rename = {
 		# BT Interactive
 		5381: "BT Sport Mosaic 2",
 		5382: "BT Sport Extra 2",
@@ -363,7 +365,6 @@ except:
 		1323: "Sky Sports 3 RoI",
 		1324: "Sky Sports 4 RoI",
 		1312: "Sky Sports 5 RoI"
-
 	}
 
 	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD',752,'BoxNation HD']
@@ -425,6 +426,10 @@ if service["channel_id"] == 1622 and service["number"] == 117:
 # Rename channels
 if "channel_id" in service and service["channel_id"] in rename:
 	service["interactive_name"] = rename[service["channel_id"]]
+
+# Rename ITV channels
+if "channel_id" in service and service["channel_id"] in itv_rename:
+	service["interactive_name"] = itv_rename[service["channel_id"]]
 
 # Add channels by name
 if custom and service["service_name"] in channels_to_add and service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and channels_to_add[service["service_name"]] not in LCNs_in_use:
