@@ -179,7 +179,8 @@
 	</sections>
 	<servicehacks>
 	<![CDATA[
-blacklist = [170,200,790, "BBC Red Button", "ADULT Section"] # channel names have quotes. Channel numbers do not. Example: ['ITV HD', 250, 500]
+blacklist = [170,200,600,790,"ADULT Section","Community"]
+#Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
 
 for number in service["numbers"]:
 	if number in blacklist:
