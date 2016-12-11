@@ -179,7 +179,7 @@
 	</sections>
 	<servicehacks>
 	<![CDATA[
-blacklist = [170,200,600,790,"ADULT Section","Community"]
+blacklist = [170,200,600,790,793,"ADULT Section",]
 #Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
 
 for number in service["numbers"]:
