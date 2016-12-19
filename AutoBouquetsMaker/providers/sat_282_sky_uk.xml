@@ -287,7 +287,8 @@ except:
 		1312: 499, #Sky Sports 5 RoI
 		1257: 574, # Oireachtas TV
 		2804: 578, # RTE News Now
-		1256: 635  # RTEjr
+		1256: 635, # RTEjr
+		1372: 860  # Colors HD remember to remove in January
 	}
 
 	itv_rename = {
@@ -356,7 +357,9 @@ except:
 		5386: "BT Sport Extra 6",
 
 		# Other channels
-		1023: "Al Jazeera Eng HD",
+		1016: "Made in Liverpool",
+		1078: "Made In Birmingham",
+		1372: "Colors HD",
 		2079: "BBC One HD",
 
 		# RoI Sports channels
@@ -376,7 +379,7 @@ except:
 		5152, # eir Sport 2 HD
 		5153, # Premier HD
 		5154, # eir Sport 2 HD
-		5272 # Racing UK HD
+		5272  # Racing UK HD
 	]
 
 	blacklist = ["10001", "10002"]
