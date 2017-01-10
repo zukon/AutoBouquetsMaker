@@ -148,17 +148,6 @@
 		 <channel number="157" with="199" /><!-- Fox HD -->
 		 <channel number="247" with="249" /><!-- Eden HD -->
 		 <channel number="266" with="268" /><!-- Nat Geo HD -->
-		 <channel number="401" with="431" /><!-- Sky Premiere HD -->
-		 <channel number="403" with="433" /><!-- Sky Showcase HD -->
-		 <channel number="404" with="434" /><!-- Sky Oscars HD -->
-		 <channel number="405" with="435" /><!-- Sky Disney HD -->
-		 <channel number="406" with="436" /><!-- Sky Family HD -->
-		 <channel number="407" with="437" /><!-- Sky Action HD -->
-		 <channel number="408" with="438" /><!-- Sky Comedy HD -->
-		 <channel number="409" with="439" /><!-- Sky Thriller HD -->
-		 <channel number="410" with="440" /><!-- Sky Drama Rom HD -->
-		 <channel number="411" with="441" /><!-- Sky SciFi Hor HD -->
-		 <channel number="412" with="442" /><!-- Sky Select HD -->
 		 <channel number="601" with="604" /><!-- BBC News HD -->
 		 <channel number="701" with="710" /><!-- CBBC HD -->
 		 <channel number="702" with="711" /><!-- CBeebies HD -->
@@ -192,7 +181,7 @@ for number in service["numbers"]:
 if service["service_name"] in blacklist:
 	skip = True
 		
-if service["service_name"].startswith("DL_") or service["service_name"].startswith("Hidden") or service["service_name"].startswith("BBC Olympics"):
+if service["service_name"].startswith("DL_") or service["service_name"].startswith("Hidden"):
 	skip = True
 	
 if service["service_name"].startswith("SptsETV"):
