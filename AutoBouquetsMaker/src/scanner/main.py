@@ -463,8 +463,12 @@ class AutoBouquetsMaker(Screen):
 			self.timer.callback.append(self.doScan)
 			self.timer.start(100, 1)
 			return
-		elif dict["tuner_state"] == "LOSTLOCK" or dict["tuner_state"] == "FAILED":
-			print>>log, "[AutoBouquetsMaker] FAILED"
+		elif dict["tuner_state"] == "LOSTLOCK":
+			print>>log, "[AutoBouquetsMaker] LOSTLOCK"
+		elif dict["tuner_state"] == "FAILED":
+			print>>log, "[AutoBouquetsMaker] TUNING FAILED FATAL"
+			self.showError(_('Tuning failed fatal'))
+			return
 
 		self.lockcounter += 1
 		if self.lockcounter > self.LOCK_TIMEOUT:
