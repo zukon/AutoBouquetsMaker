@@ -381,7 +381,7 @@ except:
 		5272  # Racing UK HD
 	]
 
-	blacklist = ["10001", "10002"]
+	blacklist = ["10001", "10002", "Sky Box Office"]
 	
 	bt_sports_id = [5030,5381,5031,5382,5383,5384,5385,5386]
 
