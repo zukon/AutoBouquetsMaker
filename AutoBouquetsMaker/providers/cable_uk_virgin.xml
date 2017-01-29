@@ -169,13 +169,16 @@ for number in service["numbers"]:
 		skip = True
 		break
 	elif number >= 50 and number <= 64:
-		service["numbers"] = [number + 951]
+		service["numbers"] = [number + 952]
+		break
+	elif number == 40:
+		service["numbers"] = [number + 961]
 		break
 	elif number == 43:
 		service["numbers"] = [number + 957]
 		break
 	elif number < 100 and service["service_name"] in bt_sports_xtra:
-		service["numbers"] = [1020 + bt_sports_xtra.index(service["service_name"])]
+		service["numbers"] = [1021 + bt_sports_xtra.index(service["service_name"])]
 		break
 		
 if service["service_name"] in blacklist:
