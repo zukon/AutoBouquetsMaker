@@ -45,7 +45,7 @@ class BouquetsReader():
 		return ret
 
 	def readLamedb(self, path):
-		print>>log, "[BouquetsReader] Reading lamedb..."
+		print>>log, "[ABM-BouquetsReader] Reading lamedb..."
 
 		transponders = {}
 
@@ -61,7 +61,7 @@ class BouquetsReader():
 		result = re.match('eDVB services /([45])/', content)
 		if result:
 			lamedb_ver = int(result.group(1))
-			print>>log, "[BouquetsReader] lamedb ver", lamedb_ver
+			print>>log, "[ABM-BouquetsReader] lamedb ver", lamedb_ver
 		if lamedb_ver == 4:
 			transponders = self.parseLamedbV4Content(content)
 		elif  lamedb_ver == 5:
@@ -160,12 +160,21 @@ class BouquetsReader():
 		srv_stop = content.rfind("end\n")
 
 		srv_blocks = content[srv_start + 9:srv_stop].strip().split("\n")
+		
 		for i in range(0, len(srv_blocks)/3):
 			service_reference = srv_blocks[i*3].strip()
 			service_name = srv_blocks[(i*3)+1].strip()
 			service_provider = srv_blocks[(i*3)+2].strip()
+			
+			print "service_reference", service_reference
 
 			service_reference = service_reference.split(":")
+			
+			print "service_reference", service_reference
+			
+			print "len(service_reference)", len(service_reference)
+
+			
 			if len(service_reference) != 6:
 				continue
 
@@ -185,7 +194,7 @@ class BouquetsReader():
 			transponders[key]["services"][service["service_id"]] = service
 			services_count += 1
 
-		print>>log, "[BouquetsReader] Read %d transponders and %d services" % (transponders_count, services_count)
+		print>>log, "[ABM-BouquetsReader] Read %d transponders and %d services" % (transponders_count, services_count)
 		return transponders
 
 	def parseLamedbV5Content(self, content):
@@ -292,5 +301,5 @@ class BouquetsReader():
 				transponders[key]["services"][service["service_id"]] = service
 				services_count += 1
 
-		print>>log, "[BouquetsReader] Read %d transponders and %d services" % (transponders_count, services_count)
+		print>>log, "[ABM-BouquetsReader] Read %d transponders and %d services" % (transponders_count, services_count)
 		return transponders

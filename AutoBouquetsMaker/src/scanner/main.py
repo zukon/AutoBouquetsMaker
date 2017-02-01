@@ -213,7 +213,7 @@ class AutoBouquetsMaker(Screen):
 		self.timer.start(100, 1)
 
 	def doTune(self):
-		print>>log, "[AutoBouquetsMaker] searching for tuner for %s" % self.providers[self.currentAction]["name"]
+		print>>log, "[ABM-main][doTune] searching for tuner for %s" % self.providers[self.currentAction]["name"]
 		from Screens.Standby import inStandby
 		if self.providers[self.currentAction]["streamtype"] == "dvbs":
 			transponder = self.providers[self.currentAction]["transponder"]
@@ -228,7 +228,7 @@ class AutoBouquetsMaker(Screen):
 				bouquet_key = provider_config.getArea()
 
 			if not bouquet_key:
-				print>>log, "[AutoBouquetsMaker] No area found"
+				print>>log, "[ABM-main][doTune] No area found"
 				self.showError(_('No area found'))
 				return
 
@@ -255,26 +255,26 @@ class AutoBouquetsMaker(Screen):
 					nimList.append(nim.slot)
 					
 		if len(nimList) == 0:
-			print>>log, "[AutoBouquetsMaker] No NIMs found"
+			print>>log, "[ABM-main][doTune] No NIMs found"
 			self.showError(_('No NIMs found for ') + self.providers[self.currentAction]["name"])
 			return
 
 		resmanager = eDVBResourceManager.getInstance()
 		if not resmanager:
-			print>>log, "[AutoBouquetsMaker] Cannot retrieve Resource Manager instance"
+			print>>log, "[ABM-main][doTune] Cannot retrieve Resource Manager instance"
 			self.showError(_('Cannot retrieve Resource Manager instance'))
 			return
 
 		if self.providers[self.currentAction]["streamtype"] == "dvbs":
-			print>>log, "[AutoBouquetsMaker] Search NIM for orbital position %d" % transponder["orbital_position"]
+			print>>log, "[ABM-main][doTune] Search NIM for orbital position %d" % transponder["orbital_position"]
 		else:
-			print>>log, "[AutoBouquetsMaker] Search NIM"
+			print>>log, "[ABM-main][doTune] Search NIM"
 
 		# stop pip if running
 		if self.session.pipshown:
 			self.session.pipshown = False
 			del self.session.pip
-			print>>log, "[AutoBouquetsMaker] Stopping PIP."
+			print>>log, "[ABM-main][doTune] Stopping PIP."
 
 		# stop currently playing service if it is using a tuner in ("loopthrough", "satposdepends")
 		currentlyPlayingNIM = None
@@ -292,7 +292,7 @@ class AutoBouquetsMaker(Screen):
 					self.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
 					self.session.nav.stopService()
 					currentlyPlayingNIM = None
-					print>>log, "[AutoBouquetsMaker] The active service was using a %s tuner, so had to be stopped (slot id %s)." % (nimConfigMode, currentlyPlayingNIM)
+					print>>log, "[ABM-main][doTune] The active service was using a %s tuner, so had to be stopped (slot id %s)." % (nimConfigMode, currentlyPlayingNIM)
 		del frontendInfo
 		del currentService
 
@@ -314,7 +314,7 @@ class AutoBouquetsMaker(Screen):
 
 						self.rawchannel = resmanager.allocateRawChannel(slotid)
 						if self.rawchannel:
-							print>>log, "[AutoBouquetsMaker] Nim found on slot id %d with sat %s" % (slotid, sat[1])
+							print>>log, "[ABM-main][doTune] Nim found on slot id %d with sat %s" % (slotid, sat[1])
 							current_slotid = slotid
 						break
 			else:
@@ -322,7 +322,7 @@ class AutoBouquetsMaker(Screen):
 					current_slotid = slotid
 				self.rawchannel = resmanager.allocateRawChannel(slotid)
 				if self.rawchannel:
- 					print>>log, "[AutoBouquetsMaker] Nim found on slot id %d" % (slotid)
+ 					print>>log, "[ABM-main][doTune] Nim found on slot id %d" % (slotid)
 					current_slotid = slotid
 					break
 
@@ -330,7 +330,7 @@ class AutoBouquetsMaker(Screen):
 				break
 
 		if current_slotid == -1:
-			print>>log, "[AutoBouquetsMaker] No valid NIM found"
+			print>>log, "[ABM-main][doTune] No valid NIM found"
 			self.showError(_('No valid NIM found for ') + self.providers[self.currentAction]["name"])
 			return
 
@@ -342,50 +342,50 @@ class AutoBouquetsMaker(Screen):
 					sats = nimmanager.getSatListForNim(slotid)
 					for sat in sats:
 						if sat[0] == transponder["orbital_position"]:
-							print>>log, "[AutoBouquetsMaker] Nim found on slot id %d but it's busy. Stopping active service" % slotid
+							print>>log, "[ABM-main][doTune] Nim found on slot id %d but it's busy. Stopping active service" % slotid
 							self.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
 							self.session.nav.stopService()
 							self.rawchannel = resmanager.allocateRawChannel(slotid)
 							if self.rawchannel:
-								print>>log, "[AutoBouquetsMaker] The active service was stopped, and the NIM is now free to use."
+								print>>log, "[ABM-main][doTune] The active service was stopped, and the NIM is now free to use."
 								current_slotid = slotid
 							break
 				else:
-					print>>log, "[AutoBouquetsMaker] Nim found on slot id %d but it's busy. Stopping active service" % slotid
+					print>>log, "[ABM-main][doTune] Nim found on slot id %d but it's busy. Stopping active service" % slotid
 					self.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
 					self.session.nav.stopService()
 					self.rawchannel = resmanager.allocateRawChannel(slotid)
 					if self.rawchannel:
-						print>>log, "[AutoBouquetsMaker] The active service was stopped, and the NIM is now free to use."
+						print>>log, "[ABM-main][doTune] The active service was stopped, and the NIM is now free to use."
 						current_slotid = slotid
 
 			if not self.rawchannel:
 				if self.session.nav.RecordTimer.isRecording():
-					print>>log, "[AutoBouquetsMaker] Cannot free NIM because a record is in progress"
+					print>>log, "[ABM-main][doTune] Cannot free NIM because a recording is in progress"
 					self.showError(_('Cannot free NIM because a recording is in progress'))
 					return
 				else:
-					print>>log, "[AutoBouquetsMaker] Cannot get the NIM"
+					print>>log, "[ABM-main][doTune] Cannot get the NIM"
 					self.showError(_('Cannot get the NIM'))
 					return
 
 		# set extended timeout for rotors
 		if self.providers[self.currentAction]["streamtype"] == "dvbs" and self.isRotorSat(current_slotid, transponder["orbital_position"]):
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_ROTOR
-			print>>log, "[AutoBouquetsMaker] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10)
+			print>>log, "[ABM-main][doTune] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10)
 		else:
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_FIXED
-			print>>log, "[AutoBouquetsMaker] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10)
+			print>>log, "[ABM-main][doTune] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10)
 
 		self.frontend = self.rawchannel.getFrontend()
 		if not self.frontend:
-			print>>log, "[AutoBouquetsMaker] Cannot get frontend"
+			print>>log, "[ABM-main][doTune] Cannot get frontend"
 			self.showError(_('Cannot get frontend'))
 			return
 
 		demuxer_id = self.rawchannel.reserveDemux()
 		if demuxer_id < 0:
-			print>>log, "[AutoBouquetsMaker] Cannot allocate the demuxer"
+			print>>log, "[ABM-main][doTune] Cannot allocate the demuxer"
 			self.showError(_('Cannot allocate the demuxer'))
 			return
 
@@ -450,9 +450,9 @@ class AutoBouquetsMaker(Screen):
 		dict = {}
 		self.frontend.getFrontendStatus(dict)
 		if dict["tuner_state"] == "TUNING":
-			print>>log, "[AutoBouquetsMaker] TUNING"
+			print>>log, "[ABM-main][checkTunerLock] TUNING"
 		elif dict["tuner_state"] == "LOCKED":
-			print>>log, "[AutoBouquetsMaker] ACQUIRING TSID/ONID"
+			print>>log, "[ABM-main][checkTunerLock] ACQUIRING TSID/ONID"
 			self.progresscurrent += 1
 			if not inStandby:
 				self["progress_text"].value = self.progresscurrent
@@ -464,9 +464,9 @@ class AutoBouquetsMaker(Screen):
 			self.timer.start(100, 1)
 			return
 		elif dict["tuner_state"] == "LOSTLOCK":
-			print>>log, "[AutoBouquetsMaker] LOSTLOCK"
+			print>>log, "[ABM-main][checkTunerLock] LOSTLOCK"
 		elif dict["tuner_state"] == "FAILED":
-			print>>log, "[AutoBouquetsMaker] TUNING FAILED FATAL"
+			print>>log, "[ABM-main][checkTunerLock] TUNING FAILED FATAL"
 			self.showError(_('Tuning failed fatal'))
 			return
 
@@ -480,7 +480,7 @@ class AutoBouquetsMaker(Screen):
 
 	# for compatibility with some third party images
 	def gotTsidOnid(self, tsid, onid):
-		print>>log, "[AutoBouquetsMaker] got tsid, onid:", tsid, onid
+		print>>log, "[ABM-main][gotTsidOnid] tsid, onid:", tsid, onid
 
 		INTERNAL_PID_STATUS_NOOP = 0
 		INTERNAL_PID_STATUS_WAITING = 1
@@ -499,7 +499,7 @@ class AutoBouquetsMaker(Screen):
 
 	def doScan(self):
 		if not self.manager.read(self.selectedProviders[self.currentAction], self.providers):
-			print>>log, "[AutoBouquetsMaker] Cannot read data"
+			print>>log, "[ABM-main][doScan] Cannot read data"
 			self.showError(_('Cannot read data'))
 			return
 		self.doActions()
@@ -589,13 +589,13 @@ def AutoBouquetsMakerautostart(reason, session=None, **kwargs):
 	global _session
 	now = int(time())
 	if reason == 0:
-		print>>log, "[AutoBouquetsMaker] AutoStart Enabled"
+		print>>log, "[ABM-main][AutoBouquetsMakerautostart] AutoStart Enabled"
 		if session is not None:
 			_session = session
 			if autoAutoBouquetsMakerTimer is None:
 				autoAutoBouquetsMakerTimer = AutoAutoBouquetsMakerTimer(session)
 	else:
-		print>>log, "[AutoBouquetsMaker] Stop"
+		print>>log, "[ABM-main][AutoBouquetsMakerautostart] Stop"
 		autoAutoBouquetsMakerTimer.stop()
 
 class AutoAutoBouquetsMakerTimer:
@@ -609,16 +609,16 @@ class AutoAutoBouquetsMakerTimer:
 		now = int(time())
 		global AutoBouquetsMakerTime
 		if config.autobouquetsmaker.schedule.value:
-			print>>log, "[AutoBouquetsMaker] AutoBouquetsMaker Schedule Enabled at ", strftime("%c", localtime(now))
+			print>>log, "[ABM-main][AutoAutoBouquetsMakerTimer] Schedule Enabled at ", strftime("%c", localtime(now))
 			if now > 1262304000:
 				self.autobouquetsmakerdate()
 			else:
-				print>>log, "[AutoBouquetsMaker] AutoBouquetsMaker Time not yet set."
+				print>>log, "[ABM-main][AutoAutoBouquetsMakerTimer] Time not yet set."
 				AutoBouquetsMakerTime = 0
 				self.autobouquetsmakeractivityTimer.start(36000)
 		else:
 			AutoBouquetsMakerTime = 0
-			print>>log, "[AutoBouquetsMaker] AutoBouquetsMaker Schedule Disabled at", strftime("%c", localtime(now))
+			print>>log, "[ABM-main][AutoAutoBouquetsMakerTimer] Schedule Disabled at", strftime("%c", localtime(now))
 			self.autobouquetsmakeractivityTimer.stop()
 
 		assert AutoAutoBouquetsMakerTimer.instance is None, "class AutoAutoBouquetsMakerTimer is a singleton class and just one instance of this class is allowed!"
@@ -660,7 +660,7 @@ class AutoAutoBouquetsMakerTimer:
 			self.autobouquetsmakertimer.startLongTimer(next)
 		else:
 			AutoBouquetsMakerTime = -1
-		print>>log, "[AutoBouquetsMaker] AutoBouquetsMaker Time set to", strftime("%c", localtime(AutoBouquetsMakerTime)), strftime("(now=%c)", localtime(now))
+		print>>log, "[ABM-main][autobouquetsmakerdate] Time set to", strftime("%c", localtime(AutoBouquetsMakerTime)), strftime("(now=%c)", localtime(now))
 		return AutoBouquetsMakerTime
 
 	def backupstop(self):
@@ -674,7 +674,7 @@ class AutoAutoBouquetsMakerTimer:
 		atLeast = 0
 		if wake - now < 60:
 			atLeast = 60
-			print>>log, "[AutoBouquetsMaker] AutoBouquetsMaker onTimer occured at", strftime("%c", localtime(now))
+			print>>log, "[ABM-main][AutoBouquetsMakeronTimer] onTimer occured at", strftime("%c", localtime(now))
 			from Screens.Standby import inStandby
 			if not inStandby:
 				message = _("Your bouquets are about to be updated,\nDo you want to allow this?")
@@ -688,23 +688,23 @@ class AutoAutoBouquetsMakerTimer:
 		now = int(time())
 		if answer is False:
 			if config.autobouquetsmaker.retrycount.value < 2:
-				print>>log, "[AutoBouquetsMaker] AutoBouquetsMaker delayed."
+				print>>log, "[ABM-main][doAutoBouquetsMaker] AutoBouquetsMaker delayed."
 				repeat = config.autobouquetsmaker.retrycount.value
 				repeat += 1
 				config.autobouquetsmaker.retrycount.value = repeat
 				AutoBouquetsMakerTime = now + (int(config.autobouquetsmaker.retry.value) * 60)
-				print>>log, "[AutoBouquetsMaker] AutoBouquetsMaker Time now set to", strftime("%c", localtime(AutoBouquetsMakerTime)), strftime("(now=%c)", localtime(now))
+				print>>log, "[ABM-main][doAutoBouquetsMaker] Time now set to", strftime("%c", localtime(AutoBouquetsMakerTime)), strftime("(now=%c)", localtime(now))
 				self.autobouquetsmakertimer.startLongTimer(int(config.autobouquetsmaker.retry.value) * 60)
 			else:
 				atLeast = 60
-				print>>log, "[AutoBouquetsMaker] Enough Retries, delaying till next schedule.", strftime("%c", localtime(now))
+				print>>log, "[ABM-main][doAutoBouquetsMaker] Enough Retries, delaying till next schedule.", strftime("%c", localtime(now))
 				self.session.open(MessageBox, _("Enough Retries, delaying till next schedule."), MessageBox.TYPE_INFO, timeout = 10)
 				config.autobouquetsmaker.retrycount.value = 0
 				self.autobouquetsmakerdate(atLeast)
 		else:
 			self.timer = eTimer()
 			self.timer.callback.append(self.doautostartscan)
-			print>>log, "[AutoBouquetsMaker] Running AutoBouquetsMaker", strftime("%c", localtime(now))
+			print>>log, "[ABM-main][doAutoBouquetsMaker] Running AutoBouquetsMaker", strftime("%c", localtime(now))
 			self.timer.start(100, 1)
 
 	def doautostartscan(self):
@@ -714,13 +714,13 @@ class AutoAutoBouquetsMakerTimer:
 		now = int(time())
 		if config.autobouquetsmaker.schedule.value:
 			if autoAutoBouquetsMakerTimer is not None:
-				print>>log, "[AutoBouquetsMaker] AutoBouquetsMaker Schedule Enabled at", strftime("%c", localtime(now))
+				print>>log, "[ABM-main][doneConfiguring] Schedule Enabled at", strftime("%c", localtime(now))
 				autoAutoBouquetsMakerTimer.autobouquetsmakerdate()
 		else:
 			if autoAutoBouquetsMakerTimer is not None:
 				global AutoBouquetsMakerTime
 				AutoBouquetsMakerTime = 0
-				print>>log, "[AutoBouquetsMaker] AutoBouquetsMaker Schedule Disabled at", strftime("%c", localtime(now))
+				print>>log, "[ABM-main][doneConfiguring] Schedule Disabled at", strftime("%c", localtime(now))
 				autoAutoBouquetsMakerTimer.backupstop()
 		if AutoBouquetsMakerTime > 0:
 			t = localtime(AutoBouquetsMakerTime)

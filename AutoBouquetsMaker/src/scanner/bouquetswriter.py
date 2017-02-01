@@ -13,7 +13,7 @@ class BouquetsWriter():
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
 
 	def writeLamedb(self, path, transponders):
-		print>>log, "[BouquetsWriter] Writing lamedb..."
+		print>>log, "[ABM-BouquetsWriter] Writing lamedb..."
 
 		transponders_count = 0
 		services_count = 0
@@ -125,10 +125,10 @@ class BouquetsWriter():
 		lamedb.close()
 		del lamedblist
 
-		print>>log, "[BouquetsWriter] Wrote %d transponders and %d services" % (transponders_count, services_count)
+		print>>log, "[ABM-BouquetsWriter] Wrote %d transponders and %d services" % (transponders_count, services_count)
 
 	def writeLamedb5(self, path, transponders):
-		print>>log, "[BouquetsWriter] Writing lamedb V5..."
+		print>>log, "[ABM-BouquetsWriter] Writing lamedb V5..."
 
 		transponders_count = 0
 		services_count = 0
@@ -245,15 +245,15 @@ class BouquetsWriter():
 		lamedb.close()
 		del lamedblist
 
-		print>>log, "[BouquetsWriter] Wrote %d transponders and %d services" % (transponders_count, services_count)
+		print>>log, "[ABM-BouquetsWriter] Wrote %d transponders and %d services" % (transponders_count, services_count)
 
 	def makeCustomSeparator(self, path, filename, max_count):
-		print>>log, "[BouquetsWriter] Make custom seperator for %s in main bouquet..." % filename
+		print>>log, "[ABM-BouquetsWriter] Make custom seperator for %s in main bouquet..." % filename
 
 		try:
 			bouquet_in = open(path + "/" + filename, "r")
 		except Exception, e:
-			print>>log, "[BouquetsWriter]", e
+			print>>log, "[ABM-BouquetsWriter] ", e
 			return
 
 		content = bouquet_in.read()
@@ -263,7 +263,7 @@ class BouquetsWriter():
 		try:
 			bouquet_out = open(path + seperator_name, "w")
 		except Exception, e:
-			print>>log, "[BouquetsWriter]", e
+			print>>log, "[ABM-BouquetsWriter] ", e
 			return
 
 		rows = content.split("\n")
@@ -284,7 +284,7 @@ class BouquetsWriter():
 
 			#bouquet_out_list.append(row + "\n")
 
-		print>>log, "[BouquetsWriter] Custom seperator name: %s" % name
+		print>>log, "[ABM-BouquetsWriter] Custom seperator name: %s" % name
 
 		bouquet_out_list = []
 
@@ -301,7 +301,7 @@ class BouquetsWriter():
 		bouquet_out.close()
 		del bouquet_out_list
 
-		print>>log, "[BouquetsWriter] Custom seperator made. %s" % seperator_name
+		print>>log, "[ABM-BouquetsWriter] Custom seperator made. %s" % seperator_name
 
 	def containServices(self, path, filename):
 		try:
@@ -326,7 +326,7 @@ class BouquetsWriter():
 			return False
 
 	def buildBouquetsIndex(self, path, bouquetsOrder, providers, bouquetsToKeep, currentBouquets, bouquets_to_hide, provider_configs):
-		print>>log, "[BouquetsWriter] Writing bouquets index..."
+		print>>log, "[ABM-BouquetsWriter] Writing bouquets index..."
 
 		bouquets_tv = open(path + "/bouquets.tv", "w")
 		bouquets_tv_list = []
@@ -453,9 +453,9 @@ class BouquetsWriter():
 				try:
 					os.remove(path + "/" + filename)
 				except Exception, e:
-					print>>log, "[BouquetsWriter] Cannot delete %s: %s" % (filename, e)
+					print>>log, "[ABM-BouquetsWriter] Cannot delete %s: %s" % (filename, e)
 					continue
-		print>>log, "[BouquetsWriter] Done"
+		print>>log, "[ABM-BouquetsWriter] Done"
 
 	def buildLastScannedBouquet(self, path, services):
 		last_scanned_bouquet_list = ["#NAME " + _("Last Scanned") + "\n"]
@@ -493,7 +493,7 @@ class BouquetsWriter():
 			))
 			if "interactive_name" in service:
 				last_scanned_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(service["interactive_name"]))
-		print>>log, "[BouquetsWriter] Writing Last Scanned bouquet..."
+		print>>log, "[ABM-BouquetsWriter] Writing Last Scanned bouquet..."
 		bouquet_current = open(path + "/userbouquet.LastScanned.tv", "w")
 		bouquet_current.write(''.join(last_scanned_bouquet_list))
 		bouquet_current.close()
@@ -517,7 +517,7 @@ class BouquetsWriter():
 
 			del(services["video"][number])
 
-		print>>log, "[BouquetsWriter] Writing %s bouquet..." % section_identifier
+		print>>log, "[ABM-BouquetsWriter] Writing %s bouquet..." % section_identifier
 
 		force_keep_numbers = False
 
@@ -945,7 +945,7 @@ class BouquetsWriter():
 		bouquet_current.close()
 		del current_bouquet_list
 
-		print>>log, "[BouquetsWriter] Done"
+		print>>log, "[ABM-BouquetsWriter] Done"
 
 	def utf8_convert(self, text):
 		for encoding in ["utf8","latin-1"]:

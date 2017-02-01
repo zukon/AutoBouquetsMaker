@@ -55,10 +55,10 @@ class Manager():
 		return self.serviceAudioRead
 
 	def load(self):
-		print>>log, "[Manager] Loading settings..."
+		print>>log, "[ABM-Manager][load] Loading settings..."
 		reader = BouquetsReader()
 		self.transponders = reader.readLamedb(self.path)
-		print>>log, "[Manager] Settings loaded"
+		print>>log, "[ABM-Manager][load] Settings loaded"
 
 	def save(self, providers, dependent_providers = {}):
 		#merge dependent providers
@@ -70,7 +70,7 @@ class Manager():
 							for number in self.services[dependent_key][type]:
 								self.services[provider_key][type][number] = self.services[dependent_key][type][number]
 
-		print>>log, "[Manager] Saving..."
+		print>>log, "[ABM-Manager][save] Saving..."
 
 		old_bouquets = BouquetsReader().getBouquetsList(self.path)
 		if "tv" not in old_bouquets:
@@ -89,14 +89,14 @@ class Manager():
 		if "radio" not in self.bouquetsToKeep:
 			self.bouquetsToKeep["radio"] = []
 
-		print>>log, "[Manager] Bouquets to hide:", self.bouquetsToHide
-		print>>log, "[Manager] TV bouquets to keep:", self.bouquetsToKeep["tv"]
-		print>>log, "[Manager] Radio bouquets to keep:", self.bouquetsToKeep["radio"]
-		#print>>log, "[Manager] Generate main bouquet:", str(self.makemain)
-		#print>>log, "[Manager] Generate sections bouquets:", str(self.makesections)
-		#print>>log, "[Manager] Generate HD bouquet:", str(self.makehd)
-		#print>>log, "[Manager] Generate FTA bouquet:", str(self.makefta)
-		print>>log, "[Manager] Add provider prefix to bouqets:", str(self.addprefix)
+		print>>log, "[ABM-Manager][save] Bouquets to hide:", self.bouquetsToHide
+		print>>log, "[ABM-Manager][save] TV bouquets to keep:", self.bouquetsToKeep["tv"]
+		print>>log, "[ABM-Manager][save] Radio bouquets to keep:", self.bouquetsToKeep["radio"]
+		#print>>log, "[ABM-Manager][save] Generate main bouquet:", str(self.makemain)
+		#print>>log, "[ABM-Manager][save] Generate sections bouquets:", str(self.makesections)
+		#print>>log, "[ABM-Manager][save] Generate HD bouquet:", str(self.makehd)
+		#print>>log, "[ABM-Manager][save] Generate FTA bouquet:", str(self.makefta)
+		print>>log, "[ABM-Manager][save] Add provider prefix to bouqets:", str(self.addprefix)
 
 		writer = BouquetsWriter()
 		writer.writeLamedb(self.path, self.transponders)
@@ -186,7 +186,7 @@ class Manager():
 				self.bouquetsToKeep, currentBouquets, self.bouquetsToHide,
 				self.providerConfigs)
 
-		print>>log, "[Manager] write bouquets, Done"
+		print>>log, "[ABM-Manager][save] write bouquets, Done"
 
 	def read(self, provider_config, providers):
 		ret = False
@@ -194,9 +194,9 @@ class Manager():
 		bouquet_key = provider_config.getArea()
 
 		if bouquet_key is not None and len(bouquet_key) > 0:
-			print>>log, "[Manager] Reading %s (%s)..." % (provider_key, bouquet_key)
+			print>>log, "[ABM-Manager][read] Reading %s (%s)..." % (provider_key, bouquet_key)
 		else:
-			print>>log, "[Manager] Reading %s..." % provider_key
+			print>>log, "[ABM-Manager][read] Reading %s..." % provider_key
 
 		# read custom transponder
 		customtransponders = {}
@@ -296,14 +296,14 @@ class Manager():
 					self.serviceAudioRead += len(self.services[provider_key]["radio"].keys())
 
 				else:
-					print>>log, "[Manager] Unsupported protocol %s" % providers[provider_key]["protocol"]
+					print>>log, "[ABM-Manager][read] Unsupported protocol %s" % providers[provider_key]["protocol"]
 					ret = False
 
 				if provider_key not in self.bouquetsOrder:
 					if provider_key in config.autobouquetsmaker.providers.value: # not a descendent provider
 						self.bouquetsOrder.append(provider_key)
 
-		print>>log, "[Manager] read %s, Done" % provider_key
+		print>>log, "[ABM-Manager][read] %s, Done" % provider_key
 		return ret
 
 	def getBouquetsList(self):

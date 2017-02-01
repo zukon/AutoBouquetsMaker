@@ -59,8 +59,8 @@ class AutoBouquetsMaker_Menu(Screen):
 		self.init_keepallbouquets = config.autobouquetsmaker.keepallbouquets.getValue()
 		self.init_schedule = config.autobouquetsmaker.schedule.getValue()
 		self.init_scheduletime = config.autobouquetsmaker.scheduletime.getValue()
-		print 'self.init_schedule',self.init_schedule
-		print 'self.init_scheduletime',self.init_scheduletime
+		print '[ABM-menu][__init__] self.init_schedule',self.init_schedule
+		print '[ABM-menu][__init__] self.init_scheduletime',self.init_scheduletime
 
 		self.onChangedEntry = [ ]
 		l = []

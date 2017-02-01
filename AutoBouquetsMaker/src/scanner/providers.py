@@ -11,13 +11,13 @@ class Providers():
 		try:
 			provider = open(filename, "r")
 		except Exception, e:
-			print>>log, "[Providers] Cannot open %s: %s" % (filename, e)
+			print>>log, "[ABM-Providers][parseXML] Cannot open %s: %s" % (filename, e)
 			return None
 
 		try:
 			dom = xml.dom.minidom.parse(provider)
 		except Exception, e:
-			print>>log, "[Providers] XML parse error (%s): %s" % (filename, e)
+			print>>log, "[ABM-Providers][parseXML] XML parse error (%s): %s" % (filename, e)
 			provider.close()
 			return None
 
@@ -274,15 +274,11 @@ class Providers():
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
 									configuration["name"] = node2.childNodes[0].data
 
-								# print 'PPPP:',len(configuration.keys())
 								if len(configuration.keys()) == 12:
 									provider["bouquets"][configuration["key"]] = configuration
 
-						# print 'OOO:',len(transponder.keys())
 						if len(transponder.keys()) == 8:
 							provider["transponder"] = transponder
-						# print 'provider["bouquets"]',provider["bouquets"]
-
 
 					elif node.tagName == "sections":
 						provider["sections"] = {}
@@ -372,7 +368,7 @@ class Providers():
 					and "transponder" in provider
 					and "servicehacks" in provider):
 
-				print>>log, "[Providers] Incomplete XML %s" % filename
+				print>>log, "[ABM-Providers][read] Incomplete XML %s" % filename
 				continue
 
 			providers[provider["key"]] = provider

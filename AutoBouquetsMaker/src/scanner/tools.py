@@ -9,13 +9,13 @@ class Tools():
 		try:
 			tool = open(filename, "r")
 		except Exception, e:
-			#print>>log, "[Tools] Cannot open %s: %s" % (filename, e)
+			#print>>log, "[ABM-Tools][parseXML] Cannot open %s: %s" % (filename, e)
 			return None
 
 		try:
 			dom = xml.dom.minidom.parse(tool)
 		except Exception, e:
-			print>>log, "[Tools] XML parse error (%s): %s" % (filename, e)
+			print>>log, "[ABM-Tools][parseXML] XML parse error (%s): %s" % (filename, e)
 			tool.close()
 			return None
 
@@ -56,7 +56,7 @@ class Tools():
 			customfile = custom_dir + "/" + ("sd" if current_bouquet_key.startswith('sd') else "hd") + "_" + section_identifier + "_Custom" + ("radio" if type == "radio" else "") + "LCN.xml"
 			dom = self.parseXML(customfile)
 			if dom is None:
-				print>>log, "[Tools] No custom " + type + " LCN file for " + section_identifier + "."
+				print>>log, "[ABM-Tools][customLCN] No custom " + type + " LCN file for " + section_identifier + "."
 			elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "custom":
 				customlcndict = {}
 				sort_order = [] # to process this file top down
@@ -113,7 +113,7 @@ class Tools():
 						temp_services[lastlcn + 1] = extra_services[number]
 						lastlcn += 1
 						newservices.append(number)
-					print>>log, "[Tools] New " + type + " services %s" % (str(newservices))
+					print>>log, "[ABM-Tools][customLCN] New " + type + " services %s" % (str(newservices))
 
 				services[type] = temp_services
 
@@ -142,7 +142,7 @@ class Tools():
 		hacks = ""
 		dom = self.parseXML(customfile)
 		if dom is None:
-			print>>log, "[Tools] No CustomMix file for " + section_identifier + "."
+			print>>log, "[ABM-Tools][customMix] No CustomMix file for " + section_identifier + "."
 		elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "custommix":
 			for node in dom.documentElement.childNodes:
 				if node.nodeType != node.ELEMENT_NODE:
@@ -203,11 +203,11 @@ class Tools():
 		providers_dir = os.path.dirname(__file__) + "/../providers"
 
 		# Read custom file
-		print>>log, "[Tools] Transponder provider name", provider_key
+		print>>log, "[ABM-Tools][customtransponder] Transponder provider name", provider_key
 		providerfile = providers_dir + "/" + provider_key + ".xml"
 		dom = self.parseXML(providerfile)
 		if dom is None:
-			print>>log, "[Tools] Cannot read custom transponders from provider file."
+			print>>log, "[ABM-Tools][customtransponder] Cannot read custom transponders from provider file."
 		elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "provider":
 			for node in dom.documentElement.childNodes:
 				if node.nodeType != node.ELEMENT_NODE:
@@ -264,7 +264,7 @@ class Tools():
 							if "key" in customtransponder and customtransponder["key"] == bouquet_key and "transport_stream_id" in customtransponder and "frequency" in customtransponder:
 								customtransponders.append(customtransponder)
 			if len(customtransponders) > 0:
-				print>>log, "[Tools] %d custom transponders found for that region." % len(customtransponders)
+				print>>log, "[ABM-Tools][customtransponder] %d custom transponders found for that region." % len(customtransponders)
 		return customtransponders
 
 	def favourites(self, path, services, providers, providerConfigs, bouquetsOrder):
@@ -286,7 +286,7 @@ class Tools():
 		# Read favourites file
 		dom = self.parseXML(custom_dir + "/favourites.xml")
 		if dom is None:
-			print>>log, "[Tools] No favorite.xml file"
+			print>>log, "[ABM-Tools][favourites] No favorite.xml file"
 		elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "favourites":
 			for node in dom.documentElement.childNodes:
 				if node.nodeType != node.ELEMENT_NODE:
@@ -378,7 +378,7 @@ class Tools():
 				from bouquetswriter import BouquetsWriter
 				BouquetsWriter().buildBouquets(path, providerConfigs[provider_key], services[provider_key], sections, provider_key, swaprules, channels_on_top, bouquets_to_hide, prefix)
 			else:
-				print>>log, "[Tools] Favourites list is zero length."
+				print>>log, "[ABM-Tools][favourites] Favourites list is zero length."
 
 	def clearsections(self, services, sections, bouquettype, servicetype):
 		# bouquettype = HD, FTAHD, FTA, ALL

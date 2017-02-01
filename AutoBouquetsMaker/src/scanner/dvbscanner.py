@@ -62,64 +62,64 @@ class DvbScanner():
 	def setAdapter(self, id):
 		self.adapter = id
 		self.demuxer_device = "/dev/dvb/adapter%d/demux%d" % (self.adapter, self.demuxer)
-		print>>log, "[DvbScanner] Adapter %d" % self.adapter
+		print>>log, "[ABM-DvbScanner] Adapter %d" % self.adapter
 
 	def setDemuxer(self, id):
 		self.demuxer = id
 		self.demuxer_device = "/dev/dvb/adapter%d/demux%d" % (self.adapter, self.demuxer)
-		print>>log, "[DvbScanner] Demuxer %d" % self.demuxer
+		print>>log, "[ABM-DvbScanner] Demuxer %d" % self.demuxer
 
 	def setFrontend(self, id):
 		self.frontend = id
-		print>>log, "[DvbScanner] Frontend %d" % self.frontend
+		print>>log, "[ABM-DvbScanner] Frontend %d" % self.frontend
 
 	def setDVBType(self, id):
 		self.dvbtype = id
-		print>>log, "[DvbScanner] DVBType %s" % self.dvbtype
+		print>>log, "[ABM-DvbScanner] DVBType %s" % self.dvbtype
 
 	def setNitPid(self, value):
 		self.nit_pid = value
-		print>>log, "[DvbScanner] NIT pid: 0x%x" % self.nit_pid
+		print>>log, "[ABM-DvbScanner] NIT pid: 0x%x" % self.nit_pid
 
 	def setNitCurrentTableId(self, value):
 		self.nit_current_table_id = value
-		print>>log, "[DvbScanner] NIT current table id: 0x%x" % self.nit_current_table_id
+		print>>log, "[ABM-DvbScanner] NIT current table id: 0x%x" % self.nit_current_table_id
 
 	def setNitOtherTableId(self, value):
 		self.nit_other_table_id = value
-		print>>log, "[DvbScanner] NIT other table id: 0x%x" % self.nit_other_table_id
+		print>>log, "[ABM-DvbScanner] NIT other table id: 0x%x" % self.nit_other_table_id
 
 	def setSdtPid(self, value):
 		self.sdt_pid = value
-		print>>log, "[DvbScanner] SDT pid: 0x%x" % self.sdt_pid
+		print>>log, "[ABM-DvbScanner] SDT pid: 0x%x" % self.sdt_pid
 
 	def setSdtCurrentTableId(self, value):
 		self.sdt_current_table_id = value
-		print>>log, "[DvbScanner] SDT current table id: 0x%x" % self.sdt_current_table_id
+		print>>log, "[ABM-DvbScanner] SDT current table id: 0x%x" % self.sdt_current_table_id
 
 	def setSdtOtherTableId(self, value):
 		self.sdt_other_table_id = value
-		print>>log, "[DvbScanner] SDT other table id: 0x%x" % self.sdt_other_table_id
+		print>>log, "[ABM-DvbScanner] SDT other table id: 0x%x" % self.sdt_other_table_id
 
 	def setBatPid(self, value):
 		self.bat_pid = value
-		print>>log, "[DvbScanner] BAT pid: 0x%x" % self.bat_pid
+		print>>log, "[ABM-DvbScanner] BAT pid: 0x%x" % self.bat_pid
 
 	def setBatTableId(self, value):
 		self.bat_table_id = value
-		print>>log, "[DvbScanner] BAT table id: 0x%x" % self.bat_table_id
+		print>>log, "[ABM-DvbScanner] BAT table id: 0x%x" % self.bat_table_id
 
 	def setFastscanPid(self, value):
 		self.fastscan_pid = value
-		print>>log, "[DvbScanner] Fastscan pid: 0x%x" % self.fastscan_pid
+		print>>log, "[ABM-DvbScanner] Fastscan pid: 0x%x" % self.fastscan_pid
 
 	def setFastscanTableId(self, value):
 		self.fastscan_table_id = value
-		print>>log, "[DvbScanner] Fastscan table id: 0x%x" % self.fastscan_table_id
+		print>>log, "[ABM-DvbScanner] Fastscan table id: 0x%x" % self.fastscan_table_id
 
 	def setVisibleServiceFlagIgnore(self, value):
 		self.ignore_visible_service_flag = value
-		print>>log, "[DvbScanner] Ignore visible service flag: %d" % self.ignore_visible_service_flag
+		print>>log, "[ABM-DvbScanner] Ignore visible service flag: %d" % self.ignore_visible_service_flag
 
 	def buildNamespace(self, transponder):
 		orbital_position = transponder['orbital_position']
@@ -132,7 +132,7 @@ class DvbScanner():
 		return namespace
 
 	def updateTransponders(self, transponders, read_other_section = False, customtransponders = {}, netid = None, bouquettype = None, bouquet_id = -1):
-		print>>log, "[DvbScanner] Reading transponders..."
+		print>>log, "[ABM-DvbScanner] Reading transponders..."
 
 		if self.nit_other_table_id == 0x00:
 			mask = 0xff
@@ -141,12 +141,12 @@ class DvbScanner():
 
 		fd = dvbreader.open(self.demuxer_device, self.nit_pid, self.nit_current_table_id, mask, self.frontend)
 		if fd < 0:
-			print>>log, "[DvbScanner] Cannot open the demuxer"
-			print>>log, "[DvbScanner] demuxer_device", str(self.demuxer_device)
-			print>>log, "[DvbScanner] nit_pid", str(self.nit_pid)
-			print>>log, "[DvbScanner] nit_current_table_id", str(self.nit_current_table_id)
-			print>>log, "[DvbScanner] mask", str(mask)
-			print>>log, "[DvbScanner] frontend", str(self.frontend)
+			print>>log, "[ABM-DvbScanner] Cannot open the demuxer"
+			print>>log, "[ABM-DvbScanner] demuxer_device", str(self.demuxer_device)
+			print>>log, "[ABM-DvbScanner] nit_pid", str(self.nit_pid)
+			print>>log, "[ABM-DvbScanner] nit_current_table_id", str(self.nit_current_table_id)
+			print>>log, "[ABM-DvbScanner] mask", str(mask)
+			print>>log, "[ABM-DvbScanner] frontend", str(self.frontend)
 			return None
 
 		nit_current_section_version = -1
@@ -167,9 +167,9 @@ class DvbScanner():
 		timeout += datetime.timedelta(0, self.TIMEOUT_SEC)
 		while True:
 			if datetime.datetime.now() > timeout:
-				print>>log, "[DvbScanner] Timed out reading NIT"
+				print>>log, "[ABM-DvbScanner] Timed out reading NIT"
 				if self.nit_other_table_id != 0x00:
-					print>>log, "[DvbScanner] No nit_other found - set nit_other_table_id=\"0x00\" for faster scanning?"
+					print>>log, "[ABM-DvbScanner] No nit_other found - set nit_other_table_id=\"0x00\" for faster scanning?"
 				break
 
 			section = dvbreader.read_nit(fd, self.nit_current_table_id, self.nit_other_table_id)
@@ -178,7 +178,7 @@ class DvbScanner():
 				continue
 
 			if self.extra_debug:
-				print "NIT raw section", section
+				print "[ABM-DvbScanner] NIT raw section", section
 
 			if (section["header"]["table_id"] == self.nit_current_table_id
 				and self.dvbtype != 'dvbc' and not nit_current_completed):
@@ -234,7 +234,7 @@ class DvbScanner():
 							nit_other_completed[network_id] = True
 
 			if nit_current_completed and all_nit_others_completed:
-				print>>log, "[DvbScanner] Scan complete, netid: ", str(netid)
+				print>>log, "[ABM-DvbScanner] Scan complete, netid: ", str(netid)
 				break
 
 		dvbreader.close(fd)
@@ -252,7 +252,7 @@ class DvbScanner():
 
 		for transponder in nit_content:
 			if self.extra_debug:
-				print "NIT content", transponder
+				print "[ABM-DvbScanner] NIT content", transponder
 			if "descriptor_tag" in transponder and transponder["descriptor_tag"] == 0x41: # service
 				key = "%x:%x:%x" % (transponder["transport_stream_id"], transponder["original_network_id"], transponder["service_id"])
 				service_dict_tmp[key] = transponder
@@ -359,12 +359,12 @@ class DvbScanner():
 				self.namespace_dict[namespace_key] = transponder["namespace"]
 
 			if self.extra_debug:
-				print "transponder", transponder
+				print "[ABM-DvbScanner] transponder", transponder
 
 		if read_other_section and len(nit_other_completed):
-			print>>log, "[DvbScanner] Added/Updated %d transponders with network_id = 0x%x and other network_ids = %s" % (transponders_count, nit_current_section_network_id, ','.join(map(hex, nit_other_completed.keys())))
+			print>>log, "[ABM-DvbScanner] Added/Updated %d transponders with network_id = 0x%x and other network_ids = %s" % (transponders_count, nit_current_section_network_id, ','.join(map(hex, nit_other_completed.keys())))
 		else:
-			print>>log, "[DvbScanner] Added/Updated %d transponders with network_id = 0x%x" % (transponders_count, nit_current_section_network_id)
+			print>>log, "[ABM-DvbScanner] Added/Updated %d transponders with network_id = 0x%x" % (transponders_count, nit_current_section_network_id)
 
 		if len(hd_logical_channel_number_dict_tmp) > 0 and bouquettype == 'hd':
 			for id in logical_channel_number_dict_tmp:
@@ -384,7 +384,7 @@ class DvbScanner():
 
 		if self.extra_debug:
 			for key in logical_channel_number_dict:
-				print "LCN entry", key, logical_channel_number_dict[key]
+				print "[ABM-DvbScanner] LCN entry", key, logical_channel_number_dict[key]
 
 		return {
 			"TSID_ONID_list": self.namespace_dict.keys(),
@@ -393,11 +393,11 @@ class DvbScanner():
 		}
 
 	def readLCNBAT(self, bouquet_id, descriptor_tag, TSID_ONID_list):
-		print>>log, "[DvbScanner] Reading BAT..."
+		print>>log, "[ABM-DvbScanner] Reading BAT..."
 
 		fd = dvbreader.open(self.demuxer_device, self.bat_pid, self.bat_table_id, 0xff, self.frontend)
 		if fd < 0:
-			print>>log, "[DvbScanner] Cannot open the demuxer"
+			print>>log, "[ABM-DvbScanner] Cannot open the demuxer"
 			return {}
 
 		bat_section_version = -1
@@ -418,7 +418,7 @@ class DvbScanner():
 
 		while True:
 			if datetime.datetime.now() > timeout:
-				print>>log, "[DvbScanner] Timed out reading BAT"
+				print>>log, "[ABM-DvbScanner] Timed out reading BAT"
 				break
 
 			section = dvbreader.read_bat(fd, self.bat_table_id)
@@ -427,7 +427,7 @@ class DvbScanner():
 				continue
 
 			if self.extra_debug:
-				print "BAT raw section", section
+				print "[ABM-DvbScanner] BAT raw section", section
 				for service in section["content"]:
 					if "hexcontent" in service:
 						hex_list.append(service)
@@ -467,7 +467,7 @@ class DvbScanner():
 				tmp_TSID_ONID_list.append(TSID_ONID)
 
 			if self.extra_debug:
-				print "LCN entry", key, service
+				print "[ABM-DvbScanner] LCN entry", key, service
 				sid_list.append(service["service_id"])
 				lcn_list.append(service["logical_channel_number"])
 				if service["transport_stream_id"] not in tsid_list:
@@ -477,11 +477,11 @@ class DvbScanner():
 			TSID_ONID_list = tmp_TSID_ONID_list
 
 		if self.extra_debug:
-			print "TSID list from BAT", sorted(tsid_list)
-			print "SID list from BAT", sorted(sid_list)
-			print "LCN list from BAT", sorted(lcn_list)
+			print "[ABM-DvbScanner] TSID list from BAT", sorted(tsid_list)
+			print "[ABM-DvbScanner] SID list from BAT", sorted(sid_list)
+			print "[ABM-DvbScanner] LCN list from BAT", sorted(lcn_list)
 			for service in hex_list:
-				print "hexcontent", service
+				print "[ABM-DvbScanner] hexcontent", service
 				bytes = [int(''.join(service["hexcontent"][i:i+2]), 16) for i in range(0, len(service["hexcontent"]), 2)][2:]
 				hexchars = []
 				for byte in bytes:
@@ -489,14 +489,14 @@ class DvbScanner():
 						hexchars.append(chr(byte))
 					else:
 						hexchars.append('.')
-				print ''.join(hexchars)
+				print "[ABM-DvbScanner] %s" % (''.join(hexchars))
 			for key in sorted(xml_dict.keys()):
 				print '		<configuration key="sd_%d" bouquet="0x%x" region="DESCRIPTOR">%s</configuration>' % (key, key, xml_dict[key])
 
 		return logical_channel_number_dict, TSID_ONID_list
 
 	def updateAndReadServicesLCN(self, transponders, servicehacks, TSID_ONID_list, logical_channel_number_dict, service_dict_tmp, protocol, bouquet_key):
-		print>>log, "[DvbScanner] Reading services (lcn)..."
+		print>>log, "[ABM-DvbScanner] Reading services (LCN)..."
 
 		if self.sdt_other_table_id == 0x00:
 			mask = 0xff
@@ -505,7 +505,7 @@ class DvbScanner():
 
 		fd = dvbreader.open(self.demuxer_device, self.sdt_pid, self.sdt_current_table_id, mask, self.frontend)
 		if fd < 0:
-			print>>log, "[DvbScanner] Cannot open the demuxer"
+			print>>log, "[ABM-DvbScanner] Cannot open the demuxer"
 			return None
 
 		sdt_secions_status = {}
@@ -520,7 +520,7 @@ class DvbScanner():
 		timeout += datetime.timedelta(0, self.SDT_TIMEOUT)
 		while True:
 			if datetime.datetime.now() > timeout:
-				print>>log, "[DvbScanner] Timed out reading SDT"
+				print>>log, "[ABM-DvbScanner] Timed out reading SDT"
 				break
 
 			section = dvbreader.read_sdt(fd, self.sdt_current_table_id, self.sdt_other_table_id)
@@ -529,7 +529,7 @@ class DvbScanner():
 				continue
 
 			if self.extra_debug:
-				print "SDT raw section", section
+				print "[ABM-DvbScanner] SDT raw section", section
 
 			if section["header"]["table_id"] == self.sdt_current_table_id or section["header"]["table_id"] == self.sdt_other_table_id:
 				TSID_ONID = "%x:%x" % (section["header"]["transport_stream_id"], section["header"]["original_network_id"])
@@ -553,7 +553,7 @@ class DvbScanner():
 				break
 
 		if len(TSID_ONID_list) > 0:
-			print>>log, "[DvbScanner] Cannot fetch SDT for the following TSID_ONID list: ", TSID_ONID_list
+			print>>log, "[ABM-DvbScanner] Cannot fetch SDT for the following TSID_ONID list: ", TSID_ONID_list
 
 		dvbreader.close(fd)
 
@@ -567,7 +567,7 @@ class DvbScanner():
 
 		# When no LCN available, create fake LCN numbers (service-id) and use customlcn file for final channel numbers
 		if len(logical_channel_number_dict) == 0:
-			print>>log, "[DvbScanner] No LCNs found. Falling back to service ID."
+			print>>log, "[ABM-DvbScanner] No LCNs found. Falling back to service ID."
 			for key in sdt_secions_status:
 				for service in sdt_secions_status[key]["content"]:
 					servicekey = "%x:%x:%x" % (service["transport_stream_id"], service["original_network_id"], service["service_id"])
@@ -586,9 +586,9 @@ class DvbScanner():
 				servicekey = "%x:%x:%x" % (service["transport_stream_id"], service["original_network_id"], service["service_id"])
 
 				if self.extra_debug:
-					print "SDT service", service
+					print "[ABM-DvbScanner] SDT service", service
 					if servicekey not in logical_channel_number_dict:
-						print "Above service not in LCN dict"
+						print "[ABM-DvbScanner] Above service not in LCN dict"
 
 					sid_list.append(service["service_id"])
 					if service["transport_stream_id"] not in tsid_list:
@@ -618,10 +618,10 @@ class DvbScanner():
 
 
 		if self.extra_debug:
-			print "TSID list from SDT", sorted(tsid_list)
-			print "SID list from SDT", sorted(sid_list)
+			print "[ABM-DvbScanner] TSID list from SDT", sorted(tsid_list)
+			print "[ABM-DvbScanner] SID list from SDT", sorted(sid_list)
 
-		print>>log, "[DvbScanner] Read %d services" % service_count
+		print>>log, "[ABM-DvbScanner] Read %d services" % service_count
 
 		video_services = {}
 		radio_services = {}
@@ -632,7 +632,7 @@ class DvbScanner():
 			service = tmp_services_dict[key]
 
 			if self.extra_debug:
-				print "Service", service
+				print "[ABM-DvbScanner] Service", service
 
 			if len(servicehacks) > 0:
 				skip = False
@@ -657,18 +657,18 @@ class DvbScanner():
 					if number not in radio_services:
 						radio_services[number] = service
 
-		print>>log, "[DvbScanner] %d valid services" % service_extra_count
+		print>>log, "[ABM-DvbScanner] %d valid services" % service_extra_count
 		return {
 			"video": video_services,
 			"radio": radio_services
 		}
 
 	def updateAndReadServicesFastscan(self, transponders, servicehacks, logical_channel_number_dict):
-		print>>log, "[DvbScanner] Reading services (fastscan)..."
+		print>>log, "[ABM-DvbScanner] Reading services (fastscan)..."
 
 		fd = dvbreader.open(self.demuxer_device, self.fastscan_pid, self.fastscan_table_id, 0xff, self.frontend)
 		if fd < 0:
-			print>>log, "[DvbScanner] Cannot open the demuxer"
+			print>>log, "[ABM-DvbScanner] Cannot open the demuxer"
 			return None
 
 		fastscan_section_version = -1
@@ -681,7 +681,7 @@ class DvbScanner():
 		timeout += datetime.timedelta(0, self.TIMEOUT_SEC)
 		while True:
 			if datetime.datetime.now() > timeout:
-				print>>log, "[DvbScanner] Timed out reading fastscan"
+				print>>log, "[ABM-DvbScanner] Timed out reading fastscan"
 				break
 
 			section = dvbreader.read_fastscan(fd, self.fastscan_table_id)
@@ -690,7 +690,7 @@ class DvbScanner():
 				continue
 
 			if self.extra_debug:
-				print "Fastscan raw section", section
+				print "[ABM-DvbScanner] Fastscan raw section", section
 
 			if section["header"]["table_id"] == self.fastscan_table_id:
 				if (section["header"]["version_number"] != fastscan_section_version
@@ -760,7 +760,7 @@ class DvbScanner():
 
 			service_count += 1
 
-		print>>log, "[DvbScanner] Read %d services" % service_count
+		print>>log, "[ABM-DvbScanner] Read %d services" % service_count
 
 		video_services = {}
 		radio_services = {}
@@ -775,7 +775,7 @@ class DvbScanner():
 				continue
 
 			if self.extra_debug:
-				print "Service", service
+				print "[ABM-DvbScanner] Service", service
 
 			if len(servicehacks) > 0:
 				skip = False
@@ -802,20 +802,20 @@ class DvbScanner():
 					if number not in radio_services:
 						radio_services[number] = service
 
-		print>>log, "[DvbScanner] %d valid services" % service_extra_count
+		print>>log, "[ABM-DvbScanner] %d valid services" % service_extra_count
 		if services_without_transponders:
-			print>>log, "[DvbScanner] %d services omitted as there is no corresponding transponder" % services_without_transponders
+			print>>log, "[ABM-DvbScanner] %d services omitted as there is no corresponding transponder" % services_without_transponders
 		return {
 			"video": video_services,
 			"radio": radio_services
 		}
 
 	def updateAndReadServicesSKY(self, bouquet_id, region_id, bouquet_key, transponders, servicehacks):
-		print>>log, "[DvbScanner] Reading services (sky)..."
+		print>>log, "[ABM-DvbScanner] Reading services (SKY)..."
 
 		fd = dvbreader.open(self.demuxer_device, self.bat_pid, self.bat_table_id, 0xff, self.frontend)
 		if fd < 0:
-			print>>log, "[DvbScanner] Cannot open the demuxer"
+			print>>log, "[ABM-DvbScanner] Cannot open the demuxer"
 			return None
 
 		bat_section_version = -1
@@ -830,7 +830,7 @@ class DvbScanner():
 		extra_channel_id_dict = {}
 		while True:
 			if datetime.datetime.now() > timeout:
-				print>>log, "[DvbScanner] Timed out reading BAT"
+				print>>log, "[ABM-DvbScanner] Timed out reading BAT"
 				break
 
 			section = dvbreader.read_bat(fd, self.bat_table_id)
@@ -903,9 +903,9 @@ class DvbScanner():
 
 			service_count += 1
 
-		print>>log, "[DvbScanner] Read %d services with bouquet_id = 0x%x" % (service_count, bouquet_id)
+		print>>log, "[ABM-DvbScanner] Read %d services with bouquet_id = 0x%x" % (service_count, bouquet_id)
 
-		print>>log, "[DvbScanner] Reading services extra info..."
+		print>>log, "[ABM-DvbScanner] Reading services extra info..."
 
 		if self.sdt_other_table_id == 0x00:
 			mask = 0xff
@@ -914,7 +914,7 @@ class DvbScanner():
 
 		fd = dvbreader.open(self.demuxer_device, self.sdt_pid, self.sdt_current_table_id, mask, self.frontend)
 		if fd < 0:
-			print>>log, "[DvbScanner] Cannot open the demuxer"
+			print>>log, "[ABM-DvbScanner] Cannot open the demuxer"
 			return None
 
 		sdt_secions_status = {}
@@ -929,7 +929,7 @@ class DvbScanner():
 		timeout += datetime.timedelta(0, self.SDT_TIMEOUT)
 		while True:
 			if datetime.datetime.now() > timeout:
-				print>>log, "[DvbScanner] Timed out reading SDT"
+				print>>log, "[ABM-DvbScanner] Timed out reading SDT"
 				break
 
 			section = dvbreader.read_sdt(fd, self.sdt_current_table_id, self.sdt_other_table_id)
@@ -968,7 +968,7 @@ class DvbScanner():
 				break
 
 		if len(transport_stream_id_list) > 0:
-			print>>log, "[DvbScanner] Cannot fetch SDT for the following transport_stream_id list: ", transport_stream_id_list
+			print>>log, "[ABM-DvbScanner] Cannot fetch SDT for the following transport_stream_id list: ", transport_stream_id_list
 
 		dvbreader.close(fd)
 
@@ -1003,7 +1003,7 @@ class DvbScanner():
 			service = tmp_services_dict[key]
 
 			if self.extra_debug:
-				print "Service", service
+				print "[ABM-DvbScanner] Service", service
 
 			if len(servicehacks) > 0:
 				skip = False
@@ -1032,18 +1032,18 @@ class DvbScanner():
 						radio_services[number] = service
 
 
-		print>>log, "[DvbScanner] Read extra info for %d services" % service_extra_count
+		print>>log, "[ABM-DvbScanner] Read extra info for %d services" % service_extra_count
 		return {
 			"video": video_services,
 			"radio": radio_services
 		}
 
 	def updateAndReadServicesFreeSat(self, bouquet_id, region_id, bouquet_key, transponders, servicehacks):
-		print>>log, "[DvbScanner] Reading services (freesat)..."
+		print>>log, "[ABM-DvbScanner] Reading services (Freesat)..."
 
 		fd = dvbreader.open(self.demuxer_device, self.bat_pid, self.bat_table_id, 0xff, self.frontend)
 		if fd < 0:
-			print>>log, "[DvbScanner] Cannot open the demuxer"
+			print>>log, "[ABM-DvbScanner] Cannot open the demuxer"
 			return None
 
 		bat_section_version = -1
@@ -1056,7 +1056,7 @@ class DvbScanner():
 		transport_stream_id_list = []
 		while True:
 			if datetime.datetime.now() > timeout:
-				print>>log, "[DvbScanner] Timed out reading BAT"
+				print>>log, "[ABM-DvbScanner] Timed out reading BAT"
 				break
 
 			section = dvbreader.read_bat(fd, self.bat_table_id)
@@ -1129,9 +1129,9 @@ class DvbScanner():
 			if key in tmp_services_dict:
 				tmp_services_dict[key]["service_type"] = service["service_type"]
 
-		print>>log, "[DvbScanner] Read %d services with bouquet_id = 0x%x" % (service_count, bouquet_id)
+		print>>log, "[ABM-DvbScanner] Read %d services with bouquet_id = 0x%x" % (service_count, bouquet_id)
 
-		print>>log, "[DvbScanner] Reading services extra info..."
+		print>>log, "[ABM-DvbScanner] Reading services extra info..."
 
 		#Clear double LCN values
 		tmp_numbers =[]
@@ -1149,7 +1149,7 @@ class DvbScanner():
 		for key in tmp_services_dict:
 			if len(tmp_services_dict[key]["numbers"]) > 1:
 				if tmp_services_dict[key]["numbers"][0] in tmp_double_numbers:
-					print>>log, "[DvbScanner] Deleted double LCN: %d" % (tmp_services_dict[key]["numbers"][0])
+					print>>log, "[ABM-DvbScanner] Deleted double LCN: %d" % (tmp_services_dict[key]["numbers"][0])
 					del tmp_services_dict[key]["numbers"][0]
 
 		if self.sdt_other_table_id == 0x00:
@@ -1159,7 +1159,7 @@ class DvbScanner():
 
 		fd = dvbreader.open(self.demuxer_device, self.sdt_pid, self.sdt_current_table_id, mask, self.frontend)
 		if fd < 0:
-			print>>log, "[DvbScanner] Cannot open the demuxer"
+			print>>log, "[ABM-DvbScanner] Cannot open the demuxer"
 			return None
 
 		sdt_secions_status = {}
@@ -1174,7 +1174,7 @@ class DvbScanner():
 		timeout += datetime.timedelta(0, self.SDT_TIMEOUT)
 		while True:
 			if datetime.datetime.now() > timeout:
-				print>>log, "[DvbScanner] Timed out reading SDT"
+				print>>log, "[ABM-DvbScanner] Timed out reading SDT"
 				break
 
 			section = dvbreader.read_sdt(fd, self.sdt_current_table_id, self.sdt_other_table_id)
@@ -1205,7 +1205,7 @@ class DvbScanner():
 				break
 
 		if len(transport_stream_id_list) > 0:
-			print>>log, "[DvbScanner] Cannot fetch SDT for the following transport_stream_id list: ", transport_stream_id_list
+			print>>log, "[ABM-DvbScanner] Cannot fetch SDT for the following transport_stream_id list: ", transport_stream_id_list
 
 		dvbreader.close(fd)
 
@@ -1231,7 +1231,7 @@ class DvbScanner():
 			service = tmp_services_dict[key]
 
 			if self.extra_debug:
-				print "Service", service
+				print "[ABM-DvbScanner] Service", service
 
 			if len(servicehacks) > 0:
 				skip = False
@@ -1261,7 +1261,7 @@ class DvbScanner():
 						radio_services[number] = service
 
 
-		print>>log, "[DvbScanner] Read extra info for %d services" % service_extra_count
+		print>>log, "[ABM-DvbScanner] Read extra info for %d services" % service_extra_count
 		return {
 			"video": video_services,
 			"radio": radio_services
