@@ -101,11 +101,14 @@ elif service["number"] == 999: # Freesat info
 	service["interactive_name"] = "Freesat Info"
 elif service["number"] > 999 or service["number"] < 101:
 	skip = True
+
 if service["number"] >= 700 and service["number"] < 800:
 	service["service_type"] = 2
-if service["service_type"] == 1 and service["service_name"][-2:] == 'HD':
+
+# Correct service type of HD channels not marked as such
+if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
+	print>>log, "[ABM-Hack] Freesat UK: %s, changed from type %d to 25" % (service["service_name"], service["service_type"])
 	service["service_type"] = 25
-	print>>log, "[FreesatHack] %s, changed from type 1 to 25" % (service["service_name"])
 ]]>
 	</servicehacks>
 </provider>

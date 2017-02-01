@@ -166,6 +166,11 @@ except:
 		5272 # Racing UK HD
 	]
 	blacklist = [899,950]
+
+# Correct service type of HD channels not marked as such
+if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
+	print>>log, "[ABM-Hack] Sky IE: %s, changed from type %d to 25" % (service["service_name"], service["service_type"])
+	service["service_type"] = 25
 	
 if "channel_id" in service and service["channel_id"] in ITVs: # sort out ITV channel names
 	service["interactive_name"] = ITVs[service["channel_id"]]	
@@ -182,7 +187,7 @@ if service["service_type"] != 2 and (service["number"] in whitelist or service["
 	pass
 elif custom and service["service_type"] != 2 and (service["number"] in blacklist or  service["service_name"] in blacklist):
 	skip = True
-elif custom and service["service_type"] >= 17 and service["service_type"] <= 25 and service["free_ca"] != 0:
+elif custom and service["service_type"] in DvbScanner.HD_ALLOWED_TYPES and service["free_ca"] != 0:
 	skip = True
 
 new_numbers = []		
