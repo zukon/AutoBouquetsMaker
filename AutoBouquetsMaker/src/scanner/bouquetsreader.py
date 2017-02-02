@@ -165,17 +165,9 @@ class BouquetsReader():
 			service_reference = srv_blocks[i*3].strip()
 			service_name = srv_blocks[(i*3)+1].strip()
 			service_provider = srv_blocks[(i*3)+2].strip()
-			
-			print "service_reference", service_reference
-
 			service_reference = service_reference.split(":")
 			
-			print "service_reference", service_reference
-			
-			print "len(service_reference)", len(service_reference)
-
-			
-			if len(service_reference) != 6:
+			if len(service_reference) != 6 and len(service_reference) != 7:
 				continue
 
 			service = {}
@@ -187,6 +179,8 @@ class BouquetsReader():
 			service["original_network_id"] = int(service_reference[3], 16)
 			service["service_type"] = int(service_reference[4])
 			service["flags"] = int(service_reference[5])
+			if len(service_reference) == 7:
+				service["ATSC_source_id"] = int(service_reference[6], 16)
 
 			key = "%x:%x:%x" % (service["namespace"], service["transport_stream_id"], service["original_network_id"])
 			if key not in transponders:
@@ -282,7 +276,7 @@ class BouquetsReader():
 				if len(third_part):
 					service_provider = third_part[1:]
 				service_reference = service_reference.split(":")
-				if len(service_reference) != 6:
+				if len(service_reference) != 6 and len(service_reference) != 7:
 					continue
 	
 				service = {}
@@ -294,6 +288,8 @@ class BouquetsReader():
 				service["original_network_id"] = int(service_reference[3], 16)
 				service["service_type"] = int(service_reference[4])
 				service["flags"] = int(service_reference[5])
+				if len(service_reference) == 7:
+					service["ATSC_source_id"] = int(service_reference[6], 16)
 	
 				key = "%x:%x:%x" % (service["namespace"], service["transport_stream_id"], service["original_network_id"])
 				if key not in transponders:

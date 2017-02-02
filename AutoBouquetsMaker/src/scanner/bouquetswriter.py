@@ -93,13 +93,24 @@ class BouquetsWriter():
 
 			for key2 in transponder["services"].keys():
 				service = transponder["services"][key2]
-				lamedblist.append("%04x:%08x:%04x:%04x:%d:%d\n" %
-					(service["service_id"],
-					service["namespace"],
-					service["transport_stream_id"],
-					service["original_network_id"],
-					service["service_type"],
-					service["flags"]))
+
+				if "ATSC_source_id" in service:
+					lamedblist.append("%04x:%08x:%04x:%04x:%d:%d:%x\n" %
+						(service["service_id"],
+						service["namespace"],
+						service["transport_stream_id"],
+						service["original_network_id"],
+						service["service_type"],
+						service["flags"],
+						service["ATSC_source_id"]))
+				else:
+					lamedblist.append("%04x:%08x:%04x:%04x:%d:%d\n" %
+						(service["service_id"],
+						service["namespace"],
+						service["transport_stream_id"],
+						service["original_network_id"],
+						service["service_type"],
+						service["flags"]))
 
 				control_chars = ''.join(map(unichr, range(0,32) + range(127,160)))
 				control_char_re = re.compile('[%s]' % re.escape(control_chars))
@@ -140,7 +151,7 @@ class BouquetsWriter():
 		lamedblist.append("#     DVBS2 FEPARMS:   s:frequency:symbol_rate:polarisation:fec:orbital_position:inversion:flags:system:modulation:rolloff:pilot\n")
 		lamedblist.append("#     DVBT  FEPARMS:   t:frequency:bandwidth:code_rate_HP:code_rate_LP:modulation:transmission_mode:guard_interval:hierarchy:inversion:flags:system:plp_id\n")
 		lamedblist.append("#     DVBC  FEPARMS:   c:frequency:symbol_rate:inversion:modulation:fec_inner:flags:system\n")
-		lamedblist.append('# Services: s:service_id:dvb_namespace:transport_stream_id:original_network_id:service_type:0,"service_name"[,p:provider_name][,c:cached_pid]*[,C:cached_capid]*[,f:flags]\n')
+		lamedblist.append('# Services: s:service_id:dvb_namespace:transport_stream_id:original_network_id:service_type:service_number:source_id,"service_name"[,p:provider_name][,c:cached_pid]*[,C:cached_capid]*[,f:flags]\n')
 
 		for key in transponders.keys():
 			transponder = transponders[key]
@@ -211,13 +222,18 @@ class BouquetsWriter():
 
 			for key2 in transponder["services"].keys():
 				service = transponder["services"][key2]
-				lamedblist.append("s:%04x:%08x:%04x:%04x:%d:%d," %
+
+				if "ATSC_source_id" not in service:
+					service["ATSC_source_id"] = 0
+
+				lamedblist.append("s:%04x:%08x:%04x:%04x:%d:%d:%x," %
 					(service["service_id"],
 					service["namespace"],
 					service["transport_stream_id"],
 					service["original_network_id"],
 					service["service_type"],
-					service["flags"]))
+					service["flags"],
+					service["ATSC_source_id"]))
 
 				control_chars = ''.join(map(unichr, range(0,32) + range(127,160)))
 				control_char_re = re.compile('[%s]' % re.escape(control_chars))
