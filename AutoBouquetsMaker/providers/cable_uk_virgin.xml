@@ -164,6 +164,9 @@ bt_sports_xtra = ["BT Sport Extra 0","BT Sport Extra 1","BT Sport Extra 2","BT S
 if service["service_type"] == 1 and service["service_group_id"] in(17,21):
 	service["service_type"] = 25
 
+if service["service_name"] == "ITV PPV HD":
+ service["service_type"] = 25
+	
 for number in service["numbers"]:
 	if number in blacklist:
 		skip = True
