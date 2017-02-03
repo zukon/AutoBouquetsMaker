@@ -36,11 +36,8 @@ class AutoBouquetsMaker_About(Screen):
 
 		self["key_red"] = Button(_("Close"))
 
-		try:
-			from version import PLUGIN_VERSION
-		except Exception, e:
-			version = "unknown version"
-
+		from version import PLUGIN_VERSION
+		
 		credit = "OE-Alliance AutoBouquetsMaker %s (c) 2012 \nSandro Cavazzoni & Andrew Blackburn\n" % PLUGIN_VERSION
 		credit += "http://github.com/oe-alliance\n"
 		credit += "http://www.sifteam.eu\n"
