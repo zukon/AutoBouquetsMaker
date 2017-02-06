@@ -1,5 +1,5 @@
 <provider>
-	<name>AustriaSat</name>
+	<name>AustriaSat HD</name>
 	<streamtype>dvbs</streamtype>
 	<protocol>fastscan</protocol>
 	<transponder
@@ -20,7 +20,7 @@
 		fastscan_table_id="0xbd"
 	/>
 	<sections>
-		<section number="1">AustriaSat</section>
+		<section number="1">AustriaSat HD</section>
 	</sections>
 	<servicehacks>
 <![CDATA[

@@ -1,8 +1,8 @@
 <provider>
-	<name>AustriaSat HD</name>
+	<name>Fastscan Deutschland</name>
 	<streamtype>dvbs</streamtype>
 	<protocol>fastscan</protocol>
-	<transponder
+	<transponder 
 		orbital_position="235"
 		frequency="12070000"
 		symbol_rate="27500000"
@@ -13,17 +13,19 @@
 		modulation="1"
 		roll_off="0"
 		pilot="2"
-		nit_pid="0x3b6"
+		nit_pid="0x3c0"
 		nit_current_table_id="0xbc"
 		nit_other_table_id="0x00"
-		fastscan_pid="0x3b6"
+		fastscan_pid="0x3c0"
 		fastscan_table_id="0xbd"
 	/>
 	<sections>
-		<section number="1">AustriaSat HD</section>
+		<section number="1">Fastscan Deutschland</section>
 	</sections>
 	<servicehacks>
 <![CDATA[
+if service["number"] < 1:
+	skip = True
 if service["service_name"][-5:] == " (28)" or service["service_name"][-5:] == " (13)":
 	service["service_name"] = service["service_name"][:len(service["service_name"])-5]
 ]]>
