@@ -156,10 +156,12 @@
 	</swapchannels>	
 	<servicehacks>
 <![CDATA[
-blacklist = ['Channel Moved','hayu','L Pack Tier 4','M Pack Tier 1','More TV Pack Tier 2','M+ Pack Tier 3','Netflix','PIN Protection Help','XL Pack Tier 5','YouTube']
+blacklist = ['BBC THREE','Channel Moved','hayu','L Pack Tier 4','M Pack Tier 1','More TV Pack Tier 2','M+ Pack Tier 3','Netflix','PIN Protection Help','XL Pack Tier 5','YouTube']
 #Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
 
 bt_sports_xtra = ["BT Sport Extra 0","BT Sport Extra 1","BT Sport Extra 2","BT Sport Extra 3","BT Sport Extra 4","BT Sport Extra 5","BT Sport Extra 6"]
+
+fta_corrections = ['S4C HD','The Africa Channel']
 
 if service["service_type"] == 1 and service["service_group_id"] in(17,21):
 	service["service_type"] = 25
@@ -192,7 +194,10 @@ if service["service_name"].startswith("DL_") or service["service_name"].startswi
 	
 if service["service_name"].startswith("SptsETV"):
 	service["free_ca"] = 1
-	
+
+#Some encrypted channels are wrongly flagged as FTA.
+if service["service_name"] in fta_corrections:
+	service["free_ca"] = 1
 ]]>
 	</servicehacks>
 </provider>
