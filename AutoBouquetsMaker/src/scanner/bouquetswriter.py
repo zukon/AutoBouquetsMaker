@@ -37,7 +37,7 @@ class BouquetsWriter():
 				else:
 					orbital_position = transponder["orbital_position"]
 
-				if transponder["modulation_system"] == 0:
+				if transponder["modulation_system"] == 0: # DVB-S
 					lamedblist.append("\ts %d:%d:%d:%d:%d:%d:%d\n" %
 						(transponder["frequency"],
 						transponder["symbol_rate"],
@@ -46,8 +46,11 @@ class BouquetsWriter():
 						orbital_position,
 						transponder["inversion"],
 						transponder["flags"]))
-				else:
-					lamedblist.append("\ts %d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d\n" %
+				else: # DVB-S2
+					multistream = ''
+					if "is_id" in transponder and "pls_code" in transponder and "pls_mode" in transponder:
+						multistream = ':%d:%d:%d' % (transponder["is_id"], transponder["pls_code"], transponder["pls_mode"])
+					lamedblist.append("\ts %d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d%s\n" %
 						(transponder["frequency"],
 						transponder["symbol_rate"],
 						transponder["polarization"],
@@ -58,7 +61,8 @@ class BouquetsWriter():
 						transponder["modulation_system"],
 						transponder["modulation_type"],
 						transponder["roll_off"],
-						transponder["pilot"]))
+						transponder["pilot"],
+						multistream))
 			elif transponder["dvb_type"] == "dvbt":
 				lamedblist.append("\tt %d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d\n" %
 					(transponder["frequency"],
@@ -168,7 +172,7 @@ class BouquetsWriter():
 				else:
 					orbital_position = transponder["orbital_position"]
 					
-				if transponder["modulation_system"] == 0:
+				if transponder["modulation_system"] == 0: # DVB-S
 					lamedblist.append("s:%d:%d:%d:%d:%d:%d:%d\n" %
 						(transponder["frequency"],
 						transponder["symbol_rate"],
@@ -177,8 +181,11 @@ class BouquetsWriter():
 						orbital_position,
 						transponder["inversion"],
 						transponder["flags"]))
-				else:
-					lamedblist.append("s:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d\n" %
+				else: # DVB-S2
+					multistream = ''
+					if "is_id" in transponder and "pls_code" in transponder and "pls_mode" in transponder:
+						multistream = ':%d:%d:%d' % (transponder["is_id"], transponder["pls_code"], transponder["pls_mode"])
+					lamedblist.append("s:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d%s\n" %
 						(transponder["frequency"],
 						transponder["symbol_rate"],
 						transponder["polarization"],
@@ -189,7 +196,8 @@ class BouquetsWriter():
 						transponder["modulation_system"],
 						transponder["modulation_type"],
 						transponder["roll_off"],
-						transponder["pilot"]))
+						transponder["pilot"],
+						multistream))
 			elif transponder["dvb_type"] == "dvbt":
 				lamedblist.append("t:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d\n" %
 					(transponder["frequency"],

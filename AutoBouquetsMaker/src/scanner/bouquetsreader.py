@@ -102,7 +102,7 @@ class BouquetsReader():
 
 			second_row = second_row[2:].split(":")
 
-			if transponder["dvb_type"] == "dvbs" and len(second_row) != 7 and len(second_row) != 11:
+			if transponder["dvb_type"] == "dvbs" and len(second_row) != 7 and len(second_row) != 11 and len(second_row) != 14:
 				continue
 			if transponder["dvb_type"] == "dvbt" and len(second_row) != 12:
 				continue
@@ -122,13 +122,17 @@ class BouquetsReader():
 
 				transponder["inversion"] = int(second_row[5])
 				transponder["flags"] = int(second_row[6])
-				if len(second_row) == 11:
+				if len(second_row) == 7: # DVB-S
+					transponder["modulation_system"] = 0
+				else: # DVB-S2
 					transponder["modulation_system"] = int(second_row[7])
 					transponder["modulation_type"] = int(second_row[8])
 					transponder["roll_off"] = int(second_row[9])
 					transponder["pilot"] = int(second_row[10])
-				else:
-					transponder["modulation_system"] = 0
+					if len(second_row) == 14: # Multistream
+						transponder["is_id"] = int(second_row[11])
+						transponder["pls_code"] = int(second_row[12])
+						transponder["pls_mode"] = int(second_row[13])
 			elif transponder["dvb_type"] == "dvbt":
 				transponder["frequency"] = int(second_row[0])
 				transponder["bandwidth"] = int(second_row[1])
@@ -216,7 +220,7 @@ class BouquetsReader():
 
 				second_part = second_part[2:].split(":")
 
-				if transponder["dvb_type"] == "dvbs" and len(second_part) != 7 and len(second_part) != 11:
+				if transponder["dvb_type"] == "dvbs" and len(second_part) != 7 and len(second_part) != 11 and len(second_part) != 14:
 					continue
 				if transponder["dvb_type"] == "dvbt" and len(second_part) != 12:
 					continue
@@ -236,13 +240,17 @@ class BouquetsReader():
 	
 					transponder["inversion"] = int(second_part[5])
 					transponder["flags"] = int(second_part[6])
-					if len(second_part) == 11:
-						transponder["modulation_system"] = int(second_part[7])
-						transponder["modulation_type"] = int(second_part[8])
-						transponder["roll_off"] = int(second_part[9])
-						transponder["pilot"] = int(second_part[10])
-					else:
+					if len(second_row) == 7: # DVB-S
 						transponder["modulation_system"] = 0
+					else: # DVB-S2
+						transponder["modulation_system"] = int(second_row[7])
+						transponder["modulation_type"] = int(second_row[8])
+						transponder["roll_off"] = int(second_row[9])
+						transponder["pilot"] = int(second_row[10])
+						if len(second_row) == 14: # Multistream
+							transponder["is_id"] = int(second_row[11])
+							transponder["pls_code"] = int(second_row[12])
+							transponder["pls_mode"] = int(second_row[13])
 				elif transponder["dvb_type"] == "dvbt":
 					transponder["frequency"] = int(second_part[0])
 					transponder["bandwidth"] = int(second_part[1])
