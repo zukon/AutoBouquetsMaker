@@ -243,14 +243,14 @@ class BouquetsReader():
 					if len(second_row) == 7: # DVB-S
 						transponder["modulation_system"] = 0
 					else: # DVB-S2
-						transponder["modulation_system"] = int(second_row[7])
-						transponder["modulation_type"] = int(second_row[8])
-						transponder["roll_off"] = int(second_row[9])
-						transponder["pilot"] = int(second_row[10])
+						transponder["modulation_system"] = int(second_part[7])
+						transponder["modulation_type"] = int(second_part[8])
+						transponder["roll_off"] = int(second_part[9])
+						transponder["pilot"] = int(second_part[10])
 						if len(second_row) == 14: # Multistream
-							transponder["is_id"] = int(second_row[11])
-							transponder["pls_code"] = int(second_row[12])
-							transponder["pls_mode"] = int(second_row[13])
+							transponder["is_id"] = int(second_part[11])
+							transponder["pls_code"] = int(second_part[12])
+							transponder["pls_mode"] = int(second_part[13])
 				elif transponder["dvb_type"] == "dvbt":
 					transponder["frequency"] = int(second_part[0])
 					transponder["bandwidth"] = int(second_part[1])
