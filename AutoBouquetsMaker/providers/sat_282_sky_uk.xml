@@ -248,6 +248,7 @@
 		<channel number="583" with="596" /><!-- Daystar HD -->
 		<channel number="613" with="633" /><!-- CBBC HD -->
 		<channel number="614" with="624" /><!-- CBeebies HD -->
+		<channel number="786" with="860" /><!-- Colors HD -->
 		<channel number="795" with="853" /><!-- &TV HD -->
 		<channel number="801" with="856" /><!-- TV Record HD -->
 	</swapchannels>
@@ -287,8 +288,7 @@ except:
 		1312: 499, #Sky Sports 5 RoI
 		1257: 574, # Oireachtas TV
 		2804: 578, # RTE News Now
-		1256: 635, # RTEjr
-		1372: 860  # Colors HD remember to remove in January
+		1256: 635 # RTEjr
 	}
 
 	itv_rename = {
@@ -358,7 +358,6 @@ except:
 
 		# Other channels
 		1074: "Bloomberg HD",
-		1372: "Colors HD",
 		2079: "BBC One HD",
 
 		# RoI Sports channels
