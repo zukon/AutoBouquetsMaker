@@ -31,8 +31,20 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		<widget name="pleasewait" position="10,60" size="580,350" font="Regular;18" halign="center" valign="center" transparent="0" zPosition="2"/>
 	</screen>"""
 
-
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
+
+	try: # Work-around to get OpenSPA working
+		from boxbranding import getImageDistro
+		if getImageDistro() == 'openspa':
+			def keyLeft(self):
+				ConfigListScreen.keyLeft(self)
+				self.changedEntry()
+
+			def keyRight(self):
+				ConfigListScreen.keyRight(self)
+				self.changedEntry()
+	except:
+		pass
 
 	def __init__(self, session):
 		Screen.__init__(self, session)
