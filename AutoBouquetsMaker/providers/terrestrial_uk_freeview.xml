@@ -38,6 +38,7 @@
 		<configuration key="keelylang_hill_____" frequency="674000000" inversion="0" modulation="4" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="6" guard_interval="5" hierarchy="4">Keelylang Hill</configuration>
 		<configuration key="kilvey_hill________" frequency="490000000" inversion="0" modulation="4" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="6" guard_interval="5" hierarchy="4">Kilvey Hill</configuration>
 		<configuration key="knockmore__________" frequency="514000000" inversion="0" modulation="4" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="6" guard_interval="5" hierarchy="4">Knockmore</configuration>
+		<configuration key="lancaster__________" frequency="522000000" inversion="0" modulation="4" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="6" guard_interval="5" hierarchy="4">Lancaster</configuration>
 		<configuration key="lark_stoke_________" frequency="514000000" inversion="0" modulation="4" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="6" guard_interval="5" hierarchy="4">Lark Stoke</configuration>
 		<configuration key="limavady___________" frequency="706000000" inversion="0" modulation="4" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="6" guard_interval="5" hierarchy="4">Limavady</configuration>
 		<configuration key="llanddona__________" frequency="762000000" inversion="0" modulation="4" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="6" guard_interval="5" hierarchy="4">Llanddona</configuration>
@@ -121,6 +122,12 @@
 		<customtransponder key="kilvey_hill________" frequency="506000000" transport_stream_id="3007" system="0"/>
 		<customtransponder key="kilvey_hill________" frequency="482000000" transport_stream_id="5040" system="0"/>
 		<customtransponder key="kilvey_hill________" frequency="530000000" transport_stream_id="6040" system="0"/>
+		<customtransponder key="lancaster__________" frequency="474000000" transport_stream_id="4088" system="1"/>
+		<customtransponder key="lancaster__________" frequency="482000000" transport_stream_id="6040" system="0"/>
+		<customtransponder key="lancaster__________" frequency="498000000" transport_stream_id="200b" system="0"/>
+		<customtransponder key="lancaster__________" frequency="506000000" transport_stream_id="3006" system="0"/>
+		<customtransponder key="lancaster__________" frequency="522000000" transport_stream_id="1048" system="0"/>
+		<customtransponder key="lancaster__________" frequency="530000000" transport_stream_id="5040" system="0"/>
 		<customtransponder key="mendip_____________" frequency="770000000" transport_stream_id="4082" system="1"/>
 		<customtransponder key="mendip_____________" frequency="570000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="oliversmount_______" frequency="698000000" transport_stream_id="6040" system="0"/>
