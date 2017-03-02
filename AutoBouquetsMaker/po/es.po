@@ -336,17 +336,6 @@ msgstr ""
 msgid "generate main bouquet"
 msgstr "Generar lista favoritos principal"
 
-#: ../src/setup.py:270
-msgid ""
-"This option has several choices \"Yes\", (create a bouquet with all the "
-"channels in it), \"Yes HD only\", (will group all HD channels into this "
-"bouquet), \"Custom\", (allows you to select your own bouquet), \"No\", (do "
-"not use a main bouquet)"
-msgstr "Esta opción tiene varias opciones \ "Si\", (crear una lista de favoritos"
-"con todos los canales dentro), \"Si, solo HD\", (agrupar todos los canales HD en"
-"esta lista), \"Personalizado\", (te permite seleccionar tu propia lista), \"No\", (no "
-"usar una lista principal)"
-
 #: ../src/setup.py:273
 msgid "custom bouquet for main"
 msgstr "Lista personalizada principal"
