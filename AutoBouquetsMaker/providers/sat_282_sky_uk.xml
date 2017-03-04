@@ -167,7 +167,6 @@
 		<section number="580">Religion</section>
 		<section number="601">Kids</section>
 		<section number="650">Shopping</section>
-		<section number="700">Sky Box Office</section>
 		<section number="780">International</section>
 		<section number="861">Gaming and Dating</section>
 		<section number="881">Specialist</section>
@@ -374,7 +373,7 @@ except:
 		5272  # Racing UK HD
 	]
 
-	blacklist = ["10001", "10002", "Sky Box Office"]
+	blacklist = ["10001", "10002"]
 	
 	bt_sports_id = [5030,5381,5031,5382,5383,5384,5385,5386]
 
