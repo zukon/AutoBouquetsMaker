@@ -43,8 +43,10 @@ def AutoBouquetsMakerSetup(menuid, **kwargs):
 		return []
 
 def Plugins(**kwargs):
-	plist = [PluginDescriptor(name="AutoBouquetsMakerSessionStart", where=PluginDescriptor.WHERE_SESSIONSTART, fnc=AutoBouquetsMakerautostart, needsRestart=True)]
-	plist.append(PluginDescriptor(name=_("AutoBouquetsMaker"), description="Scan and create bouquets.", where = PluginDescriptor.WHERE_MENU, fnc=AutoBouquetsMakerSetup, needsRestart=True))
-	if config.autobouquetsmaker.extensions.getValue():
-		plist.append(PluginDescriptor(name=_("AutoBouquetsMaker Scanner"), description="Scan and create bouquets.", where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=startscan, needsRestart=True))
+	plist = []
+	if any([nimmanager.hasNimType(x) for x in "DVB-S", "DVB-T", "DVB-C"]):
+		plist.append(PluginDescriptor(name="AutoBouquetsMakerSessionStart", where=PluginDescriptor.WHERE_SESSIONSTART, fnc=AutoBouquetsMakerautostart, needsRestart=True))
+		plist.append(PluginDescriptor(name=_("AutoBouquetsMaker"), description="Scan and create bouquets.", where = PluginDescriptor.WHERE_MENU, fnc=AutoBouquetsMakerSetup, needsRestart=True))
+		if config.autobouquetsmaker.extensions.getValue():
+			plist.append(PluginDescriptor(name=_("AutoBouquetsMaker Scanner"), description="Scan and create bouquets.", where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=startscan, needsRestart=True))
 	return plist
