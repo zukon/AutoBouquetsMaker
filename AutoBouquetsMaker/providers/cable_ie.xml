@@ -33,28 +33,9 @@
 	<servicehacks>
 <![CDATA[
 
-try:
-	first_loop
-except:
-	first_loop = True
-	
-if first_loop:
-	first_loop = False
-	HD_channels = []
-	SD_channels = []
-	for key in tmp_services_dict:
-		x = tmp_services_dict[key]
-		if x['service_type'] in (1,25):
-			if x['service_type'] == 25:
-				HD_channels.append(x['number'])
-			else:
-				SD_channels.append(x['number'])
-				
-if service['service_type'] in (1,25):
-	if bouquet_key.startswith('sd') and service['service_type'] == 25 and service['number'] in SD_channels:
-		skip = True
-	elif bouquet_key.startswith('hd') and service['service_type'] == 1 and service['number'] in HD_channels:
-		skip = True
+# Correct service type of HD channels not marked as such
+if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
+	service["service_type"] = 25
 
 service["service_name"] = service["provider_name"]
 service["interactive_name"] = service["provider_name"]
