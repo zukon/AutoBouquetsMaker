@@ -168,7 +168,7 @@
 		<section number="601">Kids</section>
 		<section number="650">Shopping</section>
 		<section number="780">International</section>
-		<section number="861">Gaming and Dating</section>
+		<section number="871">Gaming and Dating</section>
 		<section number="881">Specialist</section>
 		<section number="900">Adult</section>
 		<section number="950">BBC Regions</section>
@@ -282,7 +282,7 @@ except:
 		2804: 578, # RTE News Now
 		1256: 635, # RTEjr
 		1088: 861, # Urdu 1
-		}
+	}
 
 	itv_rename = {
 		# ITV regions
