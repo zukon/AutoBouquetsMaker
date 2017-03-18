@@ -53,6 +53,8 @@
 	<!-- swapchannels affects main and sections bouquets. -->
 	<swapchannels>
 		<channel number="102" with="115" /><!-- RTE 2 HD -->
+		<channel number="135" with="227" /><!-- Channel 4 HD -->
+		<channel number="141" with="215" /><!-- BBC One HD -->
 	</swapchannels>
 	<servicehacks>
 <![CDATA[
@@ -70,29 +72,41 @@ except:
 	# example: "ITV2": 118,
 	#
 	########################################################################
+
 	channels_to_add = {
-		'UTV HD': 117,
-		'ITV2': 118,
-		'ITV3': 119,
-		'ITV4': 120,
-		'ITV HD': 275,
-		'ITV +1': 276,
-		'ITV2+1': 277,
-		'ITV3+1': 278,
-		'ITV4+1': 279,
-		'ITVBe':  280,
-		'ITVBe+1': 281,
-		'ITV Encore': 282,
-		'ITV Encore+1': 283,
-		'Channel 4 HD': 284,
-		'Channel 4 +1': 285,
-		'Channel 5': 286,
-		'Channel 5+1': 287,
-		'Channel 5+24': 288,
-		'CITV': 640
+	
 	}
 	
-	ITVs = {
+	channels_to_add_by_id = {
+		6240: 118, #ITV2
+		6260: 119, #ITV3
+		6272: 120, #ITV4
+		6507: 123, #ITV Encore
+		6155: 131, #ITV +1
+		3150: 140, #4seven
+		1032: 160, #Spike
+		4058: 171, #Channel 5 HD
+		3022: 174, #5 USA
+		3028: 175, #My5
+		3023: 176, #5STAR
+		1839: 177, #Channel 5 +1
+		6510: 178, #UTV HD
+		6508: 179, #ITVBe
+		6241: 180, #ITV2 +1
+		3024: 190, #5STAR +1
+		6261: 193, #ITV3 +1
+		6274: 206, #ITV4 +1
+		1014: 207, #ITVBe +1
+		1007: 208, #ITV Encore +1
+		3027: 219, #5 USA +1
+		4075: 227, #Channel 4 HD
+		6504: 275, #ITV HD
+		1670: 285, #Channel 4 +1
+		3310: 286, #More4 +1
+		1088: 861, # Urdu 1
+	}	
+	
+	itv_rename = {
 		1020: "ITV Border Scotland",
 		1043: "ITV Tyne Tees HD",
 		1044: "ITV Yorkshire HD",
@@ -144,6 +158,21 @@ except:
 		6510: "UTV HD"
 	}
 
+	rename = {
+		# BT Interactive
+		5381: "BT Sport Mosaic 2",
+		5382: "BT Sport Extra 2",
+		5383: "BT Sport Extra 3",
+		5384: "BT Sport Extra 4",
+		5385: "BT Sport Extra 5",
+		5386: "BT Sport Extra 6",
+
+		# Other channels
+		1088: "Urdu 1",
+		2079: "BBC One HD",
+
+	}
+	
 	BBC_RB = {
 		2051: ("BBC RB 1",0),
 		8602: ("BBC RB 2",1),
@@ -155,6 +184,7 @@ except:
 	}
 
 	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD','ITV Encore HD',752,'BoxNation HD','BT Preview HD']
+	
 	whitelist_by_id = [
 		1003, # MUTV HD
 		1019, # CNN HD
@@ -164,20 +194,33 @@ except:
 		5154, # Setanta HD
 		5272 # Racing UK HD
 	]
-	blacklist = [899,950]
+
+	blacklist = [899,950,"10001", "10002", "___4109", "___4110"]
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
 	print>>log, "[ABM-Hack] Sky IE: %s, changed from type %d to 25" % (service["service_name"], service["service_type"])
 	service["service_type"] = 25
 	
-if "channel_id" in service and service["channel_id"] in ITVs: # sort out ITV channel names
-	service["interactive_name"] = ITVs[service["channel_id"]]	
+# Rename channels
+if "channel_id" in service and service["channel_id"] in rename:
+	service["interactive_name"] = rename[service["channel_id"]]
 
+# Rename ITV channels
+if "channel_id" in service and service["channel_id"] in itv_rename:
+	service["interactive_name"] = itv_rename[service["channel_id"]]
+
+# Add channels by name
 if custom and service["service_name"] in channels_to_add and service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and channels_to_add[service["service_name"]] not in LCNs_in_use:
 	LCNs_in_use.append(channels_to_add[service["service_name"]])
 	service["number"] = channels_to_add[service["service_name"]]
 	service["numbers"] = [channels_to_add[service["service_name"]]]
+	
+# Add channels by ID
+if custom and service["channel_id"] in channels_to_add_by_id and service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and channels_to_add_by_id[service["channel_id"]] not in LCNs_in_use:
+	LCNs_in_use.append(channels_to_add_by_id[service["channel_id"]])
+	service["number"] = channels_to_add_by_id[service["channel_id"]]
+	service["numbers"] = [channels_to_add_by_id[service["channel_id"]]]
 
 if service["service_type"] == 0x02 and service["number"] > 3000:
 	service["number"] -= 3000
