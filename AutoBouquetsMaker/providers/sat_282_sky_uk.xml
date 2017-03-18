@@ -267,7 +267,7 @@ except:
 	channels_to_add_by_id = {
 		1251: 291, # RTE One
 		1252: 292, # RTE2
-        1255: 293, # TV3
+		1255: 293, # TV3
 		1253: 294, # TG4
 		2808: 295, # RTE One+1
 		1025: 296, # TV3+1
