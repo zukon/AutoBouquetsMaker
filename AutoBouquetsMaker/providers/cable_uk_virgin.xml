@@ -161,13 +161,11 @@ blacklist = ['BBC THREE','Channel Moved','hayu','L Pack Tier 4','M Pack Tier 1',
 
 bt_sports_xtra = ["BT Sport Extra 0","BT Sport Extra 1","BT Sport Extra 2","BT Sport Extra 3","BT Sport Extra 4","BT Sport Extra 5","BT Sport Extra 6"]
 
-fta_corrections = ['The Africa Channel']
+fta_corrections = ['ARY Digital', 'ARY News UK', 'The Africa Channel']
 
-if service["service_type"] == 1 and service["service_group_id"] in(17,21):
+# Correct service type of HD channels not marked as such
+if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
 	service["service_type"] = 25
-
-if service["service_name"] == "ITV PPV HD":
- service["service_type"] = 25
 	
 for number in service["numbers"]:
 	if number in blacklist:
