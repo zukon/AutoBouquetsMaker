@@ -284,7 +284,6 @@ except:
 		1257: 574, # Oireachtas TV
 		2804: 578, # RTE News Now
 		1256: 635, # RTEjr
-		1088: 861, # Urdu 1
 	}
 
 	itv_rename = {
@@ -353,7 +352,6 @@ except:
 		5386: "BT Sport Extra 6",
 
 		# Other channels
-		1088: "Urdu 1",
 		2079: "BBC One HD",
 
 		# RoI Sports channels
