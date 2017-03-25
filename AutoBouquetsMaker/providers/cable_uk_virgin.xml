@@ -156,12 +156,12 @@
 	</swapchannels>	
 	<servicehacks>
 <![CDATA[
-blacklist = ['BBC THREE','Channel Moved','hayu','L Pack Tier 4','M Pack Tier 1','More TV Pack Tier 2','M+ Pack Tier 3','Netflix','PIN Protection Help', 'S4C HD','XL Pack Tier 5','Vevo','Worldbox','YouTube']
+blacklist = ['ARY Digital','ARY News UK','BBC THREE','Channel Moved','hayu','L Pack Tier 4','M Pack Tier 1','More TV Pack Tier 2','M+ Pack Tier 3','Netflix','PIN Protection Help', 'S4C HD','The Africa Channel','XL Pack Tier 5','Vevo','Worldbox','YouTube']
 #Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
 
 bt_sports_xtra = ["BT Sport Extra 0","BT Sport Extra 1","BT Sport Extra 2","BT Sport Extra 3","BT Sport Extra 4","BT Sport Extra 5","BT Sport Extra 6"]
 
-fta_corrections = ['ARY Digital', 'ARY News UK', 'The Africa Channel']
+fta_corrections = []
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
