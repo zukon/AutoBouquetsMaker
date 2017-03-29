@@ -9,8 +9,8 @@
 		polarization="1"
 		fec_inner="4"
 		inversion="2"
-		system="0"
-		modulation="1"
+		system="1"
+		modulation="2"
 		roll_off="0"
 		pilot="2"
 	/>
