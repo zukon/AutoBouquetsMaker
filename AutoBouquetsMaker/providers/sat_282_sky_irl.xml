@@ -195,7 +195,12 @@ except:
 		5272 # Racing UK HD
 	]
 
-	blacklist = [899,950,"10001", "10002", "___4109", "___4110"]
+	blacklist = [899,950,"10001", "10002",]
+	
+	blacklist_by_id = [
+		9700, # ___4109
+		9800, # ___4110
+	]
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
@@ -230,6 +235,8 @@ if service["service_type"] != 2 and (service["number"] in whitelist or service["
 elif custom and service["service_type"] != 2 and (service["number"] in blacklist or  service["service_name"] in blacklist):
 	skip = True
 elif custom and service["service_type"] in DvbScanner.HD_ALLOWED_TYPES and service["free_ca"] != 0:
+	skip = True
+elif custom and ("channel_id" in service and service["channel_id"] in blacklist_by_id):
 	skip = True
 
 new_numbers = []		
