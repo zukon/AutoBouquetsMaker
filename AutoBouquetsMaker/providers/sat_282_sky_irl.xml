@@ -78,32 +78,35 @@ except:
 	}
 	
 	channels_to_add_by_id = {
-		6240: 118, #ITV2
-		6260: 119, #ITV3
-		6272: 120, #ITV4
-		6507: 123, #ITV Encore
-		6155: 131, #ITV +1
-		3150: 140, #4seven
-		1032: 160, #Spike
-		4058: 171, #Channel 5 HD
-		3022: 174, #5 USA
-		3028: 175, #My5
-		3023: 176, #5STAR
-		1839: 177, #Channel 5 +1
-		6510: 178, #UTV HD
-		6508: 179, #ITVBe
-		6241: 180, #ITV2 +1
-		3024: 190, #5STAR +1
-		6261: 193, #ITV3 +1
-		6274: 206, #ITV4 +1
-		1014: 207, #ITVBe +1
-		1007: 208, #ITV Encore +1
-		3027: 219, #5 USA +1
-		4075: 227, #Channel 4 HD
-		6504: 275, #ITV HD
-		1670: 285, #Channel 4 +1
-		3310: 286, #More4 +1
-		1088: 861, # Urdu 1
+		6240: 118, # ITV2
+		6260: 119, # ITV3
+		6272: 120, # ITV4
+		6507: 123, # ITV Encore
+		6155: 131, # ITV +1
+		3150: 140, # 4seven
+		1032: 160, # Spike
+		4058: 171, # Channel 5 HD
+		3022: 174, # 5 USA
+		3028: 175, # My5
+		3023: 176, # 5STAR
+		1839: 177, # Channel 5 +1
+		6510: 178, # UTV HD
+		6508: 179, # ITVBe
+		6241: 180, # ITV2 +1
+		3024: 190, # 5STAR +1
+		6261: 193, # ITV3 +1
+		6274: 206, # ITV4 +1
+		1014: 207, # ITVBe +1
+		1007: 208, # ITV Encore +1
+		3027: 219, # 5 USA +1
+		4075: 227, # Channel 4 HD
+		6504: 275, # ITV HD
+		1670: 285, # Channel 4 +1
+		3310: 286, # More4 +1
+		2709: 128, # ComedyXtra
+		4335: 122, # Sky Living+1
+		1301: 401, # Sky Sports 1
+		1324: 404, # Sky Sports 4		
 	}	
 	
 	itv_rename = {
@@ -168,7 +171,6 @@ except:
 		5386: "BT Sport Extra 6",
 
 		# Other channels
-		1088: "Urdu 1",
 		2079: "BBC One HD",
 
 	}
@@ -192,10 +194,15 @@ except:
 		5152, # Setanta HD
 		5153, # Premier HD
 		5154, # Setanta HD
-		5272 # Racing UK HD
+		5272, # Racing UK HD
 	]
 
-	blacklist = [899,950,"10001", "10002", "___4109", "___4110"]
+	blacklist = [899,950,"10001", "10002",]
+	
+	blacklist_by_id = [
+		9700, # ___4109
+		9800, # ___4110
+	]
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
@@ -209,6 +216,12 @@ if "channel_id" in service and service["channel_id"] in rename:
 # Rename ITV channels
 if "channel_id" in service and service["channel_id"] in itv_rename:
 	service["interactive_name"] = itv_rename[service["channel_id"]]
+
+# Remove TSID 2023
+if custom and service["transport_stream_id"] == 2023:
+	while service["number"] in LCNs_in_use:
+		LCNs_in_use.remove(service["number"])
+	skip = True
 
 # Add channels by name
 if custom and service["service_name"] in channels_to_add and service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and channels_to_add[service["service_name"]] not in LCNs_in_use:
@@ -230,6 +243,8 @@ if service["service_type"] != 2 and (service["number"] in whitelist or service["
 elif custom and service["service_type"] != 2 and (service["number"] in blacklist or  service["service_name"] in blacklist):
 	skip = True
 elif custom and service["service_type"] in DvbScanner.HD_ALLOWED_TYPES and service["free_ca"] != 0:
+	skip = True
+elif custom and ("channel_id" in service and service["channel_id"] in blacklist_by_id):
 	skip = True
 
 new_numbers = []		
