@@ -283,7 +283,7 @@ class AutoBouquetsMaker(Screen):
 		frontendData = frontendInfo and frontendInfo.getAll(True)
 		if frontendData is not None:
 			currentlyPlayingNIM = frontendData.get("tuner_number", None)
-			if self.providers[self.currentAction]["streamtype"] == "dvbs" and currentlyPlayingNIM is not None:
+			if self.providers[self.currentAction]["streamtype"] == "dvbs" and currentlyPlayingNIM is not None and nimmanager.nim_slots[currentlyPlayingNIM].isCompatible("DVB-S"):
 				try:
 					nimConfigMode = nimmanager.nim_slots[currentlyPlayingNIM].config_mode
 				except AttributeError: # OpenATV > 5.3
