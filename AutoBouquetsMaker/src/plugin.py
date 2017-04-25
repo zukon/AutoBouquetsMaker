@@ -36,8 +36,8 @@ config.autobouquetsmaker.markerstyle = ConfigSelection(
 		("=== %s ===", _("=== text ===")), 
 		("= = = %s = = =", _("= = = text = = =")), 
 		("-------- %s --------", _("-------- text --------")), 
-		("== ABM %s marker ==", _("== ABM 'text' marker ==")), 
-		("---- ABM %s marker ----", _("---- ABM 'text' marker ----"))
+		("== ABM - %s ==", _("== ABM - 'text' ==")), 
+		("---- ABM - %s ----", _("---- ABM - 'text' ----"))
 	]
 )
 config.autobouquetsmaker.extensions = ConfigYesNo(default = False)
