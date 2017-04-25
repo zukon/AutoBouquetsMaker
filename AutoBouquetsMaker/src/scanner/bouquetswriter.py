@@ -388,6 +388,8 @@ class BouquetsWriter():
 
 		for section_identifier in bouquetsOrder:
 			sections = providers[section_identifier]["sections"]
+			if config.autobouquetsmaker.markersinindex.value and provider_configs[section_identifier].isMakeAnyBouquet():
+				bouquets_tv_list.append("#SERVICE 1:64:1:0:0:0:0:0:0:0:\n#DESCRIPTION %s\n" % (providers[section_identifier]["name"]))
 
 			if provider_configs[section_identifier].isMakeNormalMain() or provider_configs[section_identifier].isMakeHDMain() or provider_configs[section_identifier].isMakeFTAHDMain():
 				if self.containServices(path, "%s%s.main.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier)):

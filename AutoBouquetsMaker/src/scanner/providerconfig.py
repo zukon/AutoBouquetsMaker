@@ -63,6 +63,9 @@ class ProviderConfig():
 	def isMakeFTAHD(self):
 		return (self.flags & 0x80) == 0x80
 
+	def isMakeAnyBouquet(self):
+		return (self.flags & 0xdf) != 0x00
+
 	def isSwapChannels(self):
 		return (self.flags & 0x20) == 0x20
 
