@@ -389,7 +389,8 @@ class BouquetsWriter():
 		for section_identifier in bouquetsOrder:
 			sections = providers[section_identifier]["sections"]
 			if config.autobouquetsmaker.markersinindex.value and provider_configs[section_identifier].isMakeAnyBouquet():
-				bouquets_tv_list.append("#SERVICE 1:64:1:0:0:0:0:0:0:0:\n#DESCRIPTION %s\n" % (providers[section_identifier]["name"]))
+				bouquets_tv_list.append("#SERVICE 1:64:1:0:0:0:0:0:0:0:\n")
+				bouquets_tv_list.append("#DESCRIPTION %s\n" % (self.markerStyle(providers[section_identifier]["name"])))
 
 			if provider_configs[section_identifier].isMakeNormalMain() or provider_configs[section_identifier].isMakeHDMain() or provider_configs[section_identifier].isMakeFTAHDMain():
 				if self.containServices(path, "%s%s.main.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier)):
@@ -575,7 +576,7 @@ class BouquetsWriter():
 			for number in preferred_order_tmp:
 				if number in sections_c and number not in bouquets_to_hide:
 					current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
-					current_bouquet_list.append("#DESCRIPTION %s%s\n" % (section_prefix, sections_c[number]))
+					current_bouquet_list.append("#DESCRIPTION %s\n" % self.markerStyle("%s%s" % (section_prefix, sections_c[number])))
 					first_section = number
 					break
 
@@ -584,7 +585,7 @@ class BouquetsWriter():
 			for number in preferred_order_tmp:
 				if section_number in sections_c and section_number not in bouquets_to_hide and section_number != first_section:
 					current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
-					current_bouquet_list.append("#DESCRIPTION %s%s\n" % (section_prefix, sections_c[section_number]))
+					current_bouquet_list.append("#DESCRIPTION %s\n" % self.markerStyle("%s%s" % (section_prefix, sections_c[section_number])))
 				if number in swapDict:
 					number = swapDict[number]
 				if number in services["video"] and number not in bouquets_to_hide:
@@ -645,7 +646,7 @@ class BouquetsWriter():
 						todo = None
 						if section_key_current not in bouquets_to_hide:
 							current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
-							current_bouquet_list.append("#DESCRIPTION %s%s\n" % (section_prefix, sections_c[section_key_current]))
+							current_bouquet_list.append("#DESCRIPTION %s\n" % self.markerStyle("%s%s" % (section_prefix, sections_c[section_key_current])))
 							todo = section_key_current
 
 						section_keys_temp.remove(section_key_current)
@@ -718,7 +719,7 @@ class BouquetsWriter():
 				if section_number not in bouquets_to_hide:
 					current_bouquet_list.append("#NAME %s%s\n" % (section_prefix, section_name))
 					current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
-					current_bouquet_list.append("#DESCRIPTION %s%s\n" % (section_prefix, section_name))
+					current_bouquet_list.append("#DESCRIPTION %s\n" % self.markerStyle("%s%s" % (section_prefix, section_name)))
 				elif section_current_number == 0:
 					current_bouquet_list.append("#NAME %sHidden\n" % section_prefix)
 					current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
@@ -801,7 +802,7 @@ class BouquetsWriter():
 					todo = None
 					if section_key_current not in bouquets_to_hide:
 						current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
-						current_bouquet_list.append("#DESCRIPTION %s%s\n" % (section_prefix, sections_c[section_key_current]))
+						current_bouquet_list.append("#DESCRIPTION %s\n" % self.markerStyle("%s%s" % (section_prefix, sections_c[section_key_current])))
 						todo = section_key_current
 
 					section_keys_temp.remove(section_key_current)
@@ -862,7 +863,7 @@ class BouquetsWriter():
 					todo = None
 					if section_key_current not in bouquets_to_hide:
 						current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
-						current_bouquet_list.append("#DESCRIPTION %s%s\n" % (section_prefix, sections_c[section_key_current]))
+						current_bouquet_list.append("#DESCRIPTION %s\n" % self.markerStyle("%s%s" % (section_prefix, sections_c[section_key_current])))
 						todo = section_key_current
 
 					section_keys_temp.remove(section_key_current)
@@ -914,7 +915,7 @@ class BouquetsWriter():
 					todo = None
 					if section_key_current not in bouquets_to_hide:
 						current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
-						current_bouquet_list.append("#DESCRIPTION %s%s\n" % (section_prefix, sections_c[section_key_current]))
+						current_bouquet_list.append("#DESCRIPTION %s\n" % self.markerStyle("%s%s" % (section_prefix, sections_c[section_key_current])))
 						todo = section_key_current
 
 					section_keys_temp.remove(section_key_current)
@@ -950,7 +951,7 @@ class BouquetsWriter():
 		current_bouquet_list = []
 		current_bouquet_list.append("#NAME %s%s\n" % (section_prefix, _('Radio Channels')))
 		current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
-		current_bouquet_list.append("#DESCRIPTION %sRadio channels\n" % section_prefix)
+		current_bouquet_list.append("#DESCRIPTION %s\n" % self.markerStyle("%s%s" % (section_prefix, _('Radio Channels'))))
 
 		if len(services["radio"].keys()) > 0:
 			higher_number = sorted(services["radio"].keys())[-1]	# the highest number!
@@ -986,3 +987,6 @@ class BouquetsWriter():
 		if encoding is None:
 			encoding = "utf8"
 		return text.decode(encoding, errors="ignore").encode("utf8")
+
+	def markerStyle(self, text):
+		return config.autobouquetsmaker.markerstyle.value % text
