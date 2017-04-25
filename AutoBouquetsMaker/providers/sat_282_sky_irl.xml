@@ -73,8 +73,7 @@ except:
 	#
 	########################################################################
 
-	channels_to_add = {
-	
+	channels_to_add = {	
 	}
 	
 	channels_to_add_by_id = {
@@ -103,11 +102,14 @@ except:
 		6504: 275, # ITV HD
 		1670: 285, # Channel 4 +1
 		3310: 286, # More4 +1
-		2709: 128, # ComedyXtra
+		#slow death section
+		1402: 106, # Sky 1
+		4334: 107, # Sky Living
 		4335: 122, # Sky Living+1
+		2709: 128, # ComedyXtra
 		1301: 401, # Sky Sports 1
-		1324: 404, # Sky Sports 4
-		1325: 406, # Sky Sp NewsHQ		
+		1308: 402, # Sky Sports 2
+		1333: 403, # Sky Sports 3	
 	}	
 	
 	itv_rename = {
@@ -115,6 +117,9 @@ except:
 		1043: "ITV Tyne Tees HD",
 		1044: "ITV Yorkshire HD",
 		1045: "ITV Anglia HD",
+		1061: "ITV Border England HD",
+		1062: "ITV Westcountry West HD",
+		1063: "ITV Westcountry SW HD",		
 		2296: "S4C HD",
 		3527: "STV Edinburgh",
 		4012: "UTV Ireland",
@@ -186,7 +191,7 @@ except:
 		8611: ("BBC RB HD",6)
 	}
 
-	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD','ITV Encore HD',752,'BoxNation HD','BT Preview HD']
+	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD',752,'BoxNation HD']
 	
 	whitelist_by_id = [
 		1003, # MUTV HD
@@ -204,6 +209,19 @@ except:
 		9700, # ___4109
 		9800, # ___4110
 	]
+	
+	fta_corrections_by_id = [
+		5036, # AMC from BT
+		1024, # 10002
+		1027, # 10001
+	]
+	
+	broken_TSIDS = [
+		2011,
+		2023,
+		2026,
+	]
+	
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
@@ -218,12 +236,12 @@ if "channel_id" in service and service["channel_id"] in rename:
 if "channel_id" in service and service["channel_id"] in itv_rename:
 	service["interactive_name"] = itv_rename[service["channel_id"]]
 
-# Remove TSID 2023
-if custom and service["transport_stream_id"] == 2023:
+# Remove encrypted services from certain transport streams
+if custom and service["service_type"] != 2 and service["transport_stream_id"] in broken_TSIDS and service["free_ca"] != 0:
 	while service["number"] in LCNs_in_use:
 		LCNs_in_use.remove(service["number"])
 	skip = True
-
+	
 # Add channels by name
 if custom and service["service_name"] in channels_to_add and service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and channels_to_add[service["service_name"]] not in LCNs_in_use:
 	LCNs_in_use.append(channels_to_add[service["service_name"]])
@@ -278,9 +296,8 @@ for number in service["numbers"]:
 		new_numbers.append(number)
 service["numbers"] = new_numbers
 
-#Some channels have the FTA flag when they should not.
-fta_corrections = ['BoxNation', 'MOTORS TV UK', 'MTV Live', 'Nick Jr+1', 'Sony Movies', 'Sony Movies+1','Sony TV', 'Sony TV +1', 'TLC+2']
-if service["service_name"] in fta_corrections:
+#Some encrypted channels are wrongly flagged as FTA.
+if service["channel_id"] in fta_corrections_by_id:
 	service["free_ca"] = 1
 ]]>
 	</servicehacks>

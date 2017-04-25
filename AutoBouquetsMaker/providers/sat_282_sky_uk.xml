@@ -279,10 +279,14 @@ except:
 		1257: 574, # Oireachtas TV
 		2804: 578, # RTE News Now
 		1256: 635, # RTEjr
-		2709: 128, # ComedyXtra
+		#slow death section
+		1402: 106, # Sky 1
+		4334: 107, # Sky Living
 		4335: 122, # Sky Living+1
+		2709: 128, # ComedyXtra
 		1301: 401, # Sky Sports 1
 		1308: 402, # Sky Sports 2
+		1333: 403, # Sky Sports 3
 	}
 
 	itv_rename = {
@@ -391,7 +395,7 @@ except:
 	broken_TSIDS = [
 		2011,
 		2023,
-		2026,		
+		2026,
 	]
 
 # BBC HD channel numbers
