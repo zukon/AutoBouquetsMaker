@@ -276,19 +276,13 @@ except:
 		5311: 428, # Premier Sports
 		5152: 460, # eir Sport 2 HD (also 5154)
 		5153: 462, # Premier HD
-		1309: 495, # Sky Sports 1 RoI
-		1308: 496, # Sky Sports 2 RoI
-		1323: 497, # Sky Sports 3 RoI
-		1324: 498, # Sky Sports 4 RoI
-		1312: 499, # Sky Sports 5 RoI
 		1257: 574, # Oireachtas TV
 		2804: 578, # RTE News Now
 		1256: 635, # RTEjr
 		2709: 128, # ComedyXtra
 		4335: 122, # Sky Living+1
 		1301: 401, # Sky Sports 1
-		1324: 404, # Sky Sports 4
-		1325: 406, # Sky Sp NewsHQ		
+		1308: 402, # Sky Sports 2
 	}
 
 	itv_rename = {
@@ -397,7 +391,7 @@ except:
 	broken_TSIDS = [
 		2011,
 		2023,
-		2026,
+		2026,		
 	]
 
 # BBC HD channel numbers
