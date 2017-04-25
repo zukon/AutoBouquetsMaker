@@ -393,6 +393,12 @@ except:
 		1024, # 10002
 		1027, # 10001
 	]
+	
+	broken_TSIDS = [
+		2011,
+		2023,
+		2026,
+	]
 
 # BBC HD channel numbers
 if service["channel_id"] in (2075,) and 115 in service["numbers"]: # BBC2 HD
@@ -441,8 +447,8 @@ if "channel_id" in service and service["channel_id"] in rename:
 if "channel_id" in service and service["channel_id"] in itv_rename:
 	service["interactive_name"] = itv_rename[service["channel_id"]]
 
-# Remove TSID 2023
-if custom and service["transport_stream_id"] == 2023:
+# Remove encrypted services from certain transport streams
+if custom and service["service_type"] != 2 and service["transport_stream_id"] in broken_TSIDS and service["free_ca"] != 0:
 	while service["number"] in LCNs_in_use:
 		LCNs_in_use.remove(service["number"])
 	skip = True
