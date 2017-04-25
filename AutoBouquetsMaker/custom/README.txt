@@ -248,10 +248,10 @@ for this feature.
 Provider keys
 -------------
 
-Provider name: AustriaSat
+Provider name: HD Austria
 Provider key: sat_235_austriasat
 
-Provider name: AustriaSat
+Provider name: HD Austria
 Provider key: sat_192_austriasat
 
 Provider name: AustriaSat 9E
