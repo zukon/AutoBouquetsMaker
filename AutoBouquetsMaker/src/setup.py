@@ -518,8 +518,10 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 		if config.autobouquetsmaker.level.value == "expert":
 			self.list.append(getConfigListEntry(_("Keep all non-ABM bouquets"), config.autobouquetsmaker.keepallbouquets, _("When disabled this will enable the 'Keep bouquets' option in the main menu, allowing you to hide some 'existing' bouquets.")))
 			self.list.append(getConfigListEntry(_("Add provider prefix to bouquets"), config.autobouquetsmaker.addprefix, _("This option will prepend the provider name to bouquet name.")))
-			self.list.append(getConfigListEntry(_("Add provider markers in bouquets index"), config.autobouquetsmaker.markersinindex, _("This option places a header in the bouquet index above all bouquets of each provider.")))
-			self.list.append(getConfigListEntry(_("Style of section markers"), config.autobouquetsmaker.markerstyle, _("Choose the style of the section markers used in the channel lists and bouquet indexes.")))
+			self.list.append(getConfigListEntry(_("Add provider markers"), config.autobouquetsmaker.markersinindex, _("This option places markers in the bouquet index to group all bouquets of each provider.")))
+			if config.autobouquetsmaker.markersinindex.getValue():
+				self.list.append(getConfigListEntry(indent + _("Style of provider marker"), config.autobouquetsmaker.indexmarkerstyle, _("Choose the style of markers that separate one provider from another in bouquet indexes.")))
+			self.list.append(getConfigListEntry(_("Style of bouquet marker"), config.autobouquetsmaker.bouquetmarkerstyle, _("Choose the style of the markers that separate channels into groups in the channel lists.")))
 			self.list.append(getConfigListEntry(_("Place bouquets at"), config.autobouquetsmaker.placement, _("This option will allow you choose where to place the created bouquets.")))
 			self.list.append(getConfigListEntry(_("Skip services on not configured sats"), config.autobouquetsmaker.skipservices, _("If a service is carried on a satellite that is not configured, 'yes' means the channel will not appear in the channel list, 'no' means the channel will show in the channel list but be greyed out and not be accessible.")))
 			self.list.append(getConfigListEntry(_("Include 'not indexed' channels"), config.autobouquetsmaker.showextraservices, _("When a search finds extra channels that do not have an allocated channel number, 'yes' will add these at the end of the channel list, and 'no' means these will not be included.")))

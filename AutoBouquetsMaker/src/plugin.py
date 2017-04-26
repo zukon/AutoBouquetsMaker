@@ -24,10 +24,26 @@ config.autobouquetsmaker.keepbouquets = ConfigText("", False)
 config.autobouquetsmaker.hidesections = ConfigText("", False)
 config.autobouquetsmaker.addprefix = ConfigYesNo(default = False)
 config.autobouquetsmaker.markersinindex = ConfigYesNo(default = False)
-config.autobouquetsmaker.markerstyle = ConfigSelection(
+config.autobouquetsmaker.indexmarkerstyle = ConfigSelection(
 	default = "%s", 
 	choices = [
-		("%s", _("original text")), 
+		("%s", _("None")), 
+		("     %s", _("indent + text")), 
+		("<-- %s -->", _("<-- text -->")), 
+		("< - - %s - - >", _("< - - text - - >")), 
+		("== %s ==", _("== text ==")), 
+		("= = %s = =", _("= = text = =")), 
+		("=== %s ===", _("=== text ===")), 
+		("= = = %s = = =", _("= = = text = = =")), 
+		("-------- %s --------", _("-------- text --------")), 
+		("== ABM - %s ==", _("== ABM - 'text' ==")), 
+		("---- ABM - %s ----", _("---- ABM - 'text' ----"))
+	]
+)
+config.autobouquetsmaker.bouquetmarkerstyle = ConfigSelection(
+	default = "%s", 
+	choices = [
+		("%s", _("None")), 
 		("     %s", _("indent + text")), 
 		("<-- %s -->", _("<-- text -->")), 
 		("< - - %s - - >", _("< - - text - - >")), 

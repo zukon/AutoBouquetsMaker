@@ -389,7 +389,7 @@ class BouquetsWriter():
 		for section_identifier in bouquetsOrder:
 			sections = providers[section_identifier]["sections"]
 			if config.autobouquetsmaker.markersinindex.value and provider_configs[section_identifier].isMakeAnyBouquet():
-				bouquets_tv_list.append(self.styledBouquetMarker(providers[section_identifier]["name"]))
+				bouquets_tv_list.append(self.styledBouquetMarker(providers[section_identifier]["name"], "index"))
 
 			if provider_configs[section_identifier].isMakeNormalMain() or provider_configs[section_identifier].isMakeHDMain() or provider_configs[section_identifier].isMakeFTAHDMain():
 				if self.containServices(path, "%s%s.main.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier)):
@@ -447,7 +447,7 @@ class BouquetsWriter():
 				bouquetsToKeep2["tv"].append("%s%s.%s.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier, section_type))
 
 			if config.autobouquetsmaker.markersinindex.value:
-				bouquets_radio_list.append(self.styledBouquetMarker(providers[section_identifier]["name"]))
+				bouquets_radio_list.append(self.styledBouquetMarker(providers[section_identifier]["name"], "index"))
 			bouquets_radio_list.append("#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s%s.main.radio\" ORDER BY bouquet\n" % (self.ABM_BOUQUET_PREFIX, section_identifier))
 			bouquetsToKeep2["radio"].append("%s%s.main.radio" % (self.ABM_BOUQUET_PREFIX, section_identifier))
 
@@ -981,5 +981,9 @@ class BouquetsWriter():
 			encoding = "utf8"
 		return text.decode(encoding, errors="ignore").encode("utf8")
 
-	def styledBouquetMarker(self, text):
-		return "#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION %s\n" % (config.autobouquetsmaker.markerstyle.value % text)
+	def styledBouquetMarker(self, text, caller = "bouquets"):
+		if caller == "bouquets":
+			return "#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION %s\n" % (config.autobouquetsmaker.bouquetmarkerstyle.value % text)
+		if caller == "index":
+			return "#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION %s\n" % (config.autobouquetsmaker.indexmarkerstyle.value % text)
+		return "#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION \n"
