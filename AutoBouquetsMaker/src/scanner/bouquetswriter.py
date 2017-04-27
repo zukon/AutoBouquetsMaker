@@ -982,8 +982,6 @@ class BouquetsWriter():
 		return text.decode(encoding, errors="ignore").encode("utf8")
 
 	def styledBouquetMarker(self, text, caller = "bouquets"):
-		if caller == "bouquets":
-			return "#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION %s\n" % (config.autobouquetsmaker.bouquetmarkerstyle.value % text)
 		if caller == "index":
 			return "#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION %s\n" % (config.autobouquetsmaker.indexmarkerstyle.value % text)
-		return "#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION \n"
+		return "#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION %s\n" % (config.autobouquetsmaker.bouquetmarkerstyle.value % text)
