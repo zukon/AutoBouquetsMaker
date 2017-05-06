@@ -2,6 +2,7 @@ from .. import log
 import os
 import xml.dom.minidom
 import cPickle as pickle
+from enigma import eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable
 
 class Providers():
 	VALID_PROTOCOLS = ( "fastscan", "freesat", "lcn", "lcn2", "lcnbat", "lcnbat2", "nolcn", "sky", "vmuk" )
@@ -196,6 +197,9 @@ class Providers():
 						for node2 in node.childNodes:
 							if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "configuration":
 								configuration = {}
+								configuration["fec_inner"] = eDVBFrontendParametersCable.FEC_Auto
+								configuration["inversion"] = eDVBFrontendParametersCable.Inversion_Unknown
+								configuration["modulation"] = eDVBFrontendParametersCable.Modulation_Auto
 								for i in range(0, node2.attributes.length):
 									if node2.attributes.item(i).name == "key":
 										configuration["key"] = node2.attributes.item(i).value
@@ -246,6 +250,15 @@ class Providers():
 						for node2 in node.childNodes:
 							if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "configuration":
 								configuration = {}
+								configuration["inversion"] = eDVBFrontendParametersTerrestrial.Inversion_Unknown
+								configuration["modulation"] = eDVBFrontendParametersTerrestrial.Modulation_Auto
+								configuration["bandwidth"] = 8000000
+								configuration["code_rate_hp"] = eDVBFrontendParametersTerrestrial.FEC_Auto
+								configuration["code_rate_lp"] = eDVBFrontendParametersTerrestrial.FEC_Auto
+								configuration["transmission_mode"] = eDVBFrontendParametersTerrestrial.TransmissionMode_Auto
+								configuration["guard_interval"] = eDVBFrontendParametersTerrestrial.GuardInterval_Auto
+								configuration["hierarchy"] = eDVBFrontendParametersTerrestrial.Hierarchy_Auto
+								
 								for i in range(0, node2.attributes.length):
 									if node2.attributes.item(i).name == "key":
 										configuration["key"] = node2.attributes.item(i).value
