@@ -85,7 +85,7 @@ class Providers():
 					elif node.tagName == "protocol":
 						node.normalize()
 						if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE and node.childNodes[0].data in self.VALID_PROTOCOLS:
-							provider["protocol"] = node.childNodes[0].data
+							provider["protocol"] = node.childNodes[0].data.encode("utf-8")
 					elif node.tagName == "transponder":
 						transponder = {}
 						transponder["nit_pid"] = 0x10
@@ -179,7 +179,7 @@ class Providers():
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
-									configuration["name"] = node2.childNodes[0].data
+									configuration["name"] = node2.childNodes[0].data.encode("utf-8")
 
 								if len(configuration.keys()) == 4:
 									provider["bouquets"][configuration["key"]] = configuration
@@ -226,7 +226,7 @@ class Providers():
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
-									configuration["name"] = node2.childNodes[0].data
+									configuration["name"] = node2.childNodes[0].data.encode("utf-8")
 
 								if len(configuration.keys()) == 10 and 'lcnbat' not in provider["protocol"] and 'region' not in configuration and 'bouquet' not in configuration:
 									provider["bouquets"][configuration["key"]] = configuration
@@ -285,7 +285,7 @@ class Providers():
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
-									configuration["name"] = node2.childNodes[0].data
+									configuration["name"] = node2.childNodes[0].data.encode("utf-8")
 
 								if len(configuration.keys()) == 12:
 									provider["bouquets"][configuration["key"]] = configuration
@@ -307,7 +307,7 @@ class Providers():
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
-									provider["sections"][number] = node2.childNodes[0].data
+									provider["sections"][number] = node2.childNodes[0].data.encode("utf-8")
 
 					elif node.tagName == "swapchannels":
 						swapchannels_set = {}
@@ -361,7 +361,7 @@ class Providers():
 						node.normalize()
 						for i in range(0, len(node.childNodes)):
 							if node.childNodes[i].nodeType == node.CDATA_SECTION_NODE:
-								provider["servicehacks"] = node.childNodes[i].data.strip()
+								provider["servicehacks"] = node.childNodes[i].data.encode("utf-8").strip()
 
 					elif node.tagName == "dependent":
 						node.normalize()

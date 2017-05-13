@@ -191,7 +191,7 @@ class Tools():
 					node.normalize()
 					for i in range(0, len(node.childNodes)):
 						if node.childNodes[i].nodeType == node.CDATA_SECTION_NODE:
-							hacks = node.childNodes[i].data.strip()
+							hacks = node.childNodes[i].data.encode("utf-8").strip()
 
 			if len(hacks) > 0:
 				exec(hacks)
