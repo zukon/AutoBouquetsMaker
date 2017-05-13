@@ -84,7 +84,7 @@ class Providers():
 							provider["streamtype"] = node.childNodes[0].data.encode("utf-8")
 					elif node.tagName == "protocol":
 						node.normalize()
-						if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE and node.childNodes[0].data in self.VALID_PROTOCOLS:
+						if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE and node.childNodes[0].data.encode("utf-8") in self.VALID_PROTOCOLS:
 							provider["protocol"] = node.childNodes[0].data.encode("utf-8")
 					elif node.tagName == "transponder":
 						transponder = {}
@@ -171,7 +171,7 @@ class Providers():
 								configuration = {}
 								for i in range(0, node2.attributes.length):
 									if node2.attributes.item(i).name == "key":
-										configuration["key"] = node2.attributes.item(i).value
+										configuration["key"] = node2.attributes.item(i).value.encode("utf-8")
 									elif node2.attributes.item(i).name == "bouquet":
 										configuration["bouquet"] = int(node2.attributes.item(i).value, 16)
 									elif node2.attributes.item(i).name == "region":
@@ -202,11 +202,11 @@ class Providers():
 								configuration["modulation"] = eDVBFrontendParametersCable.Modulation_Auto
 								for i in range(0, node2.attributes.length):
 									if node2.attributes.item(i).name == "key":
-										configuration["key"] = node2.attributes.item(i).value
+										configuration["key"] = node2.attributes.item(i).value.encode("utf-8")
 									elif node2.attributes.item(i).name == "netid":
 										configuration["netid"] = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "bouquettype":
-										configuration["bouquettype"] = node2.attributes.item(i).value
+										configuration["bouquettype"] = node2.attributes.item(i).value.encode("utf-8")
 									elif node2.attributes.item(i).name == "frequency":
 										configuration["frequency"] = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "symbol_rate":
@@ -261,7 +261,7 @@ class Providers():
 								
 								for i in range(0, node2.attributes.length):
 									if node2.attributes.item(i).name == "key":
-										configuration["key"] = node2.attributes.item(i).value
+										configuration["key"] = node2.attributes.item(i).value.encode("utf-8")
 									elif node2.attributes.item(i).name == "frequency":
 										configuration["frequency"] = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "inversion":

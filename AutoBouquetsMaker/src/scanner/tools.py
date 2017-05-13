@@ -155,7 +155,7 @@ class Tools():
 							target = ''
 							for i in range(0, node2.attributes.length):
 								if node2.attributes.item(i).name == "provider":
-									provider = node2.attributes.item(i).value
+									provider = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "source":
 									source = int(node2.attributes.item(i).value)
 								elif node2.attributes.item(i).name == "target":
@@ -234,7 +234,7 @@ class Tools():
 							customtransponder["plpid"] = 0
 							for i in range(0, node2.attributes.length):
 								if node2.attributes.item(i).name == "key":
-									customtransponder["key"] = node2.attributes.item(i).value
+									customtransponder["key"] = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "transport_stream_id":
 									customtransponder["transport_stream_id"] = int(node2.attributes.item(i).value, 16)
 								elif node2.attributes.item(i).name == "frequency":
@@ -320,7 +320,7 @@ class Tools():
 							target = ''
 							for i in range(0, node2.attributes.length):
 								if node2.attributes.item(i).name == "provider":
-									provider = node2.attributes.item(i).value
+									provider = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "source":
 									source = int(node2.attributes.item(i).value)
 								elif node2.attributes.item(i).name == "target":
@@ -332,11 +332,11 @@ class Tools():
 					for node2 in node.childNodes:
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "main":
 							node2.normalize()
-							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and node2.childNodes[0].data != "1":
+							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and node2.childNodes[0].data.encode("utf-8") != "1":
 								bouquets["main"] = 0
 						elif node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "sections":
 							node2.normalize()
-							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and node2.childNodes[0].data != "1":
+							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and node2.childNodes[0].data.encode("utf-8") != "1":
 								bouquets["sections"] = 0
 
 				elif node.tagName == "placement":
@@ -350,7 +350,7 @@ class Tools():
 					node.normalize()
 					for i in range(0, len(node.childNodes)):
 						if node.childNodes[i].nodeType == node.CDATA_SECTION_NODE:
-							hacks = node.childNodes[i].data.strip()
+							hacks = node.childNodes[i].data.encode("utf-8").strip()
 
 			if len(hacks) > 0:
 				exec(hacks)
