@@ -155,7 +155,7 @@ class Tools():
 							target = ''
 							for i in range(0, node2.attributes.length):
 								if node2.attributes.item(i).name == "provider":
-									provider = node2.attributes.item(i).value
+									provider = node2.attributes.item(i).encode("utf-8").value
 								elif node2.attributes.item(i).name == "source":
 									source = int(node2.attributes.item(i).value)
 								elif node2.attributes.item(i).name == "target":
@@ -234,7 +234,7 @@ class Tools():
 							customtransponder["plpid"] = 0
 							for i in range(0, node2.attributes.length):
 								if node2.attributes.item(i).name == "key":
-									customtransponder["key"] = node2.attributes.item(i).value
+									customtransponder["key"] = node2.attributes.item(i).encode("utf-8").value
 								elif node2.attributes.item(i).name == "transport_stream_id":
 									customtransponder["transport_stream_id"] = int(node2.attributes.item(i).value, 16)
 								elif node2.attributes.item(i).name == "frequency":
@@ -320,7 +320,7 @@ class Tools():
 							target = ''
 							for i in range(0, node2.attributes.length):
 								if node2.attributes.item(i).name == "provider":
-									provider = node2.attributes.item(i).value
+									provider = node2.attributes.item(i).encode("utf-8").value
 								elif node2.attributes.item(i).name == "source":
 									source = int(node2.attributes.item(i).value)
 								elif node2.attributes.item(i).name == "target":
@@ -350,7 +350,7 @@ class Tools():
 					node.normalize()
 					for i in range(0, len(node.childNodes)):
 						if node.childNodes[i].nodeType == node.CDATA_SECTION_NODE:
-							hacks = node.childNodes[i].data.strip()
+							hacks = node.childNodes[i].data.encode("utf-8").strip()
 
 			if len(hacks) > 0:
 				exec(hacks)
