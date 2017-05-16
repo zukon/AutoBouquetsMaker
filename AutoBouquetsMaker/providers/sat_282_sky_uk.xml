@@ -274,6 +274,10 @@ except:
 		5311: 428, # Premier Sports
 		#slow death section
 		2709: 128, # ComedyXtra
+		3705: 112, # ComedyCentral
+		5527: 606, # Nicktoons
+		3356: 615, # Nick Jr
+		2517: 604, # Nicelodeon
 	}
 
 	itv_rename = {
