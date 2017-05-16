@@ -401,6 +401,12 @@ class AutoBouquetsMaker(Screen):
 			params.modulation = transponder["modulation"]
 			params.rolloff = transponder["roll_off"]
 			params.pilot = transponder["pilot"]
+			try: # if distro is MIS capable
+				params.pls_mode = eDVBFrontendParametersSatellite.PLS_Root
+				params.is_id = -1
+				params.pls_code = 1
+			except:
+				pass
 			params_fe = eDVBFrontendParameters()
 			params_fe.setDVBS(params, False)
 
