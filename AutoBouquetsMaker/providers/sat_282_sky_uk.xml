@@ -266,28 +266,14 @@ except:
 	}
 
 	channels_to_add_by_id = {
-		1251: 291, # RTE One
-		1252: 292, # RTE2
-		1255: 293, # TV3
-		1253: 294, # TG4
-		2808: 295, # RTE One+1
 		1025: 296, # TV3+1
 		5122: 423, # eir Sport 1 (also 3601)
 		5123: 424, # eir Sport 2 (also 4551)
-		5311: 428, # Premier Sports
 		5152: 460, # eir Sport 2 HD (also 5154)
 		5153: 462, # Premier HD
-		1257: 574, # Oireachtas TV
-		2804: 578, # RTE News Now
-		1256: 635, # RTEjr
+		5311: 428, # Premier Sports
 		#slow death section
-		1402: 106, # Sky 1
-		4334: 107, # Sky Living
-		4335: 122, # Sky Living+1
 		2709: 128, # ComedyXtra
-		1301: 401, # Sky Sports 1
-		1308: 402, # Sky Sports 2
-		1333: 403, # Sky Sports 3
 	}
 
 	itv_rename = {
@@ -395,9 +381,11 @@ except:
 	]
 	
 	broken_TSIDS = [
-		2011,
-		2023,
-		2026,
+		2011, #7db
+		2023, #7e7
+		2026, #7ea
+		2021, #7e5
+		2029, #7ed
 	]
 
 # BBC HD channel numbers

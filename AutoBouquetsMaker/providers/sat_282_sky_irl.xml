@@ -235,11 +235,12 @@ except:
 	]
 	
 	broken_TSIDS = [
-		2011,
-		2023,
-		2026,
+		2011, #7db
+		2023, #7e7
+		2026, #7ea
+		2021, #7e5
+		2029, #7ed
 	]
-	
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
