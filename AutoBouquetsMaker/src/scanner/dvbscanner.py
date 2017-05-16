@@ -595,8 +595,12 @@ class DvbScanner():
 						tsid_list.append(service["transport_stream_id"])
 
 				if servicekey not in logical_channel_number_dict or not self.ignore_visible_service_flag and "visible_service_flag" in logical_channel_number_dict[servicekey] and logical_channel_number_dict[servicekey]["visible_service_flag"] == 0:
+					if self.extra_debug:
+						print "[ABM-DvbScanner] %s not in logical_channel_number_dict" % service["service_name"]
 					continue
 				if service_dict_tmp and servicekey not in service_dict_tmp and protocol not in ("lcn2", "lcnbat2"):
+					if self.extra_debug:
+						print "[ABM-DvbScanner] %s not in service_dict_tmp" % service["service_name"]
 					continue
 
 				namespace_key = "%x:%x" % (service["transport_stream_id"], service["original_network_id"])
