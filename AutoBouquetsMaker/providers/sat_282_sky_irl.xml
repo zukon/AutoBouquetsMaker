@@ -75,7 +75,7 @@ try:
 except:
 	is_assigned = True
 	custom = True if "custom" in bouquet_key else False
-	
+
 	# slot some extra channels into vacant slots in the provider list if "custom" == True
 	########################################################################
 	#
@@ -87,7 +87,7 @@ except:
 
 	channels_to_add = {	
 	}
-	
+
 	channels_to_add_by_id = {
 		6240: 118, # ITV2
 		6260: 119, # ITV3
@@ -127,8 +127,8 @@ except:
 		1301: 401, # Sky Sports 1
 		1308: 402, # Sky Sports 2
 		1333: 403, # Sky Sports 3	
-	}	
-	
+	}
+
 	itv_rename = {
 		1020: "ITV Border Scotland",
 		1043: "ITV Tyne Tees HD",
@@ -197,7 +197,7 @@ except:
 		2079: "BBC One HD",
 
 	}
-	
+
 	BBC_RB = {
 		2051: ("BBC RB 1",0),
 		8602: ("BBC RB 2",1),
@@ -209,7 +209,7 @@ except:
 	}
 
 	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD',752,'BoxNation HD']
-	
+
 	whitelist_by_id = [
 		1003, # MUTV HD
 		1019, # CNN HD
@@ -222,31 +222,34 @@ except:
 	]
 
 	blacklist = [899,950,"10001", "10002",]
-	
+
 	blacklist_by_id = [
 		9700, # ___4109
 		9800, # ___4110
 	]
-	
+
 	fta_corrections_by_id = [
 		5036, # AMC from BT
 		1024, # 10002
 		1027, # 10001
 	]
-	
+
 	broken_TSIDS = [
-		2011, #7db
-		2023, #7e7
-		2026, #7ea
-		2021, #7e5
-		2029, #7ed
+		2007, #7d7 20170518
+		2011, #7db 20170425
+		2012, #7dc 20170518
+		2021, #7e5 20170516
+		2023, #7e7 20170331
+		2025, #7e9 20170518
+		2026, #7ea 20170425
+		2029, #7ed 20170516
 	]
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
 	print>>log, "[ABM-Hack] Sky IE: %s, changed from type %d to 25" % (service["service_name"], service["service_type"])
 	service["service_type"] = 25
-	
+
 # Rename channels
 if "channel_id" in service and service["channel_id"] in rename:
 	service["interactive_name"] = rename[service["channel_id"]]
@@ -260,13 +263,13 @@ if custom and service["service_type"] != 2 and service["transport_stream_id"] in
 	while service["number"] in LCNs_in_use:
 		LCNs_in_use.remove(service["number"])
 	skip = True
-	
+
 # Add channels by name
 if custom and service["service_name"] in channels_to_add and service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and channels_to_add[service["service_name"]] not in LCNs_in_use:
 	LCNs_in_use.append(channels_to_add[service["service_name"]])
 	service["number"] = channels_to_add[service["service_name"]]
 	service["numbers"] = [channels_to_add[service["service_name"]]]
-	
+
 # Add channels by ID
 if custom and service["channel_id"] in channels_to_add_by_id and service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and channels_to_add_by_id[service["channel_id"]] not in LCNs_in_use:
 	LCNs_in_use.append(channels_to_add_by_id[service["channel_id"]])

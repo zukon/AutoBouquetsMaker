@@ -273,11 +273,13 @@ except:
 		5153: 462, # Premier HD
 		5311: 428, # Premier Sports
 		#slow death section
-		2709: 128, # ComedyXtra
 		3705: 112, # ComedyCentral
+		2709: 128, # ComedyXtra
+		1355: 415, # At the races
+		2418: 522, # ID
+		2517: 604, # Nicelodeon
 		5527: 606, # Nicktoons
 		3356: 615, # Nick Jr
-		2517: 604, # Nicelodeon
 	}
 
 	itv_rename = {
@@ -335,7 +337,7 @@ except:
 		6505: "ITV Granada HD",
 		6510: "UTV HD"
 	}	
-	
+
 	rename = {
 		# BT Interactive
 		5381: "BT Sport Mosaic 2",
@@ -370,12 +372,12 @@ except:
 	]
 
 	blacklist = ["10001", "10002"]
-	
+
 	blacklist_by_id = [
 		9700, # ___4109
 		9800, # ___4110
 	]
-	
+
 	bt_sports_id = [5030,5381,5031,5382,5383,5384,5385,5386]
 
 	fta_corrections_by_id = [
@@ -383,13 +385,16 @@ except:
 		1024, # 10002
 		1027, # 10001
 	]
-	
+
 	broken_TSIDS = [
-		2011, #7db
-		2023, #7e7
-		2026, #7ea
-		2021, #7e5
-		2029, #7ed
+		2007, #7d7 20170518
+		2011, #7db 20170425
+		2012, #7dc 20170518
+		2021, #7e5 20170516
+		2023, #7e7 20170331
+		2025, #7e9 20170518
+		2026, #7ea 20170425
+		2029, #7ed 20170516
 	]
 
 # BBC HD channel numbers
@@ -399,7 +404,7 @@ if service["channel_id"] in (2075,) and 115 in service["numbers"]: # BBC2 HD
 if service["channel_id"] in (2076,2081,2082,2083) and 141 in service["numbers"]: # BBC1 HD
 	service["numbers"][service["numbers"].index(141)] = 115
 	service["number"] = 115
-	
+
 # S4C swap problem when region is Wales
 if service["channel_id"] == 5701 and service["number"] == 104:
 	for k2 in tmp_services_dict.keys():
