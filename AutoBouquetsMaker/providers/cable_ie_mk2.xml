@@ -4,17 +4,16 @@
 	<protocol>vmuk2</protocol>
 
 	<dvbcconfigs>
-		<!-- bouquettype is part of LCN protocol. It is doing nothing here. -->
-		<configuration key="hd_01537" netid="01537" bouquettype="hd" frequency="538000" symbol_rate="6875000" system="0" fec_inner="0" inversion="2" modulation="3" region="0xD0" bouquet="0x6600">1537 unknown areas</configuration>
-		<configuration key="hd_42753" netid="42753" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3" region="0xD0" bouquet="0x6600">42753 DubLegacy</configuration>
-		<configuration key="hd_42754" netid="42754" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3" region="0xD0" bouquet="0x6600">42754 WatLegacy</configuration>
-		<configuration key="hd_42755" netid="42755" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3" region="0xD0" bouquet="0x6600">42755 GalwLegacy</configuration>
-		<configuration key="hd_43216" netid="43216" bouquettype="hd" frequency="290000" symbol_rate="6875000" system="0" fec_inner="0" inversion="2" modulation="3" region="0xD0" bouquet="0x6600">43216 Cork_Swords_UPC</configuration>
-		<configuration key="hd_43217" netid="43217" bouquettype="hd" frequency="299000" symbol_rate="6887000" system="0" fec_inner="0" inversion="2" modulation="0" region="0xD0" bouquet="0x6600">43217 Dublin _PC</configuration>
-		<configuration key="hd_43218" netid="43218" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3" region="0xD0" bouquet="0x6600">43218 Galway_UPC</configuration>
-		<configuration key="hd_43219" netid="43219" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="0" inversion="2" modulation="0" region="0xD0" bouquet="0x6600">43219 Wat_UPC</configuration>
-		<configuration key="hd_43220" netid="43220" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="0" inversion="2" modulation="0" region="0xD0" bouquet="0x6600">43220 Limerick_UPC</configuration>
-		<configuration key="hd_43226" netid="43226" bouquettype="hd" frequency="340000" symbol_rate="6875000" system="0" fec_inner="0" inversion="2" modulation="0" region="0xD0" bouquet="0x6600">43226 Sligo_UPC</configuration>
+		<configuration key="hd_01537" netid="01537" bouquettype="hd" frequency="538000" symbol_rate="6875000" system="0" modulation="3">01537 unknown areas</configuration>
+		<configuration key="hd_42753" netid="42753" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="3">42753 Dublin Legacy</configuration>
+		<configuration key="hd_42754" netid="42754" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="3">42754 Waterford Legacy</configuration>
+		<configuration key="hd_42755" netid="42755" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="3">42755 Galway Legacy</configuration>
+		<configuration key="hd_43216" netid="43216" bouquettype="hd" frequency="290000" symbol_rate="6875000" system="0" modulation="3">43216 Cork_Swords UPC</configuration>
+		<configuration key="hd_43217" netid="43217" bouquettype="hd" frequency="299000" symbol_rate="6887000" system="0" modulation="0">43217 Dublin UPC</configuration>
+		<configuration key="hd_43218" netid="43218" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="3">43218 Galway UPC</configuration>
+		<configuration key="hd_43219" netid="43219" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="0">43219 Waterford UPC</configuration>
+		<configuration key="hd_43220" netid="43220" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="0">43220 Limerick UPC</configuration>
+		<configuration key="hd_43226" netid="43226" bouquettype="hd" frequency="340000" symbol_rate="6875000" system="0" modulation="0">43226 Sligo UPC</configuration>
 	</dvbcconfigs>
 
 	<sections>
