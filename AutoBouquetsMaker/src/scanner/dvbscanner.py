@@ -178,10 +178,14 @@ class DvbScanner():
 				continue
 
 			if self.extra_debug:
-				print "[ABM-DvbScanner] NIT raw section", section
+				print "[ABM-DvbScanner] NIT raw section header", section["header"]
+				print "[ABM-DvbScanner] NIT raw section content", section["content"]
 
 			if (section["header"]["table_id"] == self.nit_current_table_id
 				and self.dvbtype != 'dvbc' and not nit_current_completed):
+				if self.extra_debug:
+					print "[ABM-DvbScanner] raw section above is from NIT actual table."
+
 				if (section["header"]["version_number"] != nit_current_section_version or section["header"]["network_id"] != nit_current_section_network_id):
 					nit_current_section_version = section["header"]["version_number"]
 					nit_current_section_network_id = section["header"]["network_id"]
@@ -197,6 +201,9 @@ class DvbScanner():
 						nit_current_completed = True
 
 			elif (str(section["header"]["network_id"]) == str(netid) and self.dvbtype == 'dvbc' and not nit_current_completed):
+				if self.extra_debug:
+					print "[ABM-DvbScanner] raw section above is from NIT actual table."
+
 				if (section["header"]["version_number"] != nit_current_section_version or section["header"]["network_id"] != nit_current_section_network_id):
 					nit_current_section_version = section["header"]["version_number"]
 					nit_current_section_network_id = section["header"]["network_id"]
@@ -212,7 +219,9 @@ class DvbScanner():
 						nit_current_completed = True
 						all_nit_others_completed = True
 
-			elif section["header"]["table_id"] == self.nit_other_table_id and not all_nit_others_completed:
+			elif section["header"]["table_id"] == self.nit_other_table_id and not all_nit_others_completed and (self.dvbtype != 'dvbc' or str(section["header"]["network_id"]) == str(netid)):
+				if self.extra_debug:
+					print "[ABM-DvbScanner] raw section above is from NIT other table."
 				network_id = section["header"]["network_id"]
 
 				if network_id in nit_other_section_version and nit_other_section_version[network_id] == section["header"]["version_number"] and all(completed == True for completed in nit_other_completed.itervalues()):
@@ -232,6 +241,9 @@ class DvbScanner():
 
 						if len(nit_other_sections_read[network_id]) == nit_other_sections_count[network_id]:
 							nit_other_completed[network_id] = True
+
+			elif self.extra_debug:
+				print "[ABM-DvbScanner] raw section above skipped. Either duplicate output or ID mismatch."
 
 			if nit_current_completed and all_nit_others_completed:
 				print>>log, "[ABM-DvbScanner] Scan complete, netid: ", str(netid)
@@ -427,7 +439,8 @@ class DvbScanner():
 				continue
 
 			if self.extra_debug:
-				print "[ABM-DvbScanner] BAT raw section", section
+				print "[ABM-DvbScanner] BAT raw section header", section["header"]
+				print "[ABM-DvbScanner] BAT raw section content", section["content"]
 				for service in section["content"]:
 					if "hexcontent" in service:
 						hex_list.append(service)
@@ -529,7 +542,8 @@ class DvbScanner():
 				continue
 
 			if self.extra_debug:
-				print "[ABM-DvbScanner] SDT raw section", section
+				print "[ABM-DvbScanner] SDT raw section header", section["header"]
+				print "[ABM-DvbScanner] SDT raw section content", section["content"]
 
 			if section["header"]["table_id"] == self.sdt_current_table_id or section["header"]["table_id"] == self.sdt_other_table_id:
 				TSID_ONID = "%x:%x" % (section["header"]["transport_stream_id"], section["header"]["original_network_id"])
@@ -558,7 +572,7 @@ class DvbScanner():
 		dvbreader.close(fd)
 
 		# Create logical_channel_number_dict for VMUK
-		if protocol == 'vmuk':
+		if protocol in ('vmuk', 'vmuk2'):
 			for key in sdt_secions_status:
 				for service in sdt_secions_status[key]["content"]:
 					if "logical_channel_number" in service and service["logical_channel_number"] > 0:
@@ -595,10 +609,8 @@ class DvbScanner():
 						tsid_list.append(service["transport_stream_id"])
 
 				if servicekey not in logical_channel_number_dict or not self.ignore_visible_service_flag and "visible_service_flag" in logical_channel_number_dict[servicekey] and logical_channel_number_dict[servicekey]["visible_service_flag"] == 0:
-					if self.extra_debug:
-						print "[ABM-DvbScanner] %s not in logical_channel_number_dict" % service["service_name"]
 					continue
-				if service_dict_tmp and servicekey not in service_dict_tmp and protocol not in ("lcn2", "lcnbat2"):
+				if service_dict_tmp and servicekey not in service_dict_tmp and protocol not in ("lcn2", "lcnbat2", "vmuk2"):
 					if self.extra_debug:
 						print "[ABM-DvbScanner] %s not in service_dict_tmp" % service["service_name"]
 					continue
@@ -694,7 +706,8 @@ class DvbScanner():
 				continue
 
 			if self.extra_debug:
-				print "[ABM-DvbScanner] Fastscan raw section", section
+				print "[ABM-DvbScanner] Fastscan raw section header", section["header"]
+				print "[ABM-DvbScanner] Fastscan raw section content", section["content"]
 
 			if section["header"]["table_id"] == self.fastscan_table_id:
 				if (section["header"]["version_number"] != fastscan_section_version

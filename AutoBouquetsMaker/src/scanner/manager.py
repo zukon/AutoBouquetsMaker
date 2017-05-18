@@ -218,7 +218,7 @@ class Manager():
 				scanner.setNitOtherTableId(providers[provider_key]["transponder"]["nit_other_table_id"])
 				scanner.setVisibleServiceFlagIgnore(providers[provider_key]["ignore_visible_service_flag"])
 
-				if providers[provider_key]["protocol"] in ('lcn', 'lcn2', 'lcnbat', 'lcnbat2', 'nolcn', 'vmuk'):
+				if providers[provider_key]["protocol"] in ('lcn', 'lcn2', 'lcnbat', 'lcnbat2', 'nolcn', 'vmuk', 'vmuk2'):
 					scanner.setSdtPid(providers[provider_key]["transponder"]["sdt_pid"])
 					scanner.setSdtCurrentTableId(providers[provider_key]["transponder"]["sdt_current_table_id"])
 					scanner.setSdtOtherTableId(providers[provider_key]["transponder"]["sdt_other_table_id"])

@@ -5,7 +5,7 @@ import cPickle as pickle
 from enigma import eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable
 
 class Providers():
-	VALID_PROTOCOLS = ( "fastscan", "freesat", "lcn", "lcn2", "lcnbat", "lcnbat2", "nolcn", "sky", "vmuk" )
+	VALID_PROTOCOLS = ( "fastscan", "freesat", "lcn", "lcn2", "lcnbat", "lcnbat2", "nolcn", "sky", "vmuk", "vmuk2" )
 	PROVIDERS_DIR = os.path.dirname(__file__) + "/../providers"
 
 	def parseXML(self, filename):
