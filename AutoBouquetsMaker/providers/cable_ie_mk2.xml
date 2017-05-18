@@ -1,0 +1,97 @@
+<provider>
+<name>Virgin IE MK2</name>
+	<streamtype>dvbc</streamtype>
+	<protocol>vmuk2</protocol>
+
+	<dvbcconfigs>
+		<!-- bouquettype is part of LCN protocol. It is doing nothing here. -->
+		<configuration key="hd_01537" netid="01537" bouquettype="hd" frequency="538000" symbol_rate="6875000" system="0" fec_inner="0" inversion="2" modulation="3" region="0xD0" bouquet="0x6600">1537 unknown areas</configuration>
+		<configuration key="hd_42753" netid="42753" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3" region="0xD0" bouquet="0x6600">42753 DubLegacy</configuration>
+		<configuration key="hd_42754" netid="42754" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3" region="0xD0" bouquet="0x6600">42754 WatLegacy</configuration>
+		<configuration key="hd_42755" netid="42755" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3" region="0xD0" bouquet="0x6600">42755 GalwLegacy</configuration>
+		<configuration key="hd_43216" netid="43216" bouquettype="hd" frequency="290000" symbol_rate="6875000" system="0" fec_inner="0" inversion="2" modulation="3" region="0xD0" bouquet="0x6600">43216 Cork_Swords_UPC</configuration>
+		<configuration key="hd_43217" netid="43217" bouquettype="hd" frequency="299000" symbol_rate="6887000" system="0" fec_inner="0" inversion="2" modulation="0" region="0xD0" bouquet="0x6600">43217 Dublin _PC</configuration>
+		<configuration key="hd_43218" netid="43218" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="3" inversion="2" modulation="3" region="0xD0" bouquet="0x6600">43218 Galway_UPC</configuration>
+		<configuration key="hd_43219" netid="43219" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="0" inversion="2" modulation="0" region="0xD0" bouquet="0x6600">43219 Wat_UPC</configuration>
+		<configuration key="hd_43220" netid="43220" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" fec_inner="0" inversion="2" modulation="0" region="0xD0" bouquet="0x6600">43220 Limerick_UPC</configuration>
+		<configuration key="hd_43226" netid="43226" bouquettype="hd" frequency="340000" symbol_rate="6875000" system="0" fec_inner="0" inversion="2" modulation="0" region="0xD0" bouquet="0x6600">43226 Sligo_UPC</configuration>
+	</dvbcconfigs>
+
+	<sections>
+        <section number="100">Entertainment</section>
+        <section number="200">News and Documentaries</section>
+        <section number="300">Movies</section>
+        <section number="400">Sports</section>
+        <section number="500">Lifestyle</section>
+        <section number="600">Kids</section>
+        <section number="700">Music</section>
+        <section number="756">Hide Me</section>
+        <section number="805">Specialist</section>
+        <section number="858">Adult</section>
+	</sections>
+
+	<swapchannels>
+		<channel number="101" with="135" /><!-- RTE ONE HD -->
+		<channel number="102" with="136" /><!-- RTE2 HD -->
+		<channel number="103" with="150" /><!-- TV3 HD -->
+		<channel number="104" with="137" /><!-- TG4 HD -->
+		<channel number="105" with="149" /><!-- 3e HD -->
+		<channel number="106" with="148" /><!-- be3 HD -->
+		<channel number="108" with="139" /><!-- BBC1 HD -->
+		<channel number="109" with="140" /><!-- BBC Two HD -->
+		<channel number="111" with="142" /><!-- Channel 4 HD -->
+		<channel number="114" with="143" /><!-- Sky 1 HD -->
+		<channel number="124" with="144" /><!-- Sky Living HD -->
+		<channel number="126" with="176" /><!-- Fox HD -->
+		<channel number="127" with="177" /><!-- Comedy HD -->
+		<channel number="141" with="145" /><!-- Sky Arts HD -->
+		<channel number="202" with="232" /><!-- Sky News HD -->
+		<channel number="208" with="219" /><!-- Discovery HD -->
+		<channel number="215" with="221" /><!-- National Geographic HD -->
+		<channel number="216" with="222" /><!-- NatGeoWild HD -->
+		<channel number="217" with="220" /><!-- History HD -->
+		<channel number="301" with="331" /><!-- Sky Comedy HD -->
+		<channel number="302" with="332" /><!-- Sky Action HD -->
+		<channel number="303" with="333" /><!-- Sky Family HD -->
+		<channel number="304" with="334" /><!-- Sky Horror HD -->
+		<channel number="305" with="335" /><!-- Sky Disney HD -->
+		<channel number="306" with="336" /><!-- Sky Select HD -->
+		<channel number="307" with="337" /><!-- Sky Greats HD -->
+		<channel number="308" with="338" /><!-- Sky Drama HD -->
+		<channel number="309" with="339" /><!-- Sky Thriller HD -->
+		<channel number="318" with="340" /><!-- Sky Matt Damon HD -->
+		<channel number="320" with="341" /><!-- Sky Premiere HD -->
+		<channel number="400" with="430" /><!-- Sky Sports Mix HD -->
+		<channel number="402" with="432" /><!-- Sky Sports 1 HD -->
+		<channel number="403" with="433" /><!-- Sky Sports 2 HD -->
+		<channel number="404" with="434" /><!-- Sky Sports 3 HD -->
+		<channel number="405" with="435" /><!-- Sky Sports 4 HD -->
+		<channel number="406" with="436" /><!-- Sky Sports 5 HD -->
+		<channel number="408" with="438" /><!-- Sky Sports News HQ HD -->
+		<channel number="623" with="624" /><!-- Eurosport 1 HD -->
+		<channel number="625" with="626" /><!-- Eurosport 2 HD -->
+		<channel number="604" with="634" /><!-- Nickelodeon HD -->
+		<channel number="613" with="633" /><!-- Disney Channel HD -->
+	</swapchannels>
+
+	<servicehacks>
+<![CDATA[
+
+#List channels
+rename = {
+	219: "Discovery HD",
+	424: "Eurosport 1 HD",
+	426: "Eurosport 2 HD",
+	620: "Cartoon Network",
+	999: "Netflix",
+	}
+
+# Rename channels
+if "number" in service and service["number"] in rename:
+	service["provider_name"] = rename[service["number"]]
+
+service["interactive_name"] = service["service_name"] = service["provider_name"]
+
+]]>
+	</servicehacks>
+</provider>
