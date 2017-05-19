@@ -1,5 +1,5 @@
 <provider>
-<name>Virgin IE MK2</name>
+<name>Virgin IE</name>
 	<streamtype>dvbc</streamtype>
 	<protocol>vmuk2</protocol>
 
@@ -76,18 +76,28 @@
 	<servicehacks>
 <![CDATA[
 
-#List channels
+# List channels to be renamed
 rename = {
 	219: "Discovery HD",
 	424: "Eurosport 1 HD",
 	426: "Eurosport 2 HD",
 	620: "Cartoon Network",
-	999: "Netflix",
 	}
 
-# Rename channels
+#List channels with incorrect FTA flag
+fta_corrections = ['Sky Disney HD']
+
+#List channels to skip
+blacklist = [999]
+
+if (service["number"] in blacklist or service["service_name"] in blacklist):
+	skip = True
+
 if "number" in service and service["number"] in rename:
 	service["provider_name"] = rename[service["number"]]
+
+if service["service_name"] in fta_corrections:
+	service["free_ca"] = 1
 
 service["interactive_name"] = service["service_name"] = service["provider_name"]
 
