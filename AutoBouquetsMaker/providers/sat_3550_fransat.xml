@@ -3,11 +3,11 @@
 	<streamtype>dvbs</streamtype>
 	<protocol>lcnbat2</protocol>
 	<transponder
+		orbital_position="3550"
 		frequency="10972000"
 		symbol_rate="29950000"
 		polarization="1"
 		fec_inner="3"
-		orbital_position="3550"
 		inversion="2"
 		system="1"
 		modulation="2"
