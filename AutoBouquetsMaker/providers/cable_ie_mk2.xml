@@ -67,8 +67,8 @@
 		<channel number="405" with="435" /><!-- Sky Sports 4 HD -->
 		<channel number="406" with="436" /><!-- Sky Sports 5 HD -->
 		<channel number="408" with="438" /><!-- Sky Sports News HQ HD -->
-		<channel number="623" with="624" /><!-- Eurosport 1 HD -->
-		<channel number="625" with="626" /><!-- Eurosport 2 HD -->
+		<channel number="423" with="424" /><!-- Eurosport 1 HD -->
+		<channel number="425" with="426" /><!-- Eurosport 2 HD -->
 		<channel number="604" with="634" /><!-- Nickelodeon HD -->
 		<channel number="613" with="633" /><!-- Disney Channel HD -->
 	</swapchannels>
@@ -81,6 +81,7 @@ rename = {
 	219: "Discovery HD",
 	423: "Eurosport 1",
 	424: "Eurosport 1 HD",
+	425: "Eurosport 2",
 	426: "Eurosport 2 HD",
 	620: "Cartoon Network",
 	}
