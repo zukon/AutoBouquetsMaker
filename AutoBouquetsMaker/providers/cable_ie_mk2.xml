@@ -25,7 +25,7 @@
         <section number="600">Kids</section>
         <section number="700">Music</section>
         <section number="756">Hide Me</section>
-        <section number="805">Specialist</section>
+        <section number="802">Specialist</section>
         <section number="858">Adult</section>
 	</sections>
 
@@ -79,6 +79,7 @@
 # List channels to be renamed
 rename = {
 	219: "Discovery HD",
+	423: "Eurosport 1",
 	424: "Eurosport 1 HD",
 	426: "Eurosport 2 HD",
 	620: "Cartoon Network",
