@@ -62,6 +62,7 @@
 		<configuration key="hd_west_anglia" bouquet="0x1005" region="0x19">West Anglia HD</configuration>
 		<configuration key="hd_west_dorset" bouquet="0x1007" region="0x43">West Dorset HD</configuration>
 		<configuration key="hd_westcountry" bouquet="0x1005" region="0x06">Westcountry HD</configuration>
+		<configuration key="hdcustom_london" bouquet="0x1005" region="0x01">London HD Custom</configuration>		
 		<configuration key="sd_atherstone" bouquet="0x1001" region="0x13">Atherstone SD</configuration>
 		<configuration key="sd_border_england" bouquet="0x1001" region="0x0c">Border England SD</configuration>
 		<configuration key="sd_border_scotland" bouquet="0x1002" region="0x24">Border Scotland SD</configuration>
