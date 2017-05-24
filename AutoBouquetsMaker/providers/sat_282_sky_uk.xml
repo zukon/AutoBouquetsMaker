@@ -229,7 +229,23 @@
 		<channel number="119" with="263" /><!-- ITV3 HD -->
 		<channel number="120" with="268" /><!-- ITV4 HD -->
 		<channel number="134" with="280" /><!-- S4C HD -->
+		<channel number="192" with="276" /><!-- AMC from BT HD -->
+		<channel number="301" with="314" /><!-- SkyPremiereHD -->
+		<channel number="303" with="330" /><!-- Sky Hits HD -->
+		<channel number="304" with="331" /><!-- SkyStarWarsHD -->
+		<channel number="305" with="332" /><!-- Sky Disney HD -->
+		<channel number="306" with="333" /><!-- Sky Family HD -->
+		<channel number="307" with="334" /><!-- Sky Action HD -->
+		<channel number="308" with="335" /><!-- Sky Comedy HD -->
+		<channel number="309" with="336" /><!-- Sky Thriller HD -->
+		<channel number="310" with="337" /><!-- Sky DraRomHD -->
+		<channel number="311" with="339" /><!-- Sky ScFi/HorHD -->
+		<channel number="312" with="340" /><!-- Sky Select HD -->		
+		<channel number="413" with="427" /><!-- BT Sport1 HD-->
+		<channel number="414" with="433" /><!-- BT Sport2 HD-->
+		<channel number="417" with="457" /><!-- BT Sport3 HD-->		
 		<channel number="418" with="453" /><!-- MUTV HD -->
+		<channel number="426" with="458" /><!-- BT Sport ESPN HD -->
 		<channel number="428" with="462" /><!-- Premier HD -->
 		<channel number="432" with="466" /><!-- Racing UK HD -->
 		<channel number="437" with="490" /><!-- BoxNation HD -->
