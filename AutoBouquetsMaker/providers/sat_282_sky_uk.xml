@@ -289,6 +289,12 @@ except:
 		5152: 460, # eir Sport 2 HD (also 5154)
 		5153: 462, # Premier HD
 		5311: 428, # Premier Sports
+		6002: 981, # BBC RB 2
+		6003: 982, # BBC RB 3
+		6004: 983, # BBC RB 4
+		6005: 984, # BBC RB 5
+		6006: 985, # BBC RB 6
+		6007: 986, # BBC RB HD"
 		#slow death section
 		3705: 112, # ComedyCentral
 		2709: 128, # ComedyXtra
@@ -366,6 +372,12 @@ except:
 
 		# Other channels
 		2079: "BBC One HD",
+		6002: "BBC RB 2",
+		6003: "BBC RB 3",
+		6004: "BBC RB 4",
+		6005: "BBC RB 5",
+		6006: "BBC RB 6",
+		6007: "BBC RB HD",
 
 		# RoI Sports channels
 		1309: "Sky Sports 1 RoI",
