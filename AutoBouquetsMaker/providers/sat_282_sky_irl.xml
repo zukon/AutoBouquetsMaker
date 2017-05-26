@@ -200,12 +200,12 @@ except:
 
 	BBC_RB = {
 		2051: ("BBC RB 1",0),
-		8602: ("BBC RB 2",1),
-		8603: ("BBC RB 3",2),
-		8604: ("BBC RB 4",3),
-		8605: ("BBC RB 5",4),
-		8606: ("BBC RB 6",5),
-		8611: ("BBC RB HD",6)
+		6002: ("BBC RB 2",1),
+		6003: ("BBC RB 3",2),
+		6004: ("BBC RB 4",3),
+		6005: ("BBC RB 5",4),
+		6006: ("BBC RB 6",5),
+		6007: ("BBC RB HD",6)
 	}
 
 	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD',752,'BoxNation HD']
