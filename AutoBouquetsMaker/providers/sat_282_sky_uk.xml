@@ -409,10 +409,16 @@ except:
 
 	bt_sports_id = [5030,5381,5031,5382,5383,5384,5385,5386]
 
-	fta_corrections_by_id = [
+#Some encrypted channels are wrongly flagged as FTA.
+	not_fta_by_id = [
 		5036, # AMC from BT
 		1024, # 10002
 		1027, # 10001
+	]
+
+#Some channels are FTA, but tables are wrong	
+	fta_by_id = [
+		5237, # TRT World HD
 	]
 
 	broken_TSIDS = [
@@ -535,9 +541,12 @@ for number in service["numbers"]:
 		new_numbers.append(number)
 service["numbers"] = new_numbers
 
-#Some encrypted channels are wrongly flagged as FTA.
-if service["channel_id"] in fta_corrections_by_id:
+if service["channel_id"] in not_fta_by_id:
 	service["free_ca"] = 1
+
+if service["channel_id"] in fta_by_id:
+	service["free_ca"] = 0
+	
 ]]>
 	</servicehacks>
 </provider>
