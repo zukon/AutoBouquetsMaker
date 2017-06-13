@@ -119,18 +119,18 @@ class Providers():
 								transponder["roll_off"] = int(node.attributes.item(i).value)
 							elif node.attributes.item(i).name == "pilot":
 								transponder["pilot"] = int(node.attributes.item(i).value)
-							elif node.attributes.item(i).name == "bandwidth":
-								transponder["bandwidth"] = int(node.attributes.item(i).value)
-							elif node.attributes.item(i).name == "code_rate_hp":
-								transponder["code_rate_hp"] = int(node.attributes.item(i).value)
-							elif node.attributes.item(i).name == "code_rate_lp":
-								transponder["code_rate_lp"] = int(node.attributes.item(i).value)
-							elif node.attributes.item(i).name == "transmission_mode":
-								transponder["transmission_mode"] = int(node.attributes.item(i).value)
-							elif node.attributes.item(i).name == "guard_interval":
-								transponder["guard_interval"] = int(node.attributes.item(i).value)
-							elif node.attributes.item(i).name == "hierarchy":
-								transponder["hierarchy"] = int(node.attributes.item(i).value)
+#							elif node.attributes.item(i).name == "bandwidth":
+#								transponder["bandwidth"] = int(node.attributes.item(i).value)
+#							elif node.attributes.item(i).name == "code_rate_hp":
+#								transponder["code_rate_hp"] = int(node.attributes.item(i).value)
+#							elif node.attributes.item(i).name == "code_rate_lp":
+#								transponder["code_rate_lp"] = int(node.attributes.item(i).value)
+#							elif node.attributes.item(i).name == "transmission_mode":
+#								transponder["transmission_mode"] = int(node.attributes.item(i).value)
+#							elif node.attributes.item(i).name == "guard_interval":
+#								transponder["guard_interval"] = int(node.attributes.item(i).value)
+#							elif node.attributes.item(i).name == "hierarchy":
+#								transponder["hierarchy"] = int(node.attributes.item(i).value)
 							elif node.attributes.item(i).name == "nit_pid":
 								transponder["nit_pid"] = int(node.attributes.item(i).value, 16)
 							elif node.attributes.item(i).name == "nit_current_table_id":
