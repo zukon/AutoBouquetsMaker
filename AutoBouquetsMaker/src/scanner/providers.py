@@ -2,7 +2,7 @@ from .. import log
 import os
 import xml.dom.minidom
 import cPickle as pickle
-from enigma import eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable
+from enigma import eDVBFrontendParametersSatellite, eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable
 
 class Providers():
 	VALID_PROTOCOLS = ( "fastscan", "freesat", "lcn", "lcn2", "lcnbat", "lcnbat2", "nolcn", "sky", "vmuk", "vmuk2" )
@@ -98,6 +98,13 @@ class Providers():
 						transponder["bat_table_id"] = 0x4a
 						transponder["fastscan_pid"] = 0x00			# no default value
 						transponder["fastscan_table_id"] = 0x00		# no default value
+						transponder["system"] = eDVBFrontendParametersSatellite.System_DVB_S
+						transponder["polarization"] = eDVBFrontendParametersSatellite.Polarisation_Horizontal
+						transponder["fec_inner"] = eDVBFrontendParametersSatellite.FEC_Auto
+						transponder["modulation"] = eDVBFrontendParametersSatellite.Modulation_QPSK
+						transponder["inversion"] = eDVBFrontendParametersSatellite.Inversion_Unknown
+						transponder["roll_off"] = eDVBFrontendParametersSatellite.RollOff_alpha_0_35
+						transponder["pilot"] = eDVBFrontendParametersSatellite.Pilot_Unknown
 						for i in range(0, node.attributes.length):
 							if node.attributes.item(i).name == "frequency":
 								transponder["frequency"] = int(node.attributes.item(i).value)
