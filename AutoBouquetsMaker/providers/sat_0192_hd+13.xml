@@ -22,29 +22,29 @@
 <![CDATA[
 # Skip test services, interactive services, and chat line spam.
 blacklist = (
-              "123-Damenwahl",
-              "ALT Sendersuchlauf starten!!",
-              "Achtung Sexy TV",
-              "Babestation24",
-              "BunnyClub24",
-              "Clipmobile",
-              "Date Line",
-              "Deutsche Girls 24 TV ",
-              "Dreamgirls24 TV",
-              "EROTIKA TV - NEU!",
-              "Eros TV",
-              "Erotiksat24 TV",
-              "Fotohandy",
-              "Fundorado TV",
-              "GayBoys LIVE",
-	      "health.tv",                    # test card
-              "Heiss und Sexy TV",
-              "Lustkanal24 TV",
-              "Maennersache TV",
-              "Mobile Sex",
-              "multithek (Internet)",
-              "SEX-Kontakte",
-              "Traumfrauen TV"
+			"123-Damenwahl",
+			"ALT Sendersuchlauf starten!!",
+			"Achtung Sexy TV",
+			"Babestation24",
+			"BunnyClub24",
+			"Clipmobile",
+			"Date Line",
+			"Deutsche Girls 24 TV ",
+			"Dreamgirls24 TV",
+			"EROTIKA TV - NEU!",
+			"Eros TV",
+			"Erotiksat24 TV",
+			"Fotohandy",
+			"Fundorado TV",
+			"GayBoys LIVE",
+			"health.tv",	# test card
+			"Heiss und Sexy TV",
+			"Lustkanal24 TV",
+			"Maennersache TV",
+			"Mobile Sex",
+			"multithek (Internet)",
+			"SEX-Kontakte",
+			"Traumfrauen TV"
             )
 
 if service["service_name"] in blacklist or "Test" in service["service_name"]:
