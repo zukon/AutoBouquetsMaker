@@ -257,6 +257,7 @@ class Providers():
 						for node2 in node.childNodes:
 							if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "configuration":
 								configuration = {}
+								configuration["system"] = eDVBFrontendParametersTerrestrial.System_DVB_T
 								configuration["inversion"] = eDVBFrontendParametersTerrestrial.Inversion_Unknown
 								configuration["modulation"] = eDVBFrontendParametersTerrestrial.Modulation_Auto
 								configuration["bandwidth"] = 8000000
