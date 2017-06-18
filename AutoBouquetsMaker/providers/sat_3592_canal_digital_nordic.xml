@@ -2,11 +2,17 @@
 	<name>Canal Digital Nordic</name>
 	<streamtype>dvbs</streamtype>
 	<protocol>lcn</protocol>
-	<transponder
+	<transponder 
 		orbital_position="3592"
-		frequency="12418000"
-		symbol_rate="28000000"
-		polarization="1"
+		frequency="12418000" 
+		symbol_rate="28000000" 
+		polarization="1" 
+		fec_inner="5" 
+		system="0" 
+		modulation="1"
+		inversion="2"
+		roll_off="0"
+		pilot="2"
 	/>
 	<dvbsconfigs>
 		<configuration key="sd_DNK" bouquet="0x1" region="0x0">Denmark SD</configuration>

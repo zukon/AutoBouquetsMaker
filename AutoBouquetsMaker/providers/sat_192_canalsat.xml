@@ -7,7 +7,12 @@
 		frequency="11856000"
 		symbol_rate="29700000"
 		polarization="1"
-		system="1"		
+		fec_inner="4"
+		inversion="2"
+		system="1"
+		modulation="1"
+		roll_off="0"
+		pilot="2"
 		bat_pid="0x11"
 		nit_other_table_id="0x00"
 	/>

@@ -7,7 +7,12 @@
 		frequency="11681000"
 		symbol_rate="27500000"
 		polarization="0"
-		system="1"		
+		fec_inner="3"
+		inversion="2"
+		system="1"
+		modulation="2"
+		roll_off="0"
+		pilot="2"
 		bat_pid="0x11"
 	/>
 	<sections>

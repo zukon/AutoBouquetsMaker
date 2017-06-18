@@ -4,60 +4,60 @@
 	<streamtype>dvbt</streamtype>
 	<protocol>lcn</protocol>
 	<dvbtconfigs>
-		<configuration key="alkmaar" frequency="578000000">Alkmaar</configuration>
-		<configuration key="almere" frequency="762000000">Almere</configuration>
-		<configuration key="alphen_aan_den_rijn" frequency="762000000">Alphen aan den Rijn</configuration>
-		<configuration key="amersfoort" frequency="762000000">Amersfoort</configuration>
-		<configuration key="amsterdam_hemweg" frequency="762000000">Amsterdam Hemweg</configuration>
-		<configuration key="amsterdam_rai" frequency="762000000">Amsterdam Rai</configuration>
-		<configuration key="apeldoorn" frequency="770000000">Apeldoorn</configuration>
-		<configuration key="arnhem" frequency="770000000">Arnhem</configuration>
-		<configuration key="breda" frequency="554000000">Breda</configuration>
-		<configuration key="delft" frequency="762000000">Delft</configuration>
-		<configuration key="den_bosch" frequency="554000000">Den Bosch</configuration>
-		<configuration key="den_burg" frequency="602000000">Den Burg</configuration>
-		<configuration key="den_haag_beatrixlaan" frequency="762000000">Den Haag Beatrixlaan</configuration>
-		<configuration key="den_haag_kerkelanden" frequency="762000000">Den Haag Kerkelanden</configuration>
-		<configuration key="deventer" frequency="490000000">Deventer</configuration>
-		<configuration key="doetinchem" frequency="770000000">Doetinchem</configuration>
-		<configuration key="eindhoven_1" frequency="554000000">Eindhoven</configuration>
-		<configuration key="enkhuizen" frequency="578000000">Enkhuizen</configuration>
-		<configuration key="enschede" frequency="490000000">Enschede</configuration>
-		<configuration key="goes" frequency="538000000">Goes</configuration>
-		<configuration key="gorinchem" frequency="762000000">Gorinchem</configuration>
-		<configuration key="gouda" frequency="762000000">Gouda</configuration>
-		<configuration key="groningen" frequency="738000000">Groningen</configuration>
-		<configuration key="haarlem" frequency="762000000">Haarlem</configuration>
-		<configuration key="heerlen" frequency="498000000">Heerlen</configuration>
-		<configuration key="helmond" frequency="554000000">Helmond</configuration>
-		<configuration key="hengelo" frequency="490000000">Hengelo</configuration>
-		<configuration key="hilversum" frequency="762000000">Hilversum</configuration>
-		<configuration key="hoorn" frequency="578000000">Hoorn</configuration>
-		<configuration key="ijsselstein_lopik" frequency="762000000">IJsselstein (Lopik)</configuration>
-		<configuration key="krimpen_aan_den_ijssel" frequency="762000000">Krimpen aan den IJssel</configuration>
-		<configuration key="leeuwarden" frequency="578000000">Leeuwarden</configuration>
-		<configuration key="lelystad" frequency="490000000">Lelystad</configuration>
-		<configuration key="loon_op_zand" frequency="554000000">Loon op Zand</configuration>
-		<configuration key="maarssen" frequency="762000000">Maarssen</configuration>
-		<configuration key="maastricht" frequency="498000000">Maastricht</configuration>
-		<configuration key="nijmegen" frequency="554000000">Nijmegen</configuration>
-		<configuration key="oegstgeest" frequency="762000000">Oegstgeest</configuration>
-		<configuration key="oss_noord_brabant" frequency="554000000">Oss (Noord-Brabant)</configuration>
-		<configuration key="oss_gelderland" frequency="554000000">Oss (gelderland)</configuration>
-		<configuration key="roermond" frequency="498000000">Roermond</configuration>
-		<configuration key="roosendaal" frequency="538000000">Roosendaal</configuration>
-		<configuration key="rotterdam_maastoren" frequency="762000000">Rotterdam Maastoren</configuration>
-		<configuration key="sittard" frequency="498000000">Sittard</configuration>
-		<configuration key="sliedrecht" frequency="762000000">Sliedrecht</configuration>
-		<configuration key="smilde" frequency="738000000">Smilde</configuration>
-		<configuration key="utrecht" frequency="762000000">Utrecht</configuration>
-		<configuration key="veenendaal_gelderland" frequency="770000000">Veenendaal (Gelderland)</configuration>
-		<configuration key="veenendaal_utrecht" frequency="770000000">Veenendaal (Utrecht)</configuration>
-		<configuration key="venlo" frequency="554000000">Venlo</configuration>
-		<configuration key="vlaardingen" frequency="762000000">Vlaardingen</configuration>
-		<configuration key="wormer" frequency="762000000">Wormer</configuration>
-		<configuration key="zoetermeer" frequency="762000000">Zoetermeer</configuration>
-		<configuration key="zwolle" frequency="490000000">Zwolle</configuration>
+		<configuration key="alkmaar" frequency="578000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Alkmaar</configuration>
+		<configuration key="almere" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Almere</configuration>
+		<configuration key="alphen_aan_den_rijn" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Alphen aan den Rijn</configuration>
+		<configuration key="amersfoort" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Amersfoort</configuration>
+		<configuration key="amsterdam_hemweg" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Amsterdam Hemweg</configuration>
+		<configuration key="amsterdam_rai" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Amsterdam Rai</configuration>
+		<configuration key="apeldoorn" frequency="770000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Apeldoorn</configuration>
+		<configuration key="arnhem" frequency="770000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Arnhem</configuration>
+		<configuration key="breda" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Breda</configuration>
+		<configuration key="delft" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Delft</configuration>
+		<configuration key="den_bosch" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Den Bosch</configuration>
+		<configuration key="den_burg" frequency="602000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Den Burg</configuration>
+		<configuration key="den_haag_beatrixlaan" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Den Haag Beatrixlaan</configuration>
+		<configuration key="den_haag_kerkelanden" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Den Haag Kerkelanden</configuration>
+		<configuration key="deventer" frequency="490000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Deventer</configuration>
+		<configuration key="doetinchem" frequency="770000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Doetinchem</configuration>
+		<configuration key="eindhoven_1" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Eindhoven</configuration>
+		<configuration key="enkhuizen" frequency="578000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Enkhuizen</configuration>
+		<configuration key="enschede" frequency="490000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Enschede</configuration>
+		<configuration key="goes" frequency="538000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Goes</configuration>
+		<configuration key="gorinchem" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Gorinchem</configuration>
+		<configuration key="gouda" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Gouda</configuration>
+		<configuration key="groningen" frequency="738000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Groningen</configuration>
+		<configuration key="haarlem" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Haarlem</configuration>
+		<configuration key="heerlen" frequency="498000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Heerlen</configuration>
+		<configuration key="helmond" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Helmond</configuration>
+		<configuration key="hengelo" frequency="490000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Hengelo</configuration>
+		<configuration key="hilversum" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Hilversum</configuration>
+		<configuration key="hoorn" frequency="578000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Hoorn</configuration>
+		<configuration key="ijsselstein_lopik" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">IJsselstein (Lopik)</configuration>
+		<configuration key="krimpen_aan_den_ijssel" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Krimpen aan den IJssel</configuration>
+		<configuration key="leeuwarden" frequency="578000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Leeuwarden</configuration>
+		<configuration key="lelystad" frequency="490000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Lelystad</configuration>
+		<configuration key="loon_op_zand" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Loon op Zand</configuration>
+		<configuration key="maarssen" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Maarssen</configuration>
+		<configuration key="maastricht" frequency="498000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Maastricht</configuration>
+		<configuration key="nijmegen" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Nijmegen</configuration>
+		<configuration key="oegstgeest" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Oegstgeest</configuration>
+		<configuration key="oss_noord_brabant" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Oss (Noord-Brabant)</configuration>
+		<configuration key="oss_gelderland" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Oss (gelderland)</configuration>
+		<configuration key="roermond" frequency="498000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Roermond</configuration>
+		<configuration key="roosendaal" frequency="538000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Roosendaal</configuration>
+		<configuration key="rotterdam_maastoren" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Rotterdam Maastoren</configuration>
+		<configuration key="sittard" frequency="498000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Sittard</configuration>
+		<configuration key="sliedrecht" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Sliedrecht</configuration>
+		<configuration key="smilde" frequency="738000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Smilde</configuration>
+		<configuration key="utrecht" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Utrecht</configuration>
+		<configuration key="veenendaal_gelderland" frequency="770000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Veenendaal (Gelderland)</configuration>
+		<configuration key="veenendaal_utrecht" frequency="770000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Veenendaal (Utrecht)</configuration>
+		<configuration key="venlo" frequency="554000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Venlo</configuration>
+		<configuration key="vlaardingen" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Vlaardingen</configuration>
+		<configuration key="wormer" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Wormer</configuration>
+		<configuration key="zoetermeer" frequency="762000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Zoetermeer</configuration>
+		<configuration key="zwolle" frequency="490000000" inversion="2" modulation="3" system="0" bandwidth="8000000" code_rate_hp="5" code_rate_lp="5" transmission_mode="2" guard_interval="4" hierarchy="4">Zwolle</configuration>
 	</dvbtconfigs>
 	<customtransponders>
 		<customtransponder key="alkmaar" transport_stream_id="08A6" frequency="618000000" />
