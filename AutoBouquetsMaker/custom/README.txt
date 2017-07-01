@@ -76,7 +76,7 @@ Now change the lcn numbers. lcn numbers should be in order to avoid errors!!
 		<configuration lcn="108" channelnumber="108" description="BBC One HD"></configuration>
 		<configuration lcn="109" channelnumber="109" description="BBC Two Eng"></configuration>
 		<configuration lcn="110" channelnumber="110" description="BBC ALBA"></configuration>
-		
+
 Removing channels.
 Channel removal only applies to unsorted lists, i.e. non-LCN providers where the list has not been 
 sorted in any way. To remove a channel, just delete the line. NOTE: When <include>is set to 'yes', 
@@ -114,7 +114,7 @@ e.g.
 		<section number="870">Adult</section>
 		<section number="950">Regional</section>
 	</sections>
-	
+
 Your lcn numbering should match sections. In this example you can add a custom section.
 	<sections>
 		<section number="1">Custom list</section>
@@ -129,7 +129,7 @@ Your lcn numbering should match sections. In this example you can add a custom s
 		<section number="870">Adult</section>
 		<section number="950">Regional</section>
 	</sections>
-	
+
 ---------------------------------------------------------------------------------------------- 
 
 CustomMix
@@ -235,7 +235,7 @@ file.
 <![CDATA[
 
 # Python code here
-			
+
 ]]>
 	</hacks>
 </custommix>
@@ -274,6 +274,9 @@ Provider key: sat_235_canaldigitaal_sd
 
 Provider name: Canal+ Esp
 Provider key: sat_192_canal_plus_esp
+
+Provider name: Com Hem
+Provider key: cable_swe
 
 Provider name: FranSat
 Provider key: sat_3550_fransat
@@ -338,11 +341,11 @@ Provider key: sat_192_tvvlaanderen
 Provider name: TV Vlaanderen
 Provider key: sat_235_tvvlaanderen
 
-Provider name: Virgin (UK)
-Provider key: cable_uk_virgin
-
 Provider name: Virgin IE
 Provider key: cable_ie_mk2
+
+Provider name: Virgin (UK)
+Provider key: cable_uk_virgin
 
 ----------------------------------------------------------------------------------------------
 Available transponder (Satellite) parameters in provider files:

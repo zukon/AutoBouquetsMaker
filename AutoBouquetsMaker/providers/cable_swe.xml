@@ -1,0 +1,116 @@
+<provider>
+	<name>Com Hem</name>
+	<streamtype>dvbc</streamtype>
+	<protocol>lcn</protocol>
+	<dvbcconfigs>
+		<configuration key="41001_1" netid="41001" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41001 Stockholm</configuration>
+		<configuration key="41001_2" netid="41001" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41001 Vallentuna</configuration>
+		<configuration key="41002_1" netid="41002" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41002 Göteborg/Mölndal</configuration>
+		<configuration key="41002_2" netid="41002" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41002 Kungälv/Kållered</configuration>
+		<configuration key="41002_3" netid="41002" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41002 Partille</configuration>
+		<configuration key="41002_4" netid="41002" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41002 Västra Frölunda</configuration>
+		<configuration key="41003_1" netid="41003" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41003 Arlöv</configuration>
+		<configuration key="41003_2" netid="41003" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41003 Lomma</configuration>
+		<configuration key="41003_3" netid="41003" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41003 Malmö</configuration>
+		<configuration key="41003_4" netid="41003" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41003 Svedala</configuration>
+		<configuration key="41004_1" netid="41004" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41004 Enköping</configuration>
+		<configuration key="41004_2" netid="41004" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41004 Gottsunda</configuration>
+		<configuration key="41004_3" netid="41004" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41004 Knivsta</configuration>
+		<configuration key="41004_4" netid="41004" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41004 Uppsala/Storvreta/Sävja</configuration>
+		<configuration key="41005_1" netid="41005" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41005 Bårslöv/Glumslöv</configuration>
+		<configuration key="41005_2" netid="41005" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41005 Helsingborg</configuration>
+		<configuration key="41005_3" netid="41005" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41005 Höganäs</configuration>
+		<configuration key="41005_4" netid="41005" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41005 Påarp</configuration>
+		<configuration key="41005_5" netid="41005" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41005 Rydebäck</configuration>
+		<configuration key="41006_1" netid="41006" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41006 Katrineholm</configuration>
+		<configuration key="41006_2" netid="41006" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41006 Norrköping</configuration>
+		<configuration key="41007_1" netid="41007" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41007 Hallsberg</configuration>
+		<configuration key="41007_2" netid="41007" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41007 Kumla</configuration>
+		<configuration key="41007_3" netid="41007" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41007 Örebro/Romarebäcken</configuration>
+		<configuration key="41008_1" netid="41008" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41008 Forsbacka</configuration>
+		<configuration key="41008_2" netid="41008" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41008 Gävle</configuration>
+		<configuration key="41008_3" netid="41008" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41008 Hagaström</configuration>
+		<configuration key="41008_4" netid="41008" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41008 Sandviken</configuration>
+		<configuration key="41008_5" netid="41008" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41008 Valbo</configuration>
+		<configuration key="41009_1" netid="41009" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41009 Linköping/Lambohov</configuration>
+		<configuration key="41009_2" netid="41009" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41009 Ljungsbro/Skäggetorp</configuration>
+		<configuration key="41010_1" netid="41010" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41010 Torshälla</configuration>
+		<configuration key="41010_2" netid="41010" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41010 Västerås</configuration>
+		<configuration key="41011_1" netid="41011" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41011 Borås/Fritsla/Skene</configuration>
+		<configuration key="41011_2" netid="41011" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41011 Kinna</configuration>
+		<configuration key="41012_1" netid="41012" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41012 Umeå/Ålidhem</configuration>
+		<configuration key="41013_1" netid="41013" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41013 Johannedal</configuration>
+		<configuration key="41013_2" netid="41013" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41013 Sundsvall</configuration>
+		<configuration key="41013_3" netid="41013" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41013 Timrå</configuration>
+		<configuration key="41014_1" netid="41014" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41014 Växjö</configuration>
+		<configuration key="41015_1" netid="41015" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41015 Gammelstad</configuration>
+		<configuration key="41015_1" netid="41015" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41015 Luleå</configuration>
+		<configuration key="41015_1" netid="41015" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41015 Sävast</configuration>
+		<configuration key="41016_1" netid="41016" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41016 Skellefteå</configuration>
+		<configuration key="41017_1" netid="41017" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41017 Karlstad/Hammarö</configuration>
+		<configuration key="41018_1" netid="41018" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41018 Eskilstuna</configuration>
+		<configuration key="41019_1" netid="41019" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41019 Karlskoga</configuration>
+		<configuration key="41020_1" netid="41020" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41020 Björneborg/Storfors</configuration>
+		<configuration key="41020_1" netid="41020" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41020 Kristinehamn</configuration>
+		<configuration key="41021_1" netid="41021" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41021 Motala</configuration>
+		<configuration key="41022_1" netid="41022" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41022 Nyköping/Oxelösund</configuration>
+		<configuration key="41023_1" netid="41023" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41023 Dalby</configuration>
+		<configuration key="41023_2" netid="41023" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41023 Eslöv</configuration>
+		<configuration key="41023_3" netid="41023" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41023 Lund</configuration>
+		<configuration key="41023_4" netid="41023" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41023 Södra Sandby</configuration>
+		<configuration key="41024_1" netid="41024" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41024 Trollhättan</configuration>
+		<configuration key="41025_1" netid="41025" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41025 Lysekil</configuration>
+		<configuration key="41025_2" netid="41025" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41025 Uddevalla</configuration>
+		<configuration key="41025_3" netid="41025" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41025 Vargön</configuration>
+		<configuration key="41026_1" netid="41026" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41026 Falköping</configuration>
+		<configuration key="41026_2" netid="41026" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41026 Skövde</configuration>
+		<configuration key="41027_1" netid="41027" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41027 Ystad</configuration>
+		<configuration key="41028_1" netid="41028" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41028 Lidköping</configuration>
+		<configuration key="41028_2" netid="41028" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41028 Lidköping</configuration>
+		<configuration key="41028_3" netid="41028" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41028 Skara</configuration>
+		<configuration key="41029_1" netid="41029" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41029 Östersund</configuration>
+		<configuration key="41030_1" netid="41030" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41030 Hässleholm</configuration>
+		<configuration key="41030_2" netid="41030" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41030 Osby</configuration>
+		<configuration key="41031_1" netid="41031" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41031 Huskvarna</configuration>
+		<configuration key="41031_2" netid="41031" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41031 Jönköping</configuration>
+		<configuration key="41031_3" netid="41031" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41031 Nässjö</configuration>
+		<configuration key="41032_1" netid="41032" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41032 Landskrona</configuration>
+		<configuration key="41032_2" netid="41032" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41032 Landskrona</configuration>
+		<configuration key="41033_1" netid="41033" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41033 Karlskrona</configuration>
+		<configuration key="41034_1" netid="41034" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41034 Bromölla</configuration>
+		<configuration key="41034_1" netid="41034" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41034 Kristianstad</configuration>
+		<configuration key="41035_1" netid="41035" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41035 Borlänge</configuration>
+		<configuration key="41035_2" netid="41035" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41035 Falun</configuration>
+		<configuration key="41036_1" netid="41036" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41036 Härnösand</configuration>
+		<configuration key="41037_1" netid="41037" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41037 Söderköping</configuration>
+		<configuration key="41038_1" netid="41038" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41038 Kiruna</configuration>
+		<configuration key="41039_1" netid="41039" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41039 Gällivare</configuration>
+		<configuration key="41040_1" netid="41040" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41040 Arvika</configuration>
+		<configuration key="41041_1" netid="41041" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41041 Avesta</configuration>
+		<configuration key="41042_1" netid="41042" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41042 Sala</configuration>
+		<configuration key="41043_1" netid="41043" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41043 Boden</configuration>
+		<configuration key="41044_1" netid="41044" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41044 Filipstad</configuration>
+		<configuration key="41045_1" netid="41045" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41045 Fagersta/Norberg</configuration>
+		<configuration key="41046_1" netid="41046" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41046 Tranås</configuration>
+		<configuration key="41047_1" netid="41047" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41047 Ludvika/Smedjebacken</configuration>
+		<configuration key="41048_1" netid="41048" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41048 Haparanda/Kalix</configuration>
+		<configuration key="41049_1" netid="41049" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41049 Örnsköldsvik</configuration>
+		<configuration key="41050_1" netid="41050" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41050 Halmstad</configuration>
+		<configuration key="41051_1" netid="41051" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41051 Kalmar</configuration>
+		<configuration key="41052_1" netid="41052" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41052 Mariestad</configuration>
+		<configuration key="41053_1" netid="41053" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41053 Oskarshamn</configuration>
+		<configuration key="41054_1" netid="41054" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41054 Kungsbacka</configuration>
+		<configuration key="41055_1" netid="41055" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41055 Vänersborg</configuration>
+		<configuration key="41056_1" netid="41056" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41056 Värnamo</configuration>
+		<configuration key="41057_1" netid="41057" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41057 Visby</configuration>
+		<configuration key="41058_1" netid="41058" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41058 Finspång</configuration>
+		<configuration key="41059_1" netid="41059" bouquettype="hd" frequency="362000" symbol_rate="6875000" system="0" modulation="3">41059 Ronneby</configuration>
+	</dvbcconfigs>
+	<sections>
+		<section number="1">Com Hem</section>
+	</sections>
+	<servicehacks>
+<![CDATA[
+]]>
+	</servicehacks>
+</provider>
