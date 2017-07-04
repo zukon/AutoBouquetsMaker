@@ -1,24 +1,21 @@
-# Latvian translations for enigma2-oe-alliance-plugins package.
-# Copyright (C) 2015 THE enigma2-oe-alliance-plugins'S COPYRIGHT HOLDER
+# Translations for enigma2-oe-alliance-plugins package.
+# Copyright (C) 2012 THE enigma2-oe-alliance-plugins'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the enigma2-oe-alliance-plugins package.
-# Automatically generated, 2015.
+# Automatically generated, 2012.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-07-04 16:36+0200\n"
-"Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
-"Language-Team: none\n"
-"Language: lv\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
-"2);\n"
-"X-Poedit-Basepath: .\n"
 "X-Generator: Poedit 2.0.2\n"
+"X-Poedit-Basepath: .\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../src/about.py:25 ../src/menu.py:56 ../src/plugin.py:74 ../src/plugin.py:82
@@ -373,9 +370,7 @@ msgid "area"
 msgstr ""
 
 #: ../src/setup.py:290
-msgid ""
-"This option allows you to choose what region of the country you live in, so "
-"it populates the correct channels for your region."
+msgid "This option allows you to choose what region of the country you live in, so it populates the correct channels for your region."
 msgstr ""
 
 #: ../src/setup.py:295
@@ -383,9 +378,7 @@ msgid "FTA only"
 msgstr ""
 
 #: ../src/setup.py:295
-msgid ""
-"This affects all bouquets. Select 'no' to scan in all services. Select 'yes' "
-"to skip encrypted ones."
+msgid "This affects all bouquets. Select 'no' to scan in all services. Select 'yes' to skip encrypted ones."
 msgstr ""
 
 #: ../src/setup.py:298
@@ -393,11 +386,7 @@ msgid "generate main bouquet"
 msgstr ""
 
 #: ../src/setup.py:298
-msgid ""
-"This option has several choices \"Yes\", (create a bouquet with all the "
-"channels in it), \"Yes HD only\", (will group all HD channels into this "
-"bouquet), \"Custom\", (allows you to select your own bouquet), \"No\", (do "
-"not use a main bouquet)"
+msgid "This option has several choices \"Yes\", (create a bouquet with all the channels in it), \"Yes HD only\", (will group all HD channels into this bouquet), \"Custom\", (allows you to select your own bouquet), \"No\", (do not use a main bouquet)"
 msgstr ""
 
 #: ../src/setup.py:301
@@ -405,9 +394,7 @@ msgid "custom bouquet for main"
 msgstr ""
 
 #: ../src/setup.py:301
-msgid ""
-"Select your own bouquet from the list, please note that the only the first "
-"100 channels for this bouquet will be used."
+msgid "Select your own bouquet from the list, please note that the only the first 100 channels for this bouquet will be used."
 msgstr ""
 
 #: ../src/setup.py:304
@@ -415,9 +402,7 @@ msgid "generate sections bouquets"
 msgstr ""
 
 #: ../src/setup.py:304
-msgid ""
-"This option will create bouquets for each type of channel, ie Entertainment, "
-"Movies, Documentary."
+msgid "This option will create bouquets for each type of channel, ie Entertainment, Movies, Documentary."
 msgstr ""
 
 #: ../src/setup.py:307
@@ -425,9 +410,7 @@ msgid "generate HD bouquet"
 msgstr ""
 
 #: ../src/setup.py:307
-msgid ""
-"This option will create a High Definition bouquet, it will group all HD "
-"channels into this bouquet."
+msgid "This option will create a High Definition bouquet, it will group all HD channels into this bouquet."
 msgstr ""
 
 #: ../src/setup.py:310
@@ -435,9 +418,7 @@ msgid "generate FTA bouquet"
 msgstr ""
 
 #: ../src/setup.py:310
-msgid ""
-"This option will create a FreeToAir bouquet, it will group all free channels "
-"into this bouquet."
+msgid "This option will create a FreeToAir bouquet, it will group all free channels into this bouquet."
 msgstr ""
 
 #: ../src/setup.py:313
@@ -445,9 +426,7 @@ msgid "generate FTA HD bouquet"
 msgstr ""
 
 #: ../src/setup.py:313
-msgid ""
-"This option will create a FreeToAir High Definition bouquet, it will group "
-"all FTA HD channels into this bouquet."
+msgid "This option will create a FreeToAir High Definition bouquet, it will group all FTA HD channels into this bouquet."
 msgstr ""
 
 #: ../src/setup.py:319 ../src/setup.py:328 ../src/setup.py:336
@@ -455,9 +434,7 @@ msgid "swap channels"
 msgstr ""
 
 #: ../src/setup.py:319 ../src/setup.py:328 ../src/setup.py:336
-msgid ""
-"This option will swap SD versions of channels with HD versions. (eg BBC One "
-"SD with BBC One HD, Channel Four SD with with Channel Four HD)"
+msgid "This option will swap SD versions of channels with HD versions. (eg BBC One SD with BBC One HD, Channel Four SD with with Channel Four HD)"
 msgstr ""
 
 #: ../src/setup.py:467
@@ -469,9 +446,7 @@ msgid "Setup mode"
 msgstr ""
 
 #: ../src/setup.py:513
-msgid ""
-"Choose which level of settings to display. 'Expert'-level shows all items, "
-"this also adds more options in the providers menu."
+msgid "Choose which level of settings to display. 'Expert'-level shows all items, this also adds more options in the providers menu."
 msgstr ""
 
 #: ../src/setup.py:514
@@ -503,9 +478,7 @@ msgid "Keep all non-ABM bouquets"
 msgstr ""
 
 #: ../src/setup.py:519
-msgid ""
-"When disabled this will enable the 'Keep bouquets' option in the main menu, "
-"allowing you to hide some 'existing' bouquets."
+msgid "When disabled this will enable the 'Keep bouquets' option in the main menu, allowing you to hide some 'existing' bouquets."
 msgstr ""
 
 #: ../src/setup.py:520
@@ -521,9 +494,7 @@ msgid "Add provider markers"
 msgstr ""
 
 #: ../src/setup.py:521
-msgid ""
-"This option places markers in the bouquet index to group all bouquets of "
-"each provider."
+msgid "This option places markers in the bouquet index to group all bouquets of each provider."
 msgstr ""
 
 #: ../src/setup.py:523
@@ -531,9 +502,7 @@ msgid "Style of provider marker"
 msgstr ""
 
 #: ../src/setup.py:523
-msgid ""
-"Choose the style of markers that separate one provider from another in "
-"bouquet indexes."
+msgid "Choose the style of markers that separate one provider from another in bouquet indexes."
 msgstr ""
 
 #: ../src/setup.py:524
@@ -541,9 +510,7 @@ msgid "Style of bouquet marker"
 msgstr ""
 
 #: ../src/setup.py:524
-msgid ""
-"Choose the style of the markers that separate channels into groups in the "
-"channel lists."
+msgid "Choose the style of the markers that separate channels into groups in the channel lists."
 msgstr ""
 
 #: ../src/setup.py:525
@@ -559,10 +526,7 @@ msgid "Skip services on not configured sats"
 msgstr ""
 
 #: ../src/setup.py:526
-msgid ""
-"If a service is carried on a satellite that is not configured, 'yes' means "
-"the channel will not appear in the channel list, 'no' means the channel will "
-"show in the channel list but be greyed out and not be accessible."
+msgid "If a service is carried on a satellite that is not configured, 'yes' means the channel will not appear in the channel list, 'no' means the channel will show in the channel list but be greyed out and not be accessible."
 msgstr ""
 
 #: ../src/setup.py:527
@@ -570,10 +534,7 @@ msgid "Include 'not indexed' channels"
 msgstr ""
 
 #: ../src/setup.py:527
-msgid ""
-"When a search finds extra channels that do not have an allocated channel "
-"number, 'yes' will add these at the end of the channel list, and 'no' means "
-"these will not be included."
+msgid "When a search finds extra channels that do not have an allocated channel number, 'yes' will add these at the end of the channel list, and 'no' means these will not be included."
 msgstr ""
 
 #: ../src/setup.py:528
@@ -581,9 +542,7 @@ msgid "Extra debug"
 msgstr ""
 
 #: ../src/setup.py:528
-msgid ""
-"This feature is for development only. Requires debug logs to be enabled or "
-"enigma2 to be started in console mode."
+msgid "This feature is for development only. Requires debug logs to be enabled or enigma2 to be started in console mode."
 msgstr ""
 
 #: ../src/setup.py:529
