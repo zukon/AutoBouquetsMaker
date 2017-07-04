@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-06 14:59+0200\n"
-"PO-Revision-Date: 2016-10-23 19:31+0100\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2017-07-04 16:37+0200\n"
 "Last-Translator: nunigaia\n"
 "Language-Team: BH Team\n"
 "Language: pt\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../src/about.py:25 ../src/menu.py:55 ../src/plugin.py:41 ../src/plugin.py:47
-#: ../src/scanner/main.py:46 ../src/scanner/main.py:107
+#: ../src/about.py:25 ../src/menu.py:56 ../src/plugin.py:74 ../src/plugin.py:82
+#: ../src/scanner/main.py:47 ../src/scanner/main.py:109
 msgid "AutoBouquetsMaker"
 msgstr "Criador automático de bouquets"
 
-#: ../src/about.py:25 ../src/menu.py:98
+#: ../src/about.py:25 ../src/menu.py:100
 msgid "About"
 msgstr "Sobre"
 
-#: ../src/about.py:37 ../src/menu.py:242
+#: ../src/about.py:37 ../src/menu.py:248
 msgid "Close"
 msgstr "Fechar"
 
@@ -42,7 +42,7 @@ msgid "AutoBouquetsMaker Hide sections"
 msgstr "Secções escondidas  AutoBouquetsMaker"
 
 #: ../src/hidesections.py:52 ../src/keepbouquets.py:53 ../src/ordering.py:54
-#: ../src/setup.py:57 ../src/setup.py:458
+#: ../src/setup.py:72 ../src/setup.py:486
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -51,7 +51,7 @@ msgid "Save"
 msgstr "Guardar"
 
 #: ../src/hidesections.py:134 ../src/keepbouquets.py:134 ../src/ordering.py:171
-#: ../src/setup.py:420 ../src/setup.py:543
+#: ../src/setup.py:448 ../src/setup.py:576
 msgid "Really close without saving settings?"
 msgstr "Deseja fechar sem Gravar as definições?"
 
@@ -59,55 +59,59 @@ msgstr "Deseja fechar sem Gravar as definições?"
 msgid "AutoBouquetsMaker Keep bouquets"
 msgstr "AutoBouquetsMaker manter bouquets"
 
-#: ../src/menu.py:77
+#: ../src/menu.py:78
 msgid "Exit"
 msgstr "Sair"
 
-#: ../src/menu.py:78
+#: ../src/menu.py:79
 msgid "Scan"
 msgstr "Busca"
 
-#: ../src/menu.py:87
+#: ../src/menu.py:88
 msgid "Configure"
 msgstr "Configurar"
 
-#: ../src/menu.py:88
+#: ../src/menu.py:89
 msgid "Providers"
 msgstr "Operadores"
 
-#: ../src/menu.py:90
+#: ../src/menu.py:91
 msgid "Providers order"
 msgstr "Ordem de Operadores"
 
-#: ../src/menu.py:92
+#: ../src/menu.py:93
 msgid "Hide sections"
 msgstr "Esconder secções"
 
-#: ../src/menu.py:94
+#: ../src/menu.py:95
 msgid "Keep bouquets"
 msgstr "Manter bouquets"
 
-#: ../src/menu.py:95
+#: ../src/menu.py:96
 msgid "Start scan"
 msgstr "Iniciar a procura"
 
-#: ../src/menu.py:96
+#: ../src/menu.py:97
 msgid "Delete bouquets"
 msgstr "Apagar bouquets"
 
-#: ../src/menu.py:97
+#: ../src/menu.py:98
+msgid "Update config files"
+msgstr "Atualizar ficheiros \"config\""
+
+#: ../src/menu.py:99
 msgid "Show log"
 msgstr "Exibe o Log"
 
-#: ../src/menu.py:229
+#: ../src/menu.py:235
 msgid "AutoBouquetsMaker Log"
 msgstr "AutoBouquetsMaker Log"
 
-#: ../src/menu.py:241
+#: ../src/menu.py:247
 msgid "Save Log"
 msgstr "Guardar log"
 
-#: ../src/menu.py:248
+#: ../src/menu.py:254
 msgid "ABM log file has been saved to the tmp directory"
 msgstr "O ficheiro de log ABM foi salvo no diretório /tmp"
 
@@ -115,7 +119,7 @@ msgstr "O ficheiro de log ABM foi salvo no diretório /tmp"
 msgid "Bouquets order"
 msgstr "Ordem dos Bouquets"
 
-#: ../src/ordering.py:77 ../src/setup.py:66 ../src/setup.py:467
+#: ../src/ordering.py:77 ../src/setup.py:81 ../src/setup.py:495
 msgid "Please wait..."
 msgstr "Por favor aguarde..."
 
@@ -149,119 +153,171 @@ msgstr "Semanal"
 msgid "30 Days"
 msgstr "30 Dias"
 
-#: ../src/plugin.py:27
+#: ../src/plugin.py:30 ../src/plugin.py:46
+msgid "None"
+msgstr ""
+
+#: ../src/plugin.py:31 ../src/plugin.py:47
+msgid "indent + text"
+msgstr ""
+
+#: ../src/plugin.py:32 ../src/plugin.py:48
+msgid "<-- text -->"
+msgstr ""
+
+#: ../src/plugin.py:33 ../src/plugin.py:49
+msgid "< - - text - - >"
+msgstr ""
+
+#: ../src/plugin.py:34 ../src/plugin.py:50
+msgid "== text =="
+msgstr ""
+
+#: ../src/plugin.py:35 ../src/plugin.py:51
+msgid "= = text = ="
+msgstr ""
+
+#: ../src/plugin.py:36 ../src/plugin.py:52
+msgid "=== text ==="
+msgstr ""
+
+#: ../src/plugin.py:37 ../src/plugin.py:53
+msgid "= = = text = = ="
+msgstr ""
+
+#: ../src/plugin.py:38 ../src/plugin.py:54
+msgid "-------- text --------"
+msgstr ""
+
+#: ../src/plugin.py:39 ../src/plugin.py:55
+msgid "== ABM - 'text' =="
+msgstr ""
+
+#: ../src/plugin.py:40 ../src/plugin.py:56
+msgid "---- ABM - 'text' ----"
+msgstr ""
+
+#: ../src/plugin.py:60
 msgid "Top"
 msgstr "cima"
 
-#: ../src/plugin.py:27
+#: ../src/plugin.py:60
 msgid "Bottom"
 msgstr "baixo"
 
-#: ../src/plugin.py:49
+#: ../src/plugin.py:84
 msgid "AutoBouquetsMaker Scanner"
 msgstr "AutoBouquetsMaker Scanner"
 
-#: ../src/scanner/bouquetswriter.py:370
+#: ../src/scanner/bouquetswriter.py:489
+msgid "Last Scanned"
+msgstr ""
+
+#: ../src/scanner/bouquetswriter.py:562
 msgid "All channels"
 msgstr "Todos os Canais"
 
-#: ../src/scanner/bouquetswriter.py:426 ../src/scanner/bouquetswriter.py:588
+#: ../src/scanner/bouquetswriter.py:616 ../src/scanner/bouquetswriter.py:776
 msgid "HD Channels"
 msgstr "Canais HD"
 
-#: ../src/scanner/bouquetswriter.py:429 ../src/scanner/bouquetswriter.py:649
+#: ../src/scanner/bouquetswriter.py:619 ../src/scanner/bouquetswriter.py:836
 msgid "FTA HD Channels"
 msgstr "Canais HD livres"
 
-#: ../src/scanner/bouquetswriter.py:710
+#: ../src/scanner/bouquetswriter.py:896
 msgid "FTA Channels"
 msgstr "Canais Livres"
 
-#: ../src/scanner/bouquetswriter.py:761
+#: ../src/scanner/bouquetswriter.py:946 ../src/scanner/bouquetswriter.py:947
 msgid "Radio Channels"
 msgstr "Canais de Rádio"
 
-#: ../src/scanner/main.py:49
+#: ../src/scanner/main.py:50
 msgid "Starting scanner"
 msgstr "A iniciar procura"
 
-#: ../src/scanner/main.py:86
+#: ../src/scanner/main.py:88
 msgid "Loading bouquets..."
 msgstr "A carregar bouquets..."
 
-#: ../src/scanner/main.py:87
+#: ../src/scanner/main.py:89
 msgid "Services: 0 video - 0 radio"
 msgstr "Serviços: 0 Vídeo - 0 Rádio"
 
-#: ../src/scanner/main.py:92
+#: ../src/scanner/main.py:94
 msgid "Please first setup, in configuration"
 msgstr "Por favor primeiro defina, em configuração"
 
-#: ../src/scanner/main.py:190
+#: ../src/scanner/main.py:195
 msgid "Bouquets generation..."
 msgstr "Geração de bouquets..."
 
-#: ../src/scanner/main.py:191 ../src/scanner/main.py:204
-#: ../src/scanner/main.py:436 ../src/scanner/main.py:499
+#: ../src/scanner/main.py:196 ../src/scanner/main.py:210
+#: ../src/scanner/main.py:467 ../src/scanner/main.py:535
 #, python-format
 msgid "Services: %d video - %d radio"
 msgstr "Serviços: %d Vídeo - %d Rádio"
 
-#: ../src/scanner/main.py:203
+#: ../src/scanner/main.py:209
 #, python-format
 msgid "Tuning %s..."
 msgstr "A sintonizar %s..."
 
-#: ../src/scanner/main.py:226
+#: ../src/scanner/main.py:232
 msgid "No area found"
 msgstr "Área não encontrada"
 
-#: ../src/scanner/main.py:243
+#: ../src/scanner/main.py:259
 msgid "No NIMs found for "
 msgstr "NIMs não detetados para:"
 
-#: ../src/scanner/main.py:249
+#: ../src/scanner/main.py:265
 msgid "Cannot retrieve Resource Manager instance"
 msgstr "Não é possível recuperar a instância do Gerenciador de recursos"
 
-#: ../src/scanner/main.py:316
+#: ../src/scanner/main.py:334
 msgid "No valid NIM found for "
 msgstr "NIM não válido para"
 
-#: ../src/scanner/main.py:341
+#: ../src/scanner/main.py:365
 msgid "Cannot free NIM because a recording is in progress"
 msgstr "Não posso libertar NIM porque uma gravação está em andamento"
 
-#: ../src/scanner/main.py:345
+#: ../src/scanner/main.py:369
 msgid "Cannot get the NIM"
 msgstr "Não pode obter o NIM"
 
-#: ../src/scanner/main.py:359
+#: ../src/scanner/main.py:383
 msgid "Cannot get frontend"
 msgstr "Não obter o frontend"
 
-#: ../src/scanner/main.py:365
+#: ../src/scanner/main.py:389
 msgid "Cannot allocate the demuxer"
 msgstr "Não pode allocar o demuxer"
 
-#: ../src/scanner/main.py:435
+#: ../src/scanner/main.py:466
 #, python-format
 msgid "Reading %s..."
 msgstr "A ler %s..."
 
-#: ../src/scanner/main.py:447
+#: ../src/scanner/main.py:476
+msgid "Tuning failed fatal"
+msgstr ""
+
+#: ../src/scanner/main.py:482
 msgid "Timeout for tuner lock"
 msgstr "Tempo limite de bloqueio do Tuner"
 
-#: ../src/scanner/main.py:474
+#: ../src/scanner/main.py:509
 msgid "Cannot read data"
 msgstr "Não pode ler a informação"
 
-#: ../src/scanner/main.py:498
+#: ../src/scanner/main.py:534
 msgid "Done"
 msgstr "Concluido!"
 
-#: ../src/scanner/main.py:650
+#: ../src/scanner/main.py:686
 msgid ""
 "Your bouquets are about to be updated,\n"
 "Do you want to allow this?"
@@ -269,51 +325,57 @@ msgstr ""
 "Os seus bouquets estão em vias de ser atualizados.\n"
 "Permite que isto seja efetuado?"
 
-#: ../src/scanner/main.py:671
+#: ../src/scanner/main.py:707
 msgid "Enough Retries, delaying till next schedule."
 msgstr "Bastante repetições, adiar até ao próximo agendamento."
 
-#: ../src/scanner/main.py:697
+#: ../src/scanner/main.py:733
 msgid "%a %e %b  %-H:%M"
 msgstr "%a %e %b  %-H:%M"
 
-#: ../src/setup.py:38
+#: ../src/setup.py:53
 msgid "AutoBouquetsMaker Providers"
 msgstr "AutoBouquetsMaker Operadores"
 
-#: ../src/setup.py:58 ../src/setup.py:459
+#: ../src/setup.py:73 ../src/setup.py:487
 msgid "OK"
 msgstr "OK"
 
-#: ../src/setup.py:169 ../src/setup.py:211
-msgid "yes"
-msgstr "sim"
+#: ../src/setup.py:197
+#, fuzzy
+#| msgid "All channels"
+msgid "yes (all channels)"
+msgstr "Todos os Canais"
 
-#: ../src/setup.py:171
+#: ../src/setup.py:199
 msgid "yes (only HD)"
 msgstr "sim (só HD)"
 
-#: ../src/setup.py:172
+#: ../src/setup.py:200
 msgid "yes (only FTA HD)"
 msgstr "sim (só HD Livres)"
 
-#: ../src/setup.py:189
+#: ../src/setup.py:217
 msgid "yes (custom)"
 msgstr "sim (customizado)"
 
-#: ../src/setup.py:202 ../src/setup.py:211
+#: ../src/setup.py:230 ../src/setup.py:239
 msgid "no"
 msgstr "não"
 
-#: ../src/setup.py:259
+#: ../src/setup.py:239
+msgid "yes"
+msgstr "sim"
+
+#: ../src/setup.py:287
 msgid "This option enables the current selected provider."
 msgstr "Esta opção ativa o operador selecionado."
 
-#: ../src/setup.py:262
+#: ../src/setup.py:290
 msgid "area"
 msgstr "área"
 
-#: ../src/setup.py:262
+#: ../src/setup.py:290
 msgid ""
 "This option allows you to choose what region of the country you live in, so "
 "it populates the correct channels for your region."
@@ -321,11 +383,11 @@ msgstr ""
 "Esta opção permite que escolha qual região do país onde vive, para que ele "
 "preencha os canais corretos para sua região."
 
-#: ../src/setup.py:267
+#: ../src/setup.py:295
 msgid "FTA only"
 msgstr "Só Livres"
 
-#: ../src/setup.py:267
+#: ../src/setup.py:295
 msgid ""
 "This affects all bouquets. Select 'no' to scan in all services. Select 'yes' "
 "to skip encrypted ones."
@@ -333,11 +395,11 @@ msgstr ""
 "Isso afeta todos os bouquets. Selecione 'Não' para procurar em todos os "
 "serviços. Selecione 'Sim' para ignorar os codificados."
 
-#: ../src/setup.py:270
+#: ../src/setup.py:298
 msgid "generate main bouquet"
 msgstr "gerar bouquet principal"
 
-#: ../src/setup.py:270
+#: ../src/setup.py:298
 msgid ""
 "This option has several choices \"Yes\", (create a bouquet with all the "
 "channels in it), \"Yes HD only\", (will group all HD channels into this "
@@ -349,11 +411,11 @@ msgstr ""
 "\"Personalizado\", (permite que você selecione o seu próprio bouquet), \"Não"
 "\", (não usa um bouquet principal)"
 
-#: ../src/setup.py:273
+#: ../src/setup.py:301
 msgid "custom bouquet for main"
 msgstr "Customizar bouquet principal"
 
-#: ../src/setup.py:273
+#: ../src/setup.py:301
 msgid ""
 "Select your own bouquet from the list, please note that the only the first "
 "100 channels for this bouquet will be used."
@@ -361,11 +423,11 @@ msgstr ""
 "Selecione o seu bouquet na lista, por favor, note que unicamente os "
 "primeiros 100 canais para este bouquet serão usados."
 
-#: ../src/setup.py:276
+#: ../src/setup.py:304
 msgid "generate sections bouquets"
 msgstr "gerar secções de bouquets"
 
-#: ../src/setup.py:276
+#: ../src/setup.py:304
 msgid ""
 "This option will create bouquets for each type of channel, ie Entertainment, "
 "Movies, Documentary."
@@ -373,11 +435,11 @@ msgstr ""
 "Esta opção irá criar bouquets para cada tipo de canal, ou seja, "
 "entretenimento, filmes, documentários."
 
-#: ../src/setup.py:279
+#: ../src/setup.py:307
 msgid "generate HD bouquet"
 msgstr "gerar bouquet HD"
 
-#: ../src/setup.py:279
+#: ../src/setup.py:307
 msgid ""
 "This option will create a High Definition bouquet, it will group all HD "
 "channels into this bouquet."
@@ -385,11 +447,11 @@ msgstr ""
 "Esta opção irá criar um bouquet de alta definição, agrupará todos os canais "
 "HD como um bouquet."
 
-#: ../src/setup.py:282
+#: ../src/setup.py:310
 msgid "generate FTA bouquet"
 msgstr "gerar bouquets Livres"
 
-#: ../src/setup.py:282
+#: ../src/setup.py:310
 msgid ""
 "This option will create a FreeToAir bouquet, it will group all free channels "
 "into this bouquet."
@@ -397,11 +459,11 @@ msgstr ""
 "Esta opção irá criar um bouquet FreeToAir, agrupará todos os canais livres "
 "como um bouquet."
 
-#: ../src/setup.py:285
+#: ../src/setup.py:313
 msgid "generate FTA HD bouquet"
 msgstr "gerar bouquet HD Livre"
 
-#: ../src/setup.py:285
+#: ../src/setup.py:313
 msgid ""
 "This option will create a FreeToAir High Definition bouquet, it will group "
 "all FTA HD channels into this bouquet."
@@ -409,11 +471,11 @@ msgstr ""
 "Esta opção irá criar um bouquet FreeToAir alta definição, agrupará todos os "
 "canais FTA HD como um bouquet."
 
-#: ../src/setup.py:291 ../src/setup.py:300 ../src/setup.py:308
+#: ../src/setup.py:319 ../src/setup.py:328 ../src/setup.py:336
 msgid "swap channels"
 msgstr "mudar canais"
 
-#: ../src/setup.py:291 ../src/setup.py:300 ../src/setup.py:308
+#: ../src/setup.py:319 ../src/setup.py:328 ../src/setup.py:336
 msgid ""
 "This option will swap SD versions of channels with HD versions. (eg BBC One "
 "SD with BBC One HD, Channel Four SD with with Channel Four HD)"
@@ -421,15 +483,15 @@ msgstr ""
 "Esta opção irá trocar versões SD de canais com as versões HD. (por exemplo, "
 "BBC One SD com BBC One HD, Channel Four SD com Channel Four HD)"
 
-#: ../src/setup.py:439
+#: ../src/setup.py:467
 msgid "AutoBouquetsMaker Configure"
 msgstr "Configurar AutoBouquetsMaker"
 
-#: ../src/setup.py:484
+#: ../src/setup.py:513
 msgid "Setup mode"
 msgstr "Modo de Instalação"
 
-#: ../src/setup.py:484
+#: ../src/setup.py:513
 msgid ""
 "Choose which level of settings to display. 'Expert'-level shows all items, "
 "this also adds more options in the providers menu."
@@ -437,35 +499,35 @@ msgstr ""
 "Escolha qual nível de configurações a exibir 'Especialista'-nível que mostra "
 "todos os itens, isso também adiciona mais opções no menu de operadores."
 
-#: ../src/setup.py:485
+#: ../src/setup.py:514
 msgid "Schedule scan"
 msgstr "Procurar agendamento"
 
-#: ../src/setup.py:485
+#: ../src/setup.py:514
 msgid "Allows you to set a schedule to perform a scan "
 msgstr "Permite-lhe agendar para iniciar uma procura"
 
-#: ../src/setup.py:487
+#: ../src/setup.py:516
 msgid "Time of scan to start"
 msgstr "Hora para iniciar a procura"
 
-#: ../src/setup.py:487
+#: ../src/setup.py:516
 msgid "Set the time of day to perform the scan."
 msgstr "Defina a hora do dia para efetuar a procura."
 
-#: ../src/setup.py:488
+#: ../src/setup.py:517
 msgid "Repeat how often"
 msgstr "Repete quantas vezes"
 
-#: ../src/setup.py:488
+#: ../src/setup.py:517
 msgid "Set the repeat interval of the schedule."
 msgstr "Defina o intervalo de repetição do agendamento."
 
-#: ../src/setup.py:490
+#: ../src/setup.py:519
 msgid "Keep all non-ABM bouquets"
 msgstr "Manter todos os bouquets não-ABM"
 
-#: ../src/setup.py:490
+#: ../src/setup.py:519
 msgid ""
 "When disabled this will enable the 'Keep bouquets' option in the main menu, "
 "allowing you to hide some 'existing' bouquets."
@@ -473,27 +535,61 @@ msgstr ""
 "Quando desativado isso permitirá a opção 'Manter bouquets' no menu "
 "principal, permitindo que esconda alguns bouquets 'existentes'."
 
-#: ../src/setup.py:491
+#: ../src/setup.py:520
 msgid "Add provider prefix to bouquets"
 msgstr "Adicionar prefixo do operador aos bouquets"
 
-#: ../src/setup.py:491
+#: ../src/setup.py:520
 msgid "This option will prepend the provider name to bouquet name."
 msgstr "Esta opção irá preceder o nome do operador ao nome do bouquet."
 
-#: ../src/setup.py:492
+#: ../src/setup.py:521
+#, fuzzy
+#| msgid "Providers order"
+msgid "Add provider markers"
+msgstr "Ordem de Operadores"
+
+#: ../src/setup.py:521
+msgid ""
+"This option places markers in the bouquet index to group all bouquets of "
+"each provider."
+msgstr ""
+
+#: ../src/setup.py:523
+msgid "Style of provider marker"
+msgstr ""
+
+#: ../src/setup.py:523
+msgid ""
+"Choose the style of markers that separate one provider from another in "
+"bouquet indexes."
+msgstr ""
+
+#: ../src/setup.py:524
+#, fuzzy
+#| msgid "Place bouquets at"
+msgid "Style of bouquet marker"
+msgstr "Coloque os bouquets em"
+
+#: ../src/setup.py:524
+msgid ""
+"Choose the style of the markers that separate channels into groups in the "
+"channel lists."
+msgstr ""
+
+#: ../src/setup.py:525
 msgid "Place bouquets at"
 msgstr "Coloque os bouquets em"
 
-#: ../src/setup.py:492
+#: ../src/setup.py:525
 msgid "This option will allow you choose where to place the created bouquets."
 msgstr "Esta opção permitirá que escolha onde colocar os bouquets criados."
 
-#: ../src/setup.py:493
+#: ../src/setup.py:526
 msgid "Skip services on not configured sats"
 msgstr "Saltar serviços em satélites não configurados"
 
-#: ../src/setup.py:493
+#: ../src/setup.py:526
 msgid ""
 "If a service is carried on a satellite that is not configured, 'yes' means "
 "the channel will not appear in the channel list, 'no' means the channel will "
@@ -503,11 +599,11 @@ msgstr ""
 "significa que o canal não aparecerá na lista de canais, 'Não' significa que "
 "o canal será mostrado na lista de canais acinzentada e não será acessível."
 
-#: ../src/setup.py:494
+#: ../src/setup.py:527
 msgid "Include 'not indexed' channels"
 msgstr "Incluir os canais 'não indexados'"
 
-#: ../src/setup.py:494
+#: ../src/setup.py:527
 msgid ""
 "When a search finds extra channels that do not have an allocated channel "
 "number, 'yes' will add these at the end of the channel list, and 'no' means "
@@ -517,11 +613,11 @@ msgstr ""
 "alocado, 'Sim' irá adicionar estas no final da lista de canais, e 'Não' "
 "significa que estas não serão incluídas."
 
-#: ../src/setup.py:495
+#: ../src/setup.py:528
 msgid "Extra debug"
 msgstr "Depuração extra"
 
-#: ../src/setup.py:495
+#: ../src/setup.py:528
 msgid ""
 "This feature is for development only. Requires debug logs to be enabled or "
 "enigma2 to be started in console mode."
@@ -529,23 +625,141 @@ msgstr ""
 "Esse recurso é apenas para desenvolvimento. Requer os logs de depuração para "
 "ser habilitado ou ser iniciado o Enigma2 no modo de consola."
 
-#: ../src/setup.py:496
+#: ../src/setup.py:529
 msgid "Show in extensions"
 msgstr "Mostrar em extensões"
 
-#: ../src/setup.py:496
+#: ../src/setup.py:529
 msgid "When enabled, allows you start a scan from the extensions list."
 msgstr "Quanto ativado, permite-lhe iniciar a procura da lista de extensões."
 
+#: ../src/updateproviders.py:50 ../src/updateproviders.py:90
+msgid "UpdateProviders"
+msgstr "Atualizar operadores"
+
+#: ../src/updateproviders.py:53
+msgid "Finding configured providers..."
+msgstr ""
+
+#: ../src/updateproviders.py:98
+msgid "No providers configured."
+msgstr "Não existem operadores configurados!"
+
+#: ../src/updateproviders.py:121
+#, fuzzy
+#| msgid "Starting scanner"
+msgid "Starting update..."
+msgstr "A iniciar procura"
+
+#: ../src/updateproviders.py:122
+msgid "Checking version compatibility..."
+msgstr ""
+
+#: ../src/updateproviders.py:135
+#, fuzzy
+#| msgid "No providers configured."
+msgid "No providers are configured."
+msgstr "Não existem operadores configurados!"
+
+#: ../src/updateproviders.py:145
+#, python-format
+msgid "Failed to retrieve version file. Error: %s %s"
+msgstr ""
+
+#: ../src/updateproviders.py:149 ../src/updateproviders.py:203
+#, python-format
+msgid ""
+"Network connection error: \n"
+"%s"
+msgstr ""
+
+#: ../src/updateproviders.py:152 ../src/updateproviders.py:206
+msgid "Network connection error"
+msgstr ""
+
+#: ../src/updateproviders.py:161
+#, python-format
+msgid "Incompatible versions: %s > %s"
+msgstr ""
+
+#: ../src/updateproviders.py:167
+#, fuzzy
+#| msgid "Cannot read data"
+msgid "Cannot read version"
+msgstr "Não pode ler a informação"
+
+#: ../src/updateproviders.py:178
+#, fuzzy, python-format
+#| msgid "Unable to download config file for %s"
+msgid "Retrieving config file for %s"
+msgstr "Impossível descarregar o ficheiro de configuração para %s"
+
+#: ../src/updateproviders.py:179
+msgid "Downloading latest file from Github..."
+msgstr ""
+
+#: ../src/updateproviders.py:194
+#, python-format
+msgid "Failed to retrieve file for %s. Error: %s %s"
+msgstr ""
+
+#: ../src/updateproviders.py:195
+msgid "Failed..."
+msgstr ""
+
+#: ../src/updateproviders.py:196
 #, python-format
 msgid "Unable to download config file for %s"
 msgstr "Impossível descarregar o ficheiro de configuração para %s"
 
-msgid "Update config files"
-msgstr "Atualizar ficheiros \"config\""
+#: ../src/updateproviders.py:222 ../src/updateproviders.py:234
+#: ../src/updateproviders.py:243
+#, fuzzy, python-format
+#| msgid "Unable to download config file for %s"
+msgid "Retrieved config file for %s"
+msgstr "Impossível descarregar o ficheiro de configuração para %s"
 
-msgid "UpdateProviders"
-msgstr "Atualizar operadores"
+#: ../src/updateproviders.py:223
+#, python-format
+msgid "Config file for %s does not need updating"
+msgstr ""
 
-msgid "No providers configured."
-msgstr "Não existem operadores configurados!"
+#: ../src/updateproviders.py:225
+#, python-format
+msgid "Config file for %s didn't need updating."
+msgstr ""
+
+#: ../src/updateproviders.py:235
+#, python-format
+msgid "Config file for %s has been updated"
+msgstr ""
+
+#: ../src/updateproviders.py:237
+#, python-format
+msgid "Config file for %s has been updated."
+msgstr ""
+
+#: ../src/updateproviders.py:244
+#, python-format
+msgid "Config file for %s does not parse"
+msgstr ""
+
+#: ../src/updateproviders.py:246
+#, python-format
+msgid "Retrieved config file for %s does not parse."
+msgstr ""
+
+#: ../src/updateproviders.py:253
+#, python-format
+msgid "Retrieved provider file for %s"
+msgstr ""
+
+#: ../src/updateproviders.py:254
+#, python-format
+msgid "Config file for %s is faulty"
+msgstr ""
+
+#: ../src/updateproviders.py:256
+#, python-format
+msgid "Retrieved config file for %s is faulty or incomplete."
+msgstr ""
