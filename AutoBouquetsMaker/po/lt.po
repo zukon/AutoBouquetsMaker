@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: AutoBouquetsMaker\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-07-04 16:36+0200\n"
+"PO-Revision-Date: 2017-07-06 11:20+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
 "Language: lt\n"
@@ -94,7 +94,7 @@ msgstr "Šalinti bukietus"
 
 #: ../src/menu.py:98
 msgid "Update config files"
-msgstr ""
+msgstr "Atnaujinti konfigūracijos failus"
 
 #: ../src/menu.py:99
 msgid "Show log"
@@ -136,7 +136,7 @@ msgstr "paprastas"
 
 #: ../src/plugin.py:12
 msgid "expert"
-msgstr "išsamus"
+msgstr "ekspertų lygio"
 
 #: ../src/plugin.py:17
 msgid "Daily"
@@ -152,47 +152,47 @@ msgstr "30 dienų"
 
 #: ../src/plugin.py:30 ../src/plugin.py:46
 msgid "None"
-msgstr ""
+msgstr "joks"
 
 #: ../src/plugin.py:31 ../src/plugin.py:47
 msgid "indent + text"
-msgstr ""
+msgstr "įtrauka + tekstas"
 
 #: ../src/plugin.py:32 ../src/plugin.py:48
 msgid "<-- text -->"
-msgstr ""
+msgstr "<-- tekstas -->"
 
 #: ../src/plugin.py:33 ../src/plugin.py:49
 msgid "< - - text - - >"
-msgstr ""
+msgstr "< - - tekstas - - >"
 
 #: ../src/plugin.py:34 ../src/plugin.py:50
 msgid "== text =="
-msgstr ""
+msgstr "== tekstas =="
 
 #: ../src/plugin.py:35 ../src/plugin.py:51
 msgid "= = text = ="
-msgstr ""
+msgstr "= = tekstas = ="
 
 #: ../src/plugin.py:36 ../src/plugin.py:52
 msgid "=== text ==="
-msgstr ""
+msgstr "=== tekstas ==="
 
 #: ../src/plugin.py:37 ../src/plugin.py:53
 msgid "= = = text = = ="
-msgstr ""
+msgstr "= = = tekstas = = ="
 
 #: ../src/plugin.py:38 ../src/plugin.py:54
 msgid "-------- text --------"
-msgstr ""
+msgstr "-------- tekstas --------"
 
 #: ../src/plugin.py:39 ../src/plugin.py:55
 msgid "== ABM - 'text' =="
-msgstr ""
+msgstr "== ABM - 'tekstas' =="
 
 #: ../src/plugin.py:40 ../src/plugin.py:56
 msgid "---- ABM - 'text' ----"
-msgstr ""
+msgstr "---- ABM - 'tekstas' ----"
 
 #: ../src/plugin.py:60
 msgid "Top"
@@ -208,7 +208,7 @@ msgstr "AutoBouquetsMaker paieška"
 
 #: ../src/scanner/bouquetswriter.py:489
 msgid "Last Scanned"
-msgstr ""
+msgstr "Paskutinė paieška"
 
 #: ../src/scanner/bouquetswriter.py:562
 msgid "All channels"
@@ -275,7 +275,7 @@ msgstr "Išteklių valdymas neprieinamas"
 
 #: ../src/scanner/main.py:334
 msgid "No valid NIM found for "
-msgstr "Nerasta tinkamųimtuvų "
+msgstr "Nerasta tinkamų imtuvų "
 
 #: ../src/scanner/main.py:365
 msgid "Cannot free NIM because a recording is in progress"
@@ -300,7 +300,7 @@ msgstr "Skaitoma %s..."
 
 #: ../src/scanner/main.py:476
 msgid "Tuning failed fatal"
-msgstr ""
+msgstr "Derinimas kritiškai nepavyko"
 
 #: ../src/scanner/main.py:482
 msgid "Timeout for tuner lock"
@@ -320,7 +320,7 @@ msgid ""
 "Do you want to allow this?"
 msgstr ""
 "Jūsų bukietai bus atnaujinti.\n"
-"Ar norite tai padaryti?"
+"Ar norite tęsti?"
 
 #: ../src/scanner/main.py:707
 msgid "Enough Retries, delaying till next schedule."
@@ -339,10 +339,8 @@ msgid "OK"
 msgstr "Gerai"
 
 #: ../src/setup.py:197
-#, fuzzy
-#| msgid "All channels"
 msgid "yes (all channels)"
-msgstr "Visi kanalai"
+msgstr "taip (visi kanalai)"
 
 #: ../src/setup.py:199
 msgid "yes (only HD)"
@@ -389,7 +387,7 @@ msgid ""
 "This affects all bouquets. Select 'no' to scan in all services. Select 'yes' "
 "to skip encrypted ones."
 msgstr ""
-"Tai įtakoja visus bukietus. Kad ieškoti visuose kanaluose, pasirinkite 'ne' "
+"Tai įtakoja visus bukietus. Kad ieškoti visuose kanaluose, pasirinkite 'ne'; "
 "ir 'taip', kad kad praleisti koduotus."
 
 #: ../src/setup.py:298
@@ -404,7 +402,7 @@ msgid ""
 "not use a main bouquet)"
 msgstr ""
 "Ši pasirinktis turi keletą pasirinkimų 'taip', (sukurti bukietą su visais "
-"kanalais), 'taip, tik HD', (sukurti bukietą su HD kanalais), 'savitas', "
+"kanalais), 'taip, tik HD', (sukurti bukietą tik su HD kanalais), 'savitas', "
 "(leidžia jums pasirinkti savo bukietą), 'ne', (nenaudoti pagrindinio bukieto)"
 
 #: ../src/setup.py:301
@@ -538,38 +536,39 @@ msgid "This option will prepend the provider name to bouquet name."
 msgstr "Ši parinktis į bukieto pavadinimą įtrauks tiekėjo vardą."
 
 #: ../src/setup.py:521
-#, fuzzy
-#| msgid "Providers order"
 msgid "Add provider markers"
-msgstr "Tiekėjų rūšiavimas"
+msgstr "Pridėti tiekėjo žymeklius"
 
 #: ../src/setup.py:521
 msgid ""
 "This option places markers in the bouquet index to group all bouquets of "
 "each provider."
 msgstr ""
+"Ši parinktis sudeda žymeklius bukieto antraštėse, kad sugrupuoti visus vieno "
+"tiekėjo bulietus."
 
 #: ../src/setup.py:523
 msgid "Style of provider marker"
-msgstr ""
+msgstr "Tiekėjo žymeklio stilius"
 
 #: ../src/setup.py:523
 msgid ""
 "Choose the style of markers that separate one provider from another in "
 "bouquet indexes."
 msgstr ""
+"Pasirinkite bukietų antraščių žymeklių, atskiriančių vieno tiekėjo bukietus "
+"nuo kito, stilių."
 
 #: ../src/setup.py:524
-#, fuzzy
-#| msgid "Place bouquets at"
 msgid "Style of bouquet marker"
-msgstr "Įkelti bukietus į"
+msgstr "Bukieto žymeklio stilius"
 
 #: ../src/setup.py:524
 msgid ""
 "Choose the style of the markers that separate channels into groups in the "
 "channel lists."
 msgstr ""
+"Pasirinkite žymeklių, skirstančių kanalus grupėmis kanalų sąraše, stilių."
 
 #: ../src/setup.py:525
 msgid "Place bouquets at"
@@ -627,39 +626,33 @@ msgid "When enabled, allows you start a scan from the extensions list."
 msgstr "Kai ši parinktis įjungta, paiešką galite pradėti iš plėtinių sąrašo."
 
 #: ../src/updateproviders.py:50 ../src/updateproviders.py:90
-#, fuzzy
-#| msgid "Providers"
 msgid "UpdateProviders"
-msgstr "Tiekėjai"
+msgstr "Atnaujinti tiekėjus"
 
 #: ../src/updateproviders.py:53
 msgid "Finding configured providers..."
-msgstr ""
+msgstr "Ieškoma sukonfigūruotų teikėjų..."
 
 #: ../src/updateproviders.py:98
-#, fuzzy
-#| msgid "Providers order"
 msgid "No providers configured."
-msgstr "Tiekėjų rūšiavimas"
+msgstr "Tiekėjai nesukonfigūruoti."
 
 #: ../src/updateproviders.py:121
-#, fuzzy
-#| msgid "Starting scanner"
 msgid "Starting update..."
-msgstr "Pradedama paieška"
+msgstr "Pradedamas atnaujinimas..."
 
 #: ../src/updateproviders.py:122
 msgid "Checking version compatibility..."
-msgstr ""
+msgstr "Tikrinamas versijų suderinamumas ..."
 
 #: ../src/updateproviders.py:135
 msgid "No providers are configured."
-msgstr ""
+msgstr "Tiekėjai nesukonfigūruoti."
 
 #: ../src/updateproviders.py:145
 #, python-format
 msgid "Failed to retrieve version file. Error: %s %s"
-msgstr ""
+msgstr "Nepavyko įkelti versijos failo. Klaida: %s %s"
 
 #: ../src/updateproviders.py:149 ../src/updateproviders.py:203
 #, python-format
@@ -667,92 +660,92 @@ msgid ""
 "Network connection error: \n"
 "%s"
 msgstr ""
+"Tinklo ryšio klaida:\n"
+"%s"
 
 #: ../src/updateproviders.py:152 ../src/updateproviders.py:206
 msgid "Network connection error"
-msgstr ""
+msgstr "Tinklo ryšio klaida"
 
 #: ../src/updateproviders.py:161
 #, python-format
 msgid "Incompatible versions: %s > %s"
-msgstr ""
+msgstr "Nesuderinamos versijos: %s > %s"
 
 #: ../src/updateproviders.py:167
-#, fuzzy
-#| msgid "Cannot read data"
 msgid "Cannot read version"
-msgstr "Nepavyko perskaityti duomenų"
+msgstr "Nepavyko perskaityti versijos"
 
 #: ../src/updateproviders.py:178
 #, python-format
 msgid "Retrieving config file for %s"
-msgstr ""
+msgstr "Įkeliamas %s konfigūracijos failas"
 
 #: ../src/updateproviders.py:179
 msgid "Downloading latest file from Github..."
-msgstr ""
+msgstr "Atsiunčiama naujausias failas iš GitHub..."
 
 #: ../src/updateproviders.py:194
 #, python-format
 msgid "Failed to retrieve file for %s. Error: %s %s"
-msgstr ""
+msgstr "Nepavyko įkelti %s failo. Klaida: %s %s"
 
 #: ../src/updateproviders.py:195
 msgid "Failed..."
-msgstr ""
+msgstr "Nepavyko..."
 
 #: ../src/updateproviders.py:196
 #, python-format
 msgid "Unable to download config file for %s"
-msgstr ""
+msgstr "Nepavyko parsiųsti %s konfigūracijos failo"
 
 #: ../src/updateproviders.py:222 ../src/updateproviders.py:234
 #: ../src/updateproviders.py:243
 #, python-format
 msgid "Retrieved config file for %s"
-msgstr ""
+msgstr "Parsiųstas %s konfigūracijos failas"
 
 #: ../src/updateproviders.py:223
 #, python-format
 msgid "Config file for %s does not need updating"
-msgstr ""
+msgstr "%s konfigūracijos failo atnaujinti nereikia"
 
 #: ../src/updateproviders.py:225
 #, python-format
 msgid "Config file for %s didn't need updating."
-msgstr ""
+msgstr "%s konfigūracijos failo atnaujinti nereikia."
 
 #: ../src/updateproviders.py:235
 #, python-format
 msgid "Config file for %s has been updated"
-msgstr ""
+msgstr "%s konfigūracijos failas atnaujintas"
 
 #: ../src/updateproviders.py:237
 #, python-format
 msgid "Config file for %s has been updated."
-msgstr ""
+msgstr "%s konfigūracijos failas atnaujintas."
 
 #: ../src/updateproviders.py:244
 #, python-format
 msgid "Config file for %s does not parse"
-msgstr ""
+msgstr "%s konfigūracijos failas nenusiskaito"
 
 #: ../src/updateproviders.py:246
 #, python-format
 msgid "Retrieved config file for %s does not parse."
-msgstr ""
+msgstr "Parsiųstas %s konfigūracijos failas nenusiskaito."
 
 #: ../src/updateproviders.py:253
 #, python-format
 msgid "Retrieved provider file for %s"
-msgstr ""
+msgstr "Parsiųstas %s tiekėjo failas"
 
 #: ../src/updateproviders.py:254
 #, python-format
 msgid "Config file for %s is faulty"
-msgstr ""
+msgstr "%s konfigūracijos failas klaidingas"
 
 #: ../src/updateproviders.py:256
 #, python-format
 msgid "Retrieved config file for %s is faulty or incomplete."
-msgstr ""
+msgstr "Parsiųstas %s konfigūracijos failas klaidingas, arba nepilnas."
