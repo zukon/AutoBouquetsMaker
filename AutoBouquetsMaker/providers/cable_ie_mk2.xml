@@ -90,7 +90,7 @@ rename = {
 fta_corrections = ['Sky Disney HD']
 
 #List channels to skip
-blacklist = [999]
+blacklist = [751,752,753,754,999]
 
 if (service["number"] in blacklist or service["service_name"] in blacklist):
 	skip = True
