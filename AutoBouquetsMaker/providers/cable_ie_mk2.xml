@@ -61,14 +61,16 @@
 		<channel number="318" with="340" /><!-- Sky Matt Damon HD -->
 		<channel number="320" with="341" /><!-- Sky Premiere HD -->
 		<channel number="400" with="430" /><!-- Sky Sports Mix HD -->
-		<channel number="402" with="432" /><!-- Sky Sports 1 HD -->
-		<channel number="403" with="433" /><!-- Sky Sports 2 HD -->
-		<channel number="404" with="434" /><!-- Sky Sports 3 HD -->
-		<channel number="405" with="435" /><!-- Sky Sports 4 HD -->
-		<channel number="406" with="436" /><!-- Sky Sports 5 HD -->
-		<channel number="408" with="438" /><!-- Sky Sports News HQ HD -->
-		<channel number="423" with="424" /><!-- Eurosport 1 HD -->
-		<channel number="425" with="426" /><!-- Eurosport 2 HD -->
+		<channel number="401" with="431" /><!-- Sky Sports Main Event HD -->
+		<channel number="402" with="432" /><!-- Sky Sports Cricket HD -->
+		<channel number="403" with="433" /><!-- Sky Sports Action HD -->
+		<channel number="404" with="434" /><!-- Sky Sports The Open HD -->
+		<channel number="405" with="435" /><!-- Sky Sports Premier League HD -->
+		<channel number="406" with="436" /><!-- Sky Sports Arena HD -->
+		<channel number="407" with="437" /><!-- Sky Sports Football HD -->
+		<channel number="408" with="438" /><!-- Sky Sports News HD -->
+		<channel number="623" with="624" /><!-- Eurosport HD -->
+		<channel number="625" with="626" /><!-- Eurosport 2 HD -->
 		<channel number="604" with="634" /><!-- Nickelodeon HD -->
 		<channel number="613" with="633" /><!-- Disney Channel HD -->
 	</swapchannels>
@@ -76,13 +78,24 @@
 	<servicehacks>
 <![CDATA[
 
+try:
+	loop_started
+except:
+	loop_started = True
+	valid_services = {}
+	for ky in self.LCN_order(tmp_services_dict):
+		valid_services[tmp_services_dict[ky]["number"]] = ky
+
+if service["number"] in valid_services and valid_services[service["number"]] != key:
+	skip = True
+
 # List channels to be renamed
 rename = {
+	215: "National Geographic",
 	219: "Discovery HD",
-	423: "Eurosport 1",
-	424: "Eurosport 1 HD",
-	425: "Eurosport 2",
+	424: "Eurosport HD",
 	426: "Eurosport 2 HD",
+	607: "Nick Junior",
 	620: "Cartoon Network",
 	}
 
@@ -90,7 +103,7 @@ rename = {
 fta_corrections = ['Sky Disney HD']
 
 #List channels to skip
-blacklist = [751,752,753,754,999]
+blacklist = [731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 751,752,753,754,999]
 
 if (service["number"] in blacklist or service["service_name"] in blacklist):
 	skip = True
