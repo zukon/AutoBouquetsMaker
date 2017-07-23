@@ -94,13 +94,14 @@ rename = {
 	215: "National Geographic",
 	219: "Discovery HD",
 	424: "Eurosport HD",
+	425: "Eurosport 2",
 	426: "Eurosport 2 HD",
 	607: "Nick Junior",
 	620: "Cartoon Network",
 	}
 
-#List channels with incorrect FTA flag
-fta_corrections = ['Sky Disney HD']
+#Some encrypted channels are wrongly flagged as FreToAir.
+	not_fta = ['Sky Disney HD']
 
 #List channels to skip
 blacklist = [731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 751,752,753,754,999]
@@ -111,7 +112,7 @@ if (service["number"] in blacklist or service["service_name"] in blacklist):
 if "number" in service and service["number"] in rename:
 	service["provider_name"] = rename[service["number"]]
 
-if service["service_name"] in fta_corrections:
+if service["service_name"] in not_fta:
 	service["free_ca"] = 1
 
 service["interactive_name"] = service["service_name"] = service["provider_name"]
