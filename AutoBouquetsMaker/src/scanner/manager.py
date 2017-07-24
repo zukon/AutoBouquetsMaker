@@ -98,6 +98,8 @@ class Manager():
 		#print>>log, "[ABM-Manager][save] Generate FTA bouquet:", str(self.makefta)
 		print>>log, "[ABM-Manager][save] Add provider prefix to bouqets:", str(self.addprefix)
 
+		self.clearServiceList()
+
 		writer = BouquetsWriter()
 		writer.writeLamedb(self.path, self.transponders)
 		#providers = Providers().read()
@@ -311,6 +313,22 @@ class Manager():
 
 	def getProviders(self):
 		return Providers().read()
+
+	def clearServiceList(self):
+		from enigma import eDVBDB
+		pos_list = []
+		for key in self.transponders.keys():
+			transponder = self.transponders[key]
+			pos = transponder["namespace"] >> 16
+			if pos in pos_list:
+				continue
+			pos_list.append(pos)
+			if pos == 0xFFFF:
+				eDVBDB.getInstance().removeServices(int("0xFFFF0000", 16) - 0x100000000)
+			elif pos == 0xEEEE:
+				eDVBDB.getInstance().removeServices(int("0xEEEE0000", 16) - 0x100000000)
+			else:
+				eDVBDB.getInstance().removeServices(-1, -1, -1, pos)
 
 #manager = Manager()
 # #print manager.getBouquetsList()
