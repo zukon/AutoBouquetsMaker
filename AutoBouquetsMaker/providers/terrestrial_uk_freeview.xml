@@ -19,7 +19,7 @@
 		<configuration key="caradon_hill_______" frequency="530200000">Caradon Hill</configuration>
 		<configuration key="carmel_____________" frequency="785800000">Carmel</configuration>
 		<configuration key="chatton____________" frequency="666000000">Chatton</configuration>
-		<configuration key="chesterfield_______" frequency="514000000">Chesterfield</configuration>		
+		<configuration key="chesterfield_______" frequency="514000000">Chesterfield</configuration>
 		<configuration key="craigkelly_________" frequency="522000000">Craigkelly</configuration>
 		<configuration key="crystal_palace_____" frequency="490000000">Crystal Palace</configuration>
 		<configuration key="darvel_____________" frequency="481800000">Darvel</configuration>
@@ -176,17 +176,33 @@
 		<customtransponder key="winter_hill________" frequency="602000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="winter_hill________" frequency="738000000" transport_stream_id="4088" system="1"/>
 	</customtransponders>
+
 	<sections>
 		<section number="1">Entertainment</section>
 		<section number="100">High Definition</section>
-		<section number="120">Children</section>
-		<section number="130">News</section>		
-		<section number="170">Adult</section>
-		<section number="601">BBC Interactive</section>
+		<section number="201">Children</section>
+		<section number="230">News</section>
+		<section number="260">BBC Interactive</section>
+		<section number="670">Adult</section>
 	</sections>
+
+	<swapchannels>
+		<channel number="1" with="101"/>	<!-- BBC One HD -->
+		<channel number="2" with="102"/>	<!-- BBC TWO HD -->
+		<channel number="3" with="103"/>	<!-- ITV HD -->
+		<channel number="4" with="104"/>	<!-- Channel 4 HD -->
+		<channel number="5" with="105"/>	<!-- Channel 5 HD -->
+		<channel number="9" with="106"/>	<!-- BBC FOUR HD -->
+		<channel number="13" with="109"/>	<!-- Channel 4+1 HD -->
+		<channel number="47" with="110"/>	<!-- 4seven HD -->
+		<channel number="201" with="204"/>	<!-- CBBC HD -->
+		<channel number="202" with="205"/>	<!-- CBeebies HD -->
+		<channel number="231" with="107"/>	<!-- BBC NEWS HD -->
+	</swapchannels>
+
 	<servicehacks>
 	<![CDATA[
-blacklist = [170,200,600,790,793,"ADULT Section",]
+blacklist = [250,695,696,697,698,"ADULT Section"]
 #Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
 
 for number in service["numbers"]:
