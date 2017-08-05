@@ -290,12 +290,6 @@ except:
 		5152: 460, # eir Sport 2 HD (also 5154)
 		5153: 462, # Premier HD
 		5311: 428, # Premier Sports
-		6002: 981, # BBC RB 2
-		6003: 982, # BBC RB 3
-		6004: 983, # BBC RB 4
-		6005: 984, # BBC RB 5
-		6006: 985, # BBC RB 6
-		6007: 986, # BBC RB HD"
 		#slow death section
 		3705: 112, # ComedyCentral
 		2709: 128, # ComedyXtra
@@ -314,7 +308,7 @@ except:
 		1045: "ITV Anglia HD",
 		1061: "ITV Border England HD",
 		1062: "ITV Westcountry West HD",
-		1063: "ITV Westcountry SW HD",		
+		1063: "ITV Westcountry SW HD",
 		2296: "S4C HD",
 		3527: "STV Edinburgh",
 		4012: "UTV Ireland",
@@ -359,7 +353,7 @@ except:
 		6504: "ITV London HD",
 		6505: "ITV Granada HD",
 		6510: "UTV HD"
-	}	
+	}
 
 	rename = {
 		# BT Interactive
@@ -371,13 +365,6 @@ except:
 		5386: "BT Sport Extra 6",
 
 		# Other channels
-		2079: "BBC One HD",
-		6002: "BBC RB 2",
-		6003: "BBC RB 3",
-		6004: "BBC RB 4",
-		6005: "BBC RB 5",
-		6006: "BBC RB 6",
-		6007: "BBC RB HD",
 
 		# RoI Sports channels
 		1309: "Sky Sports 1 RoI",
@@ -396,8 +383,8 @@ except:
 		5152, # eir Sport 2 HD
 		5153, # Premier HD
 		5154, # eir Sport 2 HD
-		5237, # TRT world HD	
-		5272  # Racing UK HD
+		5237, # TRT world HD
+		5272, # Racing UK HD
 	]
 
 	blacklist = ["10001", "10002"]
@@ -546,7 +533,7 @@ if service["channel_id"] in not_fta_by_id:
 
 if service["channel_id"] in fta_by_id:
 	service["free_ca"] = 0
-	
+
 ]]>
 	</servicehacks>
 </provider>

@@ -56,21 +56,21 @@
 		<channel number="135" with="227" /><!-- Channel 4 HD -->
 		<channel number="141" with="215" /><!-- BBC One HD -->
 		<channel number="502" with="692" /><!-- Bloomberg HD -->
-		<channel number="503" with="570" /><!-- BBC News HD -->		
+		<channel number="503" with="570" /><!-- BBC News HD -->
 		<channel number="506" with="579" /><!-- CNN HD -->
 		<channel number="512" with="518" /><!-- RT HD -->
-		<channel number="514" with="691" /><!-- Al Jazeera HD -->		
+		<channel number="514" with="691" /><!-- Al Jazeera HD -->
 		<channel number="519" with="693" /><!-- TRT World HD -->
 		<channel number="583" with="596" /><!-- Daystar HD -->
 		<channel number="613" with="633" /><!-- CBBC HD -->
-		<channel number="614" with="634" /><!-- CBeebies HD -->		
+		<channel number="614" with="634" /><!-- CBeebies HD -->
 		<channel number="786" with="860" /><!-- Colors HD -->
 		<channel number="795" with="853" /><!-- &TV HD -->
-		<channel number="801" with="856" /><!-- TV Record HD -->		
+		<channel number="801" with="856" /><!-- TV Record HD -->
 	</swapchannels>
 	<servicehacks>
 <![CDATA[
-try: 
+try:
 	is_assigned
 except:
 	is_assigned = True
@@ -89,6 +89,7 @@ except:
 	}
 
 	channels_to_add_by_id = {
+		2306: 111, # Dave FTA
 		6240: 118, # ITV2
 		6260: 119, # ITV3
 		6272: 120, # ITV4
@@ -120,23 +121,24 @@ except:
 		2078: 633, # CBBC HD	
 		2088: 634, # CBeebies HD
 		#slow death section
-		1402: 106, # Sky 1
-		4334: 107, # Sky Living
-		4335: 122, # Sky Living+1
+		3705: 112, # ComedyCentral
 		2709: 128, # ComedyXtra
-		1301: 401, # Sky Sports 1
-		1308: 402, # Sky Sports 2
-		1333: 403, # Sky Sports 3	
+		1355: 415, # At the races
+		2418: 522, # ID
+		2517: 604, # Nicelodeon
+		5527: 606, # Nicktoons
+		3356: 615, # Nick Jr
 	}
 
 	itv_rename = {
+		# ITV regions
 		1020: "ITV Border Scotland",
 		1043: "ITV Tyne Tees HD",
 		1044: "ITV Yorkshire HD",
 		1045: "ITV Anglia HD",
 		1061: "ITV Border England HD",
 		1062: "ITV Westcountry West HD",
-		1063: "ITV Westcountry SW HD",		
+		1063: "ITV Westcountry SW HD",
 		2296: "S4C HD",
 		3527: "STV Edinburgh",
 		4012: "UTV Ireland",
@@ -213,16 +215,17 @@ except:
 		1003, # MUTV HD
 		1019, # CNN HD
 		1047, # Insight HD
-		5152, # Setanta HD
+		5152, # eir Sport 2 HD
 		5153, # Premier HD
-		5154, # Setanta HD
-		5237, # TRT world HD		
+		5154, # eir Sport 2 HD
+		5237, # TRT world HD
 		5272, # Racing UK HD
 	]
 
 	blacklist = [899,950,"10001", "10002",]
 
 	blacklist_by_id = [
+		2376, # Dave encrypted
 		9700, # ___4109
 		9800, # ___4110
 	]
@@ -288,13 +291,17 @@ if service["service_type"] == 0x02 and service["number"] > 3000:
 if service["service_type"] != 2 and (service["number"] in whitelist or service["service_name"] in whitelist or ("channel_id" in service and service["channel_id"] in whitelist_by_id)):
 	pass
 elif custom and service["service_type"] != 2 and (service["number"] in blacklist or  service["service_name"] in blacklist):
+	for n in service["numbers"]:
+		LCNs_in_use = [x for x in LCNs_in_use if x != n]
 	skip = True
 elif custom and service["service_type"] in DvbScanner.HD_ALLOWED_TYPES and service["free_ca"] != 0:
 	skip = True
 elif custom and ("channel_id" in service and service["channel_id"] in blacklist_by_id):
+	for n in service["numbers"]:
+		LCNs_in_use = [x for x in LCNs_in_use if x != n]
 	skip = True
 
-new_numbers = []		
+new_numbers = []
 for number in service["numbers"]:
 	if number >= 3000 and number <= 3999:
 		new_numbers.append(number - 3000)
