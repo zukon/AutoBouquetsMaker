@@ -269,7 +269,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		self.list = []
 		providers_enabled = []
 		providers_already_loaded = []
-		indent = '- '
+		indent = _('- ')
 		for provider in self.providerKeysInNameOrder(self.providers):
 			if provider in self.dependents_list:
 				continue
@@ -508,7 +508,7 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 	def createSetup(self):
 		self.editListEntry = None
 		self.list = []
-		indent = '- '
+		indent = _('- ')
 
 		self.list.append(getConfigListEntry(_("Setup mode"), config.autobouquetsmaker.level, _("Choose which level of settings to display. 'Expert'-level shows all items, this also adds more options in the providers menu.")))
 		self.list.append(getConfigListEntry(_("Schedule scan"), config.autobouquetsmaker.schedule, _("Allows you to set a schedule to perform a scan ")))
