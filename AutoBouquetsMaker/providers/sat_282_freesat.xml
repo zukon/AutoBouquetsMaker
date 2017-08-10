@@ -93,7 +93,10 @@
 	</swapchannels>	
 	<servicehacks>
 <![CDATA[
-if (service["namespace"]/(16**4)) != 282:
+not_marked_hd = { # service_id: service_name,
+	53150: 'Arirang TV HD',
+}
+if (service["namespace"] >> 16) != 282:
 	skip = True
 elif service["number"] in range(984, 987): # BBC RB 4/5/6
 	service["interactive_name"] = "BBC RB " + str(service["number"] - 980)
@@ -102,10 +105,16 @@ elif service["number"] == 999: # Freesat info
 elif service["number"] > 999 or service["number"] < 101:
 	skip = True
 
+#radio channels
 if service["number"] >= 700 and service["number"] < 800:
 	service["service_type"] = 2
 
-# Correct service type of HD channels not marked as such
+# rename HD channels that have the wrong service type. This checks both the service id and service name are correct before renaming.
+if service["service_id"] in not_marked_hd and service["service_name"] in not_marked_hd[service["service_id"]] and service["service_name"][-2:] != 'HD':
+	print>>log, "[ABM-Hack] Freesat UK: rename %s, to %s" % (service["service_name"], not_marked_hd[service["service_id"]])
+	service["service_name"] = not_marked_hd[service["service_id"]]
+
+# Correct service type of HD channels not marked as 25
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
 	print>>log, "[ABM-Hack] Freesat UK: %s, changed from type %d to 25" % (service["service_name"], service["service_type"])
 	service["service_type"] = 25
