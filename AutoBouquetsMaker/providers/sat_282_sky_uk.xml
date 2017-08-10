@@ -205,18 +205,18 @@
 		<channel number="178" /><!-- ITV HD -->
 		<channel number="227" /><!-- Channel 4 HD -->
 		<channel number="171" /><!-- Channel 5 HD -->
-		<channel number="217" /><!-- Sky 1 HD -->
-		<channel number="221" /><!-- Sky Living HD -->
-		<channel number="222" /><!-- Sky Atlantic HD -->
+		<channel number="221" /><!-- Sky 1 HD -->
+		<channel number="222" /><!-- Sky Living HD -->
+		<channel number="223" /><!-- Sky Atlantic HD -->
 		<channel number="245" /><!-- Watch HD -->
 		<channel number="246" /><!-- Dave HD -->
 		<channel number="205" /><!-- Comedy Central HD -->
 		<channel number="204" /><!-- Universal HD -->
 		<channel number="201" /><!-- Syfy HD -->
 		<channel number="143" /><!-- BBC Four HD -->
-		<channel number="225" /><!-- ITV2 HD -->
-		<channel number="263" /><!-- ITV3 HD -->
-		<channel number="268" /><!-- ITV4 HD -->
+		<channel number="207" /><!-- ITV2 HD -->
+		<channel number="208" /><!-- ITV3 HD -->
+		<channel number="225" /><!-- ITV4 HD -->
 	</sdchannelsontop>
 	<!-- swapchannels affects main and sections bouquets. "number" is the SD channel. "with" is the HD channel. Swap will not occur if target is not HD -->
 	<swapchannels>
@@ -234,7 +234,7 @@
 		<channel number="113" with="204" /><!-- Universal HD -->
 		<channel number="114" with="201" /><!-- Syfy HD -->
 		<channel number="116" with="143" /><!-- BBC Four HD -->
-		<channel number="118" with="278" /><!-- ITV2 HD -->
+		<channel number="118" with="207" /><!-- ITV2 HD -->
 		<channel number="119" with="208" /><!-- ITV3 HD -->
 		<channel number="120" with="225" /><!-- ITV4 HD -->
 		<channel number="121" with="287" /><!-- SkySp Mix HD -->
