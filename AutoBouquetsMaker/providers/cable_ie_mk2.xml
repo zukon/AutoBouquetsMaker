@@ -38,10 +38,14 @@
 		<channel number="108" with="139" /><!-- BBC1 HD -->
 		<channel number="109" with="140" /><!-- BBC Two HD -->
 		<channel number="111" with="142" /><!-- Channel 4 HD -->
+		<channel number="112" with="162" /><!-- E4 HD -->
 		<channel number="114" with="143" /><!-- Sky 1 HD -->
+		<channel number="118" with="168" /><!-- More4 HD -->
+		<channel number="123" with="173" /><!-- Universal HD -->
 		<channel number="124" with="144" /><!-- Sky Living HD -->
 		<channel number="126" with="176" /><!-- Fox HD -->
 		<channel number="127" with="177" /><!-- Comedy HD -->
+		<channel number="129" with="179" /><!-- Syfy HD -->
 		<channel number="141" with="145" /><!-- Sky Arts HD -->
 		<channel number="202" with="232" /><!-- Sky News HD -->
 		<channel number="208" with="219" /><!-- Discovery HD -->
@@ -59,6 +63,7 @@
 		<channel number="309" with="339" /><!-- Sky Thriller HD -->
 		<channel number="318" with="340" /><!-- Sky Matt Damon HD -->
 		<channel number="320" with="341" /><!-- Sky Premiere HD -->
+		<channel number="323" with="343" /><!-- Film4 HD -->
 		<channel number="400" with="430" /><!-- Sky Sports Mix HD -->
 		<channel number="401" with="431" /><!-- Sky Sports Main Event HD -->
 		<channel number="402" with="432" /><!-- Sky Sports Cricket HD -->
@@ -87,13 +92,17 @@ except:
 
 	# rename channels that are incorrectly named in SDT other.
 	rename = {
+		211: "Discovery Science",
 		215: "National Geographic",
+		216: "Nat Geo Wild",
 		219: "Discovery HD",
+		222: "Nat Geo Wild HD",
 		424: "Eurosport HD",
 		425: "Eurosport 2",
 		426: "Eurosport 2 HD",
 		607: "Nick Junior",
 		620: "Cartoon Network",
+		859: "The Adult channel",
 	}
 
 	#Some encrypted channels are wrongly flagged as FreeToAir.
