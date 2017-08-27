@@ -73,8 +73,8 @@
 		<channel number="406" with="436" /><!-- Sky Sports Arena HD -->
 		<channel number="407" with="437" /><!-- Sky Sports Football HD -->
 		<channel number="408" with="438" /><!-- Sky Sports News HD -->
-		<channel number="623" with="624" /><!-- Eurosport HD -->
-		<channel number="625" with="626" /><!-- Eurosport 2 HD -->
+		<channel number="423" with="424" /><!-- Eurosport HD -->
+		<channel number="425" with="426" /><!-- Eurosport 2 HD -->
 		<channel number="604" with="634" /><!-- Nickelodeon HD -->
 		<channel number="613" with="633" /><!-- Disney Channel HD -->
 	</swapchannels>
@@ -92,17 +92,17 @@ except:
 
 	# rename channels that are incorrectly named in SDT other.
 	rename = {
-		211: "Discovery Science",
-		215: "National Geographic",
-		216: "Nat Geo Wild",
-		219: "Discovery HD",
-		222: "Nat Geo Wild HD",
-		424: "Eurosport HD",
-		425: "Eurosport 2",
-		426: "Eurosport 2 HD",
-		607: "Nick Junior",
-		620: "Cartoon Network",
-		859: "The Adult channel",
+	211: "Discovery Science",
+	215: "National Geographic",
+	216: "Nat Geo Wild",
+	219: "Discovery HD",
+	222: "Nat Geo Wild HD",
+	424: "Eurosport HD",
+	425: "Eurosport 2",
+	426: "Eurosport 2 HD",
+	607: "Nick Junior",
+	620: "Cartoon Network",
+	859: "The Adult channel",
 	}
 
 	#Some encrypted channels are wrongly flagged as FreeToAir.
@@ -119,16 +119,16 @@ service["interactive_name"] = service["service_name"] = service["provider_name"]
 if service["number"] in valid_services and valid_services[service["number"]] != key:
 	skip = True
 
-if (service["number"] in blacklist or service["service_name"] in blacklist):
+if (service["number"] in blacklist or service["interactive_name"] in blacklist):
 	skip = True
 
 if "number" in service and service["number"] in rename:
-	service["provider_name"] = rename[service["number"]]
+	service["interactive_name"] = rename[service["number"]]
 
-if service["service_name"] in not_fta:
+if service["interactive_name"] in not_fta:
 	service["free_ca"] = 1
 
-if service["service_name"] in fta_corrections:
+if service["interactive_name"] in fta_corrections:
 	service["free_ca"] = 0
 
 ]]>
