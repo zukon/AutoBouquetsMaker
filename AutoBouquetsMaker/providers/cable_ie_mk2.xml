@@ -24,7 +24,6 @@
         <section number="500">Lifestyle</section>
         <section number="600">Kids</section>
         <section number="700">Music</section>
-        <section number="756">Hide Me</section>
         <section number="802">Specialist</section>
         <section number="858">Adult</section>
 	</sections>
@@ -39,10 +38,14 @@
 		<channel number="108" with="139" /><!-- BBC1 HD -->
 		<channel number="109" with="140" /><!-- BBC Two HD -->
 		<channel number="111" with="142" /><!-- Channel 4 HD -->
+		<channel number="112" with="162" /><!-- E4 HD -->
 		<channel number="114" with="143" /><!-- Sky 1 HD -->
+		<channel number="118" with="168" /><!-- More4 HD -->
+		<channel number="123" with="173" /><!-- Universal HD -->
 		<channel number="124" with="144" /><!-- Sky Living HD -->
 		<channel number="126" with="176" /><!-- Fox HD -->
 		<channel number="127" with="177" /><!-- Comedy HD -->
+		<channel number="129" with="179" /><!-- Syfy HD -->
 		<channel number="141" with="145" /><!-- Sky Arts HD -->
 		<channel number="202" with="232" /><!-- Sky News HD -->
 		<channel number="208" with="219" /><!-- Discovery HD -->
@@ -60,6 +63,7 @@
 		<channel number="309" with="339" /><!-- Sky Thriller HD -->
 		<channel number="318" with="340" /><!-- Sky Matt Damon HD -->
 		<channel number="320" with="341" /><!-- Sky Premiere HD -->
+		<channel number="323" with="343" /><!-- Film4 HD -->
 		<channel number="400" with="430" /><!-- Sky Sports Mix HD -->
 		<channel number="401" with="431" /><!-- Sky Sports Main Event HD -->
 		<channel number="402" with="432" /><!-- Sky Sports Cricket HD -->
@@ -88,23 +92,29 @@ except:
 
 	# rename channels that are incorrectly named in SDT other.
 	rename = {
+		211: "Discovery Science",
 		215: "National Geographic",
+		216: "Nat Geo Wild",
 		219: "Discovery HD",
+		222: "Nat Geo Wild HD",
 		424: "Eurosport HD",
 		425: "Eurosport 2",
 		426: "Eurosport 2 HD",
 		607: "Nick Junior",
 		620: "Cartoon Network",
+		859: "The Adult channel",
 	}
 
 	#Some encrypted channels are wrongly flagged as FreeToAir.
 	not_fta = ['Sky Disney HD'] # by service name
 	
-	# FTA channels that are wrongly flagged as encrypted.
-	fta_corrections = [] # by service name
+	# FTA channels that are wrongly flagged as encrypted. Listed by service name.
+	fta_corrections = ["Virgin 100","RTE One","Euronews","Cula4","DCTV","CCTv",]
 
-	#List channels to skip
-	blacklist = [731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 751,752,753,754,999] # by LCN
+	#Channels to skip. Listed by LCN
+	blacklist = [731,732,733,734,735,736,737,738,739,740,751,752,753,754,757,758,759,760,761,762,763,764,765,766,767,768,769,770,771,772,773,774,775,776,777,778,779,780,781,782,783,784,785,786,787,788,789,790,791,792,793,794,795,796,797,798,799,800,801,999]
+
+service["interactive_name"] = service["service_name"] = service["provider_name"]
 
 if service["number"] in valid_services and valid_services[service["number"]] != key:
 	skip = True
@@ -120,8 +130,6 @@ if service["service_name"] in not_fta:
 
 if service["service_name"] in fta_corrections:
 	service["free_ca"] = 0
-
-service["interactive_name"] = service["service_name"] = service["provider_name"]
 
 ]]>
 	</servicehacks>
