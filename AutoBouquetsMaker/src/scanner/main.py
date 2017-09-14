@@ -96,7 +96,6 @@ class AutoBouquetsMaker(Screen):
 	def showError(self, message):
 		from Screens.Standby import inStandby
 		if self.rawchannel:
-			self.rawchannel.receivedTsidOnid.get().remove(self.readTsidOnid)
 			del(self.rawchannel)
 
 		self.frontend = None
@@ -217,7 +216,7 @@ class AutoBouquetsMaker(Screen):
 		print>>log, "[ABM-main][doTune] searching for tuner for %s" % self.providers[self.currentAction]["name"]
 		from Screens.Standby import inStandby
 		if self.providers[self.currentAction]["streamtype"] == "dvbs":
-			self.transponder = self.providers[self.currentAction]["transponder"]
+			transponder = self.providers[self.currentAction]["transponder"]
 		else:
 			bouquet_key = None
 			providers_tmp = self.abm_settings_str.split("|")
@@ -233,14 +232,10 @@ class AutoBouquetsMaker(Screen):
 				self.showError(_('No area found'))
 				return
 
-			self.transponder = self.providers[self.currentAction]["bouquets"][bouquet_key]
+			transponder = self.providers[self.currentAction]["bouquets"][bouquet_key]
 
 		nimList = []
-		#recording_nims = [recording.frontendInfo().getAll(True)["tuner_number"] for recording in self.session.nav.getRecordings()]
-		#print>>log, "[ABM-main][doTune] recording nims", recording_nims
 		for nim in nimmanager.nim_slots:
-			#if nim.slot in recording_nims:
-			#	continue
 			if self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.isCompatible("DVB-S"):
 				try:
 					if nim.isFBCTuner() and not nim.isFBCRoot():
@@ -271,7 +266,7 @@ class AutoBouquetsMaker(Screen):
 			return
 
 		if self.providers[self.currentAction]["streamtype"] == "dvbs":
-			print>>log, "[ABM-main][doTune] Search NIM for orbital position %d" % self.transponder["orbital_position"]
+			print>>log, "[ABM-main][doTune] Search NIM for orbital position %d" % transponder["orbital_position"]
 		else:
 			print>>log, "[ABM-main][doTune] Search NIM"
 
@@ -303,7 +298,6 @@ class AutoBouquetsMaker(Screen):
 
 		current_slotid = -1
 		if self.rawchannel:
-			self.rawchannel.receivedTsidOnid.get().remove(self.readTsidOnid)
 			del(self.rawchannel)
 
 		self.frontend = None
@@ -314,7 +308,7 @@ class AutoBouquetsMaker(Screen):
 			if self.providers[self.currentAction]["streamtype"] == "dvbs":
 				sats = nimmanager.getSatListForNim(slotid)
 				for sat in sats:
-					if sat[0] == self.transponder["orbital_position"]:
+					if sat[0] == transponder["orbital_position"]:
 						if current_slotid == -1:	# mark the first valid slotid in case of no other one is free
 							current_slotid = slotid
 
@@ -347,7 +341,7 @@ class AutoBouquetsMaker(Screen):
 				if self.providers[self.currentAction]["streamtype"] == "dvbs":
 					sats = nimmanager.getSatListForNim(slotid)
 					for sat in sats:
-						if sat[0] == self.transponder["orbital_position"]:
+						if sat[0] == transponder["orbital_position"]:
 							print>>log, "[ABM-main][doTune] Nim found on slot id %d but it's busy. Stopping active service" % slotid
 							self.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
 							self.session.nav.stopService()
@@ -376,15 +370,13 @@ class AutoBouquetsMaker(Screen):
 					return
 
 		# set extended timeout for rotors
-		if self.providers[self.currentAction]["streamtype"] == "dvbs" and self.isRotorSat(current_slotid, self.transponder["orbital_position"]):
+		if self.providers[self.currentAction]["streamtype"] == "dvbs" and self.isRotorSat(current_slotid, transponder["orbital_position"]):
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_ROTOR
 			print>>log, "[ABM-main][doTune] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10)
 		else:
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_FIXED
 			print>>log, "[ABM-main][doTune] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10)
 
-		self.rawchannel.receivedTsidOnid.get().append(self.readTsidOnid)
-		
 		self.frontend = self.rawchannel.getFrontend()
 		if not self.frontend:
 			print>>log, "[ABM-main][doTune] Cannot get frontend"
@@ -399,16 +391,16 @@ class AutoBouquetsMaker(Screen):
 
 		if self.providers[self.currentAction]["streamtype"] == "dvbs":
 			params = eDVBFrontendParametersSatellite()
-			params.frequency = self.transponder["frequency"]
-			params.symbol_rate = self.transponder["symbol_rate"]
-			params.polarisation = self.transponder["polarization"]
-			params.fec = self.transponder["fec_inner"]
-			params.inversion = self.transponder["inversion"]
-			params.orbital_position = self.transponder["orbital_position"]
-			params.system = self.transponder["system"]
-			params.modulation = self.transponder["modulation"]
-			params.rolloff = self.transponder["roll_off"]
-			params.pilot = self.transponder["pilot"]
+			params.frequency = transponder["frequency"]
+			params.symbol_rate = transponder["symbol_rate"]
+			params.polarisation = transponder["polarization"]
+			params.fec = transponder["fec_inner"]
+			params.inversion = transponder["inversion"]
+			params.orbital_position = transponder["orbital_position"]
+			params.system = transponder["system"]
+			params.modulation = transponder["modulation"]
+			params.rolloff = transponder["roll_off"]
+			params.pilot = transponder["pilot"]
 			try: # if distro is MIS capable
 				params.pls_mode = eDVBFrontendParametersSatellite.PLS_Root
 				params.is_id = -1
@@ -420,26 +412,26 @@ class AutoBouquetsMaker(Screen):
 
 		elif self.providers[self.currentAction]["streamtype"] == "dvbt":
 			params = eDVBFrontendParametersTerrestrial()
-			params.frequency = self.transponder["frequency"]
-			params.bandwidth = self.transponder["bandwidth"]
-			params.code_rate_hp = self.transponder["code_rate_hp"]
-			params.code_rate_lp = self.transponder["code_rate_lp"]
-			params.inversion = self.transponder["inversion"]
-			params.system = self.transponder["system"]
-			params.modulation = self.transponder["modulation"]
-			params.transmission_mode = self.transponder["transmission_mode"]
-			params.guard_interval = self.transponder["guard_interval"]
-			params.hierarchy = self.transponder["hierarchy"]
+			params.frequency = transponder["frequency"]
+			params.bandwidth = transponder["bandwidth"]
+			params.code_rate_hp = transponder["code_rate_hp"]
+			params.code_rate_lp = transponder["code_rate_lp"]
+			params.inversion = transponder["inversion"]
+			params.system = transponder["system"]
+			params.modulation = transponder["modulation"]
+			params.transmission_mode = transponder["transmission_mode"]
+			params.guard_interval = transponder["guard_interval"]
+			params.hierarchy = transponder["hierarchy"]
 			params_fe = eDVBFrontendParameters()
 			params_fe.setDVBT(params)
 
 		elif self.providers[self.currentAction]["streamtype"] == "dvbc":
 			params = eDVBFrontendParametersCable()
-			params.frequency = self.transponder["frequency"]
-			params.symbol_rate = self.transponder["symbol_rate"]
-			params.fec_inner = self.transponder["fec_inner"]
-			params.inversion = self.transponder["inversion"]
-			params.modulation = self.transponder["modulation"]
+			params.frequency = transponder["frequency"]
+			params.symbol_rate = transponder["symbol_rate"]
+			params.fec_inner = transponder["fec_inner"]
+			params.inversion = transponder["inversion"]
+			params.modulation = transponder["modulation"]
 			params_fe = eDVBFrontendParameters()
 			params_fe.setDVBC(params)
 
@@ -448,9 +440,6 @@ class AutoBouquetsMaker(Screen):
 		except (TypeError):
 			# for compatibility with some third party images
 			self.rawchannel.requestTsidOnid(self.gotTsidOnid)
-
-		self.tsid = None
-		self.onid = None
 
 		self.frontend.tune(params_fe)
 		self.manager.setAdapter(0)	# FIX: use the correct device
@@ -469,24 +458,19 @@ class AutoBouquetsMaker(Screen):
 		if dict["tuner_state"] == "TUNING":
 			print>>log, "[ABM-main][checkTunerLock] TUNING"
 		elif dict["tuner_state"] == "LOCKED":
-			print>>log, "[ABM-main][checkTunerLock] TUNER IS LOCKED"
-			print>>log, "[ABM-main][checkTunerLock] self.tsid, self.onid, provider.tsid, provider.onid", self.tsid, self.onid, self.transponder["tsid"], self.transponder["onid"]
-			if(self.transponder["tsid"] is None or (self.tsid is not None and self.tsid == self.transponder["tsid"])) and \
-				(self.transponder["onid"] is None or (self.onid is not None and self.onid == self.transponder["onid"])):
-				self.progresscurrent += 1
-				if not inStandby:
-					self["progress_text"].value = self.progresscurrent
-					self["progress"].setValue(self.progresscurrent)
-					self["action"].setText(_("Reading %s...") % str(self.providers[self.currentAction]["name"]))
-					self["status"].setText(_("Services: %d video - %d radio") % (self.manager.getServiceVideoRead(), self.manager.getServiceAudioRead()))
-				self.timer = eTimer()
-				self.timer.callback.append(self.doScan)
-				self.timer.start(100, 1)
-				return
-			else:
-				print>>log, "[ABM-main][checkTunerLock] waiting for correct tsid/onid"
+			print>>log, "[ABM-main][checkTunerLock] ACQUIRING TSID/ONID"
+			self.progresscurrent += 1
+			if not inStandby:
+				self["progress_text"].value = self.progresscurrent
+				self["progress"].setValue(self.progresscurrent)
+				self["action"].setText(_("Reading %s...") % str(self.providers[self.currentAction]["name"]))
+				self["status"].setText(_("Services: %d video - %d radio") % (self.manager.getServiceVideoRead(), self.manager.getServiceAudioRead()))
+			self.timer = eTimer()
+			self.timer.callback.append(self.doScan)
+			self.timer.start(100, 1)
+			return
 		elif dict["tuner_state"] == "LOSTLOCK":
-			print>>log, "[ABM-main][checkTunerLock] TUNER LOSTLOCK"
+			print>>log, "[ABM-main][checkTunerLock] LOSTLOCK"
 		elif dict["tuner_state"] == "FAILED":
 			print>>log, "[ABM-main][checkTunerLock] TUNING FAILED FATAL"
 			self.showError(_('Tuning failed fatal'))
@@ -499,11 +483,6 @@ class AutoBouquetsMaker(Screen):
 			return
 
 		self.locktimer.start(100, 1)
-
-	def readTsidOnid(self, tsid, onid):
-		if tsid is not None and tsid > 0 and onid is not None and onid > 0:
-			self.tsid = tsid
-			self.onid = onid
 
 	# for compatibility with some third party images
 	def gotTsidOnid(self, tsid, onid):
@@ -538,7 +517,6 @@ class AutoBouquetsMaker(Screen):
 	def scanComplete(self):
 		from Screens.Standby import inStandby
 		if self.rawchannel:
-			self.rawchannel.receivedTsidOnid.get().remove(self.readTsidOnid)
 			del(self.rawchannel)
 
 		self.frontend = None
