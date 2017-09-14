@@ -105,6 +105,8 @@ class Providers():
 						transponder["inversion"] = eDVBFrontendParametersSatellite.Inversion_Unknown
 						transponder["roll_off"] = eDVBFrontendParametersSatellite.RollOff_alpha_0_35
 						transponder["pilot"] = eDVBFrontendParametersSatellite.Pilot_Unknown
+						transponder["onid"] = None
+						transponder["tsid"] = None
 						for i in range(0, node.attributes.length):
 							if node.attributes.item(i).name == "frequency":
 								transponder["frequency"] = int(node.attributes.item(i).value)
@@ -158,8 +160,12 @@ class Providers():
 								transponder["fastscan_pid"] = int(node.attributes.item(i).value, 16)
 							elif node.attributes.item(i).name == "fastscan_table_id":
 								transponder["fastscan_table_id"] = int(node.attributes.item(i).value, 16)
+							elif node.attributes.item(i).name == "onid":
+								transponder["onid"] = int(node.attributes.item(i).value, 16)
+							elif node.attributes.item(i).name == "tsid":
+								transponder["tsid"] = int(node.attributes.item(i).value, 16)
 
-						if len(transponder.keys()) in (20, 16):
+						if len(transponder.keys()) in (22, 18):
 							provider["transponder"] = transponder
 
 					elif node.tagName == "bouquettype":
@@ -207,6 +213,8 @@ class Providers():
 								configuration["fec_inner"] = eDVBFrontendParametersCable.FEC_Auto
 								configuration["inversion"] = eDVBFrontendParametersCable.Inversion_Unknown
 								configuration["modulation"] = eDVBFrontendParametersCable.Modulation_Auto
+								configuration["onid"] = None
+								configuration["tsid"] = None
 								for i in range(0, node2.attributes.length):
 									if node2.attributes.item(i).name == "key":
 										configuration["key"] = node2.attributes.item(i).value.encode("utf-8")
@@ -230,14 +238,18 @@ class Providers():
 										configuration["bouquet"] = int(node2.attributes.item(i).value, 16)
 									elif node2.attributes.item(i).name == "region":
 										configuration["region"] = int(node2.attributes.item(i).value, 16)
+									elif node2.attributes.item(i).name == "onid":
+										configuration["onid"] = int(node2.attributes.item(i).value, 16)
+									elif node2.attributes.item(i).name == "tsid":
+										configuration["tsid"] = int(node2.attributes.item(i).value, 16)
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
 									configuration["name"] = node2.childNodes[0].data.encode("utf-8")
 
-								if len(configuration.keys()) == 10 and 'lcnbat' not in provider["protocol"] and 'region' not in configuration and 'bouquet' not in configuration:
+								if len(configuration.keys()) == 12 and 'lcnbat' not in provider["protocol"] and 'region' not in configuration and 'bouquet' not in configuration:
 									provider["bouquets"][configuration["key"]] = configuration
-								elif len(configuration.keys()) == 12 and 'lcnbat' in provider["protocol"]:
+								elif len(configuration.keys()) == 14 and 'lcnbat' in provider["protocol"]:
 									provider["bouquets"][configuration["key"]] = configuration
 
 						if len(transponder.keys()) == 8:
@@ -266,6 +278,8 @@ class Providers():
 								configuration["transmission_mode"] = eDVBFrontendParametersTerrestrial.TransmissionMode_Auto
 								configuration["guard_interval"] = eDVBFrontendParametersTerrestrial.GuardInterval_Auto
 								configuration["hierarchy"] = eDVBFrontendParametersTerrestrial.Hierarchy_Auto
+								configuration["onid"] = None
+								configuration["tsid"] = None
 								
 								for i in range(0, node2.attributes.length):
 									if node2.attributes.item(i).name == "key":
@@ -290,12 +304,16 @@ class Providers():
 										configuration["guard_interval"] = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "hierarchy":
 										configuration["hierarchy"] = int(node2.attributes.item(i).value)
+									elif node2.attributes.item(i).name == "onid":
+										configuration["onid"] = int(node2.attributes.item(i).value)
+									elif node2.attributes.item(i).name == "tsid":
+										configuration["tsid"] = int(node2.attributes.item(i).value)
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
 									configuration["name"] = node2.childNodes[0].data.encode("utf-8")
 
-								if len(configuration.keys()) == 12:
+								if len(configuration.keys()) == 14:
 									provider["bouquets"][configuration["key"]] = configuration
 
 						if len(transponder.keys()) == 8:
