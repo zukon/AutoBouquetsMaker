@@ -161,9 +161,9 @@ class Providers():
 							elif node.attributes.item(i).name == "fastscan_table_id":
 								transponder["fastscan_table_id"] = int(node.attributes.item(i).value, 16)
 							elif node.attributes.item(i).name == "onid":
-								transponder["onid"] = int(node.attributes.item(i).value, 16)
+								transponder["onid"] = int(node.attributes.item(i).value)
 							elif node.attributes.item(i).name == "tsid":
-								transponder["tsid"] = int(node.attributes.item(i).value, 16)
+								transponder["tsid"] = int(node.attributes.item(i).value)
 
 						if len(transponder.keys()) in (22, 18):
 							provider["transponder"] = transponder
@@ -239,9 +239,9 @@ class Providers():
 									elif node2.attributes.item(i).name == "region":
 										configuration["region"] = int(node2.attributes.item(i).value, 16)
 									elif node2.attributes.item(i).name == "onid":
-										configuration["onid"] = int(node2.attributes.item(i).value, 16)
+										configuration["onid"] = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "tsid":
-										configuration["tsid"] = int(node2.attributes.item(i).value, 16)
+										configuration["tsid"] = int(node2.attributes.item(i).value)
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
