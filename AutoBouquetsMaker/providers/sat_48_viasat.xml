@@ -14,6 +14,8 @@
 		roll_off="0"
 		pilot="2"
 		bat_pid="0x3a"
+		tsid="4248"
+		onid="222"
 	/>
 	<dvbsconfigs>
 		<!-- region="Viasat BAT descriptor" bouquets="Current from the BAT on 20151021" -->

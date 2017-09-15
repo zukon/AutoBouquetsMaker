@@ -18,6 +18,8 @@
 		nit_other_table_id="0x00"
 		fastscan_pid="0x385"
 		fastscan_table_id="0xbd"
+		tsid="1105"
+		onid="53"
 	/>
 	<sections>
 		<section number="1">Canal Digitaal HD</section>

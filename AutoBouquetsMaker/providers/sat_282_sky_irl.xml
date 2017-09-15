@@ -13,6 +13,8 @@
 		modulation="1"
 		roll_off="0"
 		pilot="2"
+		tsid="2004"
+		onid="2"
 	/>
 	<dvbsconfigs>
 		<configuration key="hd_republic_of_ireland" bouquet="0x1008" region="0x32">ROI HD</configuration>

@@ -18,6 +18,8 @@
 		nit_other_table_id="0x00"
 		fastscan_pid="0x38f"
 		fastscan_table_id="0xbd"
+		tsid="3219"
+		onid="3"
 	/>
 	<sections>
 		<section number="1">TV Vlaanderen</section>

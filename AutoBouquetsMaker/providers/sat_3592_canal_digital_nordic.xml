@@ -13,6 +13,8 @@
 		inversion="2"
 		roll_off="0"
 		pilot="2"
+		tsid="20"
+		onid="70"
 	/>
 	<dvbsconfigs>
 		<configuration key="sd_DNK" bouquet="0x1" region="0x0">Denmark SD</configuration>

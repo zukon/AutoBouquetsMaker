@@ -14,6 +14,8 @@
 		modulation="1"
 		roll_off="0"
 		pilot="2"
+		tsid="1101"
+		onid="1"
 	/>
 	<sections>
 		<section number="1">Deutsche Sender</section>

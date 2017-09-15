@@ -13,6 +13,8 @@
 		modulation="2"
 		roll_off="0"
 		pilot="2"
+		tsid="1053"
+		onid="1"
 	/>
 	<sections>
 		<section number="1">Vollprogramme</section>
