@@ -370,7 +370,9 @@ class AutoBouquetsMaker(Screen):
 					return
 
 		# set extended timeout for rotors
+		self.motorised = False
 		if self.providers[self.currentAction]["streamtype"] == "dvbs" and self.isRotorSat(current_slotid, transponder["orbital_position"]):
+			self.motorised = True
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_ROTOR
 			print>>log, "[ABM-main][doTune] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10)
 		else:
@@ -504,7 +506,7 @@ class AutoBouquetsMaker(Screen):
 		self.timer.start(100, True)
 
 	def doScan(self):
-		if not self.manager.read(self.selectedProviders[self.currentAction], self.providers):
+		if not self.manager.read(self.selectedProviders[self.currentAction], self.providers, self.motorised):
 			print>>log, "[ABM-main][doScan] Cannot read data"
 			self.showError(_('Cannot read data'))
 			return

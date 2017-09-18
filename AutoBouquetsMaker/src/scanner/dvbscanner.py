@@ -131,6 +131,45 @@ class DvbScanner():
 
 		return namespace
 
+	def tsidOnidTest(self, onid, tsid):
+		# This just grabs the tsid and onid of the current transponder. 
+		# Used to confirm motorised dishes have arrived at the correct satellite before starting the download.
+		print>>log, "[ABM-DvbScanner] tsid onid test..."
+		
+		sdt_pid = 0x11
+		sdt_current_table_id = 0x42
+		mask = 0xff
+		tsidOnidTestTimeout = 90
+		passed_test = False
+		
+		fd = dvbreader.open(self.demuxer_device, sdt_pid, sdt_current_table_id, mask, self.frontend)
+		if fd < 0:
+			print>>log, "[ABM-DvbScanner] Cannot open the demuxer"
+			return None
+
+		timeout = datetime.datetime.now()
+		timeout += datetime.timedelta(0, tsidOnidTestTimeout)
+
+		while True:
+			if datetime.datetime.now() > timeout:
+				print>>log, "[ABM-DvbScanner] Timed out checking tsid onid"
+				break
+
+			section = dvbreader.read_sdt(fd, sdt_current_table_id, 0x00)
+			if section is None:
+				time.sleep(0.1)	# no data.. so we wait a bit
+				continue
+
+			if section["header"]["table_id"] == sdt_current_table_id:
+				passed_test = (onid is None or onid == section["header"]["original_network_id"]) and (tsid is None or tsid == section["header"]["transport_stream_id"])
+				print>>log, "[ABM-DvbScanner][tsidOnidTest] tsid: %d, onid: %d" % (section["header"]["transport_stream_id"], section["header"]["original_network_id"])
+				if passed_test:
+					break
+
+		dvbreader.close(fd)
+
+		return passed_test
+
 	def updateTransponders(self, transponders, read_other_section = False, customtransponders = {}, netid = None, bouquettype = None, bouquet_id = -1):
 		print>>log, "[ABM-DvbScanner] Reading transponders..."
 

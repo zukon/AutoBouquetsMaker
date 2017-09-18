@@ -188,7 +188,7 @@ class Manager():
 
 		print>>log, "[ABM-Manager][save] write bouquets, Done"
 
-	def read(self, provider_config, providers):
+	def read(self, provider_config, providers, motorised):
 		ret = False
 		provider_key = provider_config.getProvider()
 		bouquet_key = provider_config.getArea()
@@ -222,6 +222,9 @@ class Manager():
 					scanner.setSdtPid(providers[provider_key]["transponder"]["sdt_pid"])
 					scanner.setSdtCurrentTableId(providers[provider_key]["transponder"]["sdt_current_table_id"])
 					scanner.setSdtOtherTableId(providers[provider_key]["transponder"]["sdt_other_table_id"])
+					
+					if motorised and not scanner.tsidOnidTest(providers[provider_key]["transponder"]["onid"], providers[provider_key]["transponder"]["tsid"]):
+						return False
 
 					try:
 						bouquet_id = providers[provider_key]["bouquets"][bouquet_key]["bouquet"]
