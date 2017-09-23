@@ -103,9 +103,9 @@
 		<customtransponder key="chesterfield_______" frequency="538000000" transport_stream_id="4089" system="1"/>
 		<customtransponder key="chesterfield_______" frequency="554000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="chesterfield_______" frequency="602000000" transport_stream_id="b000" system="1"/>
-		<customtransponder key="craigkelly_________" frequency="474000000" transport_stream_id="40bc" system="0"/>
-		<customtransponder key="craigkelly_________" frequency="570000000" transport_stream_id="a000" system="0"/>
-		<customtransponder key="craigkelly_________" frequency="578000000" transport_stream_id="b000" system="0"/>		
+		<customtransponder key="craigkelly_________" frequency="474000000" transport_stream_id="40bc" system="1"/>
+		<customtransponder key="craigkelly_________" frequency="570000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="craigkelly_________" frequency="578000000" transport_stream_id="b000" system="1"/>		
 		<customtransponder key="crystal_palace_____" frequency="546000000" transport_stream_id="4084" system="1"/>
 		<customtransponder key="crystal_palace_____" frequency="570000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="crystal_palace_____" frequency="586000000" transport_stream_id="b000" system="1"/>
@@ -117,15 +117,15 @@
 		<customtransponder key="dover______________" frequency="690000000" transport_stream_id="6040" system="0"/>
 		<customtransponder key="divis______________" frequency="498000000" transport_stream_id="40bd" system="1"/>
 		<customtransponder key="divis______________" frequency="570000000" transport_stream_id="a001" system="1"/>
-		<customtransponder key="durris_____________" frequency="482000000" transport_stream_id="40bc" system="0"/>
-		<customtransponder key="durris_____________" frequency="562000000" transport_stream_id="a000" system="0"/>
-		<customtransponder key="durris_____________" frequency="586000000" transport_stream_id="b000" system="0"/>
+		<customtransponder key="durris_____________" frequency="482000000" transport_stream_id="40bc" system="1"/>
+		<customtransponder key="durris_____________" frequency="562000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="durris_____________" frequency="586000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="emley_moor_________" frequency="634000000" transport_stream_id="4089" system="1"/>
 		<customtransponder key="emley_moor_________" frequency="562000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="heathfield_________" frequency="634000000" transport_stream_id="6040" system="0"/>
 		<customtransponder key="heathfield_________" frequency="642000000" transport_stream_id="3006" system="0"/>
 		<customtransponder key="heathfield_________" frequency="658000000" transport_stream_id="5040" system="0"/>
-		<customtransponder key="heathfield_________" frequency="682000000" transport_stream_id="4083" system="0"/>
+		<customtransponder key="heathfield_________" frequency="682000000" transport_stream_id="4083" system="1"/>
 		<customtransponder key="heathfield_________" frequency="698000000" transport_stream_id="2010" system="0"/>
 		<customtransponder key="heathfield_________" frequency="722000000" transport_stream_id="104c" system="0"/>
 		<customtransponder key="kilvey_hill________" frequency="538000000" transport_stream_id="40be" system="1"/>
