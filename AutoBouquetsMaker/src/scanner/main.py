@@ -475,7 +475,7 @@ class AutoBouquetsMaker(Screen):
 			print>>log, "[ABM-main][checkTunerLock] LOSTLOCK"
 		elif dict["tuner_state"] == "FAILED":
 			print>>log, "[ABM-main][checkTunerLock] TUNING FAILED FATAL"
-			self.showError(_('Tuning failed fatal'))
+			self.showError(_('Tuning failed. Unable to lock onto frequency'))
 			return
 
 		self.lockcounter += 1
