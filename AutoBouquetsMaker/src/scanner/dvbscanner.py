@@ -380,7 +380,7 @@ class DvbScanner():
 				orbital_position += ((transponder["orbital_position"] >> 8) & 0x0F) * 100
 				orbital_position += ((transponder["orbital_position"] >> 4) & 0x0F) * 10
 				orbital_position += transponder["orbital_position"] & 0x0F
-				if orbital_position != 0 and transponder["west_east_flag"] == 0:
+				if orbital_position != 0 and transponder["west_east_flag"] == 0: # 0 == west, 1 == east
 					orbital_position = 3600 - orbital_position
 				transponder["orbital_position"] = orbital_position
 				transponder["pilot"] = 2
