@@ -448,6 +448,7 @@ class AutoBouquetsMaker(Screen):
 		self.manager.setDemuxer(demuxer_id)
 		self.manager.setFrontend(current_slotid)
 
+		self.current_slotid = current_slotid
 		self.lockcounter = 0
 		self.locktimer = eTimer()
 		self.locktimer.callback.append(self.checkTunerLock)
@@ -475,13 +476,13 @@ class AutoBouquetsMaker(Screen):
 			print>>log, "[ABM-main][checkTunerLock] LOSTLOCK"
 		elif dict["tuner_state"] == "FAILED":
 			print>>log, "[ABM-main][checkTunerLock] TUNING FAILED FATAL"
-			self.showError(_('Tuning failed. Unable to lock onto frequency'))
+			self.showError(_('Failed to tune %s on tuner %s.\nPlease check the tuner is correctly configured.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid)))
 			return
 
 		self.lockcounter += 1
 		if self.lockcounter > self.LOCK_TIMEOUT:
-			print>>log, "[AutoBouquetsMaker] Timeout for tuner lock"
-			self.showError(_('Timeout for tuner lock'))
+			print>>log, "[AutoBouquetsMaker] Timeout for tuner lock, "
+			self.showError(_('Timed out tuning %s on tuner %s.\nPlease check the tuner is correctly configured.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid)))
 			return
 
 		self.locktimer.start(100, 1)
