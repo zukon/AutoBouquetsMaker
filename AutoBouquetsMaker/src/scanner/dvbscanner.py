@@ -30,6 +30,7 @@ class DvbScanner():
 		self.fastscan_table_id = 0x00
 		self.ignore_visible_service_flag = 0
 		self.extra_debug = config.autobouquetsmaker.level.value == "expert" and config.autobouquetsmaker.extra_debug.value
+		self.namespace_complete = not (config.usage.subnetwork.value if hasattr(config.usage, "subnetwork") else True) # config.usage.subnetwork not available in all images
 
 	def isValidOnidTsid(self, orbital_position, onid, tsid):
 		if onid == 0x00 or onid == 0x1111:
@@ -122,13 +123,19 @@ class DvbScanner():
 		print>>log, "[ABM-DvbScanner] Ignore visible service flag: %d" % self.ignore_visible_service_flag
 
 	def buildNamespace(self, transponder):
-		orbital_position = transponder['orbital_position']
-
-		namespace = orbital_position << 16
-		namespace |= ((transponder['frequency'] / 1000) & 0xFFFF) | ((transponder['polarization'] & 1) << 15)
-		if self.isValidOnidTsid(orbital_position, transponder['original_network_id'], transponder['transport_stream_id']):
-			namespace &= ~0xFFFF
-
+		if transponder["dvb_type"] == 'dvbc':
+			namespace = 0xFFFF0000
+			if self.namespace_complete:
+				namespace |= (transponder['frequency']/1000)&0xFFFF
+		elif transponder["dvb_type"] == 'dvbt':
+			namespace = 0xEEEE0000
+			if self.namespace_complete:
+				namespace |= (transponder['frequency']/1000000)&0xFFFF
+		elif transponder["dvb_type"] == 'dvbs':
+			orbital_position = transponder['orbital_position']
+			namespace = orbital_position << 16
+			if self.namespace_complete or not self.isValidOnidTsid(orbital_position, transponder['original_network_id'], transponder['transport_stream_id']):
+				namespace |= ((transponder['frequency'] / 1000) & 0xFFFF) | ((transponder['polarization'] & 1) << 15)
 		return namespace
 
 	def tsidOnidTest(self, onid, tsid):
@@ -343,20 +350,20 @@ class DvbScanner():
 				if transponder["fec_inner"] != 15 and transponder["fec_inner"] > 9:
 					transponder["fec_inner"] = 0
 				transponder["frequency"] = transponder["frequency"] / 10
-				transponder["namespace"] = 0xFFFF0000
+				transponder["namespace"] = self.buildNamespace(transponder)
 				transponder["inversion"] = transponder["fec_outer"]
 				transponder["modulation_system"] = 0
 			elif transponder["dvb_type"] == 'dvbt': # DVB-T
 				if len(customtransponder) == 0: #no override or DVB-T2 transponder
-					transponder["namespace"] = 0xEEEE0000
 					transponder["frequency"] = transponder["frequency"] * 10
+					transponder["namespace"] = self.buildNamespace(transponder)
 					transponder["inversion"] = 0
 					transponder["plpid"] = 0
 					transponder["flags"] = 0
 					transponder["system"] = 0
 				else:
-					transponder["namespace"] = 0xEEEE0000
 					transponder["frequency"] = customtransponder["frequency"]
+					transponder["namespace"] = self.buildNamespace(transponder)
 					transponder["bandwidth"] = customtransponder["bandwidth"]
 					transponder["code_rate_hp"] = customtransponder["code_rate_hp"]
 					transponder["code_rate_lp"] = customtransponder["code_rate_lp"]
