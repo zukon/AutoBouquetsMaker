@@ -72,26 +72,33 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 		
 		if (descriptor_tag == 0xd4)
 		{
-			char lang[4];
-			char description[256];
-			memset(lang, '\0', 4);
-			memset(description, '\0', 256);
+			int size = descriptor_length;
+			while (size > 0)
+			{
+				char lang[4];
+				char description[256];
+				memset(lang, '\0', 4);
+				memset(description, '\0', 256);
 			
-			int region_id = (data[offset1 + 2] << 8) | data[offset1 + 3];
-			memcpy(lang, data + offset1 + 4, 3);
-			unsigned char description_size = data[offset1 + 7];
-			if (description_size == 255)
-				description_size--;
-			memcpy(description, data + offset1 + 8, description_size);
+				int region_id = (data[offset2] << 8) | data[offset2 + 1];
+				memcpy(lang, data + offset2 + 2, 3);
+				unsigned char description_size = data[offset2 + 5];
+				if (description_size == 255)
+					description_size--;
+				memcpy(description, data + offset2 + 6, description_size);
 				
-			PyObject *item = Py_BuildValue("{s:i,s:i,s:s,s:s}",
-						"descriptor_tag", descriptor_tag,
-						"region_id", region_id,
-						"language", lang,
-						"description", description);
+				PyObject *item = Py_BuildValue("{s:i,s:i,s:s,s:s}",
+							"descriptor_tag", descriptor_tag,
+							"region_id", region_id,
+							"language", lang,
+							"description", description);
 						
-			PyList_Append(list, item);
-			Py_DECREF(item);
+				PyList_Append(list, item);
+				Py_DECREF(item);
+				
+				offset2 += (6 + description_size) ;
+				size -= (6 + description_size);
+			}
 		}
 		else if (descriptor_tag == 0x47) // Bouquet name descriptor
 		{
