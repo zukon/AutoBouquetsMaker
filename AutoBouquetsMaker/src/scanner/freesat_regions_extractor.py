@@ -1,8 +1,18 @@
+# Use: Tuner A. Tune Freesat home transponder (28.2E, 11426 H 27500 2/3).
+# Using satfiner is one way to tune the above.
+# Run this file from the command line.
+# python /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/scanner/freesat_regions_extractor.py >/tmp/freesat.log
+
 import dvbreader
 import datetime
 import time
 
 from operator import itemgetter
+
+bat_pid = 0xbba # This is the correct PID on Freesat home transponder. On other transponders use 0xf01.
+bat_table = 0x4a
+mask = 0xff
+frontend = 0
 
 TIMEOUT_SEC = 30
 
@@ -12,7 +22,7 @@ namespace = 0x11a0000
 def readBouquet(bouquet_id):
 	print "[DvbScanner] Reading bouquet_id = 0x%x..." % bouquet_id
 
-	fd = dvbreader.open("/dev/dvb/adapter0/demux0", 0xf01, 0x4a, 0xff, 0)
+	fd = dvbreader.open("/dev/dvb/adapter0/demux0", bat_pid, bat_table, mask, frontend)
 	if fd < 0:
 		print "[DvbScanner] Cannot open the demuxer"
 		return None
@@ -29,7 +39,7 @@ def readBouquet(bouquet_id):
 			print "[DvbScanner] Timed out"
 			break
 
-		section = dvbreader.read_bat(fd, 0x4a)
+		section = dvbreader.read_bat(fd, bat_table)
 		if section is None:
 			time.sleep(0.1)	# no data.. so we wait a bit
 			continue
