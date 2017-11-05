@@ -44,7 +44,7 @@ def readBouquet(bouquet_id):
 			time.sleep(0.1)	# no data.. so we wait a bit
 			continue
 
-		if section["header"]["table_id"] == 0x4a:
+		if section["header"]["table_id"] == bat_table:
 			if section["header"]["bouquet_id"] != bouquet_id:
 				continue
 
