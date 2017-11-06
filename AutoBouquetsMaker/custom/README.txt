@@ -13,9 +13,10 @@ CustomLCN
 ---------
 
 CustomLCN allows channels to be moved around within one single provider. CustomLCN is  
-for providers that don't transmit logical channel numbers (e.g. Sky DE). The CustomLCN 
-list can be complete or partial. It doesn't have to be in any particular order but having 
-it sequential will make it easier to avoid making errors.
+for providers that don't transmit logical channel numbers (e.g. Sky DE). Its purpose is
+to insert logical channel numbers. The CustomLCN list can be complete or partial. 
+It doesn't have to be in any particular order but having it sequential will make it 
+easier to avoid making errors.
 
 Each time ABM runs it makes an example CustomLCN xml file for each provider that is scanned, 
 e.g. 'EXAMPLE_hd_sat_freesat_CustomLCN.xml'. These files are archived in:
