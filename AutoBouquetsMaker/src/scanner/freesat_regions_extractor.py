@@ -17,7 +17,6 @@ frontend = 0
 TIMEOUT_SEC = 30
 
 bouquets_list = []
-namespace = 0x11a0000
 
 def readBouquet(bouquet_id):
 	print "[DvbScanner] Reading bouquet_id = 0x%x..." % bouquet_id
@@ -78,8 +77,7 @@ def readBouquet(bouquet_id):
 			bouquet = {
 				"name": bouquet_name + " - " + section["description"],
 				"region": section["region_id"],
-				"bouquet": bouquet_id,
-				"namespace": namespace
+				"bouquet": bouquet_id
 			}
 			bouquets_list.append(bouquet)
 
@@ -94,4 +92,4 @@ bouquets_list = sorted(bouquets_list, key=itemgetter('name'))
 for bouquet in bouquets_list:
 	key = "freesat_%x_%x" % (bouquet["bouquet"], bouquet["region"])
 	name = bouquet["name"].replace("&", "&amp;")
-	print "<configuration key=\"%s\" bouquet=\"0x%x\" region=\"0x%x\" namespace=\"0x%x\">%s</configuration>" % (key, bouquet["bouquet"], bouquet["region"], bouquet["namespace"], name)
+	print "<configuration key=\"%s\" bouquet=\"0x%x\" region=\"0x%x\">%s</configuration>" % (key, bouquet["bouquet"], bouquet["region"], name)
