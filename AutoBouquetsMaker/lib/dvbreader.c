@@ -14,17 +14,17 @@ PyObject *ss_open(PyObject *self, PyObject *args) {
 	char filter, mask, frontend;
 	struct dmx_sct_filter_params sfilter;
 	dmx_source_t ssource = DMX_SOURCE_FRONT0;
-	
+
 	if (!PyArg_ParseTuple(args, "sibbb", &demuxer, &pid, &filter, &mask, &frontend))
 		return Py_BuildValue("i", -1);
-	
+
 	memset(&sfilter, 0, sizeof(sfilter));
 	sfilter.pid = pid & 0xffff;
 	sfilter.filter.filter[0] = filter & 0xff;
 	sfilter.filter.mask[0] = mask & 0xff;
 	sfilter.timeout = 0;
 	sfilter.flags = DMX_IMMEDIATE_START | DMX_CHECK_CRC;
-	
+
 	ssource = DMX_SOURCE_FRONT0 + frontend;
 
 	if ((fd = open(demuxer, O_RDWR | O_NONBLOCK)) < 0) {
@@ -43,7 +43,7 @@ PyObject *ss_open(PyObject *self, PyObject *args) {
 		close(fd);
 		return Py_BuildValue("i", -1);
 	}
-	
+
 	return Py_BuildValue("i", fd);
 }
 
@@ -57,19 +57,19 @@ PyObject *ss_close(PyObject *self, PyObject *args) {
 
 PyObject *ss_parse_bat(unsigned char *data, int length) {
 	PyObject* list = PyList_New(0);
-	
+
 	int bouquet_id = (data[3] << 8) | data[4];
 	int bouquet_descriptors_length = ((data[8] & 0x0f) << 8) | data[9];
 	int transport_stream_loop_length = ((data[bouquet_descriptors_length + 10] & 0x0f) << 8) | data[bouquet_descriptors_length + 11];
 	int offset1 = 10;
 	int ret = 0;
-	
+
 	while (bouquet_descriptors_length > 0)
 	{
 		unsigned char descriptor_tag = data[offset1];
 		unsigned char descriptor_length = data[offset1 + 1];
 		int offset2 = offset1 + 2;
-		
+
 		if (descriptor_tag == 0xd4)
 		{
 			int size = descriptor_length;
@@ -79,23 +79,23 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 				char description[256];
 				memset(lang, '\0', 4);
 				memset(description, '\0', 256);
-			
+
 				int region_id = (data[offset2] << 8) | data[offset2 + 1];
 				memcpy(lang, data + offset2 + 2, 3);
 				unsigned char description_size = data[offset2 + 5];
 				if (description_size == 255)
 					description_size--;
 				memcpy(description, data + offset2 + 6, description_size);
-				
+
 				PyObject *item = Py_BuildValue("{s:i,s:i,s:s,s:s}",
 							"descriptor_tag", descriptor_tag,
 							"region_id", region_id,
 							"language", lang,
 							"description", description);
-						
+
 				PyList_Append(list, item);
 				Py_DECREF(item);
-				
+
 				offset2 += (6 + description_size) ;
 				size -= (6 + description_size);
 			}
@@ -110,12 +110,12 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 				strcpy(description, "Unknown");
 			else if (description[0] == 0x05)
 				description_ptr++;
-			
+
 			PyObject *item = Py_BuildValue("{s:i,s:i,s:s}",
 						"descriptor_tag", descriptor_tag,
 						"bouquet_id", bouquet_id,
 						"description", description_ptr);
-						
+
 			PyList_Append(list, item);
 			Py_DECREF(item);
 		}
@@ -136,10 +136,10 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 						"service_id", service_id,
 						"logical_channel_number", logical_channel_number,
 						"descriptor_tag", descriptor_tag);
-							
+
 				PyList_Append(list, item);
 				Py_DECREF(item);
-				
+
 				offset2 += 8;
 				size -= 8;
 			}
@@ -156,11 +156,11 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 				int quotient, n=0, temp;
 				char hextemp[3] = {'0','0','\0'};
 				quotient = decimalNumber;
-				while(quotient!=0) 
+				while(quotient!=0)
 				{
 					temp = quotient % 16;
 					if (temp < 10)
-						temp = temp + 48; 
+						temp = temp + 48;
 					else
 						temp = temp + 55;
 					hextemp[n]= temp;
@@ -177,22 +177,22 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 			}
 			if (strlen(description) == 0)
 				strcpy(description, "Empty");
-		
+
 			PyObject *item = Py_BuildValue("{s:i,s:i,s:s}",
 						"descriptor_tag", descriptor_tag,
 						"descriptor_length", descriptor_length,
 						"hexcontent", description);
-						
+
 			PyList_Append(list, item);
 			Py_DECREF(item);
 		}
-		
+
 		offset1 += (descriptor_length + 2);
 		bouquet_descriptors_length -= (descriptor_length + 2);
 	}
-	
+
 	offset1 += 2;
-	
+
 	while (transport_stream_loop_length > 0)
 	{
 		int transport_stream_id = (data[offset1] << 8) | data[offset1 + 1];
@@ -216,7 +216,7 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 			{
 				unsigned char region_id;
 				region_id = data[offset3 + 1];
-				
+
 				offset3 += 2;
 				descriptor_length -= 2;
 				while (descriptor_length > 0)
@@ -227,12 +227,12 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 					unsigned short int sky_id;
 					unsigned short int service_id;
 					unsigned char service_type;
-					
+
 					channel_id = (data[offset3 + 3] << 8) | data[offset3 + 4];
 					sky_id = ( data[offset3 + 5] << 8 ) | data[offset3 + 6];
 					service_id = (data[offset3] << 8) | data[offset3 + 1];
 					service_type = data[offset3 + 2];
-					
+
 					PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i}",
 							"descriptor_tag", descriptor_tag,
 							"transport_stream_id", transport_stream_id,
@@ -240,15 +240,15 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 							"service_id", service_id, "number", sky_id,
 							"service_type", service_type, "region_id", region_id,
 							"channel_id", channel_id);
-							
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
-					
+
 					offset3 += 9;
 					descriptor_length -= 9;
 				}
 			}
-			else if (descriptor_tag == 0x41) // Service list descriptor 
+			else if (descriptor_tag == 0x41) // Service list descriptor
 			{
 				while (descriptor_length > 0)
 				{
@@ -256,16 +256,16 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 					unsigned char service_type;
 					service_id = (data[offset3] << 8) | data[offset3 + 1];
 					service_type = data[offset3 + 2];
-					
+
 					PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:i}",
 							"descriptor_tag", descriptor_tag,
 							"transport_stream_id", transport_stream_id,
 							"original_network_id", original_network_id,
 							"service_id", service_id, "service_type", service_type);
-							
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
-					
+
 					descriptor_length -= 3;
 				}
 			}
@@ -283,10 +283,10 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 							"service_id", service_id,
 							"logical_channel_number", logical_channel_number,
 							"descriptor_tag", descriptor_tag);
-							
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
-					
+
 					offset3 += 4;
 					descriptor_length -= 4;
 				}
@@ -307,10 +307,10 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 							"visible_service_flag", visible_service_flag,
 							"logical_channel_number", logical_channel_number,
 							"descriptor_tag", descriptor_tag);
-							
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
-					
+
 					offset3 += 4;
 					descriptor_length -= 4;
 				}
@@ -329,10 +329,10 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 							"service_id", service_id,
 							"logical_channel_number", logical_channel_number,
 							"descriptor_tag", descriptor_tag);
-							
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
-					
+
 					offset3 += 4;
 					descriptor_length -= 4;
 				}
@@ -351,10 +351,10 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 							"service_id", service_id,
 							"logical_channel_number", logical_channel_number,
 							"descriptor_tag", descriptor_tag);
-							
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
-					
+
 					offset3 += 4;
 					descriptor_length -= 4;
 				}
@@ -376,10 +376,10 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 							"service_id", service_id,
 							"logical_channel_number", logical_channel_number,
 							"descriptor_tag", descriptor_tag);
-							
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
-					
+
 					offset3 += 9;
 					descriptor_length -= 9;
 				}
@@ -425,7 +425,7 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 				{
 					int service_id = (data[offset3] << 8) | data[offset3 + 1];
 					int logical_channel_number = ((data[offset3 + 2] & 0x03) << 8) | data[offset3 + 3];
-					
+
 					PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:i}",
 							"descriptor_tag", descriptor_tag,
 							"transport_stream_id", transport_stream_id,
@@ -433,10 +433,10 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 							"bouquet_id", bouquet_id,
 							"service_id", service_id,
 							"logical_channel_number", logical_channel_number);
-							
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
-					
+
 					offset3 += 4;
 					descriptor_length -= 4;
 				}
@@ -453,11 +453,11 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 					int quotient, n=0, temp;
 					char hextemp[3] = {'0','0','\0'};
 					quotient = decimalNumber;
-					while(quotient!=0) 
+					while(quotient!=0)
 					{
 						temp = quotient % 16;
 						if (temp < 10)
-							temp = temp + 48; 
+							temp = temp + 48;
 						else
 							temp = temp + 55;
 						hextemp[n]= temp;
@@ -473,12 +473,12 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 				}
 				if (strlen(description) == 0)
 					strcpy(description, "Empty");
-			
+
 				PyObject *item = Py_BuildValue("{s:i,s:i,s:s}",
 							"descriptor_tag", descriptor_tag,
 							"descriptor_length", descriptor_length,
 							"hexcontent", description);
-						
+
 				PyList_Append(list, item);
 				Py_DECREF(item);
 			}
@@ -490,7 +490,7 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 
 PyObject *ss_parse_nit(unsigned char *data, int length) {
 	PyObject* list = PyList_New(0);
-	
+
 	int network_descriptors_length = ((data[8] & 0x0f) << 8) | data[9];
 	int transport_stream_loop_length = ((data[network_descriptors_length + 10] & 0x0f) << 8) | data[network_descriptors_length + 11];
 	int offset1 = network_descriptors_length + 12;
@@ -521,7 +521,7 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 				frequency += (data[offset2 + 4] & 0x0f) * 100;
 				frequency += (data[offset2 + 5] >> 4) * 10;
 				frequency += data[offset2 + 5] & 0x0f;
-				
+
 				int orbital_position = (data[offset2 + 6] << 8) | data[offset2 + 7];
 				int west_east_flag = (data[offset2 + 8] >> 7) & 0x01;
 				int polarization = (data[offset2 + 8] >> 5) & 0x03;
@@ -536,7 +536,7 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 				symbol_rate += (data[offset2 + 11] >> 4) * 100;
 				symbol_rate += (data[offset2 + 11] & 0xf) * 10;
 				symbol_rate += data[offset2 + 11] >> 4;
-				
+
 				int fec_inner = data[offset2 + 12] & 0xf;
 
 				PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i}",
@@ -552,12 +552,12 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 						"symbol_rate", symbol_rate,
 						"fec_inner", fec_inner,
 						"descriptor_tag", descriptor_tag);
-						
+
 				PyList_Append(list, item);
 				Py_DECREF(item);
 			}
 			else if (descriptor_tag == 0x44)	// Cable delivery system descriptor
-			{		
+			{
 				int frequency = (data[offset2 + 2] >> 4) * 10000000;
 				frequency += (data[offset2 + 2] & 0x0f) * 1000000;
 				frequency += (data[offset2 + 3] >> 4) * 100000;
@@ -566,7 +566,7 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 				frequency += (data[offset2 + 4] & 0x0f) * 100;
 				frequency += (data[offset2 + 5] >> 4) * 10;
 				frequency += data[offset2 + 5] & 0x0f;
-				
+
 				int fec_outer = data[offset2 + 7] & 0xf;
 				int modulation_type = data[offset2 + 8];
 
@@ -577,7 +577,7 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 				symbol_rate += (data[offset2 + 11] >> 4) * 100;
 				symbol_rate += (data[offset2 + 11] & 0xf) * 10;
 				symbol_rate += data[offset2 + 12] >> 4;
-				
+
 				int fec_inner = data[offset2 + 12] & 0xf;
 
 				PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i}",
@@ -589,28 +589,28 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 						"symbol_rate", symbol_rate,
 						"fec_inner", fec_inner,
 						"descriptor_tag", descriptor_tag);
-						
+
 				PyList_Append(list, item);
 				Py_DECREF(item);
 			}
 			else if (descriptor_tag == 0x5A)	// Terrestrial delivery system descriptor
 			{
 				int frequency = ((data[offset2 + 2] << 24) | (data[offset2 + 3] << 16) | (data[offset2 + 4] << 8) | (data[offset2 + 5]));
-				
+
 				int bandwidth = (data[offset2 + 6] >> 5 & 0x07);
 				int priority = (data[offset2 + 6] >> 4 & 0x01);
 				int time_slicing = (data[offset2 + 6] >> 3 & 0x01);
 				int mpe_fec = (data[offset2 + 6] >> 2 & 0x01);
-				
+
 				int modulation = (data[offset2 + 7] >> 6 & 0x03);
 				int hierarchy = (data[offset2 + 7] >> 3 & 0x07);
 				int code_rate_hp = (data[offset2 + 7] & 0x07);
-				
+
 				int code_rate_lp = (data[offset2 + 8] >> 5 & 0x07);
 				int guard_interval = (data[offset2 + 8] >> 3 & 0x03);
 				int transmission_mode = (data[offset2 + 8] >> 1 & 0x03);
 				int other_frequency_flag = (data[offset2 + 8] & 0x01);
-				
+
 				PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:i}",
 						"transport_stream_id", transport_stream_id,
 						"original_network_id", original_network_id,
@@ -627,7 +627,7 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 						"transmission_mode", transmission_mode,
 						"other_frequency_flag", other_frequency_flag,
 						"descriptor_tag", descriptor_tag);
-						
+
 				PyList_Append(list, item);
 				Py_DECREF(item);
 			}
@@ -640,7 +640,7 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 					int inversion = 0;
 					int plp_id = data[offset2 + 3];
 					int T2_system_id = (data[offset2 + 4] << 8) | data[offset2 + 5];
-					
+
 					PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:s,s:i,s:i,s:i}",
 							"transport_stream_id", transport_stream_id,
 							"original_network_id", original_network_id,
@@ -650,11 +650,11 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 							"system", system,
 							"inversion", inversion,
 							"descriptor_tag", descriptor_tag);
-						
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
 				}
-			
+
 			}
 			else if (descriptor_tag == 0x41)	// Service list descriptor
 			{
@@ -671,7 +671,7 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 							"service_id", service_id,
 							"service_type", service_type,
 							"descriptor_tag", descriptor_tag);
-							
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
 				}
@@ -693,7 +693,7 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 							"visible_service_flag", visible_service_flag,
 							"logical_channel_number", logical_channel_number,
 							"descriptor_tag", descriptor_tag);
-							
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
 				}
@@ -708,15 +708,15 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 				memset(channel_list_name, '\0', channel_list_name_length + 1);
 				memcpy(channel_list_name, data + offset3 + 2, channel_list_name_length);
 				char *channel_list_name_ptr = channel_list_name;
-					
+
 				char country_code[3];
 				memset(country_code, '\0', 3);
 				memcpy(country_code, data + offset3 + 2 + channel_list_name_length, 3);
 				char *country_code_ptr = country_code;
-				
+
 				int descriptor_length_2 = offset3 + 2 + channel_list_name_length + 3;
 				int offset4 = offset3 + 2 + channel_list_name_length + 3 + 1;
-				
+
 				while (offset4 < (offset3 + descriptor_length_2 + 2))
 				{
 					int service_id = (data[offset4] << 8) | data[offset4 + 1];
@@ -734,7 +734,7 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 							"visible_service_flag", visible_service_flag,
 							"logical_channel_number", logical_channel_number,
 							"descriptor_tag", descriptor_tag);
-							
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
 				}
@@ -756,12 +756,12 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 							"visible_service_flag", visible_service_flag,
 							"logical_channel_number", hd_logical_channel_number,
 							"descriptor_tag", descriptor_tag);
-							
+
 					PyList_Append(list, item);
 					Py_DECREF(item);
 				}
 			}
-			
+
 			offset2 += (descriptor_length + 2);
 			transport_descriptor_length -= (descriptor_length + 2);
 		}
@@ -772,12 +772,12 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 
 PyObject *ss_parse_sdt(unsigned char *data, int length) {
 	PyObject* list = PyList_New(0);
-	
+
 	int transport_stream_id = (data[3] << 8) | data[4];
 	int original_network_id = (data[8] << 8) | data[9];
 	int offset = 11;
 	length -= 11;
-	
+
 	while (length >= 5)
 	{
 		int service_id = (data[offset] << 8) | data[offset + 1];
@@ -794,10 +794,10 @@ PyObject *ss_parse_sdt(unsigned char *data, int length) {
 		int category_id = 0;
 		memset(service_name, '\0', 256);
 		memset(provider_name, '\0', 256);
-		
+
 		length -= 5;
 		offset += 5;
-		
+
 		int offset2 = offset;
 
 		length -= descriptors_loop_length;
@@ -807,18 +807,18 @@ PyObject *ss_parse_sdt(unsigned char *data, int length) {
 		{
 			int tag = data[offset2];
 			int size = data[offset2 + 1];
-			
+
 			if (tag == 0x48)	// Service descriptor
 			{
 				service_type = data[offset2 + 2];
 				int service_provider_name_length = data[offset2 + 3];
 				if (service_provider_name_length == 255)
 					service_provider_name_length--;
-					
+
 				int service_name_length = data[offset2 + 4 + service_provider_name_length];
 				if (service_name_length == 255)
 					service_name_length--;
-					
+
 				memset(service_name, '\0', 256);
 				memcpy(provider_name, data + offset2 + 4, service_provider_name_length);
 				memcpy(service_name, data + offset2 + 5 + service_provider_name_length, service_name_length);
@@ -861,7 +861,7 @@ PyObject *ss_parse_sdt(unsigned char *data, int length) {
 			strcpy(service_name, "Unknown");
 		else if (service_name[0] == 0x05)
 				service_name_ptr++;
-		
+
 		PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:s,s:s,s:i,s:i,s:i,s:i,s:i,s:i}",
 					"transport_stream_id", transport_stream_id,
 					"original_network_id", original_network_id,
@@ -879,16 +879,16 @@ PyObject *ss_parse_sdt(unsigned char *data, int length) {
 		PyList_Append(list, item);
 		Py_DECREF(item);
 	}
-	
+
 	return list;
 }
 
 PyObject *ss_parse_fastscan(unsigned char *data, int length) {
 	PyObject* list = PyList_New(0);
-	
+
 	int offset = 8;
 	length -= 8;
-	
+
 	while (length >= 5)
 	{
 		char service_name[256];
@@ -896,44 +896,44 @@ PyObject *ss_parse_fastscan(unsigned char *data, int length) {
 		int service_type = 0;
 		memset(service_name, '\0', 256);
 		memset(provider_name, '\0', 256);
-		
+
 		int original_network_id = (data[offset] << 8) | data[offset + 1];
 		int transport_stream_id = (data[offset + 2] << 8) | data[offset + 3];
 		int service_id = (data[offset + 4] << 8) | data[offset + 5];
 		int descriptors_loop_length = ((data[offset + 16] & 0x0f) << 8) | data[offset + 17];
-		
+
 		length -= 18;
 		offset += 18;
-		
+
 		int offset2 = offset;
 
 		length -= descriptors_loop_length;
 		offset += descriptors_loop_length;
-		
+
 		while (descriptors_loop_length >= 2)
 		{
 			int tag = data[offset2];
 			int size = data[offset2 + 1];
-			
+
 			if (tag == 0x48)	// Service descriptor
 			{
 				service_type = data[offset2 + 2];
 				int service_provider_name_length = data[offset2 + 3];
 				if (service_provider_name_length == 255)
 					service_provider_name_length--;
-					
+
 				int service_name_length = data[offset2 + 4 + service_provider_name_length];
 				if (service_name_length == 255)
 					service_name_length--;
-					
+
 				memcpy(provider_name, data + offset2 + 4, service_provider_name_length);
 				memcpy(service_name, data + offset2 + 5 + service_provider_name_length, service_name_length);
 			}
-			
+
 			descriptors_loop_length -= (size + 2);
 			offset2 += (size + 2);
 		}
-		
+
 		char *provider_name_ptr = provider_name;
 		if (strlen(provider_name) == 0)
 			strcpy(provider_name, "Unknown");
@@ -945,7 +945,7 @@ PyObject *ss_parse_fastscan(unsigned char *data, int length) {
 			strcpy(service_name, "Unknown");
 		else if (service_name[0] == 0x05)
 				service_name_ptr++;
-		
+
 		PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:s,s:s}",
 					"transport_stream_id", transport_stream_id,
 					"original_network_id", original_network_id,
@@ -953,11 +953,11 @@ PyObject *ss_parse_fastscan(unsigned char *data, int length) {
 					"service_type", service_type,
 					"service_name", service_name_ptr,
 					"provider_name", provider_name_ptr);
-					
+
 		PyList_Append(list, item);
 		Py_DECREF(item);
 	}
-	
+
 	return list;
 }
 
@@ -971,7 +971,7 @@ PyObject *ss_parse_header(unsigned char *data, int length, const char *variable_
 	int last_section_number = data[7];
 	int network_descriptors_length = ((data[8] & 0x0f) << 8) | data[9];
 	int original_network_id = (data[network_descriptors_length + 5] << 8) | data[network_descriptors_length + 6];
-	
+
 	return Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:i,s:i}",
 		"table_id", table_id, variable_key_name, variable_id,
 		"version_number", version_number, "current_next_indicator", current_next_indicator,
@@ -988,7 +988,7 @@ PyObject *ss_parse_header_2(unsigned char *data, int length, const char *variabl
 	int section_number = data[6];
 	int last_section_number = data[7];
 	int original_network_id = (data[8] << 8) | data[9];
-	
+
 	return Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:i,s:i}",
 		"table_id", table_id, variable_key_name, variable_id,
 		"version_number", version_number, "current_next_indicator", current_next_indicator,
@@ -1015,22 +1015,22 @@ PyObject *ss_read_ts(PyObject *self, PyObject *args) {
 	PyObject *content = NULL, *header = NULL, *buffer1 = NULL;
 	unsigned char buffer[4096], table_id_current, table_id_other;
 	int fd;
-	
+
 	if (!PyArg_ParseTuple(args, "ibb", &fd, &table_id_current, &table_id_other))
 		return Py_None;
-	
+
 	int size = read(fd, buffer, sizeof(buffer));
 	if (size < 3)
 		return Py_None;
-		
+
 	if (buffer[0] != table_id_current && buffer[0] != table_id_other)
 		return Py_None;
-		
+
 	int section_length = ((buffer[1] & 0x0f) << 8) | buffer[2];
-	
+
 	if (size != section_length + 3)
 		return Py_None;
-		
+
 	content = ss_parse_table(buffer, section_length);
 
 	PyObject *ret = Py_BuildValue("O", content);
@@ -1042,28 +1042,28 @@ PyObject *ss_read_bat(PyObject *self, PyObject *args) {
 	PyObject *content = NULL, *header = NULL;
 	unsigned char buffer[4096], table_id;
 	int fd;
-	
+
 	if (!PyArg_ParseTuple(args, "ib", &fd, &table_id))
 		return Py_None;
-	
+
 	int size = read(fd, buffer, sizeof(buffer));
 	if (size < 3)
 		return Py_None;
-		
+
 	if (buffer[0] != table_id)
 		return Py_None;
-		
+
 	int section_length = ((buffer[1] & 0x0f) << 8) | buffer[2];
-	
+
 	if (size != section_length + 3)
 		return Py_None;
 
 	header = ss_parse_header(buffer, section_length, "bouquet_id");
 	content = ss_parse_bat(buffer, section_length);
-	
+
 	if (!header || !content)
 		return Py_None;
-		
+
 	PyObject *ret = Py_BuildValue("{s:O,s:O}", "header", header, "content", content);
 	Py_DECREF(header);
 	Py_DECREF(content);
@@ -1074,28 +1074,28 @@ PyObject *ss_read_sdt(PyObject *self, PyObject *args) {
 	PyObject *content = NULL, *header = NULL;
 	unsigned char buffer[4096], table_id_current, table_id_other;
 	int fd;
-	
+
 	if (!PyArg_ParseTuple(args, "ibb", &fd, &table_id_current, &table_id_other))
 		return Py_None;
-	
+
 	int size = read(fd, buffer, sizeof(buffer));
 	if (size < 3)
 		return Py_None;
-		
+
 	if (buffer[0] != table_id_current && buffer[0] != table_id_other)
 		return Py_None;
-		
+
 	int section_length = ((buffer[1] & 0x0f) << 8) | buffer[2];
-	
+
 	if (size != section_length + 3)
 		return Py_None;
 
 	header = ss_parse_header_2(buffer, section_length, "transport_stream_id");
 	content = ss_parse_sdt(buffer, section_length);
-	
+
 	if (!header || !content)
 		return Py_None;
-		
+
 	PyObject *ret = Py_BuildValue("{s:O,s:O}", "header", header, "content", content);
 	Py_DECREF(header);
 	Py_DECREF(content);
@@ -1106,28 +1106,28 @@ PyObject *ss_read_fastscan(PyObject *self, PyObject *args) {
 	PyObject *content = NULL, *header = NULL;
 	unsigned char buffer[4096], table_id;
 	int fd;
-	
+
 	if (!PyArg_ParseTuple(args, "ib", &fd, &table_id))
 		return Py_None;
-	
+
 	int size = read(fd, buffer, sizeof(buffer));
 	if (size < 3)
 		return Py_None;
-		
+
 	if (buffer[0] != table_id)
 		return Py_None;
-		
+
 	int section_length = ((buffer[1] & 0x0f) << 8) | buffer[2];
-	
+
 	if (size != section_length + 3)
 		return Py_None;
 
 	header = ss_parse_header_2(buffer, section_length, "fastscan_id");
 	content = ss_parse_fastscan(buffer, section_length);
-	
+
 	if (!header || !content)
 		return Py_None;
-		
+
 	PyObject *ret = Py_BuildValue("{s:O,s:O}", "header", header, "content", content);
 	Py_DECREF(header);
 	Py_DECREF(content);
@@ -1138,28 +1138,28 @@ PyObject *ss_read_nit(PyObject *self, PyObject *args) {
 	PyObject *content = NULL, *header = NULL;
 	unsigned char buffer[4096], table_id_current, table_id_other;
 	int fd;
-	
+
 	if (!PyArg_ParseTuple(args, "ibb", &fd, &table_id_current, &table_id_other))
 		return Py_None;
-	
+
 	int size = read(fd, buffer, sizeof(buffer));
 	if (size < 3)
 		return Py_None;
-		
+
 	if (buffer[0] != table_id_current && buffer[0] != table_id_other)
 		return Py_None;
-		
+
 	int section_length = ((buffer[1] & 0x0f) << 8) | buffer[2];
-	
+
 	if (size != section_length + 3)
 		return Py_None;
 
 	header = ss_parse_header(buffer, section_length, "network_id");
 	content = ss_parse_nit(buffer, section_length);
-	
+
 	if (!header || !content)
 		return Py_None;
-		
+
 	PyObject *ret = Py_BuildValue("{s:O,s:O}", "header", header, "content", content);
 	Py_DECREF(header);
 	Py_DECREF(content);
