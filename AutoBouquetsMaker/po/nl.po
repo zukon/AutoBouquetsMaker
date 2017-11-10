@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-07-04 17:06+0200\n"
+"POT-Creation-Date: 2017-11-09 23:21+0000\n"
+"PO-Revision-Date: 2017-11-10 15:00+0100\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: Andy Blacburn. Rob van der Does\n"
 "Language: nl\n"
@@ -16,652 +16,249 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../src/about.py:25 ../src/menu.py:56 ../src/plugin.py:74 ../src/plugin.py:82
-#: ../src/scanner/main.py:47 ../src/scanner/main.py:109
-msgid "AutoBouquetsMaker"
-msgstr "AutoBouquetsMaker"
-
-#: ../src/about.py:25 ../src/menu.py:100
-msgid "About"
-msgstr "Over"
-
-#: ../src/about.py:37 ../src/menu.py:248
-msgid "Close"
-msgstr "Sluit"
-
-#: ../src/deletebouquets.py:35
-msgid "Are you sure you want to remove all bouquets created by ABM?"
-msgstr "Weet u het zeker dat u alle ABM favorietenlijsten wilt verwijderen?"
-
-#: ../src/hidesections.py:47
-msgid "AutoBouquetsMaker Hide sections"
-msgstr "AutoBouquetsMaker verberg secties"
-
-#: ../src/hidesections.py:52 ../src/keepbouquets.py:53 ../src/ordering.py:54
-#: ../src/setup.py:72 ../src/setup.py:486
-msgid "Cancel"
-msgstr "Annuleer"
-
-#: ../src/hidesections.py:53
-msgid "Save"
-msgstr "Sla op"
-
-#: ../src/hidesections.py:134 ../src/keepbouquets.py:134 ../src/ordering.py:171
-#: ../src/setup.py:448 ../src/setup.py:576
-msgid "Really close without saving settings?"
-msgstr "Echt afsluiten zonder op te slaan?"
-
-#: ../src/keepbouquets.py:48
-msgid "AutoBouquetsMaker Keep bouquets"
-msgstr "AutoBouquetsMaker behoud favorietenlijsten"
-
-#: ../src/menu.py:78
-msgid "Exit"
-msgstr "Afsluiten"
-
-#: ../src/menu.py:79
-msgid "Scan"
-msgstr "Scan"
-
-#: ../src/menu.py:88
-msgid "Configure"
-msgstr "Configureer"
-
-#: ../src/menu.py:89
-msgid "Providers"
-msgstr "Providers"
-
-#: ../src/menu.py:91
-msgid "Providers order"
-msgstr "Providers volgorde"
-
-#: ../src/menu.py:93
-msgid "Hide sections"
-msgstr "Verberg secties"
-
-#: ../src/menu.py:95
-msgid "Keep bouquets"
-msgstr "Behoud favorietenlijsten"
-
-#: ../src/menu.py:96
-msgid "Start scan"
-msgstr "Start scan"
-
-#: ../src/menu.py:97
-msgid "Delete bouquets"
-msgstr "Verwijder favorietenlijsten"
-
-#: ../src/menu.py:98
-msgid "Update config files"
-msgstr "Update configuratiebestanden"
-
-#: ../src/menu.py:99
-msgid "Show log"
-msgstr "Toon log"
-
-#: ../src/menu.py:235
-msgid "AutoBouquetsMaker Log"
-msgstr "AutoBouquetsMaker log"
-
-#: ../src/menu.py:247
-msgid "Save Log"
-msgstr "Sla log op"
-
-#: ../src/menu.py:254
-msgid "ABM log file has been saved to the tmp directory"
-msgstr "ABM-logboekbestand is opgeslagen in de tmp map"
-
-#: ../src/ordering.py:43
-msgid "Bouquets order"
-msgstr "Volgorde van favorietenlijsten"
-
-#: ../src/ordering.py:77 ../src/setup.py:81 ../src/setup.py:495
-msgid "Please wait..."
-msgstr "Even wachten..."
-
-#: ../src/ordering.py:91 ../src/ordering.py:97 ../src/ordering.py:126
-#: ../src/ordering.py:132
-msgid "Move down"
-msgstr "Verplaats omlaag"
-
-#: ../src/ordering.py:93 ../src/ordering.py:96 ../src/ordering.py:128
-#: ../src/ordering.py:131
-msgid "Move up"
-msgstr "Verplaats omhoog"
-
-#: ../src/plugin.py:12
-msgid "simple"
-msgstr "eenvoudig"
-
-#: ../src/plugin.py:12
-msgid "expert"
-msgstr "expert"
-
-#: ../src/plugin.py:17
-msgid "Daily"
-msgstr "Dagelijks"
-
-#: ../src/plugin.py:17
-msgid "Weekly"
-msgstr "Wekelijks"
-
-#: ../src/plugin.py:17
-msgid "30 Days"
-msgstr "30 dagen"
-
-#: ../src/plugin.py:30 ../src/plugin.py:46
-msgid "None"
-msgstr "Geen"
-
-#: ../src/plugin.py:31 ../src/plugin.py:47
-msgid "indent + text"
-msgstr "inspringen + tekst"
-
-#: ../src/plugin.py:32 ../src/plugin.py:48
-msgid "<-- text -->"
-msgstr "<-- tekst -->"
-
-#: ../src/plugin.py:33 ../src/plugin.py:49
-msgid "< - - text - - >"
-msgstr "< - - tekst - - >"
-
-#: ../src/plugin.py:34 ../src/plugin.py:50
-msgid "== text =="
-msgstr "== tekst =="
-
-#: ../src/plugin.py:35 ../src/plugin.py:51
-msgid "= = text = ="
-msgstr "= = tekst = ="
-
-#: ../src/plugin.py:36 ../src/plugin.py:52
-msgid "=== text ==="
-msgstr "=== tekst ==="
-
-#: ../src/plugin.py:37 ../src/plugin.py:53
-msgid "= = = text = = ="
-msgstr "= = = tekst = = ="
-
-#: ../src/plugin.py:38 ../src/plugin.py:54
-msgid "-------- text --------"
-msgstr "-------- tekst --------"
-
-#: ../src/plugin.py:39 ../src/plugin.py:55
-msgid "== ABM - 'text' =="
-msgstr "== ABM - 'tekst' =="
-
-#: ../src/plugin.py:40 ../src/plugin.py:56
-msgid "---- ABM - 'text' ----"
-msgstr "---- ABM - 'tekst' ----"
-
-#: ../src/plugin.py:60
-msgid "Top"
-msgstr "Bovenin"
-
-#: ../src/plugin.py:60
-msgid "Bottom"
-msgstr "Onderin"
-
-#: ../src/plugin.py:84
-msgid "AutoBouquetsMaker Scanner"
-msgstr "Autobouquetsmaker scanner"
-
-#: ../src/scanner/bouquetswriter.py:489
-msgid "Last Scanned"
-msgstr "Laatst gescanned"
-
-#: ../src/scanner/bouquetswriter.py:562
-msgid "All channels"
-msgstr "Alle zenders"
-
-#: ../src/scanner/bouquetswriter.py:616 ../src/scanner/bouquetswriter.py:776
-msgid "HD Channels"
-msgstr "HD-zenders"
-
-#: ../src/scanner/bouquetswriter.py:619 ../src/scanner/bouquetswriter.py:836
-msgid "FTA HD Channels"
-msgstr "FTA HD-zenders"
-
-#: ../src/scanner/bouquetswriter.py:896
-msgid "FTA Channels"
-msgstr "FTA-zenders"
-
-#: ../src/scanner/bouquetswriter.py:946 ../src/scanner/bouquetswriter.py:947
-msgid "Radio Channels"
-msgstr "Radiozenders"
-
-#: ../src/scanner/main.py:50
-msgid "Starting scanner"
-msgstr "Start scanner"
-
-#: ../src/scanner/main.py:88
-msgid "Loading bouquets..."
-msgstr "Bezig favorietenlijsten te laden..."
-
-#: ../src/scanner/main.py:89
-msgid "Services: 0 video - 0 radio"
-msgstr "Zenders: 0 video - 0 radio"
-
-#: ../src/scanner/main.py:94
-msgid "Please first setup, in configuration"
-msgstr "Eerst instellen, in configuratie"
-
-#: ../src/scanner/main.py:195
-msgid "Bouquets generation..."
-msgstr "Genereert favorietenlijsten..."
-
-#: ../src/scanner/main.py:196 ../src/scanner/main.py:210
-#: ../src/scanner/main.py:467 ../src/scanner/main.py:535
-#, python-format
-msgid "Services: %d video - %d radio"
-msgstr "Zenders: %d video - %d radio"
-
-#: ../src/scanner/main.py:209
-#, python-format
-msgid "Tuning %s..."
-msgstr "Stemt af op %s..."
-
-#: ../src/scanner/main.py:232
-msgid "No area found"
-msgstr "Geen gebied gevonden"
-
-#: ../src/scanner/main.py:259
-msgid "No NIMs found for "
-msgstr "Geen NIMs gevonden voor "
-
-#: ../src/scanner/main.py:265
-msgid "Cannot retrieve Resource Manager instance"
-msgstr "Resourcemanager niet beschikbaar"
-
-#: ../src/scanner/main.py:334
-msgid "No valid NIM found for "
-msgstr "Geen geldige NIM gevonden voor "
-
-#: ../src/scanner/main.py:365
-msgid "Cannot free NIM because a recording is in progress"
-msgstr "Geen vrije tuner vanwege lopende opname(s)"
-
-#: ../src/scanner/main.py:369
-msgid "Cannot get the NIM"
-msgstr "Kan niet over de tuner beschikken"
-
-#: ../src/scanner/main.py:383
-msgid "Cannot get frontend"
-msgstr "Kan niet over de tuner beschikken"
-
-#: ../src/scanner/main.py:389
-msgid "Cannot allocate the demuxer"
-msgstr "Kan de demuxer niet toewijzen."
-
-#: ../src/scanner/main.py:466
-#, python-format
-msgid "Reading %s..."
-msgstr "Leest %s..."
-
-#: ../src/scanner/main.py:476
-msgid "Tuning failed fatal"
-msgstr "Afstemmen mislukt"
-
-#: ../src/scanner/main.py:482
-msgid "Timeout for tuner lock"
-msgstr "Time-out voor tuner"
-
-#: ../src/scanner/main.py:509
-msgid "Cannot read data"
-msgstr "Kan de data niet lezen"
-
-#: ../src/scanner/main.py:534
-msgid "Done"
-msgstr "Klaar"
-
-#: ../src/scanner/main.py:686
-msgid ""
-"Your bouquets are about to be updated,\n"
-"Do you want to allow this?"
-msgstr ""
-"Uw favorieten worden zo geupdate.\n"
-"Wilt u dat toestaan?"
-
-#: ../src/scanner/main.py:707
-msgid "Enough Retries, delaying till next schedule."
-msgstr "Vaak genoeg geprobeerd; stel uit tot de volgende keer."
-
-#: ../src/scanner/main.py:733
 msgid "%a %e %b  %-H:%M"
 msgstr "%a %e %b  %-H:%M"
 
-#: ../src/setup.py:53
-msgid "AutoBouquetsMaker Providers"
-msgstr "AutoBouquetsMaker providers"
+msgid "---- ABM - 'text' ----"
+msgstr "---- ABM - 'tekst' ----"
 
-#: ../src/setup.py:73 ../src/setup.py:487
-msgid "OK"
-msgstr "OK"
+msgid "-------- text --------"
+msgstr "-------- tekst --------"
 
-#: ../src/setup.py:197
-msgid "yes (all channels)"
-msgstr "ja (alle zenders)"
+msgid "30 Days"
+msgstr "30 dagen"
 
-#: ../src/setup.py:199
-msgid "yes (only HD)"
-msgstr "ja (alleen HD)"
+msgid "< - - text - - >"
+msgstr "< - - tekst - - >"
 
-#: ../src/setup.py:200
-msgid "yes (only FTA HD)"
-msgstr "ja (alleen FTA HD)"
+msgid "<-- text -->"
+msgstr "<-- tekst -->"
 
-#: ../src/setup.py:217
-msgid "yes (custom)"
-msgstr "ja (aangepast)"
+msgid "= = = text = = ="
+msgstr "= = = tekst = = ="
 
-#: ../src/setup.py:230 ../src/setup.py:239
-msgid "no"
-msgstr "nee"
+msgid "= = text = ="
+msgstr "= = tekst = ="
 
-#: ../src/setup.py:239
-msgid "yes"
-msgstr "ja"
+msgid "== ABM - 'text' =="
+msgstr "== ABM - 'tekst' =="
 
-#: ../src/setup.py:287
-msgid "This option enables the current selected provider."
-msgstr "Deze optie schakeld de gekozen provider in."
+msgid "== text =="
+msgstr "== tekst =="
 
-#: ../src/setup.py:290
-msgid "area"
-msgstr "gebied"
+msgid "=== text ==="
+msgstr "=== tekst ==="
 
-#: ../src/setup.py:290
-msgid ""
-"This option allows you to choose what region of the country you live in, so "
-"it populates the correct channels for your region."
-msgstr ""
-"Hier kiest u de regio zodat de voor uw regio juiste zenders worden getoond."
+msgid "ABM log file has been saved to the tmp directory"
+msgstr "ABM-logboekbestand is opgeslagen in de tmp map"
 
-#: ../src/setup.py:295
-msgid "FTA only"
-msgstr "Alleen FTA"
+msgid "About"
+msgstr "Over"
 
-#: ../src/setup.py:295
-msgid ""
-"This affects all bouquets. Select 'no' to scan in all services. Select 'yes' "
-"to skip encrypted ones."
-msgstr ""
-"Dit betreft alle favorietenlijsten. Kies 'Nee' om alle zenders te scannen; "
-"kies 'Ja' om gecodeerde zenders over te slaan."
-
-#: ../src/setup.py:298
-msgid "generate main bouquet"
-msgstr "genereer hoofd-favorietenlijst"
-
-#: ../src/setup.py:298
-msgid ""
-"This option has several choices \"Yes\", (create a bouquet with all the "
-"channels in it), \"Yes HD only\", (will group all HD channels into this "
-"bouquet), \"Custom\", (allows you to select your own bouquet), \"No\", (do "
-"not use a main bouquet)"
-msgstr ""
-"Deze optie kent diverse keuzes \"Ja\", (creeert een lijst met alle zenders), "
-"\"Ja alleen HD\", (alle HD-zenders komen in in deze lijst), \"Aangepast\", "
-"(laat u uw eigen lijst kiezen), \"Nee\", (gebruik geen hoofdlijst)"
-
-#: ../src/setup.py:301
-msgid "custom bouquet for main"
-msgstr "aangepaste hoofdlijst"
-
-#: ../src/setup.py:301
-msgid ""
-"Select your own bouquet from the list, please note that the only the first "
-"100 channels for this bouquet will be used."
-msgstr ""
-"Kies uw eigen favorietenlijst in de lijst. Let op dat alleen de eerste 100 "
-"zenders voor deze lijst zullen worden gebruikt."
-
-#: ../src/setup.py:304
-msgid "generate sections bouquets"
-msgstr "genereer sectie-favorietenlijst"
-
-#: ../src/setup.py:304
-msgid ""
-"This option will create bouquets for each type of channel, ie Entertainment, "
-"Movies, Documentary."
-msgstr ""
-"Deze optie maakt een lijst voor elk type zender, zoals Amusement. Film, "
-"documentaires."
-
-#: ../src/setup.py:307
-msgid "generate HD bouquet"
-msgstr "genereer HD favorietenlijst"
-
-#: ../src/setup.py:307
-msgid ""
-"This option will create a High Definition bouquet, it will group all HD "
-"channels into this bouquet."
-msgstr "Deze optie maakt een HD-lijst; alle HD-zenders komen hierin."
-
-#: ../src/setup.py:310
-msgid "generate FTA bouquet"
-msgstr "genereer FTA favorietenlijst"
-
-#: ../src/setup.py:310
-msgid ""
-"This option will create a FreeToAir bouquet, it will group all free channels "
-"into this bouquet."
-msgstr ""
-"Deze optie maakt een FreeToAir bouquet, hier worden alle gratis uitgezonden "
-"zenders in geplaatst."
-
-#: ../src/setup.py:313
-msgid "generate FTA HD bouquet"
-msgstr "genereer FTA HD lijst"
-
-#: ../src/setup.py:313
-msgid ""
-"This option will create a FreeToAir High Definition bouquet, it will group "
-"all FTA HD channels into this bouquet."
-msgstr ""
-"Deze optie zal een FreeToAir High Definition bouquet maken, en zal alle FTA "
-"HD zenders hierin plaatsen."
-
-#: ../src/setup.py:319 ../src/setup.py:328 ../src/setup.py:336
-msgid "swap channels"
-msgstr "wissel zenders"
-
-#: ../src/setup.py:319 ../src/setup.py:328 ../src/setup.py:336
-msgid ""
-"This option will swap SD versions of channels with HD versions. (eg BBC One "
-"SD with BBC One HD, Channel Four SD with with Channel Four HD)"
-msgstr ""
-"Deze optie zal de SD zenders vervangen met HD versies. (bv BBC 1 SD met BBC "
-"1 HD, Kanaal 4 SD met Kanaal 4 HD )"
-
-#: ../src/setup.py:467
-msgid "AutoBouquetsMaker Configure"
-msgstr "AutoBouquetsMaker instellingen"
-
-#: ../src/setup.py:513
-msgid "Setup mode"
-msgstr "Instellingen modus"
-
-#: ../src/setup.py:513
-msgid ""
-"Choose which level of settings to display. 'Expert'-level shows all items, "
-"this also adds more options in the providers menu."
-msgstr ""
-"Kies welk instellingen-niveau weer te geven. Bij 'Expert'-niveau wordt alles "
-"weergegeven, dit voegt ook meer opties in het providers menu toe."
-
-#: ../src/setup.py:514
-msgid "Schedule scan"
-msgstr "Plan scan"
-
-#: ../src/setup.py:514
-msgid "Allows you to set a schedule to perform a scan "
-msgstr "U kunt een schema instellen voor het uitvoeren van een scan "
-
-#: ../src/setup.py:516
-msgid "Time of scan to start"
-msgstr "Tijdstip waarop scan moet starten"
-
-#: ../src/setup.py:516
-msgid "Set the time of day to perform the scan."
-msgstr "Tijdstip voor de dagelijkse scan."
-
-#: ../src/setup.py:517
-msgid "Repeat how often"
-msgstr "Hoe vaak herhalen?"
-
-#: ../src/setup.py:517
-msgid "Set the repeat interval of the schedule."
-msgstr "Bepaal het herhalingsinterval van het schema."
-
-#: ../src/setup.py:519
-msgid "Keep all non-ABM bouquets"
-msgstr "Behoud alle niet-ABM favorietenlijsten"
-
-#: ../src/setup.py:519
-msgid ""
-"When disabled this will enable the 'Keep bouquets' option in the main menu, "
-"allowing you to hide some 'existing' bouquets."
-msgstr ""
-"Bij uitschakelen zal dit in het hoofdmenu 'Behoud favorietenlijsten' "
-"inschakelen, om zo bestaande favorietenlijsten te kunnen bewaren."
-
-#: ../src/setup.py:520
-msgid "Add provider prefix to bouquets"
-msgstr "Voeg providerprefix toe aan favorietenlijsten"
-
-#: ../src/setup.py:520
-msgid "This option will prepend the provider name to bouquet name."
-msgstr ""
-"Deze optie zal de naam van de provider voor de naam van de lijst zetten."
-
-#: ../src/setup.py:521
 msgid "Add provider markers"
 msgstr "Plaats providers markeringen"
 
-#: ../src/setup.py:521
-msgid ""
-"This option places markers in the bouquet index to group all bouquets of "
-"each provider."
-msgstr ""
-"Deze optie plaatst markeringen in de bouquet lijst, en groepeert alle "
-"bouquets van elke provider."
+msgid "Add provider prefix to bouquets"
+msgstr "Voeg providerprefix toe aan favorietenlijsten"
 
-#: ../src/setup.py:523
-msgid "Style of provider marker"
-msgstr "Stijl van provider markering"
+msgid "All channels"
+msgstr "Alle zenders"
 
-#: ../src/setup.py:523
-msgid ""
-"Choose the style of markers that separate one provider from another in "
-"bouquet indexes."
-msgstr ""
-"Selecteer de stijl van de markeringen die providers onderscheid van andere "
-"bouquet lijsten."
+msgid "Allows you to set a schedule to perform a scan "
+msgstr "U kunt een schema instellen voor het uitvoeren van een scan "
 
-#: ../src/setup.py:524
-msgid "Style of bouquet marker"
-msgstr "Stijl van favorietenlijsten markering"
+msgid "Are you sure you want to remove all bouquets created by ABM?"
+msgstr "Weet u het zeker dat u alle ABM favorietenlijsten wilt verwijderen?"
 
-#: ../src/setup.py:524
-msgid ""
-"Choose the style of the markers that separate channels into groups in the "
-"channel lists."
-msgstr ""
-"Selecteer de stijl van de markeringen die zenders verdeeld in groepen in de "
-"zenderlijst."
+msgid "AutoBouquetsMaker"
+msgstr "AutoBouquetsMaker"
 
-#: ../src/setup.py:525
-msgid "Place bouquets at"
-msgstr "Plaats favorietenlijsten"
+msgid "AutoBouquetsMaker Configure"
+msgstr "AutoBouquetsMaker instellingen"
 
-#: ../src/setup.py:525
-msgid "This option will allow you choose where to place the created bouquets."
-msgstr ""
-"Met deze optie kunt u kiezen waar u de gemaakte bouquets worden geplaatst."
+msgid "AutoBouquetsMaker Hide sections"
+msgstr "AutoBouquetsMaker verberg secties"
 
-#: ../src/setup.py:526
-msgid "Skip services on not configured sats"
-msgstr "Sla services van niet geconfigureerde sats over"
+msgid "AutoBouquetsMaker Keep bouquets"
+msgstr "AutoBouquetsMaker behoud favorietenlijsten"
 
-#: ../src/setup.py:526
-msgid ""
-"If a service is carried on a satellite that is not configured, 'yes' means "
-"the channel will not appear in the channel list, 'no' means the channel will "
-"show in the channel list but be greyed out and not be accessible."
-msgstr ""
-"Wanneer een satelliet service niet geconfigureerd is, betekent 'ja' dat de "
-"zender niet in de lijst verschijnt en 'nee' dat de zender zichtbaar is "
-"(grijs), maar niet benaderbaar."
+msgid "AutoBouquetsMaker Log"
+msgstr "AutoBouquetsMaker log"
 
-#: ../src/setup.py:527
-msgid "Include 'not indexed' channels"
-msgstr "Inclusief \"niet geïndexeerde\" zenders"
+msgid "AutoBouquetsMaker Providers"
+msgstr "AutoBouquetsMaker providers"
 
-#: ../src/setup.py:527
-msgid ""
-"When a search finds extra channels that do not have an allocated channel "
-"number, 'yes' will add these at the end of the channel list, and 'no' means "
-"these will not be included."
-msgstr ""
-"Wanneer er zenders gevonden worden welke geen LCN nummer hebben toegewezen "
-"gekregen, bij 'ja' zullen deze zenders aan het einde van de zenderlijst "
-"toevoegen worden, en 'nee' zal ze niet toevoegen."
+msgid "AutoBouquetsMaker Scanner"
+msgstr "Autobouquetsmaker scanner"
 
-#: ../src/setup.py:528
-msgid "Extra debug"
-msgstr "Extra debug"
+msgid "Bottom"
+msgstr "Onderin"
 
-#: ../src/setup.py:528
-msgid ""
-"This feature is for development only. Requires debug logs to be enabled or "
-"enigma2 to be started in console mode."
-msgstr ""
-"Dit is alleen voor ontwikkeling. Het vereist dat de debuglogs zijn "
-"geactiveerd of dar Enigma2 in console draait."
+msgid "Bouquets generation..."
+msgstr "Genereert favorietenlijsten..."
 
-#: ../src/setup.py:529
-msgid "Show in extensions"
-msgstr "Toon in extensies"
+msgid "Bouquets order"
+msgstr "Volgorde van favorietenlijsten"
 
-#: ../src/setup.py:529
-msgid "When enabled, allows you start a scan from the extensions list."
-msgstr ""
-"Wanneer ingeschakeld, kunt dat u een scan starten vanuit de plugin lijst."
+msgid "Cancel"
+msgstr "Annuleer"
 
-#: ../src/updateproviders.py:50 ../src/updateproviders.py:90
-msgid "UpdateProviders"
-msgstr "Update pviders"
+msgid "Cannot allocate the demuxer"
+msgstr "Kan de demuxer niet toewijzen."
 
-#: ../src/updateproviders.py:53
-msgid "Finding configured providers..."
-msgstr "Zoekt geconfigureerde providers..."
+msgid "Cannot free NIM because a recording is in progress"
+msgstr "Geen vrije tuner vanwege lopende opname(s)"
 
-#: ../src/updateproviders.py:98
-msgid "No providers configured."
-msgstr "Er zijn geen providers geconfigureerd."
+msgid "Cannot get frontend"
+msgstr "Kan niet over de tuner beschikken"
 
-#: ../src/updateproviders.py:121
-msgid "Starting update..."
-msgstr "Start update..."
+msgid "Cannot get the NIM"
+msgstr "Kan niet over de tuner beschikken"
 
-#: ../src/updateproviders.py:122
+msgid "Cannot read data"
+msgstr "Kan de data niet lezen"
+
+msgid "Cannot read version"
+msgstr "Kan versie niet lezen"
+
+msgid "Cannot retrieve Resource Manager instance"
+msgstr "Resourcemanager niet beschikbaar"
+
 msgid "Checking version compatibility..."
 msgstr "Controleert versie compatibiliteit..."
 
-#: ../src/updateproviders.py:135
-msgid "No providers are configured."
-msgstr "Er zijn geen providers geconfigureerd."
+msgid "Choose the style of markers that separate one provider from another in bouquet indexes."
+msgstr "Selecteer de stijl van de markeringen die providers onderscheid van andere bouquet lijsten."
 
-#: ../src/updateproviders.py:145
+msgid "Choose the style of the markers that separate channels into groups in the channel lists."
+msgstr "Selecteer de stijl van de markeringen die zenders verdeeld in groepen in de zenderlijst."
+
+msgid "Choose which level of settings to display. 'Expert'-level shows all items, this also adds more options in the providers menu."
+msgstr "Kies welk instellingen-niveau weer te geven. Bij 'Expert'-niveau wordt alles weergegeven, dit voegt ook meer opties in het providers menu toe."
+
+msgid "Close"
+msgstr "Sluit"
+
+#, python-format
+msgid "Config file for %s didn't need updating."
+msgstr "Configuratiebestand voor %s hoefde niet geüpdatet te worden."
+
+#, python-format
+msgid "Config file for %s does not need updating"
+msgstr "Configuratiebestand voor %s hoeft niet geüpdatet te worden."
+
+#, python-format
+msgid "Config file for %s does not parse"
+msgstr "Configuratiebestand voor %s kan niet verwerkt worden."
+
+#, python-format
+msgid "Config file for %s has been updated"
+msgstr "Configuratiebestand voor %s is geüpdatet."
+
+#, python-format
+msgid "Config file for %s has been updated."
+msgstr "Configuratiebestand voor %s is geüpdatet."
+
+#, python-format
+msgid "Config file for %s is faulty"
+msgstr "Configuratiebestand voor %s is corrupt..."
+
+msgid "Configure"
+msgstr "Configureer"
+
+msgid "Daily"
+msgstr "Dagelijks"
+
+msgid "Delete bouquets"
+msgstr "Verwijder favorietenlijsten"
+
+msgid "Done"
+msgstr "Klaar"
+
+msgid "Downloading latest file from Github..."
+msgstr "Downloadt het laatste bestand van Github..."
+
+msgid "Enough Retries, delaying till next schedule."
+msgstr "Vaak genoeg geprobeerd; stel uit tot de volgende keer."
+
+msgid "Exit"
+msgstr "Afsluiten"
+
+msgid "Extra debug"
+msgstr "Extra debug"
+
+msgid "FTA Channels"
+msgstr "FTA-zenders"
+
+msgid "FTA HD Channels"
+msgstr "FTA HD-zenders"
+
+msgid "FTA only"
+msgstr "Alleen FTA"
+
+#, python-format
+msgid "Failed to retrieve file for %s. Error: %s %s"
+msgstr "Kon het bestand voor %s niet verkrijgen. Fout: %s %s"
+
 #, python-format
 msgid "Failed to retrieve version file. Error: %s %s"
 msgstr "Kon het versie bestand niet verkrijgen. Fout: %s %s"
 
-#: ../src/updateproviders.py:149 ../src/updateproviders.py:203
+#, python-format
+msgid ""
+"Failed to tune %s on tuner %s.\n"
+"Please check the tuner is correctly configured."
+msgstr ""
+"Afstemmen op %s met tuner %s is mislukt.\n"
+"Controleer of de tuner correct geconfigureerd is."
+
+msgid "Failed..."
+msgstr "Mislukt..."
+
+msgid "Finding configured providers..."
+msgstr "Zoekt geconfigureerde providers..."
+
+msgid "HD Channels"
+msgstr "HD-zenders"
+
+msgid "Hide sections"
+msgstr "Verberg secties"
+
+msgid "If a service is carried on a satellite that is not configured, 'yes' means the channel will not appear in the channel list, 'no' means the channel will show in the channel list but be greyed out and not be accessible."
+msgstr "Wanneer een satelliet service niet geconfigureerd is, betekent 'ja' dat de zender niet in de lijst verschijnt en 'nee' dat de zender zichtbaar is (grijs), maar niet benaderbaar."
+
+msgid "Include 'not indexed' channels"
+msgstr "Inclusief \"niet geïndexeerde\" zenders"
+
+#, python-format
+msgid "Incompatible versions: %s > %s"
+msgstr "Incompatibele versies: %s > %s"
+
+msgid "Keep all non-ABM bouquets"
+msgstr "Behoud alle niet-ABM favorietenlijsten"
+
+msgid "Keep bouquets"
+msgstr "Behoud favorietenlijsten"
+
+msgid "Last Scanned"
+msgstr "Laatst gescanned"
+
+msgid "Loading bouquets..."
+msgstr "Bezig favorietenlijsten te laden..."
+
+msgid "Move down"
+msgstr "Verplaats omlaag"
+
+msgid "Move up"
+msgstr "Verplaats omhoog"
+
+msgid "Network connection error"
+msgstr "Netwerk verbindingsfout."
+
 #, python-format
 msgid ""
 "Network connection error: \n"
@@ -670,106 +267,272 @@ msgstr ""
 "Netwerk verbindingsfout.: \n"
 "%s"
 
-#: ../src/updateproviders.py:152 ../src/updateproviders.py:206
-msgid "Network connection error"
-msgstr "Netwerk verbindingsfout."
+msgid "No NIMs found for "
+msgstr "Geen NIMs gevonden voor "
 
-#: ../src/updateproviders.py:161
+msgid "No area found"
+msgstr "Geen gebied gevonden"
+
+msgid "No providers are configured."
+msgstr "Er zijn geen providers geconfigureerd."
+
+msgid "No providers configured."
+msgstr "Er zijn geen providers geconfigureerd."
+
+msgid "No valid NIM found for "
+msgstr "Geen geldige NIM gevonden voor "
+
+msgid "None"
+msgstr "Geen"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Place bouquets at"
+msgstr "Plaats favorietenlijsten"
+
+msgid "Please first setup, in configuration"
+msgstr "Eerst instellen, in configuratie"
+
+msgid "Please wait..."
+msgstr "Even wachten..."
+
+msgid "Providers"
+msgstr "Providers"
+
+msgid "Providers order"
+msgstr "Providers volgorde"
+
+msgid "Radio Channels"
+msgstr "Radiozenders"
+
 #, python-format
-msgid "Incompatible versions: %s > %s"
-msgstr "Incompatibele versies: %s > %s"
+msgid "Reading %s..."
+msgstr "Leest %s..."
 
-#: ../src/updateproviders.py:167
-msgid "Cannot read version"
-msgstr "Kan versie niet lezen"
+msgid "Really close without saving settings?"
+msgstr "Echt afsluiten zonder op te slaan?"
 
-#: ../src/updateproviders.py:178
-#, python-format
-msgid "Retrieving config file for %s"
-msgstr "Verkrijgt configuratiebestand voor %s"
+msgid "Repeat how often"
+msgstr "Hoe vaak herhalen?"
 
-#: ../src/updateproviders.py:179
-msgid "Downloading latest file from Github..."
-msgstr "Downloadt het laatste bestand van Github..."
-
-#: ../src/updateproviders.py:194
-#, python-format
-msgid "Failed to retrieve file for %s. Error: %s %s"
-msgstr "Kon het bestand voor %s niet verkrijgen. Fout: %s %s"
-
-#: ../src/updateproviders.py:195
-msgid "Failed..."
-msgstr "Mislukt..."
-
-#: ../src/updateproviders.py:196
-#, python-format
-msgid "Unable to download config file for %s"
-msgstr "Kan configuratiebestand voor %s niet downloaden"
-
-#: ../src/updateproviders.py:222 ../src/updateproviders.py:234
-#: ../src/updateproviders.py:243
 #, python-format
 msgid "Retrieved config file for %s"
 msgstr "Configuratiebestand voor %s verkregen"
 
-#: ../src/updateproviders.py:223
-#, python-format
-msgid "Config file for %s does not need updating"
-msgstr "Configuratiebestand voor %s hoeft niet geüpdatet te worden."
-
-#: ../src/updateproviders.py:225
-#, python-format
-msgid "Config file for %s didn't need updating."
-msgstr "Configuratiebestand voor %s hoefde niet geüpdatet te worden."
-
-#: ../src/updateproviders.py:235
-#, python-format
-msgid "Config file for %s has been updated"
-msgstr "Configuratiebestand voor %s is geüpdatet."
-
-#: ../src/updateproviders.py:237
-#, python-format
-msgid "Config file for %s has been updated."
-msgstr "Configuratiebestand voor %s is geüpdatet."
-
-#: ../src/updateproviders.py:244
-#, python-format
-msgid "Config file for %s does not parse"
-msgstr "Configuratiebestand voor %s kan niet verwerkt worden."
-
-#: ../src/updateproviders.py:246
 #, python-format
 msgid "Retrieved config file for %s does not parse."
 msgstr "Verkregen configuratiebestand voor %s kan niet verwerkt worden."
 
-#: ../src/updateproviders.py:253
-#, python-format
-msgid "Retrieved provider file for %s"
-msgstr "Providerbestand voor %s verkregen"
-
-#: ../src/updateproviders.py:254
-#, python-format
-msgid "Config file for %s is faulty"
-msgstr "Configuratiebestand voor %s is corrupt..."
-
-#: ../src/updateproviders.py:256
 #, python-format
 msgid "Retrieved config file for %s is faulty or incomplete."
 msgstr "Verkregen configuratiebestand voor %s is corrupt of incompleet."
 
-#~ msgid ""
-#~ "Choose which level of setting's to display. 'Expert'-level shows all "
-#~ "items, this also add's more options in the providers menu."
-#~ msgstr ""
-#~ "Kies het niveau van de te maken instellingen. 'Expert'-niveau toont alle "
-#~ "items en er worden opties aan het providers menu toegevoegd."
+#, python-format
+msgid "Retrieved provider file for %s"
+msgstr "Providerbestand voor %s verkregen"
 
-#~ msgid ""
-#~ "If set to 'no' the original scan of this provider will persist and not be "
-#~ "updated on subsequent scans."
-#~ msgstr ""
-#~ "Bij 'nee' zal de huidige favorietenlijst van deze provider worden "
-#~ "behouden en niet worden bijgewerkt bij de dagelijke scan."
+#, python-format
+msgid "Retrieving config file for %s"
+msgstr "Verkrijgt configuratiebestand voor %s"
+
+msgid "Save"
+msgstr "Sla op"
+
+msgid "Save Log"
+msgstr "Sla log op"
+
+msgid "Scan"
+msgstr "Scan"
+
+msgid "Schedule scan"
+msgstr "Plan scan"
+
+msgid "Select your own bouquet from the list, please note that the only the first 100 channels for this bouquet will be used."
+msgstr "Kies uw eigen favorietenlijst in de lijst. Let op dat alleen de eerste 100 zenders voor deze lijst zullen worden gebruikt."
+
+#, python-format
+msgid "Services: %d video - %d radio"
+msgstr "Zenders: %d video - %d radio"
+
+msgid "Services: 0 video - 0 radio"
+msgstr "Zenders: 0 video - 0 radio"
+
+msgid "Set the repeat interval of the schedule."
+msgstr "Bepaal het herhalingsinterval van het schema."
+
+msgid "Set the time of day to perform the scan."
+msgstr "Tijdstip voor de dagelijkse scan."
+
+msgid "Setup mode"
+msgstr "Instellingen modus"
+
+msgid "Show in extensions"
+msgstr "Toon in extensies"
+
+msgid "Show log"
+msgstr "Toon log"
+
+msgid "Skip services on not configured sats"
+msgstr "Sla services van niet geconfigureerde sats over"
+
+msgid "Start scan"
+msgstr "Start scan"
+
+msgid "Starting scanner"
+msgstr "Start scanner"
+
+msgid "Starting update..."
+msgstr "Start update..."
+
+msgid "Style of bouquet marker"
+msgstr "Stijl van favorietenlijsten markering"
+
+msgid "Style of provider marker"
+msgstr "Stijl van provider markering"
+
+msgid "This affects all bouquets. Select 'no' to scan in all services. Select 'yes' to skip encrypted ones."
+msgstr "Dit betreft alle favorietenlijsten. Kies 'Nee' om alle zenders te scannen; kies 'Ja' om gecodeerde zenders over te slaan."
+
+msgid "This feature is for development only. Requires debug logs to be enabled or enigma2 to be started in console mode."
+msgstr "Dit is alleen voor ontwikkeling. Het vereist dat de debuglogs zijn geactiveerd of dar Enigma2 in console draait."
+
+msgid "This option allows you to choose what region of the country you live in, so it populates the correct channels for your region."
+msgstr "Hier kiest u de regio zodat de voor uw regio juiste zenders worden getoond."
+
+msgid "This option enables the current selected provider."
+msgstr "Deze optie schakeld de gekozen provider in."
+
+msgid "This option has several choices \"Yes\", (create a bouquet with all the channels in it), \"Yes HD only\", (will group all HD channels into this bouquet), \"Custom\", (allows you to select your own bouquet), \"No\", (do not use a main bouquet)"
+msgstr "Deze optie kent diverse keuzes \"Ja\", (creeert een lijst met alle zenders), \"Ja alleen HD\", (alle HD-zenders komen in in deze lijst), \"Aangepast\", (laat u uw eigen lijst kiezen), \"Nee\", (gebruik geen hoofdlijst)"
+
+msgid "This option places markers in the bouquet index to group all bouquets of each provider."
+msgstr "Deze optie plaatst markeringen in de bouquet lijst, en groepeert alle bouquets van elke provider."
+
+msgid "This option will allow you choose where to place the created bouquets."
+msgstr "Met deze optie kunt u kiezen waar u de gemaakte bouquets worden geplaatst."
+
+msgid "This option will create a FreeToAir High Definition bouquet, it will group all FTA HD channels into this bouquet."
+msgstr "Deze optie zal een FreeToAir High Definition bouquet maken, en zal alle FTA HD zenders hierin plaatsen."
+
+msgid "This option will create a FreeToAir bouquet, it will group all free channels into this bouquet."
+msgstr "Deze optie maakt een FreeToAir bouquet, hier worden alle gratis uitgezonden zenders in geplaatst."
+
+msgid "This option will create a High Definition bouquet, it will group all HD channels into this bouquet."
+msgstr "Deze optie maakt een HD-lijst; alle HD-zenders komen hierin."
+
+msgid "This option will create bouquets for each type of channel, ie Entertainment, Movies, Documentary."
+msgstr "Deze optie maakt een lijst voor elk type zender, zoals Amusement. Film, documentaires."
+
+msgid "This option will prepend the provider name to bouquet name."
+msgstr "Deze optie zal de naam van de provider voor de naam van de lijst zetten."
+
+msgid "This option will swap SD versions of channels with HD versions. (eg BBC One SD with BBC One HD, Channel Four SD with with Channel Four HD)"
+msgstr "Deze optie zal de SD zenders vervangen met HD versies. (bv BBC 1 SD met BBC 1 HD, Kanaal 4 SD met Kanaal 4 HD )"
+
+msgid "Time of scan to start"
+msgstr "Tijdstip waarop scan moet starten"
+
+#, python-format
+msgid ""
+"Timed out tuning %s on tuner %s.\n"
+"Please check the tuner is correctly configured."
+msgstr ""
+"Time-out bij afstemmen op %s met tuner %s.\n"
+"Controleer of de tuner correct geconfigureerd is."
+
+msgid "Top"
+msgstr "Bovenin"
+
+#, python-format
+msgid "Tuning %s..."
+msgstr "Stemt af op %s..."
+
+#, python-format
+msgid "Unable to download config file for %s"
+msgstr "Kan configuratiebestand voor %s niet downloaden"
+
+msgid "Update config files"
+msgstr "Update configuratiebestanden"
+
+msgid "UpdateProviders"
+msgstr "Update pviders"
+
+msgid "Weekly"
+msgstr "Wekelijks"
+
+msgid "When a search finds extra channels that do not have an allocated channel number, 'yes' will add these at the end of the channel list, and 'no' means these will not be included."
+msgstr "Wanneer er zenders gevonden worden welke geen LCN nummer hebben toegewezen gekregen, bij 'ja' zullen deze zenders aan het einde van de zenderlijst toevoegen worden, en 'nee' zal ze niet toevoegen."
+
+msgid "When disabled this will enable the 'Keep bouquets' option in the main menu, allowing you to hide some 'existing' bouquets."
+msgstr "Bij uitschakelen zal dit in het hoofdmenu 'Behoud favorietenlijsten' inschakelen, om zo bestaande favorietenlijsten te kunnen bewaren."
+
+msgid "When enabled, allows you start a scan from the extensions list."
+msgstr "Wanneer ingeschakeld, kunt dat u een scan starten vanuit de plugin lijst."
+
+msgid ""
+"Your bouquets are about to be updated,\n"
+"Do you want to allow this?"
+msgstr ""
+"Uw favorieten worden zo geupdate.\n"
+"Wilt u dat toestaan?"
+
+msgid "area"
+msgstr "gebied"
+
+msgid "custom bouquet for main"
+msgstr "aangepaste hoofdlijst"
+
+msgid "expert"
+msgstr "expert"
+
+msgid "generate FTA HD bouquet"
+msgstr "genereer FTA HD lijst"
+
+msgid "generate FTA bouquet"
+msgstr "genereer FTA favorietenlijst"
+
+msgid "generate HD bouquet"
+msgstr "genereer HD favorietenlijst"
+
+msgid "generate main bouquet"
+msgstr "genereer hoofd-favorietenlijst"
+
+msgid "generate sections bouquets"
+msgstr "genereer sectie-favorietenlijst"
+
+msgid "indent + text"
+msgstr "inspringen + tekst"
+
+msgid "no"
+msgstr "nee"
+
+msgid "simple"
+msgstr "eenvoudig"
+
+msgid "swap channels"
+msgstr "wissel zenders"
+
+msgid "yes"
+msgstr "ja"
+
+msgid "yes (all channels)"
+msgstr "ja (alle zenders)"
+
+msgid "yes (custom)"
+msgstr "ja (aangepast)"
+
+msgid "yes (only FTA HD)"
+msgstr "ja (alleen FTA HD)"
+
+msgid "yes (only HD)"
+msgstr "ja (alleen HD)"
+
+#~ msgid "Choose which level of setting's to display. 'Expert'-level shows all items, this also add's more options in the providers menu."
+#~ msgstr "Kies het niveau van de te maken instellingen. 'Expert'-niveau toont alle items en er worden opties aan het providers menu toegevoegd."
+
+#~ msgid "If set to 'no' the original scan of this provider will persist and not be updated on subsequent scans."
+#~ msgstr "Bij 'nee' zal de huidige favorietenlijst van deze provider worden behouden en niet worden bijgewerkt bij de dagelijke scan."
 
 #~ msgid "Keep all bouquets"
 #~ msgstr "Behoud alle favorietenlijsten"
@@ -786,43 +549,32 @@ msgstr "Verkregen configuratiebestand voor %s is corrupt of incompleet."
 #~ msgid "Rescan every time"
 #~ msgstr "Altijd scannen"
 
-#~ msgid ""
-#~ "This option will alow you choose where to place the created bouquets."
+#~ msgid "This option will alow you choose where to place the created bouquets."
 #~ msgstr "Deze optie geeft u de keuze waar de lijsten geplaatst worden."
 
-#~ msgid ""
-#~ "This option will create a FreeToAir High Definition bouquet, it will "
-#~ "group all HD channels into this bouquet."
-#~ msgstr ""
-#~ "Hiermee kunt u een FTA-HD lijst maken; alle FTA HD kanalen zullen hierin "
-#~ "komen."
+#~ msgid "This option will create a FreeToAir High Definition bouquet, it will group all HD channels into this bouquet."
+#~ msgstr "Hiermee kunt u een FTA-HD lijst maken; alle FTA HD kanalen zullen hierin komen."
 
-#~ msgid ""
-#~ "This option will create a FreeToAir bouquet, it will group all none "
-#~ "encrypted channels into this bouquet."
-#~ msgstr ""
-#~ "Deze optie maakt een FTA-lijst; alle niet versleutelde kanalen komen "
-#~ "hierin."
+#~ msgid "This option will create a FreeToAir bouquet, it will group all none encrypted channels into this bouquet."
+#~ msgstr "Deze optie maakt een FTA-lijst; alle niet versleutelde kanalen komen hierin."
 
 #~ msgid "This option will prepend the provider name to bouquet name "
 #~ msgstr "Deze optie plaatst de naam van de provider voor de lijst."
 
-#~ msgid ""
-#~ "This option will swap SD versions of channels with HD versions. (ie 101 "
-#~ "BBC One, 103 ITV, 104 Channel Four, 105 Channel Five)"
-#~ msgstr ""
-#~ "Deze optie wisselt SD kanalen met de HD versies (b.v.101 BBC One, 103 "
-#~ "ITV, 104 Channel Four, 105 Channel Five)"
+#~ msgid "This option will swap SD versions of channels with HD versions. (ie 101 BBC One, 103 ITV, 104 Channel Four, 105 Channel Five)"
+#~ msgstr "Deze optie wisselt SD kanalen met de HD versies (b.v.101 BBC One, 103 ITV, 104 Channel Four, 105 Channel Five)"
 
 #~ msgid "Time of backup to start"
 #~ msgstr "Tijdstip dat backup start"
 
-#~ msgid ""
-#~ "When disabled this will enable the 'Keep bouquets' in the main menu, "
-#~ "allowing you to hide some 'existing' bouquets."
-#~ msgstr ""
-#~ "Indien uitgeschakeld zal dit 'Bewaar favorietenlijsten' inschakelen, wat "
-#~ "het u mogelijk maakt enkele bestaande lijsten te verbergen."
+#~ msgid "Timeout for tuner lock"
+#~ msgstr "Time-out voor tuner"
+
+#~ msgid "Tuning failed fatal"
+#~ msgstr "Afstemmen mislukt"
+
+#~ msgid "When disabled this will enable the 'Keep bouquets' in the main menu, allowing you to hide some 'existing' bouquets."
+#~ msgstr "Indien uitgeschakeld zal dit 'Bewaar favorietenlijsten' inschakelen, wat het u mogelijk maakt enkele bestaande lijsten te verbergen."
 
 #~ msgid "When enable allow you start a scan from the extensions list."
 #~ msgstr "Indien ingeschakeld kunt u een scan starten vanuit extensies."
