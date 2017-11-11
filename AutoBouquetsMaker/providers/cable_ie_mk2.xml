@@ -9,11 +9,11 @@
 		<configuration key="hd_42754" netid="42754" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="3">42754 Waterford Legacy</configuration>
 		<configuration key="hd_42755" netid="42755" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="3">42755 Galway Legacy</configuration>
 		<configuration key="hd_43216" netid="43216" bouquettype="hd" frequency="290000" symbol_rate="6875000" system="0" modulation="3">43216 Cork_Swords UPC</configuration>
-		<configuration key="hd_43217" netid="43217" bouquettype="hd" frequency="299000" symbol_rate="6887000" system="0" modulation="0">43217 Dublin UPC</configuration>
+		<configuration key="hd_43217" netid="43217" bouquettype="hd" frequency="299000" symbol_rate="6887000" system="0" modulation="3">43217 Dublin UPC</configuration>
 		<configuration key="hd_43218" netid="43218" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="3">43218 Galway UPC</configuration>
-		<configuration key="hd_43219" netid="43219" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="0">43219 Waterford UPC</configuration>
-		<configuration key="hd_43220" netid="43220" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="0">43220 Limerick UPC</configuration>
-		<configuration key="hd_43226" netid="43226" bouquettype="hd" frequency="340000" symbol_rate="6875000" system="0" modulation="0">43226 Sligo UPC</configuration>
+		<configuration key="hd_43219" netid="43219" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="3">43219 Waterford UPC</configuration>
+		<configuration key="hd_43220" netid="43220" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="3">43220 Limerick UPC</configuration>
+		<configuration key="hd_43226" netid="43226" bouquettype="hd" frequency="340000" symbol_rate="6875000" system="0" modulation="3">43226 Sligo UPC</configuration>
 	</dvbcconfigs>
 
 	<sections>
@@ -107,7 +107,7 @@ except:
 
 	#Some encrypted channels are wrongly flagged as FreeToAir.
 	not_fta = ['Sky Disney HD'] # by service name
-	
+
 	# FTA channels that are wrongly flagged as encrypted. Listed by service name.
 	fta_corrections = ["Virgin 100","RTE One","Euronews","Cula4","DCTV","CCTv",]
 
