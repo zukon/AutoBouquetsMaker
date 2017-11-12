@@ -70,7 +70,7 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 		unsigned char descriptor_length = data[offset1 + 1];
 		int offset2 = offset1 + 2;
 
-		if (descriptor_tag == 0xd4)
+		if (descriptor_tag == 0xd4) // Freesat regions, for freesat regions extractor
 		{
 			int size = descriptor_length;
 			while (size > 0)
@@ -98,6 +98,65 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 
 				offset2 += (6 + description_size) ;
 				size -= (6 + description_size);
+			}
+		}
+		else if (descriptor_tag == 0xd5) // Freesat, links channel ID to category description
+		{
+			int size = descriptor_length;
+			while (size > 0)
+			{
+				unsigned short int category_group = data[offset2];
+				unsigned short int category_id = data[offset2 + 1];
+				unsigned short int size2 = data[offset2 + 2];
+
+				offset2 += 3;
+				size -= 3;
+				while (size2 > 0)
+				{
+					unsigned short int channel_id = ((data[offset2] << 8) | data[offset2 + 1]) & 0x0fff;
+
+					PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i}",
+							"descriptor_tag", descriptor_tag,
+							"category_group", category_group,
+							"category_id", category_id,
+							"channel_id", channel_id);
+
+					PyList_Append(list, item);
+					Py_DECREF(item);
+
+					offset2 += 2;
+					size2 -= 2;
+					size -= 2;
+				}
+			}
+		}
+		else if ((descriptor_tag == 0xd8)) // Freesat category description
+		{
+			int size = descriptor_length;
+			while (size > 0)
+			{
+				char description[256];
+				memset(description, '\0', 256);
+
+				unsigned short int category_group = data[offset2];
+				unsigned short int category_id = data[offset2 + 1];
+				unsigned char description_size = data[offset2 + 6];
+				if (description_size == 255)
+					description_size--;
+
+				memcpy(description, data + offset2 + 7, description_size);
+
+				PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:s}",
+						"descriptor_tag", descriptor_tag,
+						"category_group", category_group,
+						"category_id", category_id,
+						"description", description);
+
+				PyList_Append(list, item);
+				Py_DECREF(item);
+
+				offset2 += (description_size + 7);
+				size -= (description_size + 7);
 			}
 		}
 		else if (descriptor_tag == 0x47) // Bouquet name descriptor
@@ -384,7 +443,7 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 					descriptor_length -= 9;
 				}
 			}
-			else if (descriptor_tag == 0xd3) // User defined
+			else if (descriptor_tag == 0xd3) // Freesat main descriptor
 			{
 				while (descriptor_length > 0)
 				{
