@@ -448,9 +448,11 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 				while (descriptor_length > 0)
 				{
 					unsigned short int service_id;
+					unsigned short int channel_id;
 					unsigned char size;
 
 					service_id = (data[offset3] << 8) | data[offset3 + 1];
+					channel_id = (data[offset3 + 2] << 8) | data[offset3 + 3];
 					size = data[offset3 + 4];
 
 					offset3 += 5;
@@ -462,12 +464,12 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 						channel_number = ((data[offset3] << 8) | data[offset3 + 1]) & 0x0fff;
 						region_id = (data[offset3 + 2] << 8) | data[offset3 + 3];
 
-						PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:i}",
+						PyObject *item = Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:i,s:i}",
 								"descriptor_tag", descriptor_tag,
 								"transport_stream_id", transport_stream_id,
 								"original_network_id", original_network_id,
 								"service_id", service_id, "number", channel_number,
-								"region_id", region_id);
+								"region_id", region_id, "channel_id", channel_id);
 
 						PyList_Append(list, item);
 						Py_DECREF(item);
