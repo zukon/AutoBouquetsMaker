@@ -502,11 +502,11 @@ lamedb service flags
 dxNoSDT=1,    // don't fetch SDT
 dxDontshow=2, // don't show service in all services list
 dxNoDVB=4,  // dont use PMT for this service ( use cached pids )
-dxHoldName=8, // change service name if label changes
-dxNewFound=64, // show in last scanned bouquet
+dxHoldName=8, // don't change service name if label differs in the SDT
+dxNewFound=64, // show in last scanned bouquet ( until next restart )
 dxIsDedicated3D=128, // 3D channel
-dxHideVBI=512, // Hide VBI line (dotted line along top of screen on some channels
-dxIsScrambledPMT=1024, // Hmm
-dxCenterDVBSubs=2048, // Centralize DVB subtitles
+dxHideVBI=512, // Hide VBI line (dotted line along top of screen on some channels )
+dxIsScrambledPMT=1024, // Hmm ( something to do with 27.5W ??? )
+dxCenterDVBSubs=2048, // Centre DVB subtitles
 
 ---------------------------------------------------------------------------------------------- 
