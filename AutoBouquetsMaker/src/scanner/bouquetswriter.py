@@ -654,7 +654,7 @@ class BouquetsWriter():
 							section_key_current = 65535
 
 					if todo and number >= todo:
-						if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and (provider_config.isMakeHDMain() or (provider_config.isMakeFTAHDMain() and services["video"][number]["free_ca"] == 0)):
+						if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and (provider_config.isMakeHDMain() or (provider_config.isMakeFTAHDMain() and 'free_ca' in services["video"][number] and services["video"][number]["free_ca"] == 0)):
 							current_number += 1
 							current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
 									services["video"][number]["service_type"],
@@ -868,7 +868,7 @@ class BouquetsWriter():
 						section_key_current = 65535
 
 				if todo and number >= todo:
-					if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and services["video"][number]["free_ca"] == 0:
+					if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and 'free_ca' in services["video"][number] and services["video"][number]["free_ca"] == 0:
 						current_number += 1
 						current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
 								services["video"][number]["service_type"],
@@ -919,7 +919,7 @@ class BouquetsWriter():
 						section_key_current = 65535
 
 				if todo and number >= todo:
-					if number in services["video"] and services["video"][number]["free_ca"] == 0 and number not in bouquets_to_hide:
+					if number in services["video"] and 'free_ca' in services["video"][number] and services["video"][number]["free_ca"] == 0 and number not in bouquets_to_hide:
 						current_number += 1
 						current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
 								services["video"][number]["service_type"],
