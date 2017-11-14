@@ -388,7 +388,7 @@ modulation
 
 
 lamedb (v4) format explained
------------------------
+----------------------------
 
 Lamedb format:
 	File is basically a fixed format file where some fields contain multiple values separated by commas or colons. Lines may not exceed 256 characters.
@@ -477,3 +477,36 @@ Services section:
 		Flag data: Field tag f: followed by hexadecimal digits.
 
 ----------------------------------------------------------------------------------------------
+
+lamedb cached PID data
+----------------------
+
+c:00xxxx = video pid
+c:01xxxx = audio pid (MPEG)
+c:02xxxx = Teletext pid
+c:03xxxx = PCR pid
+c:04xxxx = audio pid (AC3)
+
+c:100007 + c:11xxxx = audio pid (AC3+) ???
+c:100004 + c:11xxxx = audio pid (HE-AAC) ???
+
+c:10xxxx = cached volume level ???
+
+c:11xxxx = audio pid (AAC)
+
+---------------------------------------------------------------------------------------------- 
+
+lamedb service flags
+--------------------
+
+dxNoSDT=1,    // don't fetch SDT
+dxDontshow=2, // don't show service in all services list
+dxNoDVB=4,  // dont use PMT for this service ( use cached pids )
+dxHoldName=8, // change service name if label changes
+dxNewFound=64, // show in last scanned bouquet
+dxIsDedicated3D=128, // 3D channel
+dxHideVBI=512, // Hide VBI line (dotted line along top of screen on some channels
+dxIsScrambledPMT=1024, // Hmm
+dxCenterDVBSubs=2048, // Centralize DVB subtitles
+
+---------------------------------------------------------------------------------------------- 
