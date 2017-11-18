@@ -156,106 +156,12 @@
 	</swapchannels>
 	<servicehacks>
 <![CDATA[
-try:
-	not_first_loop
-except:
-	not_first_loop = True
-	
-	PIDs = {
-		# 00 = video, 01 = MPEG audio, 02 = teletext, 03 = PCR, 04 = AC3 audio... followed by 4 hexadecimal chars
-		'4SevenHD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'alibi HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'Animal Planet HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'BBC FOUR HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'BBC NEWS HD': 'c:000199,c:01019b,c:0201c3,c:030199',
-#		'BBC ONE HD': 'c:0002c5,c:010155,c:02015f,c:030135,c:04014b',
-		'BBC TWO HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'BT Sport 1 HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-		'BT Sport 2 HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'BT Sport 3 HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-#		'BT Sport ESPN HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'Cartoon Network HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'CBBC HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-#		'CBeebies HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'Channel 4HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'Channel 5 HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-#		'Comedy Central HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-		'Dave HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'Discovery HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-		'E4 HD': 'c:000199,c:0101b9,c:0201c3,c:030199,c:0401af',
-		'Eden HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'Eurosport 1HD': 'c:00006d,c:020197,c:03006d,c:040083',
-		'Eurosport 2HD': 'c:0000d1,c:0300d1,c:0400e7',
-		'Film4 HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-		'FOX HD': 'c:0000d1,c:0200fb,c:0300d1,c:0400e7',
-		'Good Food HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-		'H2 HD': 'c:000199,c:02013c,c:030199,c:0401af',
-#		'ITV HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-        'ITV2 HD': 'c:00006d,c:01006f,c:02015f,c:03006d',
-		'ITV3 HD': 'c:0000d1,c:0100d3,c:02015f,c:0300d1',
-		'ITV4 HD': 'c:000135,c:010137,c:02015f,c:030135',
-#		'ITVBe HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-		'Lifetime HD': 'c:000199,c:030199,c:0401af',
-		'More 4 HD': 'c:000199,c:0101b9,c:0201c3,c:030199,c:0401af',
-		'MTV HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'MTV Live HD': 'c:000135,c:010030,c:030135,c:040137',
-		'Nat Geo WILD HD': 'c:0000d1,c:0300d1,c:0400e7',
-		'National GeographicHD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-		'NHKworldHD': 'c:00006d,c:01008d,c:03006d,c:040083',
-		'Nick HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-		'Sky Action HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-#		'Sky Arts HD': 'c:00012d,c:010155,c:02015f,c:03012d,c:04014b',
-		'Sky Christmas HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'Sky Comedy HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-#		'Sky Disney HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-		'Sky Family HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-		'Sky Greats HD': 'c:000199,c:0101b9,c:0201c3,c:030199,c:0401af',
-		'Sky Hits HD': 'c:000199,c:0101b9,c:0201c3,c:030199,c:0401af',
-		'Sky Living HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'Sky News HD': 'c:000135,c:02015f,c:030135,c:04014b',
-		'Sky Ocean Rescue HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-#		'Sky One HD': 'c:000199,c:0101b9,c:0201c3,c:030199,c:0401af',
-		'Sky Premiere HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'Sky SciFi &amp; Hor HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'Sky Select HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-		'Sky Sports Action HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'Sky Sports Arena HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'Sky Sports Cricket HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'Sky Sports F1 HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-		'Sky Sports FootballHD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'Sky Sports Golf HD': 'c:0001fd,c:01021d,c:020227,c:0301fd,c:040213',
-		'Sky Sports Mix HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'Sky Sports News HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'Sky Sports PL HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'Sky Thriller HD': 'c:00006d,c:01008d,c:020097,c:03006d,c:040083',
-		'SkySports MainEventHD': 'c:00006d,c:020097,c:03006d,c:040083',
-		'Syfy HD': 'c:00006d,c:03006d,c:040083',
-		'TCM HD': 'c:000199,c:0101b9,c:0201c3,c:030199,c:0401af',
-#		'TLC HD': 'c:000135,c:010155,c:02015f,c:030135,c:04014b',
-		'Universal Channel HD': 'c:0000d1,c:0100f1,c:0200fb,c:0300d1,c:0400e7',
-#		'W HD': 'c:000199,c:0101b9,c:0201c3,c:030199,c:0401af',
-	}
-	
-	CaIDs = ['C:1841', 'C:1850']
-	
-	flags = [
-		1, # don't fetch SDT
-		4, # use cached pids
-	]
-	
-	import re
-	control_chars = ''.join(map(unichr, range(0,32) + range(127,160)))
-	control_char_re = re.compile('[%s]' % re.escape(control_chars))
+blacklist = ['ARY Digital','ARY News UK','BBC THREE','Bike','Channel Moved','hayu','L Pack Tier 4','M Pack Tier 1','More TV Pack Tier 2','M+ Pack Tier 3','Netflix','PIN Protection Help', 'S4C HD','The Africa Channel','XL Pack Tier 5','Vevo','Worldbox','YouTube']
+#Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
 
-	blacklist = ['ARY Digital','ARY News UK','BBC THREE','Bike','Channel Moved','hayu','L Pack Tier 4','M Pack Tier 1','More TV Pack Tier 2','M+ Pack Tier 3','Netflix','PIN Protection Help', 'S4C HD','The Africa Channel','XL Pack Tier 5','Vevo','Worldbox','YouTube']
-	#Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
+bt_sports_xtra = ["BT Sport Extra 0","BT Sport Extra 1","BT Sport Extra 2","BT Sport Extra 3","BT Sport Extra 4","BT Sport Extra 5","BT Sport Extra 6"]
 
-	bt_sports_xtra = ["BT Sport Extra 0","BT Sport Extra 1","BT Sport Extra 2","BT Sport Extra 3","BT Sport Extra 4","BT Sport Extra 5","BT Sport Extra 6"]
-
-	fta_corrections = []
-
-# Remove strange chars from service names
-service["service_name"] = control_char_re.sub('', service["service_name"])
+fta_corrections = []
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
@@ -290,16 +196,6 @@ if service["service_name"].startswith("SptsETV"):
 #Some encrypted channels are wrongly flagged as FTA.
 if service["service_name"] in fta_corrections:
 	service["free_ca"] = 1
-
-#This forces static audio PIDs on some broken channels
-if service["service_name"] in PIDs:
-	service["free_ca"] = 0
-	service["service_line"] = "p:%s,%s,%s,f:%x" % (
-								control_char_re.sub('', service["provider_name"]),
-								PIDs[service["service_name"]],
-								','.join(CaIDs),
-								sum(flags))
-	# service["ATSC_source_id"] = 0
 ]]>
 	</servicehacks>
 </provider>
