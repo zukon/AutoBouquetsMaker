@@ -901,6 +901,10 @@ class DvbScanner():
 				time.sleep(0.1)	# no data.. so we wait a bit
 				continue
 
+			if self.extra_debug:
+				print "[ABM-DvbScanner] BAT raw section header", section["header"]
+				print "[ABM-DvbScanner] BAT raw section content", section["content"]
+
 			if section["header"]["table_id"] == self.bat_table_id:
 				if section["header"]["bouquet_id"] != bouquet_id:
 					if extraservices:
@@ -999,6 +1003,10 @@ class DvbScanner():
 			if section is None:
 				time.sleep(0.1)	# no data.. so we wait a bit
 				continue
+
+			if self.extra_debug:
+				print "[ABM-DvbScanner] SDT raw section header", section["header"]
+				print "[ABM-DvbScanner] SDT raw section content", section["content"]
 
 			if section["header"]["table_id"] == self.sdt_current_table_id or section["header"]["table_id"] == self.sdt_other_table_id:
 				transport_stream_id = section["header"]["transport_stream_id"]
@@ -1127,6 +1135,10 @@ class DvbScanner():
 				time.sleep(0.1)	# no data.. so we wait a bit
 				continue
 
+			if self.extra_debug:
+				print "[ABM-DvbScanner] BAT raw section header", section["header"]
+				print "[ABM-DvbScanner] BAT raw section content", section["content"]
+
 			if section["header"]["table_id"] == self.bat_table_id:
 				if section["header"]["bouquet_id"] != bouquet_id:
 					continue
@@ -1244,6 +1256,10 @@ class DvbScanner():
 			if section is None:
 				time.sleep(0.1)	# no data.. so we wait a bit
 				continue
+
+			if self.extra_debug:
+				print "[ABM-DvbScanner] SDT raw section header", section["header"]
+				print "[ABM-DvbScanner] SDT raw section content", section["content"]
 
 			if section["header"]["table_id"] == self.sdt_current_table_id or section["header"]["table_id"] == self.sdt_other_table_id:
 				transport_stream_id = section["header"]["transport_stream_id"]
