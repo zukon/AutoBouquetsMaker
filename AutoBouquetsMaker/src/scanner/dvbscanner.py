@@ -1160,6 +1160,23 @@ class DvbScanner():
 
 		service_count = 0
 		tmp_services_dict = {}
+		
+		# start: read category info from descriptors 0xd5 and 0xd8
+		d5 = []
+		d8 = {}
+		categories = {}
+		for service in bat_content:
+			if service["descriptor_tag"] == 0xd8:
+				d8[service["category_id"]] = service["description"]
+			elif service["descriptor_tag"] == 0xd5:
+				d5.append(service)
+
+		for service in d5:
+			if service["channel_id"] not in categories:
+				categories[service["channel_id"]] = [d8[service["category_id"]]]
+			elif d8[service["category_id"]] not in categories[service["channel_id"]]:
+				categories[service["channel_id"]].append(d8[service["category_id"]])
+		# end: read category info from descriptors 0xd5 and 0xd8
 
 		for service in bat_content:
 			if service["descriptor_tag"] != 0xd3:
@@ -1180,6 +1197,7 @@ class DvbScanner():
 				continue
 			service["namespace"] = self.namespace_dict[namespace_key]
 			service["flags"] = 0
+			service["service_info"] = categories[service["channel_id"] & 0x0fff] # add category info from descriptors 0xd5 and 0xd8
 
 			key = "%x:%x:%x" % (service["transport_stream_id"], service["original_network_id"], service["service_id"])
 			if key in tmp_services_dict:
@@ -1189,7 +1207,7 @@ class DvbScanner():
 				tmp_services_dict[key] = service
 
 			service_count += 1
-
+		
 		for service in bat_content:
 			if service["descriptor_tag"] != 0x41:
 				continue
