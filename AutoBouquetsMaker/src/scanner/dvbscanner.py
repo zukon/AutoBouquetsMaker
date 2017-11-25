@@ -139,16 +139,16 @@ class DvbScanner():
 		return namespace
 
 	def tsidOnidTest(self, onid, tsid):
-		# This just grabs the tsid and onid of the current transponder. 
+		# This just grabs the tsid and onid of the current transponder.
 		# Used to confirm motorised dishes have arrived at the correct satellite before starting the download.
 		print>>log, "[ABM-DvbScanner] tsid onid test..."
-		
+
 		sdt_pid = 0x11
 		sdt_current_table_id = 0x42
 		mask = 0xff
 		tsidOnidTestTimeout = 90
 		passed_test = False
-		
+
 		fd = dvbreader.open(self.demuxer_device, sdt_pid, sdt_current_table_id, mask, self.frontend)
 		if fd < 0:
 			print>>log, "[ABM-DvbScanner] Cannot open the demuxer"
@@ -1160,7 +1160,7 @@ class DvbScanner():
 
 		service_count = 0
 		tmp_services_dict = {}
-		
+
 		# start: read category info from descriptors 0xd5 and 0xd8
 		d5 = []
 		d8 = {}
@@ -1207,7 +1207,7 @@ class DvbScanner():
 				tmp_services_dict[key] = service
 
 			service_count += 1
-		
+
 		for service in bat_content:
 			if service["descriptor_tag"] != 0x41:
 				continue
