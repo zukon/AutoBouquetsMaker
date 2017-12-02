@@ -126,12 +126,18 @@ class BouquetsWriter():
 
 				lamedblist.append("%s\n" % service_name)
 
-				if 'free_ca' in service.keys() and service["free_ca"] != 0:
-					lamedblist.append("p:%s,C:0000\n" % provider_name)
-				elif 'service_line' in service.keys():
+				service_ca = ""
+				if "free_ca" in service.keys() and service["free_ca"] != 0:
+					service_ca = ",C:0000"
+
+				service_flags = ""
+				if "service_flags" in service.keys() and service["service_flags"] > 0:
+					service_flags = ",f:%x" % service["service_flags"] 
+
+				if 'service_line' in service.keys():
 					lamedblist.append(self.utf8_convert("%s\n" % service["service_line"]))
 				else:
-					lamedblist.append("p:%s\n" % provider_name)
+					lamedblist.append("p:%s%s%s\n" % (provider_name, service_ca, service_flags))
 				services_count += 1
 
 		lamedblist.append("end\nHave a lot of bugs!\n")
@@ -253,15 +259,21 @@ class BouquetsWriter():
 
 				lamedblist.append('"%s"' % service_name)
 
-				if 'free_ca' in service.keys() and service["free_ca"] != 0:
-					lamedblist.append(",p:%s,C:0000\n" % provider_name)
-				elif 'service_line' in service.keys():
+				service_ca = ""
+				if "free_ca" in service.keys() and service["free_ca"] != 0:
+					service_ca = ",C:0000"
+
+				service_flags = ""
+				if "service_flags" in service.keys() and service["service_flags"] > 0:
+					service_flags = ",f:%x" % service["service_flags"] 
+
+				if 'service_line' in service.keys():
 					if len(service["service_line"]):
 						lamedblist.append(",%s\n" % self.utf8_convert(service["service_line"]))
 					else:
 						lamedblist.append("\n")
 				else:
-					lamedblist.append(",p:%s\n" % provider_name)
+					lamedblist.append(",p:%s%s%s\n" % (provider_name, service_ca, service_flags))
 				services_count += 1
 
 		lamedb = codecs.open(path + "/lamedb", "w", "utf-8")
