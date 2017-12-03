@@ -1,13 +1,13 @@
 <provider>
-	<name>Fastscan Deutschland</name>
+	<name>Diveo</name>
 	<streamtype>dvbs</streamtype>
 	<protocol>fastscan</protocol>
-	<transponder 
-		orbital_position="235"
-		frequency="12070000"
-		symbol_rate="27500000"
+	<transponder
+		orbital_position="192"
+		frequency="12515000"
+		symbol_rate="22000000"
 		polarization="0"
-		fec_inner="3"
+		fec_inner="4"
 		inversion="2"
 		system="0"
 		modulation="1"
@@ -18,8 +18,8 @@
 		nit_other_table_id="0x00"
 		fastscan_pid="0x3c0"
 		fastscan_table_id="0xbd"
-		tsid="3219"
-		onid="3"
+		tsid="1105"
+		onid="53"
 	/>
 	<sections>
 		<section number="1">Fastscan Deutschland</section>
