@@ -355,26 +355,19 @@ except:
 	}
 
 	itv_rename = {
-		# ITV regions
 		1020: "ITV Border Scotland",
-		1043: "ITV Tyne Tees HD",
-		1044: "ITV Yorkshire HD",
-		1045: "ITV Anglia HD",
-		1061: "ITV Border England HD",
-		1062: "ITV Westcountry West HD",
-		1063: "ITV Westcountry SW HD",
-		2296: "S4C HD",
-		3527: "STV Edinburgh",
 		4012: "UTV Ireland",
-		4055: "STV HD",
 		5070: "STV 2",
+		5701: "S4C",
 		6000: "ITV London",
 		6010: "ITV Central South",
 		6011: "ITV Central East",
 		6015: "ITV Central SW",
+		6020: "ITV Wales",
 		6030: "ITV West",
 		6040: "ITV West Country",
 		6089: "ITV Anglia East",
+		6110: "ITV Border",
 		6130: "ITV Granada",
 		6140: "ITV Meridian South",
 		6142: "ITV Meridian East",
@@ -382,11 +375,16 @@ except:
 		6160: "ITV Yorkshire West",
 		6161: "ITV Yorkshire East",
 		6200: "ITV Channel Isles",
+		6210: "STV Grampian",
+		6220: "STV Scotland West",
+		6230: "UTV",
 		6300: "ITV Central",
+		6325: "STV",
+		6371: "STV Scotland East",
 		6381: "ITV Anglia West",
 		6390: "ITV Tyne Tees",
-		6110: "ITV Border",
-		6020: "ITV Wales",
+
+		# +1 Channels
 		6012: "ITV +1 Wales",
 		6065: "ITV +1 Yorkshire",
 		6125: "ITV +1 West Country",
@@ -397,17 +395,22 @@ except:
 		6155: "ITV +1 London",
 		6355: "ITV +1 Granada",
 		6365: "ITV +1 Meridian",
-		6210: "STV Grampian",
-		6220: "STV Scotland West",
-		6230: "UTV",
-		6371: "STV Scotland East",
-		6500: "ITV Yorkshire West HD",
+
+		# HD Channels
+		1043: "ITV Tyne Tees HD",
+		1044: "ITV Yorkshire HD",
+		1045: "ITV Anglia HD",
+		1061: "ITV Border England HD",
+		1062: "ITV Westcountry West HD",
+		1063: "ITV Westcountry SW HD",
+		2296: "S4C HD",
+		4055: "STV HD",
 		6501: "ITV Wales HD",
 		6502: "ITV Meridian South HD",
 		6503: "ITV Central West HD",
 		6504: "ITV London HD",
 		6505: "ITV Granada HD",
-		6510: "UTV HD"
+		6510: "UTV HD",
 	}
 
 	rename = {
@@ -459,7 +462,7 @@ except:
 		1027, # 10001
 	]
 
-#Some channels are FTA, but tables are wrong	
+#Some channels are FTA, but tables are wrong
 	fta_by_id = [
 		5237, # TRT World HD
 	]
