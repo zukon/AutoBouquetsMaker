@@ -156,12 +156,24 @@
 	</swapchannels>
 	<servicehacks>
 <![CDATA[
-blacklist = ['ARY Digital','ARY News UK','BBC THREE','Bike','Channel Moved','hayu','L Pack Tier 4','M Pack Tier 1','More TV Pack Tier 2','M+ Pack Tier 3','Netflix','PIN Protection Help', 'S4C HD','The Africa Channel','XL Pack Tier 5','Vevo','Worldbox','YouTube']
-#Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
 
-bt_sports_xtra = ["BT Sport Extra 0","BT Sport Extra 1","BT Sport Extra 2","BT Sport Extra 3","BT Sport Extra 4","BT Sport Extra 5","BT Sport Extra 6"]
+try:
+	is_assigned
+except:
+	is_assigned = True
+	
+	dxNoSDT = 0x1 # details of lamedb flags are in README.txt
+	dxHoldName = 0x8 # details of lamedb flags are in README.txt
+	
+	flags = dxNoSDT | dxHoldName
+	provider = "Virgin Media"
 
-fta_corrections = []
+	blacklist = ['ARY Digital','ARY News UK','BBC THREE','Bike','Channel Moved','hayu','L Pack Tier 4','M Pack Tier 1','More TV Pack Tier 2','M+ Pack Tier 3','Netflix','PIN Protection Help', 'S4C HD','The Africa Channel','XL Pack Tier 5','Vevo','Worldbox','YouTube']
+	#Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
+
+	bt_sports_xtra = ["BT Sport Extra 0","BT Sport Extra 1","BT Sport Extra 2","BT Sport Extra 3","BT Sport Extra 4","BT Sport Extra 5","BT Sport Extra 6"]
+
+	fta_corrections = []
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
@@ -196,6 +208,10 @@ if service["service_name"].startswith("SptsETV"):
 #Some encrypted channels are wrongly flagged as FTA.
 if service["service_name"] in fta_corrections:
 	service["free_ca"] = 1
+
+service["service_flags"] = flags
+service["provider_name"] = provider
+
 ]]>
 	</servicehacks>
 </provider>

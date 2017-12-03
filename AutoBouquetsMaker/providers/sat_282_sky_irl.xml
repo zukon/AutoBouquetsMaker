@@ -78,6 +78,8 @@ except:
 	is_assigned = True
 	custom = True if "custom" in bouquet_key else False
 
+	dxHoldName = 0x8 # details of lamedb flags are in README.txt
+
 	# slot some extra channels into vacant slots in the provider list if "custom" == True
 	########################################################################
 	#
@@ -268,11 +270,15 @@ if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["servic
 
 # Rename channels
 if "channel_id" in service and service["channel_id"] in rename:
-	service["interactive_name"] = rename[service["channel_id"]]
+	service["interactive_name"] = rename[service["channel_id"]] # left for backwards compatibility
+	service["service_name"] = rename[service["channel_id"]]
+	service["service_flags"] = dxHoldName
 
 # Rename ITV channels
 if "channel_id" in service and service["channel_id"] in itv_rename:
-	service["interactive_name"] = itv_rename[service["channel_id"]]
+	service["interactive_name"] = itv_rename[service["channel_id"]] # left for backwards compatibility
+	service["service_name"] = itv_rename[service["channel_id"]]
+	service["service_flags"] = dxHoldName
 
 # Remove encrypted services from certain transport streams
 if custom and service["service_type"] != 2 and service["transport_stream_id"] in broken_TSIDS and service["free_ca"] != 0:
