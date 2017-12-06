@@ -600,15 +600,7 @@ class BouquetsWriter():
 				if number in swapDict:
 					number = swapDict[number]
 				if number in services["video"] and number not in bouquets_to_hide:
-					current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
-							services["video"][number]["service_type"],
-							services["video"][number]["service_id"],
-							services["video"][number]["transport_stream_id"],
-							services["video"][number]["original_network_id"],
-							services["video"][number]["namespace"]
-						))
-					if "interactive_name" in services["video"][number]:
-						current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
+					current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
 				else:
 					current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
 					current_bouquet_list.append("#DESCRIPTION  \n")
@@ -668,15 +660,7 @@ class BouquetsWriter():
 					if todo and number >= todo:
 						if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and (provider_config.isMakeHDMain() or (provider_config.isMakeFTAHDMain() and 'free_ca' in services["video"][number] and services["video"][number]["free_ca"] == 0)):
 							current_number += 1
-							current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
-									services["video"][number]["service_type"],
-									services["video"][number]["service_id"],
-									services["video"][number]["transport_stream_id"],
-									services["video"][number]["original_network_id"],
-									services["video"][number]["namespace"]
-								))
-							if "interactive_name" in services["video"][number]:
-								current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
+							current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
 
 					if current_number == higher_number - 1:
 						break
@@ -740,15 +724,7 @@ class BouquetsWriter():
 					if number in swapDict:
 						number = swapDict[number]
 					if number in services["video"] and section_number not in bouquets_to_hide:
-						current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
-								services["video"][number]["service_type"],
-								services["video"][number]["service_id"],
-								services["video"][number]["transport_stream_id"],
-								services["video"][number]["original_network_id"],
-								services["video"][number]["namespace"]
-							))
-						if "interactive_name" in services["video"][number]:
-							current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
+						current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
 						current_number += 1
 					elif force_keep_numbers:
 						current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
@@ -822,15 +798,7 @@ class BouquetsWriter():
 				if todo and number >= todo:
 					if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES:
 						current_number += 1
-						current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
-								services["video"][number]["service_type"],
-								services["video"][number]["service_id"],
-								services["video"][number]["transport_stream_id"],
-								services["video"][number]["original_network_id"],
-								services["video"][number]["namespace"]
-							))
-						if "interactive_name" in services["video"][number]:
-							current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
+						current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
 
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
 				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
@@ -882,15 +850,7 @@ class BouquetsWriter():
 				if todo and number >= todo:
 					if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and 'free_ca' in services["video"][number] and services["video"][number]["free_ca"] == 0:
 						current_number += 1
-						current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
-								services["video"][number]["service_type"],
-								services["video"][number]["service_id"],
-								services["video"][number]["transport_stream_id"],
-								services["video"][number]["original_network_id"],
-								services["video"][number]["namespace"]
-							))
-						if "interactive_name" in services["video"][number]:
-							current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
+						current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
 
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
 				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
@@ -933,15 +893,7 @@ class BouquetsWriter():
 				if todo and number >= todo:
 					if number in services["video"] and 'free_ca' in services["video"][number] and services["video"][number]["free_ca"] == 0 and number not in bouquets_to_hide:
 						current_number += 1
-						current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
-								services["video"][number]["service_type"],
-								services["video"][number]["service_id"],
-								services["video"][number]["transport_stream_id"],
-								services["video"][number]["original_network_id"],
-								services["video"][number]["namespace"]
-							))
-						if "interactive_name" in services["video"][number]:
-							current_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(services["video"][number]["interactive_name"]))
+						current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
 
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
 				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
@@ -962,13 +914,7 @@ class BouquetsWriter():
 			higher_number = sorted(services["radio"].keys())[-1]	# the highest number!
 			for number in range(1, higher_number + 1):
 				if number in services["radio"]:
-					current_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
-							services["radio"][number]["service_type"],
-							services["radio"][number]["service_id"],
-							services["radio"][number]["transport_stream_id"],
-							services["radio"][number]["original_network_id"],
-							services["radio"][number]["namespace"]
-						))
+					current_bouquet_list.append(self.bouquetServiceLine(services["radio"][number]))
 				else:
 					current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
 					current_bouquet_list.append("#DESCRIPTION  \n")
@@ -978,6 +924,16 @@ class BouquetsWriter():
 		del current_bouquet_list
 
 		print>>log, "[ABM-BouquetsWriter] Done"
+
+	def bouquetServiceLine(self, service):
+		return "#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n%s" % (
+			service["service_type"],
+			service["service_id"],
+			service["transport_stream_id"],
+			service["original_network_id"],
+			service["namespace"],
+			(("#DESCRIPTION %s\n" % self.utf8_convert(service["interactive_name"])) if "interactive_name" in service else "")
+		)
 
 	def utf8_convert(self, text):
 		for encoding in ["utf8","latin-1"]:
