@@ -476,13 +476,13 @@ class AutoBouquetsMaker(Screen):
 			print>>log, "[ABM-main][checkTunerLock] LOSTLOCK"
 		elif dict["tuner_state"] == "FAILED":
 			print>>log, "[ABM-main][checkTunerLock] TUNING FAILED FATAL"
-			self.showError(_('Failed to tune %s on tuner %s.\nPlease check the tuner is correctly configured.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid)))
+			self.showError(_('Failed to tune %s on tuner %s.\n\nPlease check the following:\nThe tuner is correctly configured.\nYou can receive the specified frequency.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid)))
 			return
 
 		self.lockcounter += 1
 		if self.lockcounter > self.LOCK_TIMEOUT:
 			print>>log, "[AutoBouquetsMaker] Timeout for tuner lock, "
-			self.showError(_('Timed out tuning %s on tuner %s.\nPlease check the tuner is correctly configured.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid)))
+			self.showError(_('Timed out tuning %s on tuner %s.\n\nPlease check the following:\nThe tuner is correctly configured.\nYou can receive the specified frequency.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid)))
 			return
 
 		self.locktimer.start(100, 1)
