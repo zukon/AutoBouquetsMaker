@@ -926,12 +926,13 @@ class BouquetsWriter():
 		print>>log, "[ABM-BouquetsWriter] Done"
 
 	def bouquetServiceLine(self, service):
-		return "#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n%s" % (
+		return "#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:%s\n%s" % (
 			service["service_type"],
 			service["service_id"],
 			service["transport_stream_id"],
 			service["original_network_id"],
 			service["namespace"],
+			(("%s:%s" % (service["stream"], self.utf8_convert(service["service_name"]))) if "stream" in service else ""),
 			(("#DESCRIPTION %s\n" % self.utf8_convert(service["interactive_name"])) if "interactive_name" in service else "")
 		)
 

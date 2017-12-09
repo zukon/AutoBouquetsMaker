@@ -214,9 +214,22 @@ bouquets. The "insert" lines have 3 attributes, "provider", "source", and "targe
 key of provider from which the channel is being imported. See below for a list of provider keys. "source" 
 is the channel number being imported. And "target" is the slot in the favourites into which that channel 
 will be inserted. Each channel that is to be moved requires an "insert" line. 
-"main" has a value of 0 or 1. "0" means no main bouquet will be created and "1" that one will. Same for 
-"sections". If "bouquets" -> "sections" is enabled the favourites list will be divided up into sections 
-bouquets as per the section numbers above. All tags in the above example a necessary to get this working.
+
+"bouquets" -> "main" has a value of 0 or 1. "0" means no main bouquet will be created and "1" that one 
+will. Same for "bouquets" -> "sections". If "bouquets" -> "sections" is enabled the favourites list will 
+be divided up into sections bouquets as per the section numbers above. 
+
+All tags in the above example are necessary to get this working.
+
+By default the favourites bouquet preceeds all other ABM bouquets, but it is also possible to place it after 
+another provider. Use a placement tag to do this and just add the number of the provider you want it to follow.
+
+<favourites>
+	<!-- default fields go here as in above example -->
+	<placement>2</placement>
+</favourites>
+
+
 
 
 ----------------------------------------------------------------------------------------------
@@ -242,6 +255,23 @@ file.
 
 "Hacks" is provided for those with the ability to use it and there will only be basic support 
 for this feature.
+
+----------------------------------------------------------------------------------------------
+
+Streams
+-------
+
+"Streams" is available in "CustomMix". Sometimes a channel may not be available to you, e.g. you might 
+be outside the satellite footprint, but you can access it via a stream. In these cases use a "stream" 
+tag. Streams can only be attached to channels that actully exist in your bouquet (otherwise the EPG 
+would not work). You cannot attach streams to empty slots. "url" may be an encoded or non encoded url. 
+"Target" is the number of the channel you wish to attach the url stream to.
+
+<custommix>
+	<streams>
+        <stream url="http://stream.source:port/live/username/F36/password/308.ts" target="118" />
+    </streams>
+</custommix>
 
 ----------------------------------------------------------------------------------------------
 

@@ -3,6 +3,7 @@ import os, codecs, re
 import xml.dom.minidom
 from Components.config import config
 from dvbscanner import DvbScanner
+from urllib import quote, unquote
 
 class Tools():
 	def parseXML(self, filename):
@@ -162,6 +163,25 @@ class Tools():
 									target = int(node2.attributes.item(i).value)
 							if provider and source and target and provider in services and source in services[provider]["video"]:
 								customised["video"][target] = services[provider]["video"][source]
+
+				# experimental, to replace unavailable services with streams
+				elif node.tagName == "streams":
+					for node2 in node.childNodes:
+						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "stream":
+							url = ''
+							target = ''
+							for i in range(0, node2.attributes.length):
+								if node2.attributes.item(i).name == "url":
+									url = node2.attributes.item(i).value.encode("utf-8")
+									breakout = 10 # break loop if something goes wrong
+									while breakout > 0 and "%" in url[:10]: # remove multi url encoding if present
+										url = unquote(url)
+										breakout -= 1
+									url = quote(url) # single encode url
+								elif node2.attributes.item(i).name == "target":
+									target = int(node2.attributes.item(i).value)
+							if url and target and target in customised["video"]: # must be a current service
+								customised["video"][target]["stream"] = url
 
 				elif node.tagName == "deletes":
 					for node2 in node.childNodes:
