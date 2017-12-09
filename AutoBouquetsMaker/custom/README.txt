@@ -269,8 +269,8 @@ would not work). You cannot attach streams to empty slots. "url" may be an encod
 
 <custommix>
 	<streams>
-        <stream url="http://stream.source:port/live/username/F36/password/308.ts" target="118" />
-    </streams>
+		<stream url="http://stream.source:port/live/username/F36/password/308.ts" target="118" />
+	</streams>
 </custommix>
 
 ----------------------------------------------------------------------------------------------
