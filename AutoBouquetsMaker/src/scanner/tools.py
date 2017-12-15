@@ -3,7 +3,7 @@ import os, codecs, re
 import xml.dom.minidom
 from Components.config import config
 from dvbscanner import DvbScanner
-from urllib import quote, unquote
+from urllib import quote
 
 class Tools():
 	def parseXML(self, filename):
@@ -176,11 +176,8 @@ class Tools():
 									name = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "url":
 									url = node2.attributes.item(i).value.encode("utf-8")
-									for x in range(2): # remove url multi encoding. Max, 2 attempts.
-										if "%" not in url[:10]:
-											break
-										url = unquote(url)
-									url = quote(url) # single encode url
+									if "%" not in url[:10]: # url not encoded
+										url = quote(url) # single encode url
 								elif node2.attributes.item(i).name == "target":
 									target = int(node2.attributes.item(i).value)
 							if url and target and target in customised["video"]: # must be a current service
