@@ -316,6 +316,7 @@
 		<channel number="786" with="860" /><!-- Colors HD -->
 		<channel number="795" with="853" /><!-- &TV HD -->
 		<channel number="798" with="867" /><!-- SONY MAX HD -->
+		<channel number="809" with="868" /><!-- Star GOLD HD -->
 	</swapchannels>
 	<servicehacks>
 <![CDATA[
@@ -424,14 +425,6 @@ except:
 		5385: "BT Sport Extra 5",
 		5386: "BT Sport Extra 6",
 
-		# Other channels
-
-		# RoI Sports channels
-		1309: "Sky Sports 1 RoI",
-		1308: "Sky Sports 2 RoI",
-		1323: "Sky Sports 3 RoI",
-		1324: "Sky Sports 4 RoI",
-		1312: "Sky Sports 5 RoI"
 	}
 
 	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD',752,'BoxNation HD']

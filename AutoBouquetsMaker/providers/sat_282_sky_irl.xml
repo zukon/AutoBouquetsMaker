@@ -68,7 +68,8 @@
 		<channel number="614" with="634" /><!-- CBeebies HD -->
 		<channel number="786" with="860" /><!-- Colors HD -->
 		<channel number="795" with="853" /><!-- &TV HD -->
-		<channel number="801" with="856" /><!-- TV Record HD -->
+		<channel number="798" with="867" /><!-- SONY MAX HD -->
+		<channel number="809" with="868" /><!-- Star GOLD HD -->
 	</swapchannels>
 	<servicehacks>
 <![CDATA[
@@ -89,7 +90,7 @@ except:
 	#
 	########################################################################
 
-	channels_to_add = {	
+	channels_to_add = {
 	}
 
 	channels_to_add_by_id = {
@@ -122,7 +123,7 @@ except:
 		2011: 503, # BBC News
 		2072: 504, # BBC Parliament
 		2085: 570, # BBC News HD
-		2078: 633, # CBBC HD	
+		2078: 633, # CBBC HD
 		2088: 634, # CBeebies HD
 		#slow death section
 		3705: 112, # ComedyCentral
@@ -246,7 +247,7 @@ except:
 		1027, # 10001
 	]
 
-#Some channels are FTA, but tables are wrong	
+#Some channels are FTA, but tables are wrong
 	fta_by_id = [
 		5237, # TRT World HD
 	]
