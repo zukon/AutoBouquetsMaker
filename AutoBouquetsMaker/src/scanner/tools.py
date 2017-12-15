@@ -170,18 +170,23 @@ class Tools():
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "stream":
 							url = ''
 							target = ''
+							name = ''
 							for i in range(0, node2.attributes.length):
-								if node2.attributes.item(i).name == "url":
+								if node2.attributes.item(i).name == "name":
+									name = node2.attributes.item(i).value.encode("utf-8")
+								elif node2.attributes.item(i).name == "url":
 									url = node2.attributes.item(i).value.encode("utf-8")
-									breakout = 10 # break loop if something goes wrong
-									while breakout > 0 and "%" in url[:10]: # remove multi url encoding if present
+									for x in range(2): # remove url multi encoding. Max, 2 attempts.
+										if "%" not in url[:10]:
+											break
 										url = unquote(url)
-										breakout -= 1
 									url = quote(url) # single encode url
 								elif node2.attributes.item(i).name == "target":
 									target = int(node2.attributes.item(i).value)
 							if url and target and target in customised["video"]: # must be a current service
 								customised["video"][target]["stream"] = url
+							elif name and url and target and target not in customised["video"]: # non existing service
+								customised["video"][target] = {'service_id': 0, 'transport_stream_id': 0, 'original_network_id': 0, 'namespace': 0, 'service_name': name, 'number': target, 'numbers': [target], 'free_ca': 0, 'service_type': 1, 'stream': url}
 
 				elif node.tagName == "deletes":
 					for node2 in node.childNodes:
