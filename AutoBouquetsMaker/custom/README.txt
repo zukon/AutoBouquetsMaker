@@ -4,8 +4,9 @@ Contents:
 2) CustomMix
 3) Favourites
 4) Hacks
-5) Provider keys
-6) lamedb format explained
+5) Streams
+6) Provider keys
+7) lamedb format explained
 
 ---------------------------------------------------------------------------------------------- 
 
@@ -85,7 +86,7 @@ also new services from the provider will be added at the end of the channel list
 will be shown in the ABM log.
 
 Changing 'channel numbers'.
-If you wants your own numbering, edit the lcn numbers. lcn numbers should be in order to avoid errors!!
+If you want your own numbering, edit the lcn numbers. lcn numbers should be in order to avoid errors!!
 <custom>
 	<include>no</include>
 	<lcnlist>
@@ -135,13 +136,13 @@ Your lcn numbering should match sections. In this example you can add a custom s
 CustomMix
 ---------
 
-CustomMiX allows tv channels from one provider to be added to the bouquets of another provider. 
+CustomMiX allows TV channels from one provider to be added to the bouquets of another provider. 
 This is great if you mainly use one provider but want to add a few channels from other providers 
 but don't want to create a complete list for the other provider. All providers that you want to 
 receive channels from must be included in every ABM scan but if you don't want complete bouquets 
 from that provider just set all the bouquet creation options to no.
 
-For each provider you wish to add channels to you need to add an xml configuration file. The xml
+For each provider you wish to add channels to, you need to add an xml configuration file. The xml
 configuration files reside in /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom 
 and filenames are made up as follows... "provider_key_CustomMix.xml", e.g. for Sky UK the filename 
 would be "sat_282_sky_uk_CustomMix.xml". For other providers please consult the list of provider 
@@ -159,15 +160,17 @@ This is an example xml configuration file for Sky UK. Filename as above.
 	</deletes>
 </custommix>
 
-The "insert" lines are what do the work but all the tags must be present. The "insert" line has 3 
-attributes, "provider", "source", and "target". "provider" is the key of provider from which the 
-channel is being imported. See below for a list of provider keys. "source" is the channel number 
-being imported. And "target" is the slot in the Sky UK bouquet into which that channel will be 
-inserted. Each channel that is to be moved requires an "insert" line.
+The "insert" lines are what do the work but all the tags must be present.
+The "insert" line has 3 attributes, "provider", "source", and "target".
 
-"Delete" lines allow you to remove individual channels from the provider you are customising. Just 
+"provider" is the key of provider from which the channel is being imported. See below for a list of provider keys.
+"source" is the channel number being imported.
+"target" is the slot in the Sky UK bouquet into which that channel will be inserted.
+
+Each channel that is to be moved requires an "insert" line.
+
+"Delete" lines allow you to remove individual channels from the provider you are customising. Just
 set "target" to the number of the channel you want to remove and it will disappear on the next scan.
-
 
 ---------------------------------------------------------------------------------------------- 
 
@@ -180,8 +183,8 @@ changes to service references and transponder parameters but obviously it is not
 if new channels start broadcasting, so any new channels you want in the list must be added manually.
 
 Channels selected for the favourites list can come from any providers that are being scanned, and these 
-providers must be scanned on every ABM run. The filename of the configuration file is:
-/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom/favourites.xml
+providers must be scanned on every ABM run. The filename of the configuration file is "favourites.xml"
+It must be placed in: /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom/
 
 Here is an example favourites.xml file.
 
@@ -261,16 +264,37 @@ for this feature.
 Streams
 -------
 
-"Streams" is available in "CustomMix". Sometimes a channel may not be available to you, e.g. you might 
-be outside the satellite footprint, but you can access it via a stream. In these cases use a "stream" 
-tag. Streams can only be attached to channels that actully exist in your bouquet (otherwise the EPG 
-would not work). You cannot attach streams to empty slots. "url" may be an encoded or non encoded url. 
-"Target" is the number of the channel you wish to attach the url stream to.
+"Streams" is available in "CustomMix". Sometimes a channel may not be available to you, e.g. you might be
+outside the satellite footprint, but you can access it via a stream. In these cases use a "stream" tag. 
+
+"url" may be an encoded or non encoded url.
+"target" is the number of the channel you wish to attach the url stream to.
+"name" is the name to be used for the stream service. (Only used when adding to empty LCN slots).
+
+To replace a DVB service, the layout would be as below.
+The name and service reference will be the same as the DVB service. This will allow EPG data and picons to also work for the stream.
 
 <custommix>
 	<streams>
 		<stream url="http://stream.source:port/live/username/F36/password/308.ts" target="118" />
 	</streams>
+</custommix>
+
+You can also add streams into empty LCN slots. As these do not have a name from the DVB source, it has to be specified.
+When inserting streams into empty LCN slots, the service reference will be "1:0:1:0:0:0:0:0:0:0:".
+EPG will not work becuase of this.
+
+In this example we have added a section/bouquet too.
+
+<custommix>
+    <sections>
+        <section number="700">IPTV</section>
+    </sections>
+
+    <streams>
+        <stream url="http://stream.source:port/live/username/F36/password/308.ts" target="701" name="our name 1" />
+        <stream url="http://stream.source:port/live/username/F36/password/309.ts" target="702" name="our name 2" />
+    </streams>
 </custommix>
 
 ----------------------------------------------------------------------------------------------
@@ -432,7 +456,7 @@ Header Line:
 	
 Transponders section:
 	Section starts with a line transponders.
-	Followed by a DVB line and transponder data line tuples. The DVB data line starts at col 0, the transponder data line immediatly follows and starts with a <TAB>.
+	Followed by a DVB line and transponder data line tuples. The DVB data line starts at col 0, the transponder data line immediately follows and starts with a <TAB>.
 	Lines starting at col0 contains three fields encoded in hexadecimal:
 
 		DVB namespace
