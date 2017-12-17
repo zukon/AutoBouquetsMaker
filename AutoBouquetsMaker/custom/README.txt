@@ -302,104 +302,95 @@ In this example we have added a section/bouquet too.
 Provider keys
 -------------
 
-Provider name: HD Austria
-Provider key: sat_235_austriasat
+Provider name: HD Austria 					Provider key: sat_235_austriasat				protocol: fastscan
 
-Provider name: HD Austria
-Provider key: sat_192_austriasat
+Provider name: HD Austria					Provider key: sat_192_austriasat				protocol: fastscan
 
-Provider name: AustriaSat 9E
-Provider key: sat_90_austriasat
+Provider name: Bis TV						Provider key: sat_0130_bistv					protocol: lcnbat
 
-Provider name: Bis TV 13E
-Provider key: sat_0130_bistv
+Provider name: Bis TV HD					Provider key: sat_3550_bistv					protocol: lcnbat
 
-Provider name: Canal Digitaal HD
-Provider key: sat_192_canaldigitaal_hd
+Provider name: CanalSat France				Provider key: sat_192_canalsat					protocol: lcnbat2
 
-Provider name: Canal Digitaal SD
-Provider key: sat_192_canaldigitaal_sd
+Provider name: Canal Digitaal HD			Provider key: sat_192_canaldigitaal_hd			protocol: fastscan
 
-Provider name: Canal Digitaal HD
-Provider key: sat_235_canaldigitaal_hd
+Provider name: Canal Digitaal HD			Provider key: sat_235_canaldigitaal_hd			protocol: fastscan
 
-Provider name: Canal Digitaal SD
-Provider key: sat_235_canaldigitaal_sd
+Provider name: Canal Digital Nordic			Provider key: sat_3592_canal_digital_nordic 	protocol: lcn
 
-Provider name: Canal+ Esp
-Provider key: sat_192_canal_plus_esp
+Provider name: Com Hem						Provider key: cable_swe							protocol: lcn
 
-Provider name: Com Hem
-Provider key: cable_swe
+Provider name: D-Smart						Provider key: sat_420_d-smart					protocol: lcnbat
 
-Provider name: FranSat
-Provider key: sat_3550_fransat
+Provider name: Deutsche Sender				Provider key: sat_192_de_PSB1					protocol: lcn
 
-Provider name: FreeSat UK
-Provider key: sat_282_freesat
+Provider name: DigiTV						Provider key: sat_3592_digi_tv					protocol: lcnbat2
 
-Provider name: FreeView (UK)
-Provider key: terrestrial_uk_freeview
+Provider name: Diveo						Provider key: sat_192_diveo						protocol: fastscan
 
-Provider name: HD+ (DE)
-Provider key: sat_0192_hd+
+Provider name: Diveo						Provider key: sat_235_diveo						protocol: fastscan
 
-Provider name: Kabel (NL)
-Provider key: cable_nl
+Provider name: FranSat						Provider key: sat_3550_fransat					protocol: lcnbat2
 
-Provider name: NL Terrestrial
-Provider key: terrestrial_NL_bouquet1
+Provider name: FreeSat UK					Provider key: sat_282_freesat					protocol: freesat
 
-Provider name: Saorsat
-Provider key: sat_0090_saorsat
+Provider name: FreeView (UK)				Provider key: terrestrial_uk_freeview			protocol: lcn
 
-Provider name: Saorview (IE)
-Provider key: terrestrial_ie_saorview_PSB1
+Provider name: HD+							Provider key: sat_0192_hd+						protocol: lcn
 
-Provider name: Sky Deutschland
-Provider key: sat_192_sky_deutschland
+Provider name: Joyne						Provider key: sat_0090_joyne_1					protocol: lcnbat
 
-Provider name: Sky Italia
-Provider key: sat_130_sky_italy
+Provider name: Kabel (NL)					Provider key: cable_nl							protocol: lcn
 
-Provider name: Sky ROI
-Provider key: sat_282_sky_irl
+Provider name: Movistar+ Esp				Provider key: sat_192_movistar_plus_esp			protocol: lcnbat2
 
-Provider name: Sky UK
-Provider key: sat_282_sky_uk
+Provider name: NC+							Provider key: sat_130_ncplus					protocol: lcnbat
 
-Provider name: Skylink Czech Republic
-Provider key: sat_235_skylink_czech_republic
+Provider name: NL Terrestrial				Provider key: terrestrial_NL_bouquet1			protocol: lcn
 
-Provider name: Skylink Slovak Republic
-Provider key: sat_235_skylink_slovak_republic
+Provider name: Nova							Provider key: Novasat_130_nova					protocol: lcnbat
 
-Provider name: TéléSAT
-Provider key: sat_192_telesat
+Provider name: Saorsat						Provider key: sat_0090_saorsat					protocol: lcn
 
-Provider name: TeleSAT
-Provider key: sat_235_telesat
+Provider name: Saorview						Provider key: terrestrial_ie_saorview_PSB1		protocol: lcn
 
-Provider name: Tivusat
-Provider key: sat_130_tivusat
+Provider name: Sky Deutschland				Provider key: sat_192_sky_deutschland			protocol: nolcn
 
-Provider name: TNTSat
-Provider key: sat_192_tntsat
+Provider name: Sky Italia					Provider key: sat_130_sky_italy					protocol: sky
 
-Provider name: Turksat
-Provider key: sat_420_turksat
+Provider name: Sky ROI						Provider key: sat_282_sky_irl					protocol: sky
 
-Provider name: TV Vlaanderen
-Provider key: sat_192_tvvlaanderen
+Provider name: Sky UK						Provider key: sat_282_sky_uk					protocol: sky
 
-Provider name: TV Vlaanderen
-Provider key: sat_235_tvvlaanderen
+Provider name: Skylink Czech Republic		Provider key: sat_235_skylink_czech_republic	protocol: fastscan
 
-Provider name: Virgin IE
-Provider key: cable_ie_mk2
+Provider name: Skylink Slovak Republic		Provider key: sat_235_skylink_slovak_republic	protocol: fastscan
 
-Provider name: Virgin (UK)
-Provider key: cable_uk_virgin
+Provider name: Telekom Romania				Provider key: sat_390_telekom_romania			protocol: lcnbat2
+
+Provider name: TéléSAT						Provider key: sat_192_telesat					protocol: fastscan
+
+Provider name: TéléSAT						Provider key: sat_235_telesat					protocol: fastscan
+
+Provider name: Tivusat						Provider key: sat_130_tivusat					protocol: lcn2
+
+Provider name: TNT SAT						Provider key: sat_192_tntsat					protocol: lcnbat2
+
+Provider name: Turksat						Provider key: sat_420_turksat					protocol: nolcn
+
+Provider name: TV Vlaanderen				Provider key: sat_192_tvvlaanderen				protocol: fastscan
+
+Provider name: TV Vlaanderen				Provider key: sat_235_tvvlaanderen				protocol: fastscan
+
+Provider name: UPC							Provider key: sat_3592_upc						protocol: lcnbat2
+
+Provider name: Viasat						Provider key: sat_48_viasat						protocol: lcnbat
+
+Provider name: Vivacom						Provider key: sat_450_vivacom					protocol: lcnbat
+
+Provider name: Virgin IE					Provider key: cable_ie_mk2						protocol: vmuk2
+
+Provider name: Virgin (UK)					Provider key: cable_uk_virgin					protocol: vmuk
 
 ----------------------------------------------------------------------------------------------
 Available transponder (Satellite) parameters in provider files:
