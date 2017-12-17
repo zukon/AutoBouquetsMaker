@@ -1,15 +1,14 @@
 SUMMARY = "Automatically build and update bouquets from the DVB stream."
 DESCRIPTION = "Automatically build and update bouquets from the DVB stream."
 MAINTAINER = "oe-alliance team"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
-inherit autotools-brokensep gitpkgv pythonnative
+inherit autotools-brokensep gitpkgv pythonnative gettext
 
 SRCREV = "${AUTOREV}"
-PV = "2.1+git${SRCPV}"
-PKGV = "2.1+git${GITPKGV}"
+PV = "2.9+git${SRCPV}"
+PKGV = "2.9+git${GITPKGV}"
 PR = "r1"
 
 SRC_URI = "git://github.com/oe-alliance/AutoBouquetsMaker.git;protocol=git"
@@ -24,6 +23,8 @@ EXTRA_OECONF = " \
 S = "${WORKDIR}/git"
 
 DEPENDS = "enigma2"
+
+INSANE_SKIP_${PN} += "already-stripped ldflags"
 
 python populate_packages_prepend() {
     enigma2_plugindir = bb.data.expand('${libdir}/enigma2/python/Plugins', d)
@@ -43,6 +44,22 @@ if [ -f /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/provider
 	rm -f /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/providers/providers.cache > /dev/null 2>&1
 	echo "Cache file has been removed"
 else
-	echo "No cache file found"
+	echo "No cache file found, continuing."
 fi
+}
+
+pkg_postrm_${PN}_prepend() {
+#!/bin/sh
+
+echo "Remove ABM providers folder recursive if exists"
+rm -rf /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/providers > /dev/null 2>&1
+
+echo "Remove ABM EXAMPLE files."
+rm -f /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom/EXAMPLE* > /dev/null 2>&1
+
+echo "Remove ABM custom folder if empty."
+rm -f /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom > /dev/null 2>&1
+
+echo "Remove ABM folder if empty."
+rm -f /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker > /dev/null 2>&1
 }
