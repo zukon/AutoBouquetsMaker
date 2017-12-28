@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-07-04 16:37+0200\n"
+"PO-Revision-Date: 2017-12-27 21:35+0000\n"
 "Last-Translator: nunigaia\n"
 "Language-Team: BH Team\n"
 "Language: pt\n"
@@ -17,13 +17,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.5\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../src/about.py:25 ../src/menu.py:56 ../src/plugin.py:74 ../src/plugin.py:82
 #: ../src/scanner/main.py:47 ../src/scanner/main.py:109
 msgid "AutoBouquetsMaker"
-msgstr "Criador automático de bouquets"
+msgstr "Criador automático de buquês"
 
 #: ../src/about.py:25 ../src/menu.py:100
 msgid "About"
@@ -35,7 +35,7 @@ msgstr "Fechar"
 
 #: ../src/deletebouquets.py:35
 msgid "Are you sure you want to remove all bouquets created by ABM?"
-msgstr "Tem a certeza que deseja remover todos os bouquets criados por ABM?"
+msgstr "Tem a certeza que deseja remover todos os buquês criados por ABM?"
 
 #: ../src/hidesections.py:47
 msgid "AutoBouquetsMaker Hide sections"
@@ -57,7 +57,7 @@ msgstr "Deseja fechar sem Gravar as definições?"
 
 #: ../src/keepbouquets.py:48
 msgid "AutoBouquetsMaker Keep bouquets"
-msgstr "AutoBouquetsMaker manter bouquets"
+msgstr "AutoBouquetsMaker manter buquês"
 
 #: ../src/menu.py:78
 msgid "Exit"
@@ -85,7 +85,7 @@ msgstr "Esconder secções"
 
 #: ../src/menu.py:95
 msgid "Keep bouquets"
-msgstr "Manter bouquets"
+msgstr "Manter buquês"
 
 #: ../src/menu.py:96
 msgid "Start scan"
@@ -93,7 +93,7 @@ msgstr "Iniciar a procura"
 
 #: ../src/menu.py:97
 msgid "Delete bouquets"
-msgstr "Apagar bouquets"
+msgstr "Apagar buquês"
 
 #: ../src/menu.py:98
 msgid "Update config files"
@@ -155,55 +155,55 @@ msgstr "30 Dias"
 
 #: ../src/plugin.py:30 ../src/plugin.py:46
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 #: ../src/plugin.py:31 ../src/plugin.py:47
 msgid "indent + text"
-msgstr ""
+msgstr "avanço + texto"
 
 #: ../src/plugin.py:32 ../src/plugin.py:48
 msgid "<-- text -->"
-msgstr ""
+msgstr "<--texto-->"
 
 #: ../src/plugin.py:33 ../src/plugin.py:49
 msgid "< - - text - - >"
-msgstr ""
+msgstr "<- -texto- ->"
 
 #: ../src/plugin.py:34 ../src/plugin.py:50
 msgid "== text =="
-msgstr ""
+msgstr "== texto =="
 
 #: ../src/plugin.py:35 ../src/plugin.py:51
 msgid "= = text = ="
-msgstr ""
+msgstr "= = texto = ="
 
 #: ../src/plugin.py:36 ../src/plugin.py:52
 msgid "=== text ==="
-msgstr ""
+msgstr "=== texto ==="
 
 #: ../src/plugin.py:37 ../src/plugin.py:53
 msgid "= = = text = = ="
-msgstr ""
+msgstr "= = = texto = = ="
 
 #: ../src/plugin.py:38 ../src/plugin.py:54
 msgid "-------- text --------"
-msgstr ""
+msgstr "-------- texto --------"
 
 #: ../src/plugin.py:39 ../src/plugin.py:55
 msgid "== ABM - 'text' =="
-msgstr ""
+msgstr "== ABM - 'texto' =="
 
 #: ../src/plugin.py:40 ../src/plugin.py:56
 msgid "---- ABM - 'text' ----"
-msgstr ""
+msgstr "---- ABM - 'texto' ----"
 
 #: ../src/plugin.py:60
 msgid "Top"
-msgstr "cima"
+msgstr "Cima"
 
 #: ../src/plugin.py:60
 msgid "Bottom"
-msgstr "baixo"
+msgstr "Fundo"
 
 #: ../src/plugin.py:84
 msgid "AutoBouquetsMaker Scanner"
@@ -211,7 +211,7 @@ msgstr "AutoBouquetsMaker Scanner"
 
 #: ../src/scanner/bouquetswriter.py:489
 msgid "Last Scanned"
-msgstr ""
+msgstr "Última procura"
 
 #: ../src/scanner/bouquetswriter.py:562
 msgid "All channels"
@@ -239,7 +239,7 @@ msgstr "A iniciar procura"
 
 #: ../src/scanner/main.py:88
 msgid "Loading bouquets..."
-msgstr "A carregar bouquets..."
+msgstr "A carregar buquês..."
 
 #: ../src/scanner/main.py:89
 msgid "Services: 0 video - 0 radio"
@@ -251,7 +251,7 @@ msgstr "Por favor primeiro defina, em configuração"
 
 #: ../src/scanner/main.py:195
 msgid "Bouquets generation..."
-msgstr "Geração de bouquets..."
+msgstr "Geração de buquês..."
 
 #: ../src/scanner/main.py:196 ../src/scanner/main.py:210
 #: ../src/scanner/main.py:467 ../src/scanner/main.py:535
@@ -303,7 +303,7 @@ msgstr "A ler %s..."
 
 #: ../src/scanner/main.py:476
 msgid "Tuning failed fatal"
-msgstr ""
+msgstr "Fatal - Sintonia falhou"
 
 #: ../src/scanner/main.py:482
 msgid "Timeout for tuner lock"
@@ -322,7 +322,7 @@ msgid ""
 "Your bouquets are about to be updated,\n"
 "Do you want to allow this?"
 msgstr ""
-"Os seus bouquets estão em vias de ser atualizados.\n"
+"Os seus buquês estão em vias de ser atualizados.\n"
 "Permite que isto seja efetuado?"
 
 #: ../src/scanner/main.py:707
@@ -342,10 +342,8 @@ msgid "OK"
 msgstr "OK"
 
 #: ../src/setup.py:197
-#, fuzzy
-#| msgid "All channels"
 msgid "yes (all channels)"
-msgstr "Todos os Canais"
+msgstr "Sim (Todos os Canais)"
 
 #: ../src/setup.py:199
 msgid "yes (only HD)"
@@ -392,12 +390,12 @@ msgid ""
 "This affects all bouquets. Select 'no' to scan in all services. Select 'yes' "
 "to skip encrypted ones."
 msgstr ""
-"Isso afeta todos os bouquets. Selecione 'Não' para procurar em todos os "
+"Isso afeta todos os buquês. Selecione 'Não' para procurar em todos os "
 "serviços. Selecione 'Sim' para ignorar os codificados."
 
 #: ../src/setup.py:298
 msgid "generate main bouquet"
-msgstr "gerar bouquet principal"
+msgstr "gerar buquê principal"
 
 #: ../src/setup.py:298
 msgid ""
@@ -406,70 +404,70 @@ msgid ""
 "bouquet), \"Custom\", (allows you to select your own bouquet), \"No\", (do "
 "not use a main bouquet)"
 msgstr ""
-"Esta opção tem várias opções de \"Sim\", (criar um bouquet com todos os "
-"canais), \"só HD\", (agrupará todos os canais HD como um bouquet), "
-"\"Personalizado\", (permite que você selecione o seu próprio bouquet), \"Não"
-"\", (não usa um bouquet principal)"
+"Esta opção tem várias opções de \"Sim\", (criar um buquê com todos os "
+"canais), \"só HD\", (agrupará todos os canais HD como um buquê), "
+"\"Personalizado\", (permite que você selecione o seu próprio buquê), \"Não"
+"\", (não usa um buquê principal)"
 
 #: ../src/setup.py:301
 msgid "custom bouquet for main"
-msgstr "Customizar bouquet principal"
+msgstr "Customizar buquê principal"
 
 #: ../src/setup.py:301
 msgid ""
 "Select your own bouquet from the list, please note that the only the first "
 "100 channels for this bouquet will be used."
 msgstr ""
-"Selecione o seu bouquet na lista, por favor, note que unicamente os "
-"primeiros 100 canais para este bouquet serão usados."
+"Selecione o seu buquê na lista, por favor, note que unicamente os primeiros "
+"100 canais para este buquê serão usados."
 
 #: ../src/setup.py:304
 msgid "generate sections bouquets"
-msgstr "gerar secções de bouquets"
+msgstr "gerar secções de buquês"
 
 #: ../src/setup.py:304
 msgid ""
 "This option will create bouquets for each type of channel, ie Entertainment, "
 "Movies, Documentary."
 msgstr ""
-"Esta opção irá criar bouquets para cada tipo de canal, ou seja, "
+"Esta opção irá criar buquês para cada tipo de canal, ou seja, "
 "entretenimento, filmes, documentários."
 
 #: ../src/setup.py:307
 msgid "generate HD bouquet"
-msgstr "gerar bouquet HD"
+msgstr "gerar buquê HD"
 
 #: ../src/setup.py:307
 msgid ""
 "This option will create a High Definition bouquet, it will group all HD "
 "channels into this bouquet."
 msgstr ""
-"Esta opção irá criar um bouquet de alta definição, agrupará todos os canais "
-"HD como um bouquet."
+"Esta opção irá criar um buquê de alta definição, agrupará todos os canais HD "
+"como um buquê."
 
 #: ../src/setup.py:310
 msgid "generate FTA bouquet"
-msgstr "gerar bouquets Livres"
+msgstr "gerar buquês Livres"
 
 #: ../src/setup.py:310
 msgid ""
 "This option will create a FreeToAir bouquet, it will group all free channels "
 "into this bouquet."
 msgstr ""
-"Esta opção irá criar um bouquet FreeToAir, agrupará todos os canais livres "
-"como um bouquet."
+"Esta opção irá criar um buquê FreeToAir, agrupará todos os canais livres "
+"como um buquê."
 
 #: ../src/setup.py:313
 msgid "generate FTA HD bouquet"
-msgstr "gerar bouquet HD Livre"
+msgstr "gerar buquê HD Livre"
 
 #: ../src/setup.py:313
 msgid ""
 "This option will create a FreeToAir High Definition bouquet, it will group "
 "all FTA HD channels into this bouquet."
 msgstr ""
-"Esta opção irá criar um bouquet FreeToAir alta definição, agrupará todos os "
-"canais FTA HD como um bouquet."
+"Esta opção irá criar um buquê FreeToAir alta definição, agrupará todos os "
+"canais FTA HD como um buquê."
 
 #: ../src/setup.py:319 ../src/setup.py:328 ../src/setup.py:336
 msgid "swap channels"
@@ -525,65 +523,67 @@ msgstr "Defina o intervalo de repetição do agendamento."
 
 #: ../src/setup.py:519
 msgid "Keep all non-ABM bouquets"
-msgstr "Manter todos os bouquets não-ABM"
+msgstr "Manter todos os buquês não-ABM"
 
 #: ../src/setup.py:519
 msgid ""
 "When disabled this will enable the 'Keep bouquets' option in the main menu, "
 "allowing you to hide some 'existing' bouquets."
 msgstr ""
-"Quando desativado isso permitirá a opção 'Manter bouquets' no menu "
-"principal, permitindo que esconda alguns bouquets 'existentes'."
+"Quando desativado isso permitirá a opção 'Manter buquês' no menu principal, "
+"permitindo que esconda alguns buquês 'existentes'."
 
 #: ../src/setup.py:520
 msgid "Add provider prefix to bouquets"
-msgstr "Adicionar prefixo do operador aos bouquets"
+msgstr "Adicionar prefixo do operador aos buquês"
 
 #: ../src/setup.py:520
 msgid "This option will prepend the provider name to bouquet name."
-msgstr "Esta opção irá preceder o nome do operador ao nome do bouquet."
+msgstr "Esta opção irá preceder o nome do operador ao nome do buquê."
 
 #: ../src/setup.py:521
-#, fuzzy
-#| msgid "Providers order"
 msgid "Add provider markers"
-msgstr "Ordem de Operadores"
+msgstr "Adicionar marcadores de fornecedores"
 
 #: ../src/setup.py:521
 msgid ""
 "This option places markers in the bouquet index to group all bouquets of "
 "each provider."
 msgstr ""
+"Esta opção põe marcadores na indexação de buquê para agrupar todos os buquê "
+"de cada fornecedor."
 
 #: ../src/setup.py:523
 msgid "Style of provider marker"
-msgstr ""
+msgstr "Estilo do marcador do Fornecedor"
 
 #: ../src/setup.py:523
 msgid ""
 "Choose the style of markers that separate one provider from another in "
 "bouquet indexes."
 msgstr ""
+"Escolha o estilo de marcadores que separam um provedor do outro nos índices "
+"do buquê."
 
 #: ../src/setup.py:524
-#, fuzzy
-#| msgid "Place bouquets at"
 msgid "Style of bouquet marker"
-msgstr "Coloque os bouquets em"
+msgstr "Estilo de marcador de buquê"
 
 #: ../src/setup.py:524
 msgid ""
 "Choose the style of the markers that separate channels into groups in the "
 "channel lists."
 msgstr ""
+"Escolha o estilo dos marcadores que separam os canais em grupos nas listas "
+"de canais."
 
 #: ../src/setup.py:525
 msgid "Place bouquets at"
-msgstr "Coloque os bouquets em"
+msgstr "Coloque os buquês em"
 
 #: ../src/setup.py:525
 msgid "This option will allow you choose where to place the created bouquets."
-msgstr "Esta opção permitirá que escolha onde colocar os bouquets criados."
+msgstr "Esta opção permitirá que escolha onde colocar os buquês criados."
 
 #: ../src/setup.py:526
 msgid "Skip services on not configured sats"
@@ -631,7 +631,7 @@ msgstr "Mostrar em extensões"
 
 #: ../src/setup.py:529
 msgid "When enabled, allows you start a scan from the extensions list."
-msgstr "Quanto ativado, permite-lhe iniciar a procura da lista de extensões."
+msgstr "Quando ativado, permite-lhe iniciar a procura da lista de extensões."
 
 #: ../src/updateproviders.py:50 ../src/updateproviders.py:90
 msgid "UpdateProviders"
@@ -639,73 +639,66 @@ msgstr "Atualizar operadores"
 
 #: ../src/updateproviders.py:53
 msgid "Finding configured providers..."
-msgstr ""
+msgstr "A procurar fornecedores configurados..."
 
 #: ../src/updateproviders.py:98
 msgid "No providers configured."
 msgstr "Não existem operadores configurados!"
 
 #: ../src/updateproviders.py:121
-#, fuzzy
-#| msgid "Starting scanner"
 msgid "Starting update..."
-msgstr "A iniciar procura"
+msgstr "A iniciar a atualização..."
 
 #: ../src/updateproviders.py:122
 msgid "Checking version compatibility..."
-msgstr ""
+msgstr "Verificação de compatibilidade de versão..."
 
 #: ../src/updateproviders.py:135
-#, fuzzy
-#| msgid "No providers configured."
 msgid "No providers are configured."
-msgstr "Não existem operadores configurados!"
+msgstr "Não existem operadores configurados."
 
 #: ../src/updateproviders.py:145
 #, python-format
 msgid "Failed to retrieve version file. Error: %s %s"
-msgstr ""
+msgstr "Falha ao recuperar a versão do arquivo. Erro: %s %s"
 
 #: ../src/updateproviders.py:149 ../src/updateproviders.py:203
 #, python-format
 msgid ""
 "Network connection error: \n"
 "%s"
-msgstr ""
+msgstr "Erro de conexão de rede: %s"
 
 #: ../src/updateproviders.py:152 ../src/updateproviders.py:206
 msgid "Network connection error"
-msgstr ""
+msgstr "Erro de conexão de rede"
 
 #: ../src/updateproviders.py:161
 #, python-format
 msgid "Incompatible versions: %s > %s"
-msgstr ""
+msgstr "Versões incompatíveis: %s > %s"
 
 #: ../src/updateproviders.py:167
-#, fuzzy
-#| msgid "Cannot read data"
 msgid "Cannot read version"
-msgstr "Não pode ler a informação"
+msgstr "Não pode ler a versão"
 
 #: ../src/updateproviders.py:178
-#, fuzzy, python-format
-#| msgid "Unable to download config file for %s"
+#, python-format
 msgid "Retrieving config file for %s"
-msgstr "Impossível descarregar o ficheiro de configuração para %s"
+msgstr "Carregar o ficheiro de configuração para %s"
 
 #: ../src/updateproviders.py:179
 msgid "Downloading latest file from Github..."
-msgstr ""
+msgstr "Baixar o arquivo mais recente do Github..."
 
 #: ../src/updateproviders.py:194
 #, python-format
 msgid "Failed to retrieve file for %s. Error: %s %s"
-msgstr ""
+msgstr "Falha ao recuperar arquivo para %s. Erro: %s %s"
 
 #: ../src/updateproviders.py:195
 msgid "Failed..."
-msgstr ""
+msgstr "Falhou..."
 
 #: ../src/updateproviders.py:196
 #, python-format
@@ -714,52 +707,51 @@ msgstr "Impossível descarregar o ficheiro de configuração para %s"
 
 #: ../src/updateproviders.py:222 ../src/updateproviders.py:234
 #: ../src/updateproviders.py:243
-#, fuzzy, python-format
-#| msgid "Unable to download config file for %s"
+#, python-format
 msgid "Retrieved config file for %s"
-msgstr "Impossível descarregar o ficheiro de configuração para %s"
+msgstr "Carregado o ficheiro de configuração para %s"
 
 #: ../src/updateproviders.py:223
 #, python-format
 msgid "Config file for %s does not need updating"
-msgstr ""
+msgstr "Arquivo de configuração para %s não precisa de atualização"
 
 #: ../src/updateproviders.py:225
 #, python-format
 msgid "Config file for %s didn't need updating."
-msgstr ""
+msgstr "Arquivo de configuração para %s não precisou de atualização."
 
 #: ../src/updateproviders.py:235
 #, python-format
 msgid "Config file for %s has been updated"
-msgstr ""
+msgstr "Foi atualizado o arquivo de configuração para %s"
 
 #: ../src/updateproviders.py:237
 #, python-format
 msgid "Config file for %s has been updated."
-msgstr ""
+msgstr "Arquivo de configuração para %s foi atualizado."
 
 #: ../src/updateproviders.py:244
 #, python-format
 msgid "Config file for %s does not parse"
-msgstr ""
+msgstr "Não analisa o arquivo de configuração para %s"
 
 #: ../src/updateproviders.py:246
 #, python-format
 msgid "Retrieved config file for %s does not parse."
-msgstr ""
+msgstr "Arquivo de configuração obtida para %s não analisado."
 
 #: ../src/updateproviders.py:253
 #, python-format
 msgid "Retrieved provider file for %s"
-msgstr ""
+msgstr "Arquivo de provedor obtido para %s"
 
 #: ../src/updateproviders.py:254
 #, python-format
 msgid "Config file for %s is faulty"
-msgstr ""
+msgstr "Arquivo de configuração para %s está danificado"
 
 #: ../src/updateproviders.py:256
 #, python-format
 msgid "Retrieved config file for %s is faulty or incomplete."
-msgstr ""
+msgstr "Arquivo de configuração obtida por %s está danificado ou incompleto."
