@@ -63,13 +63,14 @@
 		<channel number="512" with="518" /><!-- RT HD -->
 		<channel number="514" with="691" /><!-- Al Jazeera HD -->
 		<channel number="519" with="693" /><!-- TRT World HD -->
-		<channel number="583" with="596" /><!-- Daystar HD -->
-		<channel number="613" with="633" /><!-- CBBC HD -->
-		<channel number="614" with="634" /><!-- CBeebies HD -->
+		<channel number="613" with="638" /><!-- CBBC HD -->
+		<channel number="614" with="639" /><!-- CBeebies HD -->
+		<channel number="782" with="866" /><!-- SONY TV HD -->
+		<channel number="784" with="808" /><!-- Star Plus HD -->
 		<channel number="786" with="860" /><!-- Colors HD -->
 		<channel number="795" with="853" /><!-- &TV HD -->
 		<channel number="798" with="867" /><!-- SONY MAX HD -->
-		<channel number="809" with="868" /><!-- Star GOLD HD -->
+		<channel number="809" with="839" /><!-- Star GOLD HD -->
 	</swapchannels>
 	<servicehacks>
 <![CDATA[
@@ -123,8 +124,8 @@ except:
 		2011: 503, # BBC News
 		2072: 504, # BBC Parliament
 		2085: 570, # BBC News HD
-		2078: 633, # CBBC HD
-		2088: 634, # CBeebies HD
+		2078: 638, # CBBC HD
+		2088: 639, # CBeebies HD
 		#slow death section
 		3705: 112, # ComedyCentral
 		2709: 128, # ComedyXtra
