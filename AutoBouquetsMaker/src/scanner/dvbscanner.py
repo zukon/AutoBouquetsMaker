@@ -31,6 +31,8 @@ class DvbScanner():
 		self.ignore_visible_service_flag = 0
 		self.extra_debug = config.autobouquetsmaker.level.value == "expert" and config.autobouquetsmaker.extra_debug.value
 		self.namespace_complete = not (config.usage.subnetwork.value if hasattr(config.usage, "subnetwork") else True) # config.usage.subnetwork not available in all images
+		self.namespace_complete_cable = not (config.usage.subnetwork_cable.value if hasattr(config.usage, "subnetwork_cable") else True) # config.usage.subnetwork not available in all images
+		self.namespace_complete_terrestrial = not (config.usage.subnetwork_terrestrial.value if hasattr(config.usage, "subnetwork_terrestrial") else True) # config.usage.subnetwork not available in all images
 
 	def isValidOnidTsid(self, orbital_position, onid, tsid):
 		if onid == 0x00 or onid == 0x1111:
@@ -125,11 +127,11 @@ class DvbScanner():
 	def buildNamespace(self, transponder):
 		if transponder["dvb_type"] == 'dvbc':
 			namespace = 0xFFFF0000
-			if self.namespace_complete:
+			if self.namespace_complete_cable:
 				namespace |= (transponder['frequency']/1000)&0xFFFF
 		elif transponder["dvb_type"] == 'dvbt':
 			namespace = 0xEEEE0000
-			if self.namespace_complete:
+			if self.namespace_complete_terrestrial:
 				namespace |= (transponder['frequency']/1000000)&0xFFFF
 		elif transponder["dvb_type"] == 'dvbs':
 			orbital_position = transponder['orbital_position']
@@ -1162,20 +1164,20 @@ class DvbScanner():
 		tmp_services_dict = {}
 
 		# start: read category info from descriptors 0xd5 and 0xd8
-		d5 = []
-		d8 = {}
-		categories = {}
-		for service in bat_content:
-			if service["descriptor_tag"] == 0xd8:
-				d8[service["category_id"]] = service["description"]
-			elif service["descriptor_tag"] == 0xd5:
-				d5.append(service)
-
-		for service in d5:
-			if service["channel_id"] not in categories:
-				categories[service["channel_id"]] = [d8[service["category_id"]]]
-			elif d8[service["category_id"]] not in categories[service["channel_id"]]:
-				categories[service["channel_id"]].append(d8[service["category_id"]])
+#		d5 = []
+#		d8 = {}
+#		categories = {}
+#		for service in bat_content:
+#			if service["descriptor_tag"] == 0xd8:
+#				d8[service["category_id"]] = service["description"]
+#			elif service["descriptor_tag"] == 0xd5:
+#				d5.append(service)
+#
+#		for service in d5:
+#			if service["channel_id"] not in categories:
+#				categories[service["channel_id"]] = [d8[service["category_id"]]]
+#			elif d8[service["category_id"]] not in categories[service["channel_id"]]:
+#				categories[service["channel_id"]].append(d8[service["category_id"]])
 		# end: read category info from descriptors 0xd5 and 0xd8
 
 		for service in bat_content:
@@ -1197,7 +1199,7 @@ class DvbScanner():
 				continue
 			service["namespace"] = self.namespace_dict[namespace_key]
 			service["flags"] = 0
-			service["service_info"] = categories[service["channel_id"] & 0x0fff] # add category info from descriptors 0xd5 and 0xd8
+#			service["service_info"] = categories[service["channel_id"] & 0x0fff] # add category info from descriptors 0xd5 and 0xd8
 
 			key = "%x:%x:%x" % (service["transport_stream_id"], service["original_network_id"], service["service_id"])
 			if key in tmp_services_dict:
