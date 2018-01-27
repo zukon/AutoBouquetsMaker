@@ -107,7 +107,7 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 			{
 				unsigned short int category_group = data[offset2];
 				unsigned short int category_id = data[offset2 + 1];
-				unsigned short int size2 = data[offset2 + 2];
+				short int size2 = data[offset2 + 2];
 
 				offset2 += 3;
 				size -= 3;
