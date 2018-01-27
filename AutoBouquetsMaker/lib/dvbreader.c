@@ -100,7 +100,7 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 				size -= (6 + description_size);
 			}
 		}
-		else /* if (descriptor_tag == 0xd5) // Freesat, links channel ID to category description
+		else if (descriptor_tag == 0xd5) // Freesat, links channel ID to category description
 		{
 			int size = descriptor_length;
 			while (size > 0)
@@ -130,7 +130,7 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 				}
 			}
 		}
-		else */ if ((descriptor_tag == 0xd8)) // Freesat category description
+		else if ((descriptor_tag == 0xd8)) // Freesat category description
 		{
 			int size = descriptor_length;
 			while (size > 0)
