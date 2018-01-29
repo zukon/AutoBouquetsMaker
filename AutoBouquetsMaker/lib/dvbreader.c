@@ -103,7 +103,7 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 		else if (descriptor_tag == 0xd5) // Freesat, links channel ID to category description
 		{
 			int size = descriptor_length;
-			while (size > 0)
+			while (size > 2)
 			{
 				unsigned short int category_group = data[offset2];
 				unsigned short int category_id = data[offset2 + 1];
@@ -111,7 +111,7 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 
 				offset2 += 3;
 				size -= 3;
-				while (size2 > 0)
+				while (size2 > 1)
 				{
 					unsigned short int channel_id = ((data[offset2] << 8) | data[offset2 + 1]) & 0x0fff;
 
