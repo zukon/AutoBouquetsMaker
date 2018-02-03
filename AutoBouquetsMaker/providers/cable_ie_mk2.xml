@@ -14,6 +14,7 @@
 		<configuration key="hd_43219" netid="43219" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="3">43219 Waterford UPC</configuration>
 		<configuration key="hd_43220" netid="43220" bouquettype="hd" frequency="291000" symbol_rate="6887000" system="0" modulation="3">43220 Limerick UPC</configuration>
 		<configuration key="hd_43226" netid="43226" bouquettype="hd" frequency="340000" symbol_rate="6875000" system="0" modulation="3">43226 Sligo UPC</configuration>
+		<configuration key="hd_43231" netid="43231" bouquettype="hd" frequency="250000" symbol_rate="6887000" system="0" modulation="3">43231 unknown 2</configuration>
 	</dvbcconfigs>
 
 	<sections>
