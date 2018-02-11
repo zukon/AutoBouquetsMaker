@@ -74,6 +74,9 @@
 		<channel number="406" with="436" /><!-- Sky Sports Arena HD -->
 		<channel number="407" with="437" /><!-- Sky Sports Football HD -->
 		<channel number="408" with="438" /><!-- Sky Sports News HD -->
+		<channel number="420" with="439" /><!-- Eurosport 3 HD -->
+		<channel number="421" with="440" /><!-- Eurosport 4 HD -->
+		<channel number="422" with="441" /><!-- Eurosport 5 HD -->
 		<channel number="423" with="424" /><!-- Eurosport HD -->
 		<channel number="425" with="426" /><!-- Eurosport 2 HD -->
 		<channel number="604" with="634" /><!-- Nickelodeon HD -->
