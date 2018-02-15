@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-07-04 16:35+0200\n"
-"Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
+"PO-Revision-Date: 2018-02-15 15:05+0200\n"
+"Last-Translator: MCelliot_g <mcelliot_g@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -17,379 +17,386 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../src/about.py:25 ../src/menu.py:56 ../src/plugin.py:74 ../src/plugin.py:82
 #: ../src/scanner/main.py:47 ../src/scanner/main.py:109
 msgid "AutoBouquetsMaker"
-msgstr ""
+msgstr "AutoBouquetsMaker"
 
 #: ../src/about.py:25 ../src/menu.py:100
 msgid "About"
-msgstr ""
+msgstr "Περί"
 
 #: ../src/about.py:37 ../src/menu.py:248
 msgid "Close"
-msgstr ""
+msgstr "Κλείσιμο"
 
 #: ../src/deletebouquets.py:35
 msgid "Are you sure you want to remove all bouquets created by ABM?"
 msgstr ""
+"Θέλετε σίγουρα να αφαιρεθούν όλα τα μπουκέτα που δημιουργήθηκαν από το ABM;"
 
 #: ../src/hidesections.py:47
 msgid "AutoBouquetsMaker Hide sections"
-msgstr ""
+msgstr "AutoBouquetsMaker Απόκρυψη τμημάτων"
 
 #: ../src/hidesections.py:52 ../src/keepbouquets.py:53 ../src/ordering.py:54
 #: ../src/setup.py:72 ../src/setup.py:486
 msgid "Cancel"
-msgstr ""
+msgstr "Ακύρωση"
 
 #: ../src/hidesections.py:53
 msgid "Save"
-msgstr ""
+msgstr "Αποθήκευση"
 
 #: ../src/hidesections.py:134 ../src/keepbouquets.py:134 ../src/ordering.py:171
 #: ../src/setup.py:448 ../src/setup.py:576
 msgid "Really close without saving settings?"
-msgstr ""
+msgstr "Έξοδος χωρίς αποθήκευση ρυθμίσεων;"
 
 #: ../src/keepbouquets.py:48
 msgid "AutoBouquetsMaker Keep bouquets"
-msgstr ""
+msgstr "AutoBouquetsMaker Διατήρηση μπουκέτων"
 
 #: ../src/menu.py:78
 msgid "Exit"
-msgstr ""
+msgstr "Έξοδος"
 
 #: ../src/menu.py:79
 msgid "Scan"
-msgstr ""
+msgstr "Ανίχνευση"
 
 #: ../src/menu.py:88
 msgid "Configure"
-msgstr ""
+msgstr "Παραμετροποίηση"
 
 #: ../src/menu.py:89
 msgid "Providers"
-msgstr ""
+msgstr "Πάροχοι"
 
 #: ../src/menu.py:91
 msgid "Providers order"
-msgstr ""
+msgstr "Σειρά παρόχων"
 
 #: ../src/menu.py:93
 msgid "Hide sections"
-msgstr ""
+msgstr "Απόκρυψη τμημάτων"
 
 #: ../src/menu.py:95
 msgid "Keep bouquets"
-msgstr ""
+msgstr "Διατήρηση των μπουκέτων"
 
 #: ../src/menu.py:96
 msgid "Start scan"
-msgstr ""
+msgstr "Εκκίνηση ανίχνευσης"
 
 #: ../src/menu.py:97
 msgid "Delete bouquets"
-msgstr ""
+msgstr "Διαγραφή μπουκέτων"
 
 #: ../src/menu.py:98
 msgid "Update config files"
-msgstr ""
+msgstr "Ενημέρωση αρχείων παραμετροποίησης"
 
 #: ../src/menu.py:99
 msgid "Show log"
-msgstr ""
+msgstr "Εμφάνιση καταγραφής"
 
 #: ../src/menu.py:235
 msgid "AutoBouquetsMaker Log"
-msgstr ""
+msgstr "AutoBouquetsMaker Καταγραφή"
 
 #: ../src/menu.py:247
 msgid "Save Log"
-msgstr ""
+msgstr "Αποθήκευση Αρχείου Καταγραφής"
 
 #: ../src/menu.py:254
 msgid "ABM log file has been saved to the tmp directory"
-msgstr ""
+msgstr "Το αρχείο καταγραφής του ABM αποθηκεύτηκε στο φάκελο tmp"
 
 #: ../src/ordering.py:43
 msgid "Bouquets order"
-msgstr ""
+msgstr "Σειρά μπουκέτων"
 
 #: ../src/ordering.py:77 ../src/setup.py:81 ../src/setup.py:495
 msgid "Please wait..."
-msgstr ""
+msgstr "Παρακαλώ περιμένετε..."
 
 #: ../src/ordering.py:91 ../src/ordering.py:97 ../src/ordering.py:126
 #: ../src/ordering.py:132
 msgid "Move down"
-msgstr ""
+msgstr "Μετακίνηση κάτω"
 
 #: ../src/ordering.py:93 ../src/ordering.py:96 ../src/ordering.py:128
 #: ../src/ordering.py:131
 msgid "Move up"
-msgstr ""
+msgstr "Μετακίνηση επάνω"
 
 #: ../src/plugin.py:12
 msgid "simple"
-msgstr ""
+msgstr "απλό"
 
 #: ../src/plugin.py:12
 msgid "expert"
-msgstr ""
+msgstr "προχωρημένο"
 
 #: ../src/plugin.py:17
 msgid "Daily"
-msgstr ""
+msgstr "Καθημερινά"
 
 #: ../src/plugin.py:17
 msgid "Weekly"
-msgstr ""
+msgstr "Εβδομαδιαία"
 
 #: ../src/plugin.py:17
 msgid "30 Days"
-msgstr ""
+msgstr "30 Ημέρες"
 
 #: ../src/plugin.py:30 ../src/plugin.py:46
 msgid "None"
-msgstr ""
+msgstr "Κανένα"
 
 #: ../src/plugin.py:31 ../src/plugin.py:47
 msgid "indent + text"
-msgstr ""
+msgstr "εσοχή + κείμενο"
 
 #: ../src/plugin.py:32 ../src/plugin.py:48
 msgid "<-- text -->"
-msgstr ""
+msgstr "<-- κείμενο -->"
 
 #: ../src/plugin.py:33 ../src/plugin.py:49
 msgid "< - - text - - >"
-msgstr ""
+msgstr "< - - κείμενο - - >"
 
 #: ../src/plugin.py:34 ../src/plugin.py:50
 msgid "== text =="
-msgstr ""
+msgstr "== κείμενο =="
 
 #: ../src/plugin.py:35 ../src/plugin.py:51
 msgid "= = text = ="
-msgstr ""
+msgstr "= = κείμενο = ="
 
 #: ../src/plugin.py:36 ../src/plugin.py:52
 msgid "=== text ==="
-msgstr ""
+msgstr "=== κείμενο ==="
 
 #: ../src/plugin.py:37 ../src/plugin.py:53
 msgid "= = = text = = ="
-msgstr ""
+msgstr "= = = κείμενο = = ="
 
 #: ../src/plugin.py:38 ../src/plugin.py:54
 msgid "-------- text --------"
-msgstr ""
+msgstr "-------- κείμενο --------"
 
 #: ../src/plugin.py:39 ../src/plugin.py:55
 msgid "== ABM - 'text' =="
-msgstr ""
+msgstr "== ABM - 'κείμενο' =="
 
 #: ../src/plugin.py:40 ../src/plugin.py:56
 msgid "---- ABM - 'text' ----"
-msgstr ""
+msgstr "---- ABM - 'κείμενο' ----"
 
 #: ../src/plugin.py:60
 msgid "Top"
-msgstr ""
+msgstr "Επάνω"
 
 #: ../src/plugin.py:60
 msgid "Bottom"
-msgstr ""
+msgstr "Κάτω"
 
 #: ../src/plugin.py:84
 msgid "AutoBouquetsMaker Scanner"
-msgstr ""
+msgstr "AutoBouquetsMaker Ανίχνευση"
 
 #: ../src/scanner/bouquetswriter.py:489
 msgid "Last Scanned"
-msgstr ""
+msgstr "Τελευταία Ανίχνευση"
 
 #: ../src/scanner/bouquetswriter.py:562
 msgid "All channels"
-msgstr ""
+msgstr "Όλα τα κανάλια"
 
 #: ../src/scanner/bouquetswriter.py:616 ../src/scanner/bouquetswriter.py:776
 msgid "HD Channels"
-msgstr ""
+msgstr "HD Κανάλια"
 
 #: ../src/scanner/bouquetswriter.py:619 ../src/scanner/bouquetswriter.py:836
 msgid "FTA HD Channels"
-msgstr ""
+msgstr "FTA HD Κανάλια"
 
 #: ../src/scanner/bouquetswriter.py:896
 msgid "FTA Channels"
-msgstr ""
+msgstr "FTA Κανάλια"
 
 #: ../src/scanner/bouquetswriter.py:946 ../src/scanner/bouquetswriter.py:947
 msgid "Radio Channels"
-msgstr ""
+msgstr "Ραδιοφωνικά Κανάλια"
 
 #: ../src/scanner/main.py:50
 msgid "Starting scanner"
-msgstr ""
+msgstr "Εκκίνηση ανίχνευσης"
 
 #: ../src/scanner/main.py:88
 msgid "Loading bouquets..."
-msgstr ""
+msgstr "Φόρτωση μπουκέτων..."
 
 #: ../src/scanner/main.py:89
 msgid "Services: 0 video - 0 radio"
-msgstr ""
+msgstr "Υπηρεσίες: 0 βίντεο - 0 ραδιόφωνα"
 
 #: ../src/scanner/main.py:94
 msgid "Please first setup, in configuration"
-msgstr ""
+msgstr "Παρακαλώ ρυθμίσετε πρώτα στην παραμετροποίηση"
 
 #: ../src/scanner/main.py:195
 msgid "Bouquets generation..."
-msgstr ""
+msgstr "Δημιουργία μπουκέτων..."
 
 #: ../src/scanner/main.py:196 ../src/scanner/main.py:210
 #: ../src/scanner/main.py:467 ../src/scanner/main.py:535
 #, python-format
 msgid "Services: %d video - %d radio"
-msgstr ""
+msgstr "Υπηρεσίες: %d βίντεο - %d ραδιόφωνα"
 
 #: ../src/scanner/main.py:209
 #, python-format
 msgid "Tuning %s..."
-msgstr ""
+msgstr "Συντονισμός %s..."
 
 #: ../src/scanner/main.py:232
 msgid "No area found"
-msgstr ""
+msgstr "Η περιοχή δεν βρέθηκε"
 
 #: ../src/scanner/main.py:259
 msgid "No NIMs found for "
-msgstr ""
+msgstr "Δεν βρέθηκαν μονάδες tuner για το "
 
 #: ../src/scanner/main.py:265
 msgid "Cannot retrieve Resource Manager instance"
-msgstr ""
+msgstr "Αδυναμία ανάκτησης συνεδρίας Διαχείρισης Πόρων"
 
 #: ../src/scanner/main.py:334
 msgid "No valid NIM found for "
-msgstr ""
+msgstr "Δεν βρέθηκε έγκυρη μονάδα tuner για το "
 
 #: ../src/scanner/main.py:365
 msgid "Cannot free NIM because a recording is in progress"
-msgstr ""
+msgstr "Δεν υπάρχει ελεύθερο tuner επειδή βρίσκεται μία εγγραφή σε εξέλιξη"
 
 #: ../src/scanner/main.py:369
 msgid "Cannot get the NIM"
-msgstr ""
+msgstr "Αδυναμία εύρεσης της μονάδας tuner"
 
 #: ../src/scanner/main.py:383
 msgid "Cannot get frontend"
-msgstr ""
+msgstr "Αδυναμία εύρεσης του tuner"
 
 #: ../src/scanner/main.py:389
 msgid "Cannot allocate the demuxer"
-msgstr ""
+msgstr "Αδυναμία κατανομής του αποπολυπλέκτη"
 
 #: ../src/scanner/main.py:466
 #, python-format
 msgid "Reading %s..."
-msgstr ""
+msgstr "Ανάγνωση του %s..."
 
 #: ../src/scanner/main.py:476
 msgid "Tuning failed fatal"
-msgstr ""
+msgstr "Σοβαρό σφάλμα συντονισμού"
 
 #: ../src/scanner/main.py:482
 msgid "Timeout for tuner lock"
-msgstr ""
+msgstr "Χρόνος λήξης για το κλείδωμα του tuner"
 
 #: ../src/scanner/main.py:509
 msgid "Cannot read data"
-msgstr ""
+msgstr "Αδυναμία ανάγνωσης δεδομένων"
 
 #: ../src/scanner/main.py:534
 msgid "Done"
-msgstr ""
+msgstr "Ολοκληρώθηκε"
 
 #: ../src/scanner/main.py:686
 msgid ""
 "Your bouquets are about to be updated,\n"
 "Do you want to allow this?"
 msgstr ""
+"Πρόκειται να γίνει ενημέρωση των μπουκέτων σας,\n"
+"Θέλετε να το επιτρέψετε;"
 
 #: ../src/scanner/main.py:707
 msgid "Enough Retries, delaying till next schedule."
-msgstr ""
+msgstr "Αρκετές Επαναπροσπάθειες, καθυστέρηση έως το επόμενο πρόγραμμα"
 
 #: ../src/scanner/main.py:733
 msgid "%a %e %b  %-H:%M"
-msgstr ""
+msgstr "%a %e %b  %-H:%M"
 
 #: ../src/setup.py:53
 msgid "AutoBouquetsMaker Providers"
-msgstr ""
+msgstr "AutoBouquetsMaker Πάροχοι"
 
 #: ../src/setup.py:73 ../src/setup.py:487
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../src/setup.py:197
 msgid "yes (all channels)"
-msgstr ""
+msgstr "ναι (όλα τα κανάλια)"
 
 #: ../src/setup.py:199
 msgid "yes (only HD)"
-msgstr ""
+msgstr "ναι (μόνο HD)"
 
 #: ../src/setup.py:200
 msgid "yes (only FTA HD)"
-msgstr ""
+msgstr "ναι (μόνο FTA HD)"
 
 #: ../src/setup.py:217
 msgid "yes (custom)"
-msgstr ""
+msgstr "ναι (προσαρμογή)"
 
 #: ../src/setup.py:230 ../src/setup.py:239
 msgid "no"
-msgstr ""
+msgstr "όχι"
 
 #: ../src/setup.py:239
 msgid "yes"
-msgstr ""
+msgstr "ναι"
 
 #: ../src/setup.py:287
 msgid "This option enables the current selected provider."
-msgstr ""
+msgstr "Αυτή η επιλογή ενεργοποιεί το τρέχοντα επιλεγμένο πάροχο."
 
 #: ../src/setup.py:290
 msgid "area"
-msgstr ""
+msgstr "περιοχή"
 
 #: ../src/setup.py:290
 msgid ""
 "This option allows you to choose what region of the country you live in, so "
 "it populates the correct channels for your region."
 msgstr ""
+"Αυτή η επιλογή επιτρέπει την επιλογή της περιοχής της χώρας στην οποία "
+"διαμένετε έτσι ώστε να αριθμηθούν τα σωστά κανάλια για την περιοχή σας."
 
 #: ../src/setup.py:295
 msgid "FTA only"
-msgstr ""
+msgstr "FTA μόνο"
 
 #: ../src/setup.py:295
 msgid ""
 "This affects all bouquets. Select 'no' to scan in all services. Select 'yes' "
 "to skip encrypted ones."
 msgstr ""
+"Αυτό επηρεάζει όλα τα μπουκέτα. Επιλέξτε 'όχι' για ανίχνευση σε όλες τις "
+"υπηρεσίες. Επιλέξτε 'ναι' για παράκαμψη των κωδικοποιημένων."
 
 #: ../src/setup.py:298
 msgid "generate main bouquet"
-msgstr ""
+msgstr "δημιουργία κύριου μπουκέτου"
 
 #: ../src/setup.py:298
 msgid ""
@@ -398,164 +405,194 @@ msgid ""
 "bouquet), \"Custom\", (allows you to select your own bouquet), \"No\", (do "
 "not use a main bouquet)"
 msgstr ""
+"Αυτή η επιλογή έχει πολλές επιλογές, \"Ναι\" (δημιουργία ενός μπουκέτου με "
+"όλα τα κανάλια), \"Ναι μόνο HD\" (θα ομαδοποιήσει όλα τα HD κανάλια στο "
+"μπουκέτο), \"Προσαρμογή\" (επιτρέπει την επιλογή των καναλιών για το "
+"μπουκέτο), \"Όχι\" (χωρίς χρήση κύριου μπουκέτου)"
 
 #: ../src/setup.py:301
 msgid "custom bouquet for main"
-msgstr ""
+msgstr "προσαρμοσμένο μπουκέτο ως κύριο"
 
 #: ../src/setup.py:301
 msgid ""
 "Select your own bouquet from the list, please note that the only the first "
 "100 channels for this bouquet will be used."
 msgstr ""
+"Επιλέξτε το δικό σας μπουκέτο από τη λίστα, προσοχή μόνο τα πρώτα 100 "
+"κανάλια θα χρησιμοποιηθούν για αυτό το μπουκέτο."
 
 #: ../src/setup.py:304
 msgid "generate sections bouquets"
-msgstr ""
+msgstr "δημιουργία τμημάτων μπουκέτου"
 
 #: ../src/setup.py:304
 msgid ""
 "This option will create bouquets for each type of channel, ie Entertainment, "
 "Movies, Documentary."
 msgstr ""
+"Αυτή η επιλογή θα δημιουργήσει μπουκέτα για κάθε τύπο καναλιών, π.χ. "
+"Ψυχαγωγία, Ταινίες, Ντοκιμαντέρ."
 
 #: ../src/setup.py:307
 msgid "generate HD bouquet"
-msgstr ""
+msgstr "δημιουργία HD μπουκέτου"
 
 #: ../src/setup.py:307
 msgid ""
 "This option will create a High Definition bouquet, it will group all HD "
 "channels into this bouquet."
 msgstr ""
+"Αυτή η επιλογή θα δημιουργήσει ένα μπουκέτο Υψηλής Ευκρίνειας, θα "
+"ομαδοποιήσει όλα τα HD κανάλια σε αυτό το μπουκέτο."
 
 #: ../src/setup.py:310
 msgid "generate FTA bouquet"
-msgstr ""
+msgstr "δημιουργία FTA μπουκέτου"
 
 #: ../src/setup.py:310
 msgid ""
 "This option will create a FreeToAir bouquet, it will group all free channels "
 "into this bouquet."
 msgstr ""
+"Αυτή η επιλογή θα δημιουργήσει ένα μπουκέτο Ελεύθερων καναλιών, θα "
+"ομαδοποιήσει όλα τα ελεύθερα κανάλια σε αυτό το μπουκέτο."
 
 #: ../src/setup.py:313
 msgid "generate FTA HD bouquet"
-msgstr ""
+msgstr "δημιουργία FTA HD μπουκέτου"
 
 #: ../src/setup.py:313
 msgid ""
 "This option will create a FreeToAir High Definition bouquet, it will group "
 "all FTA HD channels into this bouquet."
 msgstr ""
+"Αυτή η επιλογή θα δημιουργήσει ένα μπουκέτο Ελεύθερων Υψηλής Ευκρίνειας "
+"καναλιών, θα ομαδοποιήσει όλα τα FTA HD κανάλια σε αυτό το μπουκέτο."
 
 #: ../src/setup.py:319 ../src/setup.py:328 ../src/setup.py:336
 msgid "swap channels"
-msgstr ""
+msgstr "αντιμετάθεση καναλιών"
 
 #: ../src/setup.py:319 ../src/setup.py:328 ../src/setup.py:336
 msgid ""
 "This option will swap SD versions of channels with HD versions. (eg BBC One "
 "SD with BBC One HD, Channel Four SD with with Channel Four HD)"
 msgstr ""
+"Αυτή η επιλογή θα αντιμεταθέσει τις SD εκδόσεις των καναλιών με τις HD. (πχ "
+"το BBC One SD με το BBC One HD, το Channel Four SD με το Channel Four HD)"
 
 #: ../src/setup.py:467
 msgid "AutoBouquetsMaker Configure"
-msgstr ""
+msgstr "AutoBouquetsMaker Παραμετροποίηση"
 
 #: ../src/setup.py:513
 msgid "Setup mode"
-msgstr ""
+msgstr "Επίπεδο εγκατάστασης"
 
 #: ../src/setup.py:513
 msgid ""
 "Choose which level of settings to display. 'Expert'-level shows all items, "
 "this also adds more options in the providers menu."
 msgstr ""
+"Επιλέξτε ποιο επίπεδο ρυθμίσεων θα εμφανίζεται. Το 'Προχωρημένο' επίπεδο "
+"εμφανίζει όλα τα στοιχεία, επίσης προσθέτει περισσότερες επιλογές στο μενού "
+"παρόχων."
 
 #: ../src/setup.py:514
 msgid "Schedule scan"
-msgstr ""
+msgstr "Προγραμματισμός ανίχνευσης"
 
 #: ../src/setup.py:514
 msgid "Allows you to set a schedule to perform a scan "
 msgstr ""
+"Επιτρέπει τον ορισμό ενός προγράμματος με το οποίο θα γίνει μία ανίχνευση "
 
 #: ../src/setup.py:516
 msgid "Time of scan to start"
-msgstr ""
+msgstr "Ώρα έναρξης ανίχνευσης"
 
 #: ../src/setup.py:516
 msgid "Set the time of day to perform the scan."
-msgstr ""
+msgstr "Ορισμός της ώρας στην οποία θα γίνει η ανίχνευση."
 
 #: ../src/setup.py:517
 msgid "Repeat how often"
-msgstr ""
+msgstr "Διάστημα επανάληψης"
 
 #: ../src/setup.py:517
 msgid "Set the repeat interval of the schedule."
-msgstr ""
+msgstr "Ορισμός του διαστήματος επανάληψης του προγραμματισμού."
 
 #: ../src/setup.py:519
 msgid "Keep all non-ABM bouquets"
-msgstr ""
+msgstr "Διατήρηση όλων των μη-ABM μπουκέτων"
 
 #: ../src/setup.py:519
 msgid ""
 "When disabled this will enable the 'Keep bouquets' option in the main menu, "
 "allowing you to hide some 'existing' bouquets."
 msgstr ""
+"Όταν είναι ανενεργό επιτρέπεται η επιλογή 'Διατήρηση μπουκέτων' στο κύριο "
+"μενού, που επιτρέπει την απόκρυψη κάποιων από τα υπάρχοντα μπουκέτα."
 
 #: ../src/setup.py:520
 msgid "Add provider prefix to bouquets"
-msgstr ""
+msgstr "Προσθήκη πρόθεσης στα μπουκέτα"
 
 #: ../src/setup.py:520
 msgid "This option will prepend the provider name to bouquet name."
-msgstr ""
+msgstr "Αυτή η επιλογή θα προτάξει το όνομα παρόχου στο όνομα του μπουκέτου."
 
 #: ../src/setup.py:521
 msgid "Add provider markers"
-msgstr ""
+msgstr "Προσθήκη σημειωτών παρόχου"
 
 #: ../src/setup.py:521
 msgid ""
 "This option places markers in the bouquet index to group all bouquets of "
 "each provider."
 msgstr ""
+"Αυτή η επιλογή προσθέτει σημειωτές στο δείκτη του μπουκέτου για ομαδοποίηση "
+"του καθενός στον αντίστοιχο πάροχο."
 
 #: ../src/setup.py:523
 msgid "Style of provider marker"
-msgstr ""
+msgstr "Στυλ σημειωτή παρόχου"
 
 #: ../src/setup.py:523
 msgid ""
 "Choose the style of markers that separate one provider from another in "
 "bouquet indexes."
 msgstr ""
+"Επιλέξτε το στυλ των σημειωτών που διαχωρίζουν τον ένα πάροχο από τον άλλο "
+"στους δείκτες του μπουκέτου."
 
 #: ../src/setup.py:524
 msgid "Style of bouquet marker"
-msgstr ""
+msgstr "Στυλ σημειωτή μπουκέτου"
 
 #: ../src/setup.py:524
 msgid ""
 "Choose the style of the markers that separate channels into groups in the "
 "channel lists."
 msgstr ""
+"Επιλέξτε το στυλ των σημειωτών που διαχωρίζουν τα κανάλια σε ομάδες μέσα "
+"στις λίστες καναλιών."
 
 #: ../src/setup.py:525
 msgid "Place bouquets at"
-msgstr ""
+msgstr "Τοποθέτηση μπουκέτων"
 
 #: ../src/setup.py:525
 msgid "This option will allow you choose where to place the created bouquets."
 msgstr ""
+"Αυτή η επιλογή θα επιτρέψει την επιλογή της τοποθεσίας των δημιουργημένων "
+"μπουκέτων."
 
 #: ../src/setup.py:526
 msgid "Skip services on not configured sats"
-msgstr ""
+msgstr "Παράκαμψη υπηρεσιών σε μη ρυθμισμένους δορυφόρους"
 
 #: ../src/setup.py:526
 msgid ""
@@ -563,10 +600,13 @@ msgid ""
 "the channel will not appear in the channel list, 'no' means the channel will "
 "show in the channel list but be greyed out and not be accessible."
 msgstr ""
+"Αν μία υπηρεσία βρίσκεται σε μη ρυθμισμένο δορυφόρο, το 'ναι' σημαίνει ότι "
+"το κανάλι δεν θα εμφανίζεται στη λίστα, το 'όχι' σημαίνει ότι το κανάλι θα "
+"εμφανίζεται αλλά ως γκριζαρισμένο και μη προσβάσιμο."
 
 #: ../src/setup.py:527
 msgid "Include 'not indexed' channels"
-msgstr ""
+msgstr "Συμπερίληψη των 'μη σημειωμένων' καναλιών"
 
 #: ../src/setup.py:527
 msgid ""
@@ -574,53 +614,60 @@ msgid ""
 "number, 'yes' will add these at the end of the channel list, and 'no' means "
 "these will not be included."
 msgstr ""
+"Όταν η ανίχνευση βρει πρόσθετα κανάλια που δεν έχουν κατανεμημένο αριθμό, το "
+"'ναι' θα προσθέσει τα κανάλια αυτά στο τέλος της λίστας, και το 'όχι' θα τα "
+"παραλείψει."
 
 #: ../src/setup.py:528
 msgid "Extra debug"
-msgstr ""
+msgstr "Πρόσθετη εκσφαλμάτωση"
 
 #: ../src/setup.py:528
 msgid ""
 "This feature is for development only. Requires debug logs to be enabled or "
 "enigma2 to be started in console mode."
 msgstr ""
+"Αυτή η επιλογή είναι μόνο για προγραμματιστές. Απαιτεί την ενεργοποίηση των "
+"αρχείων καταγραφής ή την εκκίνηση του enigma2 σε κονσόλα."
 
 #: ../src/setup.py:529
 msgid "Show in extensions"
-msgstr ""
+msgstr "Εμφάνιση στις επεκτάσεις"
 
 #: ../src/setup.py:529
 msgid "When enabled, allows you start a scan from the extensions list."
 msgstr ""
+"Όταν είναι ενεργό, επιτρέπει την εκκίνηση της ανίχνευσης από το μενού "
+"επεκτάσεων."
 
 #: ../src/updateproviders.py:50 ../src/updateproviders.py:90
 msgid "UpdateProviders"
-msgstr ""
+msgstr "Ενημέρωση Παρόχων"
 
 #: ../src/updateproviders.py:53
 msgid "Finding configured providers..."
-msgstr ""
+msgstr "Εύρεση των ρυθμισμένων παρόχων..."
 
 #: ../src/updateproviders.py:98
 msgid "No providers configured."
-msgstr ""
+msgstr "Δεν έχουν ρυθμιστεί πάροχοι."
 
 #: ../src/updateproviders.py:121
 msgid "Starting update..."
-msgstr ""
+msgstr "Εκκίνηση ενημέρωσης..."
 
 #: ../src/updateproviders.py:122
 msgid "Checking version compatibility..."
-msgstr ""
+msgstr "Έλεγχος συμβατότητας έκδοσης..."
 
 #: ../src/updateproviders.py:135
 msgid "No providers are configured."
-msgstr ""
+msgstr "Δεν έχουν ρυθμιστεί πάροχοι."
 
 #: ../src/updateproviders.py:145
 #, python-format
 msgid "Failed to retrieve version file. Error: %s %s"
-msgstr ""
+msgstr "Αδυναμία ανάκτησης αρχείου έκδοσης. Σφάλμα: %s %s"
 
 #: ../src/updateproviders.py:149 ../src/updateproviders.py:203
 #, python-format
@@ -628,90 +675,92 @@ msgid ""
 "Network connection error: \n"
 "%s"
 msgstr ""
+"Σφάλμα σύνδεσης δικτύου: \n"
+"%s"
 
 #: ../src/updateproviders.py:152 ../src/updateproviders.py:206
 msgid "Network connection error"
-msgstr ""
+msgstr "Σφάλμα σύνδεσης δικτύου"
 
 #: ../src/updateproviders.py:161
 #, python-format
 msgid "Incompatible versions: %s > %s"
-msgstr ""
+msgstr "Μη συμβατές εκδόσεις: %s > %s"
 
 #: ../src/updateproviders.py:167
 msgid "Cannot read version"
-msgstr ""
+msgstr "Αδυναμία ανάγνωσης έκδοσης"
 
 #: ../src/updateproviders.py:178
 #, python-format
 msgid "Retrieving config file for %s"
-msgstr ""
+msgstr "Ανάκτηση αρχείου παραμετροποίησης για το %s"
 
 #: ../src/updateproviders.py:179
 msgid "Downloading latest file from Github..."
-msgstr ""
+msgstr "Λήψη του πιο πρόσφατου αρχείου από το Github..."
 
 #: ../src/updateproviders.py:194
 #, python-format
 msgid "Failed to retrieve file for %s. Error: %s %s"
-msgstr ""
+msgstr "Αδυναμία ανάκτησης αρχείου για το %s. Σφάλμα: %s %s"
 
 #: ../src/updateproviders.py:195
 msgid "Failed..."
-msgstr ""
+msgstr "Αποτυχία..."
 
 #: ../src/updateproviders.py:196
 #, python-format
 msgid "Unable to download config file for %s"
-msgstr ""
+msgstr "Αδυναμία λήψης αρχείου παραμετροποίησης για το %s"
 
 #: ../src/updateproviders.py:222 ../src/updateproviders.py:234
 #: ../src/updateproviders.py:243
 #, python-format
 msgid "Retrieved config file for %s"
-msgstr ""
+msgstr "Έγινε ανάκτηση του αρχείου παραμετροποίησης για το %s"
 
 #: ../src/updateproviders.py:223
 #, python-format
 msgid "Config file for %s does not need updating"
-msgstr ""
+msgstr "Το αρχείο παραμετροποίησης για το %s δεν χρειάζεται ενημέρωση"
 
 #: ../src/updateproviders.py:225
 #, python-format
 msgid "Config file for %s didn't need updating."
-msgstr ""
+msgstr "Το αρχείο παραμετροποίησης για το %s δεν χρειάστηκε ενημέρωση"
 
 #: ../src/updateproviders.py:235
 #, python-format
 msgid "Config file for %s has been updated"
-msgstr ""
+msgstr "Το αρχείο παραμετροποίησης για το %s έχει ενημερωθεί"
 
 #: ../src/updateproviders.py:237
 #, python-format
 msgid "Config file for %s has been updated."
-msgstr ""
+msgstr "Το αρχείο παραμετροποίησης για το %s έχει ενημερωθεί."
 
 #: ../src/updateproviders.py:244
 #, python-format
 msgid "Config file for %s does not parse"
-msgstr ""
+msgstr "Το αρχείο παραμετροποίησης για το %s δεν μπορεί να αναλυθεί"
 
 #: ../src/updateproviders.py:246
 #, python-format
 msgid "Retrieved config file for %s does not parse."
-msgstr ""
+msgstr "Το ανακτημένο αρχείο παραμετροποίησης για το %s δεν μπορεί να αναλυθεί"
 
 #: ../src/updateproviders.py:253
 #, python-format
 msgid "Retrieved provider file for %s"
-msgstr ""
+msgstr "Έγινε ανάκτηση του αρχείου παρόχου για το %s"
 
 #: ../src/updateproviders.py:254
 #, python-format
 msgid "Config file for %s is faulty"
-msgstr ""
+msgstr "Το αρχείο παραμετροποίησης για το %s είναι προβληματικό"
 
 #: ../src/updateproviders.py:256
 #, python-format
 msgid "Retrieved config file for %s is faulty or incomplete."
-msgstr ""
+msgstr "Το αρχείο παραμετροποίησης για το %s είναι προβληματικό ή ατελές."
