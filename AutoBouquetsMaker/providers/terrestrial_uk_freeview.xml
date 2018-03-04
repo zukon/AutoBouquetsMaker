@@ -157,14 +157,14 @@
 		<customtransponder key="pontop_pike________" frequency="570000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="pontop_pike________" frequency="578000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="pontop_pike________" frequency="698000000" transport_stream_id="4089" system="1"/>
-		<customtransponder key="ridge_hill_________" frequency="530000000" transport_stream_id="1050" system="0"/>
-		<customtransponder key="ridge_hill_________" frequency="506000000" transport_stream_id="2006" system="0"/>
-		<customtransponder key="ridge_hill_________" frequency="482000000" transport_stream_id="4085" system="1"/>
-		<customtransponder key="ridge_hill_________" frequency="474000000" transport_stream_id="3006" system="0"/>
+		<customtransponder key="ridge_hill_________" frequency="474200000" transport_stream_id="3006" system="0"/>
+		<customtransponder key="ridge_hill_________" frequency="482200000" transport_stream_id="4085" system="1"/>
 		<customtransponder key="ridge_hill_________" frequency="498000000" transport_stream_id="5040" system="0"/>
+		<customtransponder key="ridge_hill_________" frequency="506000000" transport_stream_id="3006" system="0"/>
 		<customtransponder key="ridge_hill_________" frequency="522000000" transport_stream_id="6040" system="0"/>
-		<customtransponder key="ridge_hill_________" frequency="562000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="ridge_hill_________" frequency="578000000" transport_stream_id="b000" system="1"/>
+		<customtransponder key="ridge_hill_________" frequency="530000000" transport_stream_id="1050" system="0"/>
+		<customtransponder key="ridge_hill_________" frequency="746000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="ridge_hill_________" frequency="754000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="rowridge___________" frequency="474000000" transport_stream_id="4083" system="1"/>
 		<customtransponder key="rowridge___________" frequency="482000000" transport_stream_id="5040" system="0"/>
 		<customtransponder key="rowridge___________" frequency="498000000" transport_stream_id="1043" system="0"/>
