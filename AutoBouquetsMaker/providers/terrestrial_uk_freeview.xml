@@ -72,6 +72,8 @@
 		<configuration key="whitehawk_hill_____" frequency="785800000">Whitehawk Hill</configuration>
 		<configuration key="winter_hill________" frequency="706000000">Winter Hill</configuration>
 	</dvbtconfigs>
+
+	<!-- Custom transponders are ONLY needed for HD muxes and for areas where tuning issues occur after running ABM -->
 	<customtransponders>
 		<customtransponder key="belmont____________" frequency="530000000" transport_stream_id="4089" system="1"/>
 		<customtransponder key="belmont____________" frequency="570000000" transport_stream_id="a000" system="1"/>
@@ -229,7 +231,7 @@ blacklist = [250,695,696,697,698,"ADULT Section"]
 
 for number in service["numbers"]:
 	if number in blacklist:
-		skip = True		
+		skip = True
 
 if service["service_name"] in blacklist or service["service_type"] == 0xc:
 	skip = True
