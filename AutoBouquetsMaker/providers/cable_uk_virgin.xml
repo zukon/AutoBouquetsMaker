@@ -175,6 +175,18 @@ except:
 
 	fta_corrections = []
 
+	netID = int(bouquet_key[3:8])
+	netID_whitelist = [41047,
+	]
+
+	# Remove some services unless in netID whitelist
+	# Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
+	selective_blacklist = [501, 502, 503, 504, 505, "Sky Sports F1 HD", "Sky Sports Action HD", "Sky Sports Arena HD", "Sky Sports News HD",
+	]
+
+if (service["service_name"] in selective_blacklist or service["number"]  in selective_blacklist) and netID not in netID_whitelist:
+	skip = True
+
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
 	service["service_type"] = 25
