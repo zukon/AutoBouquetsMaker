@@ -593,7 +593,7 @@ class DvbScanner():
 				print "[ABM-DvbScanner] SDT raw section header", section["header"]
 				print "[ABM-DvbScanner] SDT raw section content", section["content"]
 
-			if section["header"]["table_id"] == self.sdt_current_table_id or section["header"]["table_id"] == self.sdt_other_table_id:
+			if (section["header"]["table_id"] == self.sdt_current_table_id or section["header"]["table_id"] == self.sdt_other_table_id) and len(section["content"]):
 				TSID_ONID = "%x:%x" % (section["header"]["transport_stream_id"], section["header"]["original_network_id"])
 				if TSID_ONID not in TSID_ONID_list:
 					continue
