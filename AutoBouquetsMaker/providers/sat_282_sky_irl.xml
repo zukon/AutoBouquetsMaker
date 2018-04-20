@@ -223,13 +223,10 @@ except:
 
 	whitelist_by_id = [
 		1003, # MUTV HD
-		1019, # CNN HD
 		1047, # Insight HD
-		5050, # &TV HD
 		5152, # eir Sport 2 HD
 		5153, # Premier HD
 		5154, # eir Sport 2 HD
-		5237, # TRT world HD
 		5272, # Racing UK HD
 	]
 
