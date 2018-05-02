@@ -167,7 +167,6 @@ except:
 	}
 
 	channels_to_add_by_id = {
-		channels_to_add_by_id = {
 		2306: 111, # Dave FTA
 		6240: 118, # ITV2
 		6260: 119, # ITV3
