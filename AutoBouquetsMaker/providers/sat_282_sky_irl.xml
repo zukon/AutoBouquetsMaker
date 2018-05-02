@@ -167,40 +167,34 @@ except:
 	}
 
 	channels_to_add_by_id = {
+		channels_to_add_by_id = {
 		2306: 111, # Dave FTA
 		6240: 118, # ITV2
 		6260: 119, # ITV3
 		6272: 120, # ITV4
-		6507: 123, # ITV Encore
-		6155: 131, # ITV +1
-		3150: 140, # 4seven
-		1032: 160, # Spike
-		4058: 171, # Channel 5 HD
-		3022: 174, # 5 USA
-		3028: 175, # My5
+		6155: 205, # ITV +1
+		3150: 138, # 4seven
+		1032: 139, # Spike
+		4058: 177, # Channel 5 HD
+		3022: 150, # 5 USA
+		3028: 176, # My5
 		3023: 176, # 5STAR
-		1839: 177, # Channel 5 +1
-		6510: 178, # UTV HD
-		6508: 179, # ITVBe
-		6241: 180, # ITV2 +1
-		3024: 190, # 5STAR +1
-		6261: 193, # ITV3 +1
-		6274: 206, # ITV4 +1
-		1014: 207, # ITVBe +1
-		1007: 208, # ITV Encore +1
-		3027: 219, # 5 USA +1
-		4075: 227, # Channel 4 HD
-		6504: 275, # ITV HD
-		1670: 285, # Channel 4 +1
-		3310: 286, # More4 +1
-		2011: 503, # BBC News
-		2072: 504, # BBC Parliament
-		2085: 570, # BBC News HD
+		1839: 204, # Channel 5 +1
+		6510: 131, # UTV HD
+		6508: 169, # ITVBe
+		6241: 215, # ITV2 +1
+		3024: 220, # 5STAR +1
+		6261: 216, # ITV3 +1
+		6274: 217, # ITV4 +1
+		1014: 218, # ITVBe +1
+		3027: 219, # USA +1
+		2011: 523, # BBC News
+		2085: 503, # BBC News HD 	
 		2078: 638, # CBBC HD
 		2088: 639, # CBeebies HD
 		#slow death section
 		3705: 112, # ComedyCentral
-		2709: 128, # ComedyXtra
+		2709: 127, # ComedyXtra
 		1355: 415, # At the races
 		2418: 522, # ID
 		2517: 604, # Nicelodeon
