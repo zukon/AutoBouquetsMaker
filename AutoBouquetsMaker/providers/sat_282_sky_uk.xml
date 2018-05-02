@@ -184,43 +184,16 @@
 		<section number="1030">BT Sports Interactive</section>
 		<section number="1050">Not indexed</section>
 	</sections>
+
 	<!-- channelsontop affect only HD bouquets -->
 	<hdchannelsontop>
 		<channel number="115"/> <!-- BBC 1 HD -->
-		<channel number="102"/> <!-- BBC Two HD some regions -->
-		<channel number="141"/> <!-- BBC Two HD -->
-		<channel number="178"/> <!-- ITV HD -->
-		<channel number="227"/> <!-- Channel 4 HD -->
-		<channel number="171"/> <!-- Channel 5 HD -->
-		<channel number="106"/> <!-- Sky 1 HD -->
-		<channel number="107"/> <!-- Sky Living HD -->
-		<channel number="108"/> <!-- Sky Atlantic HD -->
-		<channel number="109"/> <!-- Watch HD -->
-		<channel number="111"/> <!-- Dave HD -->
-		<channel number="112"/> <!-- Comedy Central HD -->
-		<channel number="113"/> <!-- Universal HD -->
-		<channel number="114"/> <!-- Syfy HD -->
-		<channel number="143"/> <!-- BBC Four HD -->
 	</hdchannelsontop>
+
 	<sdchannelsontop>
 		<channel number="115"/> <!-- BBC 1 HD -->
-		<channel number="141"/> <!-- BBC Two HD -->
-		<channel number="178"/> <!-- ITV HD -->
-		<channel number="227"/> <!-- Channel 4 HD -->
-		<channel number="171"/> <!-- Channel 5 HD -->
-		<channel number="221"/> <!-- Sky 1 HD -->
-		<channel number="222"/> <!-- Sky Living HD -->
-		<channel number="223"/> <!-- Sky Atlantic HD -->
-		<channel number="245"/> <!-- Watch HD -->
-		<channel number="246"/> <!-- Dave HD -->
-		<channel number="205"/> <!-- Comedy Central HD -->
-		<channel number="204"/> <!-- Universal HD -->
-		<channel number="201"/> <!-- Syfy HD -->
-		<channel number="143"/> <!-- BBC Four HD -->
-		<channel number="207"/> <!-- ITV2 HD -->
-		<channel number="208"/> <!-- ITV3 HD -->
-		<channel number="225"/> <!-- ITV4 HD -->
 	</sdchannelsontop>
+
 	<!-- swapchannels affects main and sections bouquets. "number" is the SD channel. "with" is the HD channel. Swap will not occur if target is not HD -->
 	<swapchannels>
 		<channel number="101" with="115"/> <!-- BBC One HD -->
@@ -333,19 +306,19 @@ except:
 	#
 	########################################################################
 	channels_to_add = {
-		"London Live": 117
+		"London Live": 117 #This is only added if you do not have an offcial local 117 service
 	}
 
 	channels_to_add_by_id = {
 		1025: 296, # TV3+1
-		5122: 423, # eir Sport 1 (also 3601)
+		5122: 424, # eir Sport 1 (also 3601)
 		5123: 425, # eir Sport 2 (also 4551)
 		5152: 460, # eir Sport 2 HD (also 5154)
 		5153: 462, # Premier HD
 		5311: 428, # Premier Sports
 		#slow death section
 		3705: 112, # ComedyCentral
-		2709: 128, # ComedyXtra
+		2709: 127, # ComedyXtra
 		1355: 415, # At the races
 		2418: 522, # ID
 		2517: 604, # Nicelodeon
@@ -420,7 +393,6 @@ except:
 		5384: "BT Sport Extra 4",
 		5385: "BT Sport Extra 5",
 		5386: "BT Sport Extra 6",
-
 	}
 
 	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD',752,'BoxNation HD']
@@ -467,40 +439,6 @@ except:
 		2026, #7ea 20170425
 		2029, #7ed 20170516
 	]
-
-# BBC HD channel numbers
-if service["channel_id"] in (2075,) and 115 in service["numbers"]: # BBC2 HD
-	service["numbers"][service["numbers"].index(115)] = 141
-	service["number"] = 141
-if service["channel_id"] in (2076,2081,2082,2083) and 141 in service["numbers"]: # BBC1 HD
-	service["numbers"][service["numbers"].index(141)] = 115
-	service["number"] = 115
-
-# S4C swap problem when region is Wales
-if service["channel_id"] == 5701 and service["number"] == 104:
-	for k2 in tmp_services_dict.keys():
-		if tmp_services_dict[k2]["channel_id"] == 2296 and tmp_services_dict[k2]["number"] == 280:
-			service_tmp = service
-			service = tmp_services_dict[k2]
-			service["number"] = 104
-			service["numbers"] = [104]
-			service_tmp["number"] = 280
-			service_tmp["numbers"] = [280]
-			tmp_services_dict[k2] = service_tmp
-			del service_tmp
-			break;
-if service["channel_id"] == 1622 and service["number"] == 117:
-	for k2 in tmp_services_dict.keys():
-		if tmp_services_dict[k2]["channel_id"] == 4075 and tmp_services_dict[k2]["number"] == 227:
-			service_tmp = service
-			service = tmp_services_dict[k2]
-			service["number"] = 117
-			service["numbers"] = [117]
-			service_tmp["number"] = 227
-			service_tmp["numbers"] = [227]
-			tmp_services_dict[k2] = service_tmp
-			del service_tmp
-			break;
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
