@@ -188,7 +188,7 @@ except:
 		1014: 218, # ITVBe +1
 		3027: 219, # USA +1
 		2011: 523, # BBC News
-		2085: 503, # BBC News HD 	
+		2085: 503, # BBC News HD
 		2078: 638, # CBBC HD
 		2088: 639, # CBeebies HD
 		#slow death section
@@ -204,8 +204,6 @@ except:
 	itv_rename = {
 		1020: "ITV Border Scotland",
 		4012: "UTV Ireland",
-		5070: "STV 2",
-		5701: "S4C",
 		6000: "ITV London",
 		6010: "ITV Central South",
 		6011: "ITV Central East",
@@ -224,9 +222,7 @@ except:
 		6200: "ITV Channel Isles",
 		6210: "STV Grampian",
 		6220: "STV Scotland West",
-		6230: "UTV",
 		6300: "ITV Central",
-		6325: "STV",
 		6371: "STV Scotland East",
 		6381: "ITV Anglia West",
 		6390: "ITV Tyne Tees",
@@ -250,14 +246,11 @@ except:
 		1061: "ITV Border England HD",
 		1062: "ITV Westcountry West HD",
 		1063: "ITV Westcountry SW HD",
-		2296: "S4C HD",
-		4055: "STV HD",
 		6501: "ITV Wales HD",
 		6502: "ITV Meridian South HD",
 		6503: "ITV Central West HD",
 		6504: "ITV London HD",
 		6505: "ITV Granada HD",
-		6510: "UTV HD",
 	}
 
 	rename = {
