@@ -153,7 +153,7 @@ class Manager():
 							preferred_order = swapchannels_set["preferred_order"]
 							continue
 
-						if len(swapchannels_set["filters"]) > 0:
+						if len(swapchannels_set["filters"]) > 0: # no provider currently uses this
 							for cfilter in swapchannels_set["filters"]:
 								if cfilter[0] == current_bouquet and cfilter[1] == current_region:
 									preferred_order = swapchannels_set["preferred_order"]
