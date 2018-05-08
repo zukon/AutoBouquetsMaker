@@ -44,20 +44,22 @@
 		<section number="1030">BT Sports Interactive</section>
 		<section number="1050">Not indexed</section>
 	</sections>
+
 	<!-- swapchannels affects main and sections bouquets. -->
 	<swapchannels>
-		<channel number="102" with="115"/> <!-- RTE 2 HD -->
-		<channel number="135" with="227"/> <!-- Channel 4 HD -->
-		<channel number="141" with="215"/> <!-- BBC One HD -->
+		<channel number="101" with="801"/> <!-- RTE One HD -->
+		<channel number="102" with="802"/> <!-- RTE 2 HD -->
+		<channel number="103" with="803"/> <!-- TV3 HD -->
+		<channel number="104" with="804"/> <!-- TG4 HD -->
 		<channel number="106" with="806"/> <!-- Sky One HD -->
 		<channel number="107" with="807"/> <!-- Sky Living HD -->
 		<channel number="108" with="808"/> <!-- Sky Atlantic HD -->
 		<channel number="109" with="809"/> <!-- W HD -->
+		<channel number="110" with="810"/> <!-- GOLD HD -->
 		<channel number="111" with="811"/> <!-- Dave HD -->
 		<channel number="112" with="812"/> <!-- Comedy Central HD -->
 		<channel number="113" with="813"/> <!-- Universal HD -->
 		<channel number="114" with="814"/> <!-- Syfy HD -->
-		<channel number="116" with="815"/> <!-- BBC Four HD -->
 		<channel number="118" with="816"/> <!-- ITV2 HD -->
 		<channel number="119" with="817"/> <!-- ITV3 HD -->
 		<channel number="120" with="818"/> <!-- ITV4 HD -->
@@ -71,15 +73,20 @@
 		<channel number="132" with="826"/> <!-- Alibi HD -->
 		<channel number="133" with="827"/> <!-- Good Food HD -->
 		<channel number="134" with="828"/> <!-- S4C HD -->
-		<channel number="135" with="829"/> <!-- E4 HD -->
-		<channel number="136" with="830"/> <!-- More4 HD -->
+		<channel number="135" with="812"/> <!-- Channel 4 HD -->
+		<channel number="136" with="345"/> <!-- E4 HD -->
+		<channel number="137" with="346"/> <!-- More4 HD -->
 		<channel number="140" with="831"/> <!-- TLC HD -->
+		<channel number="141" with="832"/> <!-- BBC One HD -->
+		<channel number="142" with="347"/> <!-- BBC Two HD -->
+		<channel number="143" with="833"/> <!-- BBC Four HD -->
 		<channel number="151" with="834"/> <!-- E HD -->
 		<channel number="156" with="835"/> <!-- Crime+Inv HD -->
 		<channel number="162" with="836"/> <!-- Animal Planet HD -->
 		<channel number="164" with="838"/> <!-- Lifetime HD -->
 		<channel number="165" with="839"/> <!-- Nat Geo Wild HD -->
 		<channel number="186" with="840"/> <!-- AMC from BT HD -->
+		<channel number="190" with="841"/> <!-- Animal Planet HD -->
 		<channel number="301" with="842"/> <!-- SkyPremiereHD -->
 		<channel number="302" with="843"/> <!-- Sky Hits HD -->
 		<channel number="303" with="844"/> <!-- Sky Greats HD -->
@@ -109,12 +116,13 @@
 		<channel number="414" with="868"/> <!-- BT Sport2 HD-->
 		<channel number="417" with="869"/> <!-- BT Sport3 HD-->
 		<channel number="418" with="870"/> <!-- MUTV HD -->
+		<channel number="422" with="871"/> <!-- eir Sport 2 HD -->
 		<channel number="423" with="872"/> <!-- BTSpt ESPN HD -->
 		<channel number="425" with="873"/> <!-- LFCTV TV HD -->
 		<channel number="426" with="874"/> <!-- Racing UK HD -->
 		<channel number="501" with="875"/> <!-- Sky News HD -->
 		<channel number="502" with="876"/> <!-- Bloomberg HD -->
-		<channel number="503" with="877"/> <!-- BBC News HD -->
+		<channel number="503" with="823"/> <!-- BBC News HD -->
 		<channel number="506" with="878"/> <!-- CNN HD -->
 		<channel number="511" with="879"/> <!-- RT HD -->
 		<channel number="513" with="880"/> <!-- Al Jazeera HD -->
@@ -158,30 +166,47 @@ except:
 	}
 
 	channels_to_add_by_id = {
-		2306: 111, # Dave FTA
+		2012: 115, # BBC ALBA
 		6240: 118, # ITV2
 		6260: 119, # ITV3
 		6272: 120, # ITV4
-		6155: 205, # ITV +1
-		3150: 138, # 4seven
-		1032: 139, # Spike
-		4058: 177, # Channel 5 HD
-		3022: 150, # 5 USA
-		3028: 176, # My5
-		3023: 176, # 5STAR
-		1839: 204, # Channel 5 +1
+		6504: 128, # ITV HD
 		6510: 131, # UTV HD
+		3150: 138, # 4seven
+		1758: 139, # 4Music
+		1032: 163, # 5Spike
+		3022: 150, # 5 USA
+		4058: 153, # Channel 5 HD
 		6508: 169, # ITVBe
-		6241: 215, # ITV2 +1
-		3024: 220, # 5STAR +1
-		6261: 216, # ITV3 +1
-		6274: 217, # ITV4 +1
-		1014: 218, # ITVBe +1
-		3027: 219, # USA +1
-		2011: 523, # BBC News
+		3023: 176, # 5STAR
+		5036: 186, # AMC from BT
+		3028: 200, # 5SELECT
+		6241: 218, # ITV2 +1
+		6261: 219, # ITV3 +1
+		6274: 220, # ITV4 +1
+		6155: 228, # ITV +1
+		1670: 235, # Channel 4 +1
+		3310: 237, # More4 +1
+		3027: 250, # 5 USA +1
+		1839: 253, # Channel 5 +1
+		1076: 263, # 5Spike+1
+		1014: 269, # ITVBe +1
+		3024: 276, # 5STAR +1
+		3653: 358, # Box Upfront
+		1802: 359, # The Box
+		1350: 360, # Box Hits
+		1858: 361, # KISS
+		1877: 362, # Magic
+		1853: 363, # Kerrang!
 		2085: 503, # BBC News HD
-		2078: 638, # CBBC HD
-		2088: 639, # CBeebies HD
+		2072: 504, # BBC Parliament
+	    2011: 823, # BBC News
+		2306: 811, # Dave FTA
+		4075: 812, # Channel 4 HD
+		6532: 816, # ITV2 HD
+		6533: 817, # ITV3 HD
+		6534: 818, # ITV4 HD
+		5037: 840, # AMC from BTHD
 		#slow death section
 		3705: 112, # ComedyCentral
 		2709: 127, # ComedyXtra
@@ -287,6 +312,8 @@ except:
 		9800, # ___4110
 	]
 
+	bt_sports_id = [5030,5381,5031,5382,5383,5384,5385,5386]
+
 #Some encrypted channels are wrongly flagged as FTA.
 	not_fta_by_id = [
 		5036, # AMC from BT
@@ -351,43 +378,40 @@ if service["service_type"] == 0x02 and service["number"] > 3000:
 
 if service["service_type"] != 2 and (service["number"] in whitelist or service["service_name"] in whitelist or ("channel_id" in service and service["channel_id"] in whitelist_by_id)):
 	pass
-elif custom and service["service_type"] != 2 and (service["number"] in blacklist or  service["service_name"] in blacklist):
-	for n in service["numbers"]:
-		LCNs_in_use = [x for x in LCNs_in_use if x != n]
+elif custom and service["service_type"] != 2 and (service["number"] in blacklist or service["service_name"] in blacklist):
 	skip = True
 elif custom and service["service_type"] in DvbScanner.HD_ALLOWED_TYPES and service["free_ca"] != 0:
 	skip = True
 elif custom and ("channel_id" in service and service["channel_id"] in blacklist_by_id):
-	for n in service["numbers"]:
-		LCNs_in_use = [x for x in LCNs_in_use if x != n]
 	skip = True
 
 new_numbers = []
 for number in service["numbers"]:
-	if number >= 3000 and number <= 3999:
+	if number >= 3000 and number <= 3999: # radio
 		new_numbers.append(number - 3000)
-	elif service["channel_id"] in BBC_RB:
-		LCNs_in_use.append(1020 + BBC_RB[service["channel_id"]][1])
-		new_numbers.append(1020 + BBC_RB[service["channel_id"]][1])
-		service["interactive_name"] = BBC_RB[service["channel_id"]][0]
 	elif number >= 1050 and number <= max(LCNs_in_use): # not indexed channels
 		new_numbers.append(number)
 	elif number > 999 or number < 101:
-		if service["channel_id"] > 1470 and service["channel_id"] < 1486:
-				new_numbers.append(service["channel_id"] - 471)
-				service["interactive_name"] = "Sky Sports Interactive " + str(service["channel_id"])
-		#elif service["channel_id"] > 2050 and service["channel_id"] < 2053:
-		#		new_numbers.append(service["channel_id"] - 1031)
-		#		service["interactive_name"] = "BBC Interactive " + str(service["channel_id"])
-		elif service["channel_id"] > 3542 and service["channel_id"] < 3545:
-				new_numbers.append(service["channel_id"] - 2521)
-				service["interactive_name"] = "BBC Interactive " + str(service["channel_id"])
-		elif service["channel_id"] > 4093 and service["channel_id"] < 4099:
-				new_numbers.append(service["channel_id"] - 3064)
-				service["interactive_name"] = "Sky Anytime " + str(service["channel_id"])
+		if service["channel_id"] > 1470 and service["channel_id"] < 1486: # Sky Sports Interactive
+			new_numbers.append(service["channel_id"] - 471)
+			service["interactive_name"] = "Sky Sports Interactive " + str(service["channel_id"])
+		elif service["channel_id"] > 4093 and service["channel_id"] < 4099: # Sky Anytime
+			new_numbers.append(service["channel_id"] - 3074)
+			service["interactive_name"] = "Sky Anytime " + str(service["channel_id"])
+		elif service["channel_id"] in bt_sports_id:
+			new_numbers.append(1030 + bt_sports_id.index(service["channel_id"]))
 		else:
+			if extraservices:
+				i = 1450
+				while i > 1049 and i not in LCNs_in_use:
+					i -= 1
+				LCNs_in_use.append(i+1)
+				new_numbers.append(i+1)
+			else:
 				skip = True
 		break
+	elif service["service_name"] in ('Sky Intro') and number < 998: # Sky Intro
+		skip = True
 	else:
 		new_numbers.append(number)
 service["numbers"] = new_numbers
@@ -397,6 +421,7 @@ if service["channel_id"] in not_fta_by_id:
 
 if service["channel_id"] in fta_by_id:
 	service["free_ca"] = 0
+
 ]]>
 	</servicehacks>
 </provider>
