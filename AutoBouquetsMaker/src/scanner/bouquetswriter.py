@@ -543,8 +543,7 @@ class BouquetsWriter():
 		del last_scanned_bouquet_list
 		del avoid_duplicates
 	
-	def buildBouquets(self, path, provider_config, services, sections, section_identifier, preferred_order, channels_on_top, bouquets_to_hide, section_prefix):
-		channels_on_top = channels_on_top[0]
+	def buildBouquets(self, path, provider_config, services, sections, section_identifier, preferred_order, bouquets_to_hide, section_prefix):
 		if len(section_prefix) > 0:
 			section_prefix = section_prefix + " - "
 		current_number = 0

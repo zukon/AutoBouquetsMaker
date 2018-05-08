@@ -64,8 +64,6 @@ class Providers():
 			provider = {}
 			provider["key"] = filename[:-4]
 			provider["swapchannels"] = []
-			provider["hdchannelsontop"] = []
-			provider["sdchannelsontop"] = []
 			provider["dependent"] = ''
 			provider["bouquets"] = {}
 			provider["ignore_visible_service_flag"] = 0
@@ -366,22 +364,6 @@ class Providers():
 									swapchannels_set["filters"].append([filter_bouquet, filter_region])
 
 						provider["swapchannels"].append(swapchannels_set)
-
-					elif node.tagName == "hdchannelsontop":
-						provider["hdchannelsontop"] = []
-						for node2 in node.childNodes:
-							if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "channel":
-								for i in range(0, node2.attributes.length):
-									if node2.attributes.item(i).name == "number":
-										provider["hdchannelsontop"].append(int(node2.attributes.item(i).value))
-
-					elif node.tagName == "sdchannelsontop":
-						provider["sdchannelsontop"] = []
-						for node2 in node.childNodes:
-							if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "channel":
-								for i in range(0, node2.attributes.length):
-									if node2.attributes.item(i).name == "number":
-										provider["sdchannelsontop"].append(int(node2.attributes.item(i).value))
 
 					elif node.tagName == "servicehacks":
 						node.normalize()

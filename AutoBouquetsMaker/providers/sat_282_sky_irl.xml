@@ -44,15 +44,6 @@
 		<section number="1030">BT Sports Interactive</section>
 		<section number="1050">Not indexed</section>
 	</sections>
-	<!-- channelsontop affect only HD bouquets -->
-	<hdchannelsontop>
-		<channel number="101" />
-		<channel number="102" />
-	</hdchannelsontop>
-	<sdchannelsontop>
-		<channel number="215" />
-		<channel number="142" />
-	</sdchannelsontop>
 	<!-- swapchannels affects main and sections bouquets. -->
 	<swapchannels>
 		<channel number="102" with="115"/> <!-- RTE 2 HD -->

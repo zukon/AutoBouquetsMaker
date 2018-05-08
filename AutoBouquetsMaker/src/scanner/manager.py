@@ -158,11 +158,6 @@ class Manager():
 								preferred_order = swapchannels_set["preferred_order"]
 								break
 
-				if current_bouquet_key.startswith('sd'):
-					channelsontop = providers[provider_key]["sdchannelsontop"],
-				else:
-					channelsontop = providers[provider_key]["hdchannelsontop"],
-
 				# swap services between providers
 				services, providers[provider_key]["sections"] = Tools().customMix(self.services, provider_key, providers, self.providerConfigs[provider_key])
 
@@ -172,7 +167,6 @@ class Manager():
 						providers[provider_key]["sections"],
 						provider_key,
 						preferred_order,
-						channelsontop,
 						bouquetsToHide,
 						prefix)
 

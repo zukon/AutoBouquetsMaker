@@ -114,15 +114,7 @@
 		<section number="1000">Red button</section>
 		<section number="1020">BT Sport Interactive</section>
 	</sections>
-	<!-- channelsontop affect only HD bouquets -->
-	<hdchannelsontop>
-		<channel number="108" />
-		<channel number="162" />
-		<channel number="113" />
-		<channel number="141" />
-		<channel number="150" />
-	</hdchannelsontop>
- <!-- swapchannels only applies to the main bouquet  -->
+	<!-- swapchannels only applies to the main bouquet  -->
 	<swapchannels>
 		<channel number="101" with="108" /><!-- BBC ONE HD -->
 		<channel number="102" with="162" /><!-- BBC TWO HD -->

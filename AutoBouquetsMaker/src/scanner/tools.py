@@ -300,7 +300,6 @@ class Tools():
 		area_key = ""
 		bouquets_to_hide = []
 		bouquetsToHide = []
-		channels_on_top = [[]]
 		swaprules = []
 		placement = 0
 		hacks = ""
@@ -383,8 +382,6 @@ class Tools():
 				providers[provider_key]["bouquets"] = area_key
 				providers[provider_key]["protocol"] = 'nolcn'
 				providers[provider_key]["swapchannels"] = []
-				providers[provider_key]["sdchannelsontop"] = []
-				providers[provider_key]["hdchannelsontop"] = []
 				providers[provider_key]["sections"] = sections
 				if config.autobouquetsmaker.addprefix.value:
 					prefix = name
@@ -398,7 +395,7 @@ class Tools():
 				if bouquets["sections"] == 1:
 					providerConfigs[provider_key].setMakeSections()
 				from bouquetswriter import BouquetsWriter
-				BouquetsWriter().buildBouquets(path, providerConfigs[provider_key], services[provider_key], sections, provider_key, swaprules, channels_on_top, bouquets_to_hide, prefix)
+				BouquetsWriter().buildBouquets(path, providerConfigs[provider_key], services[provider_key], sections, provider_key, swaprules, bouquets_to_hide, prefix)
 			else:
 				print>>log, "[ABM-Tools][favourites] Favourites list is zero length."
 
