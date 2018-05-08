@@ -569,6 +569,18 @@ class BouquetsWriter():
 				swapDict[swaprule[0]] = swaprule[1]
 				swapDict[swaprule[1]] = swaprule[0]
 
+		# create a swapped list for fulltime use in HD bouquets
+		if provider_config.isMakeHDMain() or \
+			provider_config.isMakeFTAHDMain() or \
+			provider_config.isMakeHD() or \
+			provider_config.isMakeFTAHD():
+			services_swapped = {"video":{}}
+			for number in services["video"]:
+				if number in swapDict:
+					services_swapped["video"][swapDict[number]] = services["video"][number]
+				else:
+					services_swapped["video"][number] = services["video"][number]
+
 		if provider_config.isMakeNormalMain():
 			bouquet_current = open(path + "/%s%s.main.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier), "w")
 			current_bouquet_list = []
