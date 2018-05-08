@@ -639,25 +639,14 @@ class BouquetsWriter():
 
 			# Clear unused sections
 			sections_c = sections.copy()
-			sections_c = Tools().clearsections(services, sections_c, hd_or_ftahd, "video")
+			sections_c = Tools().clearsections(services_swapped, sections_c, hd_or_ftahd, "video")
 
 			section_keys_temp = sorted(sections_c.keys())
 			section_key_current = section_keys_temp[0]
 
 			if higher_number > 1:
-				# small hack to handle the "channels_on_top" list
-				hd_channels_numbers_tmp = sorted(services["video"].keys())
-				channels_on_top_tmp = list(channels_on_top)
-				for number in channels_on_top:
-					if number in hd_channels_numbers_tmp:
-						hd_channels_numbers_tmp.remove(number)
-					else:
-						channels_on_top_tmp.remove(number)
-				hd_channels_numbers = channels_on_top_tmp
-				hd_channels_numbers += hd_channels_numbers_tmp
-
 				todo = None
-				for number in hd_channels_numbers:
+				for number in sorted(services_swapped["video"].keys()):
 					if number >= section_key_current:
 						todo = None
 						if section_key_current not in bouquets_to_hide:
@@ -671,9 +660,9 @@ class BouquetsWriter():
 							section_key_current = 65535
 
 					if todo and number >= todo:
-						if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and (provider_config.isMakeHDMain() or (provider_config.isMakeFTAHDMain() and 'free_ca' in services["video"][number] and services["video"][number]["free_ca"] == 0)):
+						if services_swapped["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and (provider_config.isMakeHDMain() or (provider_config.isMakeFTAHDMain() and 'free_ca' in services_swapped["video"][number] and services_swapped["video"][number]["free_ca"] == 0)):
 							current_number += 1
-							current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
+							current_bouquet_list.append(self.bouquetServiceLine(services_swapped["video"][number]))
 
 					if current_number == higher_number - 1:
 						break
@@ -778,24 +767,13 @@ class BouquetsWriter():
 
 			# Clear unused sections
 			sections_c = sections.copy()
-			sections_c = Tools().clearsections(services, sections_c, "HD", "video")
+			sections_c = Tools().clearsections(services_swapped, sections_c, "HD", "video")
 
 			section_keys_temp = sorted(sections_c.keys())
 			section_key_current = section_keys_temp[0]
 
-			# small hack to handle the "channels_on_top" list
-			hd_channels_numbers_tmp = sorted(services["video"].keys())
-			channels_on_top_tmp = list(channels_on_top)
-			for number in channels_on_top:
-				if number in hd_channels_numbers_tmp:
-					hd_channels_numbers_tmp.remove(number)
-				else:
-					channels_on_top_tmp.remove(number)
-			hd_channels_numbers = channels_on_top_tmp
-			hd_channels_numbers += hd_channels_numbers_tmp
-
 			todo = None
-			for number in hd_channels_numbers:
+			for number in sorted(services_swapped["video"].keys()):
 				if number >= section_key_current:
 					todo = None
 					if section_key_current not in bouquets_to_hide:
@@ -809,9 +787,9 @@ class BouquetsWriter():
 						section_key_current = 65535
 
 				if todo and number >= todo:
-					if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES:
+					if services_swapped["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES:
 						current_number += 1
-						current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
+						current_bouquet_list.append(self.bouquetServiceLine(services_swapped["video"][number]))
 
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
 				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
@@ -830,24 +808,13 @@ class BouquetsWriter():
 
 			# Clear unused sections
 			sections_c = sections.copy()
-			sections_c = Tools().clearsections(services, sections_c, "FTAHD", "video")
+			sections_c = Tools().clearsections(services_swapped, sections_c, "FTAHD", "video")
 
 			section_keys_temp = sorted(sections_c.keys())
 			section_key_current = section_keys_temp[0]
 
-			# small hack to handle the "channels_on_top" list
-			hd_channels_numbers_tmp = sorted(services["video"].keys())
-			channels_on_top_tmp = list(channels_on_top)
-			for number in channels_on_top:
-				if number in hd_channels_numbers_tmp:
-					hd_channels_numbers_tmp.remove(number)
-				else:
-					channels_on_top_tmp.remove(number)
-			hd_channels_numbers = channels_on_top_tmp
-			hd_channels_numbers += hd_channels_numbers_tmp
-
 			todo = None
-			for number in hd_channels_numbers:
+			for number in sorted(services_swapped["video"].keys()):
 				if number >= section_key_current:
 					todo = None
 					if section_key_current not in bouquets_to_hide:
@@ -861,9 +828,9 @@ class BouquetsWriter():
 						section_key_current = 65535
 
 				if todo and number >= todo:
-					if services["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and 'free_ca' in services["video"][number] and services["video"][number]["free_ca"] == 0:
+					if services_swapped["video"][number]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and 'free_ca' in services_swapped["video"][number] and services_swapped["video"][number]["free_ca"] == 0:
 						current_number += 1
-						current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
+						current_bouquet_list.append(self.bouquetServiceLine(services_swapped["video"][number]))
 
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
 				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
