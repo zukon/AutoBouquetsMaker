@@ -287,6 +287,8 @@ except:
 		9800, # ___4110
 	]
 
+	bt_sports_id = [5030,5381,5031,5382,5383,5384,5385,5386]
+
 #Some encrypted channels are wrongly flagged as FTA.
 	not_fta_by_id = [
 		5036, # AMC from BT
@@ -351,43 +353,40 @@ if service["service_type"] == 0x02 and service["number"] > 3000:
 
 if service["service_type"] != 2 and (service["number"] in whitelist or service["service_name"] in whitelist or ("channel_id" in service and service["channel_id"] in whitelist_by_id)):
 	pass
-elif custom and service["service_type"] != 2 and (service["number"] in blacklist or  service["service_name"] in blacklist):
-	for n in service["numbers"]:
-		LCNs_in_use = [x for x in LCNs_in_use if x != n]
+elif custom and service["service_type"] != 2 and (service["number"] in blacklist or service["service_name"] in blacklist):
 	skip = True
 elif custom and service["service_type"] in DvbScanner.HD_ALLOWED_TYPES and service["free_ca"] != 0:
 	skip = True
 elif custom and ("channel_id" in service and service["channel_id"] in blacklist_by_id):
-	for n in service["numbers"]:
-		LCNs_in_use = [x for x in LCNs_in_use if x != n]
 	skip = True
 
 new_numbers = []
 for number in service["numbers"]:
-	if number >= 3000 and number <= 3999:
+	if number >= 3000 and number <= 3999: # radio
 		new_numbers.append(number - 3000)
-	elif service["channel_id"] in BBC_RB:
-		LCNs_in_use.append(1020 + BBC_RB[service["channel_id"]][1])
-		new_numbers.append(1020 + BBC_RB[service["channel_id"]][1])
-		service["interactive_name"] = BBC_RB[service["channel_id"]][0]
 	elif number >= 1050 and number <= max(LCNs_in_use): # not indexed channels
 		new_numbers.append(number)
 	elif number > 999 or number < 101:
-		if service["channel_id"] > 1470 and service["channel_id"] < 1486:
-				new_numbers.append(service["channel_id"] - 471)
-				service["interactive_name"] = "Sky Sports Interactive " + str(service["channel_id"])
-		#elif service["channel_id"] > 2050 and service["channel_id"] < 2053:
-		#		new_numbers.append(service["channel_id"] - 1031)
-		#		service["interactive_name"] = "BBC Interactive " + str(service["channel_id"])
-		elif service["channel_id"] > 3542 and service["channel_id"] < 3545:
-				new_numbers.append(service["channel_id"] - 2521)
-				service["interactive_name"] = "BBC Interactive " + str(service["channel_id"])
-		elif service["channel_id"] > 4093 and service["channel_id"] < 4099:
-				new_numbers.append(service["channel_id"] - 3064)
-				service["interactive_name"] = "Sky Anytime " + str(service["channel_id"])
+		if service["channel_id"] > 1470 and service["channel_id"] < 1486: # Sky Sports Interactive
+			new_numbers.append(service["channel_id"] - 471)
+			service["interactive_name"] = "Sky Sports Interactive " + str(service["channel_id"])
+		elif service["channel_id"] > 4093 and service["channel_id"] < 4099: # Sky Anytime
+			new_numbers.append(service["channel_id"] - 3074)
+			service["interactive_name"] = "Sky Anytime " + str(service["channel_id"])
+		elif service["channel_id"] in bt_sports_id:
+			new_numbers.append(1030 + bt_sports_id.index(service["channel_id"]))
 		else:
+			if extraservices:
+				i = 1450
+				while i > 1049 and i not in LCNs_in_use:
+					i -= 1
+				LCNs_in_use.append(i+1)
+				new_numbers.append(i+1)
+			else:
 				skip = True
 		break
+	elif service["service_name"] in ('Sky Intro') and number < 998: # Sky Intro
+		skip = True
 	else:
 		new_numbers.append(number)
 service["numbers"] = new_numbers
@@ -397,6 +396,7 @@ if service["channel_id"] in not_fta_by_id:
 
 if service["channel_id"] in fta_by_id:
 	service["free_ca"] = 0
+
 ]]>
 	</servicehacks>
 </provider>
