@@ -646,11 +646,7 @@ class BouquetsWriter():
 
 				todo = None
 				for number in hd_channels_numbers:
-					# when "channels_on_top" moves a channel there is no way to know which section we wanted it to belong to. 
-					# "pseudo_number" uses the lowest number remaining in "hd_channels_numbers" as the bump for section markers.
-					pseudo_number = min(hd_channels_numbers[hd_channels_numbers.index(number):])
-					
-					if pseudo_number >= section_key_current:
+					if number >= section_key_current:
 						todo = None
 						if section_key_current not in bouquets_to_hide:
 							current_bouquet_list.append(self.styledBouquetMarker("%s%s" % (section_prefix, sections_c[section_key_current])))
@@ -788,11 +784,7 @@ class BouquetsWriter():
 
 			todo = None
 			for number in hd_channels_numbers:
-				# when "channels_on_top" moves a channel there is no way to know which section we want it to belong to. 
-				# this hack uses the lowest number remaining in "hd_channels_numbers" as the bump for section markers.
-				pseudo_number = min(hd_channels_numbers[hd_channels_numbers.index(number):])
-
-				if pseudo_number >= section_key_current:
+				if number >= section_key_current:
 					todo = None
 					if section_key_current not in bouquets_to_hide:
 						current_bouquet_list.append(self.styledBouquetMarker("%s%s" % (section_prefix, sections_c[section_key_current])))
@@ -844,11 +836,7 @@ class BouquetsWriter():
 
 			todo = None
 			for number in hd_channels_numbers:
-				# when "channels_on_top" moves a channel there is no way to know which section we wanted it to belong to. 
-				# this hack uses the lowest number remaining in "hd_channels_numbers" as the bump for section markers.
-				pseudo_number = min(hd_channels_numbers[hd_channels_numbers.index(number):])
-				
-				if pseudo_number >= section_key_current:
+				if number >= section_key_current:
 					todo = None
 					if section_key_current not in bouquets_to_hide:
 						current_bouquet_list.append(self.styledBouquetMarker("%s%s" % (section_prefix, sections_c[section_key_current])))
