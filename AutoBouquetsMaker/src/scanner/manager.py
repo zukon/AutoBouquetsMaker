@@ -147,17 +147,16 @@ class Manager():
 					current_region = -1
 
 				preferred_order = []
-				if (self.providerConfigs[provider_key].isMakeNormalMain() or self.providerConfigs[provider_key].isMakeSections()) and self.providerConfigs[provider_key].isSwapChannels():
-					for swapchannels_set in providers[provider_key]["swapchannels"]:
-						if len(preferred_order) == 0 and len(swapchannels_set["filters"]) == 0:
-							preferred_order = swapchannels_set["preferred_order"]
-							continue
+				for swapchannels_set in providers[provider_key]["swapchannels"]:
+					if len(preferred_order) == 0 and len(swapchannels_set["filters"]) == 0:
+						preferred_order = swapchannels_set["preferred_order"]
+						continue
 
-						if len(swapchannels_set["filters"]) > 0: # no provider currently uses this
-							for cfilter in swapchannels_set["filters"]:
-								if cfilter[0] == current_bouquet and cfilter[1] == current_region:
-									preferred_order = swapchannels_set["preferred_order"]
-									break
+					if len(swapchannels_set["filters"]) > 0: # no provider currently uses this
+						for cfilter in swapchannels_set["filters"]:
+							if cfilter[0] == current_bouquet and cfilter[1] == current_region:
+								preferred_order = swapchannels_set["preferred_order"]
+								break
 
 				if current_bouquet_key.startswith('sd'):
 					channelsontop = providers[provider_key]["sdchannelsontop"],

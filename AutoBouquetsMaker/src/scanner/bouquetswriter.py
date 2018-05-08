@@ -598,7 +598,7 @@ class BouquetsWriter():
 			for number in preferred_order_tmp:
 				if section_number in sections_c and section_number not in bouquets_to_hide and section_number != first_section:
 					current_bouquet_list.append(self.styledBouquetMarker("%s%s" % (section_prefix, sections_c[section_number])))
-				if number in swapDict:
+				if provider_config.isSwapChannels() and number in swapDict:
 					number = swapDict[number]
 				if number in services["video"] and number not in bouquets_to_hide:
 					current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
@@ -722,7 +722,7 @@ class BouquetsWriter():
 				#current_number += 1
 				section_current_number += 1
 				for number in range(section_current_number, higher_number + 1):
-					if number in swapDict:
+					if provider_config.isSwapChannels() and number in swapDict:
 						number = swapDict[number]
 					if number in services["video"] and section_number not in bouquets_to_hide:
 						current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
