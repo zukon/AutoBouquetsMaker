@@ -203,7 +203,6 @@
 		<channel number="113" with="813"/> <!-- Universal HD -->
 		<channel number="114" with="814"/> <!-- Syfy HD -->
 		<channel number="116" with="815"/> <!-- BBC Four HD -->
-		<channel number="117" with="138"/> <!-- Channel 4 HD Wales-->
 		<channel number="118" with="816"/> <!-- ITV2 HD -->
 		<channel number="119" with="817"/> <!-- ITV3 HD -->
 		<channel number="120" with="818"/> <!-- ITV4 HD -->
@@ -251,9 +250,9 @@
 		<channel number="410" with="864"/> <!-- Eurosport 1 HD -->
 		<channel number="411" with="865"/> <!-- Eurosport 2 HD -->
 		<channel number="412" with="866"/> <!-- Premier HD -->
-		<channel number="413" with="867"/> <!-- BT Sport1 HD-->
-		<channel number="414" with="868"/> <!-- BT Sport2 HD-->
-		<channel number="417" with="869"/> <!-- BT Sport3 HD-->
+		<channel number="413" with="867"/> <!-- BT Sport1 HD -->
+		<channel number="414" with="868"/> <!-- BT Sport2 HD -->
+		<channel number="417" with="869"/> <!-- BT Sport3 HD -->
 		<channel number="418" with="870"/> <!-- MUTV HD -->
 		<channel number="423" with="872"/> <!-- BTSpt ESPN HD -->
 		<channel number="425" with="873"/> <!-- LFCTV TV HD -->
@@ -428,14 +427,20 @@ except:
 	]
 
 # BBC Two HD, move to 802.
-if service["channel_id"] in (2075,) and 115 in service["numbers"]:
- service["numbers"][service["numbers"].index(115)] = 802
- service["number"] = 802
+if service["channel_id"] in (2075,) and 115 in service["numbers"] and 802 not in LCNs_in_use:
+	service["numbers"][service["numbers"].index(115)] = 802
+	service["number"] = 802
+	LCNs_in_use.append(802)
+	while 115 in LCNs_in_use:
+		LCNs_in_use.remove(115)
 
 # Channel 4 HD number, move to 804
-if service["channel_id"] in (4075,) and 138 in service["numbers"]:
- service["numbers"][service["numbers"].index(138)] = 804
- service["number"] = 804
+if service["channel_id"] in (4075,) and 138 in service["numbers"] and 804 not in LCNs_in_use:
+	service["numbers"][service["numbers"].index(138)] = 804
+	service["number"] = 804
+	LCNs_in_use.append(804)
+	while 138 in LCNs_in_use:
+		LCNs_in_use.remove(138)
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
