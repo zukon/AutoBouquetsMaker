@@ -64,8 +64,53 @@
 		<configuration key="hd_west_anglia" bouquet="0x1005" region="0x19">West Anglia HD</configuration>
 		<configuration key="hd_west_dorset" bouquet="0x1007" region="0x43">West Dorset HD</configuration>
 		<configuration key="hd_westcountry" bouquet="0x1005" region="0x06">Westcountry HD</configuration>
+		<configuration key="hdcustom_atherstone" bouquet="0x1005" region="0x13">Atherstone HD Custom</configuration>
+		<configuration key="hdcustom_border_england" bouquet="0x1005" region="0x0c">Border England HD Custom</configuration>
+		<configuration key="hdcustom_border_scotland" bouquet="0x1006" region="0x24">Border Scotland HD Custom</configuration>
+		<configuration key="hdcustom_brighton" bouquet="0x1007" region="0x41">Brighton HD Custom</configuration>
+		<configuration key="hdcustom_central_midlands" bouquet="0x1005" region="0x03">Central Midlands HD Custom</configuration>
+		<configuration key="hdcustom_channel_isles" bouquet="0x1008" region="0x22">Channel Isles HD Custom</configuration>
+		<configuration key="hdcustom_dundee" bouquet="0x1006" region="0x27">Dundee HD Custom</configuration>
+		<configuration key="hdcustom_east_midlands" bouquet="0x1005" region="0x14">East Midlands HD Custom</configuration>
+		<configuration key="hdcustom_essex" bouquet="0x1005" region="0x02">Essex HD Custom</configuration>
+		<configuration key="hdcustom_gloucester" bouquet="0x1005" region="0x18">Gloucester HD Custom</configuration>
+		<configuration key="hdcustom_grampian" bouquet="0x1006" region="0x23">Grampian HD Custom</configuration>
+		<configuration key="hdcustom_granada" bouquet="0x1005" region="0x07">Granada HD Custom</configuration>
+		<configuration key="hdcustom_henley_on_thames" bouquet="0x1007" region="0x46">Henley On Thames HD Custom</configuration>
+		<configuration key="hdcustom_htv_wales" bouquet="0x1007" region="0x2b">HTV Wales HD Custom</configuration>
+		<configuration key="hdcustom_htv_west" bouquet="0x1005" region="0x04">HTV West HD Custom</configuration>
+		<configuration key="hdcustom_htv_west_thames_valley" bouquet="0x1007" region="0x3f">HTV West / Thames Valley HD Custom</configuration>
+		<configuration key="hdcustom_humber" bouquet="0x1005" region="0x1d">Humber HD Custom</configuration>
 		<configuration key="hdcustom_london" bouquet="0x1005" region="0x01">London HD Custom</configuration>
+		<configuration key="hdcustom_london_essex" bouquet="0x1005" region="0x12">London / Essex HD Custom</configuration>
+		<configuration key="hdcustom_london_kent" bouquet="0x1007" region="0x40">London Kent HD Custom</configuration>
+		<configuration key="hdcustom_london_thames_valley" bouquet="0x1007" region="0x42">London / Thames Valley HD Custom</configuration>
+		<configuration key="hdcustom_meridian_east" bouquet="0x1005" region="0x0b">Meridian East HD Custom</configuration>
+		<configuration key="hdcustom_meridian_north" bouquet="0x1007" region="0x44">Meridian North HD Custom</configuration>
+		<configuration key="hdcustom_meridian_south" bouquet="0x1005" region="0x05">Meridian South HD Custom</configuration>
+		<configuration key="hdcustom_meridian_south_east" bouquet="0x1005" region="0x0a">Meridian South East HD Custom</configuration>
+		<configuration key="hdcustom_merseyside" bouquet="0x1007" region="0x2d">Merseyside HD Custom</configuration>
+		<configuration key="hdcustom_norfolk" bouquet="0x1005" region="0x15">Norfolk HD Custom</configuration>
+		<configuration key="hdcustom_north_east_midlands" bouquet="0x1007" region="0x3e">North East Midlands HD Custom</configuration>
+		<configuration key="hdcustom_north_west_yorkshire" bouquet="0x1005" region="0x08">North West Yorkshire HD Custom</configuration>
+		<configuration key="hdcustom_north_yorkshire" bouquet="0x1005" region="0x1a">North Yorkshire HD Custom</configuration>
+		<configuration key="hdcustom_northern_ireland" bouquet="0x1008" region="0x21">Northern Ireland HD Custom</configuration>
+		<configuration key="hdcustom_oxford" bouquet="0x1007" region="0x47">Oxford HD Custom</configuration>
+		<configuration key="hdcustom_ridge_hill" bouquet="0x1007" region="0x29">Ridge Hill HD Custom</configuration>
+		<configuration key="hdcustom_scarborough" bouquet="0x1007" region="0x3d">Scarborough HD Custom</configuration>
+		<configuration key="hdcustom_scottish_east" bouquet="0x1006" region="0x26">Scottish East HD Custom</configuration>
+		<configuration key="hdcustom_scottish_west" bouquet="0x1006" region="0x25">Scottish West HD Custom</configuration>
+		<configuration key="hdcustom_sheffield" bouquet="0x1007" region="0x3c">Sheffield HD Custom</configuration>
+		<configuration key="hdcustom_south_lakeland" bouquet="0x1005" region="0x1c">South Lakeland HD Custom</configuration>
+		<configuration key="hdcustom_south_yorkshire" bouquet="0x1007" region="0x48">South Yorkshire HD Custom</configuration>
+		<configuration key="hdcustom_tees" bouquet="0x1007" region="0x45">Tees HD Custom</configuration>
+		<configuration key="hdcustom_thames_valley" bouquet="0x1005" region="0x09">Thames Valley HD Custom</configuration>
+		<configuration key="hdcustom_tring" bouquet="0x1005" region="0x1b">Tring HD Custom</configuration>
 		<configuration key="hdcustom_tyne" bouquet="0x1005" region="0x0d">Tyne HD Custom</configuration>
+		<configuration key="hdcustom_wales" bouquet="0x1008" region="0x20">Wales HD Custom</configuration>
+		<configuration key="hdcustom_west_anglia" bouquet="0x1005" region="0x19">West Anglia HD Custom</configuration>
+		<configuration key="hdcustom_west_dorset" bouquet="0x1007" region="0x43">West Dorset HD Custom</configuration>
+		<configuration key="hdcustom_westcountry" bouquet="0x1005" region="0x06">Westcountry HD Custom</configuration>
 		<configuration key="sd_atherstone" bouquet="0x1001" region="0x13">Atherstone SD</configuration>
 		<configuration key="sd_border_england" bouquet="0x1001" region="0x0c">Border England SD</configuration>
 		<configuration key="sd_border_scotland" bouquet="0x1002" region="0x24">Border Scotland SD</configuration>
