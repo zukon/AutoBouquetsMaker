@@ -232,10 +232,13 @@
 
 	<!-- swapchannels affects main and sections bouquets. "number" is the SD channel. "with" is the HD channel. Swap will not occur if target is not HD -->
 	<swapchannels>
-		<channel number="101" with="115"/> <!-- BBC One HD -->
-		<channel number="101" with="801"/> <!-- BBC One HD -->
-		<channel number="102" with="802"/> <!-- BBC Two HD -->
-		<channel number="103" with="803"/> <!-- ITV HD -->
+		<channel number="101" with="115" conditional="'BBC One' in service_hd['service_name']"/> <!-- BBC One HD -->
+		<channel number="101" with="801" conditional="'BBC One' in service_hd['service_name']"/> <!-- BBC One HD -->
+		<channel number="102" with="115" conditional="'BBC Two' in service_hd['service_name']"/> <!-- BBC Two HD -->
+		<channel number="102" with="802" conditional="'BBC Two' in service_hd['service_name']"/> <!-- BBC Two HD -->
+		<channel number="103" with="803" conditional="service_hd['bouquet_id'] not in (0x1002, 0x1006)"/> <!-- ITV HD -->
+		<channel number="103" with="176" conditional="service_hd['bouquet_id'] in (0x1002, 0x1006)"/> <!-- STV HD -->
+		<channel number="104" with="138" conditional="'Channel 4' in service_sd['service_name'] and 'Channel 4' in service_hd['service_name']"/> <!-- Channel 4 HD -->
 		<channel number="104" with="804"/> <!-- Channel 4 HD -->
 		<channel number="105" with="805"/> <!-- Channel 5 HD -->
 		<channel number="106" with="806"/> <!-- Sky One HD -->
@@ -247,6 +250,7 @@
 		<channel number="113" with="813"/> <!-- Universal HD -->
 		<channel number="114" with="814"/> <!-- Syfy HD -->
 		<channel number="116" with="815"/> <!-- BBC Four HD -->
+		<channel number="117" with="138" conditional="'Channel 4' in service_sd['service_name'] and 'Channel 4' in service_hd['service_name']"/> <!-- Channel 4 HD -->
 		<channel number="118" with="816"/> <!-- ITV2 HD -->
 		<channel number="119" with="817"/> <!-- ITV3 HD -->
 		<channel number="120" with="818"/> <!-- ITV4 HD -->
@@ -470,29 +474,7 @@ except:
 		2029, #7ed 20170516
 	]
 
-# BBC Two HD, move to 802.
-if service["channel_id"] in (2075,) and 115 in service["numbers"] and 802 not in LCNs_in_use:
-	service["numbers"][service["numbers"].index(115)] = 802
-	service["number"] = 802
-	LCNs_in_use.append(802)
-	while 115 in LCNs_in_use:
-		LCNs_in_use.remove(115)
 
-# STV HD, move to 803.
-if service["channel_id"] in (4055,) and 176 in service["numbers"] and 803 not in LCNs_in_use:
-	service["numbers"][service["numbers"].index(176)] = 803
-	service["number"] = 803
-	LCNs_in_use.append(803)
-	while 176 in LCNs_in_use:
-		LCNs_in_use.remove(176)
-
-# Channel 4 HD number, move to 804
-if service["channel_id"] in (4075,) and 138 in service["numbers"] and 804 not in LCNs_in_use:
-	service["numbers"][service["numbers"].index(138)] = 804
-	service["number"] = 804
-	LCNs_in_use.append(804)
-	while 138 in LCNs_in_use:
-		LCNs_in_use.remove(138)
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':

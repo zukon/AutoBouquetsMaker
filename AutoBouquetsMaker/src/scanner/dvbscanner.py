@@ -1064,6 +1064,8 @@ class DvbScanner():
 				service["service_name"] = section["service_name"]
 				service["provider_name"] = section["provider_name"]
 				service["category_name"] = self.skyCategoryName(section["category_id"])
+				service["bouquet_id"] = bouquet_id # in Sky UK this is the nation id
+				service["bouquet_key"] = bouquet_key 
 
 		video_services = {}
 		radio_services = {}
@@ -1416,7 +1418,9 @@ class DvbScanner():
 					'descriptor_tag': 177,
 					'transport_stream_id': service["transport_stream_id"],
 					'provider_name': service["provider_name"],
-					'channel_id': service["channel_id"]
+					'channel_id': service["channel_id"],
+					'bouquet_id': 0,
+					'bouquet_key': ''
 				}
 				srvkey = "%x:%x:%x" % (service["transport_stream_id"], service["original_network_id"], service["service_id"])
 				tmp_services_dict[srvkey] = new_service

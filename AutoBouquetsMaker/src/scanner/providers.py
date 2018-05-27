@@ -334,36 +334,24 @@ class Providers():
 									provider["sections"][number] = node2.childNodes[0].data.encode("utf-8")
 
 					elif node.tagName == "swapchannels":
-						swapchannels_set = {}
-						swapchannels_set["filters"] = []
-						swapchannels_set["preferred_order"] = []
-
 						for node2 in node.childNodes:
 							if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "channel":
 								channel_number = -1
 								channel_with = -1
+								channel_conditional = None
 								for i in range(0, node2.attributes.length):
 									if node2.attributes.item(i).name == "number":
 										channel_number = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "with":
 										channel_with = int(node2.attributes.item(i).value)
+									elif node2.attributes.item(i).name == "conditional": # allows adding an evalable condition on a channel by channel basis
+										channel_conditional = node2.attributes.item(i).value.encode("utf-8")
 
 								if channel_number != -1 and channel_with != -1:
-									swapchannels_set["preferred_order"].append([channel_number, channel_with])
-
-							if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "filter":
-								filter_bouquet = -1
-								filter_region = -1
-								for i in range(0, node2.attributes.length):
-									if node2.attributes.item(i).name == "bouquet":
-										filter_bouquet = int(node2.attributes.item(i).value, 16)
-									elif node2.attributes.item(i).name == "region":
-										filter_region = int(node2.attributes.item(i).value, 16)
-
-								if filter_bouquet != -1 and filter_region != -1:
-									swapchannels_set["filters"].append([filter_bouquet, filter_region])
-
-						provider["swapchannels"].append(swapchannels_set)
+									if channel_conditional is None:
+										provider["swapchannels"].append([channel_number, channel_with])
+									else:
+										provider["swapchannels"].append([channel_number, channel_with, channel_conditional])
 
 					elif node.tagName == "servicehacks":
 						node.normalize()

@@ -146,17 +146,6 @@ class Manager():
 					current_bouquet = -1
 					current_region = -1
 
-				preferred_order = []
-				for swapchannels_set in providers[provider_key]["swapchannels"]:
-					if len(preferred_order) == 0 and len(swapchannels_set["filters"]) == 0:
-						preferred_order = swapchannels_set["preferred_order"]
-						continue
-
-					if len(swapchannels_set["filters"]) > 0: # no provider currently uses this
-						for cfilter in swapchannels_set["filters"]:
-							if cfilter[0] == current_bouquet and cfilter[1] == current_region:
-								preferred_order = swapchannels_set["preferred_order"]
-								break
 
 				# swap services between providers
 				services, providers[provider_key]["sections"] = Tools().customMix(self.services, provider_key, providers, self.providerConfigs[provider_key])
@@ -166,7 +155,7 @@ class Manager():
 						services,
 						providers[provider_key]["sections"],
 						provider_key,
-						preferred_order,
+						providers[provider_key]["swapchannels"],
 						bouquetsToHide,
 						prefix)
 

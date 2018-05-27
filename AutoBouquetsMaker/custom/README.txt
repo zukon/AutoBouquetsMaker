@@ -7,6 +7,7 @@ Contents:
 5) Streams
 6) Provider keys
 7) lamedb format explained
+8) swapchannels (in providers.xml)
 
 ---------------------------------------------------------------------------------------------- 
 
@@ -562,5 +563,53 @@ dxIsDedicated3D=128, // 3D channel
 dxHideVBI=512, // Hide VBI line (dotted line along top of screen on some channels )
 dxIsScrambledPMT=1024, // Hmm ( something to do with 27.5W ??? )
 dxCenterDVBSubs=2048, // Centre DVB subtitles
+
+----------------------------------------------------------------------------------------------
+
+swapchannels (in providers.xml)
+-------------------------------
+
+swapchannels always forces the channel order in the HD bouquets, and optionally forces the 
+channel order main and sections bouquets. "number" is the SD channel. "with" is the HD channel. 
+Swap will only occur if the source channel is not HD and the target channel is HD, and both ends 
+of the swap exist.
+
+Example:
+<channel number="101" with="801"/> <!-- BBC One HD -->
+This moves "BBC One HD" to slot 101, and BBC One London to slot 801.
+
+There is also a "conditional" attribute.
+Example:
+<channel number="102" with="802" conditonal="service_hd['channel_id'] == 2075"/> <!-- BBC Two HD -->
+If the statement in the conditional attribute evaluates to True the swap will occur, if not it 
+will fail.
+
+It is also possible to create compound statements.
+Example:
+<channel number="102" with="802" conditonal="service_sd['service_name'] == 'BBC Two Eng" and service_hd['channel_id'] == 2075"/>
+
+The following is a non-exhaustive list of variables that could be used in a conditional attribute, 
+although not all will be available for all providers.
+
+service_sd['service_name']
+service_sd['channel_id']
+service_sd['service_id']
+service_sd['transport_stream_id']
+service_sd['provider_name']
+service_sd['category_name']
+service_sd['original_network_id']
+service_sd['bouquet_id']
+service_sd['bouquet_key']
+
+service_hd['service_name']
+service_hd['channel_id']
+service_hd['service_id']
+service_hd['transport_stream_id']
+service_hd['provider_name']
+service_hd['category_name']
+service_hd['original_network_id']
+service_hd['bouquet_id']
+service_hd['bouquet_key']
+
 
 ---------------------------------------------------------------------------------------------- 

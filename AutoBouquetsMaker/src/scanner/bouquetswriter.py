@@ -565,8 +565,11 @@ class BouquetsWriter():
 		swapDict = {}
 		for swaprule in preferred_order:
 			if swaprule[0] in services["video"] and swaprule[1] in services["video"] and services["video"][swaprule[1]]["service_type"] in DvbScanner.HD_ALLOWED_TYPES and services["video"][swaprule[0]]["service_type"] not in DvbScanner.HD_ALLOWED_TYPES:
-				swapDict[swaprule[0]] = swaprule[1]
-				swapDict[swaprule[1]] = swaprule[0]
+				# conditional is optional. If not present the swaprule is automatically added to the swap dict. If conditional is present it must evaluate to True
+				conditional = len(swaprule) > 2 and swaprule[2] or None
+				if not conditional or eval(conditional, {}, {'service_sd': services["video"][swaprule[0]], 'service_hd': services["video"][swaprule[1]]}):
+					swapDict[swaprule[0]] = swaprule[1]
+					swapDict[swaprule[1]] = swaprule[0]
 
 		# create a swapped list for fulltime use in HD bouquets
 		if provider_config.isMakeHDMain() or \

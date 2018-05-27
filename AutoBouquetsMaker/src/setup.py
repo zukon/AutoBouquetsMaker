@@ -312,28 +312,8 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 					if self.providers_makeftahd[provider] and (self.providers_makemain[provider] is None or self.providers_makemain[provider].value != "ftahd") and not self.providers_FTA_only[provider].value:
 						self.list.append(getConfigListEntry(indent + self.providers[provider]["name"] + ": " + _("generate FTA HD bouquet"), self.providers_makeftahd[provider], _("This option will create a FreeToAir High Definition bouquet, it will group all FTA HD channels into this bouquet.")))
 
-					if ((self.providers_makemain[provider] and self.providers_makemain[provider].value == "yes") or (self.providers_makesections[provider] and self.providers_makesections[provider].value == True)):
-						if self.providers[provider]["protocol"] == "sky":
-							for swapchannel in self.providers[provider]["swapchannels"]:
-								if len(swapchannel["filters"]) == 0:
-									self.list.append(getConfigListEntry(indent + self.providers[provider]["name"] + ": " + _("swap channels"), self.providers_swapchannels[provider], _("This option will swap SD versions of channels with HD versions. (eg BBC One SD with BBC One HD, Channel Four SD with with Channel Four HD)")))
-									break
-
-								done = False
-								if self.providers_area[provider].value in self.providers[provider]["bouquets"]:
-									current_bouquet_id = self.providers[provider]["bouquets"][self.providers_area[provider].value]["bouquet"]
-									current_region = self.providers[provider]["bouquets"][self.providers_area[provider].value]["region"]
-									for cfilter in swapchannel["filters"]:
-										if cfilter[0] == current_bouquet_id and cfilter[1] == current_region:
-											self.list.append(getConfigListEntry(self.providers[provider]["name"] + ": " + _("swap channels"), self.providers_swapchannels[provider], _("This option will swap SD versions of channels with HD versions. (eg BBC One SD with BBC One HD, Channel Four SD with with Channel Four HD)")))
-											done = True
-											break
-
-								if done:
-									break
-						else:
-							if len(self.providers[provider]["swapchannels"]) > 0:
-								self.list.append(getConfigListEntry(indent + self.providers[provider]["name"] + ": " + _("swap channels"), self.providers_swapchannels[provider], _("This option will swap SD versions of channels with HD versions. (eg BBC One SD with BBC One HD, Channel Four SD with with Channel Four HD)")))
+					if ((self.providers_makemain[provider] and self.providers_makemain[provider].value == "yes") or (self.providers_makesections[provider] and self.providers_makesections[provider].value == True)) and len(self.providers[provider]["swapchannels"]) > 0:
+						self.list.append(getConfigListEntry(indent + self.providers[provider]["name"] + ": " + _("swap channels"), self.providers_swapchannels[provider], _("This option will swap SD versions of channels with HD versions. (eg BBC One SD with BBC One HD, Channel Four SD with with Channel Four HD)")))
 
 				providers_enabled.append(provider)
 
