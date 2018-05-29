@@ -59,6 +59,7 @@ class Tools():
 			if dom is None:
 				print>>log, "[ABM-Tools][customLCN] No custom " + type + " LCN file for " + section_identifier + "."
 			elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "custom":
+				print>>log, "[ABM-Tools][customLCN] Reading custom " + type + " LCN file for " + section_identifier + "."
 				customlcndict = {}
 				sort_order = [] # to process this file top down
 				for node in dom.documentElement.childNodes:
@@ -145,6 +146,7 @@ class Tools():
 		if dom is None:
 			print>>log, "[ABM-Tools][customMix] No CustomMix file for " + section_identifier + "."
 		elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "custommix":
+			print>>log, "[ABM-Tools][customMix] Reading CustomMix file for " + section_identifier + "."
 			for node in dom.documentElement.childNodes:
 				if node.nodeType != node.ELEMENT_NODE:
 					continue
@@ -309,6 +311,7 @@ class Tools():
 		if dom is None:
 			print>>log, "[ABM-Tools][favourites] No favorite.xml file"
 		elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "favourites":
+			print>>log, "[ABM-Tools][favourites] Reading favorite.xml file"
 			for node in dom.documentElement.childNodes:
 				if node.nodeType != node.ELEMENT_NODE:
 					continue
