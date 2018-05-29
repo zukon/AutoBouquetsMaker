@@ -48,7 +48,7 @@
 		<configuration key="moel_y_parc________" frequency="666000000">Moel y Parc</configuration>
 		<configuration key="nottingham_________" frequency="522000000">Nottingham</configuration>
 		<configuration key="oliversmount_______" frequency="762000000">Olivers Mount</configuration>
-		<configuration key="oxford_____________" frequency="730200000">Oxford</configuration>
+		<configuration key="oxford_____________" frequency="634000000">Oxford</configuration>
 		<configuration key="pontop_pike________" frequency="770000000">Pontop Pike</configuration>
 		<configuration key="presely____________" frequency="650200000">Presely</configuration>
 		<configuration key="redruth____________" frequency="658200000">Redruth</configuration>
@@ -162,6 +162,9 @@
 		<customtransponder key="oliversmount_______" frequency="762000000" transport_stream_id="104a" system="0"/>
 		<customtransponder key="oliversmount_______" frequency="770000000" transport_stream_id="5040" system="0"/>
 		<customtransponder key="oliversmount_______" frequency="786000000" transport_stream_id="2019" system="0"/>
+		<customtransponder key="oxford_____________" frequency="682000000" transport_stream_id="4083" system="1"/>
+		<customtransponder key="oxford_____________" frequency="746000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="oxford_____________" frequency="754000000" transport_stream_id="b000" system="1"/>		
 		<customtransponder key="pontop_pike________" frequency="570000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="pontop_pike________" frequency="578000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="pontop_pike________" frequency="698000000" transport_stream_id="4089" system="1"/>
