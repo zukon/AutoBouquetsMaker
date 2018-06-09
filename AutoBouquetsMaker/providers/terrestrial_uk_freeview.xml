@@ -56,6 +56,7 @@
 		<configuration key="rosemarkie_________" frequency="666000000">Rosemarkie</configuration>
 		<configuration key="rowridge___________" frequency="498000000">Rowridge</configuration>
 		<configuration key="rumster_forest_____" frequency="522000000">Rumster Forest</configuration>
+		<configuration key="salisbury__________" frequency="634000000">Salisbury</configuration>
 		<configuration key="sandy_heath________" frequency="522000000">Sandy Heath</configuration>
 		<configuration key="selkirk____________" frequency="706000000">Selkirk</configuration>
 		<configuration key="sheffield__________" frequency="474000000">Sheffield</configuration>
@@ -164,7 +165,7 @@
 		<customtransponder key="oliversmount_______" frequency="786000000" transport_stream_id="2019" system="0"/>
 		<customtransponder key="oxford_____________" frequency="682000000" transport_stream_id="4083" system="1"/>
 		<customtransponder key="oxford_____________" frequency="746000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="oxford_____________" frequency="754000000" transport_stream_id="b000" system="1"/>		
+		<customtransponder key="oxford_____________" frequency="754000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="pontop_pike________" frequency="570000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="pontop_pike________" frequency="578000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="pontop_pike________" frequency="698000000" transport_stream_id="4089" system="1"/>
@@ -184,6 +185,7 @@
 		<customtransponder key="rowridge___________" frequency="530000000" transport_stream_id="6040" system="0"/>
 		<customtransponder key="rowridge___________" frequency="554000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="rowridge___________" frequency="602000000" transport_stream_id="b000" system="1"/>
+		<customtransponder key="salisbury__________" frequency="682000000" transport_stream_id="4083" system="1"/>
 		<customtransponder key="sandy_heath________" frequency="474000000" transport_stream_id="4083" system="1"/>
 		<customtransponder key="sandy_heath________" frequency="562000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="stockland_hill_____" frequency="538000000" transport_stream_id="4082" system="1"/>
