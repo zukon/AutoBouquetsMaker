@@ -476,7 +476,7 @@ except:
 		2029, #7ed 20170516
 	]
 
-
+	bbc_rb_id = [2051,2053,2054,2055,2056,2057,2058]
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
@@ -527,7 +527,18 @@ elif custom and ("channel_id" in service and service["channel_id"] in blacklist_
 
 new_numbers = []
 for number in service["numbers"]:
-	if number >= 3000 and number <= 3999: # radio
+	if service["channel_id"] in bbc_rb_id and (service["channel_id"] - 1072) not in LCNs_in_use: #BBC RB
+		if service["number"] in LCNs_in_use:
+			LCNs_in_use.remove(service["number"])
+		service["number"] = service["channel_id"] - 1072
+		if service["service_type"] in DvbScanner.HD_ALLOWED_TYPES:
+			service["service_name"] = "BBC RB HD"
+		else:
+			service["service_name"] = "BBC RB%d" % (service["channel_id"] - 2052)
+		service["service_flags"] = dxHoldName
+		LCNs_in_use.append(service["channel_id"] - 1072)
+		new_numbers.append(service["channel_id"] - 1072)
+	elif number >= 3000 and number <= 3999: # radio
 		new_numbers.append(number - 3000)
 	elif number >= 1050 and number <= max(LCNs_in_use): # not indexed channels
 		new_numbers.append(number)
