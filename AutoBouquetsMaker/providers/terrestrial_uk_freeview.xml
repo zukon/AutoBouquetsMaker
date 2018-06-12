@@ -123,6 +123,7 @@
 		<customtransponder key="craigkelly_________" frequency="666000000" transport_stream_id="5040" system="0"/>
 		<customtransponder key="crystal_palace_____" frequency="546000000" transport_stream_id="4084" system="1"/>
 		<customtransponder key="crystal_palace_____" frequency="746000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="crystal_palace_____" frequency="754000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="dover______________" frequency="706000000" transport_stream_id="104c" system="0"/>
 		<customtransponder key="dover______________" frequency="714000000" transport_stream_id="2010" system="0"/>
 		<customtransponder key="dover______________" frequency="746000000" transport_stream_id="3006" system="0"/>
