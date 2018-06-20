@@ -253,7 +253,7 @@ class AutoBouquetsMaker(Screen):
 					(self.providers[self.currentAction]["streamtype"] == "dvbc" and nim.canBeCompatible("DVB-C") and nim.config_mode_dvbc != "nothing") or \
 					(self.providers[self.currentAction]["streamtype"] == "dvbt" and nim.canBeCompatible("DVB-T") and nim.config_mode_dvbt != "nothing"):
 					nimList.append(nim.slot)
-					
+
 		if len(nimList) == 0:
 			print>>log, "[ABM-main][doTune] No NIMs found"
 			self.showError(_('No NIMs found for ') + self.providers[self.currentAction]["name"])

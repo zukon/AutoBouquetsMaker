@@ -37,7 +37,7 @@ class AutoBouquetsMaker_About(Screen):
 		self["key_red"] = Button(_("Close"))
 
 		from version import PLUGIN_VERSION
-		
+
 		credit = "OE-Alliance AutoBouquetsMaker %s (c) 2012 \nSandro Cavazzoni & Andrew Blackburn\n" % PLUGIN_VERSION
 		credit += "http://github.com/oe-alliance\n"
 		credit += "http://www.sifteam.eu\n"

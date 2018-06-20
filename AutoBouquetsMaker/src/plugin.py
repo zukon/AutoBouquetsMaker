@@ -25,34 +25,34 @@ config.autobouquetsmaker.hidesections = ConfigText("", False)
 config.autobouquetsmaker.addprefix = ConfigYesNo(default = False)
 config.autobouquetsmaker.markersinindex = ConfigYesNo(default = False)
 config.autobouquetsmaker.indexmarkerstyle = ConfigSelection(
-	default = "%s", 
+	default = "%s",
 	choices = [
-		("%s", _("None")), 
-		("     %s", _("indent + text")), 
-		("<-- %s -->", _("<-- text -->")), 
-		("< - - %s - - >", _("< - - text - - >")), 
-		("== %s ==", _("== text ==")), 
-		("= = %s = =", _("= = text = =")), 
-		("=== %s ===", _("=== text ===")), 
-		("= = = %s = = =", _("= = = text = = =")), 
-		("-------- %s --------", _("-------- text --------")), 
-		("== ABM - %s ==", _("== ABM - 'text' ==")), 
+		("%s", _("None")),
+		("     %s", _("indent + text")),
+		("<-- %s -->", _("<-- text -->")),
+		("< - - %s - - >", _("< - - text - - >")),
+		("== %s ==", _("== text ==")),
+		("= = %s = =", _("= = text = =")),
+		("=== %s ===", _("=== text ===")),
+		("= = = %s = = =", _("= = = text = = =")),
+		("-------- %s --------", _("-------- text --------")),
+		("== ABM - %s ==", _("== ABM - 'text' ==")),
 		("---- ABM - %s ----", _("---- ABM - 'text' ----"))
 	]
 )
 config.autobouquetsmaker.bouquetmarkerstyle = ConfigSelection(
-	default = "%s", 
+	default = "%s",
 	choices = [
-		("%s", _("None")), 
-		("     %s", _("indent + text")), 
-		("<-- %s -->", _("<-- text -->")), 
-		("< - - %s - - >", _("< - - text - - >")), 
-		("== %s ==", _("== text ==")), 
-		("= = %s = =", _("= = text = =")), 
-		("=== %s ===", _("=== text ===")), 
-		("= = = %s = = =", _("= = = text = = =")), 
-		("-------- %s --------", _("-------- text --------")), 
-		("== ABM - %s ==", _("== ABM - 'text' ==")), 
+		("%s", _("None")),
+		("     %s", _("indent + text")),
+		("<-- %s -->", _("<-- text -->")),
+		("< - - %s - - >", _("< - - text - - >")),
+		("== %s ==", _("== text ==")),
+		("= = %s = =", _("= = text = =")),
+		("=== %s ===", _("=== text ===")),
+		("= = = %s = = =", _("= = = text = = =")),
+		("-------- %s --------", _("-------- text --------")),
+		("== ABM - %s ==", _("== ABM - 'text' ==")),
 		("---- ABM - %s ----", _("---- ABM - 'text' ----"))
 	]
 )

@@ -76,8 +76,8 @@ class AutoBouquetsMaker_Menu(Screen):
 			"menu": self.quit,
 		}, -2)
 		self["key_red"] = Button(_("Exit"))
-		self["key_green"] = Button(_("Scan"))		
-		
+		self["key_green"] = Button(_("Scan"))
+
 
 		self.createsetup()
 		if len(config.autobouquetsmaker.providers.value) < 1:
@@ -193,7 +193,7 @@ class AutoBouquetsMaker_Menu(Screen):
 
 	def startScan(self):
 		self.session.open(AutoBouquetsMaker)
-	
+
 	def quit(self):
 		self.close()
 
@@ -228,7 +228,7 @@ class AutoBouquetsMaker_Log(Screen):
 	<ePixmap name="green" position="150,0" zPosition="2" size="140,40" pixmap="skin_default/buttons/green.png" transparent="1" alphatest="on"/>
 	<widget name="list" position="0,50" size="600,420" font="Regular;22"/>
 </screen>"""
-	
+
 	def __init__(self, session):
 		self.session = session
 		Screen.__init__(self, session)
@@ -245,7 +245,7 @@ class AutoBouquetsMaker_Log(Screen):
 		}, -2)
 
 		self["key_green"] = Button(_("Save Log"))
-		self["key_red"] = Button(_("Close"))		
+		self["key_red"] = Button(_("Close"))
 
 	def save(self):
 		output = open('/tmp/abm.log', 'w')

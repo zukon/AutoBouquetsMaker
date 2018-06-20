@@ -56,7 +56,7 @@ class BouquetsReader():
 
 		content = lamedb.read()
 		lamedb.close()
-		
+
 		lamedb_ver = 4
 		result = re.match('eDVB services /([45])/', content)
 		if result:
@@ -164,13 +164,13 @@ class BouquetsReader():
 		srv_stop = content.rfind("end\n")
 
 		srv_blocks = content[srv_start + 9:srv_stop].strip().split("\n")
-		
+
 		for i in range(0, len(srv_blocks)/3):
 			service_reference = srv_blocks[i*3].strip()
 			service_name = srv_blocks[(i*3)+1].strip()
 			service_provider = srv_blocks[(i*3)+2].strip()
 			service_reference = service_reference.split(":")
-			
+
 			if len(service_reference) != 6 and len(service_reference) != 7:
 				continue
 
@@ -206,13 +206,13 @@ class BouquetsReader():
 				first_part = line.strip().split(",")[0][2:].split(":")
 				if len(first_part) != 3:
 					continue
-					
+
 				transponder = {}
 				transponder["services"] = {}
 				transponder["namespace"] = int(first_part[0], 16)
 				transponder["transport_stream_id"] = int(first_part[1], 16)
 				transponder["original_network_id"] = int(first_part[2], 16)
-				
+
 				second_part = line.strip().split(",")[1]
 				transponder["dvb_type"] = 'dvb'+second_part[0]
 				if transponder["dvb_type"] not in ["dvbs", "dvbt", "dvbc"]:
@@ -226,7 +226,7 @@ class BouquetsReader():
 					continue
 				if transponder["dvb_type"] == "dvbc" and len(second_part) != 7:
 					continue
-	
+
 				if transponder["dvb_type"] == "dvbs":
 					transponder["frequency"] = int(second_part[0])
 					transponder["symbol_rate"] = int(second_part[1])
@@ -237,7 +237,7 @@ class BouquetsReader():
 						transponder["orbital_position"] = orbital_position + 3600
 					else:
 						transponder["orbital_position"] = orbital_position
-	
+
 					transponder["inversion"] = int(second_part[5])
 					transponder["flags"] = int(second_part[6])
 					if len(second_row) == 7: # DVB-S
@@ -272,7 +272,7 @@ class BouquetsReader():
 					transponder["fec_inner"] = int(second_part[4])
 					transponder["flags"] = int(second_part[5])
 					transponder["modulation_system"] = int(second_part[6])
-	
+
 				key = "%x:%x:%x" % (transponder["namespace"], transponder["transport_stream_id"], transponder["original_network_id"])
 				transponders[key] = transponder
 				transponders_count += 1
@@ -286,7 +286,7 @@ class BouquetsReader():
 				service_reference = service_reference.split(":")
 				if len(service_reference) != 6 and len(service_reference) != 7:
 					continue
-	
+
 				service = {}
 				service["service_name"] = service_name
 				service["service_line"] = service_provider
@@ -298,7 +298,7 @@ class BouquetsReader():
 				service["flags"] = int(service_reference[5])
 				if len(service_reference) == 7:
 					service["ATSC_source_id"] = int(service_reference[6], 16)
-	
+
 				key = "%x:%x:%x" % (service["namespace"], service["transport_stream_id"], service["original_network_id"])
 				if key not in transponders:
 					continue

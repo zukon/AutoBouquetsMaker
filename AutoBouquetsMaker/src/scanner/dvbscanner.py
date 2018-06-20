@@ -1065,7 +1065,7 @@ class DvbScanner():
 				service["provider_name"] = section["provider_name"]
 				service["category_name"] = self.skyCategoryName(section["category_id"])
 				service["bouquet_id"] = bouquet_id # in Sky UK this is the nation id
-				service["bouquet_key"] = bouquet_key 
+				service["bouquet_key"] = bouquet_key
 
 		video_services = {}
 		radio_services = {}

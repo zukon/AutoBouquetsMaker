@@ -114,7 +114,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 			if provider_config.isValid() and Providers().providerFileExists(provider_config.getProvider()):
 				self.actionsList.append(provider_config.getProvider())
 		self.go()
-		
+
 	def go(self):
 		if len(self.actionsList) > 0:
 			if self.version_checked == False:
@@ -133,7 +133,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 				self.timer.start(self.timerlength, 1)
 		else:
 			self.showError(_('No providers are configured.'))
-			
+
 	def checkRemoteVersion(self):
 		URL = self.pluginGit + self.remoteVersion
 		req = Request(URL)

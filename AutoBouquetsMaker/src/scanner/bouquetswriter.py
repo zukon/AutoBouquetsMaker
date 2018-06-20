@@ -132,7 +132,7 @@ class BouquetsWriter():
 
 				service_flags = ""
 				if "service_flags" in service.keys() and service["service_flags"] > 0:
-					service_flags = ",f:%x" % service["service_flags"] 
+					service_flags = ",f:%x" % service["service_flags"]
 
 				if 'service_line' in service.keys():
 					lamedblist.append(self.utf8_convert("%s\n" % service["service_line"]))
@@ -177,7 +177,7 @@ class BouquetsWriter():
 					orbital_position = transponder["orbital_position"] - 3600
 				else:
 					orbital_position = transponder["orbital_position"]
-					
+
 				if transponder["modulation_system"] == 0: # DVB-S
 					lamedblist.append("s:%d:%d:%d:%d:%d:%d:%d\n" %
 						(transponder["frequency"],
@@ -265,7 +265,7 @@ class BouquetsWriter():
 
 				service_flags = ""
 				if "service_flags" in service.keys() and service["service_flags"] > 0:
-					service_flags = ",f:%x" % service["service_flags"] 
+					service_flags = ",f:%x" % service["service_flags"]
 
 				if 'service_line' in service.keys():
 					if len(service["service_line"]):
@@ -379,11 +379,11 @@ class BouquetsWriter():
 
 		customfilenames = []
 		display_empty_bouquet = ['userbouquet.favourites.tv', 'userbouquet.favourites.radio', 'userbouquet.LastScanned.tv']
-		
+
 		if 'userbouquet.LastScanned.tv' not in bouquetsToKeep["tv"] and config.autobouquetsmaker.keepallbouquets.getValue():
-			bouquetsToKeep["tv"].append('userbouquet.LastScanned.tv')		
+			bouquetsToKeep["tv"].append('userbouquet.LastScanned.tv')
 		if 'userbouquet.LastScanned.tv' not in currentBouquets["tv"]:
-			currentBouquets["tv"].append('userbouquet.LastScanned.tv')		
+			currentBouquets["tv"].append('userbouquet.LastScanned.tv')
 
 		if config.autobouquetsmaker.placement.getValue() == 'bottom':
 			for bouquet_type in ["tv", "radio"]:
@@ -542,7 +542,7 @@ class BouquetsWriter():
 		del tmp_services
 		del last_scanned_bouquet_list
 		del avoid_duplicates
-	
+
 	def buildBouquets(self, path, provider_config, services, sections, section_identifier, preferred_order, bouquets_to_hide, section_prefix):
 		if len(section_prefix) > 0:
 			section_prefix = section_prefix + " - "

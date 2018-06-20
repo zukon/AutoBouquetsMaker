@@ -61,7 +61,7 @@ def readBouquet(bouquet_id):
 					break
 
 	dvbreader.close(fd)
-	
+
 	bouquet_name = None
 	for section in bat_content:
 		if section["descriptor_tag"] == 0x47:
@@ -71,7 +71,7 @@ def readBouquet(bouquet_id):
 	if bouquet_name is None:
 		print "[DvbScanner] Canno get bouquet name for bouquet_id = 0x%x" % bouquet_id
 		return
-		
+
 	for section in bat_content:
 		if section["descriptor_tag"] == 0xd4:
 			bouquet = {

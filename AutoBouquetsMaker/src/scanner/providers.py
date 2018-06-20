@@ -278,7 +278,7 @@ class Providers():
 								configuration["hierarchy"] = eDVBFrontendParametersTerrestrial.Hierarchy_Auto
 								configuration["onid"] = None
 								configuration["tsid"] = None
-								
+
 								for i in range(0, node2.attributes.length):
 									if node2.attributes.item(i).name == "key":
 										configuration["key"] = node2.attributes.item(i).value.encode("utf-8")
