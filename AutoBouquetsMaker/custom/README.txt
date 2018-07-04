@@ -8,6 +8,7 @@ Contents:
 6) Provider keys
 7) lamedb format explained
 8) swapchannels (in providers.xml)
+9) Freesat, special config for people outside the footprint of the home transponder.
 
 ---------------------------------------------------------------------------------------------- 
 
@@ -611,5 +612,29 @@ service_hd['original_network_id']
 service_hd['bouquet_id']
 service_hd['bouquet_key']
 
+
+---------------------------------------------------------------------------------------------- 
+
+Freesat, special config for people outside the footprint of the home transponder
+--------------------------------------------------------------------------------
+
+For people that are outside the footprint of the freesat home transponder an alternative 
+configuration is needed. This is much slower than using the standard configuration but 
+at least it allows the scan to collect the relevant data, which would not be possible 
+otherwise.
+
+In the Freesat provider file, in the transponder section, 
+delete:
+    sdt_pid="0xbba"
+    bat_pid="0xbba"
+
+add:
+    bat_pid="0xf01"
+
+Convert the rest of the transponder parameters to those of a transponder known to be 
+available on your dish. e.g. Sky News transponder (12207 V 27500 2/3).
+
+Basically the above just reverts this commit:
+https://github.com/oe-alliance/oe-alliance-plugins/commit/7b5d72d44523d4047b51156e3f421bd456d9f131#diff-16e2769b1de3a403922eee457aba7895
 
 ---------------------------------------------------------------------------------------------- 
