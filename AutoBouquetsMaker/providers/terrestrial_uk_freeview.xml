@@ -72,6 +72,9 @@
 		<configuration key="wenvoe_____________" frequency="634200000">Wenvoe</configuration>
 		<configuration key="whitehawk_hill_____" frequency="785800000">Whitehawk Hill</configuration>
 		<configuration key="winter_hill________" frequency="706000000">Winter Hill</configuration>
+		<configuration key="winter_hill_lancs__" frequency="706000000">Winter Hill (Lancashire)</configuration>
+		<configuration key="winter_hill_liver__" frequency="706000000">Winter Hill (Liverpool)</configuration>
+		<configuration key="winter_hill_manch__" frequency="706000000">Winter Hill (Manchester)</configuration>
 	</dvbtconfigs>
 
 	<!-- Custom transponders are ONLY needed for HD muxes and for areas where tuning issues occur after running ABM -->
@@ -208,9 +211,18 @@
 		<customtransponder key="waltham____________" frequency="770000000" transport_stream_id="4085" system="1"/>
 		<customtransponder key="waltham____________" frequency="554000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="waltham____________" frequency="602000000" transport_stream_id="b000" system="1"/>
-		<customtransponder key="winter_hill________" frequency="554000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="winter_hill________" frequency="602000000" transport_stream_id="b000" system="1"/>
+		<customtransponder key="winter_hill________" frequency="554000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="winter_hill________" frequency="738000000" transport_stream_id="4088" system="1"/>
+		<customtransponder key="winter_hill________" frequency="746000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="winter_hill_lancs__" frequency="554000000" transport_stream_id="b000" system="1"/>
+		<customtransponder key="winter_hill_lancs__" frequency="738000000" transport_stream_id="4088" system="1"/>
+		<customtransponder key="winter_hill_lancs__" frequency="746000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="winter_hill_liver__" frequency="554000000" transport_stream_id="b000" system="1"/>
+		<customtransponder key="winter_hill_liver__" frequency="738000000" transport_stream_id="4088" system="1"/>
+		<customtransponder key="winter_hill_liver__" frequency="746000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="winter_hill_manch__" frequency="554000000" transport_stream_id="b000" system="1"/>
+		<customtransponder key="winter_hill_manch__" frequency="738000000" transport_stream_id="4088" system="1"/>
+		<customtransponder key="winter_hill_manch__" frequency="746000000" transport_stream_id="a000" system="1"/>
 	</customtransponders>
 
 	<sections>
@@ -238,6 +250,7 @@
 
 	<servicehacks>
 	<![CDATA[
+
 blacklist = [250,695,696,697,698,"ADULT Section"]
 #Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
 
@@ -248,8 +261,13 @@ for number in service["numbers"]:
 if service["service_name"] in blacklist or service["service_type"] == 0xc:
 	skip = True
 
-if service["service_type"] == 22 and service["service_name"][-2:] != 'HD':
-	service["service_type"] = 1
+if "winter_hill" in bouquet_key and service["transport_stream_id"] in (0x8008, 0x800b, 0x800d):
+	if "lancs" in bouquet_key and service["transport_stream_id"] in (0x8008, 0x800b):
+		skip = True
+	elif "liver" in bouquet_key and service["transport_stream_id"] in (0x800b, 0x800d):
+		skip = True
+	elif "manch" in bouquet_key and service["transport_stream_id"] in (0x8008, 0x800d):
+		skip = True
 
 	]]>
 	</servicehacks>
