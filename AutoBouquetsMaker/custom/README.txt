@@ -1,14 +1,36 @@
 Contents:
 
-1) CustomLCN
-2) CustomMix
-3) Favourites
-4) Hacks
-5) Streams
-6) Provider keys
-7) lamedb format explained
-8) swapchannels (in providers.xml)
-9) Freesat, special config for people outside the footprint of the home transponder.
+1) CustomMix or CustomLCN?
+2) CustomLCN
+3) CustomMix
+4) Favourites
+5) Hacks
+6) Streams
+7) Provider keys
+8) lamedb format explained
+9) swapchannels (in providers.xml)
+10) Freesat, special config for people outside the footprint of the home transponder.
+
+---------------------------------------------------------------------------------------------- 
+
+CustomMix or CustomLCN?
+-----------------------
+
+What is the difference between CustomMix and CustomLCN?
+
+CustomLCN is for allocating LCNs (logical channel numbers) to channels that don't have them. 
+It should be considered a system file and not be used to move channels around that already 
+have LCNs allocated to them. Once a channel has an LCN allocated this is persistent for the 
+entire duration of the current ABM run. So that channel can later be used in a CustomMix file 
+refered to by the allocated LCN.
+
+CustomMix on the other hand, is for moving channels around, either within one provider or 
+from one provider to another. It only affects what is written in the bouquets of the current 
+provider and is not persistent. i.e.. if you move a channel in one provider from say 101 to 
+105 you would still use its original number if accessing it from a CustomMix file of another 
+provider.
+
+So to sum up, only use a CustomLCN file for allocating LCNs. For everything else use CustomMix.
 
 ---------------------------------------------------------------------------------------------- 
 
@@ -26,7 +48,7 @@ e.g. 'EXAMPLE_hd_sat_freesat_CustomLCN.xml'. These files are archived in:
 /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom
 To make your own custom LCN file just delete 'EXAMPLE_' from the filename, 
 i.e. hd_sat_freesat_CustomLCN.xml. Configurations in the provider xml file, such as channel swap, 
-on-top, etc, are done after CustomLCN has been processed.
+etc, are done after CustomLCN has been processed.
 
 The following is how to edit the file. Just cut and paste the lines into the order you want. 
 DO NOT add any channels into more than one place in the list.
@@ -143,6 +165,8 @@ This is great if you mainly use one provider but want to add a few channels from
 but don't want to create a complete list for the other provider. All providers that you want to 
 receive channels from must be included in every ABM scan but if you don't want complete bouquets 
 from that provider just set all the bouquet creation options to no.
+
+CustomMix can also be used to move channels around interanally within one single provider.
 
 For each provider you wish to add channels to, you need to add an xml configuration file. The xml
 configuration files reside in /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom 
