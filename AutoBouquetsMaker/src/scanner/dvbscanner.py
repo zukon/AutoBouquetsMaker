@@ -127,11 +127,11 @@ class DvbScanner():
 	def buildNamespace(self, transponder):
 		if transponder["dvb_type"] == 'dvbc':
 			namespace = 0xFFFF0000
-			if self.namespace_complete:
+			if self.namespace_complete_cable:
 				namespace |= (transponder['frequency']/1000)&0xFFFF
 		elif transponder["dvb_type"] == 'dvbt':
 			namespace = 0xEEEE0000
-			if self.namespace_complete:
+			if self.namespace_complete_terrestrial:
 				namespace |= (transponder['frequency']/1000000)&0xFFFF
 		elif transponder["dvb_type"] == 'dvbs':
 			orbital_position = transponder['orbital_position']
