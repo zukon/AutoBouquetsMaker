@@ -1031,7 +1031,7 @@ PyObject *ss_parse_header(unsigned char *data, int length, const char *variable_
 	int section_number = data[6];
 	int last_section_number = data[7];
 	int network_descriptors_length = ((data[8] & 0x0f) << 8) | data[9];
-	int original_network_id = (data[network_descriptors_length + 5] << 8) | data[network_descriptors_length + 6];
+	int original_network_id = (data[network_descriptors_length + 9 + 5] << 8) | data[network_descriptors_length + 9 + 6];
 
 	return Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:i,s:i}",
 		"table_id", table_id, variable_key_name, variable_id,
