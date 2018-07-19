@@ -62,7 +62,6 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 	int bouquet_descriptors_length = ((data[8] & 0x0f) << 8) | data[9];
 	int transport_stream_loop_length = ((data[bouquet_descriptors_length + 10] & 0x0f) << 8) | data[bouquet_descriptors_length + 11];
 	int offset1 = 10;
-	int ret = 0;
 
 	while (bouquet_descriptors_length > 0)
 	{
@@ -280,8 +279,6 @@ PyObject *ss_parse_bat(unsigned char *data, int length) {
 				descriptor_length -= 2;
 				while (descriptor_length > 0)
 				{
-					int i;
-					int found = 0;
 					unsigned short int channel_id;
 					unsigned short int sky_id;
 					unsigned short int service_id;
@@ -555,7 +552,6 @@ PyObject *ss_parse_nit(unsigned char *data, int length) {
 	int network_descriptors_length = ((data[8] & 0x0f) << 8) | data[9];
 	int transport_stream_loop_length = ((data[network_descriptors_length + 10] & 0x0f) << 8) | data[network_descriptors_length + 11];
 	int offset1 = network_descriptors_length + 12;
-	int ret = 0;
 
 	while (transport_stream_loop_length > 0)
 	{
@@ -1022,7 +1018,49 @@ PyObject *ss_parse_fastscan(unsigned char *data, int length) {
 	return list;
 }
 
-PyObject *ss_parse_header(unsigned char *data, int length, const char *variable_key_name) //NIT and BAT
+PyObject *ss_parse_header_nit(unsigned char *data, int length, const char *variable_key_name)
+{
+	int table_id = data[0];
+	int variable_id = (data[3] << 8) | data[4];
+	int version_number = (data[5] >> 1) & 0x1f;
+	int current_next_indicator = data[5] & 0x01;
+	int section_number = data[6];
+	int last_section_number = data[7];
+	int network_descriptors_length = ((data[8] & 0x0f) << 8) | data[9];
+	int original_network_id = (data[network_descriptors_length + 9 + 5] << 8) | data[network_descriptors_length + 9 + 6];
+	int offset = 10;
+	
+	char network_name[256];
+	memset(network_name, '\0', 256);
+	strcpy(network_name, "Unknown");
+	unsigned network_name_length;
+	
+	while (network_descriptors_length > 0)
+	{
+		int descriptor_tag = data[offset];
+		int descriptor_length = data[offset + 1];
+		
+		if (descriptor_tag == 0x40)
+		{
+			network_name_length = data[offset + 1];
+			if (network_name_length == 255)
+				network_name_length--;
+			memcpy(network_name, data + offset + 2, network_name_length);
+		}
+
+		offset += (descriptor_length + 1);
+		network_descriptors_length -= (descriptor_length + 1);
+	}
+	
+	return Py_BuildValue("{s:i,s:i,s:i,s:i,s:i,s:i,s:i,s:s}",
+		"table_id", table_id, variable_key_name, variable_id,
+		"version_number", version_number, "current_next_indicator", current_next_indicator,
+		"section_number", section_number, "last_section_number", last_section_number,
+		"original_network_id", original_network_id,
+		"network_name", network_name);
+}
+
+PyObject *ss_parse_header_bat(unsigned char *data, int length, const char *variable_key_name)
 {
 	int table_id = data[0];
 	int variable_id = (data[3] << 8) | data[4];
@@ -1040,7 +1078,7 @@ PyObject *ss_parse_header(unsigned char *data, int length, const char *variable_
 		"original_network_id", original_network_id);
 }
 
-PyObject *ss_parse_header_2(unsigned char *data, int length, const char *variable_key_name) //SDT and Fastscan
+PyObject *ss_parse_header(unsigned char *data, int length, const char *variable_key_name) //SDT and Fastscan
 {
 	int table_id = data[0];
 	int variable_id = (data[3] << 8) | data[4];
@@ -1072,8 +1110,8 @@ PyObject *ss_parse_table(unsigned char *data, int length) {
 	return list;
 }
 
-PyObject *ss_read_ts(PyObject *self, PyObject *args) {
-	PyObject *content = NULL, *header = NULL, *buffer1 = NULL;
+PyObject *ss_read_ts(PyObject *self, PyObject *args) { // for table dump
+	PyObject *content = NULL;
 	unsigned char buffer[4096], table_id_current, table_id_other;
 	int fd;
 
@@ -1119,7 +1157,7 @@ PyObject *ss_read_bat(PyObject *self, PyObject *args) {
 	if (size != section_length + 3)
 		return Py_None;
 
-	header = ss_parse_header(buffer, section_length, "bouquet_id");
+	header = ss_parse_header_bat(buffer, section_length, "bouquet_id");
 	content = ss_parse_bat(buffer, section_length);
 
 	if (!header || !content)
@@ -1151,7 +1189,7 @@ PyObject *ss_read_sdt(PyObject *self, PyObject *args) {
 	if (size != section_length + 3)
 		return Py_None;
 
-	header = ss_parse_header_2(buffer, section_length, "transport_stream_id");
+	header = ss_parse_header(buffer, section_length, "transport_stream_id");
 	content = ss_parse_sdt(buffer, section_length);
 
 	if (!header || !content)
@@ -1183,7 +1221,7 @@ PyObject *ss_read_fastscan(PyObject *self, PyObject *args) {
 	if (size != section_length + 3)
 		return Py_None;
 
-	header = ss_parse_header_2(buffer, section_length, "fastscan_id");
+	header = ss_parse_header(buffer, section_length, "fastscan_id");
 	content = ss_parse_fastscan(buffer, section_length);
 
 	if (!header || !content)
@@ -1215,7 +1253,7 @@ PyObject *ss_read_nit(PyObject *self, PyObject *args) {
 	if (size != section_length + 3)
 		return Py_None;
 
-	header = ss_parse_header(buffer, section_length, "network_id");
+	header = ss_parse_header_nit(buffer, section_length, "network_id");
 	content = ss_parse_nit(buffer, section_length);
 
 	if (!header || !content)
