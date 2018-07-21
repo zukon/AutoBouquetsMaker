@@ -1033,7 +1033,6 @@ PyObject *ss_parse_header_nit(unsigned char *data, int length, const char *varia
 	char network_name[256];
 	memset(network_name, '\0', 256);
 	strcpy(network_name, "Unknown");
-	unsigned network_name_length;
 	
 	while (network_descriptors_length > 0)
 	{
@@ -1042,7 +1041,8 @@ PyObject *ss_parse_header_nit(unsigned char *data, int length, const char *varia
 		
 		if (descriptor_tag == 0x40)
 		{
-			network_name_length = data[offset + 1];
+			unsigned network_name_length = data[offset + 1];
+			memset(network_name, '\0', 256);
 			if (network_name_length == 255)
 				network_name_length--;
 			memcpy(network_name, data + offset + 2, network_name_length);
