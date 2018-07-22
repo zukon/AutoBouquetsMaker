@@ -128,9 +128,6 @@
 		<channel number="118" with="178" /><!-- ITV4 HD -->
 		<channel number="119" with="179" /><!-- ITVBe HD -->
 		<channel number="122" with="206" /><!-- Sky Arts HD -->
-		<channel number="125" with="191" /><!-- W HD -->
-		<channel number="126" with="200" /><!-- alibi HD -->
-		<channel number="127" with="194" /><!-- Dave HD -->
 		<channel number="132" with="181" /><!-- Comedy Central HD -->
 		<channel number="134" with="183" /><!-- MTV HD -->
 		<channel number="135" with="165" /><!-- Syfy HD -->
@@ -139,7 +136,6 @@
 		<channel number="147" with="195" /><!-- More 4 HD -->
 		<channel number="157" with="199" /><!-- Fox HD -->
 		<channel number="166" with="555" /><!-- S4C HD -->
-		<channel number="247" with="249" /><!-- Eden HD -->
 		<channel number="266" with="268" /><!-- Nat Geo HD -->
 		<channel number="601" with="604" /><!-- BBC News HD -->
 		<channel number="701" with="710" /><!-- CBBC HD -->
