@@ -7,6 +7,7 @@ from Components.Label import Label
 from Components.Pixmap import Pixmap
 from Components.ProgressBar import ProgressBar
 from Components.Sources.Progress import Progress
+from Components.Sources.FrontendStatus import FrontendStatus
 
 from Components.config import config
 from Components.NimManager import nimmanager
@@ -46,16 +47,17 @@ class AutoBouquetsMaker(Screen):
 		Screen.__init__(self, session)
 		Screen.setTitle(self, _("AutoBouquetsMaker"))
 
+		self.frontend = None
+		self.rawchannel = None
+		self.postScanService = None
+		self.providers = Manager().getProviders()
+
 		self["background"] = Pixmap()
 		self["action"] = Label(_("Starting scanner"))
 		self["status"] = Label("")
 		self["progress"] = ProgressBar()
 		self["progress_text"] = Progress()
-
-		self.frontend = None
-		self.rawchannel = None
-		self.postScanService = None
-		self.providers = Manager().getProviders()
+		self["Frontend"] = FrontendStatus(frontend_source = lambda : self.frontend, update_interval = 100)
 
 		# dependent providers
 		self.dependents = {}
