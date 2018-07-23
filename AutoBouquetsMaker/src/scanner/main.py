@@ -112,7 +112,7 @@ class AutoBouquetsMaker(Screen):
 		self.close()
 
 	def keyCancel(self):
-		if self.self.postScanService:
+		if self.postScanService:
 			self.session.nav.playService(self.postScanService)
 		self.close()
 
