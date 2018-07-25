@@ -182,7 +182,7 @@ class Manager():
 
 		# read custom transponder
 		customtransponders = {}
-		if bouquet_key is not None and len(bouquet_key) > 0:
+		if provider_key in providers and providers[provider_key]["streamtype"] == 'dvbt' and bouquet_key is not None and len(bouquet_key) > 0: # custom transponder is only for dvbt
 			customtransponders = Tools().customtransponder(provider_key, bouquet_key)
 
 		self.providerConfigs[provider_key] = provider_config
