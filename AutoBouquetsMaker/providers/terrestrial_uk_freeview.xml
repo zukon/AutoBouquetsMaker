@@ -141,8 +141,9 @@
 		<customtransponder key="durris_____________" frequency="586000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="emley_moor_________" frequency="634000000" transport_stream_id="4089" system="1"/>
 		<customtransponder key="emley_moor_________" frequency="562000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="heathfield_________" frequency="562000000" transport_stream_id="104c" system="0"/>
+		<customtransponder key="heathfield_________" frequency="618000000" transport_stream_id="8026" system="0"/>
 		<customtransponder key="heathfield_________" frequency="626000000" transport_stream_id="3006" system="0"/>
+		<customtransponder key="heathfield_________" frequency="634000000" transport_stream_id="104c" system="0"/>
 		<customtransponder key="heathfield_________" frequency="650000000" transport_stream_id="5040" system="0"/>
 		<customtransponder key="heathfield_________" frequency="658000000" transport_stream_id="2010" system="0"/>
 		<customtransponder key="heathfield_________" frequency="674000000" transport_stream_id="6040" system="0"/>
