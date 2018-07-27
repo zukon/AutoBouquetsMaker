@@ -141,12 +141,12 @@
 		<customtransponder key="durris_____________" frequency="586000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="emley_moor_________" frequency="634000000" transport_stream_id="4089" system="1"/>
 		<customtransponder key="emley_moor_________" frequency="562000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="heathfield_________" frequency="634000000" transport_stream_id="6040" system="0"/>
-		<customtransponder key="heathfield_________" frequency="642000000" transport_stream_id="3006" system="0"/>
-		<customtransponder key="heathfield_________" frequency="658000000" transport_stream_id="5040" system="0"/>
+		<customtransponder key="heathfield_________" frequency="562000000" transport_stream_id="104c" system="0"/>
+		<customtransponder key="heathfield_________" frequency="626000000" transport_stream_id="3006" system="0"/>
+		<customtransponder key="heathfield_________" frequency="650000000" transport_stream_id="5040" system="0"/>
+		<customtransponder key="heathfield_________" frequency="658000000" transport_stream_id="2010" system="0"/>
+		<customtransponder key="heathfield_________" frequency="674000000" transport_stream_id="6040" system="0"/>
 		<customtransponder key="heathfield_________" frequency="682000000" transport_stream_id="4083" system="1"/>
-		<customtransponder key="heathfield_________" frequency="698000000" transport_stream_id="2010" system="0"/>
-		<customtransponder key="heathfield_________" frequency="722000000" transport_stream_id="104c" system="0"/>
 		<customtransponder key="kilvey_hill________" frequency="538000000" transport_stream_id="40be" system="1"/>
 		<customtransponder key="kilvey_hill________" frequency="490000000" transport_stream_id="107e" system="0"/>
 		<customtransponder key="kilvey_hill________" frequency="514000000" transport_stream_id="200d" system="0"/>
