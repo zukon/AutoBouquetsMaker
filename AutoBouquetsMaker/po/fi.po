@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-05 06:33+0100\n"
+"POT-Creation-Date: 2018-07-31 12:15+0200\n"
 "PO-Revision-Date: 2017-08-10 17:46+0200\n"
 "Last-Translator: Kojo\n"
 "Language-Team: Kojo\n"
@@ -208,6 +208,15 @@ msgstr "%s ei pystytty hakemaan tiedostoa. Virhe: %s %s"
 #, python-format
 msgid "Failed to retrieve version file. Error: %s %s"
 msgstr "Ei pystytty hakemaan versio-tiedostoa. Virhe: %s %s"
+
+#, python-format
+msgid ""
+"Failed to tune %s on tuner %s.\n"
+"\n"
+"Please check the following:\n"
+"The tuner is correctly configured.\n"
+"You can receive the specified frequency."
+msgstr ""
 
 msgid "Failed..."
 msgstr "Epäonnistui..."
@@ -426,8 +435,14 @@ msgstr "Tämä valinta vaihtaa kanavien SD-versiot HD-versioihin. (Esim. Yle1 va
 msgid "Time of scan to start"
 msgstr "Haun aloitusaika"
 
-msgid "Timeout for tuner lock"
-msgstr "Viritinlukon aikakatkaisu"
+#, python-format
+msgid ""
+"Timed out tuning %s on tuner %s.\n"
+"\n"
+"Please check the following:\n"
+"The tuner is correctly configured.\n"
+"You can receive the specified frequency."
+msgstr ""
 
 msgid "Top"
 msgstr "Ylin"
@@ -435,9 +450,6 @@ msgstr "Ylin"
 #, python-format
 msgid "Tuning %s..."
 msgstr "Viritetään %s..."
-
-msgid "Tuning failed fatal"
-msgstr "Viritys epäonnistui, kriittinen virhe"
 
 #, python-format
 msgid "Unable to download config file for %s"
@@ -518,21 +530,3 @@ msgstr "kyllä (vain vapaat HD:t)"
 
 msgid "yes (only HD)"
 msgstr "kyllä (vain HD:t)"
-
-#~ msgid "Choose which level of setting's to display. 'Expert'-level shows all items, this also add's more options in the providers menu."
-#~ msgstr "Valitse näyttötaso. Laaja taso näyttää kaikki asetukset ja lisää vaihtoehtoja palveluntarjoajien valikkoon"
-
-#~ msgid "This option will alow you choose where to place the created bouquets."
-#~ msgstr "Valitse suosikkilistan sijoituspaikka"
-
-#~ msgid "This option will create a FreeToAir High Definition bouquet, it will group all HD channels into this bouquet."
-#~ msgstr "Tämä luo suosikkilistan jossa on vain vapaat HD-kanavat"
-
-#~ msgid "This option will create a FreeToAir bouquet, it will group all none encrypted channels into this bouquet."
-#~ msgstr "Tämä luo suosikkilistan jossa on vain vapaat kanavat"
-
-#~ msgid "This option will swap SD versions of channels with HD versions. (ie 101 BBC One, 103 ITV, 104 Channel Four, 105 Channel Five)"
-#~ msgstr "Tämä vaihtaa kanavien SD-versiot HD-versioihin"
-
-#~ msgid "When enable allow you start a scan from the extensions list."
-#~ msgstr "Antaa aloittaa haun laajennusvalikosta"

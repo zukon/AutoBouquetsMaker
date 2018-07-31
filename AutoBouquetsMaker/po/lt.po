@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AutoBouquetsMaker\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
+"POT-Creation-Date: 2018-07-31 12:15+0200\n"
 "PO-Revision-Date: 2017-07-06 11:20+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
@@ -10,651 +10,252 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Basepath: .\n"
 "X-Generator: Poedit 2.0.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../src/about.py:25 ../src/menu.py:56 ../src/plugin.py:74 ../src/plugin.py:82
-#: ../src/scanner/main.py:47 ../src/scanner/main.py:109
-msgid "AutoBouquetsMaker"
-msgstr "AutoBouquetsMaker"
-
-#: ../src/about.py:25 ../src/menu.py:100
-msgid "About"
-msgstr "Apie įskiepį"
-
-#: ../src/about.py:37 ../src/menu.py:248
-msgid "Close"
-msgstr "Uždaryti"
-
-#: ../src/deletebouquets.py:35
-msgid "Are you sure you want to remove all bouquets created by ABM?"
-msgstr "Ar tikrai norite pašalinti visus bukietus, sukurtus ABM?"
-
-#: ../src/hidesections.py:47
-msgid "AutoBouquetsMaker Hide sections"
-msgstr "Slėpti AutoBouquetsMaker skyrius"
-
-#: ../src/hidesections.py:52 ../src/keepbouquets.py:53 ../src/ordering.py:54
-#: ../src/setup.py:72 ../src/setup.py:486
-msgid "Cancel"
-msgstr "Atšaukti"
-
-#: ../src/hidesections.py:53
-msgid "Save"
-msgstr "Išsaugoti"
-
-#: ../src/hidesections.py:134 ../src/keepbouquets.py:134 ../src/ordering.py:171
-#: ../src/setup.py:448 ../src/setup.py:576
-msgid "Really close without saving settings?"
-msgstr "Ar tikrai uždaryti langą, neišsaugant nuostatų?"
-
-#: ../src/keepbouquets.py:48
-msgid "AutoBouquetsMaker Keep bouquets"
-msgstr "Išsaugoti AutoBouquetsMaker bukietus"
-
-#: ../src/menu.py:78
-msgid "Exit"
-msgstr "Uždaryti"
-
-#: ../src/menu.py:79
-msgid "Scan"
-msgstr "Paieška"
-
-#: ../src/menu.py:88
-msgid "Configure"
-msgstr "Konfigūruoti"
-
-#: ../src/menu.py:89
-msgid "Providers"
-msgstr "Tiekėjai"
-
-#: ../src/menu.py:91
-msgid "Providers order"
-msgstr "Tiekėjų rūšiavimas"
-
-#: ../src/menu.py:93
-msgid "Hide sections"
-msgstr "Slėpti skyrius"
-
-#: ../src/menu.py:95
-msgid "Keep bouquets"
-msgstr "Išsaugoti bukietus"
-
-#: ../src/menu.py:96
-msgid "Start scan"
-msgstr "Pradėti paiešką"
-
-#: ../src/menu.py:97
-msgid "Delete bouquets"
-msgstr "Šalinti bukietus"
-
-#: ../src/menu.py:98
-msgid "Update config files"
-msgstr "Atnaujinti konfigūracijos failus"
-
-#: ../src/menu.py:99
-msgid "Show log"
-msgstr "Rodyti žurnalą"
-
-#: ../src/menu.py:235
-msgid "AutoBouquetsMaker Log"
-msgstr "ABMaker žurnalas"
-
-#: ../src/menu.py:247
-msgid "Save Log"
-msgstr "Įrašyti žurnalą"
-
-#: ../src/menu.py:254
-msgid "ABM log file has been saved to the tmp directory"
-msgstr "ABM žurnalo failas išsaugotas /tmp kataloge"
-
-#: ../src/ordering.py:43
-msgid "Bouquets order"
-msgstr "Bukietų rūšiavimas"
-
-#: ../src/ordering.py:77 ../src/setup.py:81 ../src/setup.py:495
-msgid "Please wait..."
-msgstr "Palaukite..."
-
-#: ../src/ordering.py:91 ../src/ordering.py:97 ../src/ordering.py:126
-#: ../src/ordering.py:132
-msgid "Move down"
-msgstr "Žemyn"
-
-#: ../src/ordering.py:93 ../src/ordering.py:96 ../src/ordering.py:128
-#: ../src/ordering.py:131
-msgid "Move up"
-msgstr "Aukštyn"
-
-#: ../src/plugin.py:12
-msgid "simple"
-msgstr "paprastas"
-
-#: ../src/plugin.py:12
-msgid "expert"
-msgstr "ekspertų lygio"
-
-#: ../src/plugin.py:17
-msgid "Daily"
-msgstr "Kasdien"
-
-#: ../src/plugin.py:17
-msgid "Weekly"
-msgstr "Kas savaitę"
-
-#: ../src/plugin.py:17
-msgid "30 Days"
-msgstr "30 dienų"
-
-#: ../src/plugin.py:30 ../src/plugin.py:46
-msgid "None"
-msgstr "joks"
-
-#: ../src/plugin.py:31 ../src/plugin.py:47
-msgid "indent + text"
-msgstr "įtrauka + tekstas"
-
-#: ../src/plugin.py:32 ../src/plugin.py:48
-msgid "<-- text -->"
-msgstr "<-- tekstas -->"
-
-#: ../src/plugin.py:33 ../src/plugin.py:49
-msgid "< - - text - - >"
-msgstr "< - - tekstas - - >"
-
-#: ../src/plugin.py:34 ../src/plugin.py:50
-msgid "== text =="
-msgstr "== tekstas =="
-
-#: ../src/plugin.py:35 ../src/plugin.py:51
-msgid "= = text = ="
-msgstr "= = tekstas = ="
-
-#: ../src/plugin.py:36 ../src/plugin.py:52
-msgid "=== text ==="
-msgstr "=== tekstas ==="
-
-#: ../src/plugin.py:37 ../src/plugin.py:53
-msgid "= = = text = = ="
-msgstr "= = = tekstas = = ="
-
-#: ../src/plugin.py:38 ../src/plugin.py:54
-msgid "-------- text --------"
-msgstr "-------- tekstas --------"
-
-#: ../src/plugin.py:39 ../src/plugin.py:55
-msgid "== ABM - 'text' =="
-msgstr "== ABM - 'tekstas' =="
-
-#: ../src/plugin.py:40 ../src/plugin.py:56
-msgid "---- ABM - 'text' ----"
-msgstr "---- ABM - 'tekstas' ----"
-
-#: ../src/plugin.py:60
-msgid "Top"
-msgstr "Viršų"
-
-#: ../src/plugin.py:60
-msgid "Bottom"
-msgstr "Apačią"
-
-#: ../src/plugin.py:84
-msgid "AutoBouquetsMaker Scanner"
-msgstr "AutoBouquetsMaker paieška"
-
-#: ../src/scanner/bouquetswriter.py:489
-msgid "Last Scanned"
-msgstr "Paskutinė paieška"
-
-#: ../src/scanner/bouquetswriter.py:562
-msgid "All channels"
-msgstr "Visi kanalai"
-
-#: ../src/scanner/bouquetswriter.py:616 ../src/scanner/bouquetswriter.py:776
-msgid "HD Channels"
-msgstr "HD kanalai"
-
-#: ../src/scanner/bouquetswriter.py:619 ../src/scanner/bouquetswriter.py:836
-msgid "FTA HD Channels"
-msgstr "Nekoduoti HD kanalai"
-
-#: ../src/scanner/bouquetswriter.py:896
-msgid "FTA Channels"
-msgstr "Nekoduoti kanalai"
-
-#: ../src/scanner/bouquetswriter.py:946 ../src/scanner/bouquetswriter.py:947
-msgid "Radio Channels"
-msgstr "Radijo kanalai"
-
-#: ../src/scanner/main.py:50
-msgid "Starting scanner"
-msgstr "Pradedama paieška"
-
-#: ../src/scanner/main.py:88
-msgid "Loading bouquets..."
-msgstr "Įkeliami bukietai..."
-
-#: ../src/scanner/main.py:89
-msgid "Services: 0 video - 0 radio"
-msgstr "Kanalai: 0 vaizdo - 0 radijo"
-
-#: ../src/scanner/main.py:94
-msgid "Please first setup, in configuration"
-msgstr "Pirmiausiai nustatykite konfigūracijoje"
-
-#: ../src/scanner/main.py:195
-msgid "Bouquets generation..."
-msgstr "Bukietų generavimas..."
-
-#: ../src/scanner/main.py:196 ../src/scanner/main.py:210
-#: ../src/scanner/main.py:467 ../src/scanner/main.py:535
-#, python-format
-msgid "Services: %d video - %d radio"
-msgstr "Kanalai: %d vaizdo - %d radijo"
-
-#: ../src/scanner/main.py:209
-#, python-format
-msgid "Tuning %s..."
-msgstr "Derinama %s..."
-
-#: ../src/scanner/main.py:232
-msgid "No area found"
-msgstr "Sritis nerasta"
-
-#: ../src/scanner/main.py:259
-msgid "No NIMs found for "
-msgstr "Nerasta imtuvų "
-
-#: ../src/scanner/main.py:265
-msgid "Cannot retrieve Resource Manager instance"
-msgstr "Išteklių valdymas neprieinamas"
-
-#: ../src/scanner/main.py:334
-msgid "No valid NIM found for "
-msgstr "Nerasta tinkamų imtuvų "
-
-#: ../src/scanner/main.py:365
-msgid "Cannot free NIM because a recording is in progress"
-msgstr "Imtuvas užimtas, nes dabar vyksta įrašymas"
-
-#: ../src/scanner/main.py:369
-msgid "Cannot get the NIM"
-msgstr "Imtuvas neprieinamas"
-
-#: ../src/scanner/main.py:383
-msgid "Cannot get frontend"
-msgstr "Pirminė sąsaja neprieinama"
-
-#: ../src/scanner/main.py:389
-msgid "Cannot allocate the demuxer"
-msgstr "Nerandama išmiksavimo įrangos"
-
-#: ../src/scanner/main.py:466
-#, python-format
-msgid "Reading %s..."
-msgstr "Skaitoma %s..."
-
-#: ../src/scanner/main.py:476
-msgid "Tuning failed fatal"
-msgstr "Derinimas kritiškai nepavyko"
-
-#: ../src/scanner/main.py:482
-msgid "Timeout for tuner lock"
-msgstr "Trukmė iki imtuvo užrakinimo"
-
-#: ../src/scanner/main.py:509
-msgid "Cannot read data"
-msgstr "Nepavyko perskaityti duomenų"
-
-#: ../src/scanner/main.py:534
-msgid "Done"
-msgstr "Atlikta"
-
-#: ../src/scanner/main.py:686
-msgid ""
-"Your bouquets are about to be updated,\n"
-"Do you want to allow this?"
-msgstr ""
-"Jūsų bukietai bus atnaujinti.\n"
-"Ar norite tęsti?"
-
-#: ../src/scanner/main.py:707
-msgid "Enough Retries, delaying till next schedule."
-msgstr "Gana kartoti, laukiama iki kito grafiko."
-
-#: ../src/scanner/main.py:733
 msgid "%a %e %b  %-H:%M"
 msgstr "%b %e, %a  %-H:%M"
 
-#: ../src/setup.py:53
-msgid "AutoBouquetsMaker Providers"
-msgstr "AutoBouquetsMaker teikėjai"
+msgid "---- ABM - 'text' ----"
+msgstr "---- ABM - 'tekstas' ----"
 
-#: ../src/setup.py:73 ../src/setup.py:487
-msgid "OK"
-msgstr "Gerai"
+msgid "-------- text --------"
+msgstr "-------- tekstas --------"
 
-#: ../src/setup.py:197
-msgid "yes (all channels)"
-msgstr "taip (visi kanalai)"
+msgid "30 Days"
+msgstr "30 dienų"
 
-#: ../src/setup.py:199
-msgid "yes (only HD)"
-msgstr "taip (tik HD)"
+msgid "< - - text - - >"
+msgstr "< - - tekstas - - >"
 
-#: ../src/setup.py:200
-msgid "yes (only FTA HD)"
-msgstr "taip (tik nekoduoti HD)"
+msgid "<-- text -->"
+msgstr "<-- tekstas -->"
 
-#: ../src/setup.py:217
-msgid "yes (custom)"
-msgstr "taip (savitas)"
+msgid "= = = text = = ="
+msgstr "= = = tekstas = = ="
 
-#: ../src/setup.py:230 ../src/setup.py:239
-msgid "no"
-msgstr "ne"
+msgid "= = text = ="
+msgstr "= = tekstas = ="
 
-#: ../src/setup.py:239
-msgid "yes"
-msgstr "taip"
+msgid "== ABM - 'text' =="
+msgstr "== ABM - 'tekstas' =="
 
-#: ../src/setup.py:287
-msgid "This option enables the current selected provider."
-msgstr "Ši parinktis įjungia dabar pasirinktą teikėją."
+msgid "== text =="
+msgstr "== tekstas =="
 
-#: ../src/setup.py:290
-msgid "area"
-msgstr "sritis"
+msgid "=== text ==="
+msgstr "=== tekstas ==="
 
-#: ../src/setup.py:290
-msgid ""
-"This option allows you to choose what region of the country you live in, so "
-"it populates the correct channels for your region."
-msgstr ""
-"Čia galite pasirinkti, kuriame šalies regione jūs gyvenate, kad parinkti "
-"tinkamus šiam regionui kanalus."
+msgid "ABM log file has been saved to the tmp directory"
+msgstr "ABM žurnalo failas išsaugotas /tmp kataloge"
 
-#: ../src/setup.py:295
-msgid "FTA only"
-msgstr "Tik nekoduoti"
+msgid "About"
+msgstr "Apie įskiepį"
 
-#: ../src/setup.py:295
-msgid ""
-"This affects all bouquets. Select 'no' to scan in all services. Select 'yes' "
-"to skip encrypted ones."
-msgstr ""
-"Tai įtakoja visus bukietus. Kad ieškoti visuose kanaluose, pasirinkite 'ne'; "
-"ir 'taip', kad kad praleisti koduotus."
-
-#: ../src/setup.py:298
-msgid "generate main bouquet"
-msgstr "generuoti pagrindinį bukietą"
-
-#: ../src/setup.py:298
-msgid ""
-"This option has several choices \"Yes\", (create a bouquet with all the "
-"channels in it), \"Yes HD only\", (will group all HD channels into this "
-"bouquet), \"Custom\", (allows you to select your own bouquet), \"No\", (do "
-"not use a main bouquet)"
-msgstr ""
-"Ši pasirinktis turi keletą pasirinkimų 'taip', (sukurti bukietą su visais "
-"kanalais), 'taip, tik HD', (sukurti bukietą tik su HD kanalais), 'savitas', "
-"(leidžia jums pasirinkti savo bukietą), 'ne', (nenaudoti pagrindinio bukieto)"
-
-#: ../src/setup.py:301
-msgid "custom bouquet for main"
-msgstr "savitas bukietas iš pagrindinio"
-
-#: ../src/setup.py:301
-msgid ""
-"Select your own bouquet from the list, please note that the only the first "
-"100 channels for this bouquet will be used."
-msgstr ""
-"Iš sąrašo pasirinkite savo bukietą; atkreipkite dėmesį, kad bus naudojami "
-"tik pirmieji 100 šio bukieto kanalų."
-
-#: ../src/setup.py:304
-msgid "generate sections bouquets"
-msgstr "generuoti bukietų skyrius"
-
-#: ../src/setup.py:304
-msgid ""
-"This option will create bouquets for each type of channel, ie Entertainment, "
-"Movies, Documentary."
-msgstr ""
-"Ši parinktis leis sukurti vienatemių kanalų bukietus, pvz., pramoginiai, "
-"dokumentiniai, filmų kanalai."
-
-#: ../src/setup.py:307
-msgid "generate HD bouquet"
-msgstr "generuoti HD bukietą"
-
-#: ../src/setup.py:307
-msgid ""
-"This option will create a High Definition bouquet, it will group all HD "
-"channels into this bouquet."
-msgstr "Ši parinktis leis sukurti HD bukietą, kuriame bus visi HD kanalai."
-
-#: ../src/setup.py:310
-msgid "generate FTA bouquet"
-msgstr "generuoti nekoduotą bukietą"
-
-#: ../src/setup.py:310
-msgid ""
-"This option will create a FreeToAir bouquet, it will group all free channels "
-"into this bouquet."
-msgstr ""
-"Ši parinktis leis sukurti nešifruotų kanalų bukietą, kuriame bus visi "
-"nemokami kanalai."
-
-#: ../src/setup.py:313
-msgid "generate FTA HD bouquet"
-msgstr "generuoti nekoduotą HD bukietą"
-
-#: ../src/setup.py:313
-msgid ""
-"This option will create a FreeToAir High Definition bouquet, it will group "
-"all FTA HD channels into this bouquet."
-msgstr ""
-"Ši parinktis leis sukurti nešifruotų HD kanalų bukietą, kuriame bus visi "
-"nemokami HD kanalai."
-
-#: ../src/setup.py:319 ../src/setup.py:328 ../src/setup.py:336
-msgid "swap channels"
-msgstr "sukeisti kanalus"
-
-#: ../src/setup.py:319 ../src/setup.py:328 ../src/setup.py:336
-msgid ""
-"This option will swap SD versions of channels with HD versions. (eg BBC One "
-"SD with BBC One HD, Channel Four SD with with Channel Four HD)"
-msgstr ""
-"Ši parinktis sukeis SD kanalus jų prieinamomis HD versijomis. (Pvz., "
-"Eurosport 1 SD pakeis Eurosport 1 HD)"
-
-#: ../src/setup.py:467
-msgid "AutoBouquetsMaker Configure"
-msgstr "ABMaker konfigūravimas"
-
-#: ../src/setup.py:513
-msgid "Setup mode"
-msgstr "Sąrankos režimas"
-
-#: ../src/setup.py:513
-msgid ""
-"Choose which level of settings to display. 'Expert'-level shows all items, "
-"this also adds more options in the providers menu."
-msgstr ""
-"Pasirinkite, kokiu prieigos lygiu bus pateikta meniu ir nuostatos. 'Išsamus' "
-"atveria prieigą prie visų nuostatų, t.tarpe tiekėjų meniu."
-
-#: ../src/setup.py:514
-msgid "Schedule scan"
-msgstr "Paieškos tvarkaraštis"
-
-#: ../src/setup.py:514
-msgid "Allows you to set a schedule to perform a scan "
-msgstr "Leidžia nustatyti paieškų vykdymo tvarkaraštį "
-
-#: ../src/setup.py:516
-msgid "Time of scan to start"
-msgstr "Paieškos pradžios laikas"
-
-#: ../src/setup.py:516
-msgid "Set the time of day to perform the scan."
-msgstr "Nustatykite paros laiką paieškai atlikti."
-
-#: ../src/setup.py:517
-msgid "Repeat how often"
-msgstr "Kas kiek laiko kartoti"
-
-#: ../src/setup.py:517
-msgid "Set the repeat interval of the schedule."
-msgstr "Nustatykite kartojimų intervalą tvarkaraštyje."
-
-#: ../src/setup.py:519
-msgid "Keep all non-ABM bouquets"
-msgstr "Išsaugoti visus neABM bukietus"
-
-#: ../src/setup.py:519
-msgid ""
-"When disabled this will enable the 'Keep bouquets' option in the main menu, "
-"allowing you to hide some 'existing' bouquets."
-msgstr ""
-"Kai čia išjungta, pagrindiniame meniu atsiras parinktis 'Išsaugoti "
-"bukietus', kad galėtumėte paslėpti kažkuriuos 'esamus' bukietus."
-
-#: ../src/setup.py:520
-msgid "Add provider prefix to bouquets"
-msgstr "Bukietą pažymėti tiekėju"
-
-#: ../src/setup.py:520
-msgid "This option will prepend the provider name to bouquet name."
-msgstr "Ši parinktis į bukieto pavadinimą įtrauks tiekėjo vardą."
-
-#: ../src/setup.py:521
 msgid "Add provider markers"
 msgstr "Pridėti tiekėjo žymeklius"
 
-#: ../src/setup.py:521
-msgid ""
-"This option places markers in the bouquet index to group all bouquets of "
-"each provider."
-msgstr ""
-"Ši parinktis sudeda žymeklius bukieto antraštėse, kad sugrupuoti visus vieno "
-"tiekėjo bulietus."
+msgid "Add provider prefix to bouquets"
+msgstr "Bukietą pažymėti tiekėju"
 
-#: ../src/setup.py:523
-msgid "Style of provider marker"
-msgstr "Tiekėjo žymeklio stilius"
+msgid "All channels"
+msgstr "Visi kanalai"
 
-#: ../src/setup.py:523
-msgid ""
-"Choose the style of markers that separate one provider from another in "
-"bouquet indexes."
-msgstr ""
-"Pasirinkite bukietų antraščių žymeklių, atskiriančių vieno tiekėjo bukietus "
-"nuo kito, stilių."
+msgid "Allows you to set a schedule to perform a scan "
+msgstr "Leidžia nustatyti paieškų vykdymo tvarkaraštį "
 
-#: ../src/setup.py:524
-msgid "Style of bouquet marker"
-msgstr "Bukieto žymeklio stilius"
+msgid "Are you sure you want to remove all bouquets created by ABM?"
+msgstr "Ar tikrai norite pašalinti visus bukietus, sukurtus ABM?"
 
-#: ../src/setup.py:524
-msgid ""
-"Choose the style of the markers that separate channels into groups in the "
-"channel lists."
-msgstr ""
-"Pasirinkite žymeklių, skirstančių kanalus grupėmis kanalų sąraše, stilių."
+msgid "AutoBouquetsMaker"
+msgstr "AutoBouquetsMaker"
 
-#: ../src/setup.py:525
-msgid "Place bouquets at"
-msgstr "Įkelti bukietus į"
+msgid "AutoBouquetsMaker Configure"
+msgstr "ABMaker konfigūravimas"
 
-#: ../src/setup.py:525
-msgid "This option will allow you choose where to place the created bouquets."
-msgstr "Ši parinktis leidžia nurodyti, kur išsaugoti sukurtus bukietus."
+msgid "AutoBouquetsMaker Hide sections"
+msgstr "Slėpti AutoBouquetsMaker skyrius"
 
-#: ../src/setup.py:526
-msgid "Skip services on not configured sats"
-msgstr "Praleisti nekonfigūruotų palydovų kanalus"
+msgid "AutoBouquetsMaker Keep bouquets"
+msgstr "Išsaugoti AutoBouquetsMaker bukietus"
 
-#: ../src/setup.py:526
-msgid ""
-"If a service is carried on a satellite that is not configured, 'yes' means "
-"the channel will not appear in the channel list, 'no' means the channel will "
-"show in the channel list but be greyed out and not be accessible."
-msgstr ""
-"Jeigu kanalas yra nekonfigūruotame palydove, 'taip' reiškia, kad kanalas "
-"neatsiras kanalų sąraše, 'ne' reiškia, kad kanalas bus kanalų sąraše, bet "
-"bus neprieinamas (pilkas užrašas)."
+msgid "AutoBouquetsMaker Log"
+msgstr "ABMaker žurnalas"
 
-#: ../src/setup.py:527
-msgid "Include 'not indexed' channels"
-msgstr "Įtraukti 'neindeksuotus' kanalus"
+msgid "AutoBouquetsMaker Providers"
+msgstr "AutoBouquetsMaker teikėjai"
 
-#: ../src/setup.py:527
-msgid ""
-"When a search finds extra channels that do not have an allocated channel "
-"number, 'yes' will add these at the end of the channel list, and 'no' means "
-"these will not be included."
-msgstr ""
-"Kai paieškos metu surandami papildomi nenumeruoti kanalai, 'taip' įtrauks "
-"juos visus į kanalų sarašo galą, 'ne' - jie nebus įtraukti visai."
+msgid "AutoBouquetsMaker Scanner"
+msgstr "AutoBouquetsMaker paieška"
 
-#: ../src/setup.py:528
-msgid "Extra debug"
-msgstr "Papildomas derinimas"
+msgid "Bottom"
+msgstr "Apačią"
 
-#: ../src/setup.py:528
-msgid ""
-"This feature is for development only. Requires debug logs to be enabled or "
-"enigma2 to be started in console mode."
-msgstr ""
-"Ši funkcija skirta tik plėtrai ir kūrėjams. Turi būti įjungti derinimo "
-"žurnalai, arba enigma2 paleista konsolės režimu."
+msgid "Bouquets generation..."
+msgstr "Bukietų generavimas..."
 
-#: ../src/setup.py:529
-msgid "Show in extensions"
-msgstr "Rodyti tarp plėtinių"
+msgid "Bouquets order"
+msgstr "Bukietų rūšiavimas"
 
-#: ../src/setup.py:529
-msgid "When enabled, allows you start a scan from the extensions list."
-msgstr "Kai ši parinktis įjungta, paiešką galite pradėti iš plėtinių sąrašo."
+msgid "Cancel"
+msgstr "Atšaukti"
 
-#: ../src/updateproviders.py:50 ../src/updateproviders.py:90
-msgid "UpdateProviders"
-msgstr "Atnaujinti tiekėjus"
+msgid "Cannot allocate the demuxer"
+msgstr "Nerandama išmiksavimo įrangos"
 
-#: ../src/updateproviders.py:53
-msgid "Finding configured providers..."
-msgstr "Ieškoma sukonfigūruotų teikėjų..."
+msgid "Cannot free NIM because a recording is in progress"
+msgstr "Imtuvas užimtas, nes dabar vyksta įrašymas"
 
-#: ../src/updateproviders.py:98
-msgid "No providers configured."
-msgstr "Tiekėjai nesukonfigūruoti."
+msgid "Cannot get frontend"
+msgstr "Pirminė sąsaja neprieinama"
 
-#: ../src/updateproviders.py:121
-msgid "Starting update..."
-msgstr "Pradedamas atnaujinimas..."
+msgid "Cannot get the NIM"
+msgstr "Imtuvas neprieinamas"
 
-#: ../src/updateproviders.py:122
+msgid "Cannot read data"
+msgstr "Nepavyko perskaityti duomenų"
+
+msgid "Cannot read version"
+msgstr "Nepavyko perskaityti versijos"
+
+msgid "Cannot retrieve Resource Manager instance"
+msgstr "Išteklių valdymas neprieinamas"
+
 msgid "Checking version compatibility..."
 msgstr "Tikrinamas versijų suderinamumas ..."
 
-#: ../src/updateproviders.py:135
-msgid "No providers are configured."
-msgstr "Tiekėjai nesukonfigūruoti."
+msgid "Choose the style of markers that separate one provider from another in bouquet indexes."
+msgstr "Pasirinkite bukietų antraščių žymeklių, atskiriančių vieno tiekėjo bukietus nuo kito, stilių."
 
-#: ../src/updateproviders.py:145
+msgid "Choose the style of the markers that separate channels into groups in the channel lists."
+msgstr "Pasirinkite žymeklių, skirstančių kanalus grupėmis kanalų sąraše, stilių."
+
+msgid "Choose which level of settings to display. 'Expert'-level shows all items, this also adds more options in the providers menu."
+msgstr "Pasirinkite, kokiu prieigos lygiu bus pateikta meniu ir nuostatos. 'Išsamus' atveria prieigą prie visų nuostatų, t.tarpe tiekėjų meniu."
+
+msgid "Close"
+msgstr "Uždaryti"
+
+#, python-format
+msgid "Config file for %s didn't need updating."
+msgstr "%s konfigūracijos failo atnaujinti nereikia."
+
+#, python-format
+msgid "Config file for %s does not need updating"
+msgstr "%s konfigūracijos failo atnaujinti nereikia"
+
+#, python-format
+msgid "Config file for %s does not parse"
+msgstr "%s konfigūracijos failas nenusiskaito"
+
+#, python-format
+msgid "Config file for %s has been updated"
+msgstr "%s konfigūracijos failas atnaujintas"
+
+#, python-format
+msgid "Config file for %s has been updated."
+msgstr "%s konfigūracijos failas atnaujintas."
+
+#, python-format
+msgid "Config file for %s is faulty"
+msgstr "%s konfigūracijos failas klaidingas"
+
+msgid "Configure"
+msgstr "Konfigūruoti"
+
+msgid "Daily"
+msgstr "Kasdien"
+
+msgid "Delete bouquets"
+msgstr "Šalinti bukietus"
+
+msgid "Done"
+msgstr "Atlikta"
+
+msgid "Downloading latest file from Github..."
+msgstr "Atsiunčiama naujausias failas iš GitHub..."
+
+msgid "Enough Retries, delaying till next schedule."
+msgstr "Gana kartoti, laukiama iki kito grafiko."
+
+msgid "Exit"
+msgstr "Uždaryti"
+
+msgid "Extra debug"
+msgstr "Papildomas derinimas"
+
+msgid "FTA Channels"
+msgstr "Nekoduoti kanalai"
+
+msgid "FTA HD Channels"
+msgstr "Nekoduoti HD kanalai"
+
+msgid "FTA only"
+msgstr "Tik nekoduoti"
+
+#, python-format
+msgid "Failed to retrieve file for %s. Error: %s %s"
+msgstr "Nepavyko įkelti %s failo. Klaida: %s %s"
+
 #, python-format
 msgid "Failed to retrieve version file. Error: %s %s"
 msgstr "Nepavyko įkelti versijos failo. Klaida: %s %s"
 
-#: ../src/updateproviders.py:149 ../src/updateproviders.py:203
+#, python-format
+msgid ""
+"Failed to tune %s on tuner %s.\n"
+"\n"
+"Please check the following:\n"
+"The tuner is correctly configured.\n"
+"You can receive the specified frequency."
+msgstr ""
+
+msgid "Failed..."
+msgstr "Nepavyko..."
+
+msgid "Finding configured providers..."
+msgstr "Ieškoma sukonfigūruotų teikėjų..."
+
+msgid "HD Channels"
+msgstr "HD kanalai"
+
+msgid "Hide sections"
+msgstr "Slėpti skyrius"
+
+msgid "If a service is carried on a satellite that is not configured, 'yes' means the channel will not appear in the channel list, 'no' means the channel will show in the channel list but be greyed out and not be accessible."
+msgstr "Jeigu kanalas yra nekonfigūruotame palydove, 'taip' reiškia, kad kanalas neatsiras kanalų sąraše, 'ne' reiškia, kad kanalas bus kanalų sąraše, bet bus neprieinamas (pilkas užrašas)."
+
+msgid "Include 'not indexed' channels"
+msgstr "Įtraukti 'neindeksuotus' kanalus"
+
+#, python-format
+msgid "Incompatible versions: %s > %s"
+msgstr "Nesuderinamos versijos: %s > %s"
+
+msgid "Keep all non-ABM bouquets"
+msgstr "Išsaugoti visus neABM bukietus"
+
+msgid "Keep bouquets"
+msgstr "Išsaugoti bukietus"
+
+msgid "Last Scanned"
+msgstr "Paskutinė paieška"
+
+msgid "Loading bouquets..."
+msgstr "Įkeliami bukietai..."
+
+msgid "Move down"
+msgstr "Žemyn"
+
+msgid "Move up"
+msgstr "Aukštyn"
+
+msgid "Network connection error"
+msgstr "Tinklo ryšio klaida"
+
 #, python-format
 msgid ""
 "Network connection error: \n"
@@ -663,89 +264,264 @@ msgstr ""
 "Tinklo ryšio klaida:\n"
 "%s"
 
-#: ../src/updateproviders.py:152 ../src/updateproviders.py:206
-msgid "Network connection error"
-msgstr "Tinklo ryšio klaida"
+msgid "No NIMs found for "
+msgstr "Nerasta imtuvų "
 
-#: ../src/updateproviders.py:161
+msgid "No area found"
+msgstr "Sritis nerasta"
+
+msgid "No providers are configured."
+msgstr "Tiekėjai nesukonfigūruoti."
+
+msgid "No providers configured."
+msgstr "Tiekėjai nesukonfigūruoti."
+
+msgid "No valid NIM found for "
+msgstr "Nerasta tinkamų imtuvų "
+
+msgid "None"
+msgstr "joks"
+
+msgid "OK"
+msgstr "Gerai"
+
+msgid "Place bouquets at"
+msgstr "Įkelti bukietus į"
+
+msgid "Please first setup, in configuration"
+msgstr "Pirmiausiai nustatykite konfigūracijoje"
+
+msgid "Please wait..."
+msgstr "Palaukite..."
+
+msgid "Providers"
+msgstr "Tiekėjai"
+
+msgid "Providers order"
+msgstr "Tiekėjų rūšiavimas"
+
+msgid "Radio Channels"
+msgstr "Radijo kanalai"
+
 #, python-format
-msgid "Incompatible versions: %s > %s"
-msgstr "Nesuderinamos versijos: %s > %s"
+msgid "Reading %s..."
+msgstr "Skaitoma %s..."
 
-#: ../src/updateproviders.py:167
-msgid "Cannot read version"
-msgstr "Nepavyko perskaityti versijos"
+msgid "Really close without saving settings?"
+msgstr "Ar tikrai uždaryti langą, neišsaugant nuostatų?"
 
-#: ../src/updateproviders.py:178
-#, python-format
-msgid "Retrieving config file for %s"
-msgstr "Įkeliamas %s konfigūracijos failas"
+msgid "Repeat how often"
+msgstr "Kas kiek laiko kartoti"
 
-#: ../src/updateproviders.py:179
-msgid "Downloading latest file from Github..."
-msgstr "Atsiunčiama naujausias failas iš GitHub..."
-
-#: ../src/updateproviders.py:194
-#, python-format
-msgid "Failed to retrieve file for %s. Error: %s %s"
-msgstr "Nepavyko įkelti %s failo. Klaida: %s %s"
-
-#: ../src/updateproviders.py:195
-msgid "Failed..."
-msgstr "Nepavyko..."
-
-#: ../src/updateproviders.py:196
-#, python-format
-msgid "Unable to download config file for %s"
-msgstr "Nepavyko parsiųsti %s konfigūracijos failo"
-
-#: ../src/updateproviders.py:222 ../src/updateproviders.py:234
-#: ../src/updateproviders.py:243
 #, python-format
 msgid "Retrieved config file for %s"
 msgstr "Parsiųstas %s konfigūracijos failas"
 
-#: ../src/updateproviders.py:223
-#, python-format
-msgid "Config file for %s does not need updating"
-msgstr "%s konfigūracijos failo atnaujinti nereikia"
-
-#: ../src/updateproviders.py:225
-#, python-format
-msgid "Config file for %s didn't need updating."
-msgstr "%s konfigūracijos failo atnaujinti nereikia."
-
-#: ../src/updateproviders.py:235
-#, python-format
-msgid "Config file for %s has been updated"
-msgstr "%s konfigūracijos failas atnaujintas"
-
-#: ../src/updateproviders.py:237
-#, python-format
-msgid "Config file for %s has been updated."
-msgstr "%s konfigūracijos failas atnaujintas."
-
-#: ../src/updateproviders.py:244
-#, python-format
-msgid "Config file for %s does not parse"
-msgstr "%s konfigūracijos failas nenusiskaito"
-
-#: ../src/updateproviders.py:246
 #, python-format
 msgid "Retrieved config file for %s does not parse."
 msgstr "Parsiųstas %s konfigūracijos failas nenusiskaito."
 
-#: ../src/updateproviders.py:253
+#, python-format
+msgid "Retrieved config file for %s is faulty or incomplete."
+msgstr "Parsiųstas %s konfigūracijos failas klaidingas, arba nepilnas."
+
 #, python-format
 msgid "Retrieved provider file for %s"
 msgstr "Parsiųstas %s tiekėjo failas"
 
-#: ../src/updateproviders.py:254
 #, python-format
-msgid "Config file for %s is faulty"
-msgstr "%s konfigūracijos failas klaidingas"
+msgid "Retrieving config file for %s"
+msgstr "Įkeliamas %s konfigūracijos failas"
 
-#: ../src/updateproviders.py:256
+msgid "Save"
+msgstr "Išsaugoti"
+
+msgid "Save Log"
+msgstr "Įrašyti žurnalą"
+
+msgid "Scan"
+msgstr "Paieška"
+
+msgid "Schedule scan"
+msgstr "Paieškos tvarkaraštis"
+
+msgid "Select your own bouquet from the list, please note that the only the first 100 channels for this bouquet will be used."
+msgstr "Iš sąrašo pasirinkite savo bukietą; atkreipkite dėmesį, kad bus naudojami tik pirmieji 100 šio bukieto kanalų."
+
 #, python-format
-msgid "Retrieved config file for %s is faulty or incomplete."
-msgstr "Parsiųstas %s konfigūracijos failas klaidingas, arba nepilnas."
+msgid "Services: %d video - %d radio"
+msgstr "Kanalai: %d vaizdo - %d radijo"
+
+msgid "Services: 0 video - 0 radio"
+msgstr "Kanalai: 0 vaizdo - 0 radijo"
+
+msgid "Set the repeat interval of the schedule."
+msgstr "Nustatykite kartojimų intervalą tvarkaraštyje."
+
+msgid "Set the time of day to perform the scan."
+msgstr "Nustatykite paros laiką paieškai atlikti."
+
+msgid "Setup mode"
+msgstr "Sąrankos režimas"
+
+msgid "Show in extensions"
+msgstr "Rodyti tarp plėtinių"
+
+msgid "Show log"
+msgstr "Rodyti žurnalą"
+
+msgid "Skip services on not configured sats"
+msgstr "Praleisti nekonfigūruotų palydovų kanalus"
+
+msgid "Start scan"
+msgstr "Pradėti paiešką"
+
+msgid "Starting scanner"
+msgstr "Pradedama paieška"
+
+msgid "Starting update..."
+msgstr "Pradedamas atnaujinimas..."
+
+msgid "Style of bouquet marker"
+msgstr "Bukieto žymeklio stilius"
+
+msgid "Style of provider marker"
+msgstr "Tiekėjo žymeklio stilius"
+
+msgid "This affects all bouquets. Select 'no' to scan in all services. Select 'yes' to skip encrypted ones."
+msgstr "Tai įtakoja visus bukietus. Kad ieškoti visuose kanaluose, pasirinkite 'ne'; ir 'taip', kad kad praleisti koduotus."
+
+msgid "This feature is for development only. Requires debug logs to be enabled or enigma2 to be started in console mode."
+msgstr "Ši funkcija skirta tik plėtrai ir kūrėjams. Turi būti įjungti derinimo žurnalai, arba enigma2 paleista konsolės režimu."
+
+msgid "This option allows you to choose what region of the country you live in, so it populates the correct channels for your region."
+msgstr "Čia galite pasirinkti, kuriame šalies regione jūs gyvenate, kad parinkti tinkamus šiam regionui kanalus."
+
+msgid "This option enables the current selected provider."
+msgstr "Ši parinktis įjungia dabar pasirinktą teikėją."
+
+msgid "This option has several choices \"Yes\", (create a bouquet with all the channels in it), \"Yes HD only\", (will group all HD channels into this bouquet), \"Custom\", (allows you to select your own bouquet), \"No\", (do not use a main bouquet)"
+msgstr "Ši pasirinktis turi keletą pasirinkimų 'taip', (sukurti bukietą su visais kanalais), 'taip, tik HD', (sukurti bukietą tik su HD kanalais), 'savitas', (leidžia jums pasirinkti savo bukietą), 'ne', (nenaudoti pagrindinio bukieto)"
+
+msgid "This option places markers in the bouquet index to group all bouquets of each provider."
+msgstr "Ši parinktis sudeda žymeklius bukieto antraštėse, kad sugrupuoti visus vieno tiekėjo bulietus."
+
+msgid "This option will allow you choose where to place the created bouquets."
+msgstr "Ši parinktis leidžia nurodyti, kur išsaugoti sukurtus bukietus."
+
+msgid "This option will create a FreeToAir High Definition bouquet, it will group all FTA HD channels into this bouquet."
+msgstr "Ši parinktis leis sukurti nešifruotų HD kanalų bukietą, kuriame bus visi nemokami HD kanalai."
+
+msgid "This option will create a FreeToAir bouquet, it will group all free channels into this bouquet."
+msgstr "Ši parinktis leis sukurti nešifruotų kanalų bukietą, kuriame bus visi nemokami kanalai."
+
+msgid "This option will create a High Definition bouquet, it will group all HD channels into this bouquet."
+msgstr "Ši parinktis leis sukurti HD bukietą, kuriame bus visi HD kanalai."
+
+msgid "This option will create bouquets for each type of channel, ie Entertainment, Movies, Documentary."
+msgstr "Ši parinktis leis sukurti vienatemių kanalų bukietus, pvz., pramoginiai, dokumentiniai, filmų kanalai."
+
+msgid "This option will prepend the provider name to bouquet name."
+msgstr "Ši parinktis į bukieto pavadinimą įtrauks tiekėjo vardą."
+
+msgid "This option will swap SD versions of channels with HD versions. (eg BBC One SD with BBC One HD, Channel Four SD with with Channel Four HD)"
+msgstr "Ši parinktis sukeis SD kanalus jų prieinamomis HD versijomis. (Pvz., Eurosport 1 SD pakeis Eurosport 1 HD)"
+
+msgid "Time of scan to start"
+msgstr "Paieškos pradžios laikas"
+
+#, python-format
+msgid ""
+"Timed out tuning %s on tuner %s.\n"
+"\n"
+"Please check the following:\n"
+"The tuner is correctly configured.\n"
+"You can receive the specified frequency."
+msgstr ""
+
+msgid "Top"
+msgstr "Viršų"
+
+#, python-format
+msgid "Tuning %s..."
+msgstr "Derinama %s..."
+
+#, python-format
+msgid "Unable to download config file for %s"
+msgstr "Nepavyko parsiųsti %s konfigūracijos failo"
+
+msgid "Update config files"
+msgstr "Atnaujinti konfigūracijos failus"
+
+msgid "UpdateProviders"
+msgstr "Atnaujinti tiekėjus"
+
+msgid "Weekly"
+msgstr "Kas savaitę"
+
+msgid "When a search finds extra channels that do not have an allocated channel number, 'yes' will add these at the end of the channel list, and 'no' means these will not be included."
+msgstr "Kai paieškos metu surandami papildomi nenumeruoti kanalai, 'taip' įtrauks juos visus į kanalų sarašo galą, 'ne' - jie nebus įtraukti visai."
+
+msgid "When disabled this will enable the 'Keep bouquets' option in the main menu, allowing you to hide some 'existing' bouquets."
+msgstr "Kai čia išjungta, pagrindiniame meniu atsiras parinktis 'Išsaugoti bukietus', kad galėtumėte paslėpti kažkuriuos 'esamus' bukietus."
+
+msgid "When enabled, allows you start a scan from the extensions list."
+msgstr "Kai ši parinktis įjungta, paiešką galite pradėti iš plėtinių sąrašo."
+
+msgid ""
+"Your bouquets are about to be updated,\n"
+"Do you want to allow this?"
+msgstr ""
+"Jūsų bukietai bus atnaujinti.\n"
+"Ar norite tęsti?"
+
+msgid "area"
+msgstr "sritis"
+
+msgid "custom bouquet for main"
+msgstr "savitas bukietas iš pagrindinio"
+
+msgid "expert"
+msgstr "ekspertų lygio"
+
+msgid "generate FTA HD bouquet"
+msgstr "generuoti nekoduotą HD bukietą"
+
+msgid "generate FTA bouquet"
+msgstr "generuoti nekoduotą bukietą"
+
+msgid "generate HD bouquet"
+msgstr "generuoti HD bukietą"
+
+msgid "generate main bouquet"
+msgstr "generuoti pagrindinį bukietą"
+
+msgid "generate sections bouquets"
+msgstr "generuoti bukietų skyrius"
+
+msgid "indent + text"
+msgstr "įtrauka + tekstas"
+
+msgid "no"
+msgstr "ne"
+
+msgid "simple"
+msgstr "paprastas"
+
+msgid "swap channels"
+msgstr "sukeisti kanalus"
+
+msgid "yes"
+msgstr "taip"
+
+msgid "yes (all channels)"
+msgstr "taip (visi kanalai)"
+
+msgid "yes (custom)"
+msgstr "taip (savitas)"
+
+msgid "yes (only FTA HD)"
+msgstr "taip (tik nekoduoti HD)"
+
+msgid "yes (only HD)"
+msgstr "taip (tik HD)"
