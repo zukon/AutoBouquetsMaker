@@ -667,10 +667,11 @@ https://github.com/oe-alliance/oe-alliance-plugins/commit/7b5d72d44523d4047b5115
 DVB-T frequency finder
 ----------------------
 
-This tool enables the creation of a provider file for UK terrestrial for users that live in 
-areas where the data contained in the supplied system file may be incomplete or wrong. This 
-will be the case if you are receiving from a repeater or when there have been modifications 
-to the active frequencies on your mast that the ABM developers are not yet aware of.
+This tool enables the creation of a provider file for UK terrestrial for users that live 
+in areas where the data contained in the supplied system file or SI tables may be incomplete 
+or wrong. This will be the case if you are receiving from a repeater or when there have been 
+modifications to the active frequencies on your mast that the ABM developers are not yet aware 
+of.
 
 To enable the tool go into the configure menu, select "Expert" mode, and then select
 "Show DVB-T frequency finder".
