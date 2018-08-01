@@ -61,6 +61,7 @@ config.autobouquetsmaker.placement = ConfigSelection(default = "top", choices = 
 config.autobouquetsmaker.skipservices = ConfigYesNo(default = True)
 config.autobouquetsmaker.showextraservices = ConfigYesNo(default = False)
 config.autobouquetsmaker.extra_debug = ConfigYesNo(default = False)
+config.autobouquetsmaker.frequencyfinder = ConfigYesNo(default = False)
 config.autobouquetsmaker.FTA_only = ConfigText("", False)
 
 def main(session, **kwargs):

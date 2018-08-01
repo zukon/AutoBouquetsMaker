@@ -10,6 +10,7 @@ from keepbouquets import AutoBouquetsMaker_KeepBouquets
 from ordering import AutoBouquetsMaker_Ordering
 from deletebouquets import AutoBouquetsMaker_DeleteBouquets, AutoBouquetsMaker_DeleteMsg
 from updateproviders import AutoBouquetsMaker_UpdateProviders
+from scanner.frequencyfinder import AutoBouquetsMaker_FrequencyFinder
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -55,10 +56,12 @@ class AutoBouquetsMaker_Menu(Screen):
 		Screen.__init__(self, session)
 		self.setup_title = _("AutoBouquetsMaker")
 		Screen.setTitle(self, self.setup_title)
+		self.init_level = config.autobouquetsmaker.level.getValue()
 		self.init_providers = config.autobouquetsmaker.providers.getValue()
 		self.init_keepallbouquets = config.autobouquetsmaker.keepallbouquets.getValue()
 		self.init_schedule = config.autobouquetsmaker.schedule.getValue()
 		self.init_scheduletime = config.autobouquetsmaker.scheduletime.getValue()
+		self.init_frequencyfinder = config.autobouquetsmaker.frequencyfinder.getValue()
 		print '[ABM-menu][__init__] self.init_schedule',self.init_schedule
 		print '[ABM-menu][__init__] self.init_scheduletime',self.init_scheduletime
 
@@ -96,6 +99,8 @@ class AutoBouquetsMaker_Menu(Screen):
 		l.append(self.buildListEntry(_("Start scan"), "download.png"))
 		l.append(self.buildListEntry(_("Delete bouquets"), "reorder.png"))
 		l.append(self.buildListEntry(_("Update config files"), "reorder.png"))
+		if config.autobouquetsmaker.level.getValue() == "expert" and config.autobouquetsmaker.frequencyfinder.getValue():
+			l.append(self.buildListEntry(_("DVB-T frequency finder"), "reorder.png"))
 		l.append(self.buildListEntry(_("Show log"), "dbinfo.png"))
 		l.append(self.buildListEntry(_("About"), "about.png"))
 		self["list"].list = l
@@ -128,9 +133,11 @@ class AutoBouquetsMaker_Menu(Screen):
 
 	def refresh(self):
 		AutoAutoBouquetsMakerTimer.instance.doneConfiguring()
-		if self.init_providers != config.autobouquetsmaker.providers.getValue() or self.init_keepallbouquets != config.autobouquetsmaker.keepallbouquets.getValue():
+		if self.init_level != config.autobouquetsmaker.level.getValue() or self.init_providers != config.autobouquetsmaker.providers.getValue() or self.init_keepallbouquets != config.autobouquetsmaker.keepallbouquets.getValue() or self.init_frequencyfinder != config.autobouquetsmaker.frequencyfinder.getValue():
+			self.init_level = config.autobouquetsmaker.level.getValue()
 			self.init_providers = config.autobouquetsmaker.providers.getValue()
 			self.init_keepallbouquets = config.autobouquetsmaker.keepallbouquets.getValue()
+			self.init_frequencyfinder = config.autobouquetsmaker.frequencyfinder.getValue()
 			index = self["list"].getIndex()
 			self.createsetup()
 			if index is not None and len(self["list"].list) > index:
@@ -183,11 +190,18 @@ class AutoBouquetsMaker_Menu(Screen):
 			self.session.open(AutoBouquetsMaker_UpdateProviders)
 			return
 
+		if not (config.autobouquetsmaker.level.getValue() == "expert" and config.autobouquetsmaker.frequencyfinder.getValue()):
+			index += 1
+
 		if index == 8:
-			self.session.open(AutoBouquetsMaker_Log)
+			self.session.open(AutoBouquetsMaker_FrequencyFinder)
 			return
 
 		if index == 9:
+			self.session.open(AutoBouquetsMaker_Log)
+			return
+
+		if index == 10:
 			self.session.open(AutoBouquetsMaker_About)
 			return
 

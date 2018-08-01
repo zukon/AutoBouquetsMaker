@@ -10,6 +10,7 @@ Contents:
 8) lamedb format explained
 9) swapchannels (in providers.xml)
 10) Freesat, special config for people outside the footprint of the home transponder.
+11) DVB-T frequency finder
 
 ---------------------------------------------------------------------------------------------- 
 
@@ -660,5 +661,30 @@ available on your dish. e.g. Sky News transponder (12207 V 27500 2/3).
 
 Basically the above just reverts this commit:
 https://github.com/oe-alliance/oe-alliance-plugins/commit/7b5d72d44523d4047b51156e3f421bd456d9f131#diff-16e2769b1de3a403922eee457aba7895
+
+---------------------------------------------------------------------------------------------- 
+
+DVB-T frequency finder
+----------------------
+
+This tool enables the creation of a provider file for UK terrestrial for users that live in 
+areas where the data contained in the supplied system file may be incomplete or wrong. This 
+will be the case if you are receiving from a repeater or when there have been modifications 
+to the active frequencies on your mast that the ABM developers are not yet aware of.
+
+To enable the tool go into the configure menu, select "Expert" mode, and then select
+"Show DVB-T frequency finder".
+
+Then in the main ABM menu select "DVB-T frequency finder". The tool automatically steps through 
+all known UHF TV frequencies and works out where ABM needs to look for services. This process 
+takes a few minutes to complete. Once it is complete the tool creates a new provider file and 
+advises you of the name. Now it is just a question of going into the Providers menu and selecting 
+that provider and doing a scan. You only need to run the tool one time and from then on just let 
+ABM scan in the normal way. If at a later stage there seams to be something wrong with the channels 
+you are receiving, like a block of channels with no signal just run the tool again.
+
+And dont forget to push the created file back to the developers on OpenViX forum along with your 
+location and and opinion of which mast you are receiving from.
+
 
 ---------------------------------------------------------------------------------------------- 
