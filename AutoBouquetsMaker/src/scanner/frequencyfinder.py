@@ -392,7 +392,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		self.readNIT() # by the time this is completed SNR should be stable
 		signalQuality = self.frontend.readFrontendData(iFrontendInformation.signalQuality)
 		if signalQuality > 0:
-			found = {"frequency": self.frequency, "tsid": self.tsid, "onid": self.onid, "system": self.system, "bandwidth": self.bandwidth, "signalQuality": signalQuality, "network_name": self.network_name}
+			found = {"frequency": self.frequency, "tsid": self.tsid, "onid": self.onid, "system": self.system, "bandwidth": self.bandwidth, "signalQuality": signalQuality, "network_name": self.network_name, "custom_transponder_needed": self.custom_transponder_needed}
 			self.transponders_found.append(self.frequency)
 			tsidOnidKey = "%x:%x" % (self.tsid, self.onid)
 			if (tsidOnidKey not in self.transponders_unique or self.transponders_unique[tsidOnidKey]["signalQuality"] < signalQuality) and (not self.restrict_to_networkid or self.networkid == self.onid):
@@ -452,6 +452,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		nit_other_table_id = 0x00 # don't read other table
 
 		self.network_name = None
+		self.custom_transponder_needed = True
 
 		if nit_other_table_id == 0x00:
 			mask = 0xff
@@ -522,8 +523,10 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 				self.system = 1
 
 			if "frequency" in transponders[0] and abs((transponders[0]["frequency"]*10) - self.frequency) < 1000000:
-				print "[ABM-FrequencyFinder][readNIT] updating transponder frequency from %.03f MHz to %.03f MHz" % (self.frequency/1000000, transponders[0]["frequency"]/100000)
-				self.frequency = transponders[0]["frequency"]*10
+				self.custom_transponder_needed = False
+				if self.frequency != transponders[0]["frequency"]*10:
+					print "[ABM-FrequencyFinder][readNIT] updating transponder frequency from %.03f MHz to %.03f MHz" % (self.frequency/1000000, transponders[0]["frequency"]/100000)
+					self.frequency = transponders[0]["frequency"]*10
 
 #	def saveTransponderList(self):
 #		# make custom transponders file content
@@ -561,7 +564,10 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		customProviderList.append('\t<customtransponders>\n')
 		for tsidOnidKey in self.iterateUniqueTranspondersByFrequency():
 			transponder = self.transponders_unique[tsidOnidKey]
-			customProviderList.append('\t\t<customtransponder key="custom" frequency="%d" transport_stream_id="%04x" system="%d"/><!-- original_network_id="%04x" signalQuality="%05d" channel="%s" -->\n' % (transponder["frequency"], transponder["tsid"], transponder["system"], transponder["onid"], transponder["signalQuality"], getChannelNumber(transponder["frequency"])))
+			if transponder["custom_transponder_needed"]:
+				customProviderList.append('\t\t<customtransponder key="custom" frequency="%d" transport_stream_id="%04x" system="%d"/><!-- original_network_id="%04x" signalQuality="%05d" channel="%s" -->\n' % (transponder["frequency"], transponder["tsid"], transponder["system"], transponder["onid"], transponder["signalQuality"], getChannelNumber(transponder["frequency"])))
+			else:
+				customProviderList.append('\t\t<!-- customtransponder key="custom" frequency="%d" transport_stream_id="%04x" system="%d"/ --><!-- original_network_id="%04x" signalQuality="%05d" channel="%s" -->\n' % (transponder["frequency"], transponder["tsid"], transponder["system"], transponder["onid"], transponder["signalQuality"], getChannelNumber(transponder["frequency"])))
 		customProviderList.append('\t</customtransponders>\n\n')
 		customProviderList.append('\t<sections>\n')
 		customProviderList.append('\t\t<section number="1">Entertainment</section>\n')
