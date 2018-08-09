@@ -97,8 +97,8 @@
 	</dvbcconfigs>
 	<sections>
 		<section number="100">Entertainment</section>
-		<section number="245">Factual</section>
-		<section number="278">Lifestyle</section>
+		<section number="250">Factual</section>
+		<section number="284">Lifestyle</section>
 		<section number="300">Music</section>
 		<section number="400">Movies</section>
 		<section number="500">Sports</section>
@@ -158,7 +158,7 @@ except:
 	provider = "Virgin Media"
 
 	#Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
-	blacklist = ['Channel Moved','Eurosport 3HD','Eurosport 4HD','Eurosport 5HD','hayu','ITV PPV HD','L Pack Tier 4','M Pack Tier 1','More TV Pack Tier 2','M+ Pack Tier 3','Netflix','PIN Protection Help', 'S4C HD','The Africa Channel','XL Pack Tier 5','Vevo','Worldbox','YouTube']
+	blacklist = [124,131,245,246,247,248,295,'Channel Moved','Eurosport 3HD','Eurosport 4HD','Eurosport 5HD','hayu','ITV PPV HD','L Pack Tier 4','M Pack Tier 1','More TV Pack Tier 2','M+ Pack Tier 3','Netflix','PIN Protection Help', 'S4C HD','XL Pack Tier 5','Vevo','Worldbox','YouTube']
 
 	bt_sports_xtra = ["BT Sport Extra 0","BT Sport Extra 1","BT Sport Extra 2","BT Sport Extra 3","BT Sport Extra 4","BT Sport Extra 5","BT Sport Extra 6"]
 
