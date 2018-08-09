@@ -355,6 +355,12 @@ if "channel_id" in service and service["channel_id"] in itv_rename:
 	service["service_name"] = itv_rename[service["channel_id"]]
 	service["service_flags"] = dxHoldName
 
+if service["channel_id"] in not_fta_by_id:
+	service["free_ca"] = 1
+
+if service["channel_id"] in fta_by_id:
+	service["free_ca"] = 0
+
 # Remove encrypted services from certain transport streams
 if custom and service["service_type"] != 2 and service["transport_stream_id"] in broken_TSIDS and service["free_ca"] != 0:
 	while service["number"] in LCNs_in_use:
@@ -415,12 +421,6 @@ for number in service["numbers"]:
 	else:
 		new_numbers.append(number)
 service["numbers"] = new_numbers
-
-if service["channel_id"] in not_fta_by_id:
-	service["free_ca"] = 1
-
-if service["channel_id"] in fta_by_id:
-	service["free_ca"] = 0
 
 ]]>
 	</servicehacks>
