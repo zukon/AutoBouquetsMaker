@@ -186,7 +186,7 @@ for number in service["numbers"]:
 	if number in blacklist:
 		skip = True
 		break
-	elif number >= 50 and number <= 64:
+	elif number >= 50 and number <= 60:
 		service["numbers"] = [number + 952]
 		break
 	elif number == 40:
