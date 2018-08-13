@@ -686,7 +686,7 @@ stage there seams to be something wrong with the channels you are receiving, suc
 channels with no signal just run the tool again.
 
 And dont forget to push the created file back to the developers on OpenViX forum along with your 
-location and and opinion of which mast you are receiving from.
+location and opinion of which mast you are receiving from.
 
 
 ---------------------------------------------------------------------------------------------- 
