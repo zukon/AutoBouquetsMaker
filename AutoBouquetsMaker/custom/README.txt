@@ -679,10 +679,11 @@ To enable the tool go into the configure menu, select "Expert" mode, and then se
 Then in the main ABM menu select "DVB-T frequency finder". The tool automatically steps through 
 all known UHF TV frequencies and works out where ABM needs to look for services. This process 
 takes a few minutes to complete. Once it is complete the tool creates a new provider file and 
-advises you of the name. Now it is just a question of going into the Providers menu and selecting 
-that provider and doing a scan. You only need to run the tool one time and from then on just let 
-ABM scan in the normal way. If at a later stage there seams to be something wrong with the channels 
-you are receiving, like a block of channels with no signal just run the tool again.
+advises you of the name. Now it is just a question of going into the Providers menu and de-selecting 
+"FreeView (UK)" and then selecting the newly created provider, and doing a scan. You only need 
+to run the tool one time and from then on just let ABM scan in the normal way. If at a later 
+stage there seams to be something wrong with the channels you are receiving, such as a block of 
+channels with no signal just run the tool again.
 
 And dont forget to push the created file back to the developers on OpenViX forum along with your 
 location and and opinion of which mast you are receiving from.
