@@ -523,9 +523,9 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		if transponders:
 
 			if transponders[0]["descriptor_tag"] == 0x5A: # DVB-T
-				self.system = 0
+				self.system = eDVBFrontendParametersTerrestrial.System_DVB_T
 			else: # must be DVB-T2
-				self.system = 1
+				self.system = eDVBFrontendParametersTerrestrial.System_DVB_T2
 
 			if "frequency" in transponders[0] and abs((transponders[0]["frequency"]*10) - self.frequency) < 1000000:
 				self.custom_transponder_needed = False
