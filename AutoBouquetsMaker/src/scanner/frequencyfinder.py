@@ -209,7 +209,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 #				question = self.session.openWithCallback(self.scanMessageCallback, MessageBox, message, type=MessageBox.TYPE_YESNO, default=True)
 #				question.setTitle(_("ABM frequency finder"))
 				self.saveProviderFile()
-				message = 'New provider created named "%s terrestrial".\nEnable this provider, disable the existing DVB-T provider and then and start a scan.' % self.strongestTransponder["network_name"]
+				message = 'New provider created named "%s terrestrial".\nEnable the new provider and disable the old one.\nThen start an ABM scan.' % self.strongestTransponder["network_name"]
 				self.showAdvice(message)
 			elif len(self.transponders_unique) > 0:
 				print "[ABM-FrequencyFinder][Search] Only DVB-T2 multiplexes found. Insufficient data to create a provider file."
