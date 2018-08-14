@@ -27,7 +27,7 @@ config.autobouquetsmaker.markersinindex = ConfigYesNo(default = False)
 config.autobouquetsmaker.indexmarkerstyle = ConfigSelection(
 	default = "%s",
 	choices = [
-		("%s", _("None")),
+		("%s", _("none")),
 		("     %s", _("indent + text")),
 		("<-- %s -->", _("<-- text -->")),
 		("< - - %s - - >", _("< - - text - - >")),
@@ -43,7 +43,7 @@ config.autobouquetsmaker.indexmarkerstyle = ConfigSelection(
 config.autobouquetsmaker.bouquetmarkerstyle = ConfigSelection(
 	default = "%s",
 	choices = [
-		("%s", _("None")),
+		("%s", _("none")),
 		("     %s", _("indent + text")),
 		("<-- %s -->", _("<-- text -->")),
 		("< - - %s - - >", _("< - - text - - >")),
@@ -57,7 +57,7 @@ config.autobouquetsmaker.bouquetmarkerstyle = ConfigSelection(
 	]
 )
 config.autobouquetsmaker.extensions = ConfigYesNo(default = False)
-config.autobouquetsmaker.placement = ConfigSelection(default = "top", choices = [("top", _("Top")), ("bottom", _("Bottom"))])
+config.autobouquetsmaker.placement = ConfigSelection(default = "top", choices = [("top", _("top")), ("bottom", _("bottom"))])
 config.autobouquetsmaker.skipservices = ConfigYesNo(default = True)
 config.autobouquetsmaker.showextraservices = ConfigYesNo(default = False)
 config.autobouquetsmaker.extra_debug = ConfigYesNo(default = False)
