@@ -196,7 +196,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			self.searchtimer.callback.append(self.getFrontend)
 			self.searchtimer.start(100, 1)
 		else:
-			if len(self.transponders_unique) > 0:
+			if len({k: v for k, v in self.transponders_unique.items() if v["system"] == eDVBFrontendParametersTerrestrial.System_DVB_T}) > 0: # check DVB-T transponders exist
 				if self.frontend:
 					self.frontend = None
 					del(self.rawchannel)
@@ -211,7 +211,11 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 				self.saveProviderFile()
 				message = 'New provider created named "%s terrestrial".\nEnable this provider and start a scan.' % self.strongestTransponder["network_name"]
 				self.showAdvice(message)
+			elif len(self.transponders_unique) > 0:
+				print "[ABM-FrequencyFinder][Search] Only DVB-T2 multiplexes found. Insufficient data to create a provider file."
+				self.showError(_('Only DVB-T2 multiplexes found. Insufficient data to create a provider file.'))
 			else:
+				print "[ABM-FrequencyFinder][Search] No terrestrial multiplexes found."
 				self.showError(_('No terrestrial multiplexes found.'))
 
 	def config_mode(self, nim): # Workaround for OpenATV > 5.3
