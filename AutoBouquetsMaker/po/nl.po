@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-04 21:46+0000\n"
-"PO-Revision-Date: 2018-07-31 11:14+0200\n"
+"POT-Creation-Date: 2018-08-15 10:04+0100\n"
+"PO-Revision-Date: 2018-08-17 07:56+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: Andy Blacburn. Rob van der Does\n"
 "Language: nl\n"
@@ -53,6 +53,9 @@ msgstr "== tekst =="
 msgid "=== text ==="
 msgstr "=== tekst ==="
 
+msgid "ABM frequency finder"
+msgstr "ABM frequentievinder"
+
 msgid "ABM log file has been saved to the tmp directory"
 msgstr "ABM-logboekbestand is opgeslagen in de tmp map"
 
@@ -94,9 +97,6 @@ msgstr "AutoBouquetsMaker providers"
 
 msgid "AutoBouquetsMaker Scanner"
 msgstr "Autobouquetsmaker scanner"
-
-msgid "Bottom"
-msgstr "Onderin"
 
 msgid "Bouquets generation..."
 msgstr "Genereert favorietenlijsten..."
@@ -165,10 +165,31 @@ msgstr "Configuratiebestand voor %s is geüpdatet."
 
 #, python-format
 msgid "Config file for %s is faulty"
-msgstr "Configuratiebestand voor %s is corrupt..."
+msgstr "Configuratiebestand voor %s is corrupt."
 
 msgid "Configure"
 msgstr "Configureer"
+
+msgid "Create FTA HD bouquet"
+msgstr "Creëer FTA HD boeket"
+
+msgid "Create FTA bouquet"
+msgstr "Creëer FTA boeket"
+
+msgid "Create HD bouquet"
+msgstr "Creëer HD boeket"
+
+msgid "Create main bouquet"
+msgstr "Creëer hoofdboeket"
+
+msgid "Create sections bouquets"
+msgstr "Creëer sectieboeketten"
+
+msgid "Custom bouquet for main"
+msgstr "Aangepast hoofdboeket"
+
+msgid "DVB-T frequency finder"
+msgstr "DVB-T frequentievinder"
 
 msgid "Daily"
 msgstr "Dagelijks"
@@ -228,6 +249,15 @@ msgstr "Mislukt..."
 msgid "Finding configured providers..."
 msgstr "Zoekt geconfigureerde providers..."
 
+#, python-format
+msgid "Found %d unique transponder"
+msgid_plural "Found %d unique transponders"
+msgstr[0] "%d unieke transponders gevonden"
+msgstr[1] "Found %d unique transponders"
+
+msgid "FrequencyFinder"
+msgstr "Frequentievinder"
+
 msgid "HD Channels"
 msgstr "HD-zenders"
 
@@ -279,20 +309,32 @@ msgstr "Geen NIMs gevonden voor "
 msgid "No area found"
 msgstr "Geen gebied gevonden"
 
+msgid "No frequencies to search"
+msgstr "Geen frequenties om te zoeken"
+
 msgid "No providers are configured."
 msgstr "Er zijn geen providers geconfigureerd."
 
 msgid "No providers configured."
 msgstr "Er zijn geen providers geconfigureerd."
 
+msgid "No terrestrial multiplexes found."
+msgstr "Geen terrestrische multiplexen gevonden."
+
+msgid "No terrestrial tuner found"
+msgstr "Geen terrestrische tuner gevonden."
+
 msgid "No valid NIM found for "
 msgstr "Geen geldige NIM gevonden voor "
 
-msgid "None"
-msgstr "Geen"
+msgid "No valid NIM found for terrestrial"
+msgstr "Geen geldige NIM gevonden voor terrestrisch."
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Only DVB-T2 multiplexes found. Insufficient data to create a provider file."
+msgstr "Alleen DVB-T2 multiplexen gevonden. Onvoldoende data om een providerbestand te maken."
 
 msgid "Place bouquets at"
 msgstr "Plaats favorietenlijsten"
@@ -313,11 +355,18 @@ msgid "Radio Channels"
 msgstr "Radiozenders"
 
 #, python-format
+msgid "Reading %s MHz (ch %s)"
+msgstr "Leest %s MHz (ch %s)"
+
+#, python-format
 msgid "Reading %s..."
 msgstr "Leest %s..."
 
 msgid "Really close without saving settings?"
 msgstr "Echt afsluiten zonder op te slaan?"
+
+msgid "Region"
+msgstr "Regio"
 
 msgid "Repeat how often"
 msgstr "Hoe vaak herhalen?"
@@ -348,14 +397,26 @@ msgstr "Sla op"
 msgid "Save Log"
 msgstr "Sla log op"
 
+msgid "Saving data"
+msgstr "Slaat data op"
+
 msgid "Scan"
 msgstr "Scan"
+
+msgid "Scanning for active transponders"
+msgstr "Scant actieve transponders"
 
 msgid "Schedule scan"
 msgstr "Plan scan"
 
+msgid "Select \"yes\" to show the \"DVB-T frequency finder\" tool in the main menu. This tool is used to create a working provider file for difficult areas of the UK, e.g. areas covered by repeaters, etc."
+msgstr "Kies \"Ja\" om de \"DVB-T frequentievinder\" in het hoofdmenu te tonen. Deze wordt gebruikt om een werkende provider te creëren in een moeilijk gebied in de UK, b.v. als meerdere zenders het gebied bestrijken."
+
 msgid "Select your own bouquet from the list, please note that the only the first 100 channels for this bouquet will be used."
 msgstr "Kies uw eigen favorietenlijst in de lijst. Let op dat alleen de eerste 100 zenders voor deze lijst zullen worden gebruikt."
+
+msgid "Selected tuner is not configured"
+msgstr "Gekozen tuner is niet geconfigureerd."
 
 #, python-format
 msgid "Services: %d video - %d radio"
@@ -373,6 +434,9 @@ msgstr "Tijdstip voor de dagelijkse scan."
 msgid "Setup mode"
 msgstr "Instellingen modus"
 
+msgid "Show DVB-T frequency finder"
+msgstr "Toon DVB-T frequentievinder"
+
 msgid "Show in extensions"
 msgstr "Toon in extensies"
 
@@ -388,6 +452,9 @@ msgstr "Start scan"
 msgid "Starting scanner"
 msgstr "Start scanner"
 
+msgid "Starting search..."
+msgstr "Start zoeken..."
+
 msgid "Starting update..."
 msgstr "Start update..."
 
@@ -396,6 +463,9 @@ msgstr "Stijl van favorietenlijsten markering"
 
 msgid "Style of provider marker"
 msgstr "Stijl van provider markering"
+
+msgid "Swap channels"
+msgstr "Wissel kanalen"
 
 msgid "This affects all bouquets. Select 'no' to scan in all services. Select 'yes' to skip encrypted ones."
 msgstr "Dit betreft alle favorietenlijsten. Kies 'Nee' om alle zenders te scannen; kies 'Ja' om gecodeerde zenders over te slaan."
@@ -453,8 +523,9 @@ msgstr ""
 "Is de tuner juist geconfigureerd.\n"
 "Kunt u de gespecificeerde frequentie ontvangen."
 
-msgid "Top"
-msgstr "Bovenin"
+#, python-format
+msgid "Tuning %s MHz (ch %s)"
+msgstr "Tunet %s MHz (ch %s)"
 
 #, python-format
 msgid "Tuning %s..."
@@ -464,8 +535,8 @@ msgstr "Stemt af op %s..."
 msgid "Unable to download config file for %s"
 msgstr "Kan configuratiebestand voor %s niet downloaden"
 
-msgid "Update config files"
-msgstr "Update configuratiebestanden"
+msgid "Update provider files"
+msgstr "Update providerbestanden"
 
 msgid "UpdateProviders"
 msgstr "Update pviders"
@@ -489,29 +560,11 @@ msgstr ""
 "Uw favorieten worden zo geupdate.\n"
 "Wilt u dat toestaan?"
 
-msgid "area"
-msgstr "gebied"
-
-msgid "custom bouquet for main"
-msgstr "aangepaste hoofdlijst"
+msgid "bottom"
+msgstr "onderkant"
 
 msgid "expert"
 msgstr "expert"
-
-msgid "generate FTA HD bouquet"
-msgstr "genereer FTA HD lijst"
-
-msgid "generate FTA bouquet"
-msgstr "genereer FTA favorietenlijst"
-
-msgid "generate HD bouquet"
-msgstr "genereer HD favorietenlijst"
-
-msgid "generate main bouquet"
-msgstr "genereer hoofd-favorietenlijst"
-
-msgid "generate sections bouquets"
-msgstr "genereer sectie-favorietenlijst"
 
 msgid "indent + text"
 msgstr "inspringen + tekst"
@@ -519,11 +572,14 @@ msgstr "inspringen + tekst"
 msgid "no"
 msgstr "nee"
 
+msgid "none"
+msgstr "geen"
+
 msgid "simple"
 msgstr "eenvoudig"
 
-msgid "swap channels"
-msgstr "wissel zenders"
+msgid "top"
+msgstr "bovenkant"
 
 msgid "yes"
 msgstr "ja"
@@ -539,3 +595,39 @@ msgstr "ja (alleen FTA HD)"
 
 msgid "yes (only HD)"
 msgstr "ja (alleen HD)"
+
+#~ msgid "Bottom"
+#~ msgstr "Onderin"
+
+#~ msgid "None"
+#~ msgstr "Geen"
+
+#~ msgid "Top"
+#~ msgstr "Bovenin"
+
+#~ msgid "Update config files"
+#~ msgstr "Update configuratiebestanden"
+
+#~ msgid "area"
+#~ msgstr "gebied"
+
+#~ msgid "custom bouquet for main"
+#~ msgstr "aangepaste hoofdlijst"
+
+#~ msgid "generate FTA HD bouquet"
+#~ msgstr "genereer FTA HD lijst"
+
+#~ msgid "generate FTA bouquet"
+#~ msgstr "genereer FTA favorietenlijst"
+
+#~ msgid "generate HD bouquet"
+#~ msgstr "genereer HD favorietenlijst"
+
+#~ msgid "generate main bouquet"
+#~ msgstr "genereer hoofd-favorietenlijst"
+
+#~ msgid "generate sections bouquets"
+#~ msgstr "genereer sectie-favorietenlijst"
+
+#~ msgid "swap channels"
+#~ msgstr "wissel zenders"
