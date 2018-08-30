@@ -9,7 +9,7 @@
 		<configuration key="bilsdale___________" frequency="514000000">Bilsdale</configuration>
 		<configuration key="black_hill_________" frequency="674000000">Black Hill</configuration>
 		<configuration key="blaenplwyf_________" frequency="522000000">Blaenplwyf</configuration>
-		<configuration key="bluebell_hill______" frequency="674000000">Bluebell Hill</configuration>
+		<configuration key="bluebell_hill______" frequency="562000000">Bluebell Hill</configuration>
 		<configuration key="bressay____________" frequency="530000000">Bressay</configuration>
 		<configuration key="brierley_hill______" frequency="785800000">Brierley Hill</configuration>
 		<configuration key="bromsgrove_________" frequency="514000000">Bromsgrove</configuration>
@@ -84,14 +84,9 @@
 		<customtransponder key="belmont____________" frequency="586000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="black_hill_________" frequency="626000000" transport_stream_id="40bc" system="1"/>
 		<customtransponder key="black_hill_________" frequency="562000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="bluebell_hill______" frequency="626000000" transport_stream_id="4083" system="1"/>
-		<customtransponder key="bluebell_hill______" frequency="618000000" transport_stream_id="5040" system="0"/>
-		<customtransponder key="bluebell_hill______" frequency="666000000" transport_stream_id="3006" system="0"/>
-		<customtransponder key="bluebell_hill______" frequency="650000000" transport_stream_id="2010" system="0"/>
-		<customtransponder key="bluebell_hill______" frequency="674000000" transport_stream_id="104c" system="0"/>
-		<customtransponder key="bluebell_hill______" frequency="578000000" transport_stream_id="b000" system="1"/>
-		<customtransponder key="bluebell_hill______" frequency="562000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="bluebell_hill______" frequency="738000000" transport_stream_id="6040" system="0"/>
+		<customtransponder key="bluebell_hill______" frequency="666000000" transport_stream_id="4083" system="1"/>
+		<customtransponder key="bluebell_hill______" frequency="746000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="bluebell_hill______" frequency="754000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="brierley_hill______" frequency="786000000" transport_stream_id="1045" system="0"/>
 		<customtransponder key="brierley_hill______" frequency="762000000" transport_stream_id="2006" system="0"/>
 		<customtransponder key="brierley_hill______" frequency="706000000" transport_stream_id="3006" system="0"/>
