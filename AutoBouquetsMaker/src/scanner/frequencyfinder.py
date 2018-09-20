@@ -500,7 +500,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 					nit_current_sections_read.append(section["header"]["section_number"])
 					nit_current_content += section["content"]
 
-					if section["header"]["network_name"] != "Unknown":
+					if 'network_name' in section["header"] and section["header"]["network_name"] != "Unknown":
 						self.network_name = section["header"]["network_name"]
 
 					if len(nit_current_sections_read) == nit_current_sections_count:
