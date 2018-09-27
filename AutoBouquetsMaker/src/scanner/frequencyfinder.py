@@ -238,8 +238,8 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 					if self.config_mode(nim) not in ("nothing",) and (nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T"))):
 						nimList.append(nim.slot)
 			if len(nimList) == 0:
-				print "[ABM-FrequencyFinder][getFrontend] No terrestrial tuner found"
-				self.showError(_('No terrestrial tuner found'))
+				print "[ABM-FrequencyFinder][getFrontend] No terrestrial tuner found."
+				self.showError(_('No terrestrial tuner found.'))
 				return
 		else: # manual tuner selection, and subsequent iterations
 			nim = nimmanager.nim_slots[self.selectedNIM]
@@ -252,12 +252,12 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 					nimList.append(nim.slot)
 			if len(nimList) == 0:
 				print "[ABM-FrequencyFinder][getFrontend] User selected tuner not configured"
-				self.showError(_('Selected tuner is not configured'))
+				self.showError(_('Selected tuner is not configured.'))
 				return
 
 		if len(nimList) == 0:
-			print "[ABM-FrequencyFinder][getFrontend] No terrestrial tuner found"
-			self.showError(_('No terrestrial tuner found'))
+			print "[ABM-FrequencyFinder][getFrontend] No terrestrial tuner found."
+			self.showError(_('No terrestrial tuner found.'))
 			return
 
 		resmanager = eDVBResourceManager.getInstance()
@@ -304,7 +304,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 
 		if current_slotid == -1:
 			print "[ABM-FrequencyFinder][getFrontend] No valid NIM found"
-			self.showError(_('No valid NIM found for terrestrial'))
+			self.showError(_('No valid NIM found for terrestrial.'))
 			return
 
 		if not self.rawchannel:
