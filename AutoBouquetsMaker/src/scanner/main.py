@@ -390,7 +390,7 @@ class AutoBouquetsMaker(Screen):
 		demuxer_id = self.rawchannel.reserveDemux()
 		if demuxer_id < 0:
 			print>>log, "[ABM-main][doTune] Cannot allocate the demuxer."
-			self.showError(_('Cannot allocate the demuxer'))
+			self.showError(_('Cannot allocate the demuxer.'))
 			return
 
 		if self.providers[self.currentAction]["streamtype"] == "dvbs":

@@ -346,8 +346,8 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 
 		self.demuxer_id = self.rawchannel.reserveDemux()
 		if self.demuxer_id < 0:
-			print>>log, "[ABM-FrequencyFinder][getFrontend] Cannot allocate the demuxer"
-			self.showError(_('Cannot allocate the demuxer'))
+			print>>log, "[ABM-FrequencyFinder][getFrontend] Cannot allocate the demuxer."
+			self.showError(_('Cannot allocate the demuxer.'))
 			return
 
 		self.frontend.tune(setParamsFe(setParams(self.frequency, self.system, self.bandwidth)))

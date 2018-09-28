@@ -203,7 +203,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 					self.showError(_('Network connection error: \n%s')% str(e.reason))
 				else:
 					print>>log, '[ABM-UpdateProviders][getResource] Failed to reach Github.'
-					self.showError(_('Network connection error'))
+					self.showError(_('Network connection error.'))
 			return
 
 		providerxml = response.read().replace("\r", "")
