@@ -89,7 +89,7 @@
 		<configuration key="hd_41063_dvbc_uk" netid="41063" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41063 Stoke (FF Manchester)</configuration>
 		<configuration key="hd_41064_dvbc_uk" netid="41064" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41064 York (FF Leeds)</configuration>
 		<configuration key="hd_41065_dvbc_uk" netid="41065" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41065 Portsmouth TRIALS</configuration>
-		<configuration key="hd_41066_dvbc_uk" netid="41066" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41066 Manchester 2</configuration>
+		<configuration key="hd_41066_dvbc_uk" netid="41066" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41066 Manchester 2</configuration>
 		<configuration key="hd_41067_dvbc_uk" netid="41067" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41067 TTA Bromley DMC (Bromley RHE)</configuration>
 		<configuration key="hd_41068_dvbc_uk" netid="41068" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41068 Manchester TRIALS</configuration>
 		<configuration key="hd_41069_dvbc_uk" netid="41069" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41069 Lewisham</configuration>
