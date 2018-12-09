@@ -41,11 +41,11 @@
 		<channel number="015" with="115" />
 		<channel number="020" with="120" />
 		<channel number="021" with="121" />
-		<channel number="023" with="123" />		
+		<channel number="023" with="123" />
 		<channel number="024" with="124" />
-		<channel number="032" with="132" />		
+		<channel number="032" with="132" />
 		<channel number="033" with="133" />
-		<channel number="036" with="136" />		
+		<channel number="036" with="136" />
 		<channel number="042" with="142" />
 		<channel number="043" with="143" />
 		<channel number="071" with="171" />
