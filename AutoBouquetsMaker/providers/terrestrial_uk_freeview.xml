@@ -83,6 +83,14 @@
 		<customtransponder key="belmont____________" frequency="530000000" transport_stream_id="4089" system="1"/>
 		<customtransponder key="belmont____________" frequency="570000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="belmont____________" frequency="586000000" transport_stream_id="b000" system="1"/>
+		<customtransponder key="bilsdale___________" frequency="490000000" transport_stream_id="4089" system="1"/>
+		<customtransponder key="bilsdale___________" frequency="514000000" transport_stream_id="1049" system="0"/>
+		<customtransponder key="bilsdale___________" frequency="538000000" transport_stream_id="2012" system="0"/>
+		<customtransponder key="bilsdale___________" frequency="554000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="bilsdale___________" frequency="602000000" transport_stream_id="b000" system="1"/>
+		<customtransponder key="bilsdale___________" frequency="626000000" transport_stream_id="6040" system="0"/>
+		<customtransponder key="bilsdale___________" frequency="650000000" transport_stream_id="3006" system="0"/>
+		<customtransponder key="bilsdale___________" frequency="674000000" transport_stream_id="5040" system="0"/>
 		<customtransponder key="black_hill_________" frequency="626000000" transport_stream_id="40bc" system="1"/>
 		<customtransponder key="black_hill_________" frequency="562000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="bluebell_hill______" frequency="666000000" transport_stream_id="4083" system="1"/>
