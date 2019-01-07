@@ -80,7 +80,7 @@
 		<configuration key="hd_41051_dvbc_uk" netid="41051" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41051 Watford</configuration>
 		<configuration key="hd_41052_dvbc_uk" netid="41052" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41052 Ashford</configuration>
 		<configuration key="hd_41053_dvbc_uk" netid="41053" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41053 Leeds</configuration>
-		<configuration key="hd_41054_dvbc_uk" netid="41054" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41054 Wearside</configuration>
+		<configuration key="hd_41054_dvbc_uk" netid="41054" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41054 Wearside</configuration>
 		<configuration key="hd_41055_dvbc_uk" netid="41055" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41055 Norwich</configuration>
 		<configuration key="hd_41056_dvbc_uk" netid="41056" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41056 NGRHEE Bromley</configuration>
 		<configuration key="hd_41059_dvbc_uk" netid="41059" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41059 Brighton TRIALS </configuration>
