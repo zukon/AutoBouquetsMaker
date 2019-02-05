@@ -30,10 +30,10 @@
 		<configuration key="hd_40962_dvbc_uk" netid="40962" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">40962 Barnsley 860MHz (Barnsley 2)</configuration>
 		<configuration key="hd_40963_dvbc_uk" netid="40963" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">40963 Sheffield 600MHz (Barnsley 3)</configuration>
 		<configuration key="hd_40964_dvbc_uk" netid="40964" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">40964 Sheffield 860MHz (Barnsley 4)</configuration>
-		<configuration key="hd_40965_dvbc_uk" netid="40965" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">40965 Knowsley 1</configuration>
-		<configuration key="hd_40966_dvbc_uk" netid="40966" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">40966 Knowsley 2</configuration>
-		<configuration key="hd_40967_dvbc_uk" netid="40967" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">40967 Preston 1</configuration>
-		<configuration key="hd_40968_dvbc_uk" netid="40968" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">40968 Preston 2</configuration>
+		<configuration key="hd_40965_dvbc_uk" netid="40965" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">40965 Knowsley 1</configuration>
+		<configuration key="hd_40966_dvbc_uk" netid="40966" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">40966 Knowsley 2</configuration>
+		<configuration key="hd_40967_dvbc_uk" netid="40967" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">40967 Preston 1</configuration>
+		<configuration key="hd_40968_dvbc_uk" netid="40968" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">40968 Preston 2</configuration>
 		<configuration key="hd_40969_dvbc_uk" netid="40969" bouquettype="hd" frequency="571000" symbol_rate="6952000" system="0" modulation="5">40969 Gateshead</configuration>
 		<configuration key="hd_40970_dvbc_uk" netid="40970" bouquettype="hd" frequency="651000" symbol_rate="6952000" system="0" modulation="5">40970 Bristol 1 (ex Aztec)</configuration>
 		<configuration key="hd_40971_dvbc_uk" netid="40971" bouquettype="hd" frequency="651000" symbol_rate="6952000" system="0" modulation="5">40971 Bristol 2 (ex Aztec)</configuration>
@@ -50,7 +50,7 @@
 		<configuration key="hd_40983_dvbc_uk" netid="40983" bouquettype="hd" frequency="539000" symbol_rate="6952000" system="0" modulation="3">40983 TTA Knowsley DMC (Hayes_RHE)</configuration>
 		<configuration key="hd_40984_dvbc_uk" netid="40984" bouquettype="hd" frequency="619000" symbol_rate="6952000" system="0" modulation="5">40984 Uddingston (SCOTLAND)</configuration>
 		<configuration key="hd_40985_dvbc_uk" netid="40985" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">40985 Haringey</configuration>
-		<configuration key="hd_40986_dvbc_uk" netid="40986" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">40986 NGRHEE Knowsley</configuration>
+		<configuration key="hd_40986_dvbc_uk" netid="40986" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">40986 NGRHEE Knowsley</configuration>
 		<configuration key="hd_40987_dvbc_uk" netid="40987" bouquettype="hd" frequency="387000" symbol_rate="6952000" system="0" modulation="3">40987 Exeter</configuration>
 		<configuration key="hd_40988_dvbc_uk" netid="40988" bouquettype="hd" frequency="379000" symbol_rate="6952000" system="0" modulation="3">40988 Plymouth</configuration>
 		<configuration key="hd_40990_dvbc_uk" netid="40990" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">40990 Barnsley 2 TRIALS</configuration>
@@ -58,15 +58,15 @@
 		<configuration key="hd_40998_dvbc_uk" netid="40998" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">40998 Barnsley 1 TRIALS</configuration>
 		<configuration key="hd_40999_dvbc_uk" netid="40999" bouquettype="hd" frequency="619000" symbol_rate="6952000" system="0" modulation="5">40999 Perth (SCOTLAND)</configuration>
 		<configuration key="hd_41003_dvbc_uk" netid="41003" bouquettype="hd" frequency="379000" symbol_rate="6952000" system="0" modulation="5">41003 Carlisle</configuration>
-		<configuration key="hd_41008_dvbc_uk" netid="41008" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">41008 Liverpool TDN TRIALS</configuration>
+		<configuration key="hd_41008_dvbc_uk" netid="41008" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">41008 Liverpool TDN TRIALS</configuration>
 		<configuration key="hd_41009_dvbc_uk" netid="41009" bouquettype="hd" frequency="619000" symbol_rate="6952000" system="0" modulation="5">41009 Falkirk (SCOTLAND) </configuration>
 		<configuration key="hd_41011_dvbc_uk" netid="41011" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="3">41011 Birmingham 750</configuration>
-		<configuration key="hd_41013_dvbc_uk" netid="41013" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">41013 TTA Knowsley 1 (Knowsley RHE)</configuration>
+		<configuration key="hd_41013_dvbc_uk" netid="41013" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">41013 Knowsley 1 TRIALS</configuration>
 		<configuration key="hd_41015_dvbc_uk" netid="41015" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">41015 Birmingham TDN</configuration>
-		<configuration key="hd_41016_dvbc_uk" netid="41016" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">41016 Liverpool TDN</configuration>
-		<configuration key="hd_41018_dvbc_uk" netid="41018" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">41018 Preston TDN</configuration>
+		<configuration key="hd_41016_dvbc_uk" netid="41016" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">41016 Liverpool TDN</configuration>
+		<configuration key="hd_41018_dvbc_uk" netid="41018" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">41018 Preston TDN</configuration>
 		<configuration key="hd_41020_dvbc_uk" netid="41020" bouquettype="hd" frequency="619000" symbol_rate="6952000" system="0" modulation="5">41020 Crawley</configuration>
-		<configuration key="hd_41026_dvbc_uk" netid="41026" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="3">41026 Southport</configuration>
+		<configuration key="hd_41026_dvbc_uk" netid="41026" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">41026 Southport</configuration>
 		<configuration key="hd_41040_dvbc_uk" netid="41040" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41040 VM Hammersmith</configuration>
 		<configuration key="hd_41041_dvbc_uk" netid="41041" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41041 Bromley</configuration>
 		<configuration key="hd_41042_dvbc_uk" netid="41042" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41042 Portsmouth</configuration>
