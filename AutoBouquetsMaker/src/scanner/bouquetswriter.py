@@ -353,7 +353,7 @@ class BouquetsWriter():
 			bouquets = open(path + "/" + filename, "r")
 			content = bouquets.read().strip().split("\n")
 			bouquets.close()
-			recognised_service_lines = ["#SERVICE %d:0:" % i for i in (1,4097,5001,5002)]
+			recognised_service_lines = ["#SERVICE %d:0:" % i for i in (1,4097,5001,5002)] + ["#SERVICE 1:7:"]
 			for line in content:
 				if "%s:" % ':'.join(line.split(":")[:2]) in recognised_service_lines: # service or iptv line found, eg "#SERVICE 4097:0:"
 					return True
