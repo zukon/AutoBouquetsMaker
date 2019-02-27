@@ -426,6 +426,7 @@ except:
 
 	rename = {
 		1048: "CGTN HD",	
+		1088: "CNBC HD",
 		# BT Interactive
 		5381: "BT Sport Mosaic 2",
 		5382: "BT Sport Extra 2",
