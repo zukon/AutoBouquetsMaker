@@ -5,7 +5,7 @@
 	<dvbcconfigs>
 		<configuration key="hd_00001_dvbc_uk" netid="00001" bouquettype="hd" frequency="643000" symbol_rate="6887000" system="0" modulation="3">00001 West Yorkshire</configuration>
 		<configuration key="hd_00002_dvbc_uk" netid="00002" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">00002 Glasgow</configuration>
-		<configuration key="hd_00003_dvbc_uk" netid="00003" bouquettype="hd" frequency="643000" symbol_rate="6887000" system="0" modulation="3">00003 Farnborough</configuration>
+		<configuration key="hd_00003_dvbc_uk" netid="00003" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">00003 Guildford</configuration>
 		<configuration key="hd_00004_dvbc_uk" netid="00004" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">00004 Cardiff</configuration>
 		<configuration key="hd_00005_dvbc_uk" netid="00005" bouquettype="hd" frequency="643000" symbol_rate="6887000" system="0" modulation="3">00005 Luton</configuration>
 		<configuration key="hd_00006_dvbc_uk" netid="00006" bouquettype="hd" frequency="363000" symbol_rate="6952000" system="0" modulation="5">00006 Swindon</configuration>
