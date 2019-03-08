@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 18:56+0100\n"
-"PO-Revision-Date: 2018-09-28 15:18+0200\n"
+"POT-Creation-Date: 2019-03-08 05:45+0000\n"
+"PO-Revision-Date: 2019-03-08 14:22+0100\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: Andy Blacburn. Rob van der Does\n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
@@ -107,7 +107,7 @@ msgstr "Volgorde van favorietenlijsten"
 msgid "Cancel"
 msgstr "Annuleer"
 
-msgid "Cannot allocate the demuxer"
+msgid "Cannot allocate the demuxer."
 msgstr "Kan de demuxer niet toewijzen."
 
 msgid "Cannot free NIM because a recording is in progress"
@@ -287,9 +287,6 @@ msgstr "Verplaats omlaag"
 
 msgid "Move up"
 msgstr "Verplaats omhoog"
-
-msgid "Network connection error"
-msgstr "Netwerk verbindingsfout."
 
 msgid "Network connection error."
 msgstr "Netwerk verbindingsfout."
@@ -598,6 +595,9 @@ msgstr "ja (alleen HD)"
 #~ msgid "Bottom"
 #~ msgstr "Onderin"
 
+#~ msgid "Cannot allocate the demuxer"
+#~ msgstr "Kan de demuxer niet toewijzen."
+
 #~ msgid "Config file for %s does not need updating"
 #~ msgstr "Configuratiebestand voor %s hoeft niet geüpdatet te worden."
 
@@ -609,6 +609,9 @@ msgstr "ja (alleen HD)"
 
 #~ msgid "Config file for %s is faulty"
 #~ msgstr "Configuratiebestand voor %s is corrupt."
+
+#~ msgid "Network connection error"
+#~ msgstr "Netwerk verbindingsfout."
 
 #~ msgid "No terrestrial tuner found"
 #~ msgstr "Geen terrestrische tuner gevonden."
