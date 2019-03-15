@@ -39,10 +39,10 @@
 		<configuration key="hd_40971_dvbc_uk" netid="40971" bouquettype="hd" frequency="651000" symbol_rate="6952000" system="0" modulation="5">40971 Bristol 2 (ex Aztec)</configuration>
 		<configuration key="hd_40973_dvbc_uk" netid="40973" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">40973 Wolverhampton 1</configuration>
 		<configuration key="hd_40974_dvbc_uk" netid="40974" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">40974 Wolverhampton 2</configuration>
-		<configuration key="hd_40975_dvbc_uk" netid="40975" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="3">40975 Basildon 1</configuration>
-		<configuration key="hd_40976_dvbc_uk" netid="40976" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="3">40976 Basildon 2</configuration>
-		<configuration key="hd_40977_dvbc_uk" netid="40977" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="3">40977 Basildon 3</configuration>
-		<configuration key="hd_40978_dvbc_uk" netid="40978" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="3">40978 Basildon 4</configuration>
+		<configuration key="hd_40975_dvbc_uk" netid="40975" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">40975 Basildon 1</configuration>
+		<configuration key="hd_40976_dvbc_uk" netid="40976" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">40976 Basildon 2</configuration>
+		<configuration key="hd_40977_dvbc_uk" netid="40977" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">40977 Basildon 3</configuration>
+		<configuration key="hd_40978_dvbc_uk" netid="40978" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">40978 Basildon 4</configuration>
 		<configuration key="hd_40979_dvbc_uk" netid="40979" bouquettype="hd" frequency="603000" symbol_rate="6952000" system="0" modulation="5">40979 Croydon</configuration>
 		<configuration key="hd_40980_dvbc_uk" netid="40980" bouquettype="hd" frequency="539000" symbol_rate="6952000" system="0" modulation="5">40980 Hayes</configuration>
 		<configuration key="hd_40981_dvbc_uk" netid="40981" bouquettype="hd" frequency="619000" symbol_rate="6952000" system="0" modulation="5">40981 Edinburgh 1 (SCOTLAND)</configuration>
@@ -72,7 +72,7 @@
 		<configuration key="hd_41042_dvbc_uk" netid="41042" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41042 Portsmouth</configuration>
 		<configuration key="hd_41043_dvbc_uk" netid="41043" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41043 Poole</configuration>
 		<configuration key="hd_41044_dvbc_uk" netid="41044" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41044 Brighton</configuration>
-		<configuration key="hd_41045_dvbc_uk" netid="41045" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41045 Hersham</configuration>
+		<configuration key="hd_41045_dvbc_uk" netid="41045" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41045 Hersham</configuration>
 		<configuration key="hd_41046_dvbc_uk" netid="41046" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41046 Derby</configuration>
 		<configuration key="hd_41048_dvbc_uk" netid="41048" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41048 Manchester 3</configuration>
 		<configuration key="hd_41049_dvbc_uk" netid="41049" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41049 Peterborough</configuration>
