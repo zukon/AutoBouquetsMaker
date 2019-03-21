@@ -32,10 +32,10 @@
 	<swapchannels>
 		<channel number="101" with="135" /><!-- RTE ONE HD -->
 		<channel number="102" with="136" /><!-- RTE2 HD -->
-		<channel number="103" with="150" /><!-- TV3 HD -->
+		<channel number="103" with="150" /><!-- Virgin Media One HD -->
 		<channel number="104" with="137" /><!-- TG4 HD -->
-		<channel number="105" with="149" /><!-- 3e HD -->
-		<channel number="106" with="148" /><!-- be3 HD -->
+		<channel number="105" with="149" /><!-- Virgin Media Two HD -->
+		<channel number="106" with="148" /><!-- Virgin Media Three HD -->
 		<channel number="108" with="139" /><!-- BBC1 HD -->
 		<channel number="109" with="140" /><!-- BBC Two HD -->
 		<channel number="111" with="142" /><!-- Channel 4 HD -->
@@ -43,7 +43,7 @@
 		<channel number="114" with="143" /><!-- Sky 1 HD -->
 		<channel number="118" with="168" /><!-- More4 HD -->
 		<channel number="123" with="173" /><!-- Universal HD -->
-		<channel number="124" with="144" /><!-- Sky Living HD -->
+		<channel number="124" with="144" /><!-- Sky Witness HD -->
 		<channel number="126" with="176" /><!-- Fox HD -->
 		<channel number="127" with="177" /><!-- Comedy HD -->
 		<channel number="129" with="179" /><!-- Syfy HD -->
@@ -53,32 +53,17 @@
 		<channel number="215" with="221" /><!-- National Geographic HD -->
 		<channel number="216" with="222" /><!-- NatGeoWild HD -->
 		<channel number="217" with="220" /><!-- History HD -->
-		<channel number="301" with="331" /><!-- Sky Comedy HD -->
-		<channel number="302" with="332" /><!-- Sky Action HD -->
-		<channel number="303" with="333" /><!-- Sky Family HD -->
-		<channel number="304" with="334" /><!-- Sky Horror HD -->
-		<channel number="305" with="335" /><!-- Sky Disney HD -->
-		<channel number="306" with="336" /><!-- Sky Select HD -->
-		<channel number="307" with="337" /><!-- Sky Greats HD -->
-		<channel number="308" with="338" /><!-- Sky Drama HD -->
-		<channel number="309" with="339" /><!-- Sky Thriller HD -->
-		<channel number="318" with="340" /><!-- Sky Matt Damon HD -->
-		<channel number="320" with="341" /><!-- Sky Premiere HD -->
 		<channel number="323" with="343" /><!-- Film4 HD -->
-		<channel number="400" with="430" /><!-- Sky Sports Mix HD -->
-		<channel number="401" with="431" /><!-- Sky Sports Main Event HD -->
-		<channel number="402" with="432" /><!-- Sky Sports Cricket HD -->
-		<channel number="403" with="433" /><!-- Sky Sports Action HD -->
-		<channel number="404" with="434" /><!-- Sky Sports The Open HD -->
-		<channel number="405" with="435" /><!-- Sky Sports Premier League HD -->
-		<channel number="406" with="436" /><!-- Sky Sports Arena HD -->
-		<channel number="407" with="437" /><!-- Sky Sports Football HD -->
-		<channel number="408" with="438" /><!-- Sky Sports News HD -->
-		<channel number="420" with="439" /><!-- Eurosport 3 HD -->
-		<channel number="421" with="440" /><!-- Eurosport 4 HD -->
-		<channel number="422" with="441" /><!-- Eurosport 5 HD -->
+		<channel number="400" with="430" /><!-- Virgin Media Sport HD -->
+		<channel number="409" with="439" /><!-- Sky Sports Mix HD -->
 		<channel number="423" with="424" /><!-- Eurosport HD -->
 		<channel number="425" with="426" /><!-- Eurosport 2 HD -->
+		<channel number="451" with="471" /><!-- VM Sport Extra 1 HD -->
+		<channel number="452" with="472" /><!-- VM Sport Extra 2 HD -->
+		<channel number="453" with="473" /><!-- VM Sport Extra 3 HD -->
+		<channel number="454" with="474" /><!-- VM Sport Extra 4 HD -->
+		<channel number="455" with="475" /><!-- VM Sport Extra 5 HD -->
+		<channel number="456" with="476" /><!-- VM Sport Extra 6 HD -->
 		<channel number="604" with="634" /><!-- Nickelodeon HD -->
 		<channel number="613" with="633" /><!-- Disney Channel HD -->
 	</swapchannels>
@@ -113,10 +98,10 @@ except:
 	not_fta = ['Sky Disney HD'] # by service name
 
 	# FTA channels that are wrongly flagged as encrypted. Listed by service name.
-	fta_corrections = ["Virgin 100","RTE One","Euronews","MTV Love","DCTV","CCTv",]
+	fta_corrections = ["Virgin 100","RTE One","Virgin Media One","Euronews","DCTV","CCTv",]
 
 	#Channels to skip. Listed by LCN
-	blacklist = [731,732,733,734,735,736,737,738,739,740,751,752,753,754,755,756,757,758,759,760,761,762,763,764,765,766,767,768,769,770,771,772,773,774,775,776,777,778,779,780,781,782,783,784,785,786,787,788,789,790,791,792,793,794,795,796,797,798,799,800,801,999]
+	blacklist = [331,332,333,334,335,336,337,338,339,340,341,431,432,433,434,435,436,437,438,733,734,735,736,737,738,740,741,751,752,753,754,755,756,757,758,759,760,761,762,763,764,765,766,767,768,769,770,771,772,775,776,777,778,779,780,783,784,785,786,789,790,792,793,794,795,799,999]
 
 service["interactive_name"] = service["service_name"] = service["provider_name"]
 
