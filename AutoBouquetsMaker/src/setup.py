@@ -107,19 +107,27 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 
 		self.dvbc_nims = []
 		self.dvbt_nims = []
-		try:
+		try: # OpenPLi Hot Switch compatible image
 			for nim in nimmanager.nim_slots:
 				if nim.config_mode != "nothing":
-					if nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")):
+					if "DVB-C" in [x[:5] for x in nim.getTunerTypesEnabled()]:
 						self.dvbc_nims.append(nim.slot)
-					if nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T")):
+					if "DVB-T" in [x[:5] for x in nim.getTunerTypesEnabled()]:
 						self.dvbt_nims.append(nim.slot)
-		except AttributeError: # OpenATV > 5.3
-			for nim in nimmanager.nim_slots:
-				if nim.canBeCompatible("DVB-C") and nim.config_mode_dvbc != "nothing":
-					self.dvbc_nims.append(nim.slot)
-				if nim.canBeCompatible("DVB-T") and nim.config_mode_dvbt != "nothing":
-					self.dvbt_nims.append(nim.slot)
+		except AttributeError:
+			try:
+				for nim in nimmanager.nim_slots:
+					if nim.config_mode != "nothing":
+						if nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")):
+							self.dvbc_nims.append(nim.slot)
+						if nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T")):
+							self.dvbt_nims.append(nim.slot)
+			except AttributeError: # OpenATV > 5.3
+				for nim in nimmanager.nim_slots:
+					if nim.canBeCompatible("DVB-C") and nim.config_mode_dvbc != "nothing":
+						self.dvbc_nims.append(nim.slot)
+					if nim.canBeCompatible("DVB-T") and nim.config_mode_dvbt != "nothing":
+						self.dvbt_nims.append(nim.slot)
 
 		# dependent providers
 		self.dependents_list = []
