@@ -22,7 +22,7 @@
 		<configuration key="hd_00017_dvbc_uk" netid="00017" bouquettype="hd" frequency="339000" symbol_rate="6887000" system="0" modulation="3">00017 Hemel</configuration>
 		<configuration key="hd_00018_dvbc_uk" netid="00018" bouquettype="hd" frequency="395000" symbol_rate="6952000" system="0" modulation="5">00018 Northampton</configuration>
 		<configuration key="hd_00019_dvbc_uk" netid="00019" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">00019 Coventry</configuration>
-		<configuration key="hd_00020_dvbc_uk" netid="00020" bouquettype="hd" frequency="394250" symbol_rate="6887000" system="0" modulation="3">00020 Oxford</configuration>
+		<configuration key="hd_00020_dvbc_uk" netid="00020" bouquettype="hd" frequency="394250" symbol_rate="6952000" system="0" modulation="5">00020 Oxford</configuration>
 		<configuration key="hd_00021_dvbc_uk" netid="00021" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">00021 Belfast and Derry (Londonderry)</configuration>
 		<configuration key="hd_00022_dvbc_uk" netid="00022" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">00022 Grimsby</configuration>
 		<configuration key="hd_00023_dvbc_uk" netid="00023" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">00023 Derry (Londonderry)</configuration>
@@ -60,7 +60,7 @@
 		<configuration key="hd_41003_dvbc_uk" netid="41003" bouquettype="hd" frequency="379000" symbol_rate="6952000" system="0" modulation="5">41003 Carlisle</configuration>
 		<configuration key="hd_41008_dvbc_uk" netid="41008" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">41008 Liverpool TDN TRIALS</configuration>
 		<configuration key="hd_41009_dvbc_uk" netid="41009" bouquettype="hd" frequency="619000" symbol_rate="6952000" system="0" modulation="5">41009 Falkirk (SCOTLAND) </configuration>
-		<configuration key="hd_41011_dvbc_uk" netid="41011" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="3">41011 Birmingham 750</configuration>
+		<configuration key="hd_41011_dvbc_uk" netid="41011" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">41011 Birmingham 750</configuration>
 		<configuration key="hd_41013_dvbc_uk" netid="41013" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">41013 Knowsley 1 TRIALS</configuration>
 		<configuration key="hd_41015_dvbc_uk" netid="41015" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">41015 Birmingham TDN</configuration>
 		<configuration key="hd_41016_dvbc_uk" netid="41016" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">41016 Liverpool TDN</configuration>
