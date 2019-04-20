@@ -389,6 +389,9 @@ class DvbScanner():
 				orbital_position += ((transponder["orbital_position"] >> 8) & 0x0F) * 100
 				orbital_position += ((transponder["orbital_position"] >> 4) & 0x0F) * 10
 				orbital_position += transponder["orbital_position"] & 0x0F
+				# shift Ka-band transponders to correspond with Ka positions in satellites.xml
+				if transponder["frequency"] > 12999000:
+					orbital_position += 2
 				if orbital_position != 0 and transponder["west_east_flag"] == 0: # 0 == west, 1 == east
 					orbital_position = 3600 - orbital_position
 				transponder["orbital_position"] = orbital_position
