@@ -1,213 +1,183 @@
-# Arabic translations for enigma2-oe-alliance-plugins package.
-# Copyright (C) 2015 THE enigma2-oe-alliance-plugins'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the enigma2-oe-alliance-plugins package.
-# Automatically generated, 2015.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-31 12:15+0200\n"
-"PO-Revision-Date: 2017-07-04 16:34+0200\n"
-"Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2018-11-20 04:37+0000\n"
+"PO-Revision-Date: 2018-12-02 12:40+0300\n"
+"Last-Translator: mosad - مساعد الجعيد <abo-mishal@hotmail.com>\n"
+"Language-Team: mosad - مساعد الجعيد\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 msgid "%a %e %b  %-H:%M"
-msgstr ""
+msgstr "%a %e %b  %-H:%M"
 
 msgid "---- ABM - 'text' ----"
-msgstr ""
+msgstr "---- صانع الباقات الآلي - 'النص' ----"
 
 msgid "-------- text --------"
-msgstr ""
+msgstr "-------- النص --------"
 
 msgid "30 Days"
-msgstr ""
+msgstr "30 يوم"
 
 msgid "< - - text - - >"
-msgstr ""
+msgstr "< - - النص - - >"
 
 msgid "<-- text -->"
-msgstr ""
+msgstr "<-- النص -->"
 
 msgid "= = = text = = ="
-msgstr ""
+msgstr "= = = النص = = ="
 
 msgid "= = text = ="
-msgstr ""
+msgstr "= = النص = ="
 
 msgid "== ABM - 'text' =="
-msgstr ""
+msgstr "== صانع الباقات الآلي- 'النص' =="
 
 msgid "== text =="
-msgstr ""
+msgstr "== النص =="
 
 msgid "=== text ==="
-msgstr ""
+msgstr "=== النص ==="
 
 msgid "ABM log file has been saved to the tmp directory"
-msgstr ""
+msgstr "تم حفظ ملف سجل صانع الباقات الآلي في مسار مجلد tmp"
 
 msgid "About"
-msgstr ""
+msgstr "حول"
 
 msgid "Add provider markers"
-msgstr ""
+msgstr "أضافة علامات لمزودي الخدمات"
 
 msgid "Add provider prefix to bouquets"
-msgstr ""
+msgstr "إضافة مزود خدمة إلى الباقات"
 
 msgid "All channels"
-msgstr ""
+msgstr "كل القنوات"
 
 msgid "Allows you to set a schedule to perform a scan "
-msgstr ""
+msgstr "السماح لك بتحديد جدول زمني لإجراء البحث "
 
 msgid "Are you sure you want to remove all bouquets created by ABM?"
-msgstr ""
+msgstr "هل تريد بالتأكيد إزالة جميع الباقات التي أنشأتها عب؟"
 
 msgid "AutoBouquetsMaker"
-msgstr ""
+msgstr "صانع الباقات الآلي"
 
 msgid "AutoBouquetsMaker Configure"
-msgstr ""
+msgstr "تكوين صانع الباقات الآلي"
 
 msgid "AutoBouquetsMaker Hide sections"
-msgstr ""
+msgstr "إخفاء أقسام صانع الباقات الآلي"
 
 msgid "AutoBouquetsMaker Keep bouquets"
-msgstr ""
+msgstr "إبقاء صانع الباقات اللآلي في الباقات"
 
 msgid "AutoBouquetsMaker Log"
-msgstr ""
+msgstr "سجل صانع الباقات الآلي"
 
 msgid "AutoBouquetsMaker Providers"
-msgstr ""
+msgstr "صانع مزودي الباقات الآلي"
 
 msgid "AutoBouquetsMaker Scanner"
-msgstr ""
-
-msgid "Bottom"
-msgstr ""
+msgstr "أوتوبوكتسماكر الماسح الضوئي"
 
 msgid "Bouquets generation..."
-msgstr ""
+msgstr "باقات جيل ..."
 
 msgid "Bouquets order"
-msgstr ""
+msgstr "طلب باقات"
 
 msgid "Cancel"
-msgstr ""
-
-msgid "Cannot allocate the demuxer"
-msgstr ""
+msgstr "إلغاء"
 
 msgid "Cannot free NIM because a recording is in progress"
-msgstr ""
+msgstr "لا يمكن تحرير نيم لأن التسجيل قيد التقدم"
 
 msgid "Cannot get frontend"
-msgstr ""
+msgstr "لا يمكن الحصول على الواجهة الأمامية"
 
 msgid "Cannot get the NIM"
-msgstr ""
+msgstr "لا يمكن الحصول على نيم"
 
 msgid "Cannot read data"
-msgstr ""
+msgstr "لا يمكن قراءة البيانات"
 
 msgid "Cannot read version"
-msgstr ""
+msgstr "لا يمكن قراءه الإصدار"
 
 msgid "Cannot retrieve Resource Manager instance"
-msgstr ""
+msgstr "لا يمكن استرداد مثيل إدارة المصادر"
 
 msgid "Checking version compatibility..."
-msgstr ""
+msgstr "يتم الآن التحقق من توافق الإصدار..."
 
 msgid "Choose the style of markers that separate one provider from another in bouquet indexes."
-msgstr ""
+msgstr "اختر شكل العلامات التي تفصل مزود قناة واحد عن الآخر في فهارس الباقات."
 
 msgid "Choose the style of the markers that separate channels into groups in the channel lists."
-msgstr ""
+msgstr "اختر نمط العلامات التي تفصل القنوات في مجموعات في قوائم القنوات."
 
 msgid "Choose which level of settings to display. 'Expert'-level shows all items, this also adds more options in the providers menu."
-msgstr ""
+msgstr "اختر مستوى الإعدادات المطلوب عرضه. يظهر مستوى 'خبير' يعرض جميع العناصر ، وهذا يضيف أيضًا المزيد من الخيارات في قائمة مقدمي القنوات."
 
 msgid "Close"
-msgstr ""
+msgstr "أغلاق"
 
-#, python-format
 msgid "Config file for %s didn't need updating."
-msgstr ""
+msgstr "لا يمكن تكوين الملف %s لست بحاجة إلى التحديث."
 
-#, python-format
-msgid "Config file for %s does not need updating"
-msgstr ""
-
-#, python-format
-msgid "Config file for %s does not parse"
-msgstr ""
-
-#, python-format
-msgid "Config file for %s has been updated"
-msgstr ""
-
-#, python-format
 msgid "Config file for %s has been updated."
-msgstr ""
-
-#, python-format
-msgid "Config file for %s is faulty"
-msgstr ""
+msgstr "تم تحديث ملف %s التكوين."
 
 msgid "Configure"
-msgstr ""
+msgstr "التكوين"
 
 msgid "Daily"
-msgstr ""
+msgstr "يـومـي"
 
 msgid "Delete bouquets"
-msgstr ""
+msgstr "حذف باقات"
 
 msgid "Done"
-msgstr ""
+msgstr "إنتهى"
 
 msgid "Downloading latest file from Github..."
-msgstr ""
+msgstr "تحميل أحدث ملف من مجتمع مطوري لينكس..."
 
 msgid "Enough Retries, delaying till next schedule."
-msgstr ""
+msgstr "يكفي التحكم الجديد، وتأخير حتى الجدول الزمني المقبل."
 
 msgid "Exit"
-msgstr ""
+msgstr "تسجيل الخروج"
 
 msgid "Extra debug"
-msgstr ""
+msgstr "تصحيح إضافي"
 
 msgid "FTA Channels"
-msgstr ""
+msgstr "قنوات مجانية مفتوحة"
 
 msgid "FTA HD Channels"
-msgstr ""
+msgstr "قنوات مجانية عالية الوضوح"
 
 msgid "FTA only"
-msgstr ""
+msgstr "قنوات مفتوحة مجانية فقط"
 
-#, python-format
 msgid "Failed to retrieve file for %s. Error: %s %s"
-msgstr ""
+msgstr "فشل استرداد الملف %s. خطاء: %s %s"
 
-#, python-format
 msgid "Failed to retrieve version file. Error: %s %s"
-msgstr ""
+msgstr "فشل استرداد ملف الإصدار. خطاء: %s %s"
 
-#, python-format
 msgid ""
 "Failed to tune %s on tuner %s.\n"
 "\n"
@@ -215,223 +185,208 @@ msgid ""
 "The tuner is correctly configured.\n"
 "You can receive the specified frequency."
 msgstr ""
+"فشل في توليف %s المؤالف %s.\n"
+"\n"
+"الرجاء التحقق مما يلي: تم تكوين المؤالف بشكل صحيح.\n"
+"يمكنك الحصول علي التردد المحدد."
 
 msgid "Failed..."
-msgstr ""
+msgstr "فشل..."
 
 msgid "Finding configured providers..."
-msgstr ""
+msgstr "يتم الآن العثور على إعدادات مزودي الخدمات..."
 
 msgid "HD Channels"
-msgstr ""
+msgstr "قنوات عالية الوضوح"
 
 msgid "Hide sections"
-msgstr ""
+msgstr "إخفاء الأقسام"
 
 msgid "If a service is carried on a satellite that is not configured, 'yes' means the channel will not appear in the channel list, 'no' means the channel will show in the channel list but be greyed out and not be accessible."
-msgstr ""
+msgstr "إذا كانت الخدمة تحمل على ساتل لم يتم تكوينه، يعني 'نعم' أن القناة لن تظهر في قائمة القنوات، 'لا' تعني أن القناة ستظهر في قائمة القنوات ولكن تكون رمادية ولا يمكن الوصول إليها."
 
 msgid "Include 'not indexed' channels"
-msgstr ""
+msgstr "تضمين 'بدون المفهرسة' القنوات"
 
-#, python-format
 msgid "Incompatible versions: %s > %s"
-msgstr ""
+msgstr "الإصدارات غير متوافقة: %s > %s"
 
 msgid "Keep all non-ABM bouquets"
-msgstr ""
+msgstr "الحفاظ على جميع صانع الباقات الآلي"
 
 msgid "Keep bouquets"
-msgstr ""
+msgstr "حافظ على الباقات"
 
 msgid "Last Scanned"
-msgstr ""
+msgstr "آخر بحث"
 
 msgid "Loading bouquets..."
-msgstr ""
+msgstr "جار تحميل باقات ..."
 
 msgid "Move down"
-msgstr ""
+msgstr "التحريك للأسفل"
 
 msgid "Move up"
-msgstr ""
+msgstr "التحريك للأعلى"
 
-msgid "Network connection error"
-msgstr ""
-
-#, python-format
 msgid ""
 "Network connection error: \n"
 "%s"
-msgstr ""
+msgstr "خطا في اتصال الشبكة: %s"
 
 msgid "No NIMs found for "
-msgstr ""
+msgstr "لم يتم العثور علي هامش فوائد الشبكة "
 
 msgid "No area found"
-msgstr ""
+msgstr "لم يتم العثور على أي منطقة"
 
 msgid "No providers are configured."
-msgstr ""
+msgstr "لم يتم تشكيل مزودي القنوات."
 
 msgid "No providers configured."
-msgstr ""
+msgstr "لم يتم تشكيل اي مزود."
 
 msgid "No valid NIM found for "
-msgstr ""
-
-msgid "None"
-msgstr ""
+msgstr "لم يتم العثور علي اي هامش فوائد الشبكة صالح "
 
 msgid "OK"
-msgstr ""
+msgstr "موافق"
 
 msgid "Place bouquets at"
-msgstr ""
+msgstr "وضع باقات في"
 
 msgid "Please first setup, in configuration"
-msgstr ""
+msgstr "يرجى الإعداد الأول، في التكوين"
 
 msgid "Please wait..."
-msgstr ""
+msgstr "أرجو الإنتظار..."
 
 msgid "Providers"
-msgstr ""
+msgstr "مزود الخدمات"
 
 msgid "Providers order"
-msgstr ""
+msgstr "طلب مزودي الخدمات"
 
 msgid "Radio Channels"
-msgstr ""
+msgstr "قنوات الراديو"
 
-#, python-format
 msgid "Reading %s..."
-msgstr ""
+msgstr "جار قراءة٪ s ..."
 
 msgid "Really close without saving settings?"
-msgstr ""
+msgstr "هل تريد الإغلاق حقا بدون حفظ الإعدادات؟"
 
-msgid "Repeat how often"
-msgstr ""
-
-#, python-format
 msgid "Retrieved config file for %s"
-msgstr ""
+msgstr "تم استرجاع ملف التهيئة لـ %s"
 
-#, python-format
 msgid "Retrieved config file for %s does not parse."
-msgstr ""
+msgstr "ملف التشكيل المسترجع %s لا يمكن تحليله."
 
-#, python-format
 msgid "Retrieved config file for %s is faulty or incomplete."
-msgstr ""
+msgstr "ملف التشكيل المسترجع %s خاطئ أو غير مكتمل."
 
-#, python-format
 msgid "Retrieved provider file for %s"
-msgstr ""
+msgstr "ملف مزود القناة المسترجع %s"
 
-#, python-format
 msgid "Retrieving config file for %s"
-msgstr ""
+msgstr "تم استرجاع ملف التشكيل لـ %s"
 
 msgid "Save"
-msgstr ""
+msgstr "حفظ"
 
 msgid "Save Log"
-msgstr ""
+msgstr "حفظ السجل"
 
 msgid "Scan"
-msgstr ""
+msgstr "بحث"
 
 msgid "Schedule scan"
-msgstr ""
+msgstr "بحث مجدول"
 
 msgid "Select your own bouquet from the list, please note that the only the first 100 channels for this bouquet will be used."
-msgstr ""
+msgstr "حدد الباقة الخاصة بك من القائمة، يرجى ملاحظة أنه فقط سوف تستخدم القنوات المائة في هذه الباقة أولاً."
 
-#, python-format
 msgid "Services: %d video - %d radio"
-msgstr ""
+msgstr "القنوات:٪ d فيديو -٪ d الراديو"
 
 msgid "Services: 0 video - 0 radio"
-msgstr ""
+msgstr "القنوات: 0 فيديو - 0 الراديو"
 
 msgid "Set the repeat interval of the schedule."
-msgstr ""
+msgstr "تعيين الفاصل الزمني لتكرار الجدول الزمني."
 
 msgid "Set the time of day to perform the scan."
-msgstr ""
+msgstr "تعيين الوقت من اليوم إجراء البحث."
 
 msgid "Setup mode"
-msgstr ""
+msgstr "وضع الضبط"
 
 msgid "Show in extensions"
-msgstr ""
+msgstr "عرض في الإضافات"
 
 msgid "Show log"
-msgstr ""
+msgstr "عرض السجل"
 
 msgid "Skip services on not configured sats"
-msgstr ""
+msgstr "تخطي الخدمات على عدم تكوين القمر"
 
 msgid "Start scan"
-msgstr ""
+msgstr "بدء البحث"
 
 msgid "Starting scanner"
-msgstr ""
+msgstr "بدء البحث الان"
 
 msgid "Starting update..."
-msgstr ""
+msgstr "يتم الآن بدء التحديث..."
 
 msgid "Style of bouquet marker"
-msgstr ""
+msgstr "شكل علامة الباقة"
 
 msgid "Style of provider marker"
-msgstr ""
+msgstr "شكل علامة مزود القناة"
 
 msgid "This affects all bouquets. Select 'no' to scan in all services. Select 'yes' to skip encrypted ones."
-msgstr ""
+msgstr "هذا يؤثر على جميع باقات. حدد 'لا' للمسح الضوئي في جميع الخدمات. حدد 'نعم' لتخطي تلك المشفرة."
 
 msgid "This feature is for development only. Requires debug logs to be enabled or enigma2 to be started in console mode."
-msgstr ""
+msgstr "هذه الميزة للتطوير فقط. يتطلب ان يتم تمكين سجلات التصحيح أو تشغيل الانجما2 في وضع وحده التحكم."
 
 msgid "This option allows you to choose what region of the country you live in, so it populates the correct channels for your region."
-msgstr ""
+msgstr "هذا الخيار يسمح لك باختيار أي منطقة من البلاد التي تعيش فيها، ولذلك فإنه يقوم بالبحث عن القنوات الصحيحة للمنطقة الخاصة بك."
 
 msgid "This option enables the current selected provider."
-msgstr ""
+msgstr "يتيح لك هذا الخيار المحدد مزود الخدمة الحالي."
 
 msgid "This option has several choices \"Yes\", (create a bouquet with all the channels in it), \"Yes HD only\", (will group all HD channels into this bouquet), \"Custom\", (allows you to select your own bouquet), \"No\", (do not use a main bouquet)"
-msgstr ""
+msgstr "هذا الخيار على عدة خيارات \"نعم\"، (إنشاء باقة مع جميع القنوات في ذلك)، \"نعم قنوات عالية الوضوح فقط\"، (سيتم تجميع جميع القنوات عالية الدقة في هذا الباقة)، \"مخصص\"، (يسمح لك لتحديد الخاصة بك الباقة)، \"لا\"، (لا تستخدم باقة الرئيسي)"
 
 msgid "This option places markers in the bouquet index to group all bouquets of each provider."
-msgstr ""
+msgstr "يضع هذا الخيار علامات في مؤشر الباقة لتجميع جميع باقات كل مزود."
 
 msgid "This option will allow you choose where to place the created bouquets."
-msgstr ""
+msgstr "سيسمح لك هذا الخيار باختيار مكان وضع باقات عملتها."
 
 msgid "This option will create a FreeToAir High Definition bouquet, it will group all FTA HD channels into this bouquet."
-msgstr ""
+msgstr "سيقوم هذا الخيار بإنشاء باقة \"قنوات عالية الوضوح\"، سيتم تجميع جميع القنوات عالية الدقة في هذا الباقة."
 
 msgid "This option will create a FreeToAir bouquet, it will group all free channels into this bouquet."
-msgstr ""
+msgstr "سيقوم هذا الخيار بإنشاء باقة قنوات مجانية ، سيتم تجميع جميع القنوات المجانية في هذه الباقة."
 
 msgid "This option will create a High Definition bouquet, it will group all HD channels into this bouquet."
-msgstr ""
+msgstr "سيقوم هذا الخيار بإنشاء باقة \"قنوات عالية الوضوح\"، سيتم تجميع جميع القنوات عالية الدقة في هذا الباقة."
 
 msgid "This option will create bouquets for each type of channel, ie Entertainment, Movies, Documentary."
-msgstr ""
+msgstr "سيقوم هذا الخيار بإنشاء باقات لكل نوع من القناة، أي الترفيه، وأفلام، الفيلم الوثائقي."
 
 msgid "This option will prepend the provider name to bouquet name."
-msgstr ""
+msgstr "سيؤدي هذا الخيار إلى إضافة اسم المزود إلى اسم الباقة."
 
 msgid "This option will swap SD versions of channels with HD versions. (eg BBC One SD with BBC One HD, Channel Four SD with with Channel Four HD)"
-msgstr ""
+msgstr "سيقوم هذا الخيار بتحديث القنوات من متوسطة الوضوح إلى نسخ قنوات عالية الوضوح. (على سبيل المثال ، قناة BBC One متوسطة الوضوح مع قناة BBC One عالية الوضوح و القناة الرابعة متوسطة الوضوح مع القناة الرابعة عالية الوضوح)"
 
 msgid "Time of scan to start"
-msgstr ""
+msgstr "وقت بدء البحث"
 
-#, python-format
 msgid ""
 "Timed out tuning %s on tuner %s.\n"
 "\n"
@@ -439,88 +394,71 @@ msgid ""
 "The tuner is correctly configured.\n"
 "You can receive the specified frequency."
 msgstr ""
+"انتهت مهله توليف %s علي الموالف %s.\n"
+"\n"
+"الرجاء التحقق مما يلي: تم تكوين الموالف بشكل صحيح.\n"
+"يمكنك الحصول علي التردد المحدد."
 
-msgid "Top"
-msgstr ""
-
-#, python-format
 msgid "Tuning %s..."
-msgstr ""
+msgstr "يتم الآن الضبط %s..."
 
-#, python-format
 msgid "Unable to download config file for %s"
-msgstr ""
-
-msgid "Update config files"
-msgstr ""
+msgstr "لم يتم تحميل وضبط ملف التكوين %s"
 
 msgid "UpdateProviders"
-msgstr ""
+msgstr "تحديث مزودي القنوات"
 
 msgid "Weekly"
-msgstr ""
+msgstr "أسبوعي"
 
 msgid "When a search finds extra channels that do not have an allocated channel number, 'yes' will add these at the end of the channel list, and 'no' means these will not be included."
-msgstr ""
+msgstr "عندما يجد البحث قنوات إضافية ليس لها رقم قناة مخصص، فإن 'نعم' ستضيف هذه في نهاية قائمة القنوات، و 'لا' يعني أنها لن يتم تضمينها."
 
 msgid "When disabled this will enable the 'Keep bouquets' option in the main menu, allowing you to hide some 'existing' bouquets."
-msgstr ""
+msgstr "عند تعطيل هذا سيمكن الخيار 'حافظ على الباقات' في القائمة الرئيسية، مما يسمح لك لإخفاء بعض باقات 'القائمة'."
 
 msgid "When enabled, allows you start a scan from the extensions list."
-msgstr ""
+msgstr "عند التمكين، يسمح لك ببدء البحث الأعمى من قائمة الملحقات."
 
 msgid ""
 "Your bouquets are about to be updated,\n"
 "Do you want to allow this?"
 msgstr ""
-
-msgid "area"
-msgstr ""
-
-msgid "custom bouquet for main"
-msgstr ""
+"باقات على وشك أن يتم تحديثها,\n"
+"هل تريد السماح بذلك؟"
 
 msgid "expert"
-msgstr ""
-
-msgid "generate FTA HD bouquet"
-msgstr ""
-
-msgid "generate FTA bouquet"
-msgstr ""
-
-msgid "generate HD bouquet"
-msgstr ""
-
-msgid "generate main bouquet"
-msgstr ""
-
-msgid "generate sections bouquets"
-msgstr ""
+msgstr "خبير"
 
 msgid "indent + text"
-msgstr ""
+msgstr "فراغ + النص"
 
 msgid "no"
-msgstr ""
+msgstr "لا"
 
 msgid "simple"
-msgstr ""
-
-msgid "swap channels"
-msgstr ""
+msgstr "بسيط"
 
 msgid "yes"
-msgstr ""
+msgstr "نعم"
 
 msgid "yes (all channels)"
-msgstr ""
+msgstr "نعم (جميع القنوات)"
 
 msgid "yes (custom)"
-msgstr ""
+msgstr "نعم (مخصص)"
 
 msgid "yes (only FTA HD)"
-msgstr ""
+msgstr "نعم (قنوات عالية الوضوح فقط)"
 
 msgid "yes (only HD)"
-msgstr ""
+msgstr "نعم (قنوات عالية الوضوح فقط)"
+
+msgid "Show DVB-T frequency finder"
+msgstr "عرض باحث ترددات القنوات الأرضية"
+
+msgid "Update provider files"
+msgstr "تحديث ملفات مزودي الخدمة"
+
+msgid "Select \"yes\" to show the \"DVB-T frequency finder\" tool in the main menu. This tool is used to create a working provider"
+msgstr "حدد \"نعم\" لإظهار أداه \"باحث عن تردد القنوات الأرضية\" في القائمة الرئيسية. يتم استخدام هذه الاداه لإنشاء مزودي الخدمة"
