@@ -25,7 +25,6 @@
 		<configuration key="hd_00020_dvbc_uk" netid="00020" bouquettype="hd" frequency="394250" symbol_rate="6952000" system="0" modulation="5">00020 Oxford</configuration>
 		<configuration key="hd_00021_dvbc_uk" netid="00021" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">00021 Belfast and Derry (Londonderry)</configuration>
 		<configuration key="hd_00022_dvbc_uk" netid="00022" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">00022 Grimsby</configuration>
-		<configuration key="hd_00023_dvbc_uk" netid="00023" bouquettype="hd" frequency="643000" symbol_rate="6952000" system="0" modulation="5">00023 Derry (Londonderry)</configuration>
 		<configuration key="hd_40961_dvbc_uk" netid="40961" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">40961 Barnsley 600MHz (Barnsley 1)</configuration>
 		<configuration key="hd_40962_dvbc_uk" netid="40962" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">40962 Barnsley 860MHz (Barnsley 2)</configuration>
 		<configuration key="hd_40963_dvbc_uk" netid="40963" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">40963 Sheffield 600MHz (Barnsley 3)</configuration>
