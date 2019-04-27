@@ -68,7 +68,7 @@
 		<configuration key="tacolneston________" frequency="745800000">Tacolneston</configuration>
 		<configuration key="the_wrekin_________" frequency="514000000">The Wrekin</configuration>
 		<configuration key="torosay____________" frequency="530000000">Torosay</configuration>
-		<configuration key="tunbridge_wells____" frequency="722000000">Tunbridge Wells</configuration>
+		<configuration key="tunbridge_wells____" frequency="634000000">Tunbridge Wells</configuration>
 		<configuration key="waltham____________" frequency="698000000">Waltham</configuration>
 		<configuration key="wenvoe_____________" frequency="634200000">Wenvoe</configuration>
 		<configuration key="whitehawk_hill_____" frequency="785800000">Whitehawk Hill</configuration>
@@ -216,6 +216,13 @@
 		<customtransponder key="the_wrekin_________" frequency="546000000" transport_stream_id="4085" system="1"/>
 		<customtransponder key="the_wrekin_________" frequency="658000000" transport_stream_id="5040" system="0"/>
 		<customtransponder key="the_wrekin_________" frequency="682000000" transport_stream_id="6040" system="1"/>
+		<customtransponder key="tunbridge_wells____" frequency="546000000" transport_stream_id="4084" system="1"/>
+		<customtransponder key="tunbridge_wells____" frequency="618000000" transport_stream_id="8026" system="0"/>
+		<customtransponder key="tunbridge_wells____" frequency="634000000" transport_stream_id="104c" system="0"/>
+		<customtransponder key="tunbridge_wells____" frequency="658000000" transport_stream_id="2010" system="0"/>
+		<customtransponder key="tunbridge_wells____" frequency="682000000" transport_stream_id="4083" system="1"/>
+		<customtransponder key="tunbridge_wells____" frequency="738000000" transport_stream_id="200e" system="0"/>
+		<customtransponder key="tunbridge_wells____" frequency="754000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="waltham____________" frequency="770000000" transport_stream_id="4085" system="1"/>
 		<customtransponder key="waltham____________" frequency="554000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="waltham____________" frequency="602000000" transport_stream_id="b000" system="1"/>
