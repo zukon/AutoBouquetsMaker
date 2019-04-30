@@ -68,7 +68,7 @@
 		<configuration key="hd_41026_dvbc_uk" netid="41026" bouquettype="hd" frequency="595000" symbol_rate="6952000" system="0" modulation="5">41026 Southport</configuration>
 		<configuration key="hd_41040_dvbc_uk" netid="41040" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41040 VM Hammersmith</configuration>
 		<configuration key="hd_41041_dvbc_uk" netid="41041" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41041 Bromley</configuration>
-		<configuration key="hd_41042_dvbc_uk" netid="41042" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41042 Portsmouth</configuration>
+		<configuration key="hd_41042_dvbc_uk" netid="41042" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41042 Portsmouth</configuration>
 		<configuration key="hd_41043_dvbc_uk" netid="41043" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41043 Poole</configuration>
 		<configuration key="hd_41044_dvbc_uk" netid="41044" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41044 Brighton</configuration>
 		<configuration key="hd_41045_dvbc_uk" netid="41045" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41045 Hersham</configuration>
@@ -84,10 +84,10 @@
 		<configuration key="hd_41056_dvbc_uk" netid="41056" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41056 NGRHEE Bromley</configuration>
 		<configuration key="hd_41059_dvbc_uk" netid="41059" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41059 Brighton TRIALS </configuration>
 		<configuration key="hd_41060_dvbc_uk" netid="41060" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41060 Manchester 1</configuration>
-		<configuration key="hd_41061_dvbc_uk" netid="41061" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41061 Code Download Test (Portsmouth)</configuration>
+		<configuration key="hd_41061_dvbc_uk" netid="41061" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41061 Code Download Test (Portsmouth)</configuration>
 		<configuration key="hd_41063_dvbc_uk" netid="41063" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41063 Stoke (FF Manchester)</configuration>
 		<configuration key="hd_41064_dvbc_uk" netid="41064" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41064 York (FF Leeds)</configuration>
-		<configuration key="hd_41065_dvbc_uk" netid="41065" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41065 Portsmouth TRIALS</configuration>
+		<configuration key="hd_41065_dvbc_uk" netid="41065" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41065 Portsmouth TRIALS</configuration>
 		<configuration key="hd_41066_dvbc_uk" netid="41066" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41066 Manchester 2</configuration>
 		<configuration key="hd_41067_dvbc_uk" netid="41067" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="3">41067 TTA Bromley DMC (Bromley RHE)</configuration>
 		<configuration key="hd_41068_dvbc_uk" netid="41068" bouquettype="hd" frequency="666750" symbol_rate="6952000" system="0" modulation="5">41068 Wrexham (FF Manchester)</configuration>
