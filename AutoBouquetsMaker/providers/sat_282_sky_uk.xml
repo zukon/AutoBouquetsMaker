@@ -237,7 +237,7 @@
 		<channel number="102" with="115" conditional="'BBC Two' in service_hd['service_name']"/> <!-- BBC Two HD -->
 		<channel number="102" with="802" conditional="'BBC Two' in service_hd['service_name']"/> <!-- BBC Two HD -->
 		<channel number="103" with="803"/> <!-- ITV, STV and UTV HD -->
-		<channel number="103" with="176"/> <!-- ITV and STV HD -->
+		<channel number="103" with="176" conditional="'ITV' in service_hd['service_name']"/><!-- ITV HD -->
 		<channel number="104" with="138" conditional="'Channel 4' in service_sd['service_name'] and 'Channel 4' in service_hd['service_name']"/> <!-- Channel 4 HD -->
 		<channel number="104" with="804"/> <!-- Channel 4 HD -->
 		<channel number="105" with="805"/> <!-- Channel 5 HD -->
@@ -394,6 +394,7 @@ except:
 		6210: "STV Grampian",
 		6220: "STV Scotland West",
 		6300: "ITV Central",
+		6325: "STV Dundee",
 		6371: "STV Scotland East",
 		6381: "ITV Anglia West",
 		6390: "ITV Tyne Tees",
@@ -417,6 +418,10 @@ except:
 		1061: "ITV Border England HD",
 		1062: "ITV Westcountry West HD",
 		1063: "ITV Westcountry SW HD",
+		1167: "STV Dundee HD",
+		1168: "STV Grampian HD",
+		1170: "STV Scottish East HD",
+		4055: "STV Scottish West HD",
 		6501: "ITV Wales HD",
 		6502: "ITV Meridian South HD",
 		6503: "ITV Central West HD",
@@ -425,8 +430,6 @@ except:
 	}
 
 	rename = {
-		1048: "CGTN HD",	
-		1088: "CNBC HD",
 		# BT Interactive
 		5381: "BT Sport Mosaic 2",
 		5382: "BT Sport Extra 2",
