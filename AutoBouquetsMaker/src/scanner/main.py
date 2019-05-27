@@ -57,6 +57,7 @@ class AutoBouquetsMaker(Screen):
 		self["status"] = Label("")
 		self["progress"] = ProgressBar()
 		self["progress_text"] = Progress()
+		self["tuner_text"] = Label("")
 		self["Frontend"] = FrontendStatus(frontend_source = lambda : self.frontend, update_interval = 100)
 
 		# dependent providers
@@ -196,6 +197,7 @@ class AutoBouquetsMaker(Screen):
 				self["progress"].setValue(self.progresscurrent)
 				self["action"].setText(_('Bouquets generation...'))
 				self["status"].setText(_("Services: %d video - %d radio") % (self.manager.getServiceVideoRead(), self.manager.getServiceAudioRead()))
+				self["tuner_text"].setText("")
 			self.timer = eTimer()
 			self.timer.callback.append(self.doBuildIndex)
 			self.timer.start(100, 1)
@@ -210,6 +212,7 @@ class AutoBouquetsMaker(Screen):
 			self["progress"].setValue(self.progresscurrent)
 			self["action"].setText(_("Tuning %s...") % str(self.providers[self.currentAction]["name"]))
 			self["status"].setText(_("Services: %d video - %d radio") % (self.manager.getServiceVideoRead(), self.manager.getServiceAudioRead()))
+			self["tuner_text"].setText("")
 		self.timer = eTimer()
 		self.timer.callback.append(self.doTune)
 		self.timer.start(100, 1)
@@ -385,6 +388,9 @@ class AutoBouquetsMaker(Screen):
 		else:
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_FIXED
 			print>>log, "[ABM-main][doTune] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10)
+
+		if not inStandby:
+			self["tuner_text"].setText(chr(ord('A') + current_slotid))
 
 		self.frontend = self.rawchannel.getFrontend()
 		if not self.frontend:
