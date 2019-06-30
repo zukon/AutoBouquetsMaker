@@ -298,6 +298,10 @@ except:
 		6007: ("BBC RB HD",6)
 	}
 
+	rename_by_sid = {
+		52575: "Freesports HD",
+	}
+
 	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD',752,'BoxNation HD']
 
 	whitelist_by_id = [
@@ -353,6 +357,11 @@ if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["servic
 if "channel_id" in service and service["channel_id"] in rename:
 	service["interactive_name"] = rename[service["channel_id"]] # left for backwards compatibility
 	service["service_name"] = rename[service["channel_id"]]
+	service["service_flags"] = dxHoldName
+
+# Rename channels by sid
+if "service_id" in service and service["service_id"] in rename_by_sid:
+	service["service_name"] = rename_by_sid[service["service_id"]]
 	service["service_flags"] = dxHoldName
 
 # Rename ITV channels
