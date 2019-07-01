@@ -550,18 +550,7 @@ elif custom and ("channel_id" in service and service["channel_id"] in blacklist_
 
 new_numbers = []
 for number in service["numbers"]:
-	if service["channel_id"] in range(2058, 2052, -1) and range(2058, 2052, -1).index(service["channel_id"]) not in LCNs_in_use: #BBC RB
-		if service["number"] in LCNs_in_use:
-			LCNs_in_use.remove(service["number"])
-		service["number"] = 981 + range(2058, 2052, -1).index(service["channel_id"])
-		if service["service_type"] in DvbScanner.HD_ALLOWED_TYPES:
-			service["service_name"] = "BBC RB HD"
-		else:
-			service["service_name"] = "BBC RB%d" % (2 + range(2058, 2052, -1).index(service["channel_id"]))
-		service["service_flags"] = dxHoldName
-		LCNs_in_use.append(981 + range(2058, 2052, -1).index(service["channel_id"]))
-		new_numbers.append(981 + range(2058, 2052, -1).index(service["channel_id"]))
-	elif number >= 3000 and number <= 3999: # radio
+	if number >= 3000 and number <= 3999: # radio
 		new_numbers.append(number - 3000)
 	elif number >= 1050 and number <= max(LCNs_in_use): # not indexed channels
 		new_numbers.append(number)
