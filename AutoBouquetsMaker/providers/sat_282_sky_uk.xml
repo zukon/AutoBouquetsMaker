@@ -265,18 +265,18 @@
 		<channel number="129" with="824"/> <!-- Nat Geo HD -->
 		<channel number="130" with="825"/> <!-- History HD -->
 		<channel number="132" with="826"/> <!-- Alibi HD -->
-		<channel number="133" with="827"/> <!-- Good Food HD -->
+		<channel number="133" with="827"/> <!-- TLC HD -->
 		<channel number="134" with="828"/> <!-- S4C HD -->
 		<channel number="135" with="829"/> <!-- E4 HD -->
 		<channel number="136" with="830"/> <!-- More4 HD -->
-		<channel number="140" with="831"/> <!-- TLC HD -->
-		<channel number="144" with="866"/> <!-- Quest HD -->
+		<channel number="144" with="831"/> <!-- Quest HD -->
 		<channel number="156" with="835"/> <!-- Crime+Inv HD -->
 		<channel number="162" with="836"/> <!-- Animal Planet HD -->
 		<channel number="164" with="838"/> <!-- Lifetime HD -->
 		<channel number="165" with="839"/> <!-- Nat Geo Wild HD -->
 		<channel number="186" with="840"/> <!-- AMC from BT HD -->
 		<channel number="195" with="889"/> <!-- Smithsonian HD -->
+		<channel number="198" with="866"/> <!-- Good Food HD -->
 		<channel number="301" with="842"/> <!-- SkyPremiereHD -->
 		<channel number="302" with="843"/> <!-- Sky Hits HD -->
 		<channel number="303" with="844"/> <!-- Sky Greats HD -->
