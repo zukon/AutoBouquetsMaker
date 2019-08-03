@@ -416,12 +416,16 @@ class AutoBouquetsMaker(Screen):
 			params.modulation = transponder["modulation"]
 			params.rolloff = transponder["roll_off"]
 			params.pilot = transponder["pilot"]
-			try: # if distro is MIS capable
-				params.pls_mode = eDVBFrontendParametersSatellite.PLS_Root
-				params.is_id = -1
-				params.pls_code = 1
-			except:
-				pass
+			if hasattr(eDVBFrontendParametersSatellite, "No_Stream_Id_Filter"):
+				params.is_id = eDVBFrontendParametersSatellite.No_Stream_Id_Filter
+			if hasattr(eDVBFrontendParametersSatellite, "PLS_Gold"):
+				params.pls_mode = eDVBFrontendParametersSatellite.PLS_Gold
+			if hasattr(eDVBFrontendParametersSatellite, "PLS_Default_Gold_Code"):
+				params.pls_code = eDVBFrontendParametersSatellite.PLS_Default_Gold_Code
+			if hasattr(eDVBFrontendParametersSatellite, "No_T2MI_PLP_Id"):
+				params.t2mi_plp_id = eDVBFrontendParametersSatellite.No_T2MI_PLP_Id
+			if hasattr(eDVBFrontendParametersSatellite, "T2MI_Default_Pid"):
+				params.t2mi_pid = eDVBFrontendParametersSatellite.T2MI_Default_Pid
 			params_fe = eDVBFrontendParameters()
 			params_fe.setDVBS(params, False)
 
