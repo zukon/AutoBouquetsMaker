@@ -943,6 +943,10 @@ class DvbScanner():
 			if service["descriptor_tag"] != 0xb1:
 				continue
 
+			# Workaround: give IEPG data channel a favourable service type so people can find it and use it to download the EPG.
+			if service["channel_id"] == 1151 and service["original_network_id"] == 2 and service["transport_stream_id"] == 2004:
+				service["service_type"] = 1
+
 			if service["service_type"] not in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.AUDIO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.INTERACTIVE_ALLOWED_TYPES:
 				continue
 

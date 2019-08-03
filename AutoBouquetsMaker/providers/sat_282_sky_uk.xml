@@ -342,6 +342,7 @@ except:
 	is_assigned = True
 	custom = True if "custom" in bouquet_key else False
 
+	dxNoSDT = 0x1 # details of lamedb flags are in README.txt
 	dxHoldName = 0x8 # details of lamedb flags are in README.txt
 
 	# slot some extra channels into vacant slots in the provider list if "custom" == True
@@ -565,6 +566,18 @@ for number in service["numbers"]:
 			service["interactive_name"] = "Sky Anytime " + str(service["channel_id"])
 		elif service["channel_id"] in bt_sports_id:
 			new_numbers.append(1030 + bt_sports_id.index(service["channel_id"]))
+		elif service["channel_id"] == 1151 and service["original_network_id"] == 2 and service["transport_stream_id"] == 2004: # IEPG Data channel
+			service["flags"] = dxNoSDT | dxHoldName
+			service["service_name"] = "Sky UK EPG data channel"
+			service["free_ca"] = 0
+			skip = True
+			for i in range(994, 1000):
+				if i not in LCNs_in_use:
+					LCNs_in_use.append(i)
+					new_numbers.append(i)
+					service["number"] = i
+					skip = False
+					break
 		else:
 			if extraservices:
 				i = 1450
