@@ -1,0 +1,31 @@
+<provider>
+	<name>FreeSAT SK</name>
+	<streamtype>dvbs</streamtype>
+	<protocol>fastscan</protocol>
+	<transponder
+		orbital_position="3592"
+		frequency="11727000"
+		symbol_rate="28000000"
+		polarization="1"
+		fec_inner="0"
+		inversion="2"
+		system="0"
+		modulation="1"
+		roll_off="0"
+		pilot="2"
+		nit_pid="0x53"
+		nit_current_table_id="0xbc"
+		nit_other_table_id="0x00"
+		fastscan_pid="0x53"
+		fastscan_table_id="0xbd"
+		tsid="701"
+		onid="1536"
+	/>
+	<sections>
+		<section number="1">FreeSAT SK</section>
+	</sections>
+	<servicehacks>
+<![CDATA[
+]]>
+	</servicehacks>
+</provider>
