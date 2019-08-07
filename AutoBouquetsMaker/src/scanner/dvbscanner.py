@@ -11,6 +11,7 @@ class DvbScanner():
 	VIDEO_ALLOWED_TYPES = [1, 4, 5, 17, 22, 24, 25, 27, 135]
 	AUDIO_ALLOWED_TYPES = [2, 10]
 	INTERACTIVE_ALLOWED_TYPES = [133]
+	EPG_ALLOWED_TYPES = [131]
 	HD_ALLOWED_TYPES = [17, 25, 27, 135]
 
 	def __init__(self):
@@ -944,7 +945,7 @@ class DvbScanner():
 				continue
 
 			# Workaround: give IEPG data channel a favourable service type so people can find it and use it to download the EPG.
-			if service["channel_id"] == 1151 and service["original_network_id"] == 2 and service["transport_stream_id"] == 2004:
+			if service["service_type"] in DvbScanner.EPG_ALLOWED_TYPES:
 				service["service_type"] = 1
 
 			if service["service_type"] not in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.AUDIO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.INTERACTIVE_ALLOWED_TYPES:
