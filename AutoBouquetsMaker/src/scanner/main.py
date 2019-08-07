@@ -9,7 +9,7 @@ from Components.ProgressBar import ProgressBar
 from Components.Sources.Progress import Progress
 from Components.Sources.FrontendStatus import FrontendStatus
 
-from Components.config import config
+from Components.config import config, configfile
 from Components.NimManager import nimmanager
 from enigma import eTimer, eDVBDB, eDVBFrontendParametersSatellite,eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable, eDVBResourceManager, eDVBFrontendParameters
 
@@ -587,7 +587,7 @@ class AutoBouquetsMaker(Screen):
 		print>>log, "[ABM-config] schedule: ",config.autobouquetsmaker.schedule.value
 		if config.autobouquetsmaker.schedule.value:
 			print>>log, "[ABM-config] schedule time: ",config.autobouquetsmaker.scheduletime.value
-			print>>log, "[ABM-config] schedule repeat: ",config.autobouquetsmaker.repeattype.value
+			print>>log, "[ABM-config] schedule days: ", [("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")[i] for i in range(7) if config.autobouquetsmaker.days[i].value]
 
 	def getABMsettings(self):
 		providers_extra = []
@@ -608,148 +608,180 @@ class AutoBouquetsMaker(Screen):
 	def cancel(self):
 		self.close(None)
 
-autoAutoBouquetsMakerTimer = None
-def AutoBouquetsMakerautostart(reason, session=None, **kwargs):
-	"called with reason=1 to during /sbin/shutdown.sysvinit, with reason=0 at startup?"
-	global autoAutoBouquetsMakerTimer
-	global _session
+
+autoScheduleTimer = None
+def Scheduleautostart(reason, session=None, **kwargs):
+	#
+	# This gets called twice at start up,once by WHERE_AUTOSTART without session,
+	# and once by WHERE_SESSIONSTART with session. WHERE_AUTOSTART is needed though
+	# as it is used to wake from deep standby. We need to read from session so if
+	# session is not set just return and wait for the second call to this function.
+	#
+	# Called with reason=1 during /sbin/shutdown.sysvinit, and with reason=0 at startup.
+	# Called with reason=1 only happens when using WHERE_AUTOSTART.
+	# If only using WHERE_SESSIONSTART there is no call to this function on shutdown.
+	#
+	print>>log, "[ABM-Scheduler][Scheduleautostart] reason(%d), session" % reason, session
+	if reason == 0 and session is None:
+		return
+	global autoScheduleTimer
+	global wasScheduleTimerWakeup
+	wasScheduleTimerWakeup = False
 	now = int(time())
 	if reason == 0:
-		print>>log, "[ABM-main][AutoBouquetsMakerautostart] AutoStart Enabled"
-		if session is not None:
-			_session = session
-			if autoAutoBouquetsMakerTimer is None:
-				autoAutoBouquetsMakerTimer = AutoAutoBouquetsMakerTimer(session)
-	else:
-		print>>log, "[ABM-main][AutoBouquetsMakerautostart] Stop"
-		autoAutoBouquetsMakerTimer.stop()
+		if config.autobouquetsmaker.schedule.value:
+			# check if box was woken up by a timer, if so, check if this plugin set this timer. This is not conclusive.
+			if session.nav.wasTimerWakeup() and abs(config.autobouquetsmaker.nextscheduletime.value - time()) <= 450:
+				wasScheduleTimerWakeup = True
+				# if box is not in standby do it now
+				from Screens.Standby import Standby, inStandby
+				if not inStandby:
+					# hack alert: session requires "pipshown" to avoid a crash in standby.py
+					if not hasattr(session, "pipshown"):
+						session.pipshown = False
+					from Tools import Notifications
+					Notifications.AddNotificationWithID("Standby", Standby)
 
-class AutoAutoBouquetsMakerTimer:
+		print>>log, "[ABM-Scheduler][Scheduleautostart] AutoStart Enabled"
+		if autoScheduleTimer is None:
+			autoScheduleTimer = AutoScheduleTimer(session)
+	else:
+		print>>log, "[ABM-Scheduler][Scheduleautostart] Stop"
+		if autoScheduleTimer is not None:
+			autoScheduleTimer.schedulestop()
+
+class AutoScheduleTimer:
 	instance = None
 	def __init__(self, session):
+		self.schedulename = "ABM-Scheduler"
+		self.config = config.autobouquetsmaker
+		self.itemtorun = AutoBouquetsMaker
 		self.session = session
-		self.autobouquetsmakertimer = eTimer()
-		self.autobouquetsmakertimer.callback.append(self.AutoBouquetsMakeronTimer)
-		self.autobouquetsmakeractivityTimer = eTimer()
-		self.autobouquetsmakeractivityTimer.timeout.get().append(self.autobouquetsmakerdatedelay)
+		self.scheduletimer = eTimer()
+		self.scheduletimer.callback.append(self.ScheduleonTimer)
+		self.scheduleactivityTimer = eTimer()
+		self.scheduleactivityTimer.timeout.get().append(self.scheduledatedelay)
+		self.ScheduleTime = 0
 		now = int(time())
-		global AutoBouquetsMakerTime
-		if config.autobouquetsmaker.schedule.value:
-			print>>log, "[ABM-main][AutoAutoBouquetsMakerTimer] Schedule Enabled at ", strftime("%c", localtime(now))
-			if now > 1262304000:
-				self.autobouquetsmakerdate()
+		if self.config.schedule.value:
+			print>>log, "[%s][AutoScheduleTimer] Schedule Enabled at " % self.schedulename, strftime("%c", localtime(now))
+			if now > 1546300800: # Tuesday, January 1, 2019 12:00:00 AM
+				self.scheduledate()
 			else:
-				print>>log, "[ABM-main][AutoAutoBouquetsMakerTimer] Time not yet set."
-				AutoBouquetsMakerTime = 0
-				self.autobouquetsmakeractivityTimer.start(36000)
+				print>>log, "[%s][AutoScheduleTimer] STB clock not yet set." % self.schedulename
+				self.scheduleactivityTimer.start(36000)
 		else:
-			AutoBouquetsMakerTime = 0
-			print>>log, "[ABM-main][AutoAutoBouquetsMakerTimer] Schedule Disabled at", strftime("%c", localtime(now))
-			self.autobouquetsmakeractivityTimer.stop()
+			print>>log, "[%s][AutoScheduleTimer] Schedule Disabled at" % self.schedulename, strftime("%c", localtime(now))
+			self.scheduleactivityTimer.stop()
 
-		assert AutoAutoBouquetsMakerTimer.instance is None, "class AutoAutoBouquetsMakerTimer is a singleton class and just one instance of this class is allowed!"
-		AutoAutoBouquetsMakerTimer.instance = self
+		assert AutoScheduleTimer.instance is None, "class AutoScheduleTimer is a singleton class and just one instance of this class is allowed!"
+		AutoScheduleTimer.instance = self
 
 	def __onClose(self):
-		AutoAutoBouquetsMakerTimer.instance = None
+		AutoScheduleTimer.instance = None
 
-	def autobouquetsmakerdatedelay(self):
-		self.autobouquetsmakeractivityTimer.stop()
-		self.autobouquetsmakerdate()
+	def scheduledatedelay(self):
+		self.scheduleactivityTimer.stop()
+		self.scheduledate()
 
-	def getAutoBouquetsMakerTime(self):
-		backupclock = config.autobouquetsmaker.scheduletime.value
-		nowt = time()
-		now = localtime(nowt)
-		return int(mktime((now.tm_year, now.tm_mon, now.tm_mday, backupclock[0], backupclock[1], 0, now.tm_wday, now.tm_yday, now.tm_isdst)))
+	def getScheduleTime(self):
+		now = localtime(time())
+		return int(mktime((now.tm_year, now.tm_mon, now.tm_mday, self.config.scheduletime.value[0], self.config.scheduletime.value[1], 0, now.tm_wday, now.tm_yday, now.tm_isdst)))
 
-	def autobouquetsmakerdate(self, atLeast = 0):
-		self.autobouquetsmakertimer.stop()
-		global AutoBouquetsMakerTime
-		AutoBouquetsMakerTime = self.getAutoBouquetsMakerTime()
+	def getScheduleDayOfWeek(self):
+		today = self.getToday()
+		for i in range(1, 8):
+			if self.config.days[(today+i)%7].value:
+				return i
+
+	def getToday(self):
+		return localtime(time()).tm_wday
+
+	def scheduledate(self, atLeast = 0):
+		self.scheduletimer.stop()
+		self.ScheduleTime = self.getScheduleTime()
 		now = int(time())
-		if AutoBouquetsMakerTime > 0:
-			if AutoBouquetsMakerTime < now + atLeast:
-				if config.autobouquetsmaker.repeattype.value == "daily":
-					AutoBouquetsMakerTime += 24*3600
-					while (int(AutoBouquetsMakerTime)-30) < now:
-						AutoBouquetsMakerTime += 24*3600
-				elif config.autobouquetsmaker.repeattype.value == "weekly":
-					AutoBouquetsMakerTime += 7*24*3600
-					while (int(AutoBouquetsMakerTime)-30) < now:
-						AutoBouquetsMakerTime += 7*24*3600
-				elif config.autobouquetsmaker.repeattype.value == "monthly":
-					AutoBouquetsMakerTime += 30*24*3600
-					while (int(AutoBouquetsMakerTime)-30) < now:
-						AutoBouquetsMakerTime += 30*24*3600
-			next = AutoBouquetsMakerTime - now
-			self.autobouquetsmakertimer.startLongTimer(next)
+		if self.ScheduleTime > 0:
+			if self.ScheduleTime < now + atLeast:
+				self.ScheduleTime += 86400*self.getScheduleDayOfWeek()
+			elif not self.config.days[self.getToday()].value:
+				self.ScheduleTime += 86400*self.getScheduleDayOfWeek()
+			next = self.ScheduleTime - now
+			self.scheduletimer.startLongTimer(next)
 		else:
-			AutoBouquetsMakerTime = -1
-		print>>log, "[ABM-main][autobouquetsmakerdate] Time set to", strftime("%c", localtime(AutoBouquetsMakerTime)), strftime("(now=%c)", localtime(now))
-		return AutoBouquetsMakerTime
+			self.ScheduleTime = -1
+		print>>log, "[%s][scheduledate] Time set to" % self.schedulename, strftime("%c", localtime(self.ScheduleTime)), strftime("(now=%c)", localtime(now))
+		self.config.nextscheduletime.value = self.ScheduleTime
+		self.config.nextscheduletime.save()
+		configfile.save()
+		return self.ScheduleTime
 
-	def backupstop(self):
-		self.autobouquetsmakertimer.stop()
+	def schedulestop(self):
+		self.scheduletimer.stop()
 
-	def AutoBouquetsMakeronTimer(self):
-		self.autobouquetsmakertimer.stop()
+	def ScheduleonTimer(self):
+		self.scheduletimer.stop()
 		now = int(time())
-		wake = self.getAutoBouquetsMakerTime()
-		# If we're close enough, we're okay...
+		wake = self.getScheduleTime()
 		atLeast = 0
 		if wake - now < 60:
 			atLeast = 60
-			print>>log, "[ABM-main][AutoBouquetsMakeronTimer] onTimer occured at", strftime("%c", localtime(now))
+			print>>log, "[%s][ScheduleonTimer] onTimer occured at" % self.schedulename, strftime("%c", localtime(now))
 			from Screens.Standby import inStandby
 			if not inStandby:
-				message = _("Your bouquets are about to be updated,\nDo you want to allow this?")
-				ybox = self.session.openWithCallback(self.doAutoBouquetsMaker, MessageBox, message, MessageBox.TYPE_YESNO, timeout = 30)
-				ybox.setTitle('Scheduled AutoBouquetsMaker.')
+				message = _("%s update is about to start.\nDo you want to allow this?") % self.schedulename
+				ybox = self.session.openWithCallback(self.doSchedule, MessageBox, message, MessageBox.TYPE_YESNO, timeout = 30)
+				ybox.setTitle(_('%s scheduled update') % self.schedulename)
 			else:
-				self.doAutoBouquetsMaker(True)
-		self.autobouquetsmakerdate(atLeast)
+				self.doSchedule(True)
+		self.scheduledate(atLeast)
 
-	def doAutoBouquetsMaker(self, answer):
+	def doSchedule(self, answer):
 		now = int(time())
 		if answer is False:
-			if config.autobouquetsmaker.retrycount.value < 2:
-				print>>log, "[ABM-main][doAutoBouquetsMaker] AutoBouquetsMaker delayed."
-				repeat = config.autobouquetsmaker.retrycount.value
-				repeat += 1
-				config.autobouquetsmaker.retrycount.value = repeat
-				AutoBouquetsMakerTime = now + (int(config.autobouquetsmaker.retry.value) * 60)
-				print>>log, "[ABM-main][doAutoBouquetsMaker] Time now set to", strftime("%c", localtime(AutoBouquetsMakerTime)), strftime("(now=%c)", localtime(now))
-				self.autobouquetsmakertimer.startLongTimer(int(config.autobouquetsmaker.retry.value) * 60)
+			if self.config.retrycount.value < 2:
+				print>>log, "[%s][doSchedule] Schedule delayed." % self.schedulename
+				self.config.retrycount.value += 1
+				self.ScheduleTime = now + (int(self.config.retry.value) * 60)
+				print>>log, "[%s][doSchedule] Time now set to" % self.schedulename, strftime("%c", localtime(self.ScheduleTime)), strftime("(now=%c)", localtime(now))
+				self.scheduletimer.startLongTimer(int(self.config.retry.value) * 60)
 			else:
 				atLeast = 60
-				print>>log, "[ABM-main][doAutoBouquetsMaker] Enough Retries, delaying till next schedule.", strftime("%c", localtime(now))
+				print>>log, "[%s][doSchedule] Enough Retries, delaying till next schedule." % self.schedulename, strftime("%c", localtime(now))
 				self.session.open(MessageBox, _("Enough Retries, delaying till next schedule."), MessageBox.TYPE_INFO, timeout = 10)
-				config.autobouquetsmaker.retrycount.value = 0
-				self.autobouquetsmakerdate(atLeast)
+				self.config.retrycount.value = 0
+				self.scheduledate(atLeast)
 		else:
 			self.timer = eTimer()
-			self.timer.callback.append(self.doautostartscan)
-			print>>log, "[ABM-main][doAutoBouquetsMaker] Running AutoBouquetsMaker", strftime("%c", localtime(now))
+			self.timer.callback.append(self.runscheduleditem)
+			print>>log, "[%s][doSchedule] Running Schedule" % self.schedulename, strftime("%c", localtime(now))
 			self.timer.start(100, 1)
 
-	def doautostartscan(self):
-		self.session.open(AutoBouquetsMaker)
+	def runscheduleditem(self):
+		self.session.openWithCallback(self.runscheduleditemCallback, self.itemtorun)
 
-	def doneConfiguring(self):
+	def runscheduleditemCallback(self):
+		from Screens.Standby import Standby, inStandby, TryQuitMainloop, inTryQuitMainloop
+		print>>log, "[%s][runscheduleditemCallback] inStandby" % self.schedulename, inStandby
+		if self.config.schedule.value and wasScheduleTimerWakeup and inStandby and self.config.scheduleshutdown.value and not self.session.nav.getRecordings() and not inTryQuitMainloop:
+			print>>log, "[%s] Returning to deep standby after scheduled wakeup" % self.schedulename
+			self.session.open(TryQuitMainloop, 1)
+
+	def doneConfiguring(self): # called from plugin on save
 		now = int(time())
-		if config.autobouquetsmaker.schedule.value:
-			if autoAutoBouquetsMakerTimer is not None:
-				print>>log, "[ABM-main][doneConfiguring] Schedule Enabled at", strftime("%c", localtime(now))
-				autoAutoBouquetsMakerTimer.autobouquetsmakerdate()
+		if self.config.schedule.value:
+			if autoScheduleTimer is not None:
+				print>>log, "[%s][doneConfiguring] Schedule Enabled at" % self.schedulename, strftime("%c", localtime(now))
+				autoScheduleTimer.scheduledate()
 		else:
-			if autoAutoBouquetsMakerTimer is not None:
-				global AutoBouquetsMakerTime
-				AutoBouquetsMakerTime = 0
-				print>>log, "[ABM-main][doneConfiguring] Schedule Disabled at", strftime("%c", localtime(now))
-				autoAutoBouquetsMakerTimer.backupstop()
-		if AutoBouquetsMakerTime > 0:
-			t = localtime(AutoBouquetsMakerTime)
-			autobouquetsmakertext = strftime(_("%a %e %b  %-H:%M"), t)
+			if autoScheduleTimer is not None:
+				self.ScheduleTime = 0
+				print>>log, "[%s][doneConfiguring] Schedule Disabled at" % self.schedulename, strftime("%c", localtime(now))
+				autoScheduleTimer.schedulestop()
+		# scheduletext is not used for anything but could be returned to the calling function to display in the GUI.
+		if self.ScheduleTime > 0:
+			t = localtime(self.ScheduleTime)
+			scheduletext = strftime(_("%a %e %b  %-H:%M"), t)
 		else:
-			autobouquetsmakertext = ""
+			scheduletext = ""
+		return scheduletext

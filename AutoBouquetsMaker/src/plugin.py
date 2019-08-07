@@ -5,19 +5,24 @@ from Plugins.Plugin import PluginDescriptor
 from Components.NimManager import nimmanager
 
 from menu import AutoBouquetsMaker_Menu
-from scanner.main import AutoBouquetsMakerautostart, AutoBouquetsMaker
+from scanner.main import Scheduleautostart, AutoBouquetsMaker
 
-from Components.config import config, configfile, ConfigSubsection, ConfigYesNo, ConfigSelection, ConfigText, ConfigNumber, NoSave, ConfigClock, getConfigListEntry
+from Components.config import config, configfile, ConfigSubsection, ConfigYesNo, ConfigSelection, ConfigText, ConfigNumber, NoSave, ConfigClock, getConfigListEntry, ConfigEnableDisable, ConfigSubDict
 config.autobouquetsmaker = ConfigSubsection()
 config.autobouquetsmaker.level = ConfigSelection(default = "simple", choices = [("simple", _("simple")), ("expert", _("expert"))])
 config.autobouquetsmaker.providers = ConfigText("", False)
 config.autobouquetsmaker.bouquetsorder = ConfigText("", False)
 config.autobouquetsmaker.schedule = ConfigYesNo(default = False)
 config.autobouquetsmaker.scheduletime = ConfigClock(default = 0) # 1:00
-config.autobouquetsmaker.repeattype = ConfigSelection(default = "daily", choices = [("daily", _("Daily")), ("weekly", _("Weekly")), ("monthly", _("30 Days"))])
 config.autobouquetsmaker.retry = ConfigNumber(default = 30)
 config.autobouquetsmaker.retrycount = NoSave(ConfigNumber(default = 0))
-config.autobouquetsmaker.nextscheduletime = NoSave(ConfigNumber(default = 0))
+config.autobouquetsmaker.nextscheduletime = ConfigNumber(default = 0)
+config.autobouquetsmaker.schedulewakefromdeep = ConfigYesNo(default = True)
+config.autobouquetsmaker.scheduleshutdown = ConfigYesNo(default = True)
+config.autobouquetsmaker.dayscreen = ConfigSelection(choices = [("1", _("Press OK"))], default = "1")
+config.autobouquetsmaker.days = ConfigSubDict()
+for i in range(7):
+	config.autobouquetsmaker.days[i] = ConfigEnableDisable(default = True)
 config.autobouquetsmaker.lastlog = ConfigText(default=' ', fixed_size=False)
 config.autobouquetsmaker.keepallbouquets = ConfigYesNo(default = True)
 config.autobouquetsmaker.keepbouquets = ConfigText("", False)
@@ -76,10 +81,14 @@ def AutoBouquetsMakerSetup(menuid, **kwargs):
 	else:
 		return []
 
+def AutoBouquetsMakerWakeupTime():
+	print "[AutoBouquetsMaker] next wakeup due %d" % config.autobouquetsmaker.nextscheduletime.value
+	return config.autobouquetsmaker.nextscheduletime.value > 0 and config.autobouquetsmaker.nextscheduletime.value or -1
+
 def Plugins(**kwargs):
 	plist = []
 	if any([nimmanager.hasNimType(x) for x in "DVB-S", "DVB-T", "DVB-C"]):
-		plist.append(PluginDescriptor(name="AutoBouquetsMakerSessionStart", where=PluginDescriptor.WHERE_SESSIONSTART, fnc=AutoBouquetsMakerautostart, needsRestart=True))
+		plist.append(PluginDescriptor(name="AutoBouquetsMakerSessionStart", where=[ PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART ], fnc=Scheduleautostart, wakeupfnc=AutoBouquetsMakerWakeupTime, needsRestart=True))
 		plist.append(PluginDescriptor(name=_("AutoBouquetsMaker"), description="Scan and create bouquets.", where = PluginDescriptor.WHERE_MENU, fnc=AutoBouquetsMakerSetup, needsRestart=True))
 		if config.autobouquetsmaker.extensions.getValue():
 			plist.append(PluginDescriptor(name=_("AutoBouquetsMaker Scanner"), description="Scan and create bouquets.", where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=startscan, needsRestart=True))

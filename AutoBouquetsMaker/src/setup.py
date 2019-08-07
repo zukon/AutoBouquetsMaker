@@ -464,7 +464,7 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 
 		self["actions"] = ActionMap(["SetupActions", 'ColorActions', 'VirtualKeyboardActions', "MenuActions"],
 		{
-			"ok": self.keySave,
+			"ok": self.keyOk,
 			"cancel": self.keyCancel,
 			"red": self.keyCancel,
 			"green": self.keySave,
@@ -501,8 +501,11 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 		self.list.append(getConfigListEntry(_("Setup mode"), config.autobouquetsmaker.level, _("Choose which level of settings to display. 'Expert'-level shows all items, this also adds more options in the providers menu.")))
 		self.list.append(getConfigListEntry(_("Schedule scan"), config.autobouquetsmaker.schedule, _("Allows you to set a schedule to perform a scan ")))
 		if config.autobouquetsmaker.schedule.getValue():
-			self.list.append(getConfigListEntry(indent + _("Time of scan to start"), config.autobouquetsmaker.scheduletime, _("Set the time of day to perform the scan.")))
-			self.list.append(getConfigListEntry(indent + _("Repeat how often?"), config.autobouquetsmaker.repeattype, _("Set the repeat interval of the schedule.")))
+			self.list.append(getConfigListEntry(indent + _("Schedule time of day"), config.autobouquetsmaker.scheduletime, _("Set the time of day to perform a scan.")))
+			self.list.append(getConfigListEntry(indent + _("Schedule days of the week"), config.autobouquetsmaker.dayscreen, _("Press OK to select which days to perform a scan.")))
+			self.list.append(getConfigListEntry(indent + _("Schedule wake from deep standby"), config.autobouquetsmaker.schedulewakefromdeep, _("If the receiver is in 'Deep Standby' when the schedule is due, wake it up to perform a scan.")))
+			if config.autobouquetsmaker.schedulewakefromdeep.getValue():
+				self.list.append(getConfigListEntry(indent + _("Schedule return to deep standby"), config.autobouquetsmaker.scheduleshutdown, _("If the receiver was woken from 'Deep Standby' and is currently in 'Standby' and no recordings are in progress return it to 'Deep Standby' once the scan has completed.")))
 		if config.autobouquetsmaker.level.value == "expert":
 			self.list.append(getConfigListEntry(_("Keep all non-ABM bouquets"), config.autobouquetsmaker.keepallbouquets, _("When disabled this will enable the 'Keep bouquets' option in the main menu, allowing you to hide some 'existing' bouquets.")))
 			self.list.append(getConfigListEntry(_("Add provider prefix to bouquets"), config.autobouquetsmaker.addprefix, _("This option will prepend the provider name to bouquet name.")))
@@ -547,6 +550,12 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 		for x in self["config"].list:
 			x[1].save()
 
+	def keyOk(self):
+		if self["config"].getCurrent() and len(self["config"].getCurrent()) > 1 and self["config"].getCurrent()[1] == config.autobouquetsmaker.dayscreen:
+			self.session.open(AutoBouquetsMakerDaysScreen)
+		else:
+			self.keySave()
+
 	# keySave and keyCancel are just provided in case you need them.
 	# you have to call them by yourself.
 	def keySave(self):
@@ -565,6 +574,51 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 			self.session.openWithCallback(self.cancelConfirm, MessageBox, _("Really close without saving settings?"))
 		else:
 			self.close()
+
+class AutoBouquetsMakerDaysScreen(ConfigListScreen, Screen):
+	def __init__(self, session, args = 0):
+		self.session = session
+		Screen.__init__(self, session)
+		Screen.setTitle(self, _('AutoBouquetsMaker') + " - " + _("Select days"))
+		self.skinName = ["Setup"]
+		self.config = config.autobouquetsmaker
+		self.list = []
+		days = (_("Monday"), _("Tuesday"), _("Wednesday"), _("Thursday"), _("Friday"), _("Saturday"), _("Sunday"))
+		for i in sorted(self.config.days.keys()):
+			self.list.append(getConfigListEntry(days[i], self.config.days[i]))
+		ConfigListScreen.__init__(self, self.list)
+		self["key_red"] = StaticText(_("Cancel"))
+		self["key_green"] = StaticText(_("Save"))
+		self["setupActions"] = ActionMap(["SetupActions", "ColorActions"],
+		{
+			"red": self.keyCancel,
+			"green": self.keySave,
+			"save": self.keySave,
+			"cancel": self.keyCancel,
+			"ok": self.keySave,
+		}, -2)
+
+	def keySave(self):
+		if not any([self.config.days[i].value for i in self.config.days]):
+			info = self.session.open(MessageBox, _("At least one day of the week must be selected"), MessageBox.TYPE_ERROR, timeout = 30)
+			info.setTitle(_('Radio Times Emulator') + " - " + _("Select days"))
+			return
+		for x in self["config"].list:
+			x[1].save()
+		self.close()
+
+	def keyCancel(self):
+		if self["config"].isChanged():
+			self.session.openWithCallback(self.cancelCallback, MessageBox, _("Really close without saving settings?"))
+		else:
+			self.cancelCallback(True)
+
+	def cancelCallback(self, answer):
+		if answer:
+			for x in self["config"].list:
+				x[1].cancel()
+			self.close(False)
+
 
 class SetupSummary(Screen):
 	def __init__(self, session, parent):

@@ -1,7 +1,7 @@
 # for localized messages
 from . import _
 
-from scanner.main import AutoBouquetsMaker, AutoAutoBouquetsMakerTimer
+from scanner.main import AutoBouquetsMaker, AutoScheduleTimer
 from scanner.manager import Manager
 from about import AutoBouquetsMaker_About
 from setup import AutoBouquetsMaker_Setup, AutoBouquetsMaker_ProvidersSetup
@@ -132,7 +132,7 @@ class AutoBouquetsMaker_Menu(Screen):
 		self.session.open(AutoBouquetsMaker_Setup)
 
 	def refresh(self):
-		AutoAutoBouquetsMakerTimer.instance.doneConfiguring()
+		AutoScheduleTimer.instance.doneConfiguring()
 		if self.init_level != config.autobouquetsmaker.level.getValue() or self.init_providers != config.autobouquetsmaker.providers.getValue() or self.init_keepallbouquets != config.autobouquetsmaker.keepallbouquets.getValue() or self.init_frequencyfinder != config.autobouquetsmaker.frequencyfinder.getValue():
 			self.init_level = config.autobouquetsmaker.level.getValue()
 			self.init_providers = config.autobouquetsmaker.providers.getValue()
