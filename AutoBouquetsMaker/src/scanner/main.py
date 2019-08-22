@@ -98,23 +98,16 @@ class AutoBouquetsMaker(Screen):
 
 	def showError(self, message):
 		from Screens.Standby import inStandby
-		if self.rawchannel:
-			del(self.rawchannel)
-
-		self.frontend = None
-		self.rawchannel = None
-
-		if self.postScanService:
-			self.session.nav.playService(self.postScanService)
-			self.postScanService = None
+		self.releaseFrontend()
+		self.restartService()
 		if not inStandby:
 			question = self.session.open(MessageBox, message, MessageBox.TYPE_ERROR)
 			question.setTitle(_("AutoBouquetsMaker"))
 		self.close()
 
 	def keyCancel(self):
-		if self.postScanService:
-			self.session.nav.playService(self.postScanService)
+		self.releaseFrontend()
+		self.restartService()
 		self.close()
 
 	def go(self):
@@ -307,11 +300,7 @@ class AutoBouquetsMaker(Screen):
 		del currentService
 
 		current_slotid = -1
-		if self.rawchannel:
-			del(self.rawchannel)
-
-		self.frontend = None
-		self.rawchannel = None
+		self.releaseFrontend()
 
 		nimList.reverse() # start from the last
 		for slotid in nimList:
@@ -536,17 +525,11 @@ class AutoBouquetsMaker(Screen):
 
 	def scanComplete(self):
 		from Screens.Standby import inStandby
-		if self.rawchannel:
-			del(self.rawchannel)
-
-		self.frontend = None
-		self.rawchannel = None
+		self.releaseFrontend()
+		self.restartService()
 
 		eDVBDB.getInstance().reloadServicelist()
 		eDVBDB.getInstance().reloadBouquets()
-		if self.postScanService:
-			self.session.nav.playService(self.postScanService)
-			self.postScanService = None
 		self.progresscurrent += 1
 		if not inStandby:
 			self["progress_text"].value = self.progresscurrent
@@ -558,6 +541,19 @@ class AutoBouquetsMaker(Screen):
 		self.timer.callback.append(self.close)
 		self.timer.start(2000, 1)
 
+	def releaseFrontend(self):
+		if hasattr(self, 'frontend'):
+			del self.frontend
+		if hasattr(self, 'rawchannel'):
+			del self.rawchannel
+		self.frontend = None
+		self.rawchannel = None
+
+	def restartService(self):
+		if self.postScanService:
+			self.session.nav.playService(self.postScanService)
+			self.postScanService = None
+	
 	def isRotorSat(self, slot, orb_pos):
 		rotorSatsForNim = nimmanager.getRotorSatListForNim(slot)
 		if len(rotorSatsForNim) > 0:
