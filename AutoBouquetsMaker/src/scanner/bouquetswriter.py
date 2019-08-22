@@ -330,8 +330,7 @@ class BouquetsWriter():
 
 		if count < max_count:
 			for i in range(count, max_count):
-				bouquet_out_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
-				bouquet_out_list.append("#DESCRIPTION  \n")
+				bouquet_out_list.append(self.spacer())
 
 		bouquet_out.write(''.join(bouquet_out_list))
 		bouquet_out.close()
@@ -617,8 +616,7 @@ class BouquetsWriter():
 				if number in services["video"] and number not in bouquets_to_hide:
 					current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
 				else:
-					current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
-					current_bouquet_list.append("#DESCRIPTION  \n")
+					current_bouquet_list.append(self.spacer())
 
 				current_number += 1
 				section_number += 1
@@ -670,8 +668,7 @@ class BouquetsWriter():
 						break
 
 				for x in range(current_number, higher_number - 1):
-					current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
-					current_bouquet_list.append("#DESCRIPTION  \n")
+					current_bouquet_list.append(self.spacer())
 
 				current_number = higher_number - 1
 
@@ -731,8 +728,7 @@ class BouquetsWriter():
 						current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
 						current_number += 1
 					elif force_keep_numbers:
-						current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
-						current_bouquet_list.append("#DESCRIPTION  \n")
+						current_bouquet_list.append(self.spacer())
 						current_number += 1
 
 				bouquet_current.write(''.join(current_bouquet_list))
@@ -753,8 +749,7 @@ class BouquetsWriter():
 			current_bouquet_list.append("#DESCRIPTION %sSeparator\n" % section_prefix)
 
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
-				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
-				current_bouquet_list.append("#DESCRIPTION  \n")
+				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
 			bouquet_current.write(''.join(current_bouquet_list))
@@ -794,8 +789,7 @@ class BouquetsWriter():
 						current_bouquet_list.append(self.bouquetServiceLine(services_swapped["video"][number]))
 
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
-				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
-				current_bouquet_list.append("#DESCRIPTION  \n")
+				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
 			bouquet_current.write(''.join(current_bouquet_list))
@@ -835,8 +829,7 @@ class BouquetsWriter():
 						current_bouquet_list.append(self.bouquetServiceLine(services_swapped["video"][number]))
 
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
-				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
-				current_bouquet_list.append("#DESCRIPTION  \n")
+				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
 			bouquet_current.write(''.join(current_bouquet_list))
@@ -878,8 +871,7 @@ class BouquetsWriter():
 						current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
 
 			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
-				current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
-				current_bouquet_list.append("#DESCRIPTION  \n")
+				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
 			bouquet_current.write(''.join(current_bouquet_list))
@@ -898,8 +890,7 @@ class BouquetsWriter():
 				if number in services["radio"]:
 					current_bouquet_list.append(self.bouquetServiceLine(services["radio"][number]))
 				else:
-					current_bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
-					current_bouquet_list.append("#DESCRIPTION  \n")
+					current_bouquet_list.append(self.spacer())
 
 		bouquet_current.write(''.join(current_bouquet_list))
 		bouquet_current.close()
@@ -917,6 +908,9 @@ class BouquetsWriter():
 			(("%s:%s" % (service["stream"], self.utf8_convert(service["service_name"]))) if "stream" in service else ""),
 			(("#DESCRIPTION %s\n" % self.utf8_convert(service["interactive_name"])) if "interactive_name" in service else "")
 		)
+
+	def spacer(self):
+		return "#SERVICE 1:832:0:0:0:0:0:0:0:0:\n#DESCRIPTION  \n"
 
 	def utf8_convert(self, text):
 		for encoding in ["utf8","latin-1"]:
