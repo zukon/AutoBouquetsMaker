@@ -524,15 +524,7 @@ class BouquetsWriter():
 		sort_list = sorted(sort_list, key=lambda listItem: listItem[1])
 		for item in sort_list:
 			service = tmp_services[item[0]]
-			last_scanned_bouquet_list.append("#SERVICE 1:0:%x:%x:%x:%x:%x:0:0:0:\n" % (
-				service["service_type"],
-				service["service_id"],
-				service["transport_stream_id"],
-				service["original_network_id"],
-				service["namespace"]
-			))
-			if "interactive_name" in service:
-				last_scanned_bouquet_list.append("#DESCRIPTION %s\n" % self.utf8_convert(service["interactive_name"]))
+			last_scanned_bouquet_list.append(self.bouquetServiceLine(service))
 		print>>log, "[ABM-BouquetsWriter] Writing Last Scanned bouquet..."
 		bouquet_current = open(path + "/userbouquet.LastScanned.tv", "w")
 		bouquet_current.write(''.join(last_scanned_bouquet_list))
