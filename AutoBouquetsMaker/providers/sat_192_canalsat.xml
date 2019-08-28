@@ -7,10 +7,10 @@
 		frequency="11856000"
 		symbol_rate="29700000"
 		polarization="1"
-		fec_inner="4"
+		fec_inner="2"
 		inversion="2"
 		system="1"
-		modulation="1"
+		modulation="2"
 		roll_off="0"
 		pilot="2"
 		bat_pid="0x11"
@@ -24,7 +24,7 @@
 		<section number="400">Autres</section>
 	</sections>
 	<dvbsconfigs>
-		<configuration key="hd_49165" bouquet="0xc00d" region="0x83">CanalSat France</configuration>
+		<configuration key="hd_49153" bouquet="0xc001" region="0x83">CanalSat France</configuration>
 	</dvbsconfigs>
 	<servicehacks>
 <![CDATA[
