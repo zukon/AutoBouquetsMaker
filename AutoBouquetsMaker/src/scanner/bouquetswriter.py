@@ -902,7 +902,7 @@ class BouquetsWriter():
 		)
 
 	def spacer(self):
-		return "#SERVICE 1:832:0:0:0:0:0:0:0:0:\n#DESCRIPTION  \n"
+		return "#SERVICE 1:320:0:0:0:0:0:0:0:0:\n#DESCRIPTION  \n"
 
 	def utf8_convert(self, text):
 		for encoding in ["utf8","latin-1"]:
