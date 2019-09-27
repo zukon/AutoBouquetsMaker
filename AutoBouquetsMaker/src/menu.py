@@ -97,7 +97,7 @@ class AutoBouquetsMaker_Menu(Screen):
 		if not config.autobouquetsmaker.keepallbouquets.value:
 			l.append(self.buildListEntry(_("Keep bouquets"), "reorder.png"))
 		l.append(self.buildListEntry(_("Start scan"), "download.png"))
-		l.append(self.buildListEntry(_("Delete bouquets"), "reorder.png"))
+		l.append(self.buildListEntry(_("Delete ABM bouquets"), "reorder.png"))
 		l.append(self.buildListEntry(_("Update provider files"), "reorder.png"))
 		if config.autobouquetsmaker.level.getValue() == "expert" and config.autobouquetsmaker.frequencyfinder.getValue():
 			l.append(self.buildListEntry(_("DVB-T frequency finder"), "reorder.png"))
