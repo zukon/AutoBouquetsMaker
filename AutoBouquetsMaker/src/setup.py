@@ -508,7 +508,7 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 				self.list.append(getConfigListEntry(indent + _("Schedule return to deep standby"), config.autobouquetsmaker.scheduleshutdown, _("If the receiver was woken from 'Deep Standby' and is currently in 'Standby' and no recordings are in progress return it to 'Deep Standby' once the scan has completed.")))
 		if config.autobouquetsmaker.level.value == "expert":
 			self.list.append(getConfigListEntry(_("Keep all non-ABM bouquets"), config.autobouquetsmaker.keepallbouquets, _("When disabled this will enable the 'Keep bouquets' option in the main menu, allowing you to hide some 'existing' bouquets.")))
-			self.list.append(getConfigListEntry(_("Add provider prefix to bouquets"), config.autobouquetsmaker.addprefix, _("This option will prepend the provider name to bouquet name.")))
+			self.list.append(getConfigListEntry(_("Add provider name to bouquets"), config.autobouquetsmaker.addprefix, _("This option will add the provider's name to bouquet names.")))
 			self.list.append(getConfigListEntry(_("Add provider markers"), config.autobouquetsmaker.markersinindex, _("This option places markers in the bouquet index to group all bouquets of each provider.")))
 			if config.autobouquetsmaker.markersinindex.getValue():
 				self.list.append(getConfigListEntry(indent + _("Style of provider marker"), config.autobouquetsmaker.indexmarkerstyle, _("Choose the style of markers that separate one provider from another in bouquet indexes.")))
