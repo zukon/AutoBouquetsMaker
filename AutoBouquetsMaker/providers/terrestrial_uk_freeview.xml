@@ -5,8 +5,8 @@
 	<dvbtconfigs>
 		<configuration key="angus______________" frequency="785800000">Angus</configuration>
 		<configuration key="beacon_hill________" frequency="785800000">Beacon Hill</configuration>
-		<configuration key="belmont____________" frequency="482000000">Belmont</configuration>
-		<configuration key="berks_north_hants__" frequency="642000000">Berks and North Hants</configuration>		
+		<configuration key="belmont____________" frequency="506000000">Belmont</configuration>
+		<configuration key="berks_north_hants__" frequency="642000000">Berks and North Hants</configuration>
 		<configuration key="bilsdale___________" frequency="514000000">Bilsdale</configuration>
 		<configuration key="black_hill_________" frequency="674000000">Black Hill</configuration>
 		<configuration key="blaenplwyf_________" frequency="522000000">Blaenplwyf</configuration>
@@ -82,11 +82,11 @@
 	<!-- Custom transponders are ONLY needed for HD muxes and for areas where tuning issues occur after running ABM -->
 	<customtransponders>
 		<customtransponder key="belmont____________" frequency="530000000" transport_stream_id="4089" system="1"/>
-		<customtransponder key="belmont____________" frequency="570000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="belmont____________" frequency="586000000" transport_stream_id="b000" system="1"/>
-		<customtransponder key="berks_north_hants__" frequency="618000000" transport_stream_id="4083" system="1"/>
+		<customtransponder key="belmont____________" frequency="586000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="belmont____________" frequency="754000000" transport_stream_id="b000" system="1"/>
+		<customtransponder key="belmont____________" frequency="530000000" transport_stream_id="4089" system="1"/>
 		<customtransponder key="berks_north_hants__" frequency="746000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="berks_north_hants__" frequency="754000000" transport_stream_id="b000" system="1"/>		
+		<customtransponder key="berks_north_hants__" frequency="754000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="bilsdale___________" frequency="490000000" transport_stream_id="4089" system="1"/>
 		<customtransponder key="bilsdale___________" frequency="514000000" transport_stream_id="1049" system="0"/>
 		<customtransponder key="bilsdale___________" frequency="538000000" transport_stream_id="2012" system="0"/>
