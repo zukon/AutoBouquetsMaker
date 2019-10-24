@@ -17,6 +17,7 @@ import dvbreader
 
 import os, errno
 import sys
+import re
 
 import datetime
 import time
@@ -560,7 +561,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 				break
 		network_name = self.strongestTransponder["network_name"]
 		customProviderList.append('<provider>\n')
-		customProviderList.append('\t<name>%s terrestrial</name>\n' % network_name)
+		customProviderList.append('\t<name>%s terrestrial</name>\n' % re.sub(r'&(?![A-Za-z]+[0-9]*;|#[0-9]+;|#x[0-9a-fA-F]+;)', r'&amp;', network_name)) # regex to avoid unencoded ampersands that are not entities
 		customProviderList.append('\t<streamtype>dvbt</streamtype>\n')
 		customProviderList.append('\t<protocol>lcn</protocol>\n')
 		customProviderList.append('\t<dvbtconfigs>\n')
