@@ -4,136 +4,140 @@
 	<streamtype>dvbt</streamtype>
 	<protocol>lcn</protocol>
 	<dvbtconfigs>
-		<configuration key="clare_ennistymon" frequency="754000000">Clare, Ennistymon</configuration>
-		<configuration key="clare_maghera" frequency="746000000">Clare, Maghera</configuration>
+		<configuration key="clare_ennistymon" frequency="594000000">Clare, Ennistymon</configuration>
+		<configuration key="clare_maghera" frequency="674000000">Clare, Maghera</configuration>
 		<configuration key="clare_woodcock_hill" frequency="658000000">Clare, Woodcock Hill</configuration>
 		<configuration key="cork_bandon" frequency="658000000">Cork, Bandon</configuration>
-		<configuration key="cork_bantry" frequency="754000000">Cork, Bantry</configuration>
-		<configuration key="cork_castletownbere" frequency="778000000">Cork, Castletownbere</configuration>
-		<configuration key="cork_clonakilty" frequency="722000000">Cork, Clonakilty</configuration>
-		<configuration key="cork_collins_barracks" frequency="626000000">Cork, Collins Barracks</configuration>
-		<configuration key="cork_crosshaven" frequency="754000000">Cork, Crosshaven</configuration>
+		<configuration key="cork_bantry" frequency="594000000">Cork, Bantry</configuration>
+		<configuration key="cork_castletownbere" frequency="650000000">Cork, Castletownbere</configuration>
+		<configuration key="cork_clonakilty" frequency="674000000">Cork, Clonakilty</configuration>
+		<configuration key="cork_collins_barracks" frequency="578000000">Cork, Collins Barracks</configuration>
+		<configuration key="cork_crosshaven" frequency="634000000">Cork, Crosshaven</configuration>
 		<configuration key="cork_drimoleague" frequency="618000000">Cork, Drimoleague</configuration>
-		<configuration key="cork_fermoy" frequency="754000000">Cork, Fermoy</configuration>
-		<configuration key="cork_glanmire" frequency="722000000">Cork, Glanmire</configuration>
+		<configuration key="cork_fermoy" frequency="594000000">Cork, Fermoy</configuration>
+		<configuration key="cork_glanmire" frequency="658000000">Cork, Glanmire</configuration>
 		<configuration key="cork_kinsale" frequency="514000000">Cork, Kinsale</configuration>
 		<configuration key="cork_leap" frequency="690000000">Cork, Leap</configuration>
 		<configuration key="cork_mitchelstown" frequency="650000000">Cork, Mitchelstown</configuration>
 		<configuration key="cork_mount_gabriel" frequency="554000000">Cork, Mount Gabriel</configuration>
-		<configuration key="cork_rosscarbery" frequency="762000000">Cork, Rosscarbery</configuration>
-		<configuration key="cork_spur_hill" frequency="698000000">Cork, Spur Hill</configuration>
+		<configuration key="cork_rosscarbery" frequency="578000000">Cork, Rosscarbery</configuration>
+		<configuration key="cork_spur_hill" frequency="618000000">Cork, Spur Hill</configuration>
 		<configuration key="cork_timoleague" frequency="538000000">Cork, Timoleague</configuration>
 		<configuration key="donegal_aranmore" frequency="658000000">Donegal, Aranmore</configuration>
 		<configuration key="donegal_ballybofey" frequency="658000000">Donegal, Ballybofey</configuration>
-		<configuration key="donegal_clonmany" frequency="698000000">Donegal, Clonmany</configuration>
-		<configuration key="donegal_fanad" frequency="778000000">Donegal, Fanad</configuration>
+		<configuration key="donegal_clonmany" frequency="642000000">Donegal, Clonmany</configuration>
+		<configuration key="donegal_fanad" frequency="674000000">Donegal, Fanad</configuration>
 		<configuration key="donegal_glencolumcille" frequency="594000000">Donegal, Glencolumcille</configuration>
-		<configuration key="donegal_glenties" frequency="706000000">Donegal, Glenties</configuration>
-		<configuration key="donegal_holywell_hill" frequency="570000000">Donegal, Holywell Hill</configuration>
-		<configuration key="donegal_letterkenny" frequency="762000000">Donegal, Letterkenny</configuration>
+		<configuration key="donegal_glenties" frequency="578000000">Donegal, Glenties</configuration>
+		<configuration key="donegal_holywell_hill" frequency="506000000">Donegal, Holywell Hill</configuration>
+		<configuration key="donegal_letterkenny" frequency="642000000">Donegal, Letterkenny</configuration>
 		<configuration key="donegal_magheraroarty" frequency="522000000">Donegal, Magheraroarty</configuration>
 		<configuration key="donegal_malin" frequency="514000000">Donegal, Malin</configuration>
-		<configuration key="donegal_moville" frequency="642000000">Donegal, Moville</configuration>
+		<configuration key="donegal_moville" frequency="578000000">Donegal, Moville</configuration>
 		<configuration key="dublin_three_rock" frequency="570000000">Dublin, Three Rock</configuration>
 		<configuration key="galway_casla" frequency="634000000">Galway, Casla</configuration>
-		<configuration key="galway_clifden" frequency="570000000">Galway, Clifden</configuration>
+		<configuration key="galway_clifden" frequency="490000000">Galway, Clifden</configuration>
 		<configuration key="galway_tonabrocky" frequency="490000000">Galway, Tonabrocky</configuration>
 		<configuration key="kerry_dingle" frequency="514000000">Kerry, Dingle</configuration>
 		<configuration key="kerry_kilkeaveragh" frequency="658000000">Kerry, Kilkeaveragh</configuration>
-		<configuration key="kerry_knockanore" frequency="658000000">Kerry, Knockanore</configuration>
-		<configuration key="kerry_knockmoyle" frequency="754000000">Kerry, Knockmoyle</configuration>
-		<configuration key="kerry_maamclassach" frequency="714000000">Kerry, Maamclassach</configuration>
+		<configuration key="kerry_cnocanoir" frequency="658000000">Kerry, Cnoc An Oir</configuration>
+		<configuration key="kerry_knockmoyle" frequency="594000000">Kerry, Knockmoyle</configuration>
+		<configuration key="kerry_maamclassach" frequency="650000000">Kerry, Maamclassach</configuration>
 		<configuration key="kerry_mullaghanish" frequency="498000000">Kerry, Mullaghanish</configuration>
-		<configuration key="kilkenny_suir_valley" frequency="754000000">Kilkenny, Suir Valley</configuration>
+		<configuration key="kilkenny_suir_valley" frequency="594000000">Kilkenny, Suir Valley</configuration>
 		<configuration key="longford_cairn_hill" frequency="658000000">Longford, Cairn Hill</configuration>
-		<configuration key="louth_clermont_carn" frequency="754000000">Louth, Clermont Carn</configuration>
-		<configuration key="louth_greenore" frequency="626000000">Louth, Greenore</configuration>
+		<configuration key="louth_clermont_carn" frequency="666000000">Louth, Clermont Carn</configuration>
+		<configuration key="louth_greenore" frequency="658000000">Louth, Greenore</configuration>
+		<configuration key="louth_drogheda" frequency="506000000">Louth, Drogheda</configuration>
 		<configuration key="mayo_achill" frequency="658000000">Mayo, Achill</configuration>
 		<configuration key="mayo_castlebar" frequency="506000000">Mayo, Castlebar</configuration>
 		<configuration key="mayo_dooncarton" frequency="562000000">Mayo, Dooncarton</configuration>
-		<configuration key="monaghan_monaghan" frequency="778000000">Monaghan, Monaghan</configuration>
-		<configuration key="sligo_truskmore" frequency="762000000">Sligo, Truskmore</configuration>
-		<configuration key="tipperary_ballina" frequency="706000000">Tipperary, Ballina</configuration>
+		<configuration key="monaghan_monaghan" frequency="650000000">Monaghan, Monaghan</configuration>
+		<configuration key="sligo_truskmore" frequency="666000000">Sligo, Truskmore</configuration>
+		<configuration key="tipperary_ballina" frequency="514000000">Tipperary, Ballina</configuration>
 		<configuration key="tipperary_cahir" frequency="506000000">Tipperary, Cahir</configuration>
-		<configuration key="tipperary_clonmel" frequency="778000000">Tipperary, Clonmel</configuration>
-		<configuration key="tipperary_kilduff" frequency="754000000">Tipperary, Kilduff</configuration>
-		<configuration key="waterford_dungarvan" frequency="778000000">Waterford, Dungarvan</configuration>
-		<configuration key="waterford_ferrypoint" frequency="722000000">Waterford, Ferrypoint</configuration>
+		<configuration key="tipperary_clonmel" frequency="674000000">Tipperary, Clonmel</configuration>
+		<configuration key="tipperary_kilduff" frequency="602000000">Tipperary, Kilduff</configuration>
+		<configuration key="waterford_dungarvan" frequency="578000000">Waterford, Dungarvan</configuration>
+		<configuration key="waterford_ferrypoint" frequency="650000000">Waterford, Ferrypoint</configuration>
 		<configuration key="waterford_gallows_hill" frequency="506000000">Waterford, Gallows Hill</configuration>
-		<configuration key="waterford_kilmacthomas" frequency="698000000">Waterford, Kilmacthomas</configuration>
-		<configuration key="wexford_forth_mountain" frequency="754000000">Wexford, Forth Mountain</configuration>
-		<configuration key="wexford_gorey" frequency="778000000">Wexford, Gorey</configuration>
+		<configuration key="waterford_kilmacthomas" frequency="650000000">Waterford, Kilmacthomas</configuration>
+		<configuration key="wexford_forth_mountain" frequency="594000000">Wexford, Forth Mountain</configuration>
+		<configuration key="wexford_gorey" frequency="658000000">Wexford, Gorey</configuration>
 		<configuration key="wexford_mount_leinster" frequency="514000000">Wexford, Mount Leinster</configuration>
 		<configuration key="wicklow_arklow" frequency="498000000">Wicklow, Arklow</configuration>
-		<configuration key="wicklow_greystones" frequency="754000000">Wicklow, Greystones</configuration>
-		<configuration key="wicklow_kippure" frequency="770000000">Wicklow, Kippure</configuration>
-		<configuration key="wicklow_laragh" frequency="698000000">Wicklow, Laragh</configuration>
+		<configuration key="wicklow_greystones" frequency="666000000">Wicklow, Greystones</configuration>
+		<configuration key="wicklow_kippure" frequency="586000000">Wicklow, Kippure</configuration>
+		<configuration key="wicklow_laragh" frequency="658000000">Wicklow, Laragh</configuration>
+		<configuration key="wicklow_wicklow" frequency="506000000">Wicklow, Wicklow</configuration>
 	</dvbtconfigs>
 	<customtransponders>
-		<customtransponder key="clare_ennistymon" transport_stream_id="03ea" frequency="754000000" />
-		<customtransponder key="clare_maghera" transport_stream_id="03ea" frequency="746000000" />
+		<customtransponder key="clare_ennistymon" transport_stream_id="03ea" frequency="594000000" />
+		<customtransponder key="clare_maghera" transport_stream_id="03ea" frequency="674000000" />
 		<customtransponder key="clare_woodcock_hill" transport_stream_id="03ea" frequency="658000000" />
 		<customtransponder key="cork_bandon" transport_stream_id="03ea" frequency="658000000" />
-		<customtransponder key="cork_bantry" transport_stream_id="03ea" frequency="754000000" />
-		<customtransponder key="cork_castletownbere" transport_stream_id="03ea" frequency="778000000" />
-		<customtransponder key="cork_clonakilty" transport_stream_id="03ea" frequency="722000000" />
-		<customtransponder key="cork_collins_barracks" transport_stream_id="03ea" frequency="626000000" />
-		<customtransponder key="cork_crosshaven" transport_stream_id="03ea" frequency="754000000" />
+		<customtransponder key="cork_bantry" transport_stream_id="03ea" frequency="594000000" />
+		<customtransponder key="cork_castletownbere" transport_stream_id="03ea" frequency="650000000" />
+		<customtransponder key="cork_clonakilty" transport_stream_id="03ea" frequency="674000000" />
+		<customtransponder key="cork_collins_barracks" transport_stream_id="03ea" frequency="578000000" />
+		<customtransponder key="cork_crosshaven" transport_stream_id="03ea" frequency="634000000" />
 		<customtransponder key="cork_drimoleague" transport_stream_id="03ea" frequency="618000000" />
-		<customtransponder key="cork_fermoy" transport_stream_id="03ea" frequency="754000000" />
-		<customtransponder key="cork_glanmire" transport_stream_id="03ea" frequency="722000000" />
+		<customtransponder key="cork_fermoy" transport_stream_id="03ea" frequency="594000000" />
+		<customtransponder key="cork_glanmire" transport_stream_id="03ea" frequency="658000000" />
 		<customtransponder key="cork_kinsale" transport_stream_id="03ea" frequency="514000000" />
 		<customtransponder key="cork_leap" transport_stream_id="03ea" frequency="690000000" />
 		<customtransponder key="cork_mitchelstown" transport_stream_id="03ea" frequency="650000000" />
 		<customtransponder key="cork_mount_gabriel" transport_stream_id="03ea" frequency="554000000" />
-		<customtransponder key="cork_rosscarbery" transport_stream_id="03ea" frequency="762000000" />
-		<customtransponder key="cork_spur_hill" transport_stream_id="03ea" frequency="698000000" />
+		<customtransponder key="cork_rosscarbery" transport_stream_id="03ea" frequency="578000000" />
+		<customtransponder key="cork_spur_hill" transport_stream_id="03ea" frequency="618000000" />
 		<customtransponder key="cork_timoleague" transport_stream_id="03ea" frequency="538000000" />
 		<customtransponder key="donegal_aranmore" transport_stream_id="03ea" frequency="658000000" />
 		<customtransponder key="donegal_ballybofey" transport_stream_id="03ea" frequency="658000000" />
-		<customtransponder key="donegal_clonmany" transport_stream_id="03ea" frequency="698000000" />
-		<customtransponder key="donegal_fanad" transport_stream_id="03ea" frequency="778000000" />
+		<customtransponder key="donegal_clonmany" transport_stream_id="03ea" frequency="642000000" />
+		<customtransponder key="donegal_fanad" transport_stream_id="03ea" frequency="674000000" />
 		<customtransponder key="donegal_glencolumcille" transport_stream_id="03ea" frequency="594000000" />
-		<customtransponder key="donegal_glenties" transport_stream_id="03ea" frequency="706000000" />
-		<customtransponder key="donegal_holywell_hill" transport_stream_id="03ea" frequency="570000000" />
-		<customtransponder key="donegal_letterkenny" transport_stream_id="03ea" frequency="762000000" />
+		<customtransponder key="donegal_glenties" transport_stream_id="03ea" frequency="578000000" />
+		<customtransponder key="donegal_holywell_hill" transport_stream_id="03ea" frequency="506000000" />
+		<customtransponder key="donegal_letterkenny" transport_stream_id="03ea" frequency="642000000" />
 		<customtransponder key="donegal_magheraroarty" transport_stream_id="03ea" frequency="522000000" />
 		<customtransponder key="donegal_malin" transport_stream_id="03ea" frequency="514000000" />
-		<customtransponder key="donegal_moville" transport_stream_id="03ea" frequency="642000000" />
+		<customtransponder key="donegal_moville" transport_stream_id="03ea" frequency="578000000" />
 		<customtransponder key="dublin_three_rock" transport_stream_id="03ea" frequency="570000000" />
 		<customtransponder key="galway_casla" transport_stream_id="03ea" frequency="634000000" />
-		<customtransponder key="galway_clifden" transport_stream_id="03ea" frequency="570000000" />
+		<customtransponder key="galway_clifden" transport_stream_id="03ea" frequency="490000000" />
 		<customtransponder key="galway_tonabrocky" transport_stream_id="03ea" frequency="490000000" />
 		<customtransponder key="kerry_dingle" transport_stream_id="03ea" frequency="514000000" />
 		<customtransponder key="kerry_kilkeaveragh" transport_stream_id="03ea" frequency="658000000" />
-		<customtransponder key="kerry_knockanore" transport_stream_id="03ea" frequency="658000000" />
-		<customtransponder key="kerry_knockmoyle" transport_stream_id="03ea" frequency="754000000" />
-		<customtransponder key="kerry_maamclassach" transport_stream_id="03ea" frequency="714000000" />
+		<customtransponder key="kerry_cnocanoir" transport_stream_id="03ea" frequency="658000000" />
+		<customtransponder key="kerry_knockmoyle" transport_stream_id="03ea" frequency="594000000" />
+		<customtransponder key="kerry_maamclassach" transport_stream_id="03ea" frequency="650000000" />
 		<customtransponder key="kerry_mullaghanish" transport_stream_id="03ea" frequency="498000000" />
-		<customtransponder key="kilkenny_suir_valley" transport_stream_id="03ea" frequency="754000000" />
+		<customtransponder key="kilkenny_suir_valley" transport_stream_id="03ea" frequency="594000000" />
 		<customtransponder key="longford_cairn_hill" transport_stream_id="03ea" frequency="658000000" />
-		<customtransponder key="louth_clermont_carn" transport_stream_id="03ea" frequency="754000000" />
-		<customtransponder key="louth_greenore" transport_stream_id="03ea" frequency="626000000" />
+		<customtransponder key="louth_clermont_carn" transport_stream_id="03ea" frequency="666000000" />
+		<customtransponder key="louth_greenore" transport_stream_id="03ea" frequency="658000000" />
+		<customtransponder key="louth_drogheda" transport_stream_id="03ea" frequency="506000000" />
 		<customtransponder key="mayo_achill" transport_stream_id="03ea" frequency="658000000" />
 		<customtransponder key="mayo_castlebar" transport_stream_id="03ea" frequency="506000000" />
 		<customtransponder key="mayo_dooncarton" transport_stream_id="03ea" frequency="562000000" />
-		<customtransponder key="monaghan_monaghan" transport_stream_id="03ea" frequency="778000000" />
-		<customtransponder key="sligo_truskmore" transport_stream_id="03ea" frequency="762000000" />
-		<customtransponder key="tipperary_ballina" transport_stream_id="03ea" frequency="706000000" />
+		<customtransponder key="monaghan_monaghan" transport_stream_id="03ea" frequency="650000000" />
+		<customtransponder key="sligo_truskmore" transport_stream_id="03ea" frequency="666000000" />
+		<customtransponder key="tipperary_ballina" transport_stream_id="03ea" frequency="514000000" />
 		<customtransponder key="tipperary_cahir" transport_stream_id="03ea" frequency="506000000" />
-		<customtransponder key="tipperary_clonmel" transport_stream_id="03ea" frequency="778000000" />
-		<customtransponder key="tipperary_kilduff" transport_stream_id="03ea" frequency="754000000" />
-		<customtransponder key="waterford_dungarvan" transport_stream_id="03ea" frequency="778000000" />
-		<customtransponder key="waterford_ferrypoint" transport_stream_id="03ea" frequency="722000000" />
+		<customtransponder key="tipperary_clonmel" transport_stream_id="03ea" frequency="674000000" />
+		<customtransponder key="tipperary_kilduff" transport_stream_id="03ea" frequency="602000000" />
+		<customtransponder key="waterford_dungarvan" transport_stream_id="03ea" frequency="578000000" />
+		<customtransponder key="waterford_ferrypoint" transport_stream_id="03ea" frequency="650000000" />
 		<customtransponder key="waterford_gallows_hill" transport_stream_id="03ea" frequency="506000000" />
-		<customtransponder key="waterford_kilmacthomas" transport_stream_id="03ea" frequency="698000000" />
-		<customtransponder key="wexford_forth_mountain" transport_stream_id="03ea" frequency="754000000" />
-		<customtransponder key="wexford_gorey" transport_stream_id="03ea" frequency="778000000" />
+		<customtransponder key="waterford_kilmacthomas" transport_stream_id="03ea" frequency="650000000" />
+		<customtransponder key="wexford_forth_mountain" transport_stream_id="03ea" frequency="594000000" />
+		<customtransponder key="wexford_gorey" transport_stream_id="03ea" frequency="658000000" />
 		<customtransponder key="wexford_mount_leinster" transport_stream_id="03ea" frequency="514000000" />
 		<customtransponder key="wicklow_arklow" transport_stream_id="03ea" frequency="498000000" />
-		<customtransponder key="wicklow_greystones" transport_stream_id="03ea" frequency="754000000" />
-		<customtransponder key="wicklow_kippure" transport_stream_id="03ea" frequency="770000000" />
-		<customtransponder key="wicklow_laragh" transport_stream_id="03ea" frequency="698000000" />
+		<customtransponder key="wicklow_greystones" transport_stream_id="03ea" frequency="666000000" />
+		<customtransponder key="wicklow_kippure" transport_stream_id="03ea" frequency="586000000" />
+		<customtransponder key="wicklow_laragh" transport_stream_id="03ea" frequency="658000000" />
+		<customtransponder key="wicklow_wicklow" transport_stream_id="03ea" frequency="506000000" />
 	</customtransponders>
 	<sections>
 		<section number="1">Saorview</section>
