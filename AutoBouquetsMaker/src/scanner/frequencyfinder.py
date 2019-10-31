@@ -502,7 +502,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 					nit_current_content += section["content"]
 
 					if 'network_name' in section["header"] and section["header"]["network_name"] != "Unknown":
-						self.network_name = re.sub(r'&(?![A-Za-z]+[0-9]*;|#[0-9]+;|#x[0-9a-fA-F]+;)', r'&amp;', section["header"]["network_name"])  # regex to avoid unencoded ampersands that are not entities
+						self.network_name = section["header"]["network_name"]
 
 					if len(nit_current_sections_read) == nit_current_sections_count:
 						nit_current_completed = True
@@ -559,7 +559,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			if transponder["system"] == 0:
 				self.strongestTransponder = transponder
 				break
-		network_name = self.strongestTransponder["network_name"]
+		network_name = re.sub(r'&(?![A-Za-z]+[0-9]*;|#[0-9]+;|#x[0-9a-fA-F]+;)', r'&amp;', self.strongestTransponder["network_name"]) # regex to avoid unencoded ampersands that are not entities
 		customProviderList.append('<provider>\n')
 		customProviderList.append('\t<name>%s terrestrial</name>\n' % network_name)
 		customProviderList.append('\t<streamtype>dvbt</streamtype>\n')
