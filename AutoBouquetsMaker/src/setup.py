@@ -498,7 +498,7 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 		self.list = []
 		indent = '-  '
 
-		self.list.append(getConfigListEntry(_("Setup mode"), config.autobouquetsmaker.level, _("Choose which level of settings to display. 'Expert'-level shows all items, this also adds more options in the providers menu.")))
+#		self.list.append(getConfigListEntry(_("Setup mode"), config.autobouquetsmaker.level, _("Choose which level of settings to display. 'Expert'-level shows all items, this also adds more options in the providers menu.")))
 		self.list.append(getConfigListEntry(_("Schedule scan"), config.autobouquetsmaker.schedule, _("Allows you to set a schedule to perform a scan ")))
 		if config.autobouquetsmaker.schedule.getValue():
 			self.list.append(getConfigListEntry(indent + _("Schedule time of day"), config.autobouquetsmaker.scheduletime, _("Set the time of day to perform a scan.")))

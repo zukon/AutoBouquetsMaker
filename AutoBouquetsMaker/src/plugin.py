@@ -9,7 +9,8 @@ from scanner.main import Scheduleautostart, AutoBouquetsMaker
 
 from Components.config import config, configfile, ConfigSubsection, ConfigYesNo, ConfigSelection, ConfigText, ConfigNumber, NoSave, ConfigClock, getConfigListEntry, ConfigEnableDisable, ConfigSubDict
 config.autobouquetsmaker = ConfigSubsection()
-config.autobouquetsmaker.level = ConfigSelection(default = "simple", choices = [("simple", _("simple")), ("expert", _("expert"))])
+config.autobouquetsmaker.level = ConfigSelection(default = "expert", choices = [("simple", _("simple")), ("expert", _("expert"))])
+config.autobouquetsmaker.level.value = "expert" # force to expert mode for all users
 config.autobouquetsmaker.providers = ConfigText("", False)
 config.autobouquetsmaker.bouquetsorder = ConfigText("", False)
 config.autobouquetsmaker.schedule = ConfigYesNo(default = False)
