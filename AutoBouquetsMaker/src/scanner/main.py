@@ -277,6 +277,9 @@ class AutoBouquetsMaker(Screen):
 			self.showError(_('Cannot retrieve Resource Manager instance'))
 			return
 
+		if self.providers[self.currentAction]["streamtype"] == "dvbs": # If we have a choice of dishes sort the nimList so "fixed" dishes have a higher priority than "motorised".
+			nimList = [slot for slot in nimList if not self.isRotorSat(slot, transponder["orbital_position"])] + [slot for slot in nimList if self.isRotorSat(slot, transponder["orbital_position"])]
+
 		if self.providers[self.currentAction]["streamtype"] == "dvbs":
 			print>>log, "[ABM-main][doTune] Search NIM for orbital position %d" % transponder["orbital_position"]
 		else:
@@ -312,7 +315,6 @@ class AutoBouquetsMaker(Screen):
 		current_slotid = -1
 		self.releaseFrontend()
 
-		nimList.reverse() # start from the last
 		for slotid in nimList:
 			if self.providers[self.currentAction]["streamtype"] == "dvbs":
 				sats = nimmanager.getSatListForNim(slotid)
