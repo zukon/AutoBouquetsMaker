@@ -244,7 +244,8 @@ class AutoBouquetsMaker(Screen):
 			try: # OpenPLi Hot Switch compatible image
 				if (nim.config_mode not in ("loopthrough", "satposdepends", "nothing")) and \
 					{"dvbs": "DVB-S", "dvbc": "DVB-C", "dvbt": "DVB-T"}.get(self.providers[self.currentAction]["streamtype"], "UNKNOWN") in [x[:5] for x in nim.getTunerTypesEnabled()]:
-					nimList.append(nim.slot)
+					if self.validNIM(nim.slot):
+						nimList.append(nim.slot)
 					tunerSelectionAlgorithm = 1
 			except AttributeError:
 				try:
@@ -252,13 +253,15 @@ class AutoBouquetsMaker(Screen):
 						((self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.isCompatible("DVB-S")) or \
 						(self.providers[self.currentAction]["streamtype"] == "dvbc" and (nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")))) or \
 						(self.providers[self.currentAction]["streamtype"] == "dvbt" and (nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T"))))):
-						nimList.append(nim.slot)
+						if self.validNIM(nim.slot):
+							nimList.append(nim.slot)
 						tunerSelectionAlgorithm = 2
 				except AttributeError: # OpenATV > 5.3
 					if (self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.canBeCompatible("DVB-S") and nim.config_mode_dvbs not in ("loopthrough", "satposdepends", "nothing")) or \
 						(self.providers[self.currentAction]["streamtype"] == "dvbc" and nim.canBeCompatible("DVB-C") and nim.config_mode_dvbc != "nothing") or \
 						(self.providers[self.currentAction]["streamtype"] == "dvbt" and nim.canBeCompatible("DVB-T") and nim.config_mode_dvbt != "nothing"):
-						nimList.append(nim.slot)
+						if self.validNIM(nim.slot):
+							nimList.append(nim.slot)
 						tunerSelectionAlgorithm = 3
 
 		print>>log, "[ABM-main][doTune] tuner selection algorithm '%s'" % {0: "UNKNOWN", 1: "OpenPLi Hot Switch compatible", 2: "Conventional", 3: "OpenATV > 5.3"}.get(tunerSelectionAlgorithm, "UNKNOWN")
@@ -568,6 +571,9 @@ class AutoBouquetsMaker(Screen):
 				if sat[0] == orb_pos:
 					return True
 		return False
+
+	def validNIM(self, slot):
+		return self.providers[self.currentAction]["streamtype"] != "dvbs" or self.providers[self.currentAction]["transponder"]["orbital_position"] in [sat[0] for sat in nimmanager.getSatListForNim(slot)]
 
 	def printconfig(self):
 		print>>log, "[ABM-config] level: ",config.autobouquetsmaker.level.value
