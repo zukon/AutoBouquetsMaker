@@ -280,11 +280,6 @@ class AutoBouquetsMaker(Screen):
 		if self.providers[self.currentAction]["streamtype"] == "dvbs": # If we have a choice of dishes sort the nimList so "fixed" dishes have a higher priority than "motorised".
 			nimList = [slot for slot in nimList if not self.isRotorSat(slot, transponder["orbital_position"])] + [slot for slot in nimList if self.isRotorSat(slot, transponder["orbital_position"])]
 
-		if self.providers[self.currentAction]["streamtype"] == "dvbs":
-			print>>log, "[ABM-main][doTune] Search NIM for orbital position %d" % transponder["orbital_position"]
-		else:
-			print>>log, "[ABM-main][doTune] Search NIM"
-
 		# stop pip if running
 		if self.session.pipshown:
 			self.session.pipshown = False
@@ -312,63 +307,24 @@ class AutoBouquetsMaker(Screen):
 		del frontendInfo
 		del currentService
 
-		current_slotid = -1
 		self.releaseFrontend()
 
-		for slotid in nimList:
-			if self.providers[self.currentAction]["streamtype"] == "dvbs":
-				sats = nimmanager.getSatListForNim(slotid)
-				for sat in sats:
-					if sat[0] == transponder["orbital_position"]:
-						if current_slotid == -1:	# mark the first valid slotid in case of no other one is free
-							current_slotid = slotid
-
-						self.rawchannel = resmanager.allocateRawChannel(slotid)
-						if self.rawchannel:
-							print>>log, "[ABM-main][doTune] Nim found on slot id %d with sat %s" % (slotid, sat[1])
-							current_slotid = slotid
-						break
-			else:
-				if current_slotid == -1:	# mark the first valid slotid in case of no other one is free
-					current_slotid = slotid
-				self.rawchannel = resmanager.allocateRawChannel(slotid)
-				if self.rawchannel:
- 					print>>log, "[ABM-main][doTune] Nim found on slot id %d" % (slotid)
-					current_slotid = slotid
-					break
-
+		for current_slotid in nimList:
+			self.rawchannel = resmanager.allocateRawChannel(current_slotid)
 			if self.rawchannel:
+				print>>log, "[ABM-main][doTune] Tuner %s selected%s" % (chr(ord('A') + current_slotid), (" for orbital position %d" % transponder["orbital_position"] if "orbital_position" in transponder else ""))
 				break
-
-		if current_slotid == -1:
-			print>>log, "[ABM-main][doTune] No valid NIM found"
-			self.showError(_('No valid NIM found for ') + self.providers[self.currentAction]["name"])
-			return
 
 		if not self.rawchannel:
 			# if we are here the only possible option is to close the active service
 			if currentlyPlayingNIM in nimList:
-				slotid = currentlyPlayingNIM
-				if self.providers[self.currentAction]["streamtype"] == "dvbs":
-					sats = nimmanager.getSatListForNim(slotid)
-					for sat in sats:
-						if sat[0] == transponder["orbital_position"]:
-							print>>log, "[ABM-main][doTune] Nim found on slot id %d but it's busy. Stopping active service" % slotid
-							self.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
-							self.session.nav.stopService()
-							self.rawchannel = resmanager.allocateRawChannel(slotid)
-							if self.rawchannel:
-								print>>log, "[ABM-main][doTune] The active service was stopped, and the NIM is now free to use."
-								current_slotid = slotid
-							break
-				else:
-					print>>log, "[ABM-main][doTune] Nim found on slot id %d but it's busy. Stopping active service" % slotid
-					self.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
-					self.session.nav.stopService()
-					self.rawchannel = resmanager.allocateRawChannel(slotid)
-					if self.rawchannel:
-						print>>log, "[ABM-main][doTune] The active service was stopped, and the NIM is now free to use."
-						current_slotid = slotid
+				print>>log, "[ABM-main][doTune] Tuner %s has been selected but it's busy. Stopping currently playing service." % chr(ord('A') + currentlyPlayingNIM)
+				self.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
+				self.session.nav.stopService()
+				self.rawchannel = resmanager.allocateRawChannel(currentlyPlayingNIM)
+				if self.rawchannel:
+					print>>log, "[ABM-main][doTune] The active service was stopped, and tuner %s is now free to use." % chr(ord('A') + currentlyPlayingNIM)
+					current_slotid = currentlyPlayingNIM
 
 			if not self.rawchannel:
 				if self.session.nav.RecordTimer.isRecording():
