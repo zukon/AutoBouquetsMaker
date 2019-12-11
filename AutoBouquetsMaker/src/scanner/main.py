@@ -3,6 +3,7 @@ from .. import _
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
+from Components.ActionMap import ActionMap
 from Components.Label import Label
 from Components.Pixmap import Pixmap
 from Components.ProgressBar import ProgressBar
@@ -51,6 +52,12 @@ class AutoBouquetsMaker(Screen):
 		self.rawchannel = None
 		self.postScanService = None
 		self.providers = Manager().getProviders()
+
+		self["actions"] = ActionMap(["OkCancelActions", "ColorActions"],
+		{
+			"cancel": self.keyCancel,
+			"red": self.keyCancel,
+		}, -2)
 
 		self["background"] = Pixmap()
 		self["action"] = Label(_("Starting scanner"))
@@ -185,6 +192,7 @@ class AutoBouquetsMaker(Screen):
 		from Screens.Standby import inStandby
 		if len(self.actionsList) == 0:
 			self.progresscurrent += 1
+			self["actions"].setEnabled(False) # disable action map here so we can't abort half way through writing result to settings files
 			if not inStandby:
 				self["progress_text"].value = self.progresscurrent
 				self["progress"].setValue(self.progresscurrent)
