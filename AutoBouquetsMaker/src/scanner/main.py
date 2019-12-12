@@ -241,7 +241,7 @@ class AutoBouquetsMaker(Screen):
 			transponder = self.providers[self.currentAction]["bouquets"][bouquet_key]
 
 		nimList = []
-		tunerSelectionAlgorithm = 0 # for debug
+		tunerSelectionAlgorithm = "UNKNOWN" # for debug
 		for nim in nimmanager.nim_slots:
 			if self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.isCompatible("DVB-S"):
 				try:
@@ -254,7 +254,7 @@ class AutoBouquetsMaker(Screen):
 					{"dvbs": "DVB-S", "dvbc": "DVB-C", "dvbt": "DVB-T"}.get(self.providers[self.currentAction]["streamtype"], "UNKNOWN") in [x[:5] for x in nim.getTunerTypesEnabled()]:
 					if self.validNIM(nim.slot):
 						nimList.append(nim.slot)
-					tunerSelectionAlgorithm = 1
+					tunerSelectionAlgorithm = "OpenPLi Hot Switch compatible"
 			except AttributeError:
 				try:
 					if (nim.config_mode not in ("loopthrough", "satposdepends", "nothing")) and \
@@ -263,16 +263,16 @@ class AutoBouquetsMaker(Screen):
 						(self.providers[self.currentAction]["streamtype"] == "dvbt" and (nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T"))))):
 						if self.validNIM(nim.slot):
 							nimList.append(nim.slot)
-						tunerSelectionAlgorithm = 2
+						tunerSelectionAlgorithm = "Conventional"
 				except AttributeError: # OpenATV > 5.3
 					if (self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.canBeCompatible("DVB-S") and nim.config_mode_dvbs not in ("loopthrough", "satposdepends", "nothing")) or \
 						(self.providers[self.currentAction]["streamtype"] == "dvbc" and nim.canBeCompatible("DVB-C") and nim.config_mode_dvbc != "nothing") or \
 						(self.providers[self.currentAction]["streamtype"] == "dvbt" and nim.canBeCompatible("DVB-T") and nim.config_mode_dvbt != "nothing"):
 						if self.validNIM(nim.slot):
 							nimList.append(nim.slot)
-						tunerSelectionAlgorithm = 3
+						tunerSelectionAlgorithm = "OpenATV > 5.3"
 
-		print>>log, "[ABM-main][doTune] tuner selection algorithm '%s'" % {0: "UNKNOWN", 1: "OpenPLi Hot Switch compatible", 2: "Conventional", 3: "OpenATV > 5.3"}.get(tunerSelectionAlgorithm, "UNKNOWN")
+		print>>log, "[ABM-main][doTune] tuner selection algorithm '%s'" % tunerSelectionAlgorithm
 
 		if len(nimList) == 0:
 			print>>log, "[ABM-main][doTune] No NIMs found"
