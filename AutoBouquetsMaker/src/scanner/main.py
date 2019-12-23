@@ -240,6 +240,8 @@ class AutoBouquetsMaker(Screen):
 
 			transponder = self.providers[self.currentAction]["bouquets"][bouquet_key]
 
+		self.transponder = transponder
+
 		nimList = []
 		tunerSelectionAlgorithm = "UNKNOWN" # for debug
 		for nim in nimmanager.nim_slots:
@@ -458,13 +460,13 @@ class AutoBouquetsMaker(Screen):
 			print>>log, "[ABM-main][checkTunerLock] LOSTLOCK"
 		elif dict["tuner_state"] == "FAILED":
 			print>>log, "[ABM-main][checkTunerLock] TUNING FAILED FATAL"
-			self.showError(_('Failed to tune %s on tuner %s.\n\nPlease check the following:\nThe tuner is correctly configured.\nYou can receive the specified frequency.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid)))
+			self.showError(_('Tuning failed!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]/1000))
 			return
 
 		self.lockcounter += 1
 		if self.lockcounter > self.LOCK_TIMEOUT:
 			print>>log, "[AutoBouquetsMaker] Timeout for tuner lock, "
-			self.showError(_('Timed out tuning %s on tuner %s.\n\nPlease check the following:\nThe tuner is correctly configured.\nYou can receive the specified frequency.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid)))
+			self.showError(_('Tuning lock timed out!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]/1000))
 			return
 
 		self.locktimer.start(100, 1)
