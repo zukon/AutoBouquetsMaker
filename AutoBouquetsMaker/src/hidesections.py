@@ -29,8 +29,8 @@ class AutoBouquetsMaker_HideSections(Screen):
 				<convert type="TemplatedMultiContent">
 					{"template": [
 						MultiContentEntryPixmapAlphaTest(pos = (10, 0), size = (32, 32), png = 0),
-						MultiContentEntryText(pos = (47, 0), size = (400, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
-						MultiContentEntryText(pos = (450, 0), size = (120, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 2),
+						MultiContentEntryText(pos = (47, 0), size = (300, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
+						MultiContentEntryText(pos = (350, 0), size = (220, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 2),
 						],
 						"fonts": [gFont("Regular", 22)],
 						"itemHeight": 30
