@@ -255,9 +255,6 @@ if service["service_name"].startswith("SptsETV"):
 if service["service_name"] in fta_corrections:
 	service["free_ca"] = 1
 
-if service["service_id"] == 2606 and service["number"] == 527:
-	skip = True
-
 service["service_flags"] = flags
 service["provider_name"] = provider
 
