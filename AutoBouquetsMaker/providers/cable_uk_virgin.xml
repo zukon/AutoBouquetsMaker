@@ -110,7 +110,6 @@
 		<section number="990">BBC Interactive</section>
 		<section number="997">Information</section>
 		<section number="1000">Red button</section>
-		<section number="1020">BT Sport Interactive</section>
 	</sections>
 	<!-- swapchannels affects main and sections bouquets. "number" is the SD channel. "with" is the HD channel. Swap will not occur if target is not HD or non-existent -->
 	<swapchannels>
@@ -199,7 +198,6 @@ except:
 
 				]
 
-	bt_sports_xtra = ["BT Sport Extra 0","BT Sport Extra 1","BT Sport Extra 2","BT Sport Extra 3","BT Sport Extra 4","BT Sport Extra 5","BT Sport Extra 6"]
 
 	fta_corrections = [
 	"BBC Scotland HD",
@@ -236,9 +234,6 @@ for number in service["numbers"]:
 		break
 	elif number == 43:
 		service["numbers"] = [number + 957]
-		break
-	elif number < 100 and service["service_name"] in bt_sports_xtra:
-		service["numbers"] = [1021 + bt_sports_xtra.index(service["service_name"])]
 		break
 
 if service["service_name"] in blacklist:
