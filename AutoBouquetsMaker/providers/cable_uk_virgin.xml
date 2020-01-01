@@ -139,7 +139,6 @@
 		<channel number="156" with="229" /><!-- E! HD -->
 		<channel number="157" with="199" /><!-- Fox HD -->
 		<channel number="245" with="247" /><!-- Eden HD -->
-		<channel number="264" with="265" /><!-- Nat Geo Wild HD -->
 		<channel number="266" with="268" /><!-- Nat Geo HD -->
 		<channel number="270" with="299" /><!-- History HD -->
 		<channel number="428" with="429" /><!-- Film 4 HD -->
@@ -163,8 +162,6 @@ except:
 
 	#Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
 	blacklist = [
-				217,
-				'&TV',
 				'ABN TV',
 				'BT Events HD',
 				'BT Sport Ultimate WSL',
@@ -197,6 +194,7 @@ except:
 				'XL Pack Tier 5',
 				'YouTube',
 				'Your TV',
+				'\x03Channel Update',
 				'Zing'
 
 				]
