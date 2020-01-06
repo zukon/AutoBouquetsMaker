@@ -3,40 +3,12 @@
 from . import _
 
 from Screens.Screen import Screen
-from Screens.MessageBox import MessageBox
-from Components.config import getConfigListEntry, config, configfile
-from Components.Sources.List import List
-from Components.ActionMap import ActionMap
-from Components.Button import Button
-from Tools.LoadPixmap import LoadPixmap
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
-try:
-	from Tools.Directories import SCOPE_ACTIVE_SKIN
-except:
-	pass
-
+from Components.config import config
+from listbuilder import AutoBouquetsMaker_listBuilder
 from scanner.manager import Manager
 
-from urlparse import urlparse
-
-class AutoBouquetsMaker_KeepBouquets(Screen):
-	skin = """
-		<screen position="center,center" size="600,500">
-			<widget source="key_red" render="Label" position="0,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="red" foregroundColor="white"/>
-			<widget source="key_green" render="Label" position="150,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="green" foregroundColor="white"/>
-			<widget source="list" render="Listbox" position="10,50" size="580,450" scrollbarMode="showOnDemand">
-				<convert type="TemplatedMultiContent">
-					{"template": [
-						MultiContentEntryPixmapAlphaTest(pos = (10, 0), size = (32, 32), png = 0),
-						MultiContentEntryText(pos = (47, 0), size = (400, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
-						MultiContentEntryText(pos = (450, 0), size = (120, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 2),
-						],
-						"fonts": [gFont("Regular", 22)],
-						"itemHeight": 30
-					}
-				</convert>
-			</widget>
-		</screen>"""
+class AutoBouquetsMaker_KeepBouquets(Screen, AutoBouquetsMaker_listBuilder):
+	# embedded skin is in listbuilder.py
 
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
 
@@ -44,35 +16,11 @@ class AutoBouquetsMaker_KeepBouquets(Screen):
 		Screen.__init__(self, session)
 		self.session = session
 		Screen.setTitle(self, _("AutoBouquetsMaker Keep bouquets"))
-		self.startlist = config.autobouquetsmaker.keepbouquets.getValue()
-		self.drawList = []
-
-		self["list"] = List(self.drawList)
-		self["key_red"] = Button(_("Cancel"))
-		self["key_green"] = Button("Save")
-		self["actions"] = ActionMap(["OkCancelActions", "ColorActions"],
-				{
-					"red": self.keyCancel,
-					"green": self.keySave,
-					"ok": self.ok,
-					"cancel": self.keyCancel,
-				}, -2)
+		self.configItem = config.autobouquetsmaker.keepbouquets
+		self.startlist = self.configItem.getValue()
+		AutoBouquetsMaker_listBuilder.__init__(self)
 
 		self.refresh()
-
-	def buildListEntry(self, enabled, name, type):
-		if enabled:
-			try:
-				pixmap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_ACTIVE_SKIN, "icons/lock_on.png"))
-			except:
-				pixmap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, "/usr/share/enigma2/skin_default/icons/lock_on.png"))
-		else:
-			try:
-				pixmap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_ACTIVE_SKIN, "icons/lock_off.png"))
-			except:
-				pixmap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, "/usr/share/enigma2/skin_default/icons/lock_off.png"))
-
-		return((pixmap, name, type))
 
 	def refresh(self):
 		bouquets = Manager().getBouquetsList()
@@ -80,7 +28,7 @@ class AutoBouquetsMaker_KeepBouquets(Screen):
 		self.listRadio = bouquets["radio"]
 		self.drawList = []
 		self.listAll = []
-		self.bouquets = config.autobouquetsmaker.keepbouquets.value.split("|")
+		self.bouquets = self.configItem.value.split("|")
 
 		if self.listTv is not None and self.listRadio is not None:
 			for bouquet in self.listTv:
@@ -110,25 +58,6 @@ class AutoBouquetsMaker_KeepBouquets(Screen):
 			self.bouquets.remove(self.listAll[index])
 		else:
 			self.bouquets.append(self.listAll[index])
-		config.autobouquetsmaker.keepbouquets.value = "|".join(self.bouquets)
+		self.configItem.value = "|".join(self.bouquets)
 		self.refresh()
 		self["list"].setIndex(index)
-
-	# keySave and keyCancel are just provided in case you need them.
-	# you have to call them by yourself.
-	def keySave(self):
-		config.autobouquetsmaker.keepbouquets.save()
-		configfile.save()
-		self.close()
-
-	def cancelConfirm(self, result):
-		if not result:
-			return
-		config.autobouquetsmaker.hidesections.cancel()
-		self.close()
-
-	def keyCancel(self):
-		if self.startlist != config.autobouquetsmaker.keepbouquets.getValue():
-			self.session.openWithCallback(self.cancelConfirm, MessageBox, _("Really close without saving settings?"))
-		else:
-			self.close()
