@@ -14,7 +14,7 @@ class AutoBouquetsMaker_About(Screen):
 	skin="""
 <screen position="center,center" size="600,500">
 	<widget name="about" position="10,10" size="580,430" font="Regular;22"/>
-	<widget source="key_red" render="Label" position="0,460" size="140,40" valign="center" halign="center" zPosition="5" font="Regular;18" backgroundColor="red" foregroundColor="white"/>
+	<widget name="key_red" position="0,460" size="140,40" valign="center" halign="center" zPosition="5" font="Regular;18" backgroundColor="red" foregroundColor="white"/>
 	<widget name="oealogo" position="400,365" size="200,135"  zPosition="4" transparent="1" alphatest="blend"/>
 </screen>"""
 
