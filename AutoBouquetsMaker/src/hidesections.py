@@ -19,8 +19,8 @@ from urlparse import urlparse
 class AutoBouquetsMaker_HideSections(Screen):
 	skin = """
 		<screen position="center,center" size="600,500">
-			<widget source="key_red" render="Label" position="0,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="red" foregroundColor="white"/>
-			<widget source="key_green" render="Label" position="150,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="green" foregroundColor="white"/>
+			<widget name="key_red" position="0,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="red" foregroundColor="white"/>
+			<widget name="key_green" position="150,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="green" foregroundColor="white"/>
 			<widget source="list" render="Listbox" position="10,50" size="580,450" scrollbarMode="showOnDemand">
 				<convert type="TemplatedMultiContent">
 					{"template": [
