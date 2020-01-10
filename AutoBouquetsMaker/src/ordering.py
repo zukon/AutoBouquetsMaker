@@ -36,7 +36,7 @@ class AutoBouquetsMaker_Ordering(Screen):
 
 	def __init__(self, session):
 		Screen.__init__(self, session)
-		self.setup_title = _("Bouquets order")
+		self.setup_title = _("Providers order")
 		Screen.setTitle(self, self.setup_title)
 
 		self.providers_order = config.autobouquetsmaker.providers.value.split("|")
