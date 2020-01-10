@@ -57,7 +57,7 @@ class AutoBouquetsMaker_KeepBouquets(Screen):
 		self.refresh()
 
 	def buildListEntry(self, enabled, name, type):
-		pixmap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, "icons/lock_%s.png" % ("on" if enabled else "off"))
+		pixmap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, "icons/lock_%s.png" % ("on" if enabled else "off")))
 
 		return((pixmap, name, type))
 
