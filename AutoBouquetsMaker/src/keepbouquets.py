@@ -124,7 +124,7 @@ class AutoBouquetsMaker_KeepBouquets(Screen):
 	def cancelConfirm(self, result):
 		if not result:
 			return
-		config.autobouquetsmaker.hidesections.cancel()
+		config.autobouquetsmaker.keepbouquets.cancel()
 		self.close()
 
 	def keyCancel(self):
