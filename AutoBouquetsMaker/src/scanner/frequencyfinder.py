@@ -22,11 +22,7 @@ import re
 import datetime
 import time
 
-from Tools.Directories import resolveFilename, fileExists
-try:
-	from Tools.Directories import SCOPE_ACTIVE_SKIN
-except:
-	pass
+from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN
 
 def setParams(frequency, system, bandwidth = 8): # freq is nine digits (474000000)
 	params = eDVBFrontendParametersTerrestrial()
@@ -152,10 +148,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		self.close()
 
 	def firstExec(self):
-		try:
-			png = resolveFilename(SCOPE_ACTIVE_SKIN, "FrequencyFinder/background.png")
-		except:
-			png = None
+		png = resolveFilename(SCOPE_CURRENT_SKIN, "FrequencyFinder/background.png")
 		if not png or not fileExists(png):
 			png = "%s/images/background.png" % os.path.dirname(sys.modules[__name__].__file__)
 		self["background"].instance.setPixmapFromFile(png)

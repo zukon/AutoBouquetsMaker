@@ -23,10 +23,6 @@ from Components.Sources.StaticText import StaticText
 from Components.ScrollLabel import ScrollLabel
 
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
-try:
-	from Tools.Directories import SCOPE_ACTIVE_SKIN
-except:
-	pass
 from Tools.LoadPixmap import LoadPixmap
 
 from time import localtime, time, strftime
@@ -118,10 +114,7 @@ class AutoBouquetsMaker_Menu(Screen):
 		return AutoBouquetsMaker_MenuSummary
 
 	def buildListEntry(self, description, image):
-		try:
-			pixmap = LoadPixmap(resolveFilename(SCOPE_ACTIVE_SKIN, "autobouquetsmaker/" + image))
-		except:
-			pixmap = None
+		pixmap = LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "autobouquetsmaker/" + image))
 		if pixmap == None:
 			pixmap = LoadPixmap(cached=True, path="%s/images/%s" % (os.path.dirname(sys.modules[__name__].__file__), image));
 		return((pixmap, description))

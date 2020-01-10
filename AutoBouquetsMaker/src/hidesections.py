@@ -10,10 +10,6 @@ from Components.ActionMap import ActionMap
 from Components.Button import Button
 from Tools.LoadPixmap import LoadPixmap
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
-try:
-	from Tools.Directories import SCOPE_ACTIVE_SKIN
-except:
-	pass
 
 from scanner.manager import Manager
 from scanner.providerconfig import ProviderConfig
@@ -75,16 +71,7 @@ class AutoBouquetsMaker_HideSections(Screen):
 		self.refresh()
 
 	def buildListEntry(self, enabled, name, type):
-		if enabled:
-			try:
-				pixmap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_ACTIVE_SKIN, "icons/lock_on.png"))
-			except:
-				pixmap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, "/usr/share/enigma2/skin_default/icons/lock_on.png"))
-		else:
-			try:
-				pixmap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_ACTIVE_SKIN, "icons/lock_off.png"))
-			except:
-				pixmap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, "/usr/share/enigma2/skin_default/icons/lock_off.png"))
+		pixmap = LoadPixmap(cached=True, path=resolveFilename(SCOPE_CURRENT_SKIN, "icons/lock_%s.png" % ("on" if enabled else "off"))
 
 		return((pixmap, str(name), str(type)))
 

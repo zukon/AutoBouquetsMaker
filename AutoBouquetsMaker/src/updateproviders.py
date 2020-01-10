@@ -25,11 +25,7 @@ from scanner.providerconfig import ProviderConfig
 from scanner.providers import Providers
 from version import PLUGIN_VERSION as localVersion
 
-from Tools.Directories import resolveFilename, fileExists
-try:
-	from Tools.Directories import SCOPE_ACTIVE_SKIN
-except:
-	pass
+from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN
 
 class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 # Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker'.
@@ -97,10 +93,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 		if len(self.abm_settings_str) < 1:
 			self.showError(_('No providers configured.'))
 			return
-		try:
-			png = resolveFilename(SCOPE_ACTIVE_SKIN, "autobouquetsmaker/background.png")
-		except:
-			png = None
+		png = resolveFilename(SCOPE_CURRENT_SKIN, "autobouquetsmaker/background.png")
 		if not png or not fileExists(png):
 			png = "%s/images/background.png" % os.path.dirname(sys.modules[__name__].__file__)
 		self["background"].instance.setPixmapFromFile(png)
