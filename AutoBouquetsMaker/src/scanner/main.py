@@ -434,10 +434,11 @@ class AutoBouquetsMaker(Screen):
 	def checkTunerLock(self):
 		from Screens.Standby import inStandby
 		dict = {}
-		self.frontend.getFrontendStatus(dict)
-		if dict["tuner_state"] == "TUNING":
+		self.frontend and self.frontend.getFrontendStatus(dict)
+		tuner_state = dict.get("tuner_state", "UNKNOWN")
+		if tuner_state == "TUNING":
 			print>>log, "[ABM-main][checkTunerLock] TUNING"
-		elif dict["tuner_state"] == "LOCKED":
+		elif tuner_state == "LOCKED":
 			print>>log, "[ABM-main][checkTunerLock] ACQUIRING TSID/ONID"
 			self.progresscurrent += 1
 			if not inStandby:
@@ -449,9 +450,9 @@ class AutoBouquetsMaker(Screen):
 			self.timer.callback.append(self.doScan)
 			self.timer.start(100, 1)
 			return
-		elif dict["tuner_state"] == "LOSTLOCK":
+		elif tuner_state == "LOSTLOCK":
 			print>>log, "[ABM-main][checkTunerLock] LOSTLOCK"
-		elif dict["tuner_state"] == "FAILED":
+		elif tuner_state == "FAILED":
 			print>>log, "[ABM-main][checkTunerLock] TUNING FAILED FATAL"
 			self.showError(_('Tuning failed!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]/1000))
 			return
