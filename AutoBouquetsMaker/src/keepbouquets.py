@@ -11,28 +11,13 @@ from Components.Button import Button
 from Tools.LoadPixmap import LoadPixmap
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
 
+from skin_templates import skin_keepbouquets
 from scanner.manager import Manager
 
 from urlparse import urlparse
 
 class AutoBouquetsMaker_KeepBouquets(Screen):
-	skin = """
-		<screen position="center,center" size="600,500">
-			<widget name="key_red" position="0,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="red" foregroundColor="white"/>
-			<widget name="key_green" position="150,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="green" foregroundColor="white"/>
-			<widget source="list" render="Listbox" position="10,50" size="580,450" scrollbarMode="showOnDemand">
-				<convert type="TemplatedMultiContent">
-					{"template": [
-						MultiContentEntryPixmapAlphaTest(pos = (10, 0), size = (32, 32), png = 0),
-						MultiContentEntryText(pos = (47, 0), size = (400, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
-						MultiContentEntryText(pos = (450, 0), size = (120, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 2),
-						],
-						"fonts": [gFont("Regular", 22)],
-						"itemHeight": 30
-					}
-				</convert>
-			</widget>
-		</screen>"""
+	skin = skin_keepbouquets()
 
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
 
