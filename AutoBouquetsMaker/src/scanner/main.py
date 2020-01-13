@@ -17,6 +17,7 @@ from enigma import eTimer, eDVBDB, eDVBFrontendParametersSatellite,eDVBFrontendP
 from manager import Manager
 from providerconfig import ProviderConfig
 from providers import Providers
+from Plugins.SystemPlugins.AutoBouquetsMaker.skin_templates import skin_downloadBar
 from time import localtime, time, strftime, mktime
 
 from .. import log
@@ -26,13 +27,7 @@ import sys
 from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN
 
 class AutoBouquetsMaker(Screen):
-	skin = """
-	<screen position="c-300,e-80" size="600,70" flags="wfNoBorder" >
-		<widget name="background" position="0,0" size="600,70" zPosition="-1" />
-		<widget name="action" halign="center" valign="center" position="65,10" size="520,20" font="Regular;18" backgroundColor="#11404040" transparent="1" />
-		<widget name="status" halign="center" valign="center" position="65,35" size="520,20" font="Regular;18" backgroundColor="#11000000" transparent="1" />
-		<widget name="progress" position="65,55" size="520,5" borderWidth="1" backgroundColor="#11000000"/>
-	</screen>"""
+	skin = skin_downloadBar()
 
 	LOCK_TIMEOUT_FIXED = 100 	# 100ms for tick - 10 sec
 	LOCK_TIMEOUT_ROTOR = 1200 	# 100ms for tick - 120 sec
@@ -55,7 +50,7 @@ class AutoBouquetsMaker(Screen):
 			"red": self.keyCancel,
 		}, -2)
 
-		self["background"] = Pixmap()
+#		self["background"] = Pixmap()
 		self["action"] = Label(_("Starting scanner"))
 		self["status"] = Label("")
 		self["progress"] = ProgressBar()
@@ -80,11 +75,11 @@ class AutoBouquetsMaker(Screen):
 
 	def firstExec(self, postScanService=None):
 		from Screens.Standby import inStandby
-		if not inStandby:
-			png = resolveFilename(SCOPE_CURRENT_SKIN, "autobouquetsmaker/background.png")
-			if not png or not fileExists(png):
-				png = "%s/../images/background.png" % os.path.dirname(sys.modules[__name__].__file__)
-			self["background"].instance.setPixmapFromFile(png)
+#		if not inStandby:
+#			png = resolveFilename(SCOPE_CURRENT_SKIN, "autobouquetsmaker/background.png")
+#			if not png or not fileExists(png):
+#				png = "%s/../images/background.png" % os.path.dirname(sys.modules[__name__].__file__)
+#			self["background"].instance.setPixmapFromFile(png)
 
 		if len(self.abm_settings_str) > 0:
 			if not inStandby:

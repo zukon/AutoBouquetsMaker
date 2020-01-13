@@ -7,16 +7,13 @@ from Components.Button import Button
 from Components.Pixmap import Pixmap
 from Components.ActionMap import ActionMap
 
+from skin_templates import skin_about
+
 import os
 import sys
 
 class AutoBouquetsMaker_About(Screen):
-	skin="""
-<screen position="center,center" size="600,500">
-	<widget name="about" position="10,10" size="580,430" font="Regular;22"/>
-	<widget name="key_red" position="0,460" size="140,40" valign="center" halign="center" zPosition="5" font="Regular;18" backgroundColor="red" foregroundColor="white"/>
-	<widget name="oealogo" position="400,365" size="200,135"  zPosition="4" transparent="1" alphatest="blend"/>
-</screen>"""
+	skin = skin_about()
 
 	def __init__(self, session):
 		self.session = session

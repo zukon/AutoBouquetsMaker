@@ -13,6 +13,7 @@ from Components.Label import Label
 from Components.NimManager import nimmanager
 from enigma import eTimer
 
+from skin_templates import skin_setup
 from scanner.manager import Manager
 from scanner.providerconfig import ProviderConfig
 import log
@@ -20,14 +21,7 @@ import itertools
 
 class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 # Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker_Setup'.
-	skin = """
-	<screen position="center,center" size="600,500">
-		<widget name="key_red" position="0,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="red" foregroundColor="white"/>
-		<widget name="key_green" position="150,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="green" foregroundColor="white"/>
-		<widget name="config" position="10,50" size="580,350" scrollbarMode="showOnDemand"/>
-		<widget name="description" position="0,415" size="600,80" font="Regular;18" halign="center" valign="top" transparent="0" zPosition="1"/>
-		<widget name="pleasewait" position="10,60" size="580,350" font="Regular;18" halign="center" valign="center" transparent="0" zPosition="2"/>
-	</screen>"""
+	skin = skin_setup()
 
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
 
@@ -436,14 +430,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 			self.close()
 
 class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
-	skin = """
-		<screen position="center,center" size="600,500">
-			<widget source="key_red" render="Label" position="0,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="red" foregroundColor="white"/>
-			<widget source="key_green" render="Label" position="150,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="green" foregroundColor="white"/>
-			<widget name="config" position="10,50" size="580,350" scrollbarMode="showOnDemand"/>
-			<widget name="description" position="0,415" size="600,80" font="Regular;18" halign="center" valign="top" transparent="0" zPosition="1"/>
-			<widget name="pleasewait" position="10,60" size="580,350" font="Regular;18" halign="center" valign="center" transparent="0" zPosition="2"/>
-		</screen>"""
+	skin = skin_setup()
 
 	def __init__(self, session):
 		Screen.__init__(self, session)

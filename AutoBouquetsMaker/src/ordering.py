@@ -11,28 +11,12 @@ from Components.Button import Button
 from Components.Label import Label
 from enigma import eTimer
 
+from skin_templates import skin_ordering
 from scanner.manager import Manager
 from scanner.providerconfig import ProviderConfig
 
 class AutoBouquetsMaker_Ordering(Screen):
-	skin = """
-		<screen position="center,center" size="600,500">
-			<widget name="key_red" position="0,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="red" foregroundColor="white"/>
-			<widget name="key_green" position="150,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="green" foregroundColor="white"/>
-			<widget name="key_yellow" position="300,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="yellow" foregroundColor="white"/>
-			<widget name="key_blue" position="450,0" size="140,40" valign="center" halign="center" font="Regular;18" backgroundColor="blue" foregroundColor="white"/>			
-			<widget source="list" render="Listbox" position="20,50" size="560,360" scrollbarMode="showOnDemand">
-				<convert type="TemplatedMultiContent">
-					{"template": [
-						MultiContentEntryText(pos = (12, 1), size = (440, 32), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
-						],
-						"fonts": [gFont("Regular", 22)],
-						"itemHeight": 30
-					}
-				</convert>
-			</widget>
-			<widget name="pleasewait" position="10,60" size="580,140" font="Regular;18" halign="center" valign="center" transparent="0" zPosition="1"/>
-		</screen>"""
+	skin = skin_ordering()
 
 	def __init__(self, session):
 		Screen.__init__(self, session)
