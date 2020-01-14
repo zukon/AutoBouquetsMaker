@@ -190,7 +190,7 @@ def downloadBar():
 	downloadBarXML = """
 	<screen name="DownloadBar" position="0,0" size="%d,%d" flags="wfNoBorder" backgroundColor="#54111112">
 		<widget name="action" position="%d,%d" size="%d,%d" font="Regular;%d" transparent="1" foregroundColor="#ffffff"/>
-		<widget name="status" position="%d,%d" size="%d,%d" font="Regular;%d" halign="center" transparent="1" foregroundColor="#ffffff">
+		<widget name="status" position="%d,%d" size="%d,%d" font="Regular;%d" halign="center" transparent="1" foregroundColor="#ffffff"/>
 		<widget source="Frontend" conditional="Frontend" render="Pixmap" pixmap="icons/lock_on.png" position="%d,%d" size="%d,%d" alphatest="on" scale="1">
 			<convert type="FrontendInfo">LOCK</convert>
 			<convert type="ConditionalShowHide"/>
@@ -203,7 +203,7 @@ def downloadBar():
 		<widget source="Frontend" conditional="Frontend" render="Label" position="%d,%d" size="%d,%d" font="Regular;%d" halign="left" transparent="1" foregroundColor="#ffffff">
 			<convert type="FrontendInfo">SNRdB</convert>
 		</widget>
-		<widget source="progress_text" render="Label" position="%d,%d" size="%d,%d" font="Regular;%d" halign="right" transparent="1" foregroundColor="#ffffff"
+		<widget source="progress_text" render="Label" position="%d,%d" size="%d,%d" font="Regular;%d" halign="right" transparent="1" foregroundColor="#ffffff">
 			<convert type="ProgressToText">InText</convert>
 		</widget>
 		<widget source="progress_text" render="Label" position="%d,%d" size="%d,%d" font="Regular;%d" halign="left" transparent="1" foregroundColor="#ffffff">
