@@ -64,7 +64,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		self["key_red"] = Button(_("Cancel"))
 		self["key_green"] = Button(_("Save"))
 		self["pleasewait"] = Label()
-		self["description"] = Label(_(""))
+		self["description"] = Label("")
 
 		self.onLayoutFinish.append(self.populate)
 
@@ -456,7 +456,7 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 
 		self["key_red"] = Button(_("Cancel"))
 		self["key_green"] = Button(_("Save"))
-		self["description"] = Label(_(""))
+		self["description"] = Label("")
 		self["pleasewait"] = Label()
 
 		self.onLayoutFinish.append(self.populate)
