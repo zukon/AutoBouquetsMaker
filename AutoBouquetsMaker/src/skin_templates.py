@@ -29,8 +29,10 @@ buttonMargin = 8
 buttonMarginBottom = 4
 configItemHeight = 30
 configItemHeightMainMenu = 40
-# these button colours have been selected specially so if button images are 
-# reinstated the anti-aliasing will be done to the correct shade.
+
+# These button colours have been selected specially so anti-aliasing around the button 
+# text will be done to the correct shade. This is necessary even though the button text 
+# widget is transparent, to avoid a black halo around the button text.
 colours = {"red": 0x9f1313, "green": 0x1f771f, "yellow": 0xa08500, "blue": 0x18188b}
 
 def insertValues(xml, values, height):
