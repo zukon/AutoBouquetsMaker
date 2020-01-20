@@ -10,6 +10,9 @@
 import os
 from enigma import getDesktop
 
+# Set this to True to print the embedded skins.
+# This debug is printed on enigma2 startup, not when using the plugin.
+extraDebug = False
 
 height = getDesktop(0).size().height()
 height = 720 if height < 720 else height
@@ -29,6 +32,7 @@ buttonMargin = 8
 buttonMarginBottom = 4
 configItemHeight = 30
 configItemHeightMainMenu = 40
+
 
 # These button colours have been selected specially so anti-aliasing around the button 
 # text will be done to the correct shade. This is necessary even though the button text 
@@ -231,25 +235,46 @@ def downloadBar():
 # ------------------------------------------------------------------
 
 def skin_mainmenu():
-	return header() + buttonBar() + templateTwo() + footer()
+	skin = header() + buttonBar() + templateTwo() + footer()
+	if extraDebug:
+		print "[ABM-SkinTemplates] skin_mainmenu:", skin
+	return skin
 
 def skin_about():
-	return header() + buttonBar() + templateThree() + footer()
+	skin = header() + buttonBar() + templateThree() + footer()
+	if extraDebug:
+		print "[ABM-SkinTemplates] skin_about:", skin
+	return skin
 
 def skin_hidesections():
-	return header() + buttonBar() + templateOne() + footer()
+	skin = header() + buttonBar() + templateOne() + footer()
+	if extraDebug:
+		print "[ABM-SkinTemplates] skin_hidesections:", skin
+	return skin
 
 def skin_keepbouquets():
 	return skin_hidesections()
 
 def skin_log():
-	return header() + buttonBar() + templateFive() + footer()
+	skin = header() + buttonBar() + templateFive() + footer()
+	if extraDebug:
+		print "[ABM-SkinTemplates] skin_log:", skin
+	return skin
 
 def skin_ordering():
-	return header() + buttonBar() + templateFour() + footer()
+	skin = header() + buttonBar() + templateFour() + footer()
+	if extraDebug:
+		print "[ABM-SkinTemplates] skin_ordering:", skin
+	return skin
 
 def skin_setup():
-	return header() + buttonBar() + templateSix() + footer()
+	skin = header() + buttonBar() + templateSix() + footer()
+	if extraDebug:
+		print "[ABM-SkinTemplates] skin_setup:", skin
+	return skin
 
 def skin_downloadBar():
-	return downloadBar()
+	skin = downloadBar()
+	if extraDebug:
+		print "[ABM-SkinTemplates] skin_downloadBar:", skin
+	return skin
