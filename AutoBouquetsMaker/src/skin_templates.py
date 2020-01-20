@@ -118,8 +118,8 @@ def templateThree():
 	# "oea logo" is fixed size from plugin image folder, 176 x 142
 
 	templateThreeXML = """
-	<widget name="about" conditional="about" position="%d,%d" size="%d,%d" font="Regular;%d"/>
-	<widget name="oealogo" conditional="oealogo" position="e-%d-176,e-%d-142" size="176,142"  zPosition="4" transparent="1" alphatest="blend"/>"""
+	<widget name="about" conditional="about" position="%d,%d" size="%d,%d" font="Regular;%d" transparent="1"/>
+	<widget name="oealogo" conditional="oealogo" position="e-%d-176,e-%d-142" size="176,142" zPosition="-1" transparent="1" alphatest="blend"/>"""
 	templateThreeValues = [
 		marginLeft, marginTopTexts, widgetWidth, configItemHeight*15, fontSize, # templateThreeXML line 1
 		buttonMargin, buttonMarginBottom # templateThreeXML line 2
