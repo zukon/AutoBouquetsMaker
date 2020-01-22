@@ -22,7 +22,6 @@ menuFontSize = fontSize + 2
 descriptionsFontSize = fontSize - 2
 windowWidth = 600
 windowHeight = 500
-widgetWidth = 584
 marginTop = 2 # for config lists
 marginTopTexts = 10 # for text windows
 marginLeft = 8
@@ -30,9 +29,13 @@ buttonWidth = 140
 buttonHeight = 40
 buttonMargin = 8
 buttonMarginBottom = 4
+configListLength = 15 # minimum 15. changing this should force the window height change in all screens without breaking anything.
 configItemHeight = 30
 configItemHeightMainMenu = 40
 
+# dynamic variables
+windowHeight = (configListLength * configItemHeight) + marginTop + buttonHeight + (buttonMarginBottom * 2)  # 500 based on configListLength = 15
+widgetWidth = windowWidth - (marginLeft * 2)
 
 # These button colours have been selected specially so anti-aliasing around the button 
 # text will be done to the correct shade. This is necessary even though the button text 
@@ -63,8 +66,7 @@ def buttonBar():
 
 def templateOne():
 	# templateOne is for hidesections and keepbouquets
-	templateOneItemHeight = configItemHeight
-	templateOneHeight = templateOneItemHeight * 15 # make the template 15 lines high
+	templateOneHeight = configItemHeight * configListLength # make the template 15 lines high
 	templateOneXML = """
 	<widget source="list" render="Listbox" position="%d,%d" size="%d,%d" scrollbarMode="showOnDemand">
 		<convert type="TemplatedMultiContent">
@@ -81,17 +83,16 @@ def templateOne():
 	templateOneValues = [
 		marginLeft, marginTop, widgetWidth, templateOneHeight, # templateOneXML line 1
 		2, 1,  25,  24, # templateOneXML line 4
-		35,  2,  300, templateOneItemHeight-2, # templateOneXML line 5
-		350, 2,  210, templateOneItemHeight-2, # templateOneXML line 6
+		35,  2,  300, configItemHeight-2, # templateOneXML line 5
+		350, 2,  210, configItemHeight-2, # templateOneXML line 6
 		fontSize,
-		templateOneItemHeight
+		configItemHeight
 	]
 	return insertValues(templateOneXML, templateOneValues, height)
 
 def templateTwo():
 	# template two is for the main menu
-	templateTwoItemHeight = configItemHeightMainMenu # do it a bit bigger because this is the main menu of the plugin
-	templateTwoHeight = templateTwoItemHeight * 11 # make the template 11 lines high. Currently there are 9 menu items.
+	templateTwoWidgetHeight = configItemHeightMainMenu * 11 # make the template 11 lines high. Currently there are 9 menu items.
 	templateTwoXML = """
 	<widget source="list" render="Listbox" position="%d,%d" size="%d,%d" scrollbarMode="showOnDemand">
 		<convert type="TemplatedMultiContent">
@@ -105,11 +106,11 @@ def templateTwo():
 		</convert>
 	</widget>"""
 	templateTwoValues = [
-		marginLeft, marginTop, widgetWidth, templateTwoHeight, # templateTwoXML line 1
+		marginLeft, marginTop, widgetWidth, templateTwoWidgetHeight, # templateTwoXML line 1
 		2, 4,  32,  32, # templateTwoXML line 4
-		44,  4,  530, templateTwoItemHeight-4, # templateTwoXML line 5
+		44,  4,  530, configItemHeightMainMenu-4, # templateTwoXML line 5
 		menuFontSize,
-		templateTwoItemHeight
+		configItemHeightMainMenu
 	]
 	return insertValues(templateTwoXML, templateTwoValues, height)
 
@@ -121,15 +122,14 @@ def templateThree():
 	<widget name="about" conditional="about" position="%d,%d" size="%d,%d" font="Regular;%d" transparent="1"/>
 	<widget name="oealogo" conditional="oealogo" position="e-%d-176,e-%d-142" size="176,142" zPosition="-1" transparent="1" alphatest="blend"/>"""
 	templateThreeValues = [
-		marginLeft, marginTopTexts, widgetWidth, configItemHeight*15, fontSize, # templateThreeXML line 1
+		marginLeft, marginTopTexts, widgetWidth, configItemHeight*configListLength, fontSize, # templateThreeXML line 1
 		buttonMargin, buttonMarginBottom # templateThreeXML line 2
 	]
 	return insertValues(templateThreeXML, templateThreeValues, height)
 
 def templateFour():
 	# template four is for ordering
-	templateFourItemHeight = configItemHeight
-	templateFourHeight = templateFourItemHeight * 15 # make the template 15 lines high
+	templateFourHeight = configItemHeight * configListLength # make the template 15 lines high
 	templateFourXML = """
 	<widget source="list" render="Listbox" position="%d,%d" size="%d,%d" scrollbarMode="showOnDemand">
 		<convert type="TemplatedMultiContent">
@@ -141,13 +141,13 @@ def templateFour():
 			}
 		</convert>
 	</widget>
-	<widget name="pleasewait" position="%d,%d" size="%d,%d" font="Regular;%d" halign="center" valign="center" transparent="0" zPosition="1"/>"""
+	<widget name="pleasewait" position="%d,%d" size="%d,%d" font="Regular;%d" halign="center" valign="center" transparent="0" zPosition="+1"/>"""
 	templateFourValues = [
 		marginLeft, marginTop, widgetWidth, templateFourHeight, # templateFourXML line 1
-		2,  2,  widgetWidth-4, templateFourItemHeight-2, # templateFourXML line 4
+		2,  2,  widgetWidth-4, configItemHeight-2, # templateFourXML line 4
 		fontSize,
-		templateFourItemHeight,
-		0, templateFourHeight/2, widgetWidth, templateFourItemHeight, fontSize # templateFourXML line 11
+		configItemHeight,
+		0, templateFourHeight/2, widgetWidth, configItemHeight, fontSize # templateFourXML line 11
 	]
 	return insertValues(templateFourXML, templateFourValues, height)
 
@@ -155,23 +155,22 @@ def templateFive():
 	# template five is for log
 	templateFiveXML = '\n\t<widget name="list" position="%d,%d" size="%d,%d" itemHeight="%d" font="Regular;%d" scrollbarMode="showOnDemand"/>'
 	templateFiveValues = [
-		marginLeft, marginTop, widgetWidth, configItemHeight*15, configItemHeight, fontSize # templateFiveXML line 1
+		marginLeft, marginTop, widgetWidth, configItemHeight*configListLength, configItemHeight, fontSize # templateFiveXML line 1
 	]
 	return insertValues(templateFiveXML, templateFiveValues, height)
 
 def templateSix():
 	# template six is for setup
-	templateSixItemHeight = configItemHeight
-	templateSixHeight = templateSixItemHeight * 10 # make the template 10 lines high
-	templateSixDescHeight = templateSixItemHeight * 4 # make the description 4 lines high
+	templateSixHeight = configItemHeight * (configListLength - 5) # leave 5 lines for description widget
+	templateSixDescHeight = configItemHeight * 4 # make the description 4 lines high
 	templateSixXML = """
 	<widget name="config" position="%d,%d" size="%d,%d" itemHeight="%d" font="Regular;%d" scrollbarMode="showOnDemand"/>
-	<widget name="description" position="%d,%d" size="%d,%d" font="Regular;%d" halign="center" valign="top" transparent="0" zPosition="1"/>
-	<widget name="pleasewait" position="%d,%d" size="%d,%d" font="Regular;%d" halign="center" valign="center" transparent="0" zPosition="2"/>"""
+	<widget name="description" position="%d,%d" size="%d,%d" font="Regular;%d" halign="center" valign="top" transparent="0"/>
+	<widget name="pleasewait" position="%d,%d" size="%d,%d" font="Regular;%d" halign="center" valign="center" transparent="0" zPosition="+1"/>"""
 	templateSixValues = [
-		marginLeft, marginTop, widgetWidth, templateSixHeight, templateSixItemHeight, fontSize, # templateSixXML line 1
-		marginLeft, templateSixHeight+templateSixItemHeight, widgetWidth, templateSixDescHeight, descriptionsFontSize, # templateSixXML line 3
-		0, templateSixHeight/2, widgetWidth, templateSixItemHeight, fontSize # templateSixXML line 3
+		marginLeft, marginTop, widgetWidth, templateSixHeight, configItemHeight, fontSize, # templateSixXML line 1
+		marginLeft, templateSixHeight+configItemHeight, widgetWidth, templateSixDescHeight, descriptionsFontSize, # templateSixXML line 3
+		0, templateSixHeight/2, widgetWidth, configItemHeight, fontSize # templateSixXML line 3
 	]
 	return insertValues(templateSixXML, templateSixValues, height)
 
