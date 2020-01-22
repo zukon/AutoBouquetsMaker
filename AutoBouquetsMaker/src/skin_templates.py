@@ -21,7 +21,6 @@ fontSize = 22
 menuFontSize = fontSize + 2
 descriptionsFontSize = fontSize - 2
 windowWidth = 600
-windowHeight = 500
 marginTop = 2 # for config lists
 marginTopTexts = 10 # for text windows
 marginLeft = 8
