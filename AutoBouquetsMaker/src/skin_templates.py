@@ -14,18 +14,21 @@ from enigma import getDesktop
 # This debug is printed on enigma2 startup, not when using the plugin.
 extraDebug = False
 
-height = getDesktop(0).size().height()
-height = 720 if height < 720 else height
+# do not edit
+defaultResolution = 720
+height = max(defaultResolution, getDesktop(0).size().height()) # only values above default
 desktopWidth = getDesktop(0).size().width()
+
+# values common to all templates
 fontSize = 22
 menuFontSize = fontSize + 2
-descriptionsFontSize = fontSize - 2
-windowWidth = 600
+descriptionsFontSize = fontSize - 2 # hints texts
+windowWidth = 600 # button bar needs a minimum of 600
 marginTop = 2 # for config lists
 marginTopTexts = 10 # for text windows
 marginLeft = 8
-buttonWidth = 140
-buttonHeight = 40
+buttonWidth = 140 # this is the real width of the buttons graphics
+buttonHeight = 40 # this is the real height of the buttons graphics
 buttonMargin = 8
 buttonMarginBottom = 4
 configListLength = 15 # minimum 15. changing this should force the window height change in all screens without breaking anything.
@@ -43,7 +46,7 @@ colours = {"red": 0x9f1313, "green": 0x1f771f, "yellow": 0xa08500, "blue": 0x181
 
 def insertValues(xml, values, height):
 	# double negative to round up not round down
-	return xml % tuple([-(x*height/-720) for x in values])
+	return xml % tuple([-(x*height/(-defaultResolution)) for x in values])
 
 def header():
 	headerXML = '\n<screen position="center,center" size="%d,%d">'
