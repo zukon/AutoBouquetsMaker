@@ -14,11 +14,6 @@ from enigma import getDesktop
 # This debug is printed on enigma2 startup, not when using the plugin.
 extraDebug = False
 
-# do not edit
-defaultResolution = 720
-height = max(defaultResolution, getDesktop(0).size().height()) # only values above default
-desktopWidth = getDesktop(0).size().width()
-
 # values common to all templates
 fontSize = 22
 menuFontSize = fontSize + 2
@@ -44,14 +39,15 @@ widgetWidth = windowWidth - (marginLeft * 2)
 # widget is transparent, to avoid a black halo around the button text.
 colours = {"red": 0x9f1313, "green": 0x1f771f, "yellow": 0xa08500, "blue": 0x18188b}
 
-def insertValues(xml, values, height):
+def insertValues(xml, values):
+	# The skin template is designed for a HD screen so the scaling factor is 720.
 	# double negative to round up not round down
-	return xml % tuple([-(x*height/(-defaultResolution)) for x in values])
+	return xml % tuple([-(x*getDesktop(0).size().height()/(-720)) for x in values])
 
 def header():
 	headerXML = '\n<screen position="center,center" size="%d,%d">'
 	headerValues = [windowWidth, windowHeight]
-	return insertValues(headerXML, headerValues, height)
+	return insertValues(headerXML, headerValues)
 
 def footer():
 	return "\n</screen>"
@@ -64,7 +60,7 @@ def buttonBar():
 	buttonBarValues = []
 	for x in range(4):
 		buttonBarValues += [buttonMargin + ((buttonWidth + buttonMargin) * x), buttonBarElevation, buttonWidth, buttonHeight, buttonFontSize, buttonMargin + ((buttonWidth + buttonMargin) * x), buttonBarElevation, buttonWidth, buttonHeight]
-	return insertValues(buttonBarXML, buttonBarValues, height)
+	return insertValues(buttonBarXML, buttonBarValues)
 
 def templateOne():
 	# templateOne is for hidesections and keepbouquets
@@ -90,7 +86,7 @@ def templateOne():
 		fontSize,
 		configItemHeight
 	]
-	return insertValues(templateOneXML, templateOneValues, height)
+	return insertValues(templateOneXML, templateOneValues)
 
 def templateTwo():
 	# template two is for the main menu
@@ -114,7 +110,7 @@ def templateTwo():
 		menuFontSize,
 		configItemHeightMainMenu
 	]
-	return insertValues(templateTwoXML, templateTwoValues, height)
+	return insertValues(templateTwoXML, templateTwoValues)
 
 def templateThree():
 	# template three is for about
@@ -127,7 +123,7 @@ def templateThree():
 		marginLeft, marginTopTexts, widgetWidth, configItemHeight*configListLength, fontSize, # templateThreeXML line 1
 		buttonMargin, buttonMarginBottom # templateThreeXML line 2
 	]
-	return insertValues(templateThreeXML, templateThreeValues, height)
+	return insertValues(templateThreeXML, templateThreeValues)
 
 def templateFour():
 	# template four is for ordering
@@ -151,7 +147,7 @@ def templateFour():
 		configItemHeight,
 		0, templateFourHeight/2, widgetWidth, configItemHeight, fontSize # templateFourXML line 11
 	]
-	return insertValues(templateFourXML, templateFourValues, height)
+	return insertValues(templateFourXML, templateFourValues)
 
 def templateFive():
 	# template five is for log
@@ -159,7 +155,7 @@ def templateFive():
 	templateFiveValues = [
 		marginLeft, marginTop, widgetWidth, configItemHeight*configListLength, configItemHeight, fontSize # templateFiveXML line 1
 	]
-	return insertValues(templateFiveXML, templateFiveValues, height)
+	return insertValues(templateFiveXML, templateFiveValues)
 
 def templateSix():
 	# template six is for setup
@@ -174,7 +170,7 @@ def templateSix():
 		marginLeft, templateSixHeight+configItemHeight, widgetWidth, templateSixDescHeight, descriptionsFontSize, # templateSixXML line 3
 		0, templateSixHeight/2, widgetWidth, configItemHeight, fontSize # templateSixXML line 3
 	]
-	return insertValues(templateSixXML, templateSixValues, height)
+	return insertValues(templateSixXML, templateSixValues)
 
 def downloadBar():
 	# download bar is for scanner, frequency finder, update proviers
@@ -221,7 +217,7 @@ def downloadBar():
 		</widget>
 	</screen>"""
 	downloadBarValues = [
-		desktopWidth, downloadBarHeight, # downloadBarXML line 1, "screen" element
+		getDesktop(0).size().width(), downloadBarHeight, # downloadBarXML line 1, "screen" element
 		actionBoxLeftAlign, textBoxTopMargin, actionBoxWidth, textBoxHeight, fontSize, # downloadBarXML line 2, "action" widget
 		statusBoxLeftAlign, textBoxTopMargin, statusBoxWidth, textBoxHeight, fontSize, # downloadBarXML line 3, "status" widget
 		lockImageLeftAlign, lockImageTopMargin, lockImageWidth, lockImageHeight, # downloadBarXML, "lock_on" widget
@@ -231,7 +227,7 @@ def downloadBar():
 		progressTextBoxLeftAlign, textBoxTopMargin, progressTextBoxWidth, textBoxHeight, fontSize, # downloadBarXML, "progress text" widget
 		progressPercentLeftAlign, textBoxTopMargin, progressPercentBoxWidth, textBoxHeight, fontSize, # downloadBarXML, "progress percent" widget
 	]
-	return insertValues(downloadBarXML, downloadBarValues, height)
+	return insertValues(downloadBarXML, downloadBarValues)
 
 # ------------------------------------------------------------------
 
