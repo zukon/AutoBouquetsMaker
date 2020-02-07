@@ -8,6 +8,8 @@ from tools import Tools
 from dvbscanner import DvbScanner
 import os, codecs, re
 
+from enigma import eDVBFrontendParametersSatellite
+
 class BouquetsWriter():
 
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
@@ -48,9 +50,25 @@ class BouquetsWriter():
 						transponder["flags"]))
 				else: # DVB-S2
 					multistream = ''
+					t2mi = ''
+					if "t2mi_plp_id" in transponder and "t2mi_pid" in transponder:
+						t2mi = ':%d:%d' % (
+							transponder["t2mi_plp_id"], 
+							transponder["t2mi_pid"])
 					if "is_id" in transponder and "pls_code" in transponder and "pls_mode" in transponder:
-						multistream = ':%d:%d:%d' % (transponder["is_id"], transponder["pls_code"], transponder["pls_mode"])
-					lamedblist.append("\ts %d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d%s\n" %
+						multistream = ':%d:%d:%d' % (
+							transponder["is_id"], 
+							transponder["pls_code"], 
+							transponder["pls_mode"])
+					if t2mi and not multistream: # this is to pad t2mi values if necessary.
+						try: # some images are still not multistream aware after all this time
+							multistream = ':%d:%d:%d' % (
+								eDVBFrontendParametersSatellite.No_Stream_Id_Filter, 
+								eDVBFrontendParametersSatellite.PLS_Gold, 
+								eDVBFrontendParametersSatellite.PLS_Default_Gold_Code)
+						except AttributeError as err:
+							print>>log, "[ABM-BouquetsWriter] some images are still not multistream aware after all this time",  err
+					lamedblist.append("\ts %d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d%s%s\n" %
 						(transponder["frequency"],
 						transponder["symbol_rate"],
 						transponder["polarization"],
@@ -62,7 +80,8 @@ class BouquetsWriter():
 						transponder["modulation_type"],
 						transponder["roll_off"],
 						transponder["pilot"],
-						multistream))
+						multistream,
+						t2mi))
 			elif transponder["dvb_type"] == "dvbt":
 				lamedblist.append("\tt %d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d\n" %
 					(transponder["frequency"],
@@ -158,7 +177,7 @@ class BouquetsWriter():
 		lamedblist.append("eDVB services /5/\n")
 		lamedblist.append("# Transponders: t:dvb_namespace:transport_stream_id:original_network_id,FEPARMS\n")
 		lamedblist.append("#     DVBS  FEPARMS:   s:frequency:symbol_rate:polarisation:fec:orbital_position:inversion:flags\n")
-		lamedblist.append("#     DVBS2 FEPARMS:   s:frequency:symbol_rate:polarisation:fec:orbital_position:inversion:flags:system:modulation:rolloff:pilot\n")
+		lamedblist.append("#     DVBS2 FEPARMS:   s:frequency:symbol_rate:polarisation:fec:orbital_position:inversion:flags:system:modulation:rolloff:pilot[,MIS/PLS:is_id:pls_code:pls_mode][,T2MI:t2mi_plp_id:t2mi_pid]\n")
 		lamedblist.append("#     DVBT  FEPARMS:   t:frequency:bandwidth:code_rate_HP:code_rate_LP:modulation:transmission_mode:guard_interval:hierarchy:inversion:flags:system:plp_id\n")
 		lamedblist.append("#     DVBC  FEPARMS:   c:frequency:symbol_rate:inversion:modulation:fec_inner:flags:system\n")
 		lamedblist.append('# Services: s:service_id:dvb_namespace:transport_stream_id:original_network_id:service_type:service_number:source_id,"service_name"[,p:provider_name][,c:cached_pid]*[,C:cached_capid]*[,f:flags]\n')
@@ -189,9 +208,22 @@ class BouquetsWriter():
 						transponder["flags"]))
 				else: # DVB-S2
 					multistream = ''
+					t2mi = ''
 					if "is_id" in transponder and "pls_code" in transponder and "pls_mode" in transponder:
-						multistream = ':%d:%d:%d' % (transponder["is_id"], transponder["pls_code"], transponder["pls_mode"])
-					lamedblist.append("s:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d%s\n" %
+						try: # some images are still not multistream aware after all this time
+							# don't write default values
+							if not (transponder["is_id"] == eDVBFrontendParametersSatellite.No_Stream_Id_Filter and transponder["pls_code"] == eDVBFrontendParametersSatellite.PLS_Gold and transponder["pls_mode"] == eDVBFrontendParametersSatellite.PLS_Default_Gold_Code):
+								multistream = ',MIS/PLS:%d:%d:%d' % (
+									transponder["is_id"], 
+									transponder["pls_code"], 
+									transponder["pls_mode"])
+						except AttributeError as err:
+							print>>log, "[ABM-BouquetsWriter] some images are still not multistream aware after all this time", err
+					if "t2mi_plp_id" in transponder and "t2mi_pid" in transponder:
+						t2mi = ',T2MI:%d:%d' % (
+						transponder["t2mi_plp_id"],
+						transponder["t2mi_pid"])
+					lamedblist.append("s:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d%s%s\n" %
 						(transponder["frequency"],
 						transponder["symbol_rate"],
 						transponder["polarization"],
@@ -203,7 +235,8 @@ class BouquetsWriter():
 						transponder["modulation_type"],
 						transponder["roll_off"],
 						transponder["pilot"],
-						multistream))
+						multistream,
+						t2mi))
 			elif transponder["dvb_type"] == "dvbt":
 				lamedblist.append("t:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d\n" %
 					(transponder["frequency"],
