@@ -309,7 +309,7 @@ class BouquetsWriter():
 					lamedblist.append(",p:%s%s%s\n" % (provider_name, service_ca, service_flags))
 				services_count += 1
 
-		lamedb = codecs.open(path + "/lamedb", "w", "utf-8")
+		lamedb = codecs.open(path + "/lamedb5", "w", "utf-8")
 		lamedb.write(''.join(lamedblist))
 		lamedb.close()
 		del lamedblist

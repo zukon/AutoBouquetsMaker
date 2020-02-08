@@ -100,6 +100,7 @@ class Manager():
 
 		writer = BouquetsWriter()
 		writer.writeLamedb(self.path, self.transponders)
+		writer.writeLamedb5(self.path, self.transponders)
 		#providers = Providers().read()
 		bouquetsToHide = []
 
