@@ -1,5 +1,3 @@
-from enigma import getDesktop
-
 from Screens.Screen import Screen
 
 from Components.Label import Label
