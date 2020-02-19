@@ -355,7 +355,7 @@ class DvbScanner():
 				transponder["frequency"] = transponder["frequency"] / 10
 				transponder["namespace"] = self.buildNamespace(transponder)
 				transponder["inversion"] = transponder["fec_outer"]
-				transponder["modulation_system"] = 0
+				transponder["system"] = 0
 			elif transponder["dvb_type"] == 'dvbt': # DVB-T
 				if len(customtransponder) == 0: #no override or DVB-T2 transponder
 					transponder["frequency"] = transponder["frequency"] * 10
@@ -398,8 +398,8 @@ class DvbScanner():
 				transponder["orbital_position"] = orbital_position
 				transponder["pilot"] = 2
 
-				if transponder["modulation_system"] == 0 and transponder["modulation_type"] == 2:
-					transponder["modulation_type"] = 1
+				if transponder["system"] == 0 and transponder["modulation"] == 2:
+					transponder["modulation"] = 1
 				transponder["inversion"] = 2
 				# shift 5.0E and 1.0W positions to correspond with satellites.xml
 				if transponder["orbital_position"] in (50, 3590):

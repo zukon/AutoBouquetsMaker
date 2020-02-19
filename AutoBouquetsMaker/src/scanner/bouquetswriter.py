@@ -39,7 +39,7 @@ class BouquetsWriter():
 				else:
 					orbital_position = transponder["orbital_position"]
 
-				if transponder["modulation_system"] == 0: # DVB-S
+				if transponder["system"] == 0: # DVB-S
 					lamedblist.append("\ts %d:%d:%d:%d:%d:%d:%d\n" %
 						(transponder["frequency"],
 						transponder["symbol_rate"],
@@ -76,8 +76,8 @@ class BouquetsWriter():
 						orbital_position,
 						transponder["inversion"],
 						transponder["flags"],
-						transponder["modulation_system"],
-						transponder["modulation_type"],
+						transponder["system"],
+						transponder["modulation"],
 						transponder["roll_off"],
 						transponder["pilot"],
 						multistream,
@@ -101,10 +101,10 @@ class BouquetsWriter():
 					(transponder["frequency"],
 					transponder["symbol_rate"],
 					transponder["inversion"],
-					transponder["modulation_type"],
+					transponder["modulation"],
 					transponder["fec_inner"],
 					transponder["flags"],
-					transponder["modulation_system"]))
+					transponder["system"]))
 			lamedblist.append("/\n")
 			transponders_count += 1
 
@@ -197,7 +197,7 @@ class BouquetsWriter():
 				else:
 					orbital_position = transponder["orbital_position"]
 
-				if transponder["modulation_system"] == 0: # DVB-S
+				if transponder["system"] == 0: # DVB-S
 					lamedblist.append("s:%d:%d:%d:%d:%d:%d:%d\n" %
 						(transponder["frequency"],
 						transponder["symbol_rate"],
@@ -231,8 +231,8 @@ class BouquetsWriter():
 						orbital_position,
 						transponder["inversion"],
 						transponder["flags"],
-						transponder["modulation_system"],
-						transponder["modulation_type"],
+						transponder["system"],
+						transponder["modulation"],
 						transponder["roll_off"],
 						transponder["pilot"],
 						multistream,
@@ -256,10 +256,10 @@ class BouquetsWriter():
 					(transponder["frequency"],
 					transponder["symbol_rate"],
 					transponder["inversion"],
-					transponder["modulation_type"],
+					transponder["modulation"],
 					transponder["fec_inner"],
 					transponder["flags"],
-					transponder["modulation_system"]))
+					transponder["system"]))
 			transponders_count += 1
 
 		for key in transponders.keys():
