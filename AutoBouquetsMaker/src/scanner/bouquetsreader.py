@@ -186,7 +186,7 @@ class BouquetsReader():
 			service["original_network_id"] = int(service_reference[3], 16)
 			service["service_type"] = int(service_reference[4])
 			service["flags"] = int(service_reference[5])
-			if len(service_reference) == 7:
+			if len(service_reference) == 7 and int(service_reference[6], 16) != 0:
 				service["ATSC_source_id"] = int(service_reference[6], 16)
 
 			key = "%x:%x:%x" % (service["namespace"], service["transport_stream_id"], service["original_network_id"])
@@ -303,7 +303,7 @@ class BouquetsReader():
 				service["original_network_id"] = int(service_reference[3], 16)
 				service["service_type"] = int(service_reference[4])
 				service["flags"] = int(service_reference[5])
-				if len(service_reference) == 7:
+				if len(service_reference) == 7 and int(service_reference[6], 16) != 0:
 					service["ATSC_source_id"] = int(service_reference[6], 16)
 
 				key = "%x:%x:%x" % (service["namespace"], service["transport_stream_id"], service["original_network_id"])
