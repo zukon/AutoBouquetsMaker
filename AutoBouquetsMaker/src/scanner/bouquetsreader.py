@@ -102,7 +102,7 @@ class BouquetsReader():
 
 			second_row = second_row[2:].split(":")
 
-			if transponder["dvb_type"] == "dvbs" and len(second_row) != 7 and len(second_row) != 11 and len(second_row) != 14 and len(second_row) != 16:
+			if transponder["dvb_type"] == "dvbs" and len(second_row) not in (7, 11, 14, 16):
 				continue
 			if transponder["dvb_type"] == "dvbt" and len(second_row) != 12:
 				continue
@@ -174,7 +174,7 @@ class BouquetsReader():
 			service_provider = srv_blocks[(i*3)+2].strip()
 			service_reference = service_reference.split(":")
 
-			if len(service_reference) != 6 and len(service_reference) != 7:
+			if len(service_reference) not in (6, 7):
 				continue
 
 			service = {}
@@ -223,7 +223,7 @@ class BouquetsReader():
 
 				second_part = second_part[2:].split(":")
 
-				if transponder["dvb_type"] == "dvbs" and len(second_part) != 7 and len(second_part) != 11:
+				if transponder["dvb_type"] == "dvbs" and len(second_part) not in (7, 11):
 					continue
 				if transponder["dvb_type"] == "dvbt" and len(second_part) != 12:
 					continue
