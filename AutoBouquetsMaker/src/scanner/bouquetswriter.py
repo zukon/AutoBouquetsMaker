@@ -540,9 +540,9 @@ class BouquetsWriter():
 						continue
 					tmp_services[i] = service
 					avoid_duplicates.append(ref)
-					sort_list.append((i, re.sub('^(?![a-z])', 'zzzzz', service['service_name'].lower())))
+					sort_list.append((i, re.sub('^(?![a-z])', 'zzzzz', service['service_name'].lower()), service["service_type"] not in DvbScanner.VIDEO_ALLOWED_TYPES))
 					i += 1
-		sort_list = sorted(sort_list, key=lambda listItem: listItem[1])
+		sort_list = sorted(sort_list, key=lambda listItem: (listItem[2], listItem[1])) # listItem[2] puts radio channels second.
 		for item in sort_list:
 			service = tmp_services[item[0]]
 			last_scanned_bouquet_list.append(self.bouquetServiceLine(service))
