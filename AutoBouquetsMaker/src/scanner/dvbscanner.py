@@ -817,8 +817,10 @@ class DvbScanner():
 			service["number"] = logical_channel_number_dict[servicekey]["logical_channel_number"]
 
 			service["orbital_position"] = service["namespace"] / (16**4)
+			
+			print "[ABM-fastscan] Service name %s, service type 0x%x" % (service["service_name"], service["service_type"])
 
-			if service["service_type"] < 17 and (service["service_name"][-2:] == 'HD' or ' HD ' in service["service_name"]):
+			if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and (service["service_name"][-2:] == 'HD' or ' HD ' in service["service_name"]):
 				service["service_type"] = 25
 
 			if servicekey in tmp_services_dict:
