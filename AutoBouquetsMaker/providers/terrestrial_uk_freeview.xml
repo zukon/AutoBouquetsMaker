@@ -240,15 +240,15 @@
 		<customtransponder key="winter_hill_lancs__" frequency="554000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="winter_hill_lancs__" frequency="738000000" transport_stream_id="4088" system="1"/>
 		<customtransponder key="winter_hill_lancs__" frequency="746000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="winter_hill_lancs__" frequency="474000000" transport_stream_id="8008" system="0"/><!-- liver petal -->
+		<customtransponder key="winter_hill_lancs__" frequency="626000000" transport_stream_id="800d" system="0"/><!-- lancs petal -->
 		<customtransponder key="winter_hill_liver__" frequency="554000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="winter_hill_liver__" frequency="738000000" transport_stream_id="4088" system="1"/>
 		<customtransponder key="winter_hill_liver__" frequency="746000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="winter_hill_lancs__" frequency="626000000" transport_stream_id="800d" system="0"/><!-- lancs petal -->
+		<customtransponder key="winter_hill_liver__" frequency="474000000" transport_stream_id="8008" system="0"/><!-- liver petal -->
 		<customtransponder key="winter_hill_manch__" frequency="554000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="winter_hill_manch__" frequency="738000000" transport_stream_id="4088" system="1"/>
 		<customtransponder key="winter_hill_manch__" frequency="746000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="winter_hill_lancs__" frequency="498000000" transport_stream_id="800b" system="0"/><!-- manch petal -->
+		<customtransponder key="winter_hill_manch__" frequency="498000000" transport_stream_id="800b" system="0"/><!-- manch petal -->
 	</customtransponders>
 
 	<sections>
