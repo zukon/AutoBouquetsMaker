@@ -441,6 +441,10 @@ except:
 		5385: "BT Sport Extra 5",
 		5386: "BT Sport Extra 6",
 	}
+
+	rename_by_id_conditional = { # channel ID: ("old name", "new name")
+		4019: ("Sky Comedy HD", "Sky Comedy Cinema HD"),
+	}
 	
 	rename_by_sid = {
 		52575: "Freesports HD",
@@ -505,6 +509,12 @@ if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["servic
 if "channel_id" in service and service["channel_id"] in rename:
 	service["interactive_name"] = rename[service["channel_id"]] # left for backwards compatibility
 	service["service_name"] = rename[service["channel_id"]]
+	service["service_flags"] = dxHoldName
+
+# Rename channels by ID conditionally, change name if chID and service name matches
+if "channel_id" in service and service["channel_id"] in rename_by_id_conditional and rename_by_id_conditional[service["channel_id"]][0] == service["service_name"]:
+	service["interactive_name"] = rename_by_id_conditional[service["channel_id"]][1] # left for backwards compatibility
+	service["service_name"] = rename_by_id_conditional[service["channel_id"]][1]
 	service["service_flags"] = dxHoldName
 
 # Rename channels by sid
