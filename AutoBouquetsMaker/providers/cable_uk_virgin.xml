@@ -199,6 +199,10 @@ except:
 
 				]
 
+	rename_by_sid = {
+		3403: "Sky Comedy Cinema HD",
+	}
+
 
 	fta_corrections = [
 	"BBC Scotland HD",
@@ -249,6 +253,11 @@ if service["service_name"].startswith("SptsETV"):
 #Some encrypted channels are wrongly flagged as FTA.
 if service["service_name"] in fta_corrections:
 	service["free_ca"] = 1
+
+# Rename channels by sid
+if "service_id" in service and service["service_id"] in rename_by_sid:
+	service["service_name"] = rename_by_sid[service["service_id"]]
+	service["service_flags"] = dxHoldName
 
 service["service_flags"] = flags
 service["provider_name"] = provider
