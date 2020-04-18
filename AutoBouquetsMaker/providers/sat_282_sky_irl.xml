@@ -337,6 +337,7 @@ except:
 
 #Some channels are FTA, but tables are wrong
 	fta_by_id = [
+		1865, # DMAX +1	
 		5237, # TRT World HD
 	]
 
