@@ -245,7 +245,7 @@
 		<channel number="107" with="807"/> <!-- Sky Living HD -->
 		<channel number="108" with="808"/> <!-- Sky Atlantic HD -->
 		<channel number="109" with="809"/> <!-- W HD -->
-		<channel number="110" with="810"/> <!-- Gold HD -->
+		<channel number="110" with="810"/> <!-- GOLD HD -->
 		<channel number="111" with="811"/> <!-- Dave HD -->
 		<channel number="112" with="812"/> <!-- Comedy Central HD -->
 		<channel number="113" with="813"/> <!-- Universal HD -->
@@ -354,6 +354,7 @@ except:
 	# example: "ITV2": 118,
 	#
 	########################################################################
+
 	channels_to_add = {
 		"London Live": 117 #This is only added if you do not have an official local 117 service
 	}
@@ -445,7 +446,7 @@ except:
 	rename_by_id_conditional = { # channel ID: ("old name", "new name")
 		4019: ("Sky Comedy HD", "Sky Comedy Cinema HD"),
 	}
-	
+
 	rename_by_sid = {
 		52575: "Freesports HD",
 	}
@@ -474,14 +475,14 @@ except:
 
 	bt_sports_id = [5030,5381,5031,5382,5383,5384,5385,5386]
 
-#Some encrypted channels are wrongly flagged as FTA.
-	not_fta_by_id = [
+#Some channels are encrypted, but they incorrectly have FTA flag.
+	encrypted_by_id = [
 		5036, # AMC from BT
 		1024, # 10002
 		1027, # 10001
 	]
 
-#Some channels are FTA, but tables are wrong
+#Some channels are FTA, but they incorrectly have Encrypted flag.
 	fta_by_id = [
 		1865, # DMAX +1
 		3358, # Sony Crime
@@ -529,7 +530,7 @@ if "channel_id" in service and service["channel_id"] in itv_rename:
 	service["service_name"] = itv_rename[service["channel_id"]]
 	service["service_flags"] = dxHoldName
 
-if service["channel_id"] in not_fta_by_id:
+if service["channel_id"] in encrypted_by_id:
 	service["free_ca"] = 1
 
 if service["channel_id"] in fta_by_id:
