@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-08 05:45+0000\n"
-"PO-Revision-Date: 2019-03-08 14:22+0100\n"
+"POT-Creation-Date: 2020-04-22 17:37+0000\n"
+"PO-Revision-Date: 2020-04-23 17:17+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: Andy Blacburn. Rob van der Does\n"
 "Language: nl\n"
@@ -16,21 +16,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 msgid "%a %e %b  %-H:%M"
 msgstr "%a %e %b  %-H:%M"
 
+#, python-format
+msgid "%s scheduled update"
+msgstr "%s geplande update"
+
+#, python-format
+msgid ""
+"%s update is about to start.\n"
+"Do you want to allow this?"
+msgstr ""
+"%s update staat op het punt te beginnen.\n"
+"Wilt u dat toestaan?"
+
 msgid "---- ABM - 'text' ----"
 msgstr "---- ABM - 'tekst' ----"
 
 msgid "-------- text --------"
 msgstr "-------- tekst --------"
-
-msgid "30 Days"
-msgstr "30 dagen"
 
 msgid "< - - text - - >"
 msgstr "< - - tekst - - >"
@@ -65,8 +74,8 @@ msgstr "Over"
 msgid "Add provider markers"
 msgstr "Plaats providers markeringen"
 
-msgid "Add provider prefix to bouquets"
-msgstr "Voeg providerprefix toe aan favorietenlijsten"
+msgid "Add provider name to bouquets"
+msgstr "Voeg providernaam toe aan boeketten"
 
 msgid "All channels"
 msgstr "Alle zenders"
@@ -76,6 +85,9 @@ msgstr "U kunt een schema instellen voor het uitvoeren van een scan "
 
 msgid "Are you sure you want to remove all bouquets created by ABM?"
 msgstr "Weet u het zeker dat u alle ABM favorietenlijsten wilt verwijderen?"
+
+msgid "At least one day of the week must be selected"
+msgstr "Er moet minstens één weekdag zijn gekozen"
 
 msgid "AutoBouquetsMaker"
 msgstr "AutoBouquetsMaker"
@@ -100,9 +112,6 @@ msgstr "Autobouquetsmaker scanner"
 
 msgid "Bouquets generation..."
 msgstr "Genereert favorietenlijsten..."
-
-msgid "Bouquets order"
-msgstr "Volgorde van favorietenlijsten"
 
 msgid "Cancel"
 msgstr "Annuleer"
@@ -136,9 +145,6 @@ msgstr "Selecteer de stijl van de markeringen die providers onderscheid van ande
 
 msgid "Choose the style of the markers that separate channels into groups in the channel lists."
 msgstr "Selecteer de stijl van de markeringen die zenders verdeeld in groepen in de zenderlijst."
-
-msgid "Choose which level of settings to display. 'Expert'-level shows all items, this also adds more options in the providers menu."
-msgstr "Kies welk instellingen-niveau weer te geven. Bij 'Expert'-niveau wordt alles weergegeven, dit voegt ook meer opties in het providers menu toe."
 
 msgid "Close"
 msgstr "Sluit"
@@ -187,11 +193,8 @@ msgstr "Aangepast hoofdboeket"
 msgid "DVB-T frequency finder"
 msgstr "DVB-T frequentievinder"
 
-msgid "Daily"
-msgstr "Dagelijks"
-
-msgid "Delete bouquets"
-msgstr "Verwijder ABM-favorietenlijsten"
+msgid "Delete ABM bouquets"
+msgstr "Verwijder ABM-boeketten"
 
 msgid "Done"
 msgstr "Klaar"
@@ -225,20 +228,6 @@ msgstr "Kon het bestand voor %s niet verkrijgen. Fout: %s %s"
 msgid "Failed to retrieve version file. Error: %s %s"
 msgstr "Kon het versie bestand niet verkrijgen. Fout: %s %s"
 
-#, python-format
-msgid ""
-"Failed to tune %s on tuner %s.\n"
-"\n"
-"Please check the following:\n"
-"The tuner is correctly configured.\n"
-"You can receive the specified frequency."
-msgstr ""
-"Tunen op %s met tuner %s mislukt.\n"
-"\n"
-"Controleer het volgende:\n"
-"Is de tuner juist geconfigureerd.\n"
-"Kunt u de gespecificeerde frequentie ontvangen."
-
 msgid "Failed..."
 msgstr "Mislukt..."
 
@@ -254,6 +243,9 @@ msgstr[1] "Found %d unique transponders"
 msgid "FrequencyFinder"
 msgstr "Frequentievinder"
 
+msgid "Friday"
+msgstr "vrijdag"
+
 msgid "HD Channels"
 msgstr "HD-zenders"
 
@@ -262,6 +254,12 @@ msgstr "Verberg secties"
 
 msgid "If a service is carried on a satellite that is not configured, 'yes' means the channel will not appear in the channel list, 'no' means the channel will show in the channel list but be greyed out and not be accessible."
 msgstr "Wanneer een satelliet service niet geconfigureerd is, betekent 'ja' dat de zender niet in de lijst verschijnt en 'nee' dat de zender zichtbaar is (grijs), maar niet benaderbaar."
+
+msgid "If the receiver is in 'Deep Standby' when the schedule is due, wake it up to perform a scan."
+msgstr "Als de ontvanger in diep stand-by is op het geplande moment, wordt deze wakker gemaakt om de scaan uit te voeren."
+
+msgid "If the receiver was woken from 'Deep Standby' and is currently in 'Standby' and no recordings are in progress return it to 'Deep Standby' once the scan has completed."
+msgstr "Als de ontvanger voor de scan uit diep stand-by wakker is gemaakt en er geen opnames lopen, zal de ontvanger terugkeren naar diep stand-by als de scan voltooid is."
 
 msgid "Include 'not indexed' channels"
 msgstr "Inclusief \"niet geïndexeerde\" zenders"
@@ -281,6 +279,9 @@ msgstr "Laatst gescanned"
 
 msgid "Loading bouquets..."
 msgstr "Bezig favorietenlijsten te laden..."
+
+msgid "Monday"
+msgstr "maandag"
 
 msgid "Move down"
 msgstr "Verplaats omlaag"
@@ -320,14 +321,8 @@ msgstr "Geen terrestrische multiplexen gevonden."
 msgid "No terrestrial tuner found."
 msgstr "Geen terrestrial tuner gevonden."
 
-msgid "No valid NIM found for "
-msgstr "Geen geldige NIM gevonden voor "
-
 msgid "No valid NIM found for terrestrial."
 msgstr "Geen geldige NIM gevonden voor terrestrial."
-
-msgid "OK"
-msgstr "OK"
 
 msgid "Only DVB-T2 multiplexes found. Insufficient data to create a provider file."
 msgstr "Alleen DVB-T2 multiplexen gevonden. Onvoldoende data om een providerbestand te maken."
@@ -341,6 +336,12 @@ msgstr "Eerst instellen, in configuratie"
 msgid "Please wait..."
 msgstr "Even wachten..."
 
+msgid "Press OK"
+msgstr "Druk op OK"
+
+msgid "Press OK to select which days to perform a scan."
+msgstr "Druk op OK om de dagen te selecteren waarop een scan uitgevoerd moet worden."
+
 msgid "Providers"
 msgstr "Providers"
 
@@ -349,6 +350,9 @@ msgstr "Providers volgorde"
 
 msgid "Radio Channels"
 msgstr "Radiozenders"
+
+msgid "Radio Times Emulator"
+msgstr "Radio Times Emulator"
 
 #, python-format
 msgid "Reading %s MHz (ch %s)"
@@ -363,9 +367,6 @@ msgstr "Echt afsluiten zonder op te slaan?"
 
 msgid "Region"
 msgstr "Regio"
-
-msgid "Repeat how often?"
-msgstr "Hoe vaak herhalen?"
 
 #, python-format
 msgid "Retrieved config file for %s"
@@ -387,6 +388,9 @@ msgstr "Providerbestand voor %s verkregen"
 msgid "Retrieving config file for %s"
 msgstr "Verkrijgt configuratiebestand voor %s"
 
+msgid "Saturday"
+msgstr "zaterdag"
+
 msgid "Save"
 msgstr "Sla op"
 
@@ -402,11 +406,26 @@ msgstr "Scan"
 msgid "Scanning for active transponders"
 msgstr "Scant actieve transponders"
 
+msgid "Schedule days of the week"
+msgstr "Plan dagen van de week"
+
+msgid "Schedule return to deep standby"
+msgstr "Plan terugkeren naar diep stand-by"
+
 msgid "Schedule scan"
 msgstr "Plan scan"
 
+msgid "Schedule time of day"
+msgstr "Plan tijdstip"
+
+msgid "Schedule wake from deep standby"
+msgstr "Plan wakker worden uit diep stand-by"
+
 msgid "Select \"yes\" to show the \"DVB-T frequency finder\" tool in the main menu. This tool is used to create a working provider file for difficult areas of the UK, e.g. areas covered by repeaters, etc."
 msgstr "Kies \"Ja\" om de \"DVB-T frequentievinder\" in het hoofdmenu te tonen. Deze wordt gebruikt om een werkende provider te creëren in een moeilijk gebied in de UK, b.v. als meerdere zenders het gebied bestrijken."
+
+msgid "Select days"
+msgstr "Kies dagen"
 
 msgid "Select your own bouquet from the list, please note that the only the first 100 channels for this bouquet will be used."
 msgstr "Kies uw eigen favorietenlijst in de lijst. Let op dat alleen de eerste 100 zenders voor deze lijst zullen worden gebruikt."
@@ -421,14 +440,8 @@ msgstr "Zenders: %d video - %d radio"
 msgid "Services: 0 video - 0 radio"
 msgstr "Zenders: 0 video - 0 radio"
 
-msgid "Set the repeat interval of the schedule."
-msgstr "Bepaal het herhalingsinterval van het schema."
-
-msgid "Set the time of day to perform the scan."
-msgstr "Tijdstip voor de dagelijkse scan."
-
-msgid "Setup mode"
-msgstr "Instellingen modus"
+msgid "Set the time of day to perform a scan."
+msgstr "Kies het tijdstip waarop de scan uitgevoerd moet worden."
 
 msgid "Show DVB-T frequency finder"
 msgstr "Toon DVB-T frequentievinder"
@@ -460,6 +473,9 @@ msgstr "Stijl van favorietenlijsten markering"
 msgid "Style of provider marker"
 msgstr "Stijl van provider markering"
 
+msgid "Sunday"
+msgstr "zondag"
+
 msgid "Swap channels"
 msgstr "Wissel kanalen"
 
@@ -481,6 +497,9 @@ msgstr "Deze optie kent diverse keuzes \"Ja\", (creeert een lijst met alle zende
 msgid "This option places markers in the bouquet index to group all bouquets of each provider."
 msgstr "Deze optie plaatst markeringen in de bouquet lijst, en groepeert alle bouquets van elke provider."
 
+msgid "This option will add the provider's name to bouquet names."
+msgstr "Deze optie kan de naam van de provider toevoegen aan de naam van het boeket"
+
 msgid "This option will allow you choose where to place the created bouquets."
 msgstr "Met deze optie kunt u kiezen waar u de gemaakte bouquets worden geplaatst."
 
@@ -496,28 +515,14 @@ msgstr "Deze optie maakt een HD-lijst; alle HD-zenders komen hierin."
 msgid "This option will create bouquets for each type of channel, ie Entertainment, Movies, Documentary."
 msgstr "Deze optie maakt een lijst voor elk type zender, zoals Amusement. Film, documentaires."
 
-msgid "This option will prepend the provider name to bouquet name."
-msgstr "Deze optie zal de naam van de provider voor de naam van de lijst zetten."
-
 msgid "This option will swap SD versions of channels with HD versions. (eg BBC One SD with BBC One HD, Channel Four SD with with Channel Four HD)"
 msgstr "Deze optie zal de SD zenders vervangen met HD versies. (bv BBC 1 SD met BBC 1 HD, Kanaal 4 SD met Kanaal 4 HD )"
 
-msgid "Time of scan to start"
-msgstr "Tijdstip waarop scan moet starten"
+msgid "Thursday"
+msgstr "donderdag"
 
-#, python-format
-msgid ""
-"Timed out tuning %s on tuner %s.\n"
-"\n"
-"Please check the following:\n"
-"The tuner is correctly configured.\n"
-"You can receive the specified frequency."
-msgstr ""
-"Time-out bij tunen op %s met tuner %s.\n"
-"\n"
-"Controleer het volgende:\n"
-"Is de tuner juist geconfigureerd.\n"
-"Kunt u de gespecificeerde frequentie ontvangen."
+msgid "Tuesday"
+msgstr "dinsdag"
 
 #, python-format
 msgid "Tuning %s MHz (ch %s)"
@@ -526,6 +531,58 @@ msgstr "Tunet %s MHz (ch %s)"
 #, python-format
 msgid "Tuning %s..."
 msgstr "Stemt af op %s..."
+
+#, python-format
+msgid ""
+"Tuning failed!\n"
+"\n"
+"Provider: %s\n"
+"Tuner: %s\n"
+"Frequency: %d MHz\n"
+"\n"
+"Please check affected tuner for:\n"
+"\n"
+"Tuner configuration errors,\n"
+"Signal cabling issues,\n"
+"Any other reception issues."
+msgstr ""
+"Tuning failed!\n"
+"\n"
+"Provider: %s\n"
+"Tuner: %s\n"
+"Frequency: %d MHz\n"
+"\n"
+"Controleer de betreffende tuner op:\n"
+"\n"
+"Tunerconfiguratie fouten,\n"
+"Bekabelingsproblemen,\n"
+"Enig ander ontvangstprobleem."
+
+#, python-format
+msgid ""
+"Tuning lock timed out!\n"
+"\n"
+"Provider: %s\n"
+"Tuner: %s\n"
+"Frequency: %d MHz\n"
+"\n"
+"Please check affected tuner for:\n"
+"\n"
+"Tuner configuration errors,\n"
+"Signal cabling issues,\n"
+"Any other reception issues."
+msgstr ""
+"Tuning lock timed out!\n"
+"\n"
+"Provider: %s\n"
+"Tuner: %s\n"
+"Frequency: %d MHz\n"
+"\n"
+"Controleer de betreffende tuner op:\n"
+"\n"
+"Tuner configuratie fouten,\n"
+"Bekabelingsproblemen,\n"
+"Enig ander ontvangstprobleem."
 
 #, python-format
 msgid "Unable to download config file for %s"
@@ -537,8 +594,8 @@ msgstr "Update providerbestanden"
 msgid "UpdateProviders"
 msgstr "Update pviders"
 
-msgid "Weekly"
-msgstr "Wekelijks"
+msgid "Wednesday"
+msgstr "woensdag"
 
 msgid "When a search finds extra channels that do not have an allocated channel number, 'yes' will add these at the end of the channel list, and 'no' means these will not be included."
 msgstr "Wanneer er zenders gevonden worden welke geen LCN nummer hebben toegewezen gekregen, bij 'ja' zullen deze zenders aan het einde van de zenderlijst toevoegen worden, en 'nee' zal ze niet toevoegen."
@@ -548,13 +605,6 @@ msgstr "Bij uitschakelen zal dit in het hoofdmenu 'Behoud favorietenlijsten' ins
 
 msgid "When enabled, allows you start a scan from the extensions list."
 msgstr "Wanneer ingeschakeld, kunt dat u een scan starten vanuit de plugin lijst."
-
-msgid ""
-"Your bouquets are about to be updated,\n"
-"Do you want to allow this?"
-msgstr ""
-"Uw favorieten worden zo geupdate.\n"
-"Wilt u dat toestaan?"
 
 msgid "bottom"
 msgstr "onderkant"
@@ -592,11 +642,23 @@ msgstr "ja (alleen FTA HD)"
 msgid "yes (only HD)"
 msgstr "ja (alleen HD)"
 
+#~ msgid "30 Days"
+#~ msgstr "30 dagen"
+
+#~ msgid "Add provider prefix to bouquets"
+#~ msgstr "Voeg providerprefix toe aan favorietenlijsten"
+
 #~ msgid "Bottom"
 #~ msgstr "Onderin"
 
+#~ msgid "Bouquets order"
+#~ msgstr "Volgorde van favorietenlijsten"
+
 #~ msgid "Cannot allocate the demuxer"
 #~ msgstr "Kan de demuxer niet toewijzen."
+
+#~ msgid "Choose which level of settings to display. 'Expert'-level shows all items, this also adds more options in the providers menu."
+#~ msgstr "Kies welk instellingen-niveau weer te geven. Bij 'Expert'-niveau wordt alles weergegeven, dit voegt ook meer opties in het providers menu toe."
 
 #~ msgid "Config file for %s does not need updating"
 #~ msgstr "Configuratiebestand voor %s hoeft niet geüpdatet te worden."
@@ -610,11 +672,33 @@ msgstr "ja (alleen HD)"
 #~ msgid "Config file for %s is faulty"
 #~ msgstr "Configuratiebestand voor %s is corrupt."
 
+#~ msgid "Daily"
+#~ msgstr "Dagelijks"
+
+#~ msgid "Delete bouquets"
+#~ msgstr "Verwijder ABM-favorietenlijsten"
+
+#~ msgid ""
+#~ "Failed to tune %s on tuner %s.\n"
+#~ "\n"
+#~ "Please check the following:\n"
+#~ "The tuner is correctly configured.\n"
+#~ "You can receive the specified frequency."
+#~ msgstr ""
+#~ "Tunen op %s met tuner %s mislukt.\n"
+#~ "\n"
+#~ "Controleer het volgende:\n"
+#~ "Is de tuner juist geconfigureerd.\n"
+#~ "Kunt u de gespecificeerde frequentie ontvangen."
+
 #~ msgid "Network connection error"
 #~ msgstr "Netwerk verbindingsfout."
 
 #~ msgid "No terrestrial tuner found"
 #~ msgstr "Geen terrestrische tuner gevonden."
+
+#~ msgid "No valid NIM found for "
+#~ msgstr "Geen geldige NIM gevonden voor "
 
 #~ msgid "No valid NIM found for terrestrial"
 #~ msgstr "Geen geldige NIM gevonden voor terrestrisch."
@@ -622,17 +706,61 @@ msgstr "ja (alleen HD)"
 #~ msgid "None"
 #~ msgstr "Geen"
 
+#~ msgid "OK"
+#~ msgstr "OK"
+
 #~ msgid "Repeat how often"
+#~ msgstr "Hoe vaak herhalen?"
+
+#~ msgid "Repeat how often?"
 #~ msgstr "Hoe vaak herhalen?"
 
 #~ msgid "Selected tuner is not configured"
 #~ msgstr "Gekozen tuner is niet geconfigureerd."
+
+#~ msgid "Set the repeat interval of the schedule."
+#~ msgstr "Bepaal het herhalingsinterval van het schema."
+
+#~ msgid "Set the time of day to perform the scan."
+#~ msgstr "Tijdstip voor de dagelijkse scan."
+
+#~ msgid "Setup mode"
+#~ msgstr "Instellingen modus"
+
+#~ msgid "This option will prepend the provider name to bouquet name."
+#~ msgstr "Deze optie zal de naam van de provider voor de naam van de lijst zetten."
+
+#~ msgid "Time of scan to start"
+#~ msgstr "Tijdstip waarop scan moet starten"
+
+#~ msgid ""
+#~ "Timed out tuning %s on tuner %s.\n"
+#~ "\n"
+#~ "Please check the following:\n"
+#~ "The tuner is correctly configured.\n"
+#~ "You can receive the specified frequency."
+#~ msgstr ""
+#~ "Time-out bij tunen op %s met tuner %s.\n"
+#~ "\n"
+#~ "Controleer het volgende:\n"
+#~ "Is de tuner juist geconfigureerd.\n"
+#~ "Kunt u de gespecificeerde frequentie ontvangen."
 
 #~ msgid "Top"
 #~ msgstr "Bovenin"
 
 #~ msgid "Update config files"
 #~ msgstr "Update configuratiebestanden"
+
+#~ msgid "Weekly"
+#~ msgstr "Wekelijks"
+
+#~ msgid ""
+#~ "Your bouquets are about to be updated,\n"
+#~ "Do you want to allow this?"
+#~ msgstr ""
+#~ "Uw favorieten worden zo geupdate.\n"
+#~ "Wilt u dat toestaan?"
 
 #~ msgid "area"
 #~ msgstr "gebied"
