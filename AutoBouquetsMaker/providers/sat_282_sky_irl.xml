@@ -53,38 +53,37 @@
 		<channel number="103" with="803"/> <!-- TV3 HD -->
 		<channel number="104" with="804"/> <!-- TG4 HD -->
 		<channel number="106" with="806"/> <!-- Sky One HD -->
-		<channel number="107" with="807"/> <!-- Sky Living HD -->
+		<channel number="107" with="807"/> <!-- Sky Witness -->
 		<channel number="108" with="808"/> <!-- Sky Atlantic HD -->
 		<channel number="109" with="809"/> <!-- W HD -->
 		<channel number="110" with="810"/> <!-- GOLD HD -->
 		<channel number="111" with="811"/> <!-- Dave HD -->
 		<channel number="112" with="812"/> <!-- Comedy Central HD -->
-		<channel number="113" with="813"/> <!-- Universal HD -->
-		<channel number="114" with="814"/> <!-- Syfy HD -->
+		<channel number="113" with="813"/> <!-- Sky Comedy HD -->
+		<channel number="114" with="814"/> <!-- SkyDocumntrs -->
 		<channel number="118" with="816"/> <!-- ITV2 HD -->
 		<channel number="119" with="817"/> <!-- ITV3 HD -->
 		<channel number="120" with="818"/> <!-- ITV4 HD -->
-		<channel number="121" with="819"/> <!-- SkySp Mix HD -->
 		<channel number="122" with="820"/> <!-- Sky Arts HD -->
-		<channel number="123" with="834"/> <!-- E! HD -->
+		<channel number="123" with="825"/> <!-- Sky History HD -->
 		<channel number="124" with="821"/> <!-- FOX HD -->
 		<channel number="125" with="822"/> <!-- Discovery HD -->
 		<channel number="126" with="823"/> <!-- MTV HD -->
 		<channel number="129" with="824"/> <!-- Nat Geo HD -->
-		<channel number="130" with="825"/> <!-- History HD -->
+		<channel number="130" with="893"/> <!-- Sky Nature HD -->
 		<channel number="132" with="826"/> <!-- Alibi HD -->
 		<channel number="133" with="827"/> <!-- TLC HD -->
 		<channel number="134" with="828"/> <!-- S4C HD -->
 		<channel number="135" with="829"/> <!-- E4 HD -->
 		<channel number="136" with="830"/> <!-- More4 HD -->
 		<channel number="144" with="831"/> <!-- Quest HD -->
+		<channel number="145" with="838"/> <!-- SkySp Mix HD -->
+		<channel number="151" with="834"/> <!-- E! HD -->
 		<channel number="156" with="835"/> <!-- Crime+Inv HD -->
 		<channel number="162" with="836"/> <!-- Animal Planet HD -->
 		<channel number="164" with="838"/> <!-- Lifetime HD -->
 		<channel number="165" with="839"/> <!-- Nat Geo Wild HD -->
-		<channel number="186" with="840"/> <!-- AMC from BT HD -->
-		<channel number="195" with="889"/> <!-- Smithsonian HD -->
-		<channel number="198" with="866"/> <!-- Good Food HD -->
+		<channel number="173" with="889"/> <!-- Smithsonian HD -->
 		<channel number="301" with="842"/> <!-- SkyPremiereHD -->
 		<channel number="302" with="843"/> <!-- Sky Hits HD -->
 		<channel number="303" with="844"/> <!-- Sky Greats HD -->
@@ -94,10 +93,9 @@
 		<channel number="307" with="848"/> <!-- Sky Comedy HD -->
 		<channel number="308" with="849"/> <!-- Sky Thriller HD -->
 		<channel number="309" with="850"/> <!-- Sky Drama HD -->
-		<channel number="310" with="851"/> <!-- Sky ScFi/HorHD -->
-		<channel number="311" with="852"/> <!-- Sky Select HD -->
+		<channel number="310" with="851"/> <!-- Sky Drama HD -->
+		<channel number="311" with="852"/> <!-- Sky ScFi/HorHD -->
 		<channel number="313" with="853"/> <!-- Film4 HD -->
-		<channel number="315" with="854"/> <!-- TCM HD -->
 		<channel number="401" with="855"/> <!-- SkySpMainEvHD HD -->
 		<channel number="402" with="856"/> <!-- SkySp PL HD -->
 		<channel number="403" with="857"/> <!-- SkySp F'ball HD -->
@@ -112,16 +110,18 @@
 		<channel number="412" with="866"/> <!-- Premier HD -->
 		<channel number="413" with="867"/> <!-- BT Sport1 HD -->
 		<channel number="414" with="868"/> <!-- BT Sport2 HD -->
+		<channel number="415" with="888"/> <!-- Sky Sports Racing HD -->
 		<channel number="417" with="869"/> <!-- BT Sport3 HD -->
 		<channel number="418" with="870"/> <!-- MUTV HD -->
 		<channel number="421" with="873"/> <!-- eir sport 1 HD -->
-		<channel number="422" with="871"/> <!-- eir Sport 2 HD -->
 		<channel number="423" with="872"/> <!-- BTSpt ESPN HD -->
 		<channel number="426" with="874"/> <!-- Racing UK HD -->
 		<channel number="501" with="875"/> <!-- Sky News HD -->
 		<channel number="502" with="876"/> <!-- Bloomberg HD -->
-		<channel number="503" with="823"/> <!-- BBC News HD -->
+		<channel number="503" with="877"/> <!-- BBC News HD -->
+		<channel number="505" with="890"/> <!-- CNBC HD -->
 		<channel number="506" with="878"/> <!-- CNN HD -->
+		<channel number="509" with="891"/> <!-- CGTN HD -->
 		<channel number="511" with="879"/> <!-- RT HD -->
 		<channel number="513" with="880"/> <!-- Al Jazeera HD -->
 		<channel number="516" with="881"/> <!-- TRT World HD -->
