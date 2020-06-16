@@ -272,6 +272,7 @@
 		<channel number="145" with="838"/> <!-- SkySp Mix HD -->
 		<channel number="151" with="834"/> <!-- E! HD -->
 		<channel number="156" with="835"/> <!-- Crime+Inv HD -->
+		<channel number="159" with="895"/> <!-- Pick HD -->
 		<channel number="162" with="836"/> <!-- Animal Planet HD -->
 		<channel number="164" with="838"/> <!-- Lifetime HD -->
 		<channel number="165" with="839"/> <!-- Nat Geo Wild HD -->
@@ -443,6 +444,7 @@ except:
 
 	rename_by_id_conditional = { # channel ID: ("old name", "new name")
 		4019: ("Sky Comedy HD", "Sky Comedy Cinema HD"),
+		1829: ("Pick", "Pick HD"),
 	}
 
 	rename_by_sid = {
