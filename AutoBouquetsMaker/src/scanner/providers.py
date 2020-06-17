@@ -11,13 +11,13 @@ class Providers():
 	def parseXML(self, filename):
 		try:
 			provider = open(filename, "r")
-		except Exception, e:
+		except Exception as e:
 			print>>log, "[ABM-Providers][parseXML] Cannot open %s: %s" % (filename, e)
 			return None
 
 		try:
 			dom = xml.dom.minidom.parse(provider)
-		except Exception, e:
+		except Exception as e:
 			print>>log, "[ABM-Providers][parseXML] XML parse error (%s): %s" % (filename, e)
 			provider.close()
 			return None

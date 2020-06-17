@@ -128,7 +128,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 		req = Request(URL)
 		try:
 			response = urlopen(req)
-		except Exception, e:
+		except Exception as e:
 			if hasattr(e, 'code') and hasattr(e, 'reason'):
 				print>>log, "[ABM-UpdateProviders][checkRemoteVersion] Failed to retrieve version file. Error: %s %s" % (str(e.code), str(e.reason))
 				self.showError(_('Failed to retrieve version file. Error: %s %s') % (str(e.code), str(e.reason)))
@@ -177,7 +177,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 		req = Request(URL)
 		try:
 			response = urlopen(req)
-		except Exception, e:
+		except Exception as e:
 			if hasattr(e, 'code') and hasattr(e, 'reason'):
 				print>>log, "[ABM-UpdateProviders][getResource] Failed to retrieve file for %s. Error: %s %s" % (self.provider_name, str(e.code), str(e.reason))
 				self.messages.append(_("Failed to retrieve file for %s. Error: %s %s") % (self.provider_name, str(e.code), str(e.reason)))

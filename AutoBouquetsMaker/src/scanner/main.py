@@ -411,7 +411,7 @@ class AutoBouquetsMaker(Screen):
 
 		try:
 			self.rawchannel.requestTsidOnid()
-		except (TypeError):
+		except TypeError:
 			# for compatibility with some third party images
 			self.rawchannel.requestTsidOnid(self.gotTsidOnid)
 

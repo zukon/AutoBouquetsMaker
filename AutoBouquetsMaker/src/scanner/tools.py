@@ -10,13 +10,13 @@ class Tools():
 	def parseXML(self, filename):
 		try:
 			tool = open(filename, "r")
-		except Exception, e:
+		except Exception as e:
 			#print>>log, "[ABM-Tools][parseXML] Cannot open %s: %s" % (filename, e)
 			return None
 
 		try:
 			dom = xml.dom.minidom.parse(tool)
-		except Exception, e:
+		except Exception as e:
 			print>>log, "[ABM-Tools][parseXML] XML parse error (%s): %s" % (filename, e)
 			tool.close()
 			return None

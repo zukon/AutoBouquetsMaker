@@ -14,7 +14,7 @@ class BouquetsReader():
 
 			try:
 				bouquet = open(path + "/" + filename, "r")
-			except Exception, e:
+			except Exception as e:
 				continue
 
 			firstline = bouquet.read().split("\n")[0]
@@ -34,7 +34,7 @@ class BouquetsReader():
 		for bouquet_type in ["tv", "radio"]:
 			try:
 				bouquets = open(path + "/bouquets." + bouquet_type, "r")
-			except Exception, e:
+			except Exception as e:
 				continue
 
 			content = bouquets.read()
@@ -51,7 +51,7 @@ class BouquetsReader():
 
 		try:
 			lamedb = open(path + "/lamedb", "r")
-		except Exception, e:
+		except Exception as e:
 			return transponders
 
 		content = lamedb.read()
