@@ -1,7 +1,10 @@
 from .. import log
 import os
 import xml.dom.minidom
-import cPickle as pickle
+try:
+	import cPickle as pickle
+except:
+	import pickle
 from enigma import eDVBFrontendParametersSatellite, eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable
 
 class Providers():
