@@ -129,16 +129,16 @@ class DvbScanner():
 		if transponder["dvb_type"] == 'dvbc':
 			namespace = 0xFFFF0000
 			if self.namespace_complete_cable:
-				namespace |= (transponder['frequency']/1000)&0xFFFF
+				namespace |= (transponder['frequency']//1000)&0xFFFF
 		elif transponder["dvb_type"] == 'dvbt':
 			namespace = 0xEEEE0000
 			if self.namespace_complete_terrestrial:
-				namespace |= (transponder['frequency']/1000000)&0xFFFF
+				namespace |= (transponder['frequency']//1000000)&0xFFFF
 		elif transponder["dvb_type"] == 'dvbs':
 			orbital_position = transponder['orbital_position']
 			namespace = orbital_position << 16
 			if self.namespace_complete or not self.isValidOnidTsid(orbital_position, transponder['original_network_id'], transponder['transport_stream_id']):
-				namespace |= ((transponder['frequency'] / 1000) & 0xFFFF) | ((transponder['polarization'] & 1) << 15)
+				namespace |= ((transponder['frequency'] // 1000) & 0xFFFF) | ((transponder['polarization'] & 1) << 15)
 		return namespace
 
 	def tsidOnidTest(self, onid, tsid):
@@ -352,7 +352,7 @@ class DvbScanner():
 				transponder["flags"] = 0
 				if transponder["fec_inner"] != 15 and transponder["fec_inner"] > 9:
 					transponder["fec_inner"] = 0
-				transponder["frequency"] = transponder["frequency"] / 10
+				transponder["frequency"] = transponder["frequency"] // 10
 				transponder["namespace"] = self.buildNamespace(transponder)
 				transponder["inversion"] = transponder["fec_outer"]
 				transponder["system"] = 0
@@ -816,7 +816,7 @@ class DvbScanner():
 
 			service["number"] = logical_channel_number_dict[servicekey]["logical_channel_number"]
 
-			service["orbital_position"] = service["namespace"] / (16**4)
+			service["orbital_position"] = service["namespace"] // (16**4)
 			
 			if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and (service["service_name"][-2:] == 'HD' or ' HD ' in service["service_name"]):
 				service["service_type"] = 25

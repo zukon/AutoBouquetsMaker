@@ -339,10 +339,10 @@ class AutoBouquetsMaker(Screen):
 		if self.providers[self.currentAction]["streamtype"] == "dvbs" and self.isRotorSat(current_slotid, transponder["orbital_position"]):
 			self.motorised = True
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_ROTOR
-			print>>log, "[ABM-main][doTune] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10)
+			print>>log, "[ABM-main][doTune] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT//10)
 		else:
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_FIXED
-			print>>log, "[ABM-main][doTune] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10)
+			print>>log, "[ABM-main][doTune] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT//10)
 
 		if not inStandby:
 			self["tuner_text"].setText(chr(ord('A') + current_slotid))
@@ -449,13 +449,13 @@ class AutoBouquetsMaker(Screen):
 			print>>log, "[ABM-main][checkTunerLock] LOSTLOCK"
 		elif tuner_state == "FAILED":
 			print>>log, "[ABM-main][checkTunerLock] TUNING FAILED FATAL"
-			self.showError(_('Tuning failed!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]/1000))
+			self.showError(_('Tuning failed!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]//1000))
 			return
 
 		self.lockcounter += 1
 		if self.lockcounter > self.LOCK_TIMEOUT:
 			print>>log, "[AutoBouquetsMaker] Timeout for tuner lock, "
-			self.showError(_('Tuning lock timed out!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]/1000))
+			self.showError(_('Tuning lock timed out!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]//1000))
 			return
 
 		self.locktimer.start(100, 1)

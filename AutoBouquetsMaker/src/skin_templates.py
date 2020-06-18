@@ -42,7 +42,7 @@ colours = {"red": 0x9f1313, "green": 0x1f771f, "yellow": 0xa08500, "blue": 0x181
 def insertValues(xml, values):
 	# The skin template is designed for a HD screen so the scaling factor is 720.
 	# double negative to round up not round down
-	return xml % tuple([-(x*getDesktop(0).size().height()/(-720)) for x in values])
+	return xml % tuple([int(-(x*getDesktop(0).size().height()//(-720))) for x in values])
 
 def header():
 	headerXML = '\n<screen position="center,center" size="%d,%d">'
@@ -145,7 +145,7 @@ def templateFour():
 		2,  2,  widgetWidth-4, configItemHeight-2, # templateFourXML line 4
 		fontSize,
 		configItemHeight,
-		0, templateFourHeight/2, widgetWidth, configItemHeight, fontSize # templateFourXML line 11
+		0, templateFourHeight//2, widgetWidth, configItemHeight, fontSize # templateFourXML line 11
 	]
 	return insertValues(templateFourXML, templateFourValues)
 
@@ -168,7 +168,7 @@ def templateSix():
 	templateSixValues = [
 		marginLeft, marginTop, widgetWidth, templateSixHeight, configItemHeight, fontSize, # templateSixXML line 1
 		marginLeft, templateSixHeight+configItemHeight, widgetWidth, templateSixDescHeight, descriptionsFontSize, # templateSixXML line 3
-		0, templateSixHeight/2, widgetWidth, configItemHeight, fontSize # templateSixXML line 3
+		0, templateSixHeight//2, widgetWidth, configItemHeight, fontSize # templateSixXML line 3
 	]
 	return insertValues(templateSixXML, templateSixValues)
 
