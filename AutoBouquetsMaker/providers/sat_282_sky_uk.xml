@@ -444,6 +444,7 @@ except:
 
 	rename_by_id_conditional = { # channel ID: ("old name", "new name")
 		4019: ("Sky Comedy HD", "Sky Comedy Cinema HD"),
+		1828: ("5828", "Pick"),
 		1829: ("Pick", "Pick HD"),
 	}
 
