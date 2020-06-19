@@ -147,6 +147,7 @@ except:
 
 	rename = { # channel_id: service_name,
 		36794: 'Arirang TV HD',
+		49782: 'Pick HD',
 	}
 
 	rename_by_sid = {

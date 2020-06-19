@@ -207,6 +207,7 @@ except:
 		6533: 817, # ITV3 HD
 		6534: 818, # ITV4 HD
 		5037: 840, # AMC from BTHD
+		1829: 895, # Pick HD
 		#slow death section
 		3705: 112, # ComedyCentral
 		2709: 127, # ComedyXtra

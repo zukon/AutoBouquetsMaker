@@ -369,6 +369,7 @@ except:
 		#slow death section
 		3705: 112, # ComedyCentral
 		2709: 127, # ComedyXtra
+		1837: 159, # Pick ROI 
 		2418: 154, # ID
 		2517: 604, # Nicelodeon
 		5527: 606, # Nicktoons
