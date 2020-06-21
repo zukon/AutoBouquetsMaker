@@ -2,6 +2,8 @@
 import sys
 import os
 import string
+from __future__ import print_function
+
 import re
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler, property_lexical_handler
@@ -55,13 +57,13 @@ for arg in sys.argv[1:]:
 	attrlist.sort(key=lambda a: a[0])
 
 	for (k,c) in attrlist:
-		print
-		print '#: ' + arg
+		print()
+		print('#: ' + arg)
 		string.replace(k, "\\n", "\"\n\"")
 		if c:
 			for l in c.split('\n'):
 				print "#. ", l
-		print 'msgid "' + str(k) + '"'
-		print 'msgstr ""'
+		print('msgid "' + str(k) + '"')
+		print('msgstr ""')
 
 	attrlist = set()

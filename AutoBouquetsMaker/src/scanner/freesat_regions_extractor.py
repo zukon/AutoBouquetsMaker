@@ -19,11 +19,11 @@ TIMEOUT_SEC = 30
 bouquets_list = []
 
 def readBouquet(bouquet_id):
-	print "[DvbScanner] Reading bouquet_id = 0x%x..." % bouquet_id
+	print("[DvbScanner] Reading bouquet_id = 0x%x..." % bouquet_id)
 
 	fd = dvbreader.open("/dev/dvb/adapter0/demux0", bat_pid, bat_table, mask, frontend)
 	if fd < 0:
-		print "[DvbScanner] Cannot open the demuxer"
+		print("[DvbScanner] Cannot open the demuxer")
 		return None
 
 	bat_section_version = -1
@@ -35,7 +35,7 @@ def readBouquet(bouquet_id):
 	timeout += datetime.timedelta(0, TIMEOUT_SEC)
 	while True:
 		if datetime.datetime.now() > timeout:
-			print "[DvbScanner] Timed out"
+			print("[DvbScanner] Timed out")
 			break
 
 		section = dvbreader.read_bat(fd, bat_table)
@@ -69,7 +69,7 @@ def readBouquet(bouquet_id):
 			break
 
 	if bouquet_name is None:
-		print "[DvbScanner] Canno get bouquet name for bouquet_id = 0x%x" % bouquet_id
+		print("[DvbScanner] Cannot get bouquet name for bouquet_id = 0x%x" % bouquet_id)
 		return
 
 	for section in bat_content:
@@ -81,7 +81,7 @@ def readBouquet(bouquet_id):
 			}
 			bouquets_list.append(bouquet)
 
-	print "[DvbScanner] Done"
+	print("[DvbScanner] Done")
 
 def getSortKey(elem):
 	# group by: SD/HD/G2
@@ -102,4 +102,4 @@ bouquets_list = sorted(bouquets_list, key=getSortKey)
 for bouquet in bouquets_list:
 	key = "freesat_%x_%x" % (bouquet["bouquet"], bouquet["region"])
 	name = bouquet["name"].replace("&", "&amp;")
-	print "<configuration key=\"%s\" bouquet=\"0x%x\" region=\"0x%x\">%s</configuration>" % (key, bouquet["bouquet"], bouquet["region"], name)
+	print("<configuration key=\"%s\" bouquet=\"0x%x\" region=\"0x%x\">%s</configuration>" % (key, bouquet["bouquet"], bouquet["region"], name))

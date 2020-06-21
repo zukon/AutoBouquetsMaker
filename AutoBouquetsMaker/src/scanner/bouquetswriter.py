@@ -3,6 +3,9 @@
 from .. import _
 
 from .. import log
+
+from __future__ import print_function
+
 from Components.config import config
 from tools import Tools
 from dvbscanner import DvbScanner
@@ -15,7 +18,7 @@ class BouquetsWriter():
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
 
 	def writeLamedb(self, path, transponders):
-		print>>log, "[ABM-BouquetsWriter] Writing lamedb..."
+		print("[ABM-BouquetsWriter] Writing lamedb...", file=log)
 
 		transponders_count = 0
 		services_count = 0
@@ -67,7 +70,7 @@ class BouquetsWriter():
 								eDVBFrontendParametersSatellite.PLS_Gold, 
 								eDVBFrontendParametersSatellite.PLS_Default_Gold_Code)
 						except AttributeError as err:
-							print>>log, "[ABM-BouquetsWriter] some images are still not multistream aware after all this time",  err
+							print("[ABM-BouquetsWriter] some images are still not multistream aware after all this time", err, file=log)
 					lamedblist.append("\ts %d:%d:%d:%d:%d:%d:%d:%d:%d:%d:%d%s%s\n" %
 						(transponder["frequency"],
 						transponder["symbol_rate"],
@@ -156,10 +159,10 @@ class BouquetsWriter():
 		lamedb.close()
 		del lamedblist
 
-		print>>log, "[ABM-BouquetsWriter] Wrote %d transponders and %d services" % (transponders_count, services_count)
+		print("[ABM-BouquetsWriter] Wrote %d transponders and %d services" % (transponders_count, services_count), file=log)
 
 	def writeLamedb5(self, path, transponders):
-		print>>log, "[ABM-BouquetsWriter] Writing lamedb V5..."
+		print("[ABM-BouquetsWriter] Writing lamedb V5...", file=log)
 
 		transponders_count = 0
 		services_count = 0
@@ -209,7 +212,7 @@ class BouquetsWriter():
 									transponder["pls_code"], 
 									transponder["pls_mode"])
 						except AttributeError as err:
-							print>>log, "[ABM-BouquetsWriter] some images are still not multistream aware after all this time", err
+							print("[ABM-BouquetsWriter] some images are still not multistream aware after all this time", err, file=log)
 					if "t2mi_plp_id" in transponder and "t2mi_pid" in transponder:
 						t2mi = ',T2MI:%d:%d' % (
 						transponder["t2mi_plp_id"],
@@ -302,15 +305,15 @@ class BouquetsWriter():
 		lamedb.close()
 		del lamedblist
 
-		print>>log, "[ABM-BouquetsWriter] Wrote %d transponders and %d services" % (transponders_count, services_count)
+		print("[ABM-BouquetsWriter] Wrote %d transponders and %d services" % (transponders_count, services_count), file=log)
 
 	def makeCustomSeparator(self, path, filename, max_count):
-		print>>log, "[ABM-BouquetsWriter] Make custom seperator for %s in main bouquet..." % filename
+		print("[ABM-BouquetsWriter] Make custom seperator for %s in main bouquet..." % filename, file=log)
 
 		try:
 			bouquet_in = open(path + "/" + filename, "r")
 		except Exception as e:
-			print>>log, "[ABM-BouquetsWriter] ", e
+			print("[ABM-BouquetsWriter] ", e, file=log)
 			return
 
 		content = bouquet_in.read()
@@ -320,7 +323,7 @@ class BouquetsWriter():
 		try:
 			bouquet_out = open(path + seperator_name, "w")
 		except Exception as e:
-			print>>log, "[ABM-BouquetsWriter] ", e
+			print("[ABM-BouquetsWriter] ", e, file=log)
 			return
 
 		rows = content.split("\n")
@@ -341,7 +344,7 @@ class BouquetsWriter():
 
 			#bouquet_out_list.append(row + "\n")
 
-		print>>log, "[ABM-BouquetsWriter] Custom seperator name: %s" % name
+		print("[ABM-BouquetsWriter] Custom seperator name: %s" % name, file=log)
 
 		bouquet_out_list = []
 
@@ -357,7 +360,7 @@ class BouquetsWriter():
 		bouquet_out.close()
 		del bouquet_out_list
 
-		print>>log, "[ABM-BouquetsWriter] Custom seperator made. %s" % seperator_name
+		print("[ABM-BouquetsWriter] Custom seperator made. %s" % seperator_name, file=log)
 
 	def containServices(self, path, filename):
 		try:
@@ -383,7 +386,7 @@ class BouquetsWriter():
 			return False
 
 	def buildBouquetsIndex(self, path, bouquetsOrder, providers, bouquetsToKeep, currentBouquets, bouquets_to_hide, provider_configs):
-		print>>log, "[ABM-BouquetsWriter] Writing bouquets index..."
+		print("[ABM-BouquetsWriter] Writing bouquets index...", file=log)
 
 		bouquets_tv = open(path + "/bouquets.tv", "w")
 		bouquets_tv_list = []
@@ -514,9 +517,9 @@ class BouquetsWriter():
 				try:
 					os.remove(path + "/" + filename)
 				except Exception as e:
-					print>>log, "[ABM-BouquetsWriter] Cannot delete %s: %s" % (filename, e)
+					print("[ABM-BouquetsWriter] Cannot delete %s: %s" % (filename, e), file=log)
 					continue
-		print>>log, "[ABM-BouquetsWriter] Done"
+		print("[ABM-BouquetsWriter] Done", file=log)
 
 	def buildLastScannedBouquet(self, path, services):
 		last_scanned_bouquet_list = ["#NAME " + _("Last Scanned") + "\n"]
@@ -546,7 +549,7 @@ class BouquetsWriter():
 		for item in sort_list:
 			service = tmp_services[item[0]]
 			last_scanned_bouquet_list.append(self.bouquetServiceLine(service))
-		print>>log, "[ABM-BouquetsWriter] Writing Last Scanned bouquet..."
+		print("[ABM-BouquetsWriter] Writing Last Scanned bouquet...", file=log)
 		bouquet_current = open(path + "/userbouquet.LastScanned.tv", "w")
 		bouquet_current.write(''.join(last_scanned_bouquet_list))
 		bouquet_current.close()
@@ -569,7 +572,7 @@ class BouquetsWriter():
 
 			del(services["video"][number])
 
-		print>>log, "[ABM-BouquetsWriter] Writing %s bouquet..." % section_identifier
+		print("[ABM-BouquetsWriter] Writing %s bouquet..." % section_identifier, file=log)
 
 		force_keep_numbers = False
 
@@ -909,7 +912,7 @@ class BouquetsWriter():
 		bouquet_current.close()
 		del current_bouquet_list
 
-		print>>log, "[ABM-BouquetsWriter] Done"
+		print("[ABM-BouquetsWriter] Done", file=log)
 
 	def bouquetServiceLine(self, service):
 		return "#SERVICE %d:0:%x:%x:%x:%x:%x:0:0:0:%s\n%s" % (

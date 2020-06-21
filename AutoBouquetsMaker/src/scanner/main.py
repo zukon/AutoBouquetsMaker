@@ -1,6 +1,8 @@
 # for localized messages
 from .. import _
 
+from __future__ import print_function
+
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -207,7 +209,7 @@ class AutoBouquetsMaker(Screen):
 		self.timer.start(100, 1)
 
 	def doTune(self):
-		print>>log, "[ABM-main][doTune] searching for tuner for %s" % self.providers[self.currentAction]["name"]
+		print("[ABM-main][doTune] searching for tuner for %s" % self.providers[self.currentAction]["name"], file=log)
 		from Screens.Standby import inStandby
 		if self.providers[self.currentAction]["streamtype"] == "dvbs":
 			transponder = self.providers[self.currentAction]["transponder"]
@@ -222,7 +224,7 @@ class AutoBouquetsMaker(Screen):
 				bouquet_key = provider_config.getArea()
 
 			if not bouquet_key:
-				print>>log, "[ABM-main][doTune] No area found"
+				print("[ABM-main][doTune] No area found", file=log)
 				self.showError(_('No area found'))
 				return
 
@@ -262,16 +264,16 @@ class AutoBouquetsMaker(Screen):
 							nimList.append(nim.slot)
 						tunerSelectionAlgorithm = "OpenATV > 5.3"
 
-		print>>log, "[ABM-main][doTune] tuner selection algorithm '%s'" % tunerSelectionAlgorithm
+		print("[ABM-main][doTune] tuner selection algorithm '%s'" % tunerSelectionAlgorithm, file=log)
 
 		if len(nimList) == 0:
-			print>>log, "[ABM-main][doTune] No NIMs found"
+			print("[ABM-main][doTune] No NIMs found", file=log)
 			self.showError(_('No NIMs found for ') + self.providers[self.currentAction]["name"])
 			return
 
 		resmanager = eDVBResourceManager.getInstance()
 		if not resmanager:
-			print>>log, "[ABM-main][doTune] Cannot retrieve Resource Manager instance"
+			print("[ABM-main][doTune] Cannot retrieve Resource Manager instance", file=log)
 			self.showError(_('Cannot retrieve Resource Manager instance'))
 			return
 
@@ -282,7 +284,7 @@ class AutoBouquetsMaker(Screen):
 		if self.session.pipshown:
 			self.session.pipshown = False
 			del self.session.pip
-			print>>log, "[ABM-main][doTune] Stopping PIP."
+			print("[ABM-main][doTune] Stopping PIP.", file=log)
 
 		# find currently playing nim
 		currentlyPlayingNIM = None
@@ -301,7 +303,7 @@ class AutoBouquetsMaker(Screen):
 					self.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
 					self.session.nav.stopService()
 					currentlyPlayingNIM = None
-					print>>log, "[ABM-main][doTune] The active service was using a %s tuner, so had to be stopped (slot id %s)." % (nimConfigMode, currentlyPlayingNIM)
+					print("[ABM-main][doTune] The active service was using a %s tuner, so had to be stopped (slot id %s)." % (nimConfigMode, currentlyPlayingNIM), file=log)
 		del frontendInfo
 		del currentService
 
@@ -310,27 +312,27 @@ class AutoBouquetsMaker(Screen):
 		for current_slotid in nimList:
 			self.rawchannel = resmanager.allocateRawChannel(current_slotid)
 			if self.rawchannel:
-				print>>log, "[ABM-main][doTune] Tuner %s selected%s" % (chr(ord('A') + current_slotid), (" for orbital position %d" % transponder["orbital_position"] if "orbital_position" in transponder else ""))
+				print("[ABM-main][doTune] Tuner %s selected%s" % (chr(ord('A') + current_slotid), (" for orbital position %d" % transponder["orbital_position"] if "orbital_position" in transponder else "")), file=log)
 				break
 
 		if not self.rawchannel:
 			# if we are here the only possible option is to close the active service
 			if currentlyPlayingNIM in nimList:
-				print>>log, "[ABM-main][doTune] Tuner %s has been selected but it's busy. Stopping currently playing service." % chr(ord('A') + currentlyPlayingNIM)
+				print("[ABM-main][doTune] Tuner %s has been selected but it's busy. Stopping currently playing service." % chr(ord('A') + currentlyPlayingNIM), file=log)
 				self.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
 				self.session.nav.stopService()
 				self.rawchannel = resmanager.allocateRawChannel(currentlyPlayingNIM)
 				if self.rawchannel:
-					print>>log, "[ABM-main][doTune] The active service was stopped, and tuner %s is now free to use." % chr(ord('A') + currentlyPlayingNIM)
+					print("[ABM-main][doTune] The active service was stopped, and tuner %s is now free to use." % chr(ord('A') + currentlyPlayingNIM), file=log)
 					current_slotid = currentlyPlayingNIM
 
 			if not self.rawchannel:
 				if self.session.nav.RecordTimer.isRecording():
-					print>>log, "[ABM-main][doTune] Cannot free NIM because a recording is in progress"
+					print("[ABM-main][doTune] Cannot free NIM because a recording is in progress", file=log)
 					self.showError(_('Cannot free NIM because a recording is in progress'))
 					return
 				else:
-					print>>log, "[ABM-main][doTune] Cannot get the NIM"
+					print("[ABM-main][doTune] Cannot get the NIM", file=log)
 					self.showError(_('Cannot get the NIM'))
 					return
 
@@ -339,23 +341,23 @@ class AutoBouquetsMaker(Screen):
 		if self.providers[self.currentAction]["streamtype"] == "dvbs" and self.isRotorSat(current_slotid, transponder["orbital_position"]):
 			self.motorised = True
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_ROTOR
-			print>>log, "[ABM-main][doTune] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT//10)
+			print("[ABM-main][doTune] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT//10), file=log)
 		else:
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_FIXED
-			print>>log, "[ABM-main][doTune] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT//10)
+			print("[ABM-main][doTune] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT//10), file=log)
 
 		if not inStandby:
 			self["tuner_text"].setText(chr(ord('A') + current_slotid))
 
 		self.frontend = self.rawchannel.getFrontend()
 		if not self.frontend:
-			print>>log, "[ABM-main][doTune] Cannot get frontend"
+			print("[ABM-main][doTune] Cannot get frontend", file=log)
 			self.showError(_('Cannot get frontend'))
 			return
 
 		demuxer_id = self.rawchannel.reserveDemux()
 		if demuxer_id < 0:
-			print>>log, "[ABM-main][doTune] Cannot allocate the demuxer."
+			print("[ABM-main][doTune] Cannot allocate the demuxer.", file=log)
 			self.showError(_('Cannot allocate the demuxer.'))
 			return
 
@@ -432,9 +434,9 @@ class AutoBouquetsMaker(Screen):
 		self.frontend and self.frontend.getFrontendStatus(dict)
 		tuner_state = dict.get("tuner_state", "UNKNOWN")
 		if tuner_state == "TUNING":
-			print>>log, "[ABM-main][checkTunerLock] TUNING"
+			print("[ABM-main][checkTunerLock] TUNING", file=log)
 		elif tuner_state == "LOCKED":
-			print>>log, "[ABM-main][checkTunerLock] ACQUIRING TSID/ONID"
+			print("[ABM-main][checkTunerLock] ACQUIRING TSID/ONID", file=log)
 			self.progresscurrent += 1
 			if not inStandby:
 				self["progress_text"].value = self.progresscurrent
@@ -446,15 +448,15 @@ class AutoBouquetsMaker(Screen):
 			self.timer.start(100, 1)
 			return
 		elif tuner_state == "LOSTLOCK":
-			print>>log, "[ABM-main][checkTunerLock] LOSTLOCK"
+			print("[ABM-main][checkTunerLock] LOSTLOCK", file=log)
 		elif tuner_state == "FAILED":
-			print>>log, "[ABM-main][checkTunerLock] TUNING FAILED FATAL"
+			print("[ABM-main][checkTunerLock] TUNING FAILED FATAL", file=log)
 			self.showError(_('Tuning failed!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]//1000))
 			return
 
 		self.lockcounter += 1
 		if self.lockcounter > self.LOCK_TIMEOUT:
-			print>>log, "[AutoBouquetsMaker] Timeout for tuner lock, "
+			print("[AutoBouquetsMaker] Timeout for tuner lock, ", file=log)
 			self.showError(_('Tuning lock timed out!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]//1000))
 			return
 
@@ -462,7 +464,7 @@ class AutoBouquetsMaker(Screen):
 
 	# for compatibility with some third party images
 	def gotTsidOnid(self, tsid, onid):
-		print>>log, "[ABM-main][gotTsidOnid] tsid, onid:", tsid, onid
+		print("[ABM-main][gotTsidOnid] tsid, onid:", tsid, onid, file=log)
 
 		INTERNAL_PID_STATUS_NOOP = 0
 		INTERNAL_PID_STATUS_WAITING = 1
@@ -481,7 +483,7 @@ class AutoBouquetsMaker(Screen):
 
 	def doScan(self):
 		if not self.manager.read(self.selectedProviders[self.currentAction], self.providers, self.motorised):
-			print>>log, "[ABM-main][doScan] Cannot read data"
+			print("[ABM-main][doScan] Cannot read data", file=log)
 			self.showError(_('Cannot read data'))
 			return
 		self.doActions()
@@ -533,27 +535,27 @@ class AutoBouquetsMaker(Screen):
 		return self.providers[self.currentAction]["streamtype"] != "dvbs" or self.providers[self.currentAction]["transponder"]["orbital_position"] in [sat[0] for sat in nimmanager.getSatListForNim(slot)]
 
 	def printconfig(self):
-		print>>log, "[ABM-config] level: ",config.autobouquetsmaker.level.value
-		print>>log, "[ABM-config] providers: ",config.autobouquetsmaker.providers.value
+		print("[ABM-config] level: ",config.autobouquetsmaker.level.value, file=log)
+		print("[ABM-config] providers: ",config.autobouquetsmaker.providers.value, file=log)
 		if config.autobouquetsmaker.bouquetsorder.value:
-			print>>log, "[ABM-config] bouquetsorder: ",config.autobouquetsmaker.bouquetsorder.value
+			print("[ABM-config] bouquetsorder: ",config.autobouquetsmaker.bouquetsorder.value, file=log)
 		if config.autobouquetsmaker.keepallbouquets.value:
-			print>>log, "[ABM-config] keepbouquets: All"
+			print("[ABM-config] keepbouquets: All", file=log)
 		else:
-			print>>log, "[ABM-config] keepbouquets: ",config.autobouquetsmaker.keepbouquets.value
+			print("[ABM-config] keepbouquets: ",config.autobouquetsmaker.keepbouquets.value, file=log)
 		if config.autobouquetsmaker.hidesections.value:
-			print>>log, "[ABM-config] hidesections: ",config.autobouquetsmaker.hidesections.value
-		print>>log, "[ABM-config] add provider prefix: ",config.autobouquetsmaker.addprefix.value
-		print>>log, "[ABM-config] show in extensions menu: ",config.autobouquetsmaker.extensions.value
-		print>>log, "[ABM-config] placement: ",config.autobouquetsmaker.placement.value
-		print>>log, "[ABM-config] skip services on non-configured satellites: ",config.autobouquetsmaker.skipservices.value
-		print>>log, "[ABM-config] show non-indexed: ",config.autobouquetsmaker.showextraservices.value
+			print("[ABM-config] hidesections: ",config.autobouquetsmaker.hidesections.value, file=log)
+		print("[ABM-config] add provider prefix: ",config.autobouquetsmaker.addprefix.value, file=log)
+		print("[ABM-config] show in extensions menu: ",config.autobouquetsmaker.extensions.value, file=log)
+		print("[ABM-config] placement: ",config.autobouquetsmaker.placement.value, file=log)
+		print("[ABM-config] skip services on non-configured satellites: ",config.autobouquetsmaker.skipservices.value, file=log)
+		print("[ABM-config] show non-indexed: ",config.autobouquetsmaker.showextraservices.value, file=log)
 		if config.autobouquetsmaker.FTA_only.value:
-			print>>log, "[ABM-config] FTA_only: ",config.autobouquetsmaker.FTA_only.value
-		print>>log, "[ABM-config] schedule: ",config.autobouquetsmaker.schedule.value
+			print("[ABM-config] FTA_only: ",config.autobouquetsmaker.FTA_only.value, file=log)
+		print("[ABM-config] schedule: ",config.autobouquetsmaker.schedule.value, file=log)
 		if config.autobouquetsmaker.schedule.value:
-			print>>log, "[ABM-config] schedule time: ",config.autobouquetsmaker.scheduletime.value
-			print>>log, "[ABM-config] schedule days: ", [("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")[i] for i in range(7) if config.autobouquetsmaker.days[i].value]
+			print("[ABM-config] schedule time: ",config.autobouquetsmaker.scheduletime.value, file=log)
+			print("[ABM-config] schedule days: ", [("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")[i] for i in range(7) if config.autobouquetsmaker.days[i].value], file=log)
 
 	def getABMsettings(self):
 		providers_extra = []
@@ -587,7 +589,7 @@ def Scheduleautostart(reason, session=None, **kwargs):
 	# Called with reason=1 only happens when using WHERE_AUTOSTART.
 	# If only using WHERE_SESSIONSTART there is no call to this function on shutdown.
 	#
-	print>>log, "[ABM-Scheduler][Scheduleautostart] reason(%d), session" % reason, session
+	print("[ABM-Scheduler][Scheduleautostart] reason(%d), session" % reason, session, file=log)
 	if reason == 0 and session is None:
 		return
 	global autoScheduleTimer
@@ -608,11 +610,11 @@ def Scheduleautostart(reason, session=None, **kwargs):
 					from Tools import Notifications
 					Notifications.AddNotificationWithID("Standby", Standby)
 
-		print>>log, "[ABM-Scheduler][Scheduleautostart] AutoStart Enabled"
+		print("[ABM-Scheduler][Scheduleautostart] AutoStart Enabled", file=log)
 		if autoScheduleTimer is None:
 			autoScheduleTimer = AutoScheduleTimer(session)
 	else:
-		print>>log, "[ABM-Scheduler][Scheduleautostart] Stop"
+		print("[ABM-Scheduler][Scheduleautostart] Stop", file=log)
 		if autoScheduleTimer is not None:
 			autoScheduleTimer.schedulestop()
 
@@ -630,14 +632,14 @@ class AutoScheduleTimer:
 		self.ScheduleTime = 0
 		now = int(time())
 		if self.config.schedule.value:
-			print>>log, "[%s][AutoScheduleTimer] Schedule Enabled at " % self.schedulename, strftime("%c", localtime(now))
+			print("[%s][AutoScheduleTimer] Schedule Enabled at " % self.schedulename, strftime("%c", localtime(now)), file=log)
 			if now > 1546300800: # Tuesday, January 1, 2019 12:00:00 AM
 				self.scheduledate()
 			else:
-				print>>log, "[%s][AutoScheduleTimer] STB clock not yet set." % self.schedulename
+				print("[%s][AutoScheduleTimer] STB clock not yet set." % self.schedulename, file=log)
 				self.scheduleactivityTimer.start(36000)
 		else:
-			print>>log, "[%s][AutoScheduleTimer] Schedule Disabled at" % self.schedulename, strftime("%c", localtime(now))
+			print("[%s][AutoScheduleTimer] Schedule Disabled at" % self.schedulename, strftime("%c", localtime(now)), file=log)
 			self.scheduleactivityTimer.stop()
 
 		assert AutoScheduleTimer.instance is None, "class AutoScheduleTimer is a singleton class and just one instance of this class is allowed!"
@@ -676,7 +678,7 @@ class AutoScheduleTimer:
 			self.scheduletimer.startLongTimer(next)
 		else:
 			self.ScheduleTime = -1
-		print>>log, "[%s][scheduledate] Time set to" % self.schedulename, strftime("%c", localtime(self.ScheduleTime)), strftime("(now=%c)", localtime(now))
+		print("[%s][scheduledate] Time set to" % self.schedulename, strftime("%c", localtime(self.ScheduleTime)), strftime("(now=%c)", localtime(now)), file=log)
 		self.config.nextscheduletime.value = self.ScheduleTime
 		self.config.nextscheduletime.save()
 		configfile.save()
@@ -692,7 +694,7 @@ class AutoScheduleTimer:
 		atLeast = 0
 		if wake - now < 60:
 			atLeast = 60
-			print>>log, "[%s][ScheduleonTimer] onTimer occured at" % self.schedulename, strftime("%c", localtime(now))
+			print("[%s][ScheduleonTimer] onTimer occured at" % self.schedulename, strftime("%c", localtime(now)), file=log)
 			from Screens.Standby import inStandby
 			if not inStandby:
 				message = _("%s update is about to start.\nDo you want to allow this?") % self.schedulename
@@ -706,21 +708,21 @@ class AutoScheduleTimer:
 		now = int(time())
 		if answer is False:
 			if self.config.retrycount.value < 2:
-				print>>log, "[%s][doSchedule] Schedule delayed." % self.schedulename
+				print("[%s][doSchedule] Schedule delayed." % self.schedulename, file=log)
 				self.config.retrycount.value += 1
 				self.ScheduleTime = now + (int(self.config.retry.value) * 60)
-				print>>log, "[%s][doSchedule] Time now set to" % self.schedulename, strftime("%c", localtime(self.ScheduleTime)), strftime("(now=%c)", localtime(now))
+				print("[%s][doSchedule] Time now set to" % self.schedulename, strftime("%c", localtime(self.ScheduleTime)), strftime("(now=%c)", localtime(now)), file=log)
 				self.scheduletimer.startLongTimer(int(self.config.retry.value) * 60)
 			else:
 				atLeast = 60
-				print>>log, "[%s][doSchedule] Enough Retries, delaying till next schedule." % self.schedulename, strftime("%c", localtime(now))
+				print("[%s][doSchedule] Enough Retries, delaying till next schedule." % self.schedulename, strftime("%c", localtime(now)), file=log)
 				self.session.open(MessageBox, _("Enough Retries, delaying till next schedule."), MessageBox.TYPE_INFO, timeout = 10)
 				self.config.retrycount.value = 0
 				self.scheduledate(atLeast)
 		else:
 			self.timer = eTimer()
 			self.timer.callback.append(self.runscheduleditem)
-			print>>log, "[%s][doSchedule] Running Schedule" % self.schedulename, strftime("%c", localtime(now))
+			print("[%s][doSchedule] Running Schedule" % self.schedulename, strftime("%c", localtime(now)), file=log)
 			self.timer.start(100, 1)
 
 	def runscheduleditem(self):
@@ -728,21 +730,21 @@ class AutoScheduleTimer:
 
 	def runscheduleditemCallback(self):
 		from Screens.Standby import Standby, inStandby, TryQuitMainloop, inTryQuitMainloop
-		print>>log, "[%s][runscheduleditemCallback] inStandby" % self.schedulename, inStandby
+		print("[%s][runscheduleditemCallback] inStandby" % self.schedulename, inStandby, file=log)
 		if self.config.schedule.value and wasScheduleTimerWakeup and inStandby and self.config.scheduleshutdown.value and not self.session.nav.getRecordings() and not inTryQuitMainloop:
-			print>>log, "[%s] Returning to deep standby after scheduled wakeup" % self.schedulename
+			print("[%s] Returning to deep standby after scheduled wakeup" % self.schedulename, file=log)
 			self.session.open(TryQuitMainloop, 1)
 
 	def doneConfiguring(self): # called from plugin on save
 		now = int(time())
 		if self.config.schedule.value:
 			if autoScheduleTimer is not None:
-				print>>log, "[%s][doneConfiguring] Schedule Enabled at" % self.schedulename, strftime("%c", localtime(now))
+				print("[%s][doneConfiguring] Schedule Enabled at" % self.schedulename, strftime("%c", localtime(now)), file=log)
 				autoScheduleTimer.scheduledate()
 		else:
 			if autoScheduleTimer is not None:
 				self.ScheduleTime = 0
-				print>>log, "[%s][doneConfiguring] Schedule Disabled at" % self.schedulename, strftime("%c", localtime(now))
+				print("[%s][doneConfiguring] Schedule Disabled at" % self.schedulename, strftime("%c", localtime(now)), file=log)
 				autoScheduleTimer.schedulestop()
 		# scheduletext is not used for anything but could be returned to the calling function to display in the GUI.
 		if self.ScheduleTime > 0:

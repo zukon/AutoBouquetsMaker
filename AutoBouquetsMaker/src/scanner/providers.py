@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 from .. import log
 import os
 import xml.dom.minidom
@@ -15,13 +17,13 @@ class Providers():
 		try:
 			provider = open(filename, "r")
 		except Exception as e:
-			print>>log, "[ABM-Providers][parseXML] Cannot open %s: %s" % (filename, e)
+			print("[ABM-Providers][parseXML] Cannot open %s: %s" % (filename, e), file=log)
 			return None
 
 		try:
 			dom = xml.dom.minidom.parse(provider)
 		except Exception as e:
-			print>>log, "[ABM-Providers][parseXML] XML parse error (%s): %s" % (filename, e)
+			print("[ABM-Providers][parseXML] XML parse error (%s): %s" % (filename, e), file=log)
 			provider.close()
 			return None
 
@@ -380,7 +382,7 @@ class Providers():
 					and "transponder" in provider
 					and "servicehacks" in provider):
 
-				print>>log, "[ABM-Providers][read] Incomplete XML %s" % filename
+				print("[ABM-Providers][read] Incomplete XML %s" % filename, file=log)
 				continue
 
 			providers[provider["key"]] = provider

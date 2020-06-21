@@ -2,6 +2,7 @@
 # import log
 # print>>log, "Some text"
 # because the log unit looks enough like a file!
+# Or in python 3, print("Some text", file=log)
 
 import sys
 from cStringIO import StringIO

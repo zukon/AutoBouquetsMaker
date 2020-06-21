@@ -10,6 +10,8 @@
 import os
 from enigma import getDesktop
 
+from __future__ import print_function
+
 # Set this to True to print the embedded skins.
 # This debug is printed on enigma2 startup, not when using the plugin.
 extraDebug = False
@@ -234,19 +236,19 @@ def downloadBar():
 def skin_mainmenu():
 	skin = header() + buttonBar() + templateTwo() + footer()
 	if extraDebug:
-		print "[ABM-SkinTemplates] skin_mainmenu:", skin
+		print("[ABM-SkinTemplates] skin_mainmenu:", skin)
 	return skin
 
 def skin_about():
 	skin = header() + buttonBar() + templateThree() + footer()
 	if extraDebug:
-		print "[ABM-SkinTemplates] skin_about:", skin
+		print("[ABM-SkinTemplates] skin_about:", skin)
 	return skin
 
 def skin_hidesections():
 	skin = header() + buttonBar() + templateOne() + footer()
 	if extraDebug:
-		print "[ABM-SkinTemplates] skin_hidesections:", skin
+		print("[ABM-SkinTemplates] skin_hidesections:", skin)
 	return skin
 
 def skin_keepbouquets():
@@ -255,23 +257,23 @@ def skin_keepbouquets():
 def skin_log():
 	skin = header() + buttonBar() + templateFive() + footer()
 	if extraDebug:
-		print "[ABM-SkinTemplates] skin_log:", skin
+		print("[ABM-SkinTemplates] skin_log:", skin)
 	return skin
 
 def skin_ordering():
 	skin = header() + buttonBar() + templateFour() + footer()
 	if extraDebug:
-		print "[ABM-SkinTemplates] skin_ordering:", skin
+		print("[ABM-SkinTemplates] skin_ordering:", skin)
 	return skin
 
 def skin_setup():
 	skin = header() + buttonBar() + templateSix() + footer()
 	if extraDebug:
-		print "[ABM-SkinTemplates] skin_setup:", skin
+		print("[ABM-SkinTemplates] skin_setup:", skin)
 	return skin
 
 def skin_downloadBar():
 	skin = downloadBar()
 	if extraDebug:
-		print "[ABM-SkinTemplates] skin_downloadBar:", skin
+		print("[ABM-SkinTemplates] skin_downloadBar:", skin)
 	return skin

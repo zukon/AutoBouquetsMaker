@@ -1,6 +1,8 @@
 # for localized messages
 from . import _
 
+from __future__ import print_function
+
 from Plugins.Plugin import PluginDescriptor
 from Components.NimManager import nimmanager
 
@@ -83,7 +85,7 @@ def AutoBouquetsMakerSetup(menuid, **kwargs):
 		return []
 
 def AutoBouquetsMakerWakeupTime():
-	print "[AutoBouquetsMaker] next wakeup due %d" % config.autobouquetsmaker.nextscheduletime.value
+	print("[AutoBouquetsMaker] next wakeup due %d" % config.autobouquetsmaker.nextscheduletime.value)
 	return config.autobouquetsmaker.nextscheduletime.value > 0 and config.autobouquetsmaker.nextscheduletime.value or -1
 
 def Plugins(**kwargs):

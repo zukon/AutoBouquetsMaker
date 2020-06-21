@@ -1,6 +1,8 @@
 # for localized messages
 from .. import _
 
+from __future__ import print_function
+
 from Screens.Screen import Screen
 from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox
@@ -64,8 +66,8 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 	skin = skin_downloadBar()
 
 	def __init__(self, session, args = 0):
-		print "[ABM-FrequencyFinder][__init__] Starting..."
-		print "[ABM-FrequencyFinder][__init__] args", args
+		print("[ABM-FrequencyFinder][__init__] Starting...")
+		print("[ABM-FrequencyFinder][__init__] args", args)
 		self.session = session
 		Screen.__init__(self, session)
 		Screen.setTitle(self, _("FrequencyFinder"))
@@ -168,9 +170,9 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			self.system = self.scanTransponders[self.index]["system"]
 			self.bandwidth = self.scanTransponders[self.index]["bandwidth"]
 			self.frequency = self.scanTransponders[self.index]["frequency"]
-			print "[ABM-FrequencyFinder][Search] Scan frequency %d (ch %s)" % (self.frequency, getChannelNumber(self.frequency))
-			print "[ABM-FrequencyFinder][Search] Scan system %d" % self.system
-			print "[ABM-FrequencyFinder][Search] Scan bandwidth %d" % self.bandwidth
+			print("[ABM-FrequencyFinder][Search] Scan frequency %d (ch %s)" % (self.frequency, getChannelNumber(self.frequency)))
+			print("[ABM-FrequencyFinder][Search] Scan system %d" % self.system)
+			print("[ABM-FrequencyFinder][Search] Scan bandwidth %d" % self.bandwidth)
 			self.progresscurrent = self.index
 			self["progress_text"].value = self.progresscurrent
 			self["progress"].setValue(self.progresscurrent)
@@ -178,7 +180,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			self["status"].setText(ngettext("Found %d unique transponder", "Found %d unique transponders", len(self.transponders_unique)) % len(self.transponders_unique))
 			self.index += 1
 			if self.frequency in self.transponders_found or self.system == eDVBFrontendParametersTerrestrial.System_DVB_T2 and self.isT2tuner == False:
-				print "[ABM-FrequencyFinder][Search] Skipping T2 search of %s MHz (ch %s)" % (str(self.frequency//1000000), getChannelNumber(self.frequency))
+				print("[ABM-FrequencyFinder][Search] Skipping T2 search of %s MHz (ch %s)" % (str(self.frequency//1000000), getChannelNumber(self.frequency)))
 				self.search()
 				return
 			self.searchtimer = eTimer()
@@ -201,10 +203,10 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 				message = 'New provider created called "%s terrestrial".\n Disable the existing ABM terrestrial provider and perform an ABM scan with the new one.' % self.strongestTransponder["network_name"]
 				self.showAdvice(message)
 			elif len(self.transponders_unique) > 0:
-				print "[ABM-FrequencyFinder][Search] Only DVB-T2 multiplexes found. Insufficient data to create a provider file."
+				print("[ABM-FrequencyFinder][Search] Only DVB-T2 multiplexes found. Insufficient data to create a provider file.")
 				self.showError(_('Only DVB-T2 multiplexes found. Insufficient data to create a provider file.'))
 			else:
-				print "[ABM-FrequencyFinder][Search] No terrestrial multiplexes found."
+				print("[ABM-FrequencyFinder][Search] No terrestrial multiplexes found.")
 				self.showError(_('No terrestrial multiplexes found.'))
 
 	def config_mode(self, nim): # Workaround for OpenATV > 5.3
@@ -214,7 +216,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			return nim.isCompatible("DVB-T") and nim.config_mode_dvbt or "nothing"
 
 	def getFrontend(self):
-		print "[ABM-FrequencyFinder][getFrontend] searching for available tuner"
+		print("[ABM-FrequencyFinder][getFrontend] searching for available tuner")
 		nimList = []
 		if self.selectedNIM < 0: # automatic tuner selection
 			for nim in nimmanager.nim_slots:
@@ -222,12 +224,12 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 					nimList.append(nim.slot)
 					self.isT2tuner = True
 			if len(nimList) == 0:
-				print "[ABM-FrequencyFinder][getFrontend] No T2 tuner found"
+				print("[ABM-FrequencyFinder][getFrontend] No T2 tuner found")
 				for nim in nimmanager.nim_slots:
 					if self.config_mode(nim) not in ("nothing",) and (nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T"))):
 						nimList.append(nim.slot)
 			if len(nimList) == 0:
-				print "[ABM-FrequencyFinder][getFrontend] No terrestrial tuner found."
+				print("[ABM-FrequencyFinder][getFrontend] No terrestrial tuner found.")
 				self.showError(_('No terrestrial tuner found.'))
 				return
 		else: # manual tuner selection, and subsequent iterations
@@ -236,33 +238,33 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 				nimList.append(nim.slot)
 				self.isT2tuner = True
 			if len(nimList) == 0:
-				print "[ABM-FrequencyFinder][getFrontend] User selected tuner is not T2 compatible"
+				print("[ABM-FrequencyFinder][getFrontend] User selected tuner is not T2 compatible")
 				if self.config_mode(nim) not in ("nothing",) and (nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T"))):
 					nimList.append(nim.slot)
 			if len(nimList) == 0:
-				print "[ABM-FrequencyFinder][getFrontend] User selected tuner not configured"
+				print("[ABM-FrequencyFinder][getFrontend] User selected tuner not configured")
 				self.showError(_('Selected tuner is not configured.'))
 				return
 
 		if len(nimList) == 0:
-			print "[ABM-FrequencyFinder][getFrontend] No terrestrial tuner found."
+			print("[ABM-FrequencyFinder][getFrontend] No terrestrial tuner found.")
 			self.showError(_('No terrestrial tuner found.'))
 			return
 
 		resmanager = eDVBResourceManager.getInstance()
 		if not resmanager:
-			print "[ABM-FrequencyFinder][getFrontend] Cannot retrieve Resource Manager instance"
+			print("[ABM-FrequencyFinder][getFrontend] Cannot retrieve Resource Manager instance")
 			self.showError(_('Cannot retrieve Resource Manager instance'))
 			return
 
 		if self.selectedNIM < 0: # automatic tuner selection
-			print "[ABM-FrequencyFinder][getFrontend] Choosing NIM"
+			print("[ABM-FrequencyFinder][getFrontend] Choosing NIM")
 
 		# stop pip if running
 		if self.session.pipshown:
 			self.session.pipshown = False
 			del self.session.pip
-			print "[ABM-FrequencyFinder][getFrontend] Stopping PIP."
+			print("[ABM-FrequencyFinder][getFrontend] Stopping PIP.")
 
 		# Find currently playing NIM
 		currentlyPlayingNIM = None
@@ -287,12 +289,12 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 				current_slotid = slotid
 			self.rawchannel = resmanager.allocateRawChannel(slotid)
 			if self.rawchannel:
- 				print "[ABM-FrequencyFinder][getFrontend] Nim found on slot id %d" % (slotid)
+ 				print("[ABM-FrequencyFinder][getFrontend] Nim found on slot id %d" % (slotid))
 				current_slotid = slotid
 				break
 
 		if current_slotid == -1:
-			print "[ABM-FrequencyFinder][getFrontend] No valid NIM found"
+			print("[ABM-FrequencyFinder][getFrontend] No valid NIM found")
 			self.showError(_('No valid NIM found for terrestrial.'))
 			return
 
@@ -300,31 +302,31 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			# if we are here the only possible option is to close the active service
 			if currentlyPlayingNIM in nimList:
 				slotid = currentlyPlayingNIM
-				print "[ABM-FrequencyFinder][getFrontend] Nim found on slot id %d but it's busy. Stopping active service" % slotid
+				print("[ABM-FrequencyFinder][getFrontend] Nim found on slot id %d but it's busy. Stopping active service" % slotid)
 				self.session.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
 				self.session.nav.stopService()
 				self.rawchannel = resmanager.allocateRawChannel(slotid)
 				if self.rawchannel:
-					print "[ABM-FrequencyFinder][getFrontend] The active service was stopped, and the NIM is now free to use."
+					print("[ABM-FrequencyFinder][getFrontend] The active service was stopped, and the NIM is now free to use.")
 					current_slotid = slotid
 
 			if not self.rawchannel:
 				if self.session.nav.RecordTimer.isRecording():
-					print "[ABM-FrequencyFinder][getFrontend] Cannot free NIM because a recording is in progress"
+					print("[ABM-FrequencyFinder][getFrontend] Cannot free NIM because a recording is in progress")
 					self.showError(_('Cannot free NIM because a recording is in progress'))
 					return
 				else:
-					print "[ABM-FrequencyFinder][getFrontend] Cannot get the NIM"
+					print("[ABM-FrequencyFinder][getFrontend] Cannot get the NIM")
 					self.showError(_('Cannot get the NIM'))
 					return
 
-		print "[ABM-FrequencyFinder][getFrontend] Will wait up to %i seconds for tuner lock." % (self.lockTimeout//10)
+		print("[ABM-FrequencyFinder][getFrontend] Will wait up to %i seconds for tuner lock." % (self.lockTimeout//10))
 
 		self.selectedNIM = current_slotid # Remember for next iteration
 
 		self.frontend = self.rawchannel.getFrontend()
 		if not self.frontend:
-			print "[ABM-FrequencyFinder][getFrontend] Cannot get frontend"
+			print("[ABM-FrequencyFinder][getFrontend] Cannot get frontend")
 			self.showError(_('Cannot get frontend'))
 			return
 
@@ -335,7 +337,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 
 		self.demuxer_id = self.rawchannel.reserveDemux()
 		if self.demuxer_id < 0:
-			print>>log, "[ABM-FrequencyFinder][getFrontend] Cannot allocate the demuxer."
+			print("[ABM-FrequencyFinder][getFrontend] Cannot allocate the demuxer.")
 			self.showError(_('Cannot allocate the demuxer.'))
 			return
 
@@ -351,22 +353,22 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		self.frontend.getFrontendStatus(self.dict)
 		if self.dict["tuner_state"] == "TUNING":
 			if self.lockcounter < 1: # only show this once in the log per retune event
-				print "[ABM-FrequencyFinder][checkTunerLock] TUNING"
+				print("[ABM-FrequencyFinder][checkTunerLock] TUNING")
 		elif self.dict["tuner_state"] == "LOCKED":
-			print "[ABM-FrequencyFinder][checkTunerLock] LOCKED"
+			print("[ABM-FrequencyFinder][checkTunerLock] LOCKED")
 			self["action"].setText(_("Reading %s MHz (ch %s)") % (str(self.frequency//1000000), getChannelNumber(self.frequency)))
 			self.tsidOnidtimer = eTimer()
 			self.tsidOnidtimer.callback.append(self.tsidOnidWait)
 			self.tsidOnidtimer.start(100, 1)
 			return
 		elif self.dict["tuner_state"] in ("LOSTLOCK", "FAILED"):
-			print "[ABM-FrequencyFinder][checkTunerLock] TUNING FAILED"
+			print("[ABM-FrequencyFinder][checkTunerLock] TUNING FAILED")
 			self.search()
 			return
 
 		self.lockcounter += 1
 		if self.lockcounter > self.lockTimeout:
-			print "[ABM-FrequencyFinder][checkTunerLock] Timeout for tuner lock"
+			print("[ABM-FrequencyFinder][checkTunerLock] Timeout for tuner lock")
 			self.search()
 			return
 		self.locktimer.start(100, 1)
@@ -374,11 +376,11 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 	def tsidOnidWait(self):
 		self.getCurrentTsidOnid()
 		if self.tsid is not None and self.onid is not None:
-			print "[ABM-FrequencyFinder][tsidOnidWait] tsid & onid found", self.tsid, self.onid
+			print("[ABM-FrequencyFinder][tsidOnidWait] tsid & onid found", self.tsid, self.onid)
 			self.signalQualityWait()
 			return
 
-		print "[ABM-FrequencyFinder][tsidOnidWait] tsid & onid wait failed"
+		print("[ABM-FrequencyFinder][tsidOnidWait] tsid & onid wait failed")
 		self.search()
 		return
 
@@ -391,11 +393,11 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			tsidOnidKey = "%x:%x" % (self.tsid, self.onid)
 			if (tsidOnidKey not in self.transponders_unique or self.transponders_unique[tsidOnidKey]["signalQuality"] < signalQuality) and (not self.restrict_to_networkid or self.networkid == self.onid):
 				self.transponders_unique[tsidOnidKey] = found
-			print "[ABM-FrequencyFinder][signalQualityWait] transponder details", found
+			print("[ABM-FrequencyFinder][signalQualityWait] transponder details", found)
 			self.search()
 			return
 
-		print "[ABM-FrequencyFinder][signalQualityWait] Failed to collect SNR"
+		print("[ABM-FrequencyFinder][signalQualityWait] Failed to collect SNR")
 		self.search()
 
 	def getCurrentTsidOnid(self, from_retune = False):
@@ -412,7 +414,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 
 		fd = dvbreader.open(demuxer_device, sdt_pid, sdt_current_table_id, mask, self.selectedNIM)
 		if fd < 0:
-			print "[ABM-FrequencyFinder][getCurrentTsidOnid] Cannot open the demuxer"
+			print("[ABM-FrequencyFinder][getCurrentTsidOnid] Cannot open the demuxer")
 			return None
 
 		timeout = datetime.datetime.now()
@@ -420,7 +422,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 
 		while True:
 			if datetime.datetime.now() > timeout:
-				print "[ABM-FrequencyFinder][getCurrentTsidOnid] Timed out"
+				print("[ABM-FrequencyFinder][getCurrentTsidOnid] Timed out")
 				break
 
 			section = dvbreader.read_sdt(fd, sdt_current_table_id, 0x00)
@@ -433,7 +435,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 				self.onid = section["header"]["original_network_id"]
 				break
 
-		print "[ABM-FrequencyFinder][getCurrentTsidOnid] Read time %.1f seconds." % (time.time() - start)
+		print("[ABM-FrequencyFinder][getCurrentTsidOnid] Read time %.1f seconds." % (time.time() - start))
 		dvbreader.close(fd)
 
 	def readNIT(self):
@@ -462,7 +464,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 
 		fd = dvbreader.open(demuxer_device, nit_current_pid, nit_current_table_id, mask, self.selectedNIM)
 		if fd < 0:
-			print "[ABM-FrequencyFinder][readNIT] Cannot open the demuxer"
+			print("[ABM-FrequencyFinder][readNIT] Cannot open the demuxer")
 			return
 
 		timeout = datetime.datetime.now()
@@ -470,7 +472,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 
 		while True:
 			if datetime.datetime.now() > timeout:
-				print "[ABM-FrequencyFinder][readNIT] Timed out reading NIT"
+				print("[ABM-FrequencyFinder][readNIT] Timed out reading NIT")
 				break
 
 			section = dvbreader.read_nit(fd, nit_current_table_id, nit_other_table_id)
@@ -501,14 +503,14 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		dvbreader.close(fd)
 
 		if not nit_current_content:
-			print "[ABM-FrequencyFinder][readNIT] current transponder not found"
+			print("[ABM-FrequencyFinder][readNIT] current transponder not found")
 			return
 
-		print "[ABM-FrequencyFinder][readNIT] NIT read time %.1f seconds." % (time.time() - start)
+		print("[ABM-FrequencyFinder][readNIT] NIT read time %.1f seconds." % (time.time() - start))
 
 		# descriptor_tag 0x5A is DVB-T, descriptor_tag 0x7f is DVB-T
 		transponders = [t for t in nit_current_content if "descriptor_tag" in t and t["descriptor_tag"] in (0x5A, 0x7f) and t["original_network_id"] == self.onid and t["transport_stream_id"] == self.tsid] # this should only ever have a length of one transponder
-		print "[ABM-FrequencyFinder][readNIT] transponders", transponders
+		print("[ABM-FrequencyFinder][readNIT] transponders", transponders)
 		if transponders:
 
 			if transponders[0]["descriptor_tag"] == 0x5A: # DVB-T
@@ -519,7 +521,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			if "frequency" in transponders[0] and abs((transponders[0]["frequency"]*10) - self.frequency) < 1000000:
 				self.custom_transponder_needed = False
 				if self.frequency != transponders[0]["frequency"]*10:
-					print "[ABM-FrequencyFinder][readNIT] updating transponder frequency from %.03f MHz to %.03f MHz" % (self.frequency//1000000, transponders[0]["frequency"]//100000)
+					print("[ABM-FrequencyFinder][readNIT] updating transponder frequency from %.03f MHz to %.03f MHz" % (self.frequency//1000000, transponders[0]["frequency"]//100000))
 					self.frequency = transponders[0]["frequency"]*10
 
 #	def saveTransponderList(self):
@@ -537,7 +539,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 #		outFile = open(self.customfile, "w")
 #		outFile.write(''.join(customTransponderList))
 #		outFile.close()
-#		print "[ABM-FrequencyFinder][saveTransponderList] Custom transponders file saved."
+#		print("[ABM-FrequencyFinder][saveTransponderList] Custom transponders file saved."
 
 	def saveProviderFile(self):
 		customProviderList = []
@@ -601,7 +603,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		outFile = open(self.providersfile, "w")
 		outFile.write(''.join(customProviderList))
 		outFile.close()
-		print "[ABM-FrequencyFinder][saveProviderFile] Provider file saved."
+		print("[ABM-FrequencyFinder][saveProviderFile] Provider file saved.")
 		
 	def iterateUniqueTranspondersByFrequency(self):
 		# returns an iterator list for self.transponders_unique in frequency order ascending

@@ -1,6 +1,8 @@
 # for localized messages
 from . import _
 
+from __future__ import print_function
+
 from . import log
 
 import os
@@ -38,8 +40,8 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 	skin = skin_downloadBar()
 
 	def __init__(self, session, args = 0):
-		print>>log, "[ABM-UpdateProviders][__init__] Starting..."
-		print "[ABM-UpdateProviders][__init__] args", args
+		print("[ABM-UpdateProviders][__init__] Starting...", file=log)
+		print("[ABM-UpdateProviders][__init__] args", args)
 		Screen.__init__(self, session)
 		self.session = session
 		self.skinName = "AutoBouquetsMaker"
@@ -134,29 +136,29 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 			response = urlopen(req)
 		except Exception as e:
 			if hasattr(e, 'code') and hasattr(e, 'reason'):
-				print>>log, "[ABM-UpdateProviders][checkRemoteVersion] Failed to retrieve version file. Error: %s %s" % (str(e.code), str(e.reason))
+				print("[ABM-UpdateProviders][checkRemoteVersion] Failed to retrieve version file. Error: %s %s" % (str(e.code), str(e.reason)), file=log)
 				self.showError(_('Failed to retrieve version file. Error: %s %s') % (str(e.code), str(e.reason)))
 			else:
 				if hasattr(e, 'reason'):
-					print>>log, '[ABM-UpdateProviders][checkRemoteVersion] Failed to reach Github: ', str(e.reason)
+					print('[ABM-UpdateProviders][checkRemoteVersion] Failed to reach Github: ', str(e.reason), file=log)
 					self.showError(_('Network connection error: \n%s') % str(e.reason))
 				else:
-					print>>log, '[ABM-UpdateProviders][checkRemoteVersion] Failed to reach Github.'
+					print('[ABM-UpdateProviders][checkRemoteVersion] Failed to reach Github.', file=log)
 					self.showError(_('Network connection error.'))
 			return
 
 		try:
 			remoteVersion = response.read().split('"')[1]
-			print>>log, '[ABM-UpdateProviders][checkRemoteVersion] Local version: %s' % localVersion
-			print>>log, '[ABM-UpdateProviders][checkRemoteVersion] Remote version: %s' % remoteVersion
+			print('[ABM-UpdateProviders][checkRemoteVersion] Local version: %s' % localVersion, file=log)
+			print('[ABM-UpdateProviders][checkRemoteVersion] Remote version: %s' % remoteVersion, file=log)
 			if remoteVersion != localVersion:
-				print>>log, '[ABM-UpdateProviders][checkRemoteVersion] Incompatible versions: %s > %s' % (localVersion, remoteVersion)
+				print('[ABM-UpdateProviders][checkRemoteVersion] Incompatible versions: %s > %s' % (localVersion, remoteVersion), file=log)
 				self.showError(_('Incompatible versions: %s > %s') % (localVersion, remoteVersion))
 				return
 			self.version_checked = True
 			self.go()
 		except:
-			print>>log, '[ABM-UpdateProviders][checkRemoteVersion] Cannot read version.'
+			print('[ABM-UpdateProviders][checkRemoteVersion] Cannot read version.', file=log)
 			self.showError(_('Cannot read version'))
 			return
 
@@ -164,7 +166,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 		if self.index < len(self.actionsList):
 			self.provider = self.actionsList[self.index]
 			self.provider_name = str(self.providers[self.actionsList[self.index]]["name"])
-			print>>log, "[ABM-UpdateProviders][fetchProviders] Fetching provider file for ", self.provider_name
+			print("[ABM-UpdateProviders][fetchProviders] Fetching provider file for ", self.provider_name, file=log)
 			self.progresscurrent = self.index
 			self.index += 1
 			self["progress"].setValue(self.progresscurrent)
@@ -183,7 +185,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 			response = urlopen(req)
 		except Exception as e:
 			if hasattr(e, 'code') and hasattr(e, 'reason'):
-				print>>log, "[ABM-UpdateProviders][getResource] Failed to retrieve file for %s. Error: %s %s" % (self.provider_name, str(e.code), str(e.reason))
+				print("[ABM-UpdateProviders][getResource] Failed to retrieve file for %s. Error: %s %s" % (self.provider_name, str(e.code), str(e.reason)), file=log)
 				self.messages.append(_("Failed to retrieve file for %s. Error: %s %s") % (self.provider_name, str(e.code), str(e.reason)))
 				self["action"].setText(_("Failed..."))
 				self["status"].setText(_("Unable to download config file for %s") % self.provider_name)
@@ -192,10 +194,10 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 				self.resourcetimer.start(self.timerlength, 1)
 			else:
 				if hasattr(e, 'reason'):
-					print>>log, '[ABM-UpdateProviders][getResource] Failed to reach Github: ', str(e.reason)
+					print('[ABM-UpdateProviders][getResource] Failed to reach Github: ', str(e.reason), file=log)
 					self.showError(_('Network connection error: \n%s')% str(e.reason))
 				else:
-					print>>log, '[ABM-UpdateProviders][getResource] Failed to reach Github.'
+					print('[ABM-UpdateProviders][getResource] Failed to reach Github.', file=log)
 					self.showError(_('Network connection error.'))
 			return
 
@@ -214,7 +216,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 				if currentProviderFileStr == providerxml:
 					self["action"].setText(_("Retrieved config file for %s") % self.provider_name)
 					self["status"].setText(_("Config file for %s does not need updating.") % self.provider_name)
-					print>>log, "[ABM-UpdateProviders][getResource] Config file for %s did not need updating." % self.provider_name
+					print("[ABM-UpdateProviders][getResource] Config file for %s did not need updating." % self.provider_name, file=log)
 					self.messages.append(_("Config file for %s didn't need updating.") % (self.provider_name))
 					self.resourcetimer = eTimer()
 					self.resourcetimer.callback.append(self.fetchProviders)
@@ -226,7 +228,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 						f.close()
 					self["action"].setText(_("Retrieved config file for %s") % self.provider_name)
 					self["status"].setText(_("Config file for %s has been updated.") % self.provider_name)
-					print>>log, "[ABM-UpdateProviders][getResource] Config file for %s has been updated to the latest version" % self.provider_name
+					print("[ABM-UpdateProviders][getResource] Config file for %s has been updated to the latest version" % self.provider_name, file=log)
 					self.messages.append(_("Config file for %s has been updated.") % (self.provider_name))
 					self.resourcetimer = eTimer()
 					self.resourcetimer.callback.append(self.fetchProviders)
@@ -235,7 +237,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 			else:
 				self["action"].setText(_("Retrieved config file for %s") % self.provider_name)
 				self["status"].setText(_("Config file for %s does not parse.") % self.provider_name)
-				print>>log, "[ABM-UpdateProviders][getResource] Retrieved config file for %s does not parse." % self.provider_name
+				print("[ABM-UpdateProviders][getResource] Retrieved config file for %s does not parse." % self.provider_name, file=log)
 				self.messages.append(_("Retrieved config file for %s does not parse.") % (self.provider_name))
 				self.resourcetimer = eTimer()
 				self.resourcetimer.callback.append(self.fetchProviders)
@@ -245,7 +247,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 		else:
 			self["action"].setText(_("Retrieved provider file for %s") % self.provider_name)
 			self["status"].setText(_("Config file for %s is faulty.") % self.provider_name)
-			print>>log, "[ABM-UpdateProviders][getResource] Retrieved config file for %s is faulty or incomplete." % self.provider_name
+			print("[ABM-UpdateProviders][getResource] Retrieved config file for %s is faulty or incomplete." % self.provider_name, file=log)
 			self.messages.append(_("Retrieved config file for %s is faulty or incomplete.") % (self.provider_name))
 			self.resourcetimer = eTimer()
 			self.resourcetimer.callback.append(self.fetchProviders)

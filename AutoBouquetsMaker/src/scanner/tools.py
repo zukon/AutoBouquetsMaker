@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 from .. import log
 import os, codecs, re
 import xml.dom.minidom
@@ -14,13 +16,13 @@ class Tools():
 		try:
 			tool = open(filename, "r")
 		except Exception as e:
-			#print>>log, "[ABM-Tools][parseXML] Cannot open %s: %s" % (filename, e)
+			#print("[ABM-Tools][parseXML] Cannot open %s: %s" % (filename, e), file=log)
 			return None
 
 		try:
 			dom = xml.dom.minidom.parse(tool)
 		except Exception as e:
-			print>>log, "[ABM-Tools][parseXML] XML parse error (%s): %s" % (filename, e)
+			print("[ABM-Tools][parseXML] XML parse error (%s): %s" % (filename, e), file=log)
 			tool.close()
 			return None
 
@@ -61,9 +63,9 @@ class Tools():
 			customfile = custom_dir + "/" + ("sd" if current_bouquet_key.startswith('sd') else "hd") + "_" + section_identifier + "_Custom" + ("radio" if type == "radio" else "") + "LCN.xml"
 			dom = self.parseXML(customfile)
 			if dom is None:
-				print>>log, "[ABM-Tools][customLCN] No custom " + type + " LCN file for " + section_identifier + "."
+				print("[ABM-Tools][customLCN] No custom " + type + " LCN file for " + section_identifier + ".", file=log)
 			elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "custom":
-				print>>log, "[ABM-Tools][customLCN] Reading custom " + type + " LCN file for " + section_identifier + "."
+				print("[ABM-Tools][customLCN] Reading custom " + type + " LCN file for " + section_identifier + ".", file=log)
 				customlcndict = {}
 				sort_order = [] # to process this file top down
 				for node in dom.documentElement.childNodes:
@@ -119,7 +121,7 @@ class Tools():
 						temp_services[lastlcn + 1] = extra_services[number]
 						lastlcn += 1
 						newservices.append(number)
-					print>>log, "[ABM-Tools][customLCN] New " + type + " services %s" % (str(newservices))
+					print("[ABM-Tools][customLCN] New " + type + " services %s" % (str(newservices)), file=log)
 
 				services[type] = temp_services
 
@@ -148,9 +150,9 @@ class Tools():
 		hacks = ""
 		dom = self.parseXML(customfile)
 		if dom is None:
-			print>>log, "[ABM-Tools][customMix] No CustomMix file for " + section_identifier + "."
+			print("[ABM-Tools][customMix] No CustomMix file for " + section_identifier + ".", file=log)
 		elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "custommix":
-			print>>log, "[ABM-Tools][customMix] Reading CustomMix file for " + section_identifier + "."
+			print("[ABM-Tools][customMix] Reading CustomMix file for " + section_identifier + ".", file=log)
 			for node in dom.documentElement.childNodes:
 				if node.nodeType != node.ELEMENT_NODE:
 					continue
@@ -235,11 +237,11 @@ class Tools():
 		providers_dir = os.path.dirname(__file__) + "/../providers"
 
 		# Read custom file
-		print>>log, "[ABM-Tools][customtransponder] Transponder provider name", provider_key
+		print("[ABM-Tools][customtransponder] Transponder provider name", provider_key, file=log)
 		providerfile = providers_dir + "/" + provider_key + ".xml"
 		dom = self.parseXML(providerfile)
 		if dom is None:
-			print>>log, "[ABM-Tools][customtransponder] Cannot read custom transponders from provider file."
+			print("[ABM-Tools][customtransponder] Cannot read custom transponders from provider file.", file=log)
 		elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "provider":
 			for node in dom.documentElement.childNodes:
 				if node.nodeType != node.ELEMENT_NODE:
@@ -296,7 +298,7 @@ class Tools():
 							if "key" in customtransponder and customtransponder["key"] == bouquet_key and "transport_stream_id" in customtransponder and "frequency" in customtransponder:
 								customtransponders.append(customtransponder)
 			if len(customtransponders) > 0:
-				print>>log, "[ABM-Tools][customtransponder] %d custom transponders found for that region." % len(customtransponders)
+				print("[ABM-Tools][customtransponder] %d custom transponders found for that region." % len(customtransponders), file=log)
 		return customtransponders
 
 	def favourites(self, path, services, providers, providerConfigs, bouquetsOrder):
@@ -317,9 +319,9 @@ class Tools():
 		# Read favourites file
 		dom = self.parseXML(custom_dir + "/favourites.xml")
 		if dom is None:
-			print>>log, "[ABM-Tools][favourites] No favorite.xml file"
+			print("[ABM-Tools][favourites] No favorite.xml file", file=log)
 		elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "favourites":
-			print>>log, "[ABM-Tools][favourites] Reading favorite.xml file"
+			print("[ABM-Tools][favourites] Reading favorite.xml file", file=log)
 			for node in dom.documentElement.childNodes:
 				if node.nodeType != node.ELEMENT_NODE:
 					continue
@@ -408,7 +410,7 @@ class Tools():
 				from bouquetswriter import BouquetsWriter
 				BouquetsWriter().buildBouquets(path, providerConfigs[provider_key], services[provider_key], sections, provider_key, swaprules, bouquets_to_hide, prefix)
 			else:
-				print>>log, "[ABM-Tools][favourites] Favourites list is zero length."
+				print("[ABM-Tools][favourites] Favourites list is zero length.", file=log)
 
 	def clearsections(self, services, sections, bouquettype, servicetype):
 		# bouquettype = HD, FTAHD, FTA, ALL

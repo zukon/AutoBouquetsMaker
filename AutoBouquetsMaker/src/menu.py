@@ -1,6 +1,8 @@
 # for localized messages
 from . import _
 
+from __future__ import print_function
+
 from scanner.main import AutoBouquetsMaker, AutoScheduleTimer
 from scanner.manager import Manager
 from about import AutoBouquetsMaker_About
@@ -43,8 +45,8 @@ class AutoBouquetsMaker_Menu(Screen):
 		self.init_schedule = config.autobouquetsmaker.schedule.getValue()
 		self.init_scheduletime = config.autobouquetsmaker.scheduletime.getValue()
 		self.init_frequencyfinder = config.autobouquetsmaker.frequencyfinder.getValue()
-		print '[ABM-menu][__init__] self.init_schedule',self.init_schedule
-		print '[ABM-menu][__init__] self.init_scheduletime',self.init_scheduletime
+		print('[ABM-menu][__init__] self.init_schedule',self.init_schedule)
+		print('[ABM-menu][__init__] self.init_scheduletime',self.init_scheduletime)
 
 		self.onChangedEntry = [ ]
 		l = []
