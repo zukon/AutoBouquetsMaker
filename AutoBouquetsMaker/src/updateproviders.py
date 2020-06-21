@@ -7,7 +7,11 @@ import os
 import sys
 import socket
 
-from urllib2 import Request, urlopen
+try:
+	from urllib.request import Request, urlopen
+except ImportError:
+	from urllib2 import Request, urlopen
+
 from xml.dom.minidom import parseString
 
 from enigma import eTimer

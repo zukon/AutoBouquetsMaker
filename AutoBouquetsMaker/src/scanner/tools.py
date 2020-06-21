@@ -3,7 +3,10 @@ import os, codecs, re
 import xml.dom.minidom
 from Components.config import config
 from dvbscanner import DvbScanner
-from urllib import quote
+try:
+	from urllib.request import quote # raises ImportError in Python 2
+except ImportError:
+	from urllib import quote
 
 class Tools():
 	SERVICEREF_ALLOWED_TYPES = [1, 4097, 5001, 5002]
