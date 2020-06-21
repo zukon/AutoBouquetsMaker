@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
+
 # for localized messages
 from .. import _
 
 from .. import log
-
-from __future__ import print_function
 
 from Components.config import config
 from tools import Tools

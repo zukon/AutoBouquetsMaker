@@ -7,10 +7,10 @@
 # button bar width = 8 + 140 + 8 + 140 + 8 + 140 + 8 + 140 + 8 = 600
 # button bar height = 4 + 40 + 4 = 48
 
+from __future__ import print_function
+
 import os
 from enigma import getDesktop
-
-from __future__ import print_function
 
 # Set this to True to print the embedded skins.
 # This debug is printed on enigma2 startup, not when using the plugin.

@@ -1,8 +1,8 @@
 #!/usr/bin/python
+from __future__ import print_function
 import sys
 import os
 import string
-from __future__ import print_function
 
 import re
 from xml.sax import make_parser

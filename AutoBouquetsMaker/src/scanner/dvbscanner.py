@@ -1,6 +1,6 @@
-from .. import log
-
 from __future__ import print_function
+
+from .. import log
 
 import dvbreader
 import datetime

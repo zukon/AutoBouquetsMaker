@@ -1,7 +1,7 @@
+from __future__ import print_function
+
 # for localized messages
 from . import _
-
-from __future__ import print_function
 
 from scanner.main import AutoBouquetsMaker, AutoScheduleTimer
 from scanner.manager import Manager

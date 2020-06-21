@@ -2,6 +2,7 @@
 # Using satfiner is one way to tune the above.
 # Run this file from the command line.
 # python /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/scanner/freesat_regions_extractor.py >/tmp/freesat.log
+from __future__ import print_function
 
 import dvbreader
 import datetime

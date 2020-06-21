@@ -1,7 +1,7 @@
+from __future__ import print_function
+
 from .. import log
 import re
-
-from __future__ import print_function
 
 class BouquetsReader():
 	def parseBouquetIndex(self, path, content):
