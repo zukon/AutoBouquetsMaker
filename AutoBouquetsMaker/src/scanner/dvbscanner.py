@@ -1440,7 +1440,7 @@ class DvbScanner():
 		return tmp_services_dict, LCNs
 
 	def LCN_order(self, tmp_services_dict):
-		sort_list = [(x[0], min(x[1]['numbers'])) for x in tmp_services_dict.items()]
+		sort_list = [(x[0], min(x[1]['numbers'])) for x in list(tmp_services_dict.items())]
 		return [x[0] for x in sorted(sort_list, key=lambda listItem: listItem[1])]
 
 	def skyCategoryName(self, category_id):
