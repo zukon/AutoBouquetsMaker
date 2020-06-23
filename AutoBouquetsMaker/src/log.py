@@ -8,9 +8,9 @@ import sys
 import threading
 
 try:
-    from cStringIO import StringIO
+	from cStringIO import StringIO
 except ImportError:
-    from io import StringIO  # Python 3
+	from io import StringIO  # Python 3
 
 logfile = StringIO()
 # Need to make our operations thread-safe.
