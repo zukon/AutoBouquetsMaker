@@ -5,8 +5,12 @@
 # Or in python 3, print("Some text", file=log)
 
 import sys
-from cStringIO import StringIO
 import threading
+
+try:
+    from cStringIO import StringIO
+except ImportError:
+    from io import StringIO  # Python 3
 
 logfile = StringIO()
 # Need to make our operations thread-safe.
