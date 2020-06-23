@@ -429,7 +429,7 @@ class DvbScanner():
 				print("[ABM-DvbScanner] transponder", transponder)
 
 		if read_other_section and len(nit_other_completed):
-			print("[ABM-DvbScanner] Added/Updated %d transponders with network_id = 0x%x and other network_ids = %s" % (transponders_count, nit_current_section_network_id, ','.join(map(hex, nit_other_completed.keys()))), file=log)
+			print("[ABM-DvbScanner] Added/Updated %d transponders with network_id = 0x%x and other network_ids = %s" % (transponders_count, nit_current_section_network_id, ','.join(map(hex, list(nit_other_completed.keys())))), file=log)
 		else:
 			print("[ABM-DvbScanner] Added/Updated %d transponders with network_id = 0x%x" % (transponders_count, nit_current_section_network_id), file=log)
 
@@ -454,7 +454,7 @@ class DvbScanner():
 				print("[ABM-DvbScanner] LCN entry", key, logical_channel_number_dict[key])
 
 		return {
-			"TSID_ONID_list": self.namespace_dict.keys(),
+			"TSID_ONID_list": list(self.namespace_dict.keys()),
 			"logical_channel_number_dict": logical_channel_number_dict,
 			"service_dict_tmp": service_dict_tmp
 		}
@@ -558,7 +558,7 @@ class DvbScanner():
 					else:
 						hexchars.append('.')
 				print("[ABM-DvbScanner] %s" % (''.join(hexchars)))
-			for key in sorted(xml_dict.keys()):
+			for key in sorted(list(xml_dict.keys())):
 				print('		<configuration key="sd_%d" bouquet="0x%x" region="DESCRIPTOR">%s</configuration>' % (key, key, xml_dict[key]))
 
 		return logical_channel_number_dict, TSID_ONID_list

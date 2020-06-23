@@ -168,7 +168,7 @@ class Providers():
 							elif node.attributes.item(i).name == "tsid":
 								transponder["tsid"] = int(node.attributes.item(i).value)
 
-						if len(transponder.keys()) in (22, 18):
+						if len(list(transponder.keys())) in (22, 18):
 							provider["transponder"] = transponder
 
 					elif node.tagName == "bouquettype":
@@ -197,7 +197,7 @@ class Providers():
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
 									configuration["name"] = node2.childNodes[0].data.encode("utf-8")
 
-								if len(configuration.keys()) == 4:
+								if len(list(configuration.keys())) == 4:
 									provider["bouquets"][configuration["key"]] = configuration
 
 					elif node.tagName == "dvbcconfigs":
@@ -250,12 +250,12 @@ class Providers():
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
 									configuration["name"] = node2.childNodes[0].data.encode("utf-8")
 
-								if len(configuration.keys()) == 12 and 'lcnbat' not in provider["protocol"] and 'region' not in configuration and 'bouquet' not in configuration:
+								if len(list(configuration.keys())) == 12 and 'lcnbat' not in provider["protocol"] and 'region' not in configuration and 'bouquet' not in configuration:
 									provider["bouquets"][configuration["key"]] = configuration
-								elif len(configuration.keys()) == 14 and 'lcnbat' in provider["protocol"]:
+								elif len(list(configuration.keys())) == 14 and 'lcnbat' in provider["protocol"]:
 									provider["bouquets"][configuration["key"]] = configuration
 
-						if len(transponder.keys()) == 8:
+						if len(list(transponder.keys())) == 8:
 							provider["transponder"] = transponder
 
 					elif node.tagName == "dvbtconfigs":
@@ -316,10 +316,10 @@ class Providers():
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
 									configuration["name"] = node2.childNodes[0].data.encode("utf-8")
 
-								if len(configuration.keys()) == 14:
+								if len(list(configuration.keys())) == 14:
 									provider["bouquets"][configuration["key"]] = configuration
 
-						if len(transponder.keys()) == 8:
+						if len(list(transponder.keys())) == 8:
 							provider["transponder"] = transponder
 
 					elif node.tagName == "sections":

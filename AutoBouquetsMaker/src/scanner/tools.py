@@ -46,7 +46,7 @@ class Tools():
 			# Write Example CustomLCN file
 			xml_out_list = []
 			xml_out_list.append("<custom>\n\t<include>yes</include>\n\t<lcnlist>\n")
-			numbers = sorted(services[type].keys())
+			numbers = sorted(list(services[type].keys()))
 			for number in numbers:
 				servicename = unicode(services[type][number]["service_name"], errors='ignore')
 				xml_out_list.append("\t\t<configuration lcn=\"%d\" channelnumber=\"%d\" description=\"%s\"></configuration>\n" % (
@@ -96,7 +96,7 @@ class Tools():
 				extra_services = {}
 
 				# add channels not in the CustomLCN file to the sort list.
-				for number in sorted(services[type].keys()):
+				for number in sorted(list(services[type].keys())):
 					if number not in sort_order:
 						sort_order.append(number)
 
@@ -109,14 +109,14 @@ class Tools():
 
 				# add services not in CustomLCN file to correct lcn positions if slots are vacant
 				if is_sorted:
-					for number in extra_services.keys():
+					for number in list(extra_services.keys()):
 						if number not in temp_services: # CustomLCN has priority
 							temp_services[number] = extra_services[number]
 							del extra_services[number]
 
 				#add any remaining services to the end of list
 				if is_sorted or skipextrachannels == 0:
-					lastlcn = len(temp_services) and max(temp_services.keys())
+					lastlcn = len(temp_services) and max(list(temp_services.keys()))
 					newservices = []
 					for number in self.sortServicesAlpha(extra_services):
 						temp_services[lastlcn + 1] = extra_services[number]
@@ -420,7 +420,7 @@ class Tools():
 			return sections
 
 		active_sections = {}
-		for key in services[servicetype].keys():
+		for key in list(services[servicetype].keys()):
 			if (("FTA" not in bouquettype or services[servicetype][key]["free_ca"] == 0) and ("HD" not in bouquettype or services[servicetype][key]["service_type"] in DvbScanner.HD_ALLOWED_TYPES)) or 'ALL' in bouquettype:
 				section_number = max((x for x in sections if int(x) <= key))
 				if section_number not in active_sections:
