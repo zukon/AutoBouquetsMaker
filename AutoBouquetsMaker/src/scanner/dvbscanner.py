@@ -336,7 +336,7 @@ class DvbScanner():
 				continue
 			customtransponder = {}
 			if len(customtransponders) > 0 and self.dvbtype == 'dvbt': # Only for DVB-T/T2 transponder override.
-				for key in range(0, len(customtransponders)):
+				for key in list(range(0, len(customtransponders))):
 					if customtransponders[key]["transport_stream_id"] == transponder["transport_stream_id"]:
 						customtransponder = customtransponders[key]
 						break
@@ -550,7 +550,7 @@ class DvbScanner():
 			print("[ABM-DvbScanner] LCN list from BAT", sorted(lcn_list))
 			for service in hex_list:
 				print("[ABM-DvbScanner] hexcontent", service)
-				bytes = [int(''.join(service["hexcontent"][i:i+2]), 16) for i in range(0, len(service["hexcontent"]), 2)][2:]
+				bytes = [int(''.join(service["hexcontent"][i:i+2]), 16) for i in list(range(0, len(service["hexcontent"]), 2))][2:]
 				hexchars = []
 				for byte in bytes:
 					if byte > 31 and byte < 127:

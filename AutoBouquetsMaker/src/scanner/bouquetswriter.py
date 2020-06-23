@@ -130,7 +130,7 @@ class BouquetsWriter():
 					service["flags"],
 					":%x" % service["ATSC_source_id"] if "ATSC_source_id" in service else ""))
 
-				control_chars = ''.join(map(unichr, range(0,32) + range(127,160)))
+				control_chars = ''.join(map(unichr, list(range(0,32)) + list(range(127,160))))
 				control_char_re = re.compile('[%s]' % re.escape(control_chars))
 				if 'provider_name' in list(service.keys()):
 					service_name = control_char_re.sub('', service["service_name"]).decode('latin-1').encode("utf8")
@@ -274,7 +274,7 @@ class BouquetsWriter():
 					service["flags"],
 					":%x" % service["ATSC_source_id"] if "ATSC_source_id" in service else ":0"))
 
-				control_chars = ''.join(map(unichr, range(0,32) + range(127,160)))
+				control_chars = ''.join(map(unichr, list(range(0,32)) + list(range(127,160))))
 				control_char_re = re.compile('[%s]' % re.escape(control_chars))
 				if 'provider_name' in list(service.keys()):
 					service_name = control_char_re.sub('', service["service_name"]).decode('latin-1').encode("utf8")
@@ -354,7 +354,7 @@ class BouquetsWriter():
 		bouquet_out_list.append("#DESCRIPTION CustomSeparatorMain for %s\n" % name)
 
 		if count < max_count:
-			for i in range(count, max_count):
+			for i in list(range(count, max_count)):
 				bouquet_out_list.append(self.spacer())
 
 		bouquet_out.write(''.join(bouquet_out_list))
@@ -613,7 +613,7 @@ class BouquetsWriter():
 			preferred_order_tmp = []
 
 			# expand a range into a list
-			for number in range(1, higher_number + 1):
+			for number in list(range(1, higher_number + 1)):
 				preferred_order_tmp.append(number)
 
 			# Always write first not hidden section on top of list
@@ -684,7 +684,7 @@ class BouquetsWriter():
 					if current_number == higher_number - 1:
 						break
 
-				for x in range(current_number, higher_number - 1):
+				for x in list(range(current_number, higher_number - 1)):
 					current_bouquet_list.append(self.spacer())
 
 				current_number = higher_number - 1
@@ -738,7 +738,7 @@ class BouquetsWriter():
 
 				#current_number += 1
 				section_current_number += 1
-				for number in range(section_current_number, higher_number + 1):
+				for number in list(range(section_current_number, higher_number + 1)):
 					if provider_config.isSwapChannels() and number in swapDict:
 						number = swapDict[number]
 					if number in services["video"] and section_number not in bouquets_to_hide:
@@ -765,7 +765,7 @@ class BouquetsWriter():
 			current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
 			current_bouquet_list.append("#DESCRIPTION %sSeparator\n" % section_prefix)
 
-			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
+			for x in list(range(current_number, (int(current_number/1000) + 1) * 1000)):
 				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
@@ -805,7 +805,7 @@ class BouquetsWriter():
 						current_number += 1
 						current_bouquet_list.append(self.bouquetServiceLine(services_swapped["video"][number]))
 
-			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
+			for x in list(range(current_number, (int(current_number/1000) + 1) * 1000)):
 				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
@@ -845,7 +845,7 @@ class BouquetsWriter():
 						current_number += 1
 						current_bouquet_list.append(self.bouquetServiceLine(services_swapped["video"][number]))
 
-			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
+			for x in list(range(current_number, (int(current_number/1000) + 1) * 1000)):
 				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
@@ -869,7 +869,7 @@ class BouquetsWriter():
 			higher_number = sorted(list(services["video"].keys()))[-1]
 
 			todo = None
-			for number in range(1, higher_number + 1):
+			for number in list(range(1, higher_number + 1)):
 				if number >= section_key_current:
 					todo = None
 					if section_key_current not in bouquets_to_hide:
@@ -887,7 +887,7 @@ class BouquetsWriter():
 						current_number += 1
 						current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
 
-			for x in range(current_number, (int(current_number/1000) + 1) * 1000):
+			for x in list(range(current_number, (int(current_number/1000) + 1) * 1000)):
 				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
@@ -903,7 +903,7 @@ class BouquetsWriter():
 
 		if len(list(services["radio"].keys())) > 0:
 			higher_number = sorted(list(services["radio"].keys()))[-1]	# the highest number!
-			for number in range(1, higher_number + 1):
+			for number in list(range(1, higher_number + 1)):
 				if number in services["radio"]:
 					current_bouquet_list.append(self.bouquetServiceLine(services["radio"][number]))
 				else:

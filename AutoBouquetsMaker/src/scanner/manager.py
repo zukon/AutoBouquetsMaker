@@ -134,9 +134,9 @@ class Manager():
 						except:
 							continue
 						if index < len(sections) - 1:
-							bouquetsToHide += range(bouquetToHide, sections[index + 1])
+							bouquetsToHide += list(range(bouquetToHide, sections[index + 1]))
 						else:
-							bouquetsToHide += range(bouquetToHide, 65535)
+							bouquetsToHide += list(range(bouquetToHide, 65535))
 
 				prefix = ""
 				if self.addprefix:
