@@ -1284,17 +1284,45 @@ PyObject *ss_read_nit(PyObject *self, PyObject *args) {
 }
 
 static PyMethodDef dvbreaderMethods[] = {
-		{ "open", ss_open, METH_VARARGS },
-		{ "close", ss_close, METH_VARARGS },
-		{ "read_bat", ss_read_bat, METH_VARARGS },
-		{ "read_nit", ss_read_nit, METH_VARARGS },
-		{ "read_sdt", ss_read_sdt, METH_VARARGS },
-		{ "read_fastscan", ss_read_fastscan, METH_VARARGS },
-		{ "read_ts", ss_read_ts, METH_VARARGS },
-		{ NULL, NULL }
+	{ "open", ss_open, METH_VARARGS },
+	{ "close", ss_close, METH_VARARGS },
+	{ "read_bat", ss_read_bat, METH_VARARGS },
+	{ "read_nit", ss_read_nit, METH_VARARGS },
+	{ "read_sdt", ss_read_sdt, METH_VARARGS },
+	{ "read_fastscan", ss_read_fastscan, METH_VARARGS },
+	{ "read_ts", ss_read_ts, METH_VARARGS },
+	{ NULL, NULL }
 };
 
-void initdvbreader() {
-	PyObject *m;
-	m = Py_InitModule("dvbreader", dvbreaderMethods);
+#if PY_MAJOR_VERSION >= 3
+static struct PyModuleDef moduledef = {
+	PyModuleDef_HEAD_INIT,
+	"dvbreader",
+	NULL,
+	-1,
+	dvbreaderMethods,
+	NULL,
+	NULL,
+	NULL,
+	NULL
+};
+#define INITERROR return NULL
+PyObject *PyInit_dvbreader(void)
+#else
+#define INITERROR return
+void initdvbreader(void)
+#endif
+{
+	PyObject *module;
+#if PY_MAJOR_VERSION >= 3
+	module = PyModule_Create(&moduledef);
+#else
+	module = Py_InitModule("dvbreader", dvbreaderMethods);
+#endif
+	if (module == NULL) {
+		INITERROR;
+	}
+#if PY_MAJOR_VERSION >= 3
+	return module;
+#endif
 }
