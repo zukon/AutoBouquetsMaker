@@ -16,7 +16,6 @@ from .skin_templates import skin_hidesections
 from .scanner.manager import Manager
 from .scanner.providerconfig import ProviderConfig
 
-from urlparse import urlparse
 
 class AutoBouquetsMaker_HideSections(Screen):
 	skin = skin_hidesections()

@@ -15,7 +15,6 @@ from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
 from .skin_templates import skin_keepbouquets
 from .scanner.manager import Manager
 
-from urlparse import urlparse
 
 class AutoBouquetsMaker_KeepBouquets(Screen):
 	skin = skin_keepbouquets()
