@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
+from __future__ import absolute_import
 
 # for localized messages
 from .. import _
@@ -7,8 +8,8 @@ from .. import _
 from .. import log
 
 from Components.config import config
-from tools import Tools
-from dvbscanner import DvbScanner
+from .tools import Tools
+from .dvbscanner import DvbScanner
 import os, codecs, re
 
 from enigma import eDVBFrontendParametersSatellite

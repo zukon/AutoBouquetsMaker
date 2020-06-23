@@ -1,10 +1,11 @@
 from __future__ import print_function
+from __future__ import absolute_import
 
 from .. import log
 import os, codecs, re
 import xml.dom.minidom
 from Components.config import config
-from dvbscanner import DvbScanner
+from .dvbscanner import DvbScanner
 try:
 	from urllib.request import quote # raises ImportError in Python 2
 except ImportError:
@@ -401,13 +402,13 @@ class Tools():
 				services[provider_key] = customised
 				bouquetsOrder.insert(placement, provider_key)
 
-				from providerconfig import ProviderConfig
+				from .providerconfig import ProviderConfig
 				providerConfigs[provider_key] = ProviderConfig("%s::0:" % provider_key)
 				if bouquets["main"] == 1:
 					providerConfigs[provider_key].setMakeNormalMain()
 				if bouquets["sections"] == 1:
 					providerConfigs[provider_key].setMakeSections()
-				from bouquetswriter import BouquetsWriter
+				from .bouquetswriter import BouquetsWriter
 				BouquetsWriter().buildBouquets(path, providerConfigs[provider_key], services[provider_key], sections, provider_key, swaprules, bouquets_to_hide, prefix)
 			else:
 				print("[ABM-Tools][favourites] Favourites list is zero length.", file=log)

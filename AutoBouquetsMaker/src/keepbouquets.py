@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # for localized messages
+from __future__ import absolute_import
 from . import _
 
 from Screens.Screen import Screen
@@ -11,8 +12,8 @@ from Components.Button import Button
 from Tools.LoadPixmap import LoadPixmap
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
 
-from skin_templates import skin_keepbouquets
-from scanner.manager import Manager
+from .skin_templates import skin_keepbouquets
+from .scanner.manager import Manager
 
 from urlparse import urlparse
 

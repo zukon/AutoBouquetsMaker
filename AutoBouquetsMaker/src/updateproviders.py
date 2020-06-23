@@ -1,4 +1,5 @@
 from __future__ import print_function
+from __future__ import absolute_import
 
 # for localized messages
 from . import _
@@ -26,14 +27,14 @@ from Components.config import config
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 
-from scanner.manager import Manager
-from scanner.providerconfig import ProviderConfig
-from scanner.providers import Providers
-from version import PLUGIN_VERSION as localVersion
+from .scanner.manager import Manager
+from .scanner.providerconfig import ProviderConfig
+from .scanner.providers import Providers
+from .version import PLUGIN_VERSION as localVersion
 
 from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN
 
-from skin_templates import skin_downloadBar
+from .skin_templates import skin_downloadBar
 
 class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 # Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker'.

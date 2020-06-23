@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # for localized messages
+from __future__ import absolute_import
 from . import _
 
 from Screens.Screen import Screen
@@ -11,9 +12,9 @@ from Components.Button import Button
 from Components.Label import Label
 from enigma import eTimer
 
-from skin_templates import skin_ordering
-from scanner.manager import Manager
-from scanner.providerconfig import ProviderConfig
+from .skin_templates import skin_ordering
+from .scanner.manager import Manager
+from .scanner.providerconfig import ProviderConfig
 
 class AutoBouquetsMaker_Ordering(Screen):
 	skin = skin_ordering()
@@ -181,5 +182,5 @@ class AutoBouquetsMaker_Ordering(Screen):
 		return ""
 
 	def createSummary(self):
-		from menu import AutoBouquetsMaker_MenuSummary
+		from .menu import AutoBouquetsMaker_MenuSummary
 		return AutoBouquetsMaker_MenuSummary

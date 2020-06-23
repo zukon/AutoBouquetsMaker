@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 # for localized messages
+from __future__ import absolute_import
 from . import _
 
 from enigma import eDVBDB
 from Screens.MessageBox import MessageBox
-from scanner.bouquetsreader import BouquetsReader
-from scanner.bouquetswriter import BouquetsWriter
+from .scanner.bouquetsreader import BouquetsReader
+from .scanner.bouquetswriter import BouquetsWriter
 
 class AutoBouquetsMaker_DeleteBouquets():
 

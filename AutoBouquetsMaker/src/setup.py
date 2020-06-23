@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # for localized messages
+from __future__ import absolute_import
 from . import _
 
 from Screens.Screen import Screen
@@ -13,10 +14,10 @@ from Components.Label import Label
 from Components.NimManager import nimmanager
 from enigma import eTimer
 
-from skin_templates import skin_setup
-from scanner.manager import Manager
-from scanner.providerconfig import ProviderConfig
-import log
+from .skin_templates import skin_setup
+from .scanner.manager import Manager
+from .scanner.providerconfig import ProviderConfig
+from . import log
 import itertools
 
 class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):

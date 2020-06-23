@@ -1,11 +1,12 @@
 from __future__ import print_function
+from __future__ import absolute_import
 
 from Components.config import config
-from dvbscanner import DvbScanner
-from bouquetswriter import BouquetsWriter
-from bouquetsreader import BouquetsReader
-from providers import Providers
-from tools import Tools
+from .dvbscanner import DvbScanner
+from .bouquetswriter import BouquetsWriter
+from .bouquetsreader import BouquetsReader
+from .providers import Providers
+from .tools import Tools
 from .. import log
 
 class Manager():
