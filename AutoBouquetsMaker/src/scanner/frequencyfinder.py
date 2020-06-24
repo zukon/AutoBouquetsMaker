@@ -112,12 +112,12 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		self.scanTransponders = []
 		if self.uhf_vhf == "uhf_vhf":
 			bandwidth = 7
-			for a in range(5,13): # channel
+			for a in list(range(5,13)): # channel
 				for b in (eDVBFrontendParametersTerrestrial.System_DVB_T, eDVBFrontendParametersTerrestrial.System_DVB_T2): # system
 					self.scanTransponders.append({"frequency": channel2freq(a, bandwidth), "system": b, "bandwidth": bandwidth})
 		if self.uhf_vhf in ("uhf", "uhf_vhf"):
 			bandwidth = 8
-			for a in range(21,70): # channel
+			for a in (range(21,70)): # channel
 				for b in (eDVBFrontendParametersTerrestrial.System_DVB_T, eDVBFrontendParametersTerrestrial.System_DVB_T2): # system
 					self.scanTransponders.append({"frequency": channel2freq(a, bandwidth), "system": b, "bandwidth": bandwidth})
 		self.transponders_found = []

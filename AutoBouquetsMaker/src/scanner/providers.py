@@ -110,7 +110,7 @@ class Providers():
 						transponder["pilot"] = eDVBFrontendParametersSatellite.Pilot_Unknown
 						transponder["onid"] = None
 						transponder["tsid"] = None
-						for i in range(0, node.attributes.length):
+						for i in list(range(0, node.attributes.length)):
 							if node.attributes.item(i).name == "frequency":
 								transponder["frequency"] = int(node.attributes.item(i).value)
 							elif node.attributes.item(i).name == "symbol_rate":
@@ -185,7 +185,7 @@ class Providers():
 						for node2 in node.childNodes:
 							if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "configuration":
 								configuration = {}
-								for i in range(0, node2.attributes.length):
+								for i in list(range(0, node2.attributes.length)):
 									if node2.attributes.item(i).name == "key":
 										configuration["key"] = node2.attributes.item(i).value.encode("utf-8")
 									elif node2.attributes.item(i).name == "bouquet":
@@ -218,7 +218,7 @@ class Providers():
 								configuration["modulation"] = eDVBFrontendParametersCable.Modulation_Auto
 								configuration["onid"] = None
 								configuration["tsid"] = None
-								for i in range(0, node2.attributes.length):
+								for i in list(range(0, node2.attributes.length)):
 									if node2.attributes.item(i).name == "key":
 										configuration["key"] = node2.attributes.item(i).value.encode("utf-8")
 									elif node2.attributes.item(i).name == "netid":
@@ -284,7 +284,7 @@ class Providers():
 								configuration["onid"] = None
 								configuration["tsid"] = None
 
-								for i in range(0, node2.attributes.length):
+								for i in list(range(0, node2.attributes.length)):
 									if node2.attributes.item(i).name == "key":
 										configuration["key"] = node2.attributes.item(i).value.encode("utf-8")
 									elif node2.attributes.item(i).name == "frequency":
@@ -327,7 +327,7 @@ class Providers():
 						for node2 in node.childNodes:
 							if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "section":
 								number = -1
-								for i in range(0, node2.attributes.length):
+								for i in list(range(0, node2.attributes.length)):
 									if node2.attributes.item(i).name == "number":
 										number = int(node2.attributes.item(i).value)
 
@@ -344,7 +344,7 @@ class Providers():
 								channel_number = -1
 								channel_with = -1
 								channel_conditional = None
-								for i in range(0, node2.attributes.length):
+								for i in list(range(0, node2.attributes.length)):
 									if node2.attributes.item(i).name == "number":
 										channel_number = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "with":
@@ -360,7 +360,7 @@ class Providers():
 
 					elif node.tagName == "servicehacks":
 						node.normalize()
-						for i in range(0, len(node.childNodes)):
+						for i in list(range(0, len(node.childNodes))):
 							if node.childNodes[i].nodeType == node.CDATA_SECTION_NODE:
 								provider["servicehacks"] = node.childNodes[i].data.encode("utf-8").strip()
 
@@ -370,7 +370,7 @@ class Providers():
 							provider["dependent"] = node.childNodes[0].data.encode("utf-8")
 
 					elif node.tagName == "visibleserviceflag":
-						for i in range(0, node.attributes.length):
+						for i in list(range(0, node.attributes.length)):
 							if node.attributes.item(i).name == "ignore" and int(node.attributes.item(i).value) != 0:
 								provider["ignore_visible_service_flag"] = 1
 

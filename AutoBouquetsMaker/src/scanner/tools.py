@@ -82,7 +82,7 @@ class Tools():
 							if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "configuration":
 								lcn = 0
 								channelnumber = 0
-								for i in range(0, node2.attributes.length):
+								for i in list(range(0, node2.attributes.length)):
 									if node2.attributes.item(i).name == "lcn":
 										lcn = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "channelnumber":
@@ -163,7 +163,7 @@ class Tools():
 							provider = ''
 							source = ''
 							target = ''
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "provider":
 									provider = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "source":
@@ -181,7 +181,7 @@ class Tools():
 							target = ''
 							name = ''
 							servicereftype = ''
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "name":
 									name = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "url":
@@ -202,7 +202,7 @@ class Tools():
 					for node2 in node.childNodes:
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "delete":
 							target = ''
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "target":
 									target = int(node2.attributes.item(i).value)
 									if target and target in customised["video"]:
@@ -212,7 +212,7 @@ class Tools():
 					for node2 in node.childNodes:
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "section":
 							number = -1
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "number":
 									number = int(node2.attributes.item(i).value)
 								if number == -1:
@@ -224,7 +224,7 @@ class Tools():
 
 				elif node.tagName == "hacks":
 					node.normalize()
-					for i in range(0, len(node.childNodes)):
+					for i in list(range(0, len(node.childNodes))):
 						if node.childNodes[i].nodeType == node.CDATA_SECTION_NODE:
 							hacks = node.childNodes[i].data.encode("utf-8").strip()
 
@@ -267,7 +267,7 @@ class Tools():
 							customtransponder["flags"] = 0
 							customtransponder["system"] = 0
 							customtransponder["plpid"] = 0
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "key":
 									customtransponder["key"] = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "transport_stream_id":
@@ -337,7 +337,7 @@ class Tools():
 					for node2 in node.childNodes:
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "section":
 							number = -1
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "number":
 									number = int(node2.attributes.item(i).value)
 								if number == -1:
@@ -353,7 +353,7 @@ class Tools():
 							provider = ''
 							source = ''
 							target = ''
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "provider":
 									provider = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "source":
@@ -383,7 +383,7 @@ class Tools():
 
 				elif node.tagName == "hacks":
 					node.normalize()
-					for i in range(0, len(node.childNodes)):
+					for i in list(range(0, len(node.childNodes))):
 						if node.childNodes[i].nodeType == node.CDATA_SECTION_NODE:
 							hacks = node.childNodes[i].data.encode("utf-8").strip()
 
