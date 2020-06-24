@@ -429,7 +429,7 @@ class DvbScanner():
 				print("[ABM-DvbScanner] transponder", transponder)
 
 		if read_other_section and len(nit_other_completed):
-			print("[ABM-DvbScanner] Added/Updated %d transponders with network_id = 0x%x and other network_ids = %s" % (transponders_count, nit_current_section_network_id, ','.join(map(hex, list(nit_other_completed.keys())))), file=log)
+			print("[ABM-DvbScanner] Added/Updated %d transponders with network_id = 0x%x and other network_ids = %s" % (transponders_count, nit_current_section_network_id, ','.join(list(map(hex, list(nit_other_completed.keys()))))), file=log)
 		else:
 			print("[ABM-DvbScanner] Added/Updated %d transponders with network_id = 0x%x" % (transponders_count, nit_current_section_network_id), file=log)
 
