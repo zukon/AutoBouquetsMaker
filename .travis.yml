@@ -18,6 +18,7 @@ git:
 branches:
   only:
   - master
+  - p3check
 
 install:
   - pip install flake8
