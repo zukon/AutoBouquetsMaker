@@ -11,6 +11,7 @@ from Components.config import config
 from .tools import Tools
 from .dvbscanner import DvbScanner
 import os, codecs, re
+import six
 
 from enigma import eDVBFrontendParametersSatellite
 
@@ -130,7 +131,7 @@ class BouquetsWriter():
 					service["flags"],
 					":%x" % service["ATSC_source_id"] if "ATSC_source_id" in service else ""))
 
-				control_chars = ''.join(list(map(unichr, list(range(0,32)) + list(range(127,160)))))
+				control_chars = ''.join(list(map(six.unichr, list(range(0,32)) + list(range(127,160)))))
 				control_char_re = re.compile('[%s]' % re.escape(control_chars))
 				if 'provider_name' in list(service.keys()):
 					service_name = control_char_re.sub('', service["service_name"]).decode('latin-1').encode("utf8")
@@ -274,7 +275,7 @@ class BouquetsWriter():
 					service["flags"],
 					":%x" % service["ATSC_source_id"] if "ATSC_source_id" in service else ":0"))
 
-				control_chars = ''.join(list(map(unichr, list(range(0,32)) + list(range(127,160)))))
+				control_chars = ''.join(list(map(six.unichr, list(range(0,32)) + list(range(127,160)))))
 				control_char_re = re.compile('[%s]' % re.escape(control_chars))
 				if 'provider_name' in list(service.keys()):
 					service_name = control_char_re.sub('', service["service_name"]).decode('latin-1').encode("utf8")
