@@ -19,6 +19,7 @@ from .scanner.manager import Manager
 from .scanner.providerconfig import ProviderConfig
 from . import log
 import itertools
+import six
 
 class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 # Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker_Setup'.
@@ -265,7 +266,9 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		temp = []
 		for provider in list(providers.keys()):
 			temp.append((provider, providers[provider]["name"]))
-		return [i[0] for i in sorted(temp, key=lambda p: p[1].lower().decode('ascii','ignore'))]
+		if six.PY2:
+			return [i[0] for i in sorted(temp, key=lambda p: p[1].lower().decode('ascii','ignore'))]
+		return [i[0] for i in sorted(temp, key=lambda p: six.ensure_binary(p[1]).lower().decode('ascii','ignore'))]
 
 	def createSetup(self):
 		self.editListEntry = None
