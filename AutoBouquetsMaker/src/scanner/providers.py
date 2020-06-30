@@ -3,6 +3,7 @@ from __future__ import print_function
 from .. import log
 import os
 import xml.dom.minidom
+import six
 try:
 	import cPickle as pickle
 except:
@@ -12,6 +13,11 @@ from enigma import eDVBFrontendParametersSatellite, eDVBFrontendParametersTerres
 class Providers():
 	VALID_PROTOCOLS = ( "fastscan", "freesat", "lcn", "lcn2", "lcnbat", "lcnbat2", "nolcn", "sky", "vmuk", "vmuk2" )
 	PROVIDERS_DIR = os.path.dirname(__file__) + "/../providers"
+
+	def encodeNODE(self, data):
+		if six.PY2:
+			return data.encode("utf-8")
+		return six.ensure_str(data, encoding='utf-8', errors='ignore')
 
 	def parseXML(self, filename):
 		try:
@@ -80,15 +86,15 @@ class Providers():
 					if node.tagName == "name":
 						node.normalize()
 						if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE:
-							provider["name"] = node.childNodes[0].data.encode("utf-8")
+							provider["name"] = self.encodeNODE(node.childNodes[0].data)
 					elif node.tagName == "streamtype":
 						node.normalize()
 						if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE:
-							provider["streamtype"] = node.childNodes[0].data.encode("utf-8")
+							provider["streamtype"] = self.encodeNODE(node.childNodes[0].data)
 					elif node.tagName == "protocol":
 						node.normalize()
-						if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE and node.childNodes[0].data.encode("utf-8") in self.VALID_PROTOCOLS:
-							provider["protocol"] = node.childNodes[0].data.encode("utf-8")
+						if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE and self.encodeNODE(node.childNodes[0].data) in self.VALID_PROTOCOLS:
+							provider["protocol"] = self.encodeNODE(node.childNodes[0].data)
 					elif node.tagName == "transponder":
 						transponder = {}
 						transponder["nit_pid"] = 0x10
@@ -174,12 +180,12 @@ class Providers():
 					elif node.tagName == "bouquettype":
 						node.normalize()
 						if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE:
-							provider["bouquettype"] = node.childNodes[0].data.encode("utf-8")
+							provider["bouquettype"] = self.encodeNODE(node.childNodes[0].data)
 
 					elif node.tagName == "netid":
 						node.normalize()
 						if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE:
-							provider["netid"] = node.childNodes[0].data.encode("utf-8")
+							provider["netid"] = self.encodeNODE(node.childNodes[0].data)
 
 					elif node.tagName == "dvbsconfigs":
 						for node2 in node.childNodes:
@@ -187,7 +193,7 @@ class Providers():
 								configuration = {}
 								for i in list(range(0, node2.attributes.length)):
 									if node2.attributes.item(i).name == "key":
-										configuration["key"] = node2.attributes.item(i).value.encode("utf-8")
+										configuration["key"] = self.encodeNODE(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "bouquet":
 										configuration["bouquet"] = int(node2.attributes.item(i).value, 16)
 									elif node2.attributes.item(i).name == "region":
@@ -195,7 +201,7 @@ class Providers():
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
-									configuration["name"] = node2.childNodes[0].data.encode("utf-8")
+									configuration["name"] = self.encodeNODE(node2.childNodes[0].data)
 
 								if len(list(configuration.keys())) == 4:
 									provider["bouquets"][configuration["key"]] = configuration
@@ -220,11 +226,11 @@ class Providers():
 								configuration["tsid"] = None
 								for i in list(range(0, node2.attributes.length)):
 									if node2.attributes.item(i).name == "key":
-										configuration["key"] = node2.attributes.item(i).value.encode("utf-8")
+										configuration["key"] = self.encodeNODE(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "netid":
 										configuration["netid"] = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "bouquettype":
-										configuration["bouquettype"] = node2.attributes.item(i).value.encode("utf-8")
+										configuration["bouquettype"] = self.encodeNODE(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "frequency":
 										configuration["frequency"] = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "symbol_rate":
@@ -248,7 +254,7 @@ class Providers():
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
-									configuration["name"] = node2.childNodes[0].data.encode("utf-8")
+									configuration["name"] = self.encodeNODE(node2.childNodes[0].data)
 
 								if len(list(configuration.keys())) == 12 and 'lcnbat' not in provider["protocol"] and 'region' not in configuration and 'bouquet' not in configuration:
 									provider["bouquets"][configuration["key"]] = configuration
@@ -286,7 +292,7 @@ class Providers():
 
 								for i in list(range(0, node2.attributes.length)):
 									if node2.attributes.item(i).name == "key":
-										configuration["key"] = node2.attributes.item(i).value.encode("utf-8")
+										configuration["key"] = self.encodeNODE(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "frequency":
 										configuration["frequency"] = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "inversion":
@@ -314,7 +320,7 @@ class Providers():
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
-									configuration["name"] = node2.childNodes[0].data.encode("utf-8")
+									configuration["name"] = self.encodeNODE(node2.childNodes[0].data)
 
 								if len(list(configuration.keys())) == 14:
 									provider["bouquets"][configuration["key"]] = configuration
@@ -336,7 +342,7 @@ class Providers():
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
-									provider["sections"][number] = node2.childNodes[0].data.encode("utf-8")
+									provider["sections"][number] = self.encodeNODE(node2.childNodes[0].data)
 
 					elif node.tagName == "swapchannels":
 						for node2 in node.childNodes:
@@ -350,7 +356,7 @@ class Providers():
 									elif node2.attributes.item(i).name == "with":
 										channel_with = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "conditional": # allows adding an evalable condition on a channel by channel basis
-										channel_conditional = node2.attributes.item(i).value.encode("utf-8")
+										channel_conditional = self.encodeNODE(node2.attributes.item(i).value)
 
 								if channel_number != -1 and channel_with != -1:
 									if channel_conditional is None:
@@ -362,12 +368,12 @@ class Providers():
 						node.normalize()
 						for i in list(range(0, len(node.childNodes))):
 							if node.childNodes[i].nodeType == node.CDATA_SECTION_NODE:
-								provider["servicehacks"] = node.childNodes[i].data.encode("utf-8").strip()
+								provider["servicehacks"] = self.encodeNODE(node.childNodes[i].data).strip()
 
 					elif node.tagName == "dependent":
 						node.normalize()
 						if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE:
-							provider["dependent"] = node.childNodes[0].data.encode("utf-8")
+							provider["dependent"] = self.encodeNODE(node.childNodes[0].data)
 
 					elif node.tagName == "visibleserviceflag":
 						for i in list(range(0, node.attributes.length)):
