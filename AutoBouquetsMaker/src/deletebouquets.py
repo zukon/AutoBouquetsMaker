@@ -23,9 +23,9 @@ class AutoBouquetsMaker_DeleteBouquets():
 			bouquetsToKeep["radio"] = []
 			for bouquet_type in ["tv", "radio"]:
 				for bouquet in bouquets[bouquet_type]:
-					 currentBouquets[bouquet_type].append(bouquet["filename"])
-					 if bouquet["filename"][:len(self.ABM_BOUQUET_PREFIX)] != self.ABM_BOUQUET_PREFIX:
-					 	bouquetsToKeep[bouquet_type].append(bouquet["filename"])
+					currentBouquets[bouquet_type].append(bouquet["filename"])
+					if bouquet["filename"][:len(self.ABM_BOUQUET_PREFIX)] != self.ABM_BOUQUET_PREFIX:
+						bouquetsToKeep[bouquet_type].append(bouquet["filename"])
 			BouquetsWriter().buildBouquetsIndex(path, [], None, bouquetsToKeep, currentBouquets, None, None)
 			eDVBDB.getInstance().reloadServicelist()
 			eDVBDB.getInstance().reloadBouquets()
