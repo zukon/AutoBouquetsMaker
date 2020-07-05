@@ -6,6 +6,7 @@ import os, codecs, re
 import xml.dom.minidom
 from Components.config import config
 from .dvbscanner import DvbScanner
+import six
 try:
 	from urllib.request import quote # raises ImportError in Python 2
 except ImportError:
@@ -48,7 +49,10 @@ class Tools():
 			xml_out_list.append("<custom>\n\t<include>yes</include>\n\t<lcnlist>\n")
 			numbers = sorted(list(services[type].keys()))
 			for number in numbers:
-				servicename = unicode(services[type][number]["service_name"], errors='ignore')
+				if six.PY2:
+					servicename = unicode(services[type][number]["service_name"], errors='ignore')
+				else:
+					servicename = six.ensure_text(services[type][number]["service_name"], encoding='utf-8', errors='ignore')
 				xml_out_list.append("\t\t<configuration lcn=\"%d\" channelnumber=\"%d\" description=\"%s\"></configuration>\n" % (
 					number,
 					number,
