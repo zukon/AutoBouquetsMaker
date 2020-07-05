@@ -314,6 +314,8 @@ if "crystal_palace" in bouquet_key and service["transport_stream_id"] in (0x801f
 if service["service_type"] in DvbScanner.AUDIO_ALLOWED_TYPES:
 	service["service_type"] = 1
 
+add_audio_channels_to_video_bouquet=True
+
 	]]>
 	</servicehacks>
 </provider>

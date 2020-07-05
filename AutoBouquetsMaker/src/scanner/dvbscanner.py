@@ -699,6 +699,8 @@ class DvbScanner():
 
 		service_extra_count = 0
 
+		add_audio_channels_to_video_bouquet = False
+
 		for key in self.LCN_order(tmp_services_dict):
 			service = tmp_services_dict[key]
 
@@ -719,7 +721,7 @@ class DvbScanner():
 			transponders[tpkey]["services"][service["service_id"]] = service
 			service_extra_count += 1
 
-			if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES or service["service_type"] in DvbScanner.INTERACTIVE_ALLOWED_TYPES:
+			if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES or service["service_type"] in DvbScanner.INTERACTIVE_ALLOWED_TYPES or service["service_type"] in DvbScanner.AUDIO_ALLOWED_TYPES and add_audio_channels_to_video_bouquet:
 				for number in service["numbers"]:
 					if number not in video_services:
 						video_services[number] = service
@@ -1339,6 +1341,8 @@ class DvbScanner():
 
 		service_extra_count = 0
 
+		add_audio_channels_to_video_bouquet = False
+
 		for key in self.LCN_order(tmp_services_dict):
 			service = tmp_services_dict[key]
 
@@ -1360,7 +1364,7 @@ class DvbScanner():
 			transponders[tpkey]["services"][service["service_id"]] = service
 			service_extra_count += 1
 
-			if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES or service["service_type"] in DvbScanner.INTERACTIVE_ALLOWED_TYPES:
+			if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES or service["service_type"] in DvbScanner.INTERACTIVE_ALLOWED_TYPES or service["service_type"] in DvbScanner.AUDIO_ALLOWED_TYPES and add_audio_channels_to_video_bouquet:
 				for number in service["numbers"]:
 					if service["region_id"] == 0xffff:
 						if number not in video_services:

@@ -78,6 +78,7 @@
 		<section number="500">Music</section>
 		<section number="600">Children</section>
 		<section number="650">Special Interest</section>
+		<section number="700">Radio</section>		
 		<section number="800">Shopping</section>
 		<section number="949">Regional</section>
 		<section number="980">BBC Red Button</section>
@@ -188,6 +189,7 @@ elif service["number"] > 999 or service["number"] < 101:
 if service["number"] >= 700 and service["number"] < 800:
 	service["service_type"] = 2
 
+add_audio_channels_to_video_bouquet=True
 
 ]]>
 	</servicehacks>
