@@ -297,7 +297,7 @@ for number in service["numbers"]:
 if service["service_name"] in blacklist or service["service_type"] == 0xc:
 	skip = True
 
-if service["number"] in range(786, 800):
+if service["number"] in range(751, 800):
 	skip = True
 
 if "winter_hill" in bouquet_key and service["transport_stream_id"] in (0x8008, 0x800b, 0x800d):
@@ -310,9 +310,6 @@ if "winter_hill" in bouquet_key and service["transport_stream_id"] in (0x8008, 0
 
 if "crystal_palace" in bouquet_key and service["transport_stream_id"] in (0x801f,):
 	skip = True
-
-if service["service_type"] in DvbScanner.AUDIO_ALLOWED_TYPES:
-	service["service_type"] = 1
 
 add_audio_channels_to_video_bouquet=True
 
