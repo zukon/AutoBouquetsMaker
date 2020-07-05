@@ -940,18 +940,21 @@ class BouquetsWriter():
 		return "#SERVICE 1:320:0:0:0:0:0:0:0:0:\n#DESCRIPTION  \n"
 
 	def utf8_convert(self, text):
-		for encoding in ["utf8","latin-1"]:
-			try:
-				text.decode(encoding=encoding)
-			except UnicodeDecodeError:
-				encoding = None
-			else:
-				break
-		if encoding == "utf8":
-			return text
-		if encoding is None:
-			encoding = "utf8"
-		return text.decode(encoding, errors="ignore").encode("utf8")
+		if six.PY2:
+			for encoding in ["utf8","latin-1"]:
+				try:
+					text.decode(encoding=encoding)
+				except UnicodeDecodeError:
+					encoding = None
+				else:
+					break
+			if encoding == "utf8":
+				return text
+			if encoding is None:
+				encoding = "utf8"
+			return text.decode(encoding, errors="ignore").encode("utf8")
+		else:
+			return six.ensure_str(text, encoding='utf-8', errors='strict')
 
 	def styledBouquetMarker(self, text, caller = "bouquets"):
 		if caller == "index":
