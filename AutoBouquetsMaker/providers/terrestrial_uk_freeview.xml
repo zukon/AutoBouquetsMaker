@@ -297,6 +297,8 @@ except:
 	flags = dxNoSDT | dxHoldName
 	provider = "FreeView UK"
 
+	add_audio_channels_to_video_bouquet=True
+
 service["service_flags"] = flags
 service["provider_name"] = provider
 
@@ -323,8 +325,6 @@ if "winter_hill" in bouquet_key and service["transport_stream_id"] in (0x8008, 0
 
 if "crystal_palace" in bouquet_key and service["transport_stream_id"] in (0x801f,):
 	skip = True
-
-add_audio_channels_to_video_bouquet=True
 
 	]]>
 	</servicehacks>

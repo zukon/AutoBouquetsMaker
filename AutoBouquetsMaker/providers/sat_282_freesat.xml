@@ -155,6 +155,8 @@ except:
 		5828: "Pick",
 	}
 
+	add_audio_channels_to_video_bouquet=True
+
 # Rename channels
 if "channel_id" in service and service["channel_id"] in rename:
 	service["interactive_name"] = rename[service["channel_id"]] # left for backwards compatibility
@@ -188,8 +190,6 @@ elif service["number"] > 999 or service["number"] < 101:
 #radio channels
 if service["number"] >= 700 and service["number"] < 800:
 	service["service_type"] = 2
-
-add_audio_channels_to_video_bouquet=True
 
 ]]>
 	</servicehacks>
