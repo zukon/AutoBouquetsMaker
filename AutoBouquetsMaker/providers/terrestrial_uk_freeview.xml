@@ -286,6 +286,19 @@
 
 	<servicehacks>
 	<![CDATA[
+try:
+	is_assigned
+except:
+	is_assigned = True
+
+	dxNoSDT = 0x1 # details of lamedb flags are in README.txt
+	dxHoldName = 0x8 # details of lamedb flags are in README.txt
+
+	flags = dxNoSDT | dxHoldName
+	provider = "FreeView UK"
+
+service["service_flags"] = flags
+service["provider_name"] = provider
 
 blacklist = [250,695,696,697,698,"ADULT Section"]
 #Channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
