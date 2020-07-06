@@ -676,10 +676,13 @@ class BouquetsWriter():
 					if number >= section_key_current:
 						todo = None
 						if section_key_current not in bouquets_to_hide:
-							current_bouquet_list.append(self.styledBouquetMarker("%s%s" % (section_prefix, sections_c[section_key_current])))
+							if section_key_current in sections_c:
+								current_bouquet_list.append(self.styledBouquetMarker("%s%s" % (section_prefix, sections_c[section_key_current])))
 							todo = section_key_current
 
-						section_keys_temp.remove(section_key_current)
+						if section_key_current in section_keys_temp:
+							section_keys_temp.remove(section_key_current)
+
 						if len(section_keys_temp) > 0:
 							section_key_current = section_keys_temp[0]
 						else:
@@ -800,10 +803,13 @@ class BouquetsWriter():
 				if number >= section_key_current:
 					todo = None
 					if section_key_current not in bouquets_to_hide:
-						current_bouquet_list.append(self.styledBouquetMarker("%s%s" % (section_prefix, sections_c[section_key_current])))
+						if section_key_current in sections_c:
+							current_bouquet_list.append(self.styledBouquetMarker("%s%s" % (section_prefix, sections_c[section_key_current])))
 						todo = section_key_current
 
-					section_keys_temp.remove(section_key_current)
+					if section_key_current in section_keys_temp:
+						section_keys_temp.remove(section_key_current)
+
 					if len(section_keys_temp) > 0:
 						section_key_current = section_keys_temp[0]
 					else:
@@ -840,10 +846,13 @@ class BouquetsWriter():
 				if number >= section_key_current:
 					todo = None
 					if section_key_current not in bouquets_to_hide:
-						current_bouquet_list.append(self.styledBouquetMarker("%s%s" % (section_prefix, sections_c[section_key_current])))
+						if section_key_current in sections_c:
+							current_bouquet_list.append(self.styledBouquetMarker("%s%s" % (section_prefix, sections_c[section_key_current])))
 						todo = section_key_current
 
-					section_keys_temp.remove(section_key_current)
+					if section_key_current in section_keys_temp:
+						section_keys_temp.remove(section_key_current)
+
 					if len(section_keys_temp) > 0:
 						section_key_current = section_keys_temp[0]
 					else:
@@ -882,10 +891,13 @@ class BouquetsWriter():
 				if number >= section_key_current:
 					todo = None
 					if section_key_current not in bouquets_to_hide:
-						current_bouquet_list.append(self.styledBouquetMarker("%s%s" % (section_prefix, sections_c[section_key_current])))
+						if section_key_current in sections_c:
+							current_bouquet_list.append(self.styledBouquetMarker("%s%s" % (section_prefix, sections_c[section_key_current])))
 						todo = section_key_current
 
-					section_keys_temp.remove(section_key_current)
+					if section_key_current in section_keys_temp:
+						section_keys_temp.remove(section_key_current)
+
 					if len(section_keys_temp) > 0:
 						section_key_current = section_keys_temp[0]
 					else:
