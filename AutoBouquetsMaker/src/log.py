@@ -5,8 +5,8 @@
 # Or in python 3, print("Some text", file=log)
 
 import sys
-from cStringIO import StringIO
 import threading
+from six import StringIO
 
 logfile = StringIO()
 # Need to make our operations thread-safe.
@@ -17,7 +17,7 @@ def write(data):
 	try:
 		if logfile.tell() > 8000:
 			# Do a sort of 8k round robin
-			logfile.reset()
+			logfile.seek(0)
 		logfile.write(data)
 	finally:
 		mutex.release()
@@ -28,7 +28,7 @@ def getvalue():
 	try:
 		pos = logfile.tell()
 		head = logfile.read()
-		logfile.reset()
+		logfile.seek(0)
 		tail = logfile.read(pos)
 	finally:
 		mutex.release()

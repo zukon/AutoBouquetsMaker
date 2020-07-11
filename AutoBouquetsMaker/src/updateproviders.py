@@ -1,4 +1,5 @@
 from __future__ import print_function
+from __future__ import absolute_import
 
 # for localized messages
 from . import _
@@ -8,11 +9,9 @@ from . import log
 import os
 import sys
 import socket
+import six
 
-try:
-	from urllib.request import Request, urlopen
-except ImportError:
-	from urllib2 import Request, urlopen
+from six.moves.urllib.request import Request, urlopen
 
 from xml.dom.minidom import parseString
 
@@ -26,14 +25,14 @@ from Components.config import config
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 
-from scanner.manager import Manager
-from scanner.providerconfig import ProviderConfig
-from scanner.providers import Providers
-from version import PLUGIN_VERSION as localVersion
+from .scanner.manager import Manager
+from .scanner.providerconfig import ProviderConfig
+from .scanner.providers import Providers
+from .version import PLUGIN_VERSION as localVersion
 
 from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN
 
-from skin_templates import skin_downloadBar
+from .skin_templates import skin_downloadBar
 
 class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 # Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker'.
@@ -148,7 +147,11 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 			return
 
 		try:
-			remoteVersion = response.read().split('"')[1]
+			if six.PY2:
+				remoteVersion = response.read().split('"')[1]
+			else:
+				remoteVersion = response.read()
+				remoteVersion = six.ensure_str(remoteVersion).split('"')[1]
 			print('[ABM-UpdateProviders][checkRemoteVersion] Local version: %s' % localVersion, file=log)
 			print('[ABM-UpdateProviders][checkRemoteVersion] Remote version: %s' % remoteVersion, file=log)
 			if remoteVersion != localVersion:
@@ -201,7 +204,12 @@ class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
 					self.showError(_('Network connection error.'))
 			return
 
-		providerxml = response.read().replace("\r", "")
+		if six.PY2:
+			providerxml = response.read().replace("\r", "")
+		else:
+			providerxml = response.read()
+			providerxml = six.ensure_str(providerxml).replace("\r", "")
+
 		if '<provider>' in providerxml:
 
 			try:

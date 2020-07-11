@@ -1,11 +1,12 @@
 from __future__ import print_function
+from __future__ import absolute_import
 
 from Components.config import config
-from dvbscanner import DvbScanner
-from bouquetswriter import BouquetsWriter
-from bouquetsreader import BouquetsReader
-from providers import Providers
-from tools import Tools
+from .dvbscanner import DvbScanner
+from .bouquetswriter import BouquetsWriter
+from .bouquetsreader import BouquetsReader
+from .providers import Providers
+from .tools import Tools
 from .. import log
 
 class Manager():
@@ -124,7 +125,7 @@ class Manager():
 				bouquetsToHide = []
 				if provider_key in self.bouquetsToHide:
 					# expand section keys in channels numbers
-					sections = sorted(providers[provider_key]["sections"].keys())
+					sections = sorted(list(providers[provider_key]["sections"].keys()))
 					for bouquetToHide in self.bouquetsToHide[provider_key]:
 						try:
 							#get closest section, just in case section numbers in the provider file have been updated
@@ -133,9 +134,9 @@ class Manager():
 						except:
 							continue
 						if index < len(sections) - 1:
-							bouquetsToHide += range(bouquetToHide, sections[index + 1])
+							bouquetsToHide += list(range(bouquetToHide, sections[index + 1]))
 						else:
-							bouquetsToHide += range(bouquetToHide, 65535)
+							bouquetsToHide += list(range(bouquetToHide, 65535))
 
 				prefix = ""
 				if self.addprefix:
@@ -228,10 +229,10 @@ class Manager():
 						self.transponders, providers[provider_key]["servicehacks"], tmp["TSID_ONID_list"],
 						tmp["logical_channel_number_dict"], tmp["service_dict_tmp"], providers[provider_key]["protocol"], bouquet_key)
 
-					ret = len(self.services[provider_key]["video"].keys()) > 0 or len(self.services[provider_key]["radio"].keys()) > 0
+					ret = len(list(self.services[provider_key]["video"].keys())) > 0 or len(list(self.services[provider_key]["radio"].keys())) > 0
 
-					self.serviceVideoRead += len(self.services[provider_key]["video"].keys())
-					self.serviceAudioRead += len(self.services[provider_key]["radio"].keys())
+					self.serviceVideoRead += len(list(self.services[provider_key]["video"].keys()))
+					self.serviceAudioRead += len(list(self.services[provider_key]["radio"].keys()))
 
 				elif providers[provider_key]["protocol"] == "fastscan":
 					scanner.setFastscanPid(providers[provider_key]["transponder"]["fastscan_pid"])
@@ -242,10 +243,10 @@ class Manager():
 							self.transponders, providers[provider_key]["servicehacks"],
 							tmp["logical_channel_number_dict"])
 
-					ret = len(self.services[provider_key]["video"].keys()) > 0 or len(self.services[provider_key]["radio"].keys()) > 0
+					ret = len(list(self.services[provider_key]["video"].keys())) > 0 or len(list(self.services[provider_key]["radio"].keys())) > 0
 
-					self.serviceVideoRead += len(self.services[provider_key]["video"].keys())
-					self.serviceAudioRead += len(self.services[provider_key]["radio"].keys())
+					self.serviceVideoRead += len(list(self.services[provider_key]["video"].keys()))
+					self.serviceAudioRead += len(list(self.services[provider_key]["radio"].keys()))
 
 				elif providers[provider_key]["protocol"] == "sky":
 					scanner.setSdtPid(providers[provider_key]["transponder"]["sdt_pid"])
@@ -260,10 +261,10 @@ class Manager():
 							bouquet["region"], bouquet["key"], self.transponders,
 							providers[provider_key]["servicehacks"])
 
-					ret = len(self.services[provider_key]["video"].keys()) > 0 or len(self.services[provider_key]["radio"].keys()) > 0
+					ret = len(list(self.services[provider_key]["video"].keys())) > 0 or len(list(self.services[provider_key]["radio"].keys())) > 0
 
-					self.serviceVideoRead += len(self.services[provider_key]["video"].keys())
-					self.serviceAudioRead += len(self.services[provider_key]["radio"].keys())
+					self.serviceVideoRead += len(list(self.services[provider_key]["video"].keys()))
+					self.serviceAudioRead += len(list(self.services[provider_key]["radio"].keys()))
 
 				elif providers[provider_key]["protocol"] == "freesat":
 					scanner.setSdtPid(providers[provider_key]["transponder"]["sdt_pid"])
@@ -278,10 +279,10 @@ class Manager():
 							bouquet["region"], bouquet["key"], self.transponders,
 							providers[provider_key]["servicehacks"])
 
-					ret = len(self.services[provider_key]["video"].keys()) > 0 or len(self.services[provider_key]["radio"].keys()) > 0
+					ret = len(list(self.services[provider_key]["video"].keys())) > 0 or len(list(self.services[provider_key]["radio"].keys())) > 0
 
-					self.serviceVideoRead += len(self.services[provider_key]["video"].keys())
-					self.serviceAudioRead += len(self.services[provider_key]["radio"].keys())
+					self.serviceVideoRead += len(list(self.services[provider_key]["video"].keys()))
+					self.serviceAudioRead += len(list(self.services[provider_key]["radio"].keys()))
 
 				else:
 					print("[ABM-Manager][read] Unsupported protocol %s" % providers[provider_key]["protocol"], file=log)
@@ -307,7 +308,7 @@ class Manager():
 # #for provider_key in providers:
 # #	current_arealist = []
 # #	bouquets = providers[provider_key]["bouquets"]
-# #	for bouquet_key in bouquets.keys():
+# #	for bouquet_key in list(bouquets.keys()):
 # #		current_arealist.append((bouquet_key, providers[provider_key]["bouquets"][bouquet_key]["name"]))
 # #
 # #	print provider_key, current_arealist

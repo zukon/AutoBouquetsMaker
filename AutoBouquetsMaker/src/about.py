@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 from Screens.Screen import Screen
 
 from Components.Label import Label
@@ -5,7 +6,7 @@ from Components.Button import Button
 from Components.Pixmap import Pixmap
 from Components.ActionMap import ActionMap
 
-from skin_templates import skin_about
+from .skin_templates import skin_about
 
 import os
 import sys
@@ -30,7 +31,7 @@ class AutoBouquetsMaker_About(Screen):
 
 		self["key_red"] = Button(_("Close"))
 
-		from version import PLUGIN_VERSION
+		from .version import PLUGIN_VERSION
 
 		credit = "OE-Alliance AutoBouquetsMaker %s (c) 2012 \nSandro Cavazzoni & Andrew Blackburn\n" % PLUGIN_VERSION
 		credit += "http://github.com/oe-alliance\n"

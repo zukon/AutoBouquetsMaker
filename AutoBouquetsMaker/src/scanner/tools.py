@@ -1,14 +1,13 @@
 from __future__ import print_function
+from __future__ import absolute_import
 
 from .. import log
 import os, codecs, re
 import xml.dom.minidom
 from Components.config import config
-from dvbscanner import DvbScanner
-try:
-	from urllib.request import quote # raises ImportError in Python 2
-except ImportError:
-	from urllib import quote
+from .dvbscanner import DvbScanner
+import six
+from six.moves.urllib.parse import quote
 
 class Tools():
 	SERVICEREF_ALLOWED_TYPES = [1, 4097, 5001, 5002]
@@ -45,9 +44,12 @@ class Tools():
 			# Write Example CustomLCN file
 			xml_out_list = []
 			xml_out_list.append("<custom>\n\t<include>yes</include>\n\t<lcnlist>\n")
-			numbers = sorted(services[type].keys())
+			numbers = sorted(list(services[type].keys()))
 			for number in numbers:
-				servicename = unicode(services[type][number]["service_name"], errors='ignore')
+				if six.PY2:
+					servicename = unicode(services[type][number]["service_name"], errors='ignore')
+				else:
+					servicename = six.ensure_text(services[type][number]["service_name"], encoding='utf-8', errors='ignore')
 				xml_out_list.append("\t\t<configuration lcn=\"%d\" channelnumber=\"%d\" description=\"%s\"></configuration>\n" % (
 					number,
 					number,
@@ -81,7 +83,7 @@ class Tools():
 							if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "configuration":
 								lcn = 0
 								channelnumber = 0
-								for i in range(0, node2.attributes.length):
+								for i in list(range(0, node2.attributes.length)):
 									if node2.attributes.item(i).name == "lcn":
 										lcn = int(node2.attributes.item(i).value)
 									elif node2.attributes.item(i).name == "channelnumber":
@@ -95,7 +97,7 @@ class Tools():
 				extra_services = {}
 
 				# add channels not in the CustomLCN file to the sort list.
-				for number in sorted(services[type].keys()):
+				for number in sorted(list(services[type].keys())):
 					if number not in sort_order:
 						sort_order.append(number)
 
@@ -108,14 +110,14 @@ class Tools():
 
 				# add services not in CustomLCN file to correct lcn positions if slots are vacant
 				if is_sorted:
-					for number in extra_services.keys():
+					for number in list(extra_services.keys()):
 						if number not in temp_services: # CustomLCN has priority
 							temp_services[number] = extra_services[number]
 							del extra_services[number]
 
 				#add any remaining services to the end of list
 				if is_sorted or skipextrachannels == 0:
-					lastlcn = len(temp_services) and max(temp_services.keys())
+					lastlcn = len(temp_services) and max(list(temp_services.keys()))
 					newservices = []
 					for number in self.sortServicesAlpha(extra_services):
 						temp_services[lastlcn + 1] = extra_services[number]
@@ -162,7 +164,7 @@ class Tools():
 							provider = ''
 							source = ''
 							target = ''
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "provider":
 									provider = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "source":
@@ -180,7 +182,7 @@ class Tools():
 							target = ''
 							name = ''
 							servicereftype = ''
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "name":
 									name = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "url":
@@ -201,7 +203,7 @@ class Tools():
 					for node2 in node.childNodes:
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "delete":
 							target = ''
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "target":
 									target = int(node2.attributes.item(i).value)
 									if target and target in customised["video"]:
@@ -211,7 +213,7 @@ class Tools():
 					for node2 in node.childNodes:
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "section":
 							number = -1
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "number":
 									number = int(node2.attributes.item(i).value)
 								if number == -1:
@@ -223,7 +225,7 @@ class Tools():
 
 				elif node.tagName == "hacks":
 					node.normalize()
-					for i in range(0, len(node.childNodes)):
+					for i in list(range(0, len(node.childNodes))):
 						if node.childNodes[i].nodeType == node.CDATA_SECTION_NODE:
 							hacks = node.childNodes[i].data.encode("utf-8").strip()
 
@@ -266,7 +268,7 @@ class Tools():
 							customtransponder["flags"] = 0
 							customtransponder["system"] = 0
 							customtransponder["plpid"] = 0
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "key":
 									customtransponder["key"] = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "transport_stream_id":
@@ -336,7 +338,7 @@ class Tools():
 					for node2 in node.childNodes:
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "section":
 							number = -1
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "number":
 									number = int(node2.attributes.item(i).value)
 								if number == -1:
@@ -352,7 +354,7 @@ class Tools():
 							provider = ''
 							source = ''
 							target = ''
-							for i in range(0, node2.attributes.length):
+							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "provider":
 									provider = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "source":
@@ -382,7 +384,7 @@ class Tools():
 
 				elif node.tagName == "hacks":
 					node.normalize()
-					for i in range(0, len(node.childNodes)):
+					for i in list(range(0, len(node.childNodes))):
 						if node.childNodes[i].nodeType == node.CDATA_SECTION_NODE:
 							hacks = node.childNodes[i].data.encode("utf-8").strip()
 
@@ -401,13 +403,13 @@ class Tools():
 				services[provider_key] = customised
 				bouquetsOrder.insert(placement, provider_key)
 
-				from providerconfig import ProviderConfig
+				from .providerconfig import ProviderConfig
 				providerConfigs[provider_key] = ProviderConfig("%s::0:" % provider_key)
 				if bouquets["main"] == 1:
 					providerConfigs[provider_key].setMakeNormalMain()
 				if bouquets["sections"] == 1:
 					providerConfigs[provider_key].setMakeSections()
-				from bouquetswriter import BouquetsWriter
+				from .bouquetswriter import BouquetsWriter
 				BouquetsWriter().buildBouquets(path, providerConfigs[provider_key], services[provider_key], sections, provider_key, swaprules, bouquets_to_hide, prefix)
 			else:
 				print("[ABM-Tools][favourites] Favourites list is zero length.", file=log)
@@ -419,7 +421,7 @@ class Tools():
 			return sections
 
 		active_sections = {}
-		for key in services[servicetype].keys():
+		for key in list(services[servicetype].keys()):
 			if (("FTA" not in bouquettype or services[servicetype][key]["free_ca"] == 0) and ("HD" not in bouquettype or services[servicetype][key]["service_type"] in DvbScanner.HD_ALLOWED_TYPES)) or 'ALL' in bouquettype:
 				section_number = max((x for x in sections if int(x) <= key))
 				if section_number not in active_sections:

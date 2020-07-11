@@ -112,12 +112,12 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		self.scanTransponders = []
 		if self.uhf_vhf == "uhf_vhf":
 			bandwidth = 7
-			for a in range(5,13): # channel
+			for a in list(range(5,13)): # channel
 				for b in (eDVBFrontendParametersTerrestrial.System_DVB_T, eDVBFrontendParametersTerrestrial.System_DVB_T2): # system
 					self.scanTransponders.append({"frequency": channel2freq(a, bandwidth), "system": b, "bandwidth": bandwidth})
 		if self.uhf_vhf in ("uhf", "uhf_vhf"):
 			bandwidth = 8
-			for a in range(21,70): # channel
+			for a in list(range(21,70)): # channel
 				for b in (eDVBFrontendParametersTerrestrial.System_DVB_T, eDVBFrontendParametersTerrestrial.System_DVB_T2): # system
 					self.scanTransponders.append({"frequency": channel2freq(a, bandwidth), "system": b, "bandwidth": bandwidth})
 		self.transponders_found = []
@@ -187,7 +187,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			self.searchtimer.callback.append(self.getFrontend)
 			self.searchtimer.start(100, 1)
 		else:
-			if len({k: v for k, v in self.transponders_unique.items() if v["system"] == eDVBFrontendParametersTerrestrial.System_DVB_T}) > 0: # check DVB-T transponders exist
+			if len({k: v for k, v in list(self.transponders_unique.items()) if v["system"] == eDVBFrontendParametersTerrestrial.System_DVB_T}) > 0: # check DVB-T transponders exist
 				if self.frontend:
 					self.frontend = None
 					del(self.rawchannel)
@@ -607,12 +607,12 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		
 	def iterateUniqueTranspondersByFrequency(self):
 		# returns an iterator list for self.transponders_unique in frequency order ascending
-		sort_list = [(x[0], x[1]["frequency"]) for x in self.transponders_unique.items()]
+		sort_list = [(x[0], x[1]["frequency"]) for x in list(self.transponders_unique.items())]
 		return [x[0] for x in sorted(sort_list, key=lambda listItem: listItem[1])]
 
 	def iterateUniqueTranspondersBySignalQuality(self):
 		# returns an iterator list for self.transponders_unique in SignalQuality order ascending
-		sort_list = [(x[0], x[1]["signalQuality"]) for x in self.transponders_unique.items()]
+		sort_list = [(x[0], x[1]["signalQuality"]) for x in list(self.transponders_unique.items())]
 		return [x[0] for x in sorted(sort_list, key=lambda listItem: listItem[1])]
 
 #	def scanMessageCallback(self, answer):

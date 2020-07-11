@@ -1,4 +1,5 @@
 from __future__ import print_function
+from __future__ import absolute_import
 
 # for localized messages
 from . import _
@@ -6,8 +7,8 @@ from . import _
 from Plugins.Plugin import PluginDescriptor
 from Components.NimManager import nimmanager
 
-from menu import AutoBouquetsMaker_Menu
-from scanner.main import Scheduleautostart, AutoBouquetsMaker
+from .menu import AutoBouquetsMaker_Menu
+from .scanner.main import Scheduleautostart, AutoBouquetsMaker
 
 from Components.config import config, configfile, ConfigSubsection, ConfigYesNo, ConfigSelection, ConfigText, ConfigNumber, NoSave, ConfigClock, getConfigListEntry, ConfigEnableDisable, ConfigSubDict
 config.autobouquetsmaker = ConfigSubsection()
@@ -90,7 +91,7 @@ def AutoBouquetsMakerWakeupTime():
 
 def Plugins(**kwargs):
 	plist = []
-	if any([nimmanager.hasNimType(x) for x in "DVB-S", "DVB-T", "DVB-C"]):
+	if any([nimmanager.hasNimType(x) for x in ("DVB-S", "DVB-T", "DVB-C")]):
 		plist.append(PluginDescriptor(name="AutoBouquetsMakerSessionStart", where=[ PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART ], fnc=Scheduleautostart, wakeupfnc=AutoBouquetsMakerWakeupTime, needsRestart=True))
 		plist.append(PluginDescriptor(name=_("AutoBouquetsMaker"), description="Scan and create bouquets.", where = PluginDescriptor.WHERE_MENU, fnc=AutoBouquetsMakerSetup, needsRestart=True))
 		if config.autobouquetsmaker.extensions.getValue():

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # for localized messages
+from __future__ import absolute_import
 from . import _
 
 from Screens.Screen import Screen
@@ -13,11 +14,12 @@ from Components.Label import Label
 from Components.NimManager import nimmanager
 from enigma import eTimer
 
-from skin_templates import skin_setup
-from scanner.manager import Manager
-from scanner.providerconfig import ProviderConfig
-import log
+from .skin_templates import skin_setup
+from .scanner.manager import Manager
+from .scanner.providerconfig import ProviderConfig
+from . import log
 import itertools
+import six
 
 class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 # Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker_Setup'.
@@ -160,8 +162,8 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 				bouquets_list.append((bouquet["filename"], bouquet["name"]))
 
 		# build providers configurations
-		for provider in self.providers.keys():
-			self.providers_configs[provider] = ConfigYesNo(default = (provider not in self.dependents_list and provider in providers_tmp_configs.keys()))
+		for provider in list(self.providers.keys()):
+			self.providers_configs[provider] = ConfigYesNo(default = (provider not in self.dependents_list and provider in list(providers_tmp_configs.keys())))
 			self.providers_swapchannels[provider] = ConfigYesNo(default = (provider in providers_tmp_configs and providers_tmp_configs[provider].isSwapChannels()))
 
 			custom_bouquets_exists = False
@@ -172,7 +174,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 			self.providers_makefta[provider] = None
 			self.providers_makeftahd[provider] = None
 
-			if len(self.providers[provider]["sections"].keys()) > 1:	# only if there's more than one section
+			if len(list(self.providers[provider]["sections"].keys())) > 1:	# only if there's more than one section
 				sections_default = True
 				if provider in providers_tmp_configs:
 					sections_default = providers_tmp_configs[provider].isMakeSections()
@@ -192,7 +194,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 				self.providers_makeftahd[provider] = ConfigYesNo(default = ftahd_default)
 				custom_bouquets_exists = True
 
-			if sorted(self.providers[provider]["sections"].keys())[0] > 1:
+			if sorted(list(self.providers[provider]["sections"].keys()))[0] > 1:
 				makemain_default = "no"
 				makemain_list = [("yes", _("yes (all channels)"))]
 				if self.providers[provider]["protocol"] != "fastscan":
@@ -242,7 +244,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 
 			arealist = []
 			bouquets = self.providers[provider]["bouquets"]
-			for bouquet in bouquets.keys():
+			for bouquet in list(bouquets.keys()):
 				arealist.append((bouquet, self.providers[provider]["bouquets"][bouquet]["name"]))
 			arealist.sort()
 			if len(self.providers[provider]["bouquets"]) > 0: # provider has area list
@@ -262,9 +264,11 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 
 	def providerKeysInNameOrder(self, providers):
 		temp = []
-		for provider in providers.keys():
+		for provider in list(providers.keys()):
 			temp.append((provider, providers[provider]["name"]))
-		return [i[0] for i in sorted(temp, key=lambda p: p[1].lower().decode('ascii','ignore'))]
+		if six.PY2:
+			return [i[0] for i in sorted(temp, key=lambda p: p[1].lower().decode('ascii','ignore'))]
+		return [i[0] for i in sorted(temp, key=lambda p: six.ensure_binary(p[1]).lower().decode('ascii','ignore'))]
 
 	def createSetup(self):
 		self.editListEntry = None
@@ -569,7 +573,7 @@ class AutoBouquetsMakerDaysScreen(ConfigListScreen, Screen):
 		self.config = config.autobouquetsmaker
 		self.list = []
 		days = (_("Monday"), _("Tuesday"), _("Wednesday"), _("Thursday"), _("Friday"), _("Saturday"), _("Sunday"))
-		for i in sorted(self.config.days.keys()):
+		for i in sorted(list(self.config.days.keys())):
 			self.list.append(getConfigListEntry(days[i], self.config.days[i]))
 		ConfigListScreen.__init__(self, self.list)
 		self["key_red"] = StaticText(_("Cancel"))

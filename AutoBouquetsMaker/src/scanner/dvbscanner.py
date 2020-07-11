@@ -336,7 +336,7 @@ class DvbScanner():
 				continue
 			customtransponder = {}
 			if len(customtransponders) > 0 and self.dvbtype == 'dvbt': # Only for DVB-T/T2 transponder override.
-				for key in range(0, len(customtransponders)):
+				for key in list(range(0, len(customtransponders))):
 					if customtransponders[key]["transport_stream_id"] == transponder["transport_stream_id"]:
 						customtransponder = customtransponders[key]
 						break
@@ -429,7 +429,7 @@ class DvbScanner():
 				print("[ABM-DvbScanner] transponder", transponder)
 
 		if read_other_section and len(nit_other_completed):
-			print("[ABM-DvbScanner] Added/Updated %d transponders with network_id = 0x%x and other network_ids = %s" % (transponders_count, nit_current_section_network_id, ','.join(map(hex, nit_other_completed.keys()))), file=log)
+			print("[ABM-DvbScanner] Added/Updated %d transponders with network_id = 0x%x and other network_ids = %s" % (transponders_count, nit_current_section_network_id, ','.join(list(map(hex, list(nit_other_completed.keys()))))), file=log)
 		else:
 			print("[ABM-DvbScanner] Added/Updated %d transponders with network_id = 0x%x" % (transponders_count, nit_current_section_network_id), file=log)
 
@@ -454,7 +454,7 @@ class DvbScanner():
 				print("[ABM-DvbScanner] LCN entry", key, logical_channel_number_dict[key])
 
 		return {
-			"TSID_ONID_list": self.namespace_dict.keys(),
+			"TSID_ONID_list": list(self.namespace_dict.keys()),
 			"logical_channel_number_dict": logical_channel_number_dict,
 			"service_dict_tmp": service_dict_tmp
 		}
@@ -550,7 +550,7 @@ class DvbScanner():
 			print("[ABM-DvbScanner] LCN list from BAT", sorted(lcn_list))
 			for service in hex_list:
 				print("[ABM-DvbScanner] hexcontent", service)
-				bytes = [int(''.join(service["hexcontent"][i:i+2]), 16) for i in range(0, len(service["hexcontent"]), 2)][2:]
+				bytes = [int(''.join(service["hexcontent"][i:i+2]), 16) for i in list(range(0, len(service["hexcontent"]), 2))][2:]
 				hexchars = []
 				for byte in bytes:
 					if byte > 31 and byte < 127:
@@ -558,7 +558,7 @@ class DvbScanner():
 					else:
 						hexchars.append('.')
 				print("[ABM-DvbScanner] %s" % (''.join(hexchars)))
-			for key in sorted(xml_dict.keys()):
+			for key in sorted(list(xml_dict.keys())):
 				print('		<configuration key="sd_%d" bouquet="0x%x" region="DESCRIPTOR">%s</configuration>' % (key, key, xml_dict[key]))
 
 		return logical_channel_number_dict, TSID_ONID_list
@@ -1444,7 +1444,7 @@ class DvbScanner():
 		return tmp_services_dict, LCNs
 
 	def LCN_order(self, tmp_services_dict):
-		sort_list = [(x[0], min(x[1]['numbers'])) for x in tmp_services_dict.items()]
+		sort_list = [(x[0], min(x[1]['numbers'])) for x in list(tmp_services_dict.items())]
 		return [x[0] for x in sorted(sort_list, key=lambda listItem: listItem[1])]
 
 	def skyCategoryName(self, category_id):

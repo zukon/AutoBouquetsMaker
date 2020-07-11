@@ -1,4 +1,5 @@
 from __future__ import print_function
+from __future__ import absolute_import
 
 # for localized messages
 from .. import _
@@ -16,9 +17,9 @@ from Components.config import config, configfile
 from Components.NimManager import nimmanager
 from enigma import eTimer, eDVBDB, eDVBFrontendParametersSatellite,eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable, eDVBResourceManager, eDVBFrontendParameters
 
-from manager import Manager
-from providerconfig import ProviderConfig
-from providers import Providers
+from .manager import Manager
+from .providerconfig import ProviderConfig
+from .providers import Providers
 from Plugins.SystemPlugins.AutoBouquetsMaker.skin_templates import skin_downloadBar
 from time import localtime, time, strftime, mktime
 
