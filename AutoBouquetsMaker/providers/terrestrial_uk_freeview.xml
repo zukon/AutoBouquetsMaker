@@ -7,7 +7,7 @@
 		<configuration key="beacon_hill________" frequency="785800000">Beacon Hill</configuration>
 		<configuration key="belmont____________" frequency="506000000">Belmont</configuration>
 		<configuration key="berks_north_hants__" frequency="642000000">Berks and North Hants</configuration>
-		<configuration key="bilsdale___________" frequency="514000000">Bilsdale</configuration>
+		<configuration key="bilsdale___________" frequency="674000000">Bilsdale</configuration>
 		<configuration key="black_hill_________" frequency="674000000">Black Hill</configuration>
 		<configuration key="blaenplwyf_________" frequency="522000000">Blaenplwyf</configuration>
 		<configuration key="bluebell_hill______" frequency="562000000">Bluebell Hill</configuration>
@@ -91,11 +91,9 @@
 		<customtransponder key="belmont____________" frequency="786000000" transport_stream_id="6040" system="0"/>
 		<customtransponder key="berks_north_hants__" frequency="746000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="berks_north_hants__" frequency="754000000" transport_stream_id="b000" system="1"/>
-		<customtransponder key="bilsdale___________" frequency="490000000" transport_stream_id="4089" system="1"/>
-		<customtransponder key="bilsdale___________" frequency="514000000" transport_stream_id="1049" system="0"/>
-		<customtransponder key="bilsdale___________" frequency="538000000" transport_stream_id="2012" system="0"/>
-		<customtransponder key="bilsdale___________" frequency="554000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="bilsdale___________" frequency="602000000" transport_stream_id="b000" system="1"/>
+		<customtransponder key="bilsdale___________" frequency="474000000" transport_stream_id="4089" system="1"/>
+		<customtransponder key="bilsdale___________" frequency="498000000" transport_stream_id="2012" system="0"/>
+		<customtransponder key="bilsdale___________" frequency="522000000" transport_stream_id="1049" system="0"/>
 		<customtransponder key="bilsdale___________" frequency="626000000" transport_stream_id="6040" system="0"/>
 		<customtransponder key="bilsdale___________" frequency="650000000" transport_stream_id="3006" system="0"/>
 		<customtransponder key="bilsdale___________" frequency="674000000" transport_stream_id="5040" system="0"/>
@@ -298,7 +296,7 @@ except:
 	provider = "FreeView UK"
 
 	add_audio_channels_to_video_bouquet=True
-	
+
 	# blacklist: channel names have quotes, channel numbers do not. Example: ['ITV HD', 250, 500]
 	blacklist = [250,695,696,697,698,"ADULT Section"]
 
