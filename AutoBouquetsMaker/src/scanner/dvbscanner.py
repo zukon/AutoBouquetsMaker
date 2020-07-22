@@ -48,7 +48,7 @@ class DvbScanner():
 		elif onid == 0x00b1:
 			return tsid != 0x00b0
 		elif onid == 0x0002:
-			return abs(orbital_position - 282) < 6 and tsid != 2019
+			return abs(orbital_position - 282) < 6
 		elif onid == 0x2000:
 			return tsid != 0x1000
 		elif onid == 0x5e:
