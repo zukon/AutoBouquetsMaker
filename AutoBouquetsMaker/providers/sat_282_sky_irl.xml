@@ -64,6 +64,7 @@
 		<channel number="118" with="816"/> <!-- ITV2 HD -->
 		<channel number="119" with="817"/> <!-- ITV3 HD -->
 		<channel number="120" with="818"/> <!-- ITV4 HD -->
+		<channel number="121" with="819"/> <!-- Sky Crime HD -->
 		<channel number="122" with="820"/> <!-- Sky Arts HD -->
 		<channel number="123" with="825"/> <!-- Sky History HD -->
 		<channel number="124" with="821"/> <!-- FOX HD -->
@@ -79,23 +80,22 @@
 		<channel number="144" with="831"/> <!-- Quest HD -->
 		<channel number="145" with="838"/> <!-- SkySp Mix HD -->
 		<channel number="151" with="834"/> <!-- E! HD -->
+		<channel number="152" with="892"/> <!-- Syfy HD -->
 		<channel number="156" with="835"/> <!-- Crime+Inv HD -->
 		<channel number="159" with="895"/> <!-- Pick HD -->
 		<channel number="162" with="836"/> <!-- Animal Planet HD -->
+		<channel number="163" with="894"/> <!-- Sky History 2 HD -->
 		<channel number="164" with="838"/> <!-- Lifetime HD -->
 		<channel number="165" with="839"/> <!-- Nat Geo Wild HD -->
 		<channel number="173" with="889"/> <!-- Smithsonian HD -->
 		<channel number="301" with="842"/> <!-- SkyPremiereHD -->
-		<channel number="302" with="843"/> <!-- Sky Hits HD -->
-		<channel number="303" with="844"/> <!-- Sky Greats HD -->
-		<channel number="304" with="845"/> <!-- Sky Disney HD -->
-		<channel number="305" with="846"/> <!-- Sky Family HD -->
-		<channel number="306" with="847"/> <!-- Sky Action HD -->
-		<channel number="307" with="848"/> <!-- Sky Comedy HD -->
-		<channel number="308" with="849"/> <!-- Sky Thriller HD -->
-		<channel number="309" with="850"/> <!-- Sky Drama HD -->
-		<channel number="310" with="851"/> <!-- Sky Drama HD -->
-		<channel number="311" with="852"/> <!-- Sky ScFi/HorHD -->
+		<channel number="304" with="845"/> <!-- Sky Greats HD -->
+		<channel number="306" with="846"/> <!-- Sky Family HD -->
+		<channel number="307" with="847"/> <!-- Sky Disney HD -->
+		<channel number="308" with="848"/> <!-- Sky Action HD -->
+		<channel number="309" with="849"/> <!-- Sky Comedy Cinema HD -->
+		<channel number="310" with="850"/> <!-- Sky Thriller HD -->
+		<channel number="311" with="851"/> <!-- Sky Drama HD -->
 		<channel number="313" with="853"/> <!-- Film4 HD -->
 		<channel number="401" with="855"/> <!-- SkySpMainEvHD HD -->
 		<channel number="402" with="856"/> <!-- SkySp PL HD -->
