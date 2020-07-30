@@ -39,32 +39,9 @@ class DvbScanner():
 		self.namespace_complete_terrestrial = not (config.usage.subnetwork_terrestrial.value if hasattr(config.usage, "subnetwork_terrestrial") else True) # config.usage.subnetwork not available in all images
 
 	def isValidOnidTsid(self, orbital_position, onid, tsid):
-		if onid == 0x00 or onid == 0x1111:
+		if onid == 0 or onid == 1 and tsid < 2 or onid >= 0xff00:
 			return False
-		elif onid == 0x13e:
-			return orbital_position != 130 or tsid != 0x578
-		elif onid == 0x01:
-			return orbital_position == 192
-		elif onid == 0x00b1:
-			return tsid != 0x00b0
-		elif onid == 0x0002:
-			return abs(orbital_position - 282) < 6
-		elif onid == 0x2000:
-			return tsid != 0x1000
-		elif onid == 0x5e:
-			return abs(orbital_position - 48) < 3 and tsid != 1
-		elif onid == 10100:
-			return orbital_position != 360 or tsid != 10187
-		elif onid == 42:
-			return orbital_position != 420 or (tsid != 8 and tsid != 5 and tsid != 2 and tsid != 55)
-		elif onid == 100:
-			return (orbital_position != 685 and orbital_position != 3560) or tsid != 1
-		elif onid == 70:
-			return abs(orbital_position - 3592) < 3 and tsid != 46
-		elif onid == 30:
-			return orbital_position != 3195 or tsid != 21
-
-		return onid < 0xff00
+		return True
 
 	def setAdapter(self, id):
 		self.adapter = id
