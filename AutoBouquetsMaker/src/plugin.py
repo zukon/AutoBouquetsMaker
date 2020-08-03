@@ -86,8 +86,8 @@ def AutoBouquetsMakerSetup(menuid, **kwargs):
 		return []
 
 def AutoBouquetsMakerWakeupTime():
-	print("[AutoBouquetsMaker] next wakeup due %d" % config.autobouquetsmaker.nextscheduletime.value)
-	return config.autobouquetsmaker.nextscheduletime.value > 0 and config.autobouquetsmaker.nextscheduletime.value or -1
+	print("[AutoBouquetsMaker] next wake up due %d" % (config.autobouquetsmaker.schedule.value and config.autobouquetsmaker.schedulewakefromdeep.value and config.autobouquetsmaker.nextscheduletime.value > 0 and config.autobouquetsmaker.nextscheduletime.value or -1))
+	return config.autobouquetsmaker.schedule.value and config.autobouquetsmaker.schedulewakefromdeep.value and config.autobouquetsmaker.nextscheduletime.value > 0 and config.autobouquetsmaker.nextscheduletime.value or -1
 
 def Plugins(**kwargs):
 	plist = []
