@@ -590,32 +590,33 @@ def Scheduleautostart(reason, session=None, **kwargs):
 	# Called with reason=1 only happens when using WHERE_AUTOSTART.
 	# If only using WHERE_SESSIONSTART there is no call to this function on shutdown.
 	#
-	print("[ABM-Scheduler][Scheduleautostart] reason(%d), session" % reason, session, file=log)
+	schedulename = "ABM-Scheduler"
+	configname = config.autobouquetsmaker
+	
+	print("[%s][Scheduleautostart] reason(%d), session" % (schedulename, reason), session, file=log)
 	if reason == 0 and session is None:
 		return
 	global autoScheduleTimer
 	global wasScheduleTimerWakeup
 	wasScheduleTimerWakeup = False
-	now = int(time())
 	if reason == 0:
-		if config.autobouquetsmaker.schedule.value:
-			# check if box was woken up by a timer, if so, check if this plugin set this timer. This is not conclusive.
-			if session.nav.wasTimerWakeup() and config.autobouquetsmaker.schedulewakefromdeep.value and abs(config.autobouquetsmaker.nextscheduletime.value - time()) <= 450:
-				wasScheduleTimerWakeup = True
-				# if box is not in standby do it now
-				from Screens.Standby import Standby, inStandby
-				if not inStandby:
-					# hack alert: session requires "pipshown" to avoid a crash in standby.py
-					if not hasattr(session, "pipshown"):
-						session.pipshown = False
-					from Tools import Notifications
-					Notifications.AddNotificationWithID("Standby", Standby)
+		# check if box was woken up by a timer, if so, check if this plugin set this timer. This is not conclusive.
+		wasScheduleTimerWakeup = session.nav.wasTimerWakeup() and configname.schedule.value and configname.schedulewakefromdeep.value and abs(configname.nextscheduletime.value - time()) <= 450
+		if wasScheduleTimerWakeup:
+			# if box is not in standby do it now
+			from Screens.Standby import Standby, inStandby
+			if not inStandby:
+				# hack alert: session requires "pipshown" to avoid a crash in standby.py
+				if not hasattr(session, "pipshown"):
+					session.pipshown = False
+				from Tools import Notifications
+				Notifications.AddNotificationWithID("Standby", Standby)
 
-		print("[ABM-Scheduler][Scheduleautostart] AutoStart Enabled", file=log)
+		print("[%s][Scheduleautostart] AutoStart Enabled" % schedulename, file=log)
 		if autoScheduleTimer is None:
 			autoScheduleTimer = AutoScheduleTimer(session)
 	else:
-		print("[ABM-Scheduler][Scheduleautostart] Stop", file=log)
+		print("[%s][Scheduleautostart] Stop" % schedulename, file=log)
 		if autoScheduleTimer is not None:
 			autoScheduleTimer.schedulestop()
 
@@ -730,11 +731,13 @@ class AutoScheduleTimer:
 		self.session.openWithCallback(self.runscheduleditemCallback, self.itemtorun)
 
 	def runscheduleditemCallback(self):
+		global wasScheduleTimerWakeup
 		from Screens.Standby import Standby, inStandby, TryQuitMainloop, inTryQuitMainloop
 		print("[%s][runscheduleditemCallback] inStandby" % self.schedulename, inStandby, file=log)
-		if self.config.schedule.value and wasScheduleTimerWakeup and inStandby and self.config.scheduleshutdown.value and not self.session.nav.getRecordings() and not inTryQuitMainloop:
+		if wasScheduleTimerWakeup and inStandby and self.config.scheduleshutdown.value and not self.session.nav.getRecordings() and not inTryQuitMainloop:
 			print("[%s] Returning to deep standby after scheduled wakeup" % self.schedulename, file=log)
 			self.session.open(TryQuitMainloop, 1)
+		wasScheduleTimerWakeup = False # clear this as any subsequent run will not be from wake up from deep
 
 	def doneConfiguring(self): # called from plugin on save
 		now = int(time())
