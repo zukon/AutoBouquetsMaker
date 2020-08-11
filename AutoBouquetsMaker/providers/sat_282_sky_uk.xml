@@ -36,7 +36,7 @@
 		<configuration key="hd_humber" bouquet="0x1005" region="0x1d">Humber HD</configuration>
 		<configuration key="hd_london" bouquet="0x1005" region="0x01">London HD</configuration>
 		<configuration key="hd_london_essex" bouquet="0x1005" region="0x12">London / Essex HD</configuration>
-		<configuration key="hd_london_kent" bouquet="0x1007" region="0x40">London Kent HD</configuration>
+		<configuration key="hd_london_kent" bouquet="0x1007" region="0x40">London / Kent HD</configuration>
 		<configuration key="hd_london_thames_valley" bouquet="0x1007" region="0x42">London / Thames Valley HD</configuration>
 		<configuration key="hd_meridian_east" bouquet="0x1005" region="0x0b">Meridian East HD</configuration>
 		<configuration key="hd_meridian_north" bouquet="0x1007" region="0x44">Meridian North HD</configuration>
@@ -83,7 +83,7 @@
 		<configuration key="hdcustom_humber" bouquet="0x1005" region="0x1d">Humber HD Custom</configuration>
 		<configuration key="hdcustom_london" bouquet="0x1005" region="0x01">London HD Custom</configuration>
 		<configuration key="hdcustom_london_essex" bouquet="0x1005" region="0x12">London / Essex HD Custom</configuration>
-		<configuration key="hdcustom_london_kent" bouquet="0x1007" region="0x40">London Kent HD Custom</configuration>
+		<configuration key="hdcustom_london_kent" bouquet="0x1007" region="0x40">London / Kent HD Custom</configuration>
 		<configuration key="hdcustom_london_thames_valley" bouquet="0x1007" region="0x42">London / Thames Valley HD Custom</configuration>
 		<configuration key="hdcustom_meridian_east" bouquet="0x1005" region="0x0b">Meridian East HD Custom</configuration>
 		<configuration key="hdcustom_meridian_north" bouquet="0x1007" region="0x44">Meridian North HD Custom</configuration>
@@ -130,7 +130,7 @@
 		<configuration key="sd_humber" bouquet="0x1001" region="0x1d">Humber SD</configuration>
 		<configuration key="sd_london" bouquet="0x1001" region="0x01">London SD</configuration>
 		<configuration key="sd_london_essex" bouquet="0x1001" region="0x12">London / Essex SD</configuration>
-		<configuration key="sd_london_kent" bouquet="0x1003" region="0x40">London Kent SD</configuration>
+		<configuration key="sd_london_kent" bouquet="0x1003" region="0x40">London / Kent SD</configuration>
 		<configuration key="sd_london_thames_valley" bouquet="0x1003" region="0x42">London / Thames Valley SD</configuration>
 		<configuration key="sd_meridian_east" bouquet="0x1001" region="0x0b">Meridian East SD</configuration>
 		<configuration key="sd_meridian_north" bouquet="0x1003" region="0x44">Meridian North SD</configuration>
@@ -177,7 +177,7 @@
 		<configuration key="sdcustom_humber" bouquet="0x1001" region="0x1d">Humber SD Custom</configuration>
 		<configuration key="sdcustom_london" bouquet="0x1001" region="0x01">London SD Custom</configuration>
 		<configuration key="sdcustom_london_essex" bouquet="0x1001" region="0x12">London / Essex SD Custom</configuration>
-		<configuration key="sdcustom_london_kent" bouquet="0x1003" region="0x40">London Kent SD Custom</configuration>
+		<configuration key="sdcustom_london_kent" bouquet="0x1003" region="0x40">London / Kent SD Custom</configuration>
 		<configuration key="sdcustom_london_thames_valley" bouquet="0x1003" region="0x42">London / Thames Valley SD Custom</configuration>
 		<configuration key="sdcustom_meridian_east" bouquet="0x1001" region="0x0b">Meridian East SD Custom</configuration>
 		<configuration key="sdcustom_meridian_north" bouquet="0x1003" region="0x44">Meridian North SD Custom</configuration>
@@ -369,7 +369,7 @@ except:
 		#slow death section
 		3705: 112, # ComedyCentral
 		2709: 127, # ComedyXtra
-		1837: 159, # Pick ROI 
+		1837: 159, # Pick ROI
 		2418: 154, # ID
 		2517: 604, # Nicelodeon
 		5527: 606, # Nicktoons
