@@ -246,7 +246,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 			bouquets = self.providers[provider]["bouquets"]
 			for bouquet in list(bouquets.keys()):
 				arealist.append((bouquet, self.providers[provider]["bouquets"][bouquet]["name"]))
-			arealist.sort()
+			arealist.sort(key=lambda x: x[1])
 			if len(self.providers[provider]["bouquets"]) > 0: # provider has area list
 				default_area = None
 				if provider in providers_tmp_configs:
