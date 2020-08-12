@@ -581,8 +581,6 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		customProviderList.append('\t\t<channel number="4" with="104"/>	<!-- Channel 4 HD -->\n')
 		customProviderList.append('\t\t<channel number="5" with="105"/>	<!-- Channel 5 HD -->\n')
 		customProviderList.append('\t\t<channel number="9" with="106"/>	<!-- BBC FOUR HD -->\n')
-		customProviderList.append('\t\t<channel number="13" with="109"/>	<!-- Channel 4+1 HD -->\n')
-		customProviderList.append('\t\t<channel number="47" with="110"/>	<!-- 4seven HD -->\n')
 		customProviderList.append('\t\t<channel number="201" with="204"/>	<!-- CBBC HD -->\n')
 		customProviderList.append('\t\t<channel number="202" with="205"/>	<!-- CBeebies HD -->\n')
 		customProviderList.append('\t\t<channel number="231" with="107"/>	<!-- BBC NEWS HD -->\n')
@@ -599,13 +597,13 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		customProviderList.append('\t]]>\n')
 		customProviderList.append('\t</servicehacks>\n')
 		customProviderList.append('</provider>\n')
-		
+
 		# save to ABM providers folder
 		outFile = open(self.providersfile, "w")
 		outFile.write(''.join(customProviderList))
 		outFile.close()
 		print("[ABM-FrequencyFinder][saveProviderFile] Provider file saved.")
-		
+
 	def iterateUniqueTranspondersByFrequency(self):
 		# returns an iterator list for self.transponders_unique in frequency order ascending
 		sort_list = [(x[0], x[1]["frequency"]) for x in list(self.transponders_unique.items())]
@@ -632,7 +630,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		if self.frontend:
 			self.frontend = None
 			del(self.rawchannel)
-		
+
 		if self.session.postScanService:
 			self.session.nav.playService(self.session.postScanService)
 			self.session.postScanService = None

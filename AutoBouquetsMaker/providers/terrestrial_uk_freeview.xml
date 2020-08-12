@@ -275,8 +275,6 @@
 		<channel number="4" with="104"/>	<!-- Channel 4 HD -->
 		<channel number="5" with="105"/>	<!-- Channel 5 HD -->
 		<channel number="9" with="106"/>	<!-- BBC FOUR HD -->
-		<channel number="13" with="109"/>	<!-- Channel 4+1 HD -->
-		<channel number="47" with="110"/>	<!-- 4seven HD -->
 		<channel number="201" with="204"/>	<!-- CBBC HD -->
 		<channel number="202" with="205"/>	<!-- CBeebies HD -->
 		<channel number="231" with="107"/>	<!-- BBC NEWS HD -->
