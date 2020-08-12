@@ -572,6 +572,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		customProviderList.append('\t\t<section number="230">News</section>\n')
 		customProviderList.append('\t\t<section number="260">BBC Interactive</section>\n')
 		customProviderList.append('\t\t<section number="670">Adult</section>\n')
+		customProviderList.append('\t\t<section number="700">Radio</section>\n')
 		customProviderList.append('\t</sections>\n\n')
 		customProviderList.append('\t<swapchannels>\n')
 		customProviderList.append('\t\t<channel number="1" with="101"/>	<!-- BBC One HD -->\n')
