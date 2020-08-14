@@ -73,10 +73,10 @@
 		<configuration key="waltham____________" frequency="698000000">Waltham</configuration>
 		<configuration key="wenvoe_____________" frequency="634200000">Wenvoe</configuration>
 		<configuration key="whitehawk_hill_____" frequency="785800000">Whitehawk Hill</configuration>
-		<configuration key="winter_hill________" frequency="706000000">Winter Hill</configuration>
-		<configuration key="winter_hill_lancs__" frequency="706000000">Winter Hill (Lancashire)</configuration>
-		<configuration key="winter_hill_liver__" frequency="706000000">Winter Hill (Liverpool)</configuration>
-		<configuration key="winter_hill_manch__" frequency="706000000">Winter Hill (Manchester)</configuration>
+		<configuration key="winter_hill________" frequency="602000000">Winter Hill</configuration>
+		<configuration key="winter_hill_lancs__" frequency="602000000">Winter Hill (Lancashire)</configuration>
+		<configuration key="winter_hill_liver__" frequency="602000000">Winter Hill (Liverpool)</configuration>
+		<configuration key="winter_hill_manch__" frequency="602000000">Winter Hill (Manchester)</configuration>
 	</dvbtconfigs>
 
 	<!-- Custom transponders are ONLY needed for HD muxes and for areas where tuning issues occur after running ABM -->
@@ -241,8 +241,8 @@
 		<customtransponder key="waltham____________" frequency="770000000" transport_stream_id="4085" system="1"/>
 		<customtransponder key="waltham____________" frequency="554000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="waltham____________" frequency="602000000" transport_stream_id="b000" system="1"/>
-		<customtransponder key="winter_hill________" frequency="554000000" transport_stream_id="b000" system="1"/>
-		<customtransponder key="winter_hill________" frequency="738000000" transport_stream_id="4088" system="1"/>
+		<customtransponder key="winter_hill________" frequency="482000000" transport_stream_id="200d" system="0"/>
+		<customtransponder key="winter_hill________" frequency="586000000" transport_stream_id="4088" system="1"/>
 		<customtransponder key="winter_hill________" frequency="746000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="winter_hill_lancs__" frequency="554000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="winter_hill_lancs__" frequency="738000000" transport_stream_id="4088" system="1"/>
