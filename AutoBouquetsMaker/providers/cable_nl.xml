@@ -74,6 +74,8 @@
 		<configuration key="hd_ziggo43210" netid="43210" bouquettype="hd" frequency="474000" symbol_rate="6875000" system="0" fec_inner="0" inversion="2" modulation="3">Ziggo Sneek</configuration>
 		<configuration key="hd_ziggo43211" netid="43211" bouquettype="hd" frequency="474000" symbol_rate="6875000" system="0" fec_inner="0" inversion="2" modulation="3">Ziggo Hengelo</configuration>
 		<!-- Ziggo voormalig UPC gebied -->
+		<configuration key="hd_ziggo_upc_4444" netid="4444" bouquettype="hd" frequency="164000" symbol_rate="6900000" system="0" fec_inner="0" inversion="2" modulation="3">Ziggo (UPC) Ongecodeerd</configuration>
+		<configuration key="hd_ziggo_upc_5555" netid="5555" bouquettype="hd" frequency="164000" symbol_rate="6900000" system="0" fec_inner="0" inversion="2" modulation="3">Ziggo (UPC) Standaard-lijst</configuration>		
 		<configuration key="hd_ziggo43136" netid="43136" bouquettype="hd" frequency="164000" symbol_rate="6900000" system="0" fec_inner="0" inversion="2" modulation="3">Ziggo (UPC) N-Holland</configuration>
 		<configuration key="hd_ziggo43138" netid="43138" bouquettype="hd" frequency="164000" symbol_rate="6900000" system="0" fec_inner="0" inversion="2" modulation="3">Ziggo (UPC) Flevoland</configuration>
 		<configuration key="hd_ziggo43140" netid="43140" bouquettype="hd" frequency="164000" symbol_rate="6900000" system="0" fec_inner="0" inversion="2" modulation="3">Ziggo (UPC) Friesland</configuration>
