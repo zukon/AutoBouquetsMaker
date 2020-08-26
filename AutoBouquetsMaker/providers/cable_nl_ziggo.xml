@@ -1,0 +1,19 @@
+<provider>
+	<name>Ziggo (NL)</name>
+	<streamtype>dvbc</streamtype>
+	<protocol>lcn2</protocol>
+	<dvbcconfigs>
+		<!-- Ziggo -->
+		<configuration key="hd_ziggo_04444" netid="4444" bouquettype="hd" frequency="474000" symbol_rate="6875000" system="0" fec_inner="0" inversion="2" modulation="3">Ziggo Ongecodeerd</configuration>
+		<configuration key="hd_ziggo_05555" netid="5555" bouquettype="hd" frequency="474000" symbol_rate="6875000" system="0" fec_inner="0" inversion="2" modulation="3">Ziggo Standaard-lijst</configuration>
+		<!-- Ziggo voormalig UPC gebied -->
+		<configuration key="hd_ziggo_04444_upc" netid="4444" bouquettype="hd" frequency="164000" symbol_rate="6900000" system="0" fec_inner="0" inversion="2" modulation="3">Ziggo (UPC) Ongecodeerd</configuration>
+		<configuration key="hd_ziggo_05555_upc" netid="5555" bouquettype="hd" frequency="164000" symbol_rate="6900000" system="0" fec_inner="0" inversion="2" modulation="3">Ziggo (UPC) Standaard-lijst</configuration>
+	<sections>
+		<section number="1">Ziggo</section>
+	</sections>
+	<servicehacks>
+<![CDATA[
+]]>
+	</servicehacks>
+</provider>
