@@ -431,9 +431,9 @@ class AutoBouquetsMaker(Screen):
 
 	def checkTunerLock(self):
 		from Screens.Standby import inStandby
-		dict = {}
-		self.frontend and self.frontend.getFrontendStatus(dict)
-		tuner_state = dict.get("tuner_state", "UNKNOWN")
+		fe_status_dict = {}
+		self.frontend and self.frontend.getFrontendStatus(fe_status_dict)
+		tuner_state = fe_status_dict.get("tuner_state", "UNKNOWN")
 		if tuner_state == "TUNING":
 			print("[ABM-main][checkTunerLock] TUNING", file=log)
 		elif tuner_state == "LOCKED":
