@@ -447,6 +447,9 @@ except:
 		4019: ("Sky Comedy HD", "Sky Comedy Cinema HD"),
 		1828: ("5828", "Pick"),
 		1829: ("Pick", "Pick HD"),
+		1006: ("5106", "ITV HD 1006"),
+		1007: ("5107", "ITV HD 1007"),
+		1039: ("5109", "ITV HD 1039"),
 	}
 
 	rename_by_sid = {
