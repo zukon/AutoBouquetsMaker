@@ -205,7 +205,6 @@ except:
 		4075: 812, # Channel 4 HD
 		6532: 816, # ITV2 HD
 		6533: 817, # ITV3 HD
-		6534: 818, # ITV4 HD
 		5037: 840, # AMC from BTHD
 		1829: 895, # Pick HD
 		#slow death section
@@ -312,7 +311,7 @@ except:
 		52575: "Freesports HD",
 	}
 
-	whitelist = ['ITV HD','ITV2 HD','ITV3 HD','ITV4 HD',752,'BoxNation HD','Quest HD']
+	whitelist = ['ITV HD','ITV2 HD','ITV3 HD',752,'BoxNation HD','Quest HD']
 
 	whitelist_by_id = [
 		1003, # MUTV HD
