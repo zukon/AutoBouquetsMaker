@@ -12,11 +12,11 @@
 		<configuration key="blaenplwyf_________" frequency="522000000">Blaenplwyf</configuration>
 		<configuration key="bluebell_hill______" frequency="562000000">Bluebell Hill</configuration>
 		<configuration key="bressay____________" frequency="530000000">Bressay</configuration>
-		<configuration key="brierley_hill______" frequency="785800000">Brierley Hill</configuration>
+		<configuration key="brierley_hill______" frequency="786000000">Brierley Hill</configuration>
 		<configuration key="bromsgrove_________" frequency="514000000">Bromsgrove</configuration>
 		<configuration key="brougher_mountain__" frequency="530000000">Brougher Mountain</configuration>
-		<configuration key="caldbeck_eng_______" frequency="505800000">Caldbeck England</configuration>
-		<configuration key="caldbeck_scot______" frequency="521800000">Caldbeck Scotland</configuration>
+		<configuration key="caldbeck_eng_______" frequency="506000000">Caldbeck England</configuration>
+		<configuration key="caldbeck_scot______" frequency="522000000">Caldbeck Scotland</configuration>
 		<configuration key="caradon_hill_______" frequency="530200000">Caradon Hill</configuration>
 		<configuration key="carmel_____________" frequency="785800000">Carmel</configuration>
 		<configuration key="chatton____________" frequency="666000000">Chatton</configuration>
