@@ -203,7 +203,6 @@ except:
 		6532: 816, # ITV2 HD
 		6533: 817, # ITV3 HD
 		5037: 840, # AMC from BTHD
-		1829: 895, # Pick HD
 		#slow death section
 		3705: 112, # ComedyCentral
 		2709: 127, # ComedyXtra
@@ -297,8 +296,6 @@ except:
 
 	rename_by_id_conditional = { # channel ID: ("old name", "new name")
 		4019: ("Sky Comedy HD", "Sky Comedy Cinema HD"),
-		1828: ("5828", "Pick"),
-		1829: ("Pick", "Pick HD"),
 	}
 
 	rename_by_sid = {

@@ -148,11 +148,10 @@ except:
 
 	rename = { # channel_id: service_name,
 		36794: 'Arirang TV HD',
-		49782: 'Pick HD',
 	}
 
 	rename_by_sid = {
-		5828: "Pick",
+		52575: "Freesports HD",
 	}
 
 	add_audio_channels_to_video_bouquet=True
