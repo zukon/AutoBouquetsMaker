@@ -159,7 +159,7 @@
 		<customtransponder key="durris_____________" frequency="562000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="durris_____________" frequency="586000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="emley_moor_________" frequency="634000000" transport_stream_id="4089" system="1"/>
-		<customtransponder key="emley_moor_________" frequency="562000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="emley_moor_________" frequency="746000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="glengorm___________" frequency="538000000" transport_stream_id="107c" system="0"/>
 		<customtransponder key="glengorm___________" frequency="554000000" transport_stream_id="2011" system="0"/>
 		<customtransponder key="glengorm___________" frequency="602000000" transport_stream_id="40bc" system="1"/>
