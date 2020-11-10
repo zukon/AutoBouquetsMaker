@@ -45,6 +45,7 @@
 		<channel number="021" with="121" />
 		<channel number="023" with="123" />
 		<channel number="024" with="124" />
+		<channel number="027" with="127" />
 		<channel number="028" with="128" />
 		<channel number="031" with="131" />
 		<channel number="032" with="132" />
