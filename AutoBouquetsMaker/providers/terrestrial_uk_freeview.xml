@@ -152,9 +152,9 @@
 		<customtransponder key="dover______________" frequency="730000000" transport_stream_id="4083" system="1"/>
 		<customtransponder key="dover______________" frequency="778000000" transport_stream_id="5040" system="0"/>
 		<customtransponder key="dover______________" frequency="690000000" transport_stream_id="6040" system="0"/>
+		<customtransponder key="divis______________" frequency="570000000" transport_stream_id="7001" system="1"/>
 		<customtransponder key="divis______________" frequency="498000000" transport_stream_id="40bd" system="1"/>
-		<customtransponder key="divis______________" frequency="570000000" transport_stream_id="a001" system="1"/>
-		<customtransponder key="divis______________" frequency="618000000" transport_stream_id="7001" system="0"/>
+		<customtransponder key="divis______________" frequency="746000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="durris_____________" frequency="482000000" transport_stream_id="40bc" system="1"/>
 		<customtransponder key="durris_____________" frequency="562000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="durris_____________" frequency="586000000" transport_stream_id="b000" system="1"/>
