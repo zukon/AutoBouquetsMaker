@@ -125,7 +125,7 @@
 		<customtransponder key="tipperary_ballina" transport_stream_id="03e9" frequency="490000000" />
 		<customtransponder key="tipperary_cahir" transport_stream_id="03e9" frequency="530000000" />
 		<customtransponder key="tipperary_clonmel" transport_stream_id="03e9" frequency="642000000" />
-		<customtransponder key="tipperary_kilduff" transport_stream_id="03e9" frequency="544000000" />
+		<customtransponder key="tipperary_kilduff" transport_stream_id="03e9" frequency="554000000" />
 		<customtransponder key="waterford_dungarvan" transport_stream_id="03e9" frequency="562000000" />
 		<customtransponder key="waterford_ferrypoint" transport_stream_id="03e9" frequency="626000000" />
 		<customtransponder key="waterford_gallows_hill" transport_stream_id="03e9" frequency="482000000" />
