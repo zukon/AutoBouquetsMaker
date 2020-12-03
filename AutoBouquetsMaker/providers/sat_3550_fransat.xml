@@ -20,15 +20,20 @@
 	<sections>
 		<section number="1">Chaines TNT gratuites</section>
 		<section number="30">Sport</section>
-		<section number="40">Généraliste</section>
-		<section number="50">Information</section>
-		<section number="60">Jeunesse</section>
-		<section number="70">Culture découverte</section>
-		<section number="80">Cinéma</section>
+		<section number="40">Thématique</section>
+		<section number="49">Séries</section>
+		<section number="50">Cinéma</section>
+	    <section number="51">Information</section>
+		<section number="56">Généraliste</section>
+		<section number="61">Religion</section>
+		<section number="62">Jeunesse</section>
+		<section number="63">Culture découverte / Thématique</section>
+		<section number="80">Plateforme SVOD</section>
 		<section number="100">TV Locales</section>
 		<section number="200">TV Autres</section>
-		<!--<section number="280">Adultes</section>-->
 		<section number="300">Regionales</section>
+		<section number="400">Adultes</section>
+		<section number="480">Test</section>
 	</sections>
 	<dvbsconfigs>
 		<!--<configuration key="sd_00112" bouquet="0x70" region="0x83">Fransat SD</configuration>-->
