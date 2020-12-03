@@ -11,10 +11,10 @@
 	<protocol>lcn</protocol>
 	<transponder
 		orbital_position="92"
-		frequency="20185000"
-		symbol_rate="25000000"
+		frequency="20192500"
+		symbol_rate="12500000"
 		polarization="2"
-		fec_inner="2"
+		fec_inner="4"
 		inversion="2"
 		system="1"
 		modulation="1"
