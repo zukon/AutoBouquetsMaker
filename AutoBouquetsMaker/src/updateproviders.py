@@ -17,7 +17,6 @@ from xml.dom.minidom import parseString
 
 from enigma import eTimer
 from Components.ActionMap import ActionMap
-from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
 from Components.Pixmap import Pixmap
 from Components.ProgressBar import ProgressBar
@@ -34,7 +33,7 @@ from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN
 
 from .skin_templates import skin_downloadBar
 
-class AutoBouquetsMaker_UpdateProviders(Screen, ConfigListScreen):
+class AutoBouquetsMaker_UpdateProviders(Screen):
 # Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker'.
 	skin = skin_downloadBar()
 
