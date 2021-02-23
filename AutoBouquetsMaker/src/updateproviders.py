@@ -21,6 +21,8 @@ from Components.Label import Label
 from Components.Pixmap import Pixmap
 from Components.ProgressBar import ProgressBar
 from Components.config import config
+from Components.Sources.StaticText import StaticText
+from Components.ScrollLabel import ScrollLabel
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 
@@ -178,7 +180,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen):
 			self.fetchtimer.callback.append(self.getResource)
 			self.fetchtimer.start(self.timerlength, 1)
 		else:
-			self.session.openWithCallback(self.done, MessageBox, '\n'.join(self.messages), MessageBox.TYPE_INFO, timeout=30)
+			self.session.openWithCallback(self.done, ShowResult, '\n'.join(self.messages))
 
 	def getResource(self):
 		URL = self.pluginGit + self.gitProvidersFolder + "/" + self.provider + ".xml"
@@ -273,3 +275,30 @@ class AutoBouquetsMaker_UpdateProviders(Screen):
 				for descendent in self.dependents[provider]:
 					providers_extra.append('|' + descendent + ':' + provider_str.split(":", 1)[1])
 		return config.autobouquetsmaker.providers.value + ''.join(providers_extra)
+
+
+class ShowResult(Screen):
+	def __init__(self, session, text):
+		Screen.__init__(self, session)
+		self.skinName = "Setup"
+		self.setTitle(_("Update summary"))
+
+		self["key_red"] = StaticText(_("Close"))
+		self["config"] = ScrollLabel(text)
+
+		self["actions"] = ActionMap(["WizardActions", "ColorActions"],
+		{
+			"up": self.pageUp,
+			"down":	self.pageDown,
+			"left":	self.pageUp,
+			"right": self.pageDown,
+			"back": self.close,
+			"red": self.close,
+		}, -2)
+
+	def pageUp(self):
+		self["config"].pageUp()
+
+	def pageDown(self):
+		self["config"].pageDown()
+
