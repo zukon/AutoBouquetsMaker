@@ -304,6 +304,7 @@ except:
 
 	rename_by_sid = {
 		52575: "Freesports HD",
+		52119: "WION HD",
 	}
 
 	whitelist = ['ITV HD',752,]
