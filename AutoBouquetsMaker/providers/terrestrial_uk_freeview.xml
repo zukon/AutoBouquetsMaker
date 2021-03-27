@@ -214,7 +214,7 @@
 		<customtransponder key="rowridge___________" frequency="602000000" transport_stream_id="b000" system="1"/>
 		<customtransponder key="salisbury__________" frequency="682000000" transport_stream_id="4083" system="1"/>
 		<customtransponder key="sandy_heath________" frequency="474000000" transport_stream_id="4083" system="1"/>
-		<customtransponder key="sandy_heath________" frequency="562000000" transport_stream_id="a000" system="1"/>
+		<customtransponder key="sandy_heath________" frequency="746000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="stockland_hill_____" frequency="538000000" transport_stream_id="4082" system="1"/>
 		<customtransponder key="stockland_hill_____" frequency="506000000" transport_stream_id="3006" system="0"/>
 		<customtransponder key="sudbury____________" frequency="634000000" transport_stream_id="2001" system="0"/>
