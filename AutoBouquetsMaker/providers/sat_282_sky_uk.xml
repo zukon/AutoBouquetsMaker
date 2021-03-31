@@ -244,6 +244,7 @@
 		<channel number="106" with="806"/> <!-- Sky One HD -->
 		<channel number="107" with="807"/> <!-- Sky Witness -->
 		<channel number="108" with="808"/> <!-- Sky Atlantic HD -->
+		<channel number="108" with="138" conditional="'Channel 4' in service_sd['service_name'] and 'Channel 4' in service_hd['service_name']"/> <!-- Channel 4 HD -->
 		<channel number="109" with="809"/> <!-- W HD -->
 		<channel number="110" with="810"/> <!-- GOLD HD -->
 		<channel number="111" with="811"/> <!-- Dave HD -->
