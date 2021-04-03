@@ -196,6 +196,7 @@ class AutoBouquetsMaker_Menu(Screen):
 class AutoBouquetsMaker_MenuSummary(Screen):
 	def __init__(self, session, parent):
 		Screen.__init__(self, session, parent = parent)
+		self.skinName = ["AutoBouquetsMaker_MenuSummary", "SetupSummary"]
 		self["SetupTitle"] = StaticText(_(parent.setup_title))
 		self["SetupEntry"] = StaticText("")
 		self["SetupValue"] = StaticText("")
