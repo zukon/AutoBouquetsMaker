@@ -28,6 +28,7 @@ import time
 
 from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN
 
+
 def setParams(frequency, system, bandwidth=8): # freq is nine digits (474000000)
 	params = eDVBFrontendParametersTerrestrial()
 	params.frequency = frequency
@@ -42,16 +43,19 @@ def setParams(frequency, system, bandwidth=8): # freq is nine digits (474000000)
 	params.hierarchy = eDVBFrontendParametersTerrestrial.Hierarchy_Auto
 	return params
 
+
 def setParamsFe(params):
 	params_fe = eDVBFrontendParameters()
 	params_fe.setDVBT(params)
 	return params_fe
+
 
 def channel2freq(channel, bandwidth=8): # Europe channels
 	if 4 < channel < 13: # Band III
 		return (((177 + (bandwidth * (channel - 5))) * 1000000) + 500000)
 	elif 20 < channel < 70: # Bands IV,V
 		return ((474 + (bandwidth * (channel - 21))) * 1000000) # returns nine digits
+
 
 def getChannelNumber(frequency):
 	f = (frequency + 50000) // 100000 / 10.
@@ -62,6 +66,7 @@ def getChannelNumber(frequency):
 		d = (f + 2) % 8
 		return str(int(f - 470) // 8 + 21) + (d < 3.5 and "-" or d > 4.5 and "+" or "")
 	return ""
+
 
 class AutoBouquetsMaker_FrequencyFinder(Screen):
 	skin = skin_downloadBar()

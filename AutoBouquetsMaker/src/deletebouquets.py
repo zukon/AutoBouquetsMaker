@@ -8,6 +8,7 @@ from Screens.MessageBox import MessageBox
 from .scanner.bouquetsreader import BouquetsReader
 from .scanner.bouquetswriter import BouquetsWriter
 
+
 class AutoBouquetsMaker_DeleteBouquets():
 
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
@@ -30,6 +31,7 @@ class AutoBouquetsMaker_DeleteBouquets():
 			BouquetsWriter().buildBouquetsIndex(path, [], None, bouquetsToKeep, currentBouquets, None, None)
 			eDVBDB.getInstance().reloadServicelist()
 			eDVBDB.getInstance().reloadBouquets()
+
 
 class AutoBouquetsMaker_DeleteMsg(MessageBox):
 	def __init__(self, session):

@@ -21,6 +21,7 @@ from . import log
 import itertools
 import six
 
+
 class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 # Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker_Setup'.
 	skin = skin_setup()
@@ -128,7 +129,6 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		for provider_key in self.providers:
 			if len(self.providers[provider_key]["dependent"]) > 0 and self.providers[provider_key]["dependent"] in self.providers:
 				self.dependents_list.append(provider_key)
-
 
 		# read providers configurations
 		providers_tmp_configs = {}
@@ -435,6 +435,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		else:
 			self.close()
 
+
 class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 	skin = skin_setup()
 
@@ -563,6 +564,7 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 			self.session.openWithCallback(self.cancelConfirm, MessageBox, _("Really close without saving settings?"))
 		else:
 			self.close()
+
 
 class AutoBouquetsMakerDaysScreen(ConfigListScreen, Screen):
 	def __init__(self, session, args=0):

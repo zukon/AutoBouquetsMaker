@@ -73,11 +73,14 @@ config.autobouquetsmaker.extra_debug = ConfigYesNo(default=False)
 config.autobouquetsmaker.frequencyfinder = ConfigYesNo(default=False)
 config.autobouquetsmaker.FTA_only = ConfigText("", False)
 
+
 def main(session, **kwargs):
 	session.open(AutoBouquetsMaker_Menu)
 
+
 def startscan(session, **kwargs):
 	session.open(AutoBouquetsMaker)
+
 
 def AutoBouquetsMakerSetup(menuid, **kwargs):
 	if menuid == "scan":
@@ -85,9 +88,11 @@ def AutoBouquetsMakerSetup(menuid, **kwargs):
 	else:
 		return []
 
+
 def AutoBouquetsMakerWakeupTime():
 	print("[AutoBouquetsMaker] next wake up due %d" % (config.autobouquetsmaker.schedule.value and config.autobouquetsmaker.schedulewakefromdeep.value and config.autobouquetsmaker.nextscheduletime.value > 0 and config.autobouquetsmaker.nextscheduletime.value or -1))
 	return config.autobouquetsmaker.schedule.value and config.autobouquetsmaker.schedulewakefromdeep.value and config.autobouquetsmaker.nextscheduletime.value > 0 and config.autobouquetsmaker.nextscheduletime.value or -1
+
 
 def Plugins(**kwargs):
 	plist = []

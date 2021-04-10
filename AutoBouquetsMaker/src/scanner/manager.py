@@ -9,6 +9,7 @@ from .providers import Providers
 from .tools import Tools
 from .. import log
 
+
 class Manager():
 
 	def __init__(self):
@@ -149,7 +150,6 @@ class Manager():
 				else:
 					current_bouquet = -1
 					current_region = -1
-
 
 				# swap services between providers
 				services, providers[provider_key]["sections"] = Tools().customMix(self.services, provider_key, providers, self.providerConfigs[provider_key])

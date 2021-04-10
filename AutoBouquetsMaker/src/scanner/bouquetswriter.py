@@ -17,6 +17,7 @@ import six
 
 from enigma import eDVBFrontendParametersSatellite
 
+
 class BouquetsWriter():
 
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."

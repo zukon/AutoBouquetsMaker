@@ -11,8 +11,10 @@ from .dvbscanner import DvbScanner
 import six
 from six.moves.urllib.parse import quote
 
+
 class Tools():
 	SERVICEREF_ALLOWED_TYPES = [1, 4097, 5001, 5002]
+
 	def parseXML(self, filename):
 		try:
 			tool = open(filename, "r")

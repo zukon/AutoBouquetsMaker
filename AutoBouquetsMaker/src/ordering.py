@@ -16,6 +16,7 @@ from .skin_templates import skin_ordering
 from .scanner.manager import Manager
 from .scanner.providerconfig import ProviderConfig
 
+
 class AutoBouquetsMaker_Ordering(Screen):
 	skin = skin_ordering()
 

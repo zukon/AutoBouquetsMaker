@@ -41,18 +41,22 @@ widgetWidth = windowWidth - (marginLeft * 2)
 # widget is transparent, to avoid a black halo around the button text.
 colours = {"red": 0x9f1313, "green": 0x1f771f, "yellow": 0xa08500, "blue": 0x18188b}
 
+
 def insertValues(xml, values):
 	# The skin template is designed for a HD screen so the scaling factor is 720.
 	# double negative to round up not round down
 	return xml % tuple([int(-(x * getDesktop(0).size().height() // (-720))) for x in values])
+
 
 def header():
 	headerXML = '\n<screen position="center,center" size="%d,%d">'
 	headerValues = [windowWidth, windowHeight]
 	return insertValues(headerXML, headerValues)
 
+
 def footer():
 	return "\n</screen>"
+
 
 def buttonBar():
 	buttonFontSize = fontSize + 1
@@ -63,6 +67,7 @@ def buttonBar():
 	for x in range(4):
 		buttonBarValues += [buttonMargin + ((buttonWidth + buttonMargin) * x), buttonBarElevation, buttonWidth, buttonHeight, buttonFontSize, buttonMargin + ((buttonWidth + buttonMargin) * x), buttonBarElevation, buttonWidth, buttonHeight]
 	return insertValues(buttonBarXML, buttonBarValues)
+
 
 def templateOne():
 	# templateOne is for hidesections and keepbouquets
@@ -90,6 +95,7 @@ def templateOne():
 	]
 	return insertValues(templateOneXML, templateOneValues)
 
+
 def templateTwo():
 	# template two is for the main menu
 	templateTwoWidgetHeight = configItemHeightMainMenu * 11 # make the template 11 lines high. Currently there are 9 menu items.
@@ -114,6 +120,7 @@ def templateTwo():
 	]
 	return insertValues(templateTwoXML, templateTwoValues)
 
+
 def templateThree():
 	# template three is for about
 	# "oea logo" is fixed size from plugin image folder, 176 x 142
@@ -126,6 +133,7 @@ def templateThree():
 		buttonMargin, buttonMarginBottom # templateThreeXML line 2
 	]
 	return insertValues(templateThreeXML, templateThreeValues)
+
 
 def templateFour():
 	# template four is for ordering
@@ -151,6 +159,7 @@ def templateFour():
 	]
 	return insertValues(templateFourXML, templateFourValues)
 
+
 def templateFive():
 	# template five is for log
 	templateFiveXML = '\n\t<widget name="list" position="%d,%d" size="%d,%d" itemHeight="%d" font="Regular;%d" scrollbarMode="showOnDemand"/>'
@@ -158,6 +167,7 @@ def templateFive():
 		marginLeft, marginTop, widgetWidth, configItemHeight * configListLength, configItemHeight, fontSize # templateFiveXML line 1
 	]
 	return insertValues(templateFiveXML, templateFiveValues)
+
 
 def templateSix():
 	# template six is for setup
@@ -173,6 +183,7 @@ def templateSix():
 		0, templateSixHeight // 2, widgetWidth, configItemHeight, fontSize # templateSixXML line 3
 	]
 	return insertValues(templateSixXML, templateSixValues)
+
 
 def downloadBar():
 	# download bar is for scanner, frequency finder, update proviers
@@ -233,11 +244,13 @@ def downloadBar():
 
 # ------------------------------------------------------------------
 
+
 def skin_mainmenu():
 	skin = header() + buttonBar() + templateTwo() + footer()
 	if extraDebug:
 		print("[ABM-SkinTemplates] skin_mainmenu:", skin)
 	return skin
+
 
 def skin_about():
 	skin = header() + buttonBar() + templateThree() + footer()
@@ -245,14 +258,17 @@ def skin_about():
 		print("[ABM-SkinTemplates] skin_about:", skin)
 	return skin
 
+
 def skin_hidesections():
 	skin = header() + buttonBar() + templateOne() + footer()
 	if extraDebug:
 		print("[ABM-SkinTemplates] skin_hidesections:", skin)
 	return skin
 
+
 def skin_keepbouquets():
 	return skin_hidesections()
+
 
 def skin_log():
 	skin = header() + buttonBar() + templateFive() + footer()
@@ -260,17 +276,20 @@ def skin_log():
 		print("[ABM-SkinTemplates] skin_log:", skin)
 	return skin
 
+
 def skin_ordering():
 	skin = header() + buttonBar() + templateFour() + footer()
 	if extraDebug:
 		print("[ABM-SkinTemplates] skin_ordering:", skin)
 	return skin
 
+
 def skin_setup():
 	skin = header() + buttonBar() + templateSix() + footer()
 	if extraDebug:
 		print("[ABM-SkinTemplates] skin_setup:", skin)
 	return skin
+
 
 def skin_downloadBar():
 	skin = downloadBar()

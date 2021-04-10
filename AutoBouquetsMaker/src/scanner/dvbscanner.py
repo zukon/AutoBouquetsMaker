@@ -8,6 +8,7 @@ import time
 import os
 from Components.config import config
 
+
 class DvbScanner():
 	TIMEOUT_SEC = 20
 	SDT_TIMEOUT = 20
@@ -665,7 +666,6 @@ class DvbScanner():
 
 				service_count += 1
 
-
 		if self.extra_debug:
 			print("[ABM-DvbScanner] TSID list from SDT", sorted(tsid_list))
 			print("[ABM-DvbScanner] SID list from SDT", sorted(sid_list))
@@ -840,7 +840,6 @@ class DvbScanner():
 			if tpkey not in transponders:
 				services_without_transponders += 1
 				continue
-
 
 			transponders[tpkey]["services"][service["service_id"]] = service
 			service_extra_count += 1
@@ -1097,7 +1096,6 @@ class DvbScanner():
 					if number not in radio_services:
 						radio_services[number] = service
 
-
 		print("[ABM-DvbScanner] Read extra info for %d services" % service_extra_count, file=log)
 		return {
 			"video": video_services,
@@ -1338,7 +1336,6 @@ class DvbScanner():
 			if tpkey not in transponders:
 				continue
 
-
 			transponders[tpkey]["services"][service["service_id"]] = service
 			service_extra_count += 1
 
@@ -1353,7 +1350,6 @@ class DvbScanner():
 				for number in service["numbers"]:
 					if number not in radio_services:
 						radio_services[number] = service
-
 
 		print("[ABM-DvbScanner] Read extra info for %d services" % service_extra_count, file=log)
 		return {

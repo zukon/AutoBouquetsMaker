@@ -35,6 +35,7 @@ import os
 import sys
 from . import log
 
+
 class AutoBouquetsMaker_Menu(Screen):
 	skin = skin_mainmenu()
 
@@ -66,7 +67,6 @@ class AutoBouquetsMaker_Menu(Screen):
 		}, -2)
 		self["key_red"] = Button(_("Exit"))
 		self["key_green"] = Button(_("Scan"))
-
 
 		self.createsetup()
 		if len(config.autobouquetsmaker.providers.value) < 1:
@@ -194,6 +194,7 @@ class AutoBouquetsMaker_Menu(Screen):
 	def quit(self):
 		self.close()
 
+
 class AutoBouquetsMaker_MenuSummary(Screen):
 	def __init__(self, session, parent):
 		Screen.__init__(self, session, parent=parent)
@@ -216,6 +217,7 @@ class AutoBouquetsMaker_MenuSummary(Screen):
 	def selectionChanged(self):
 		self["SetupEntry"].text = self.parent.getCurrentEntry()
 		self["SetupValue"].text = self.parent.getCurrentValue()
+
 
 class AutoBouquetsMaker_Log(Screen):
 	skin = skin_log()

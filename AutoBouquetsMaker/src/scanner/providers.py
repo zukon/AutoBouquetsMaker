@@ -10,6 +10,7 @@ except:
 	import pickle
 from enigma import eDVBFrontendParametersSatellite, eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable
 
+
 class Providers():
 	VALID_PROTOCOLS = ("fastscan", "freesat", "lcn", "lcn2", "lcnbat", "lcnbat2", "nolcn", "sky", "vmuk", "vmuk2")
 	PROVIDERS_DIR = os.path.dirname(__file__) + "/../providers"

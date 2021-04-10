@@ -35,6 +35,7 @@ from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN
 
 from .skin_templates import skin_downloadBar
 
+
 class AutoBouquetsMaker_UpdateProviders(Screen):
 # Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker'.
 	skin = skin_downloadBar()

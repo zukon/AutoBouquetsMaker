@@ -3,6 +3,7 @@ from __future__ import print_function
 from .. import log
 import re
 
+
 class BouquetsReader():
 	def parseBouquetIndex(self, path, content):
 		ret = []
@@ -163,7 +164,6 @@ class BouquetsReader():
 			key = "%x:%x:%x" % (transponder["namespace"], transponder["transport_stream_id"], transponder["original_network_id"])
 			transponders[key] = transponder
 			transponders_count += 1
-
 
 		srv_start = content.find("services\n")
 		srv_stop = content.rfind("end\n")

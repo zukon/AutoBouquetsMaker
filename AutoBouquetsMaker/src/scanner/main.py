@@ -29,6 +29,7 @@ import sys
 
 from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN
 
+
 class AutoBouquetsMaker(Screen):
 	skin = skin_downloadBar()
 
@@ -579,6 +580,8 @@ class AutoBouquetsMaker(Screen):
 
 
 autoScheduleTimer = None
+
+
 def Scheduleautostart(reason, session=None, **kwargs):
 	#
 	# This gets called twice at start up,once by WHERE_AUTOSTART without session,
@@ -620,8 +623,10 @@ def Scheduleautostart(reason, session=None, **kwargs):
 		if autoScheduleTimer is not None:
 			autoScheduleTimer.schedulestop()
 
+
 class AutoScheduleTimer:
 	instance = None
+
 	def __init__(self, session):
 		self.schedulename = "ABM-Scheduler"
 		self.config = config.autobouquetsmaker
