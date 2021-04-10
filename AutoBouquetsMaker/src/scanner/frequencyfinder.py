@@ -54,10 +54,10 @@ def channel2freq(channel, bandwidth=8): # Europe channels
 		return ((474 + (bandwidth * (channel - 21))) * 1000000) # returns nine digits
 
 def getChannelNumber(frequency):
-	f = (frequency+50000)//100000/10.
+	f = (frequency + 50000) // 100000 / 10.
 	if 174 < f < 230: 	# III
 		d = (f + 1) % 7
-		return str(int(f - 174)//7 + 5) + (d < 3 and "-" or d > 4 and "+" or "")
+		return str(int(f - 174) // 7 + 5) + (d < 3 and "-" or d > 4 and "+" or "")
 	elif 470 <= f < 863: 	# IV,V
 		d = (f + 2) % 8
 		return str(int(f - 470) // 8 + 21) + (d < 3.5 and "-" or d > 4.5 and "+" or "")
@@ -177,11 +177,11 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			self.progresscurrent = self.index
 			self["progress_text"].value = self.progresscurrent
 			self["progress"].setValue(self.progresscurrent)
-			self["action"].setText(_("Tuning %s MHz (ch %s)") % (str(self.frequency//1000000), getChannelNumber(self.frequency)))
+			self["action"].setText(_("Tuning %s MHz (ch %s)") % (str(self.frequency // 1000000), getChannelNumber(self.frequency)))
 			self["status"].setText(ngettext("Found %d unique transponder", "Found %d unique transponders", len(self.transponders_unique)) % len(self.transponders_unique))
 			self.index += 1
 			if self.frequency in self.transponders_found or self.system == eDVBFrontendParametersTerrestrial.System_DVB_T2 and self.isT2tuner == False:
-				print("[ABM-FrequencyFinder][Search] Skipping T2 search of %s MHz (ch %s)" % (str(self.frequency//1000000), getChannelNumber(self.frequency)))
+				print("[ABM-FrequencyFinder][Search] Skipping T2 search of %s MHz (ch %s)" % (str(self.frequency // 1000000), getChannelNumber(self.frequency)))
 				self.search()
 				return
 			self.searchtimer = eTimer()
@@ -321,7 +321,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 					self.showError(_('Cannot get the NIM'))
 					return
 
-		print("[ABM-FrequencyFinder][getFrontend] Will wait up to %i seconds for tuner lock." % (self.lockTimeout//10))
+		print("[ABM-FrequencyFinder][getFrontend] Will wait up to %i seconds for tuner lock." % (self.lockTimeout // 10))
 
 		self.selectedNIM = current_slotid # Remember for next iteration
 
@@ -357,7 +357,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 				print("[ABM-FrequencyFinder][checkTunerLock] TUNING")
 		elif self.dict["tuner_state"] == "LOCKED":
 			print("[ABM-FrequencyFinder][checkTunerLock] LOCKED")
-			self["action"].setText(_("Reading %s MHz (ch %s)") % (str(self.frequency//1000000), getChannelNumber(self.frequency)))
+			self["action"].setText(_("Reading %s MHz (ch %s)") % (str(self.frequency // 1000000), getChannelNumber(self.frequency)))
 			self.tsidOnidtimer = eTimer()
 			self.tsidOnidtimer.callback.append(self.tsidOnidWait)
 			self.tsidOnidtimer.start(100, 1)
@@ -519,11 +519,11 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			else: # must be DVB-T2
 				self.system = eDVBFrontendParametersTerrestrial.System_DVB_T2
 
-			if "frequency" in transponders[0] and abs((transponders[0]["frequency"]*10) - self.frequency) < 1000000:
+			if "frequency" in transponders[0] and abs((transponders[0]["frequency"] * 10) - self.frequency) < 1000000:
 				self.custom_transponder_needed = False
-				if self.frequency != transponders[0]["frequency"]*10:
-					print("[ABM-FrequencyFinder][readNIT] updating transponder frequency from %.03f MHz to %.03f MHz" % (self.frequency//1000000, transponders[0]["frequency"]//100000))
-					self.frequency = transponders[0]["frequency"]*10
+				if self.frequency != transponders[0]["frequency"] * 10:
+					print("[ABM-FrequencyFinder][readNIT] updating transponder frequency from %.03f MHz to %.03f MHz" % (self.frequency // 1000000, transponders[0]["frequency"] // 100000))
+					self.frequency = transponders[0]["frequency"] * 10
 
 #	def saveTransponderList(self):
 #		# make custom transponders file content

@@ -342,10 +342,10 @@ class AutoBouquetsMaker(Screen):
 		if self.providers[self.currentAction]["streamtype"] == "dvbs" and self.isRotorSat(current_slotid, transponder["orbital_position"]):
 			self.motorised = True
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_ROTOR
-			print("[ABM-main][doTune] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT//10), file=log)
+			print("[ABM-main][doTune] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT // 10), file=log)
 		else:
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_FIXED
-			print("[ABM-main][doTune] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT//10), file=log)
+			print("[ABM-main][doTune] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT // 10), file=log)
 
 		if not inStandby:
 			self["tuner_text"].setText(chr(ord('A') + current_slotid))
@@ -452,13 +452,13 @@ class AutoBouquetsMaker(Screen):
 			print("[ABM-main][checkTunerLock] LOSTLOCK", file=log)
 		elif tuner_state == "FAILED":
 			print("[ABM-main][checkTunerLock] TUNING FAILED FATAL", file=log)
-			self.showError(_('Tuning failed!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]//1000))
+			self.showError(_('Tuning failed!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"] // 1000))
 			return
 
 		self.lockcounter += 1
 		if self.lockcounter > self.LOCK_TIMEOUT:
 			print("[AutoBouquetsMaker] Timeout for tuner lock, ", file=log)
-			self.showError(_('Tuning lock timed out!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]//1000))
+			self.showError(_('Tuning lock timed out!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"] // 1000))
 			return
 
 		self.locktimer.start(100, 1)
@@ -661,7 +661,7 @@ class AutoScheduleTimer:
 	def getScheduleDayOfWeek(self):
 		today = self.getToday()
 		for i in range(1, 8):
-			if self.config.days[(today+i)%7].value:
+			if self.config.days[(today + i) % 7].value:
 				return i
 
 	def getToday(self):
@@ -673,9 +673,9 @@ class AutoScheduleTimer:
 		now = int(time())
 		if self.ScheduleTime > 0:
 			if self.ScheduleTime < now + atLeast:
-				self.ScheduleTime += 86400*self.getScheduleDayOfWeek()
+				self.ScheduleTime += 86400 * self.getScheduleDayOfWeek()
 			elif not self.config.days[self.getToday()].value:
-				self.ScheduleTime += 86400*self.getScheduleDayOfWeek()
+				self.ScheduleTime += 86400 * self.getScheduleDayOfWeek()
 			next = self.ScheduleTime - now
 			self.scheduletimer.startLongTimer(next)
 		else:

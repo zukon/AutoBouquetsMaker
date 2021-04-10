@@ -380,7 +380,7 @@ class Tools():
 				elif node.tagName == "placement":
 					node.normalize()
 					if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE:
-						placement = min(int(node.childNodes[0].data) -1, len(bouquetsOrder))
+						placement = min(int(node.childNodes[0].data) - 1, len(bouquetsOrder))
 						if placement < 0:
 							placement = 0
 

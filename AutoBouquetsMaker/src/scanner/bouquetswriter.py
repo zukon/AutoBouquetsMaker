@@ -140,7 +140,7 @@ class BouquetsWriter():
 						service_name = control_char_re.sub('', service["service_name"]).decode('latin-1').encode("utf8")
 						provider_name = control_char_re.sub('', service["provider_name"]).decode('latin-1').encode("utf8")
 					else:
-						service_name =  control_char_re.sub('', six.ensure_text(six.ensure_str(service["service_name"],  encoding='latin-1'), encoding='utf-8', errors='ignore'))
+						service_name = control_char_re.sub('', six.ensure_text(six.ensure_str(service["service_name"], encoding='latin-1'), encoding='utf-8', errors='ignore'))
 						provider_name = control_char_re.sub('', six.ensure_text(six.ensure_str(service["provider_name"], encoding='latin-1'), encoding='utf-8', errors='ignore'))
 				else:
 					service_name = service["service_name"]
@@ -288,7 +288,7 @@ class BouquetsWriter():
 						service_name = control_char_re.sub('', service["service_name"]).decode('latin-1').encode("utf8")
 						provider_name = control_char_re.sub('', service["provider_name"]).decode('latin-1').encode("utf8")
 					else:
-						service_name =  control_char_re.sub('', six.ensure_text(six.ensure_str(service["service_name"],  encoding='latin-1'), encoding='utf-8', errors='ignore'))
+						service_name = control_char_re.sub('', six.ensure_text(six.ensure_str(service["service_name"], encoding='latin-1'), encoding='utf-8', errors='ignore'))
 						provider_name = control_char_re.sub('', six.ensure_text(six.ensure_str(service["provider_name"], encoding='latin-1'), encoding='utf-8', errors='ignore'))
 				else:
 					service_name = service["service_name"]
@@ -331,7 +331,7 @@ class BouquetsWriter():
 		content = bouquet_in.read()
 		bouquet_in.close()
 
-		seperator_name = "/%s%s.separator.tv" % (self.ABM_BOUQUET_PREFIX, filename[:len(filename)-3])
+		seperator_name = "/%s%s.separator.tv" % (self.ABM_BOUQUET_PREFIX, filename[:len(filename) - 3])
 		try:
 			bouquet_out = open(path + seperator_name, "w")
 		except Exception as e:
@@ -448,7 +448,7 @@ class BouquetsWriter():
 			elif provider_configs[section_identifier].isMakeCustomMain() and config.autobouquetsmaker.placement.getValue() == 'top':
 				customfilename = provider_configs[section_identifier].getCustomFilename()
 				bouquets_tv_list.append("#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s\" ORDER BY bouquet\n" % customfilename)
-				customseperator = "%s%s.separator.tv" % (self.ABM_BOUQUET_PREFIX, customfilename[:len(customfilename)-3])
+				customseperator = "%s%s.separator.tv" % (self.ABM_BOUQUET_PREFIX, customfilename[:len(customfilename) - 3])
 				bouquets_tv_list.append("#SERVICE 1:519:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s\" ORDER BY bouquet\n" % customseperator)
 				bouquetsToKeep2["tv"].append(customfilename)
 				bouquetsToKeep2["tv"].append(customseperator)
@@ -779,7 +779,7 @@ class BouquetsWriter():
 			current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
 			current_bouquet_list.append("#DESCRIPTION %sSeparator\n" % section_prefix)
 
-			for x in list(range(current_number, (int(current_number/1000) + 1) * 1000)):
+			for x in list(range(current_number, (int(current_number / 1000) + 1) * 1000)):
 				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
@@ -822,7 +822,7 @@ class BouquetsWriter():
 						current_number += 1
 						current_bouquet_list.append(self.bouquetServiceLine(services_swapped["video"][number]))
 
-			for x in list(range(current_number, (int(current_number/1000) + 1) * 1000)):
+			for x in list(range(current_number, (int(current_number / 1000) + 1) * 1000)):
 				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
@@ -865,7 +865,7 @@ class BouquetsWriter():
 						current_number += 1
 						current_bouquet_list.append(self.bouquetServiceLine(services_swapped["video"][number]))
 
-			for x in list(range(current_number, (int(current_number/1000) + 1) * 1000)):
+			for x in list(range(current_number, (int(current_number / 1000) + 1) * 1000)):
 				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
@@ -910,7 +910,7 @@ class BouquetsWriter():
 						current_number += 1
 						current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
 
-			for x in list(range(current_number, (int(current_number/1000) + 1) * 1000)):
+			for x in list(range(current_number, (int(current_number / 1000) + 1) * 1000)):
 				current_bouquet_list.append(self.spacer())
 				current_number += 1
 

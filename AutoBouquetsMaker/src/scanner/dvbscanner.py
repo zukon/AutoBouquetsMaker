@@ -110,11 +110,11 @@ class DvbScanner():
 		if transponder["dvb_type"] == 'dvbc':
 			namespace = 0xFFFF0000
 			if self.namespace_complete_cable:
-				namespace |= (transponder['frequency']//1000)&0xFFFF
+				namespace |= (transponder['frequency'] // 1000) & 0xFFFF
 		elif transponder["dvb_type"] == 'dvbt':
 			namespace = 0xEEEE0000
 			if self.namespace_complete_terrestrial:
-				namespace |= (transponder['frequency']//1000000)&0xFFFF
+				namespace |= (transponder['frequency'] // 1000000) & 0xFFFF
 		elif transponder["dvb_type"] == 'dvbs':
 			orbital_position = transponder['orbital_position']
 			namespace = orbital_position << 16
@@ -528,7 +528,7 @@ class DvbScanner():
 			print("[ABM-DvbScanner] LCN list from BAT", sorted(lcn_list))
 			for service in hex_list:
 				print("[ABM-DvbScanner] hexcontent", service)
-				bytes = [int(''.join(service["hexcontent"][i:i+2]), 16) for i in list(range(0, len(service["hexcontent"]), 2))][2:]
+				bytes = [int(''.join(service["hexcontent"][i:i + 2]), 16) for i in list(range(0, len(service["hexcontent"]), 2))][2:]
 				hexchars = []
 				for byte in bytes:
 					if byte > 31 and byte < 127:
@@ -1222,7 +1222,7 @@ class DvbScanner():
 		print("[ABM-DvbScanner] Reading services extra info...", file=log)
 
 		#Clear double LCN values
-		tmp_numbers =[]
+		tmp_numbers = []
 		tmp_double_numbers = []
 		for key in tmp_services_dict:
 			if len(tmp_services_dict[key]["numbers"]) > 1:
@@ -1375,7 +1375,7 @@ class DvbScanner():
 			return tmp_services_dict, LCNs
 		current_lcn = max(LCNs) + space_for_iteractive
 		while current_lcn % round_to_nearest:
-			current_lcn+= 1
+			current_lcn += 1
 		if current_lcn <= max_channel_number:
 			import re
 			sort_list = []

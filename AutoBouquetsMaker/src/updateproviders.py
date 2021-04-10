@@ -199,7 +199,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen):
 			else:
 				if hasattr(e, 'reason'):
 					print('[ABM-UpdateProviders][getResource] Failed to reach Github: ', str(e.reason), file=log)
-					self.showError(_('Network connection error: \n%s')% str(e.reason))
+					self.showError(_('Network connection error: \n%s') % str(e.reason))
 				else:
 					print('[ABM-UpdateProviders][getResource] Failed to reach Github.', file=log)
 					self.showError(_('Network connection error.'))
@@ -289,8 +289,8 @@ class ShowResult(Screen):
 		self["actions"] = ActionMap(["WizardActions", "ColorActions"],
 		{
 			"up": self.pageUp,
-			"down":	self.pageDown,
-			"left":	self.pageUp,
+			"down": self.pageDown,
+			"left": self.pageUp,
 			"right": self.pageDown,
 			"back": self.close,
 			"red": self.close,

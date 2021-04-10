@@ -44,7 +44,7 @@ colours = {"red": 0x9f1313, "green": 0x1f771f, "yellow": 0xa08500, "blue": 0x181
 def insertValues(xml, values):
 	# The skin template is designed for a HD screen so the scaling factor is 720.
 	# double negative to round up not round down
-	return xml % tuple([int(-(x*getDesktop(0).size().height()//(-720))) for x in values])
+	return xml % tuple([int(-(x * getDesktop(0).size().height() // (-720))) for x in values])
 
 def header():
 	headerXML = '\n<screen position="center,center" size="%d,%d">'
@@ -82,9 +82,9 @@ def templateOne():
 	</widget>"""
 	templateOneValues = [
 		marginLeft, marginTop, widgetWidth, templateOneHeight, # templateOneXML line 1
-		2, 1,  25,  24, # templateOneXML line 4
-		35,  2,  300, configItemHeight-2, # templateOneXML line 5
-		350, 2,  210, configItemHeight-2, # templateOneXML line 6
+		2, 1, 25, 24, # templateOneXML line 4
+		35, 2, 300, configItemHeight - 2, # templateOneXML line 5
+		350, 2, 210, configItemHeight - 2, # templateOneXML line 6
 		fontSize,
 		configItemHeight
 	]
@@ -107,8 +107,8 @@ def templateTwo():
 	</widget>"""
 	templateTwoValues = [
 		marginLeft, marginTop, widgetWidth, templateTwoWidgetHeight, # templateTwoXML line 1
-		2, 4,  32,  32, # templateTwoXML line 4
-		44,  4,  530, configItemHeightMainMenu-4, # templateTwoXML line 5
+		2, 4, 32, 32, # templateTwoXML line 4
+		44, 4, 530, configItemHeightMainMenu - 4, # templateTwoXML line 5
 		menuFontSize,
 		configItemHeightMainMenu
 	]
@@ -122,7 +122,7 @@ def templateThree():
 	<widget name="about" conditional="about" position="%d,%d" size="%d,%d" font="Regular;%d" transparent="1"/>
 	<widget name="oealogo" conditional="oealogo" position="e-%d-176,e-%d-142" size="176,142" zPosition="-1" transparent="1" alphatest="blend"/>"""
 	templateThreeValues = [
-		marginLeft, marginTopTexts, widgetWidth, configItemHeight*configListLength, fontSize, # templateThreeXML line 1
+		marginLeft, marginTopTexts, widgetWidth, configItemHeight * configListLength, fontSize, # templateThreeXML line 1
 		buttonMargin, buttonMarginBottom # templateThreeXML line 2
 	]
 	return insertValues(templateThreeXML, templateThreeValues)
@@ -144,10 +144,10 @@ def templateFour():
 	<widget name="pleasewait" position="%d,%d" size="%d,%d" font="Regular;%d" halign="center" valign="center" transparent="0" zPosition="+1"/>"""
 	templateFourValues = [
 		marginLeft, marginTop, widgetWidth, templateFourHeight, # templateFourXML line 1
-		2,  2,  widgetWidth-4, configItemHeight-2, # templateFourXML line 4
+		2, 2, widgetWidth - 4, configItemHeight - 2, # templateFourXML line 4
 		fontSize,
 		configItemHeight,
-		0, templateFourHeight//2, widgetWidth, configItemHeight, fontSize # templateFourXML line 11
+		0, templateFourHeight // 2, widgetWidth, configItemHeight, fontSize # templateFourXML line 11
 	]
 	return insertValues(templateFourXML, templateFourValues)
 
@@ -155,7 +155,7 @@ def templateFive():
 	# template five is for log
 	templateFiveXML = '\n\t<widget name="list" position="%d,%d" size="%d,%d" itemHeight="%d" font="Regular;%d" scrollbarMode="showOnDemand"/>'
 	templateFiveValues = [
-		marginLeft, marginTop, widgetWidth, configItemHeight*configListLength, configItemHeight, fontSize # templateFiveXML line 1
+		marginLeft, marginTop, widgetWidth, configItemHeight * configListLength, configItemHeight, fontSize # templateFiveXML line 1
 	]
 	return insertValues(templateFiveXML, templateFiveValues)
 
@@ -169,8 +169,8 @@ def templateSix():
 	<widget name="pleasewait" position="%d,%d" size="%d,%d" font="Regular;%d" halign="center" valign="center" transparent="0" zPosition="+1"/>"""
 	templateSixValues = [
 		marginLeft, marginTop, widgetWidth, templateSixHeight, configItemHeight, fontSize, # templateSixXML line 1
-		marginLeft, templateSixHeight+configItemHeight, widgetWidth, templateSixDescHeight, descriptionsFontSize, # templateSixXML line 3
-		0, templateSixHeight//2, widgetWidth, configItemHeight, fontSize # templateSixXML line 3
+		marginLeft, templateSixHeight + configItemHeight, widgetWidth, templateSixDescHeight, descriptionsFontSize, # templateSixXML line 3
+		0, templateSixHeight // 2, widgetWidth, configItemHeight, fontSize # templateSixXML line 3
 	]
 	return insertValues(templateSixXML, templateSixValues)
 
