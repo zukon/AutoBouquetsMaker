@@ -161,7 +161,7 @@ class DvbScanner():
 
 		return passed_test
 
-	def updateTransponders(self, transponders, read_other_section = False, customtransponders = {}, netid = None, bouquettype = None, bouquet_id = -1):
+	def updateTransponders(self, transponders, read_other_section=False, customtransponders={}, netid=None, bouquettype=None, bouquet_id=-1):
 		print("[ABM-DvbScanner] Reading transponders...", file=log)
 
 		if self.nit_other_table_id == 0x00:

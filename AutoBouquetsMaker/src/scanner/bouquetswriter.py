@@ -970,7 +970,7 @@ class BouquetsWriter():
 		else:
 			return six.ensure_str(text, encoding='utf-8', errors='strict')
 
-	def styledBouquetMarker(self, text, caller = "bouquets"):
+	def styledBouquetMarker(self, text, caller="bouquets"):
 		if caller == "index":
 			return "#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION %s\n" % (config.autobouquetsmaker.indexmarkerstyle.value % text)
 		return "#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION %s\n" % (config.autobouquetsmaker.bouquetmarkerstyle.value % text)

@@ -63,7 +63,7 @@ class Manager():
 		self.transponders = reader.readLamedb(self.path)
 		print("[ABM-Manager][load] Settings loaded", file=log)
 
-	def save(self, providers, dependent_providers = {}):
+	def save(self, providers, dependent_providers={}):
 		#merge dependent providers
 		for provider_key in dependent_providers:
 			if provider_key in self.services:
@@ -220,7 +220,7 @@ class Manager():
 						bouquet = providers[provider_key]["bouquets"][bouquet_key]
 						tmp = scanner.updateTransponders(self.transponders, True, customtransponders, bouquet["netid"], bouquet["bouquettype"])
 					else:
-						tmp = scanner.updateTransponders(self.transponders, True, customtransponders, bouquet_id = bouquet_id)
+						tmp = scanner.updateTransponders(self.transponders, True, customtransponders, bouquet_id=bouquet_id)
 					if providers[provider_key]["protocol"] in ("lcnbat", "lcnbat2"):
 						scanner.setBatPid(providers[provider_key]["transponder"]["bat_pid"])
 						scanner.setBatTableId(providers[provider_key]["transponder"]["bat_table_id"])

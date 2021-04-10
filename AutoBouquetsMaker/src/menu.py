@@ -196,7 +196,7 @@ class AutoBouquetsMaker_Menu(Screen):
 
 class AutoBouquetsMaker_MenuSummary(Screen):
 	def __init__(self, session, parent):
-		Screen.__init__(self, session, parent = parent)
+		Screen.__init__(self, session, parent=parent)
 		self.skinName = ["AutoBouquetsMaker_MenuSummary", "SetupSummary"]
 		self["SetupTitle"] = StaticText(_(parent.setup_title))
 		self["SetupEntry"] = StaticText("")
@@ -242,7 +242,7 @@ class AutoBouquetsMaker_Log(Screen):
 		output = open('/tmp/abm.log', 'w')
 		output.write(log.getvalue())
 		output.close()
-		self.session.open(MessageBox,_("ABM log file has been saved to the tmp directory"),MessageBox.TYPE_INFO, timeout = 45)
+		self.session.open(MessageBox,_("ABM log file has been saved to the tmp directory"),MessageBox.TYPE_INFO, timeout=45)
 
 	def cancel(self):
 		self.close()

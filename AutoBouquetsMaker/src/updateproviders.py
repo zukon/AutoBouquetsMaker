@@ -39,7 +39,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen):
 # Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker'.
 	skin = skin_downloadBar()
 
-	def __init__(self, session, args = 0):
+	def __init__(self, session, args=0):
 		print("[ABM-UpdateProviders][__init__] Starting...", file=log)
 		print("[ABM-UpdateProviders][__init__] args", args)
 		Screen.__init__(self, session)

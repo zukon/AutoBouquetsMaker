@@ -36,7 +36,7 @@ class AutoBouquetsMaker(Screen):
 	LOCK_TIMEOUT_ROTOR = 1200 	# 100ms for tick - 120 sec
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
 
-	def __init__(self, session, args = 0):
+	def __init__(self, session, args=0):
 		self.printconfig()
 		self.session = session
 		Screen.__init__(self, session)
@@ -59,7 +59,7 @@ class AutoBouquetsMaker(Screen):
 		self["progress"] = ProgressBar()
 		self["progress_text"] = Progress()
 		self["tuner_text"] = Label("")
-		self["Frontend"] = FrontendStatus(frontend_source = lambda : self.frontend, update_interval = 100)
+		self["Frontend"] = FrontendStatus(frontend_source=lambda : self.frontend, update_interval=100)
 
 		# dependent providers
 		self.dependents = {}
@@ -667,7 +667,7 @@ class AutoScheduleTimer:
 	def getToday(self):
 		return localtime(time()).tm_wday
 
-	def scheduledate(self, atLeast = 0):
+	def scheduledate(self, atLeast=0):
 		self.scheduletimer.stop()
 		self.ScheduleTime = self.getScheduleTime()
 		now = int(time())
@@ -700,7 +700,7 @@ class AutoScheduleTimer:
 			from Screens.Standby import inStandby
 			if not inStandby:
 				message = _("%s update is about to start.\nDo you want to allow this?") % self.schedulename
-				ybox = self.session.openWithCallback(self.doSchedule, MessageBox, message, MessageBox.TYPE_YESNO, timeout = 30)
+				ybox = self.session.openWithCallback(self.doSchedule, MessageBox, message, MessageBox.TYPE_YESNO, timeout=30)
 				ybox.setTitle(_('%s scheduled update') % self.schedulename)
 			else:
 				self.doSchedule(True)
@@ -718,7 +718,7 @@ class AutoScheduleTimer:
 			else:
 				atLeast = 60
 				print("[%s][doSchedule] Enough Retries, delaying till next schedule." % self.schedulename, strftime("%c", localtime(now)), file=log)
-				self.session.open(MessageBox, _("Enough Retries, delaying till next schedule."), MessageBox.TYPE_INFO, timeout = 10)
+				self.session.open(MessageBox, _("Enough Retries, delaying till next schedule."), MessageBox.TYPE_INFO, timeout=10)
 				self.config.retrycount.value = 0
 				self.scheduledate(atLeast)
 		else:
