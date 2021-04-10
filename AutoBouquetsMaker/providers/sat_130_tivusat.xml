@@ -45,6 +45,7 @@
 		<channel number="015" with="115" />
 		<channel number="016" with="116" />
 		<channel number="017" with="117" />
+		<channel number="018" with="118" />
 		<channel number="019" with="119" />
 		<channel number="020" with="120" />
 		<channel number="021" with="121" />
@@ -55,20 +56,77 @@
 		<channel number="026" with="126" />
 		<channel number="027" with="127" />
 		<channel number="028" with="128" />
+		<channel number="029" with="129" />
+		<channel number="030" with="130" />
 		<channel number="031" with="131" />
 		<channel number="032" with="132" />
 		<channel number="033" with="133" />
 		<channel number="034" with="134" />
+		<channel number="035" with="135" />
 		<channel number="036" with="136" />
+		<channel number="037" with="137" />
+		<channel number="038" with="138" />
 		<channel number="039" with="139" />
 		<channel number="040" with="140" />
 		<channel number="041" with="141" />
 		<channel number="042" with="142" />
 		<channel number="043" with="143" />
+		<channel number="044" with="144" />
+		<channel number="045" with="145" />
+		<channel number="046" with="146" />
+		<channel number="047" with="147" />
+		<channel number="048" with="148" />
+		<channel number="049" with="149" />
+		<channel number="050" with="150" />
+		<channel number="051" with="151" />
+		<channel number="052" with="152" />
+		<channel number="053" with="153" />
+		<channel number="054" with="154" />
+		<channel number="055" with="155" />
+		<channel number="056" with="156" />
+		<channel number="057" with="157" />
+		<channel number="058" with="158" />
+		<channel number="059" with="159" />
 		<channel number="060" with="160" />
+		<channel number="061" with="161" />
+		<channel number="062" with="162" />
+		<channel number="063" with="163" />
+		<channel number="064" with="164" />
+		<channel number="065" with="165" />
+		<channel number="066" with="166" />
+		<channel number="067" with="167" />
+		<channel number="068" with="168" />
+		<channel number="069" with="169" />
+		<channel number="070" with="170" />
 		<channel number="071" with="171" />
+		<channel number="072" with="172" />
+		<channel number="073" with="173" />
+		<channel number="074" with="174" />
+		<channel number="075" with="175" />
+		<channel number="076" with="176" />
 		<channel number="077" with="177" />
+		<channel number="078" with="178" />
+		<channel number="079" with="179" />
+		<channel number="080" with="180" />
+		<channel number="081" with="181" />
+		<channel number="082" with="182" />
+		<channel number="083" with="183" />
+		<channel number="084" with="184" />
+		<channel number="085" with="185" />
+		<channel number="086" with="186" />
 		<channel number="087" with="187" />
+		<channel number="088" with="188" />
+		<channel number="089" with="189" />
+		<channel number="090" with="190" />
+		<channel number="091" with="191" />
+		<channel number="092" with="192" />
+		<channel number="093" with="193" />
+		<channel number="094" with="194" />
+		<channel number="095" with="195" />
+		<channel number="096" with="196" />
+		<channel number="097" with="197" />
+		<channel number="098" with="198" />
+		<channel number="099" with="199" />
 	</swapchannels>
 
 	<servicehacks>
