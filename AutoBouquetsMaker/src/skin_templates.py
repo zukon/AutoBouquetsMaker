@@ -58,7 +58,7 @@ def buttonBar():
 	buttonFontSize = fontSize + 1
 	buttonBarElevation = buttonHeight + buttonMarginBottom
 	buttonPath = "%s/images/" % os.path.dirname(os.path.realpath(__file__))
-	buttonBarXML = ''.join(['\n\t<widget name="key_' + c + '" conditional="key_' + c + '" position="%d,e-%d" size="%d,%d" valign="center" halign="center" font="Regular;%d" backgroundColor="#' + "%x" % colours[c] + '" foregroundColor="#ffffff" transparent="1" zPosition="+2"/>\n\t<ePixmap name="' + c + '" conditional="key_' + c + '" position="%d,e-%d" size="%d,%d" pixmap="' + buttonPath + 'key_' + c + '.png" transparent="1" zPosition="+1" alphatest="on" scale="1"/>' for c in ("red","green","yellow","blue")])
+	buttonBarXML = ''.join(['\n\t<widget name="key_' + c + '" conditional="key_' + c + '" position="%d,e-%d" size="%d,%d" valign="center" halign="center" font="Regular;%d" backgroundColor="#' + "%x" % colours[c] + '" foregroundColor="#ffffff" transparent="1" zPosition="+2"/>\n\t<ePixmap name="' + c + '" conditional="key_' + c + '" position="%d,e-%d" size="%d,%d" pixmap="' + buttonPath + 'key_' + c + '.png" transparent="1" zPosition="+1" alphatest="on" scale="1"/>' for c in ("red", "green", "yellow", "blue")])
 	buttonBarValues = []
 	for x in range(4):
 		buttonBarValues += [buttonMargin + ((buttonWidth + buttonMargin) * x), buttonBarElevation, buttonWidth, buttonHeight, buttonFontSize, buttonMargin + ((buttonWidth + buttonMargin) * x), buttonBarElevation, buttonWidth, buttonHeight]

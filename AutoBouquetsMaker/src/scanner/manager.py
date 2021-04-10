@@ -129,7 +129,7 @@ class Manager():
 					for bouquetToHide in self.bouquetsToHide[provider_key]:
 						try:
 							#get closest section, just in case section numbers in the provider file have been updated
-							bouquetToHide = min(sections, key=lambda x:abs(x - bouquetToHide))
+							bouquetToHide = min(sections, key=lambda x: abs(x - bouquetToHide))
 							index = sections.index(bouquetToHide)
 						except:
 							continue

@@ -133,7 +133,7 @@ class BouquetsWriter():
 					service["flags"],
 					":%x" % service["ATSC_source_id"] if "ATSC_source_id" in service else ""))
 
-				control_chars = ''.join(list(map(six.unichr, list(range(0,32)) + list(range(127,160)))))
+				control_chars = ''.join(list(map(six.unichr, list(range(0, 32)) + list(range(127, 160)))))
 				control_char_re = re.compile('[%s]' % re.escape(control_chars))
 				if 'provider_name' in list(service.keys()):
 					if six.PY2:
@@ -281,7 +281,7 @@ class BouquetsWriter():
 					service["flags"],
 					":%x" % service["ATSC_source_id"] if "ATSC_source_id" in service else ":0"))
 
-				control_chars = ''.join(list(map(six.unichr, list(range(0,32)) + list(range(127,160)))))
+				control_chars = ''.join(list(map(six.unichr, list(range(0, 32)) + list(range(127, 160)))))
 				control_char_re = re.compile('[%s]' % re.escape(control_chars))
 				if 'provider_name' in list(service.keys()):
 					if six.PY2:
@@ -541,7 +541,7 @@ class BouquetsWriter():
 		i = 1
 		import re
 		for provider in list(services.keys()):
-			for type in ('video','radio'):
+			for type in ('video', 'radio'):
 				for lcn in services[provider][type]:
 					service = services[provider][type][lcn]
 					# sort flat, alphabetic before numbers
@@ -603,7 +603,7 @@ class BouquetsWriter():
 			provider_config.isMakeFTAHDMain() or \
 			provider_config.isMakeHD() or \
 			provider_config.isMakeFTAHD():
-			services_swapped = {"video":{}}
+			services_swapped = {"video": {}}
 			for number in services["video"]:
 				if number in swapDict:
 					services_swapped["video"][swapDict[number]] = services["video"][number]
@@ -955,7 +955,7 @@ class BouquetsWriter():
 
 	def utf8_convert(self, text):
 		if six.PY2:
-			for encoding in ["utf8","latin-1"]:
+			for encoding in ["utf8", "latin-1"]:
 				try:
 					text.decode(encoding=encoding)
 				except UnicodeDecodeError:

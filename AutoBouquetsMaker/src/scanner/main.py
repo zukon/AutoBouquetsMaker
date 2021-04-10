@@ -15,7 +15,7 @@ from Components.Sources.FrontendStatus import FrontendStatus
 
 from Components.config import config, configfile
 from Components.NimManager import nimmanager
-from enigma import eTimer, eDVBDB, eDVBFrontendParametersSatellite,eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable, eDVBResourceManager, eDVBFrontendParameters
+from enigma import eTimer, eDVBDB, eDVBFrontendParametersSatellite, eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable, eDVBResourceManager, eDVBFrontendParameters
 
 from .manager import Manager
 from .providerconfig import ProviderConfig
@@ -536,26 +536,26 @@ class AutoBouquetsMaker(Screen):
 		return self.providers[self.currentAction]["streamtype"] != "dvbs" or self.providers[self.currentAction]["transponder"]["orbital_position"] in [sat[0] for sat in nimmanager.getSatListForNim(slot)]
 
 	def printconfig(self):
-		print("[ABM-config] level: ",config.autobouquetsmaker.level.value, file=log)
-		print("[ABM-config] providers: ",config.autobouquetsmaker.providers.value, file=log)
+		print("[ABM-config] level: ", config.autobouquetsmaker.level.value, file=log)
+		print("[ABM-config] providers: ", config.autobouquetsmaker.providers.value, file=log)
 		if config.autobouquetsmaker.bouquetsorder.value:
-			print("[ABM-config] bouquetsorder: ",config.autobouquetsmaker.bouquetsorder.value, file=log)
+			print("[ABM-config] bouquetsorder: ", config.autobouquetsmaker.bouquetsorder.value, file=log)
 		if config.autobouquetsmaker.keepallbouquets.value:
 			print("[ABM-config] keepbouquets: All", file=log)
 		else:
-			print("[ABM-config] keepbouquets: ",config.autobouquetsmaker.keepbouquets.value, file=log)
+			print("[ABM-config] keepbouquets: ", config.autobouquetsmaker.keepbouquets.value, file=log)
 		if config.autobouquetsmaker.hidesections.value:
-			print("[ABM-config] hidesections: ",config.autobouquetsmaker.hidesections.value, file=log)
-		print("[ABM-config] add provider prefix: ",config.autobouquetsmaker.addprefix.value, file=log)
-		print("[ABM-config] show in extensions menu: ",config.autobouquetsmaker.extensions.value, file=log)
-		print("[ABM-config] placement: ",config.autobouquetsmaker.placement.value, file=log)
-		print("[ABM-config] skip services on non-configured satellites: ",config.autobouquetsmaker.skipservices.value, file=log)
-		print("[ABM-config] show non-indexed: ",config.autobouquetsmaker.showextraservices.value, file=log)
+			print("[ABM-config] hidesections: ", config.autobouquetsmaker.hidesections.value, file=log)
+		print("[ABM-config] add provider prefix: ", config.autobouquetsmaker.addprefix.value, file=log)
+		print("[ABM-config] show in extensions menu: ", config.autobouquetsmaker.extensions.value, file=log)
+		print("[ABM-config] placement: ", config.autobouquetsmaker.placement.value, file=log)
+		print("[ABM-config] skip services on non-configured satellites: ", config.autobouquetsmaker.skipservices.value, file=log)
+		print("[ABM-config] show non-indexed: ", config.autobouquetsmaker.showextraservices.value, file=log)
 		if config.autobouquetsmaker.FTA_only.value:
-			print("[ABM-config] FTA_only: ",config.autobouquetsmaker.FTA_only.value, file=log)
-		print("[ABM-config] schedule: ",config.autobouquetsmaker.schedule.value, file=log)
+			print("[ABM-config] FTA_only: ", config.autobouquetsmaker.FTA_only.value, file=log)
+		print("[ABM-config] schedule: ", config.autobouquetsmaker.schedule.value, file=log)
 		if config.autobouquetsmaker.schedule.value:
-			print("[ABM-config] schedule time: ",config.autobouquetsmaker.scheduletime.value, file=log)
+			print("[ABM-config] schedule time: ", config.autobouquetsmaker.scheduletime.value, file=log)
 			print("[ABM-config] schedule days: ", [("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")[i] for i in range(7) if config.autobouquetsmaker.days[i].value], file=log)
 
 	def getABMsettings(self):
@@ -569,10 +569,10 @@ class AutoBouquetsMaker(Screen):
 		return config.autobouquetsmaker.providers.value + ''.join(providers_extra)
 
 	def about(self):
-		self.session.open(MessageBox,"AutoBouquetsMaker\nVersion date - 21/10/2012\n\nCoded by:\n\nSkaman and AndyBlac",MessageBox.TYPE_INFO)
+		self.session.open(MessageBox, "AutoBouquetsMaker\nVersion date - 21/10/2012\n\nCoded by:\n\nSkaman and AndyBlac", MessageBox.TYPE_INFO)
 
 	def help(self):
-		self.session.open(MessageBox,"AutoBouquetsMaker\nto be coded.",MessageBox.TYPE_INFO)
+		self.session.open(MessageBox, "AutoBouquetsMaker\nto be coded.", MessageBox.TYPE_INFO)
 
 	def cancel(self):
 		self.close(None)

@@ -267,8 +267,8 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		for provider in list(providers.keys()):
 			temp.append((provider, providers[provider]["name"]))
 		if six.PY2:
-			return [i[0] for i in sorted(temp, key=lambda p: p[1].lower().decode('ascii','ignore'))]
-		return [i[0] for i in sorted(temp, key=lambda p: six.ensure_binary(p[1]).lower().decode('ascii','ignore'))]
+			return [i[0] for i in sorted(temp, key=lambda p: p[1].lower().decode('ascii', 'ignore'))]
+		return [i[0] for i in sorted(temp, key=lambda p: six.ensure_binary(p[1]).lower().decode('ascii', 'ignore'))]
 
 	def createSetup(self):
 		self.editListEntry = None
@@ -630,5 +630,5 @@ class SetupSummary(Screen):
 	def selectionChanged(self):
 		self["SetupEntry"].text = self.parent.getCurrentEntry()
 		self["SetupValue"].text = self.parent.getCurrentValue()
-		if hasattr(self.parent,"getCurrentDescription"):
+		if hasattr(self.parent, "getCurrentDescription"):
 			self.parent["description"].text = self.parent.getCurrentDescription()

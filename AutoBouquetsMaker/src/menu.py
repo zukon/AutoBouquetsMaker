@@ -48,8 +48,8 @@ class AutoBouquetsMaker_Menu(Screen):
 		self.init_schedule = config.autobouquetsmaker.schedule.getValue()
 		self.init_scheduletime = config.autobouquetsmaker.scheduletime.getValue()
 		self.init_frequencyfinder = config.autobouquetsmaker.frequencyfinder.getValue()
-		print('[ABM-menu][__init__] self.init_schedule',self.init_schedule)
-		print('[ABM-menu][__init__] self.init_scheduletime',self.init_scheduletime)
+		print('[ABM-menu][__init__] self.init_schedule', self.init_schedule)
+		print('[ABM-menu][__init__] self.init_scheduletime', self.init_scheduletime)
 
 		self.onChangedEntry = []
 		l = []
@@ -242,7 +242,7 @@ class AutoBouquetsMaker_Log(Screen):
 		output = open('/tmp/abm.log', 'w')
 		output.write(log.getvalue())
 		output.close()
-		self.session.open(MessageBox,_("ABM log file has been saved to the tmp directory"),MessageBox.TYPE_INFO, timeout=45)
+		self.session.open(MessageBox, _("ABM log file has been saved to the tmp directory"), MessageBox.TYPE_INFO, timeout=45)
 
 	def cancel(self):
 		self.close()
