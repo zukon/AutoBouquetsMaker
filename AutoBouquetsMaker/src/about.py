@@ -11,6 +11,7 @@ from .skin_templates import skin_about
 import os
 import sys
 
+
 class AutoBouquetsMaker_About(Screen):
 	skin = skin_about()
 
@@ -52,4 +53,3 @@ class AutoBouquetsMaker_About(Screen):
 
 	def quit(self):
 		self.close()
-

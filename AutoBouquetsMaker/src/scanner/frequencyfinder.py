@@ -18,7 +18,8 @@ import dvbreader
 #from scanner.main import AutoBouquetsMaker
 from Plugins.SystemPlugins.AutoBouquetsMaker.skin_templates import skin_downloadBar
 
-import os, errno
+import os
+import errno
 import sys
 import re
 
@@ -27,7 +28,8 @@ import time
 
 from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN
 
-def setParams(frequency, system, bandwidth = 8): # freq is nine digits (474000000)
+
+def setParams(frequency, system, bandwidth=8): # freq is nine digits (474000000)
 	params = eDVBFrontendParametersTerrestrial()
 	params.frequency = frequency
 	params.bandwidth = bandwidth * 1000000
@@ -41,31 +43,35 @@ def setParams(frequency, system, bandwidth = 8): # freq is nine digits (47400000
 	params.hierarchy = eDVBFrontendParametersTerrestrial.Hierarchy_Auto
 	return params
 
+
 def setParamsFe(params):
 	params_fe = eDVBFrontendParameters()
 	params_fe.setDVBT(params)
 	return params_fe
 
-def channel2freq(channel, bandwidth = 8): # Europe channels
+
+def channel2freq(channel, bandwidth=8): # Europe channels
 	if 4 < channel < 13: # Band III
 		return (((177 + (bandwidth * (channel - 5))) * 1000000) + 500000)
 	elif 20 < channel < 70: # Bands IV,V
 		return ((474 + (bandwidth * (channel - 21))) * 1000000) # returns nine digits
 
+
 def getChannelNumber(frequency):
-	f = (frequency+50000)//100000/10.
+	f = (frequency + 50000) // 100000 / 10.
 	if 174 < f < 230: 	# III
 		d = (f + 1) % 7
-		return str(int(f - 174)//7 + 5) + (d < 3 and "-" or d > 4 and "+" or "")
+		return str(int(f - 174) // 7 + 5) + (d < 3 and "-" or d > 4 and "+" or "")
 	elif 470 <= f < 863: 	# IV,V
 		d = (f + 2) % 8
 		return str(int(f - 470) // 8 + 21) + (d < 3.5 and "-" or d > 4.5 and "+" or "")
 	return ""
 
+
 class AutoBouquetsMaker_FrequencyFinder(Screen):
 	skin = skin_downloadBar()
 
-	def __init__(self, session, args = 0):
+	def __init__(self, session, args=0):
 		print("[ABM-FrequencyFinder][__init__] Starting...")
 		print("[ABM-FrequencyFinder][__init__] args", args)
 		self.session = session
@@ -81,7 +87,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		self["status"] = Label("")
 		self["progress"] = ProgressBar()
 		self["progress_text"] = Progress()
-		self["Frontend"] = FrontendStatus(frontend_source = lambda : self.frontend, update_interval = 100)
+		self["Frontend"] = FrontendStatus(frontend_source=lambda: self.frontend, update_interval=100)
 
 		self["actions"] = ActionMap(["SetupActions"],
 		{
@@ -112,12 +118,12 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		self.scanTransponders = []
 		if self.uhf_vhf == "uhf_vhf":
 			bandwidth = 7
-			for a in list(range(5,13)): # channel
+			for a in list(range(5, 13)): # channel
 				for b in (eDVBFrontendParametersTerrestrial.System_DVB_T, eDVBFrontendParametersTerrestrial.System_DVB_T2): # system
 					self.scanTransponders.append({"frequency": channel2freq(a, bandwidth), "system": b, "bandwidth": bandwidth})
 		if self.uhf_vhf in ("uhf", "uhf_vhf"):
 			bandwidth = 8
-			for a in list(range(21,70)): # channel
+			for a in list(range(21, 70)): # channel
 				for b in (eDVBFrontendParametersTerrestrial.System_DVB_T, eDVBFrontendParametersTerrestrial.System_DVB_T2): # system
 					self.scanTransponders.append({"frequency": channel2freq(a, bandwidth), "system": b, "bandwidth": bandwidth})
 		self.transponders_found = []
@@ -176,11 +182,11 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			self.progresscurrent = self.index
 			self["progress_text"].value = self.progresscurrent
 			self["progress"].setValue(self.progresscurrent)
-			self["action"].setText(_("Tuning %s MHz (ch %s)") % (str(self.frequency//1000000), getChannelNumber(self.frequency)))
+			self["action"].setText(_("Tuning %s MHz (ch %s)") % (str(self.frequency // 1000000), getChannelNumber(self.frequency)))
 			self["status"].setText(ngettext("Found %d unique transponder", "Found %d unique transponders", len(self.transponders_unique)) % len(self.transponders_unique))
 			self.index += 1
 			if self.frequency in self.transponders_found or self.system == eDVBFrontendParametersTerrestrial.System_DVB_T2 and self.isT2tuner == False:
-				print("[ABM-FrequencyFinder][Search] Skipping T2 search of %s MHz (ch %s)" % (str(self.frequency//1000000), getChannelNumber(self.frequency)))
+				print("[ABM-FrequencyFinder][Search] Skipping T2 search of %s MHz (ch %s)" % (str(self.frequency // 1000000), getChannelNumber(self.frequency)))
 				self.search()
 				return
 			self.searchtimer = eTimer()
@@ -320,7 +326,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 					self.showError(_('Cannot get the NIM'))
 					return
 
-		print("[ABM-FrequencyFinder][getFrontend] Will wait up to %i seconds for tuner lock." % (self.lockTimeout//10))
+		print("[ABM-FrequencyFinder][getFrontend] Will wait up to %i seconds for tuner lock." % (self.lockTimeout // 10))
 
 		self.selectedNIM = current_slotid # Remember for next iteration
 
@@ -356,7 +362,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 				print("[ABM-FrequencyFinder][checkTunerLock] TUNING")
 		elif self.dict["tuner_state"] == "LOCKED":
 			print("[ABM-FrequencyFinder][checkTunerLock] LOCKED")
-			self["action"].setText(_("Reading %s MHz (ch %s)") % (str(self.frequency//1000000), getChannelNumber(self.frequency)))
+			self["action"].setText(_("Reading %s MHz (ch %s)") % (str(self.frequency // 1000000), getChannelNumber(self.frequency)))
 			self.tsidOnidtimer = eTimer()
 			self.tsidOnidtimer.callback.append(self.tsidOnidWait)
 			self.tsidOnidtimer.start(100, 1)
@@ -400,7 +406,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		print("[ABM-FrequencyFinder][signalQualityWait] Failed to collect SNR")
 		self.search()
 
-	def getCurrentTsidOnid(self, from_retune = False):
+	def getCurrentTsidOnid(self, from_retune=False):
 		adapter = 0
 		demuxer_device = "/dev/dvb/adapter%d/demux%d" % (adapter, self.demuxer_id)
 		start = time.time() # for debug info
@@ -518,11 +524,11 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 			else: # must be DVB-T2
 				self.system = eDVBFrontendParametersTerrestrial.System_DVB_T2
 
-			if "frequency" in transponders[0] and abs((transponders[0]["frequency"]*10) - self.frequency) < 1000000:
+			if "frequency" in transponders[0] and abs((transponders[0]["frequency"] * 10) - self.frequency) < 1000000:
 				self.custom_transponder_needed = False
-				if self.frequency != transponders[0]["frequency"]*10:
-					print("[ABM-FrequencyFinder][readNIT] updating transponder frequency from %.03f MHz to %.03f MHz" % (self.frequency//1000000, transponders[0]["frequency"]//100000))
-					self.frequency = transponders[0]["frequency"]*10
+				if self.frequency != transponders[0]["frequency"] * 10:
+					print("[ABM-FrequencyFinder][readNIT] updating transponder frequency from %.03f MHz to %.03f MHz" % (self.frequency // 1000000, transponders[0]["frequency"] // 100000))
+					self.frequency = transponders[0]["frequency"] * 10
 
 #	def saveTransponderList(self):
 #		# make custom transponders file content

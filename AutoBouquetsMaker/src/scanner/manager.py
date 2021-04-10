@@ -9,6 +9,7 @@ from .providers import Providers
 from .tools import Tools
 from .. import log
 
+
 class Manager():
 
 	def __init__(self):
@@ -63,7 +64,7 @@ class Manager():
 		self.transponders = reader.readLamedb(self.path)
 		print("[ABM-Manager][load] Settings loaded", file=log)
 
-	def save(self, providers, dependent_providers = {}):
+	def save(self, providers, dependent_providers={}):
 		#merge dependent providers
 		for provider_key in dependent_providers:
 			if provider_key in self.services:
@@ -129,7 +130,7 @@ class Manager():
 					for bouquetToHide in self.bouquetsToHide[provider_key]:
 						try:
 							#get closest section, just in case section numbers in the provider file have been updated
-							bouquetToHide = min(sections, key=lambda x:abs(x-bouquetToHide))
+							bouquetToHide = min(sections, key=lambda x: abs(x - bouquetToHide))
 							index = sections.index(bouquetToHide)
 						except:
 							continue
@@ -149,7 +150,6 @@ class Manager():
 				else:
 					current_bouquet = -1
 					current_region = -1
-
 
 				# swap services between providers
 				services, providers[provider_key]["sections"] = Tools().customMix(self.services, provider_key, providers, self.providerConfigs[provider_key])
@@ -220,7 +220,7 @@ class Manager():
 						bouquet = providers[provider_key]["bouquets"][bouquet_key]
 						tmp = scanner.updateTransponders(self.transponders, True, customtransponders, bouquet["netid"], bouquet["bouquettype"])
 					else:
-						tmp = scanner.updateTransponders(self.transponders, True, customtransponders, bouquet_id = bouquet_id)
+						tmp = scanner.updateTransponders(self.transponders, True, customtransponders, bouquet_id=bouquet_id)
 					if providers[provider_key]["protocol"] in ("lcnbat", "lcnbat2"):
 						scanner.setBatPid(providers[provider_key]["transponder"]["bat_pid"])
 						scanner.setBatTableId(providers[provider_key]["transponder"]["bat_table_id"])

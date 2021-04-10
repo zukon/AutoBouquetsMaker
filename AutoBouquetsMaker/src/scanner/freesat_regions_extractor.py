@@ -19,6 +19,7 @@ TIMEOUT_SEC = 30
 
 bouquets_list = []
 
+
 def readBouquet(bouquet_id):
 	print("[DvbScanner] Reading bouquet_id = 0x%x..." % bouquet_id)
 
@@ -84,6 +85,7 @@ def readBouquet(bouquet_id):
 
 	print("[DvbScanner] Done")
 
+
 def getSortKey(elem):
 	# group by: SD/HD/G2
 	# sort by: "name"
@@ -93,6 +95,7 @@ def getSortKey(elem):
 		return "HD " + elem["name"]
 	else:
 		return "G2 " + elem["name"]
+
 
 #for bouquet_id in [0x100, 0x101]:
 for bouquet_id in [0x100, 0x101, 0x102, 0x103, 0x110, 0x111, 0x112, 0x113, 0x118, 0x119, 0x11a, 0x11b]:

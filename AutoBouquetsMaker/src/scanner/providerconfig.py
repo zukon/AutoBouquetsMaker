@@ -1,5 +1,5 @@
 class ProviderConfig():
-	def __init__(self, value = ""):
+	def __init__(self, value=""):
 		self.provider = ""
 		self.area = ""
 		self.flags = 0x1d	# default value mean main:yes, sections: yes, hd: yes, fta: yes
@@ -125,4 +125,3 @@ class ProviderConfig():
 
 	def serialize(self):
 		return "%s:%s:%d:%s" % (self.provider, self.area, self.flags, self.customfilename)
-

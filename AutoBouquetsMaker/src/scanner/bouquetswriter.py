@@ -10,10 +10,13 @@ from .. import log
 from Components.config import config
 from .tools import Tools
 from .dvbscanner import DvbScanner
-import os, codecs, re
+import os
+import codecs
+import re
 import six
 
 from enigma import eDVBFrontendParametersSatellite
+
 
 class BouquetsWriter():
 
@@ -58,18 +61,18 @@ class BouquetsWriter():
 					t2mi = ''
 					if "t2mi_plp_id" in transponder and "t2mi_pid" in transponder:
 						t2mi = ':%d:%d' % (
-							transponder["t2mi_plp_id"], 
+							transponder["t2mi_plp_id"],
 							transponder["t2mi_pid"])
 					if "is_id" in transponder and "pls_code" in transponder and "pls_mode" in transponder:
 						multistream = ':%d:%d:%d' % (
-							transponder["is_id"], 
-							transponder["pls_code"], 
+							transponder["is_id"],
+							transponder["pls_code"],
 							transponder["pls_mode"])
 					if t2mi and not multistream: # this is to pad t2mi values if necessary.
 						try: # some images are still not multistream aware after all this time
 							multistream = ':%d:%d:%d' % (
-								eDVBFrontendParametersSatellite.No_Stream_Id_Filter, 
-								eDVBFrontendParametersSatellite.PLS_Gold, 
+								eDVBFrontendParametersSatellite.No_Stream_Id_Filter,
+								eDVBFrontendParametersSatellite.PLS_Gold,
 								eDVBFrontendParametersSatellite.PLS_Default_Gold_Code)
 						except AttributeError as err:
 							print("[ABM-BouquetsWriter] some images are still not multistream aware after all this time", err, file=log)
@@ -131,14 +134,14 @@ class BouquetsWriter():
 					service["flags"],
 					":%x" % service["ATSC_source_id"] if "ATSC_source_id" in service else ""))
 
-				control_chars = ''.join(list(map(six.unichr, list(range(0,32)) + list(range(127,160)))))
+				control_chars = ''.join(list(map(six.unichr, list(range(0, 32)) + list(range(127, 160)))))
 				control_char_re = re.compile('[%s]' % re.escape(control_chars))
 				if 'provider_name' in list(service.keys()):
 					if six.PY2:
 						service_name = control_char_re.sub('', service["service_name"]).decode('latin-1').encode("utf8")
 						provider_name = control_char_re.sub('', service["provider_name"]).decode('latin-1').encode("utf8")
 					else:
-						service_name =  control_char_re.sub('', six.ensure_text(six.ensure_str(service["service_name"],  encoding='latin-1'), encoding='utf-8', errors='ignore'))
+						service_name = control_char_re.sub('', six.ensure_text(six.ensure_str(service["service_name"], encoding='latin-1'), encoding='utf-8', errors='ignore'))
 						provider_name = control_char_re.sub('', six.ensure_text(six.ensure_str(service["provider_name"], encoding='latin-1'), encoding='utf-8', errors='ignore'))
 				else:
 					service_name = service["service_name"]
@@ -214,8 +217,8 @@ class BouquetsWriter():
 							# don't write default values
 							if not (transponder["is_id"] == eDVBFrontendParametersSatellite.No_Stream_Id_Filter and transponder["pls_code"] == eDVBFrontendParametersSatellite.PLS_Gold and transponder["pls_mode"] == eDVBFrontendParametersSatellite.PLS_Default_Gold_Code):
 								multistream = ',MIS/PLS:%d:%d:%d' % (
-									transponder["is_id"], 
-									transponder["pls_code"], 
+									transponder["is_id"],
+									transponder["pls_code"],
 									transponder["pls_mode"])
 						except AttributeError as err:
 							print("[ABM-BouquetsWriter] some images are still not multistream aware after all this time", err, file=log)
@@ -279,14 +282,14 @@ class BouquetsWriter():
 					service["flags"],
 					":%x" % service["ATSC_source_id"] if "ATSC_source_id" in service else ":0"))
 
-				control_chars = ''.join(list(map(six.unichr, list(range(0,32)) + list(range(127,160)))))
+				control_chars = ''.join(list(map(six.unichr, list(range(0, 32)) + list(range(127, 160)))))
 				control_char_re = re.compile('[%s]' % re.escape(control_chars))
 				if 'provider_name' in list(service.keys()):
 					if six.PY2:
 						service_name = control_char_re.sub('', service["service_name"]).decode('latin-1').encode("utf8")
 						provider_name = control_char_re.sub('', service["provider_name"]).decode('latin-1').encode("utf8")
 					else:
-						service_name =  control_char_re.sub('', six.ensure_text(six.ensure_str(service["service_name"],  encoding='latin-1'), encoding='utf-8', errors='ignore'))
+						service_name = control_char_re.sub('', six.ensure_text(six.ensure_str(service["service_name"], encoding='latin-1'), encoding='utf-8', errors='ignore'))
 						provider_name = control_char_re.sub('', six.ensure_text(six.ensure_str(service["provider_name"], encoding='latin-1'), encoding='utf-8', errors='ignore'))
 				else:
 					service_name = service["service_name"]
@@ -329,7 +332,7 @@ class BouquetsWriter():
 		content = bouquet_in.read()
 		bouquet_in.close()
 
-		seperator_name = "/%s%s.separator.tv" % (self.ABM_BOUQUET_PREFIX, filename[:len(filename)-3])
+		seperator_name = "/%s%s.separator.tv" % (self.ABM_BOUQUET_PREFIX, filename[:len(filename) - 3])
 		try:
 			bouquet_out = open(path + seperator_name, "w")
 		except Exception as e:
@@ -446,7 +449,7 @@ class BouquetsWriter():
 			elif provider_configs[section_identifier].isMakeCustomMain() and config.autobouquetsmaker.placement.getValue() == 'top':
 				customfilename = provider_configs[section_identifier].getCustomFilename()
 				bouquets_tv_list.append("#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s\" ORDER BY bouquet\n" % customfilename)
-				customseperator = "%s%s.separator.tv" % (self.ABM_BOUQUET_PREFIX, customfilename[:len(customfilename)-3])
+				customseperator = "%s%s.separator.tv" % (self.ABM_BOUQUET_PREFIX, customfilename[:len(customfilename) - 3])
 				bouquets_tv_list.append("#SERVICE 1:519:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s\" ORDER BY bouquet\n" % customseperator)
 				bouquetsToKeep2["tv"].append(customfilename)
 				bouquetsToKeep2["tv"].append(customseperator)
@@ -539,7 +542,7 @@ class BouquetsWriter():
 		i = 1
 		import re
 		for provider in list(services.keys()):
-			for type in ('video','radio'):
+			for type in ('video', 'radio'):
 				for lcn in services[provider][type]:
 					service = services[provider][type][lcn]
 					# sort flat, alphabetic before numbers
@@ -601,7 +604,7 @@ class BouquetsWriter():
 			provider_config.isMakeFTAHDMain() or \
 			provider_config.isMakeHD() or \
 			provider_config.isMakeFTAHD():
-			services_swapped = {"video":{}}
+			services_swapped = {"video": {}}
 			for number in services["video"]:
 				if number in swapDict:
 					services_swapped["video"][swapDict[number]] = services["video"][number]
@@ -729,7 +732,7 @@ class BouquetsWriter():
 				for key in sorted(list(sections.keys())):
 					if key_found:
 						higher_number = key - 1
-						break;
+						break
 
 					if key == section_number:
 						key_found = True
@@ -777,7 +780,7 @@ class BouquetsWriter():
 			current_bouquet_list.append("#SERVICE 1:64:0:0:0:0:0:0:0:0:\n")
 			current_bouquet_list.append("#DESCRIPTION %sSeparator\n" % section_prefix)
 
-			for x in list(range(current_number, (int(current_number/1000) + 1) * 1000)):
+			for x in list(range(current_number, (int(current_number / 1000) + 1) * 1000)):
 				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
@@ -820,7 +823,7 @@ class BouquetsWriter():
 						current_number += 1
 						current_bouquet_list.append(self.bouquetServiceLine(services_swapped["video"][number]))
 
-			for x in list(range(current_number, (int(current_number/1000) + 1) * 1000)):
+			for x in list(range(current_number, (int(current_number / 1000) + 1) * 1000)):
 				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
@@ -863,7 +866,7 @@ class BouquetsWriter():
 						current_number += 1
 						current_bouquet_list.append(self.bouquetServiceLine(services_swapped["video"][number]))
 
-			for x in list(range(current_number, (int(current_number/1000) + 1) * 1000)):
+			for x in list(range(current_number, (int(current_number / 1000) + 1) * 1000)):
 				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
@@ -908,7 +911,7 @@ class BouquetsWriter():
 						current_number += 1
 						current_bouquet_list.append(self.bouquetServiceLine(services["video"][number]))
 
-			for x in list(range(current_number, (int(current_number/1000) + 1) * 1000)):
+			for x in list(range(current_number, (int(current_number / 1000) + 1) * 1000)):
 				current_bouquet_list.append(self.spacer())
 				current_number += 1
 
@@ -953,7 +956,7 @@ class BouquetsWriter():
 
 	def utf8_convert(self, text):
 		if six.PY2:
-			for encoding in ["utf8","latin-1"]:
+			for encoding in ["utf8", "latin-1"]:
 				try:
 					text.decode(encoding=encoding)
 				except UnicodeDecodeError:
@@ -968,7 +971,7 @@ class BouquetsWriter():
 		else:
 			return six.ensure_str(text, encoding='utf-8', errors='strict')
 
-	def styledBouquetMarker(self, text, caller = "bouquets"):
+	def styledBouquetMarker(self, text, caller="bouquets"):
 		if caller == "index":
 			return "#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION %s\n" % (config.autobouquetsmaker.indexmarkerstyle.value % text)
 		return "#SERVICE 1:64:0:0:0:0:0:0:0:0:\n#DESCRIPTION %s\n" % (config.autobouquetsmaker.bouquetmarkerstyle.value % text)

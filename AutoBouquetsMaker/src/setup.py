@@ -21,6 +21,7 @@ from . import log
 import itertools
 import six
 
+
 class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 # Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker_Setup'.
 	skin = skin_setup()
@@ -47,9 +48,9 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		self.setup_title = _("AutoBouquetsMaker Providers")
 		Screen.setTitle(self, self.setup_title)
 
-		self.onChangedEntry = [ ]
+		self.onChangedEntry = []
 		self.list = []
-		ConfigListScreen.__init__(self, self.list, session = self.session, on_change = self.changedEntry)
+		ConfigListScreen.__init__(self, self.list, session=self.session, on_change=self.changedEntry)
 
 		self.activityTimer = eTimer()
 		self.activityTimer.timeout.get().append(self.prepare)
@@ -129,7 +130,6 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 			if len(self.providers[provider_key]["dependent"]) > 0 and self.providers[provider_key]["dependent"] in self.providers:
 				self.dependents_list.append(provider_key)
 
-
 		# read providers configurations
 		providers_tmp_configs = {}
 		providers_tmp = config.autobouquetsmaker.providers.value.split("|")
@@ -163,8 +163,8 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 
 		# build providers configurations
 		for provider in list(self.providers.keys()):
-			self.providers_configs[provider] = ConfigYesNo(default = (provider not in self.dependents_list and provider in list(providers_tmp_configs.keys())))
-			self.providers_swapchannels[provider] = ConfigYesNo(default = (provider in providers_tmp_configs and providers_tmp_configs[provider].isSwapChannels()))
+			self.providers_configs[provider] = ConfigYesNo(default=(provider not in self.dependents_list and provider in list(providers_tmp_configs.keys())))
+			self.providers_swapchannels[provider] = ConfigYesNo(default=(provider in providers_tmp_configs and providers_tmp_configs[provider].isSwapChannels()))
 
 			custom_bouquets_exists = False
 			self.providers_makemain[provider] = None
@@ -178,7 +178,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 				sections_default = True
 				if provider in providers_tmp_configs:
 					sections_default = providers_tmp_configs[provider].isMakeSections()
-				self.providers_makesections[provider] = ConfigYesNo(default = sections_default)
+				self.providers_makesections[provider] = ConfigYesNo(default=sections_default)
 				custom_bouquets_exists = True
 
 			if self.providers[provider]["protocol"] != "fastscan":	# fastscan doesn't have enough information to make HD and/or FTA bouquets
@@ -189,9 +189,9 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 					hd_default = providers_tmp_configs[provider].isMakeHD()
 					fta_default = providers_tmp_configs[provider].isMakeFTA()
 					ftahd_default = providers_tmp_configs[provider].isMakeFTAHD()
-				self.providers_makehd[provider] = ConfigYesNo(default = hd_default)
-				self.providers_makefta[provider] = ConfigYesNo(default = fta_default)
-				self.providers_makeftahd[provider] = ConfigYesNo(default = ftahd_default)
+				self.providers_makehd[provider] = ConfigYesNo(default=hd_default)
+				self.providers_makefta[provider] = ConfigYesNo(default=fta_default)
+				self.providers_makeftahd[provider] = ConfigYesNo(default=ftahd_default)
 				custom_bouquets_exists = True
 
 			if sorted(list(self.providers[provider]["sections"].keys()))[0] > 1:
@@ -229,10 +229,10 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 								bouquet_default = bouquet_entry[0]
 								break
 
-					self.providers_custommain[provider] = ConfigSelection(default = bouquet_default, choices = bouquets_list)
+					self.providers_custommain[provider] = ConfigSelection(default=bouquet_default, choices=bouquets_list)
 
 				makemain_list.append(("no", _("no")))
-				self.providers_makemain[provider] = ConfigSelection(default = makemain_default, choices = makemain_list)
+				self.providers_makemain[provider] = ConfigSelection(default=makemain_default, choices=makemain_list)
 
 			elif custom_bouquets_exists:
 				makemain_default = "no"
@@ -240,7 +240,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 					makemain_default = "yes"
 				if provider in providers_tmp_configs and providers_tmp_configs[provider].isMakeNormalMain():
 					makemain_default = "yes"
-				self.providers_makemain[provider] = ConfigSelection(default = makemain_default, choices = [("yes", _("yes")), ("no", _("no"))])
+				self.providers_makemain[provider] = ConfigSelection(default=makemain_default, choices=[("yes", _("yes")), ("no", _("no"))])
 
 			arealist = []
 			bouquets = self.providers[provider]["bouquets"]
@@ -251,12 +251,12 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 				default_area = None
 				if provider in providers_tmp_configs:
 					default_area = providers_tmp_configs[provider].getArea()
-				self.providers_area[provider] = ConfigSelection(default = default_area, choices = arealist)
+				self.providers_area[provider] = ConfigSelection(default=default_area, choices=arealist)
 
 			# FTA only
 			FTA_only = config.autobouquetsmaker.FTA_only.value.split("|")
 			FTA = self.providers[provider]["protocol"] != "fastscan" and config.autobouquetsmaker.level.value == "expert" and provider in FTA_only
-			self.providers_FTA_only[provider] = ConfigYesNo(default = FTA)
+			self.providers_FTA_only[provider] = ConfigYesNo(default=FTA)
 
 		self.createSetup()
 		self["pleasewait"].hide()
@@ -267,8 +267,8 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		for provider in list(providers.keys()):
 			temp.append((provider, providers[provider]["name"]))
 		if six.PY2:
-			return [i[0] for i in sorted(temp, key=lambda p: p[1].lower().decode('ascii','ignore'))]
-		return [i[0] for i in sorted(temp, key=lambda p: six.ensure_binary(p[1]).lower().decode('ascii','ignore'))]
+			return [i[0] for i in sorted(temp, key=lambda p: p[1].lower().decode('ascii', 'ignore'))]
+		return [i[0] for i in sorted(temp, key=lambda p: six.ensure_binary(p[1]).lower().decode('ascii', 'ignore'))]
 
 	def createSetup(self):
 		self.editListEntry = None
@@ -435,6 +435,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		else:
 			self.close()
 
+
 class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 	skin = skin_setup()
 
@@ -444,9 +445,9 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 		self.setup_title = _("AutoBouquetsMaker Configure")
 		Screen.setTitle(self, self.setup_title)
 
-		self.onChangedEntry = [ ]
+		self.onChangedEntry = []
 		self.list = []
-		ConfigListScreen.__init__(self, self.list, session = self.session, on_change = self.changedEntry)
+		ConfigListScreen.__init__(self, self.list, session=self.session, on_change=self.changedEntry)
 
 		self.activityTimer = eTimer()
 		self.activityTimer.timeout.get().append(self.prepare)
@@ -564,8 +565,9 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 		else:
 			self.close()
 
+
 class AutoBouquetsMakerDaysScreen(ConfigListScreen, Screen):
-	def __init__(self, session, args = 0):
+	def __init__(self, session, args=0):
 		self.session = session
 		Screen.__init__(self, session)
 		Screen.setTitle(self, _('AutoBouquetsMaker') + " - " + _("Select days"))
@@ -589,7 +591,7 @@ class AutoBouquetsMakerDaysScreen(ConfigListScreen, Screen):
 
 	def keySave(self):
 		if not any([self.config.days[i].value for i in self.config.days]):
-			info = self.session.open(MessageBox, _("At least one day of the week must be selected"), MessageBox.TYPE_ERROR, timeout = 30)
+			info = self.session.open(MessageBox, _("At least one day of the week must be selected"), MessageBox.TYPE_ERROR, timeout=30)
 			info.setTitle(_('Radio Times Emulator') + " - " + _("Select days"))
 			return
 		for x in self["config"].list:
@@ -611,7 +613,7 @@ class AutoBouquetsMakerDaysScreen(ConfigListScreen, Screen):
 
 class SetupSummary(Screen):
 	def __init__(self, session, parent):
-		Screen.__init__(self, session, parent = parent)
+		Screen.__init__(self, session, parent=parent)
 		self["SetupTitle"] = StaticText(_(parent.setup_title))
 		self["SetupEntry"] = StaticText("")
 		self["SetupValue"] = StaticText("")
@@ -630,5 +632,5 @@ class SetupSummary(Screen):
 	def selectionChanged(self):
 		self["SetupEntry"].text = self.parent.getCurrentEntry()
 		self["SetupValue"].text = self.parent.getCurrentValue()
-		if hasattr(self.parent,"getCurrentDescription"):
+		if hasattr(self.parent, "getCurrentDescription"):
 			self.parent["description"].text = self.parent.getCurrentDescription()

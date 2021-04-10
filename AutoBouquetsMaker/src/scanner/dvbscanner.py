@@ -4,8 +4,10 @@ from .. import log
 
 import dvbreader
 import datetime
-import time, os
+import time
+import os
 from Components.config import config
+
 
 class DvbScanner():
 	TIMEOUT_SEC = 20
@@ -109,11 +111,11 @@ class DvbScanner():
 		if transponder["dvb_type"] == 'dvbc':
 			namespace = 0xFFFF0000
 			if self.namespace_complete_cable:
-				namespace |= (transponder['frequency']//1000)&0xFFFF
+				namespace |= (transponder['frequency'] // 1000) & 0xFFFF
 		elif transponder["dvb_type"] == 'dvbt':
 			namespace = 0xEEEE0000
 			if self.namespace_complete_terrestrial:
-				namespace |= (transponder['frequency']//1000000)&0xFFFF
+				namespace |= (transponder['frequency'] // 1000000) & 0xFFFF
 		elif transponder["dvb_type"] == 'dvbs':
 			orbital_position = transponder['orbital_position']
 			namespace = orbital_position << 16
@@ -160,7 +162,7 @@ class DvbScanner():
 
 		return passed_test
 
-	def updateTransponders(self, transponders, read_other_section = False, customtransponders = {}, netid = None, bouquettype = None, bouquet_id = -1):
+	def updateTransponders(self, transponders, read_other_section=False, customtransponders={}, netid=None, bouquettype=None, bouquet_id=-1):
 		print("[ABM-DvbScanner] Reading transponders...", file=log)
 
 		if self.nit_other_table_id == 0x00:
@@ -527,7 +529,7 @@ class DvbScanner():
 			print("[ABM-DvbScanner] LCN list from BAT", sorted(lcn_list))
 			for service in hex_list:
 				print("[ABM-DvbScanner] hexcontent", service)
-				bytes = [int(''.join(service["hexcontent"][i:i+2]), 16) for i in list(range(0, len(service["hexcontent"]), 2))][2:]
+				bytes = [int(''.join(service["hexcontent"][i:i + 2]), 16) for i in list(range(0, len(service["hexcontent"]), 2))][2:]
 				hexchars = []
 				for byte in bytes:
 					if byte > 31 and byte < 127:
@@ -664,7 +666,6 @@ class DvbScanner():
 
 				service_count += 1
 
-
 		if self.extra_debug:
 			print("[ABM-DvbScanner] TSID list from SDT", sorted(tsid_list))
 			print("[ABM-DvbScanner] SID list from SDT", sorted(sid_list))
@@ -799,7 +800,7 @@ class DvbScanner():
 			service["number"] = logical_channel_number_dict[servicekey]["logical_channel_number"]
 
 			service["orbital_position"] = service["namespace"] // (16**4)
-			
+
 			if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and (service["service_name"][-2:] == 'HD' or ' HD ' in service["service_name"]):
 				service["service_type"] = 25
 
@@ -839,7 +840,6 @@ class DvbScanner():
 			if tpkey not in transponders:
 				services_without_transponders += 1
 				continue
-
 
 			transponders[tpkey]["services"][service["service_id"]] = service
 			service_extra_count += 1
@@ -943,7 +943,7 @@ class DvbScanner():
 				continue
 
 			if service["service_type"] == 0x05:
-				service["service_type"] = 0x01;		# enigma2 doesn't like 0x05 VOD
+				service["service_type"] = 0x01		# enigma2 doesn't like 0x05 VOD
 
 			service["free_ca"] = 1
 			service["service_name"] = "Unknown"
@@ -1096,7 +1096,6 @@ class DvbScanner():
 					if number not in radio_services:
 						radio_services[number] = service
 
-
 		print("[ABM-DvbScanner] Read extra info for %d services" % service_extra_count, file=log)
 		return {
 			"video": video_services,
@@ -1210,7 +1209,7 @@ class DvbScanner():
 				continue
 
 			if service["service_type"] == 0x05:
-				service["service_type"] = 0x01;		# enigma2 doesn't like 0x05 VOD
+				service["service_type"] = 0x01		# enigma2 doesn't like 0x05 VOD
 
 			key = "%x:%x:%x" % (service["transport_stream_id"], service["original_network_id"], service["service_id"])
 			if key in tmp_services_dict:
@@ -1221,18 +1220,18 @@ class DvbScanner():
 		print("[ABM-DvbScanner] Reading services extra info...", file=log)
 
 		#Clear double LCN values
-		tmp_numbers =[]
+		tmp_numbers = []
 		tmp_double_numbers = []
 		for key in tmp_services_dict:
 			if len(tmp_services_dict[key]["numbers"]) > 1:
 				if tmp_services_dict[key]["numbers"][0] not in tmp_numbers:
-					tmp_numbers.append (tmp_services_dict[key]["numbers"][0])
+					tmp_numbers.append(tmp_services_dict[key]["numbers"][0])
 				else:
-					tmp_double_numbers.append (tmp_services_dict[key]["numbers"][0])
+					tmp_double_numbers.append(tmp_services_dict[key]["numbers"][0])
 				if tmp_services_dict[key]["numbers"][1] not in tmp_numbers:
-					tmp_numbers.append (tmp_services_dict[key]["numbers"][1])
+					tmp_numbers.append(tmp_services_dict[key]["numbers"][1])
 				else:
-					tmp_double_numbers.append (tmp_services_dict[key]["numbers"][1])
+					tmp_double_numbers.append(tmp_services_dict[key]["numbers"][1])
 		for key in tmp_services_dict:
 			if len(tmp_services_dict[key]["numbers"]) > 1:
 				if tmp_services_dict[key]["numbers"][0] in tmp_double_numbers:
@@ -1337,7 +1336,6 @@ class DvbScanner():
 			if tpkey not in transponders:
 				continue
 
-
 			transponders[tpkey]["services"][service["service_id"]] = service
 			service_extra_count += 1
 
@@ -1352,7 +1350,6 @@ class DvbScanner():
 				for number in service["numbers"]:
 					if number not in radio_services:
 						radio_services[number] = service
-
 
 		print("[ABM-DvbScanner] Read extra info for %d services" % service_extra_count, file=log)
 		return {
@@ -1374,7 +1371,7 @@ class DvbScanner():
 			return tmp_services_dict, LCNs
 		current_lcn = max(LCNs) + space_for_iteractive
 		while current_lcn % round_to_nearest:
-			current_lcn+= 1
+			current_lcn += 1
 		if current_lcn <= max_channel_number:
 			import re
 			sort_list = []

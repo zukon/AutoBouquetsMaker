@@ -31,8 +31,10 @@ from Tools.LoadPixmap import LoadPixmap
 from .skin_templates import skin_mainmenu, skin_log
 
 from time import localtime, time, strftime
-import os, sys
+import os
+import sys
 from . import log
+
 
 class AutoBouquetsMaker_Menu(Screen):
 	skin = skin_mainmenu()
@@ -47,10 +49,10 @@ class AutoBouquetsMaker_Menu(Screen):
 		self.init_schedule = config.autobouquetsmaker.schedule.getValue()
 		self.init_scheduletime = config.autobouquetsmaker.scheduletime.getValue()
 		self.init_frequencyfinder = config.autobouquetsmaker.frequencyfinder.getValue()
-		print('[ABM-menu][__init__] self.init_schedule',self.init_schedule)
-		print('[ABM-menu][__init__] self.init_scheduletime',self.init_scheduletime)
+		print('[ABM-menu][__init__] self.init_schedule', self.init_schedule)
+		print('[ABM-menu][__init__] self.init_scheduletime', self.init_scheduletime)
 
-		self.onChangedEntry = [ ]
+		self.onChangedEntry = []
 		l = []
 
 		self["list"] = List(l)
@@ -65,7 +67,6 @@ class AutoBouquetsMaker_Menu(Screen):
 		}, -2)
 		self["key_red"] = Button(_("Exit"))
 		self["key_green"] = Button(_("Scan"))
-
 
 		self.createsetup()
 		if len(config.autobouquetsmaker.providers.value) < 1:
@@ -107,7 +108,7 @@ class AutoBouquetsMaker_Menu(Screen):
 	def buildListEntry(self, description, image):
 		pixmap = LoadPixmap(resolveFilename(SCOPE_CURRENT_SKIN, "autobouquetsmaker/" + image))
 		if pixmap == None:
-			pixmap = LoadPixmap(cached=True, path="%s/images/%s" % (os.path.dirname(sys.modules[__name__].__file__), image));
+			pixmap = LoadPixmap(cached=True, path="%s/images/%s" % (os.path.dirname(sys.modules[__name__].__file__), image))
 		return((pixmap, description))
 
 	def openSetup(self):
@@ -193,9 +194,10 @@ class AutoBouquetsMaker_Menu(Screen):
 	def quit(self):
 		self.close()
 
+
 class AutoBouquetsMaker_MenuSummary(Screen):
 	def __init__(self, session, parent):
-		Screen.__init__(self, session, parent = parent)
+		Screen.__init__(self, session, parent=parent)
 		self.skinName = ["AutoBouquetsMaker_MenuSummary", "SetupSummary"]
 		self["SetupTitle"] = StaticText(_(parent.setup_title))
 		self["SetupEntry"] = StaticText("")
@@ -215,6 +217,7 @@ class AutoBouquetsMaker_MenuSummary(Screen):
 	def selectionChanged(self):
 		self["SetupEntry"].text = self.parent.getCurrentEntry()
 		self["SetupValue"].text = self.parent.getCurrentValue()
+
 
 class AutoBouquetsMaker_Log(Screen):
 	skin = skin_log()
@@ -241,7 +244,7 @@ class AutoBouquetsMaker_Log(Screen):
 		output = open('/tmp/abm.log', 'w')
 		output.write(log.getvalue())
 		output.close()
-		self.session.open(MessageBox,_("ABM log file has been saved to the tmp directory"),MessageBox.TYPE_INFO, timeout = 45)
+		self.session.open(MessageBox, _("ABM log file has been saved to the tmp directory"), MessageBox.TYPE_INFO, timeout=45)
 
 	def cancel(self):
 		self.close()

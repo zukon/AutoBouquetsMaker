@@ -15,7 +15,7 @@ from Components.Sources.FrontendStatus import FrontendStatus
 
 from Components.config import config, configfile
 from Components.NimManager import nimmanager
-from enigma import eTimer, eDVBDB, eDVBFrontendParametersSatellite,eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable, eDVBResourceManager, eDVBFrontendParameters
+from enigma import eTimer, eDVBDB, eDVBFrontendParametersSatellite, eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable, eDVBResourceManager, eDVBFrontendParameters
 
 from .manager import Manager
 from .providerconfig import ProviderConfig
@@ -29,6 +29,7 @@ import sys
 
 from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN
 
+
 class AutoBouquetsMaker(Screen):
 	skin = skin_downloadBar()
 
@@ -36,7 +37,7 @@ class AutoBouquetsMaker(Screen):
 	LOCK_TIMEOUT_ROTOR = 1200 	# 100ms for tick - 120 sec
 	ABM_BOUQUET_PREFIX = "userbouquet.abm."
 
-	def __init__(self, session, args = 0):
+	def __init__(self, session, args=0):
 		self.printconfig()
 		self.session = session
 		Screen.__init__(self, session)
@@ -59,7 +60,7 @@ class AutoBouquetsMaker(Screen):
 		self["progress"] = ProgressBar()
 		self["progress_text"] = Progress()
 		self["tuner_text"] = Label("")
-		self["Frontend"] = FrontendStatus(frontend_source = lambda : self.frontend, update_interval = 100)
+		self["Frontend"] = FrontendStatus(frontend_source=lambda: self.frontend, update_interval=100)
 
 		# dependent providers
 		self.dependents = {}
@@ -251,8 +252,8 @@ class AutoBouquetsMaker(Screen):
 			except AttributeError:
 				try:
 					if (nim.config_mode not in ("loopthrough", "satposdepends", "nothing")) and \
-						((self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.isCompatible("DVB-S")) or \
-						(self.providers[self.currentAction]["streamtype"] == "dvbc" and (nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")))) or \
+						((self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.isCompatible("DVB-S")) or
+						(self.providers[self.currentAction]["streamtype"] == "dvbc" and (nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")))) or
 						(self.providers[self.currentAction]["streamtype"] == "dvbt" and (nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T"))))):
 						if self.validNIM(nim.slot):
 							nimList.append(nim.slot)
@@ -342,10 +343,10 @@ class AutoBouquetsMaker(Screen):
 		if self.providers[self.currentAction]["streamtype"] == "dvbs" and self.isRotorSat(current_slotid, transponder["orbital_position"]):
 			self.motorised = True
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_ROTOR
-			print("[ABM-main][doTune] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT//10), file=log)
+			print("[ABM-main][doTune] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT // 10), file=log)
 		else:
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_FIXED
-			print("[ABM-main][doTune] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT//10), file=log)
+			print("[ABM-main][doTune] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT // 10), file=log)
 
 		if not inStandby:
 			self["tuner_text"].setText(chr(ord('A') + current_slotid))
@@ -452,13 +453,13 @@ class AutoBouquetsMaker(Screen):
 			print("[ABM-main][checkTunerLock] LOSTLOCK", file=log)
 		elif tuner_state == "FAILED":
 			print("[ABM-main][checkTunerLock] TUNING FAILED FATAL", file=log)
-			self.showError(_('Tuning failed!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]//1000))
+			self.showError(_('Tuning failed!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"] // 1000))
 			return
 
 		self.lockcounter += 1
 		if self.lockcounter > self.LOCK_TIMEOUT:
 			print("[AutoBouquetsMaker] Timeout for tuner lock, ", file=log)
-			self.showError(_('Tuning lock timed out!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"]//1000))
+			self.showError(_('Tuning lock timed out!\n\nProvider: %s\nTuner: %s\nFrequency: %d MHz\n\nPlease check affected tuner for:\n\nTuner configuration errors,\nSignal cabling issues,\nAny other reception issues.') % (str(self.providers[self.currentAction]["name"]), chr(ord('A') + self.current_slotid), self.transponder["frequency"] // 1000))
 			return
 
 		self.locktimer.start(100, 1)
@@ -523,7 +524,7 @@ class AutoBouquetsMaker(Screen):
 		if self.postScanService:
 			self.session.nav.playService(self.postScanService)
 			self.postScanService = None
-	
+
 	def isRotorSat(self, slot, orb_pos):
 		rotorSatsForNim = nimmanager.getRotorSatListForNim(slot)
 		if len(rotorSatsForNim) > 0:
@@ -536,26 +537,26 @@ class AutoBouquetsMaker(Screen):
 		return self.providers[self.currentAction]["streamtype"] != "dvbs" or self.providers[self.currentAction]["transponder"]["orbital_position"] in [sat[0] for sat in nimmanager.getSatListForNim(slot)]
 
 	def printconfig(self):
-		print("[ABM-config] level: ",config.autobouquetsmaker.level.value, file=log)
-		print("[ABM-config] providers: ",config.autobouquetsmaker.providers.value, file=log)
+		print("[ABM-config] level: ", config.autobouquetsmaker.level.value, file=log)
+		print("[ABM-config] providers: ", config.autobouquetsmaker.providers.value, file=log)
 		if config.autobouquetsmaker.bouquetsorder.value:
-			print("[ABM-config] bouquetsorder: ",config.autobouquetsmaker.bouquetsorder.value, file=log)
+			print("[ABM-config] bouquetsorder: ", config.autobouquetsmaker.bouquetsorder.value, file=log)
 		if config.autobouquetsmaker.keepallbouquets.value:
 			print("[ABM-config] keepbouquets: All", file=log)
 		else:
-			print("[ABM-config] keepbouquets: ",config.autobouquetsmaker.keepbouquets.value, file=log)
+			print("[ABM-config] keepbouquets: ", config.autobouquetsmaker.keepbouquets.value, file=log)
 		if config.autobouquetsmaker.hidesections.value:
-			print("[ABM-config] hidesections: ",config.autobouquetsmaker.hidesections.value, file=log)
-		print("[ABM-config] add provider prefix: ",config.autobouquetsmaker.addprefix.value, file=log)
-		print("[ABM-config] show in extensions menu: ",config.autobouquetsmaker.extensions.value, file=log)
-		print("[ABM-config] placement: ",config.autobouquetsmaker.placement.value, file=log)
-		print("[ABM-config] skip services on non-configured satellites: ",config.autobouquetsmaker.skipservices.value, file=log)
-		print("[ABM-config] show non-indexed: ",config.autobouquetsmaker.showextraservices.value, file=log)
+			print("[ABM-config] hidesections: ", config.autobouquetsmaker.hidesections.value, file=log)
+		print("[ABM-config] add provider prefix: ", config.autobouquetsmaker.addprefix.value, file=log)
+		print("[ABM-config] show in extensions menu: ", config.autobouquetsmaker.extensions.value, file=log)
+		print("[ABM-config] placement: ", config.autobouquetsmaker.placement.value, file=log)
+		print("[ABM-config] skip services on non-configured satellites: ", config.autobouquetsmaker.skipservices.value, file=log)
+		print("[ABM-config] show non-indexed: ", config.autobouquetsmaker.showextraservices.value, file=log)
 		if config.autobouquetsmaker.FTA_only.value:
-			print("[ABM-config] FTA_only: ",config.autobouquetsmaker.FTA_only.value, file=log)
-		print("[ABM-config] schedule: ",config.autobouquetsmaker.schedule.value, file=log)
+			print("[ABM-config] FTA_only: ", config.autobouquetsmaker.FTA_only.value, file=log)
+		print("[ABM-config] schedule: ", config.autobouquetsmaker.schedule.value, file=log)
 		if config.autobouquetsmaker.schedule.value:
-			print("[ABM-config] schedule time: ",config.autobouquetsmaker.scheduletime.value, file=log)
+			print("[ABM-config] schedule time: ", config.autobouquetsmaker.scheduletime.value, file=log)
 			print("[ABM-config] schedule days: ", [("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")[i] for i in range(7) if config.autobouquetsmaker.days[i].value], file=log)
 
 	def getABMsettings(self):
@@ -569,16 +570,18 @@ class AutoBouquetsMaker(Screen):
 		return config.autobouquetsmaker.providers.value + ''.join(providers_extra)
 
 	def about(self):
-		self.session.open(MessageBox,"AutoBouquetsMaker\nVersion date - 21/10/2012\n\nCoded by:\n\nSkaman and AndyBlac",MessageBox.TYPE_INFO)
+		self.session.open(MessageBox, "AutoBouquetsMaker\nVersion date - 21/10/2012\n\nCoded by:\n\nSkaman and AndyBlac", MessageBox.TYPE_INFO)
 
 	def help(self):
-		self.session.open(MessageBox,"AutoBouquetsMaker\nto be coded.",MessageBox.TYPE_INFO)
+		self.session.open(MessageBox, "AutoBouquetsMaker\nto be coded.", MessageBox.TYPE_INFO)
 
 	def cancel(self):
 		self.close(None)
 
 
 autoScheduleTimer = None
+
+
 def Scheduleautostart(reason, session=None, **kwargs):
 	#
 	# This gets called twice at start up,once by WHERE_AUTOSTART without session,
@@ -592,7 +595,7 @@ def Scheduleautostart(reason, session=None, **kwargs):
 	#
 	schedulename = "ABM-Scheduler"
 	configname = config.autobouquetsmaker
-	
+
 	print("[%s][Scheduleautostart] reason(%d), session" % (schedulename, reason), session, file=log)
 	if reason == 0 and session is None:
 		return
@@ -620,8 +623,10 @@ def Scheduleautostart(reason, session=None, **kwargs):
 		if autoScheduleTimer is not None:
 			autoScheduleTimer.schedulestop()
 
+
 class AutoScheduleTimer:
 	instance = None
+
 	def __init__(self, session):
 		self.schedulename = "ABM-Scheduler"
 		self.config = config.autobouquetsmaker
@@ -661,21 +666,21 @@ class AutoScheduleTimer:
 	def getScheduleDayOfWeek(self):
 		today = self.getToday()
 		for i in range(1, 8):
-			if self.config.days[(today+i)%7].value:
+			if self.config.days[(today + i) % 7].value:
 				return i
 
 	def getToday(self):
 		return localtime(time()).tm_wday
 
-	def scheduledate(self, atLeast = 0):
+	def scheduledate(self, atLeast=0):
 		self.scheduletimer.stop()
 		self.ScheduleTime = self.getScheduleTime()
 		now = int(time())
 		if self.ScheduleTime > 0:
 			if self.ScheduleTime < now + atLeast:
-				self.ScheduleTime += 86400*self.getScheduleDayOfWeek()
+				self.ScheduleTime += 86400 * self.getScheduleDayOfWeek()
 			elif not self.config.days[self.getToday()].value:
-				self.ScheduleTime += 86400*self.getScheduleDayOfWeek()
+				self.ScheduleTime += 86400 * self.getScheduleDayOfWeek()
 			next = self.ScheduleTime - now
 			self.scheduletimer.startLongTimer(next)
 		else:
@@ -700,7 +705,7 @@ class AutoScheduleTimer:
 			from Screens.Standby import inStandby
 			if not inStandby:
 				message = _("%s update is about to start.\nDo you want to allow this?") % self.schedulename
-				ybox = self.session.openWithCallback(self.doSchedule, MessageBox, message, MessageBox.TYPE_YESNO, timeout = 30)
+				ybox = self.session.openWithCallback(self.doSchedule, MessageBox, message, MessageBox.TYPE_YESNO, timeout=30)
 				ybox.setTitle(_('%s scheduled update') % self.schedulename)
 			else:
 				self.doSchedule(True)
@@ -718,7 +723,7 @@ class AutoScheduleTimer:
 			else:
 				atLeast = 60
 				print("[%s][doSchedule] Enough Retries, delaying till next schedule." % self.schedulename, strftime("%c", localtime(now)), file=log)
-				self.session.open(MessageBox, _("Enough Retries, delaying till next schedule."), MessageBox.TYPE_INFO, timeout = 10)
+				self.session.open(MessageBox, _("Enough Retries, delaying till next schedule."), MessageBox.TYPE_INFO, timeout=10)
 				self.config.retrycount.value = 0
 				self.scheduledate(atLeast)
 		else:

@@ -2,15 +2,19 @@ from __future__ import print_function
 from __future__ import absolute_import
 
 from .. import log
-import os, codecs, re
+import os
+import codecs
+import re
 import xml.dom.minidom
 from Components.config import config
 from .dvbscanner import DvbScanner
 import six
 from six.moves.urllib.parse import quote
 
+
 class Tools():
 	SERVICEREF_ALLOWED_TYPES = [1, 4097, 5001, 5002]
+
 	def parseXML(self, filename):
 		try:
 			tool = open(filename, "r")
@@ -53,7 +57,7 @@ class Tools():
 				xml_out_list.append("\t\t<configuration lcn=\"%d\" channelnumber=\"%d\" description=\"%s\"></configuration>\n" % (
 					number,
 					number,
-					servicename.replace("&","+")
+					servicename.replace("&", "+")
 					))
 			xml_out_list.append("\t</lcnlist>\n</custom>\n")
 			xmlout = open(custom_dir + "/EXAMPLE_" + ("sd" if current_bouquet_key.startswith('sd') else "hd") + "_" + section_identifier + "_Custom" + ("radio" if type == "radio" else "") + "LCN.xml", "w")
@@ -145,7 +149,7 @@ class Tools():
 		sections = providers[section_identifier]["sections"]
 		custom_dir = os.path.dirname(__file__) + "/../custom"
 		customfile = custom_dir + "/" + section_identifier + "_CustomMix.xml"
-		customised = {"video":{}, "radio":{}}
+		customised = {"video": {}, "radio": {}}
 		for type in ["video", "radio"]:
 			for number in services[section_identifier][type]:
 				customised[type][number] = services[section_identifier][type][number]
@@ -306,11 +310,11 @@ class Tools():
 	def favourites(self, path, services, providers, providerConfigs, bouquetsOrder):
 		custom_dir = os.path.dirname(__file__) + "/../custom"
 		provider_key = "favourites"
-		customised = {"video":{}, "radio":{}}
+		customised = {"video": {}, "radio": {}}
 		name = ""
 		prefix = ""
 		sections = {}
-		bouquets = {"main":1, "sections":1}
+		bouquets = {"main": 1, "sections": 1}
 		area_key = ""
 		bouquets_to_hide = []
 		bouquetsToHide = []
@@ -378,7 +382,7 @@ class Tools():
 				elif node.tagName == "placement":
 					node.normalize()
 					if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE:
-						placement = min(int(node.childNodes[0].data) -1, len(bouquetsOrder))
+						placement = min(int(node.childNodes[0].data) - 1, len(bouquetsOrder))
 						if placement < 0:
 							placement = 0
 

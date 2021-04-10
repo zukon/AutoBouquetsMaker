@@ -35,11 +35,12 @@ from Tools.Directories import resolveFilename, fileExists, SCOPE_CURRENT_SKIN
 
 from .skin_templates import skin_downloadBar
 
+
 class AutoBouquetsMaker_UpdateProviders(Screen):
 # Note to skinners: no need to skin this screen if you have skinned the screen 'AutoBouquetsMaker'.
 	skin = skin_downloadBar()
 
-	def __init__(self, session, args = 0):
+	def __init__(self, session, args=0):
 		print("[ABM-UpdateProviders][__init__] Starting...", file=log)
 		print("[ABM-UpdateProviders][__init__] args", args)
 		Screen.__init__(self, session)
@@ -199,7 +200,7 @@ class AutoBouquetsMaker_UpdateProviders(Screen):
 			else:
 				if hasattr(e, 'reason'):
 					print('[ABM-UpdateProviders][getResource] Failed to reach Github: ', str(e.reason), file=log)
-					self.showError(_('Network connection error: \n%s')% str(e.reason))
+					self.showError(_('Network connection error: \n%s') % str(e.reason))
 				else:
 					print('[ABM-UpdateProviders][getResource] Failed to reach Github.', file=log)
 					self.showError(_('Network connection error.'))
@@ -289,8 +290,8 @@ class ShowResult(Screen):
 		self["actions"] = ActionMap(["WizardActions", "ColorActions"],
 		{
 			"up": self.pageUp,
-			"down":	self.pageDown,
-			"left":	self.pageUp,
+			"down": self.pageDown,
+			"left": self.pageUp,
 			"right": self.pageDown,
 			"back": self.close,
 			"red": self.close,
@@ -301,4 +302,3 @@ class ShowResult(Screen):
 
 	def pageDown(self):
 		self["config"].pageDown()
-
