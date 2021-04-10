@@ -27,7 +27,7 @@ class AutoBouquetsMaker_Ordering(Screen):
 		self.providers_order = config.autobouquetsmaker.providers.value.split("|")
 		self.has_changed = False
 
-		self.onChangedEntry = [ ]
+		self.onChangedEntry = []
 		self.list = []
 		self["list"] = List(self.list)
 		self["list"].onSelectionChanged.append(self.selectionChanged)
@@ -148,7 +148,7 @@ class AutoBouquetsMaker_Ordering(Screen):
 		self.close()
 
 	def keyCancel(self):
-		if self.has_changed :
+		if self.has_changed:
 			self.session.openWithCallback(self.cancelConfirm, MessageBox, _("Really close without saving settings?"))
 		else:
 			self.close()

@@ -47,7 +47,7 @@ class AutoBouquetsMaker_ProvidersSetup(ConfigListScreen, Screen):
 		self.setup_title = _("AutoBouquetsMaker Providers")
 		Screen.setTitle(self, self.setup_title)
 
-		self.onChangedEntry = [ ]
+		self.onChangedEntry = []
 		self.list = []
 		ConfigListScreen.__init__(self, self.list, session=self.session, on_change=self.changedEntry)
 
@@ -444,7 +444,7 @@ class AutoBouquetsMaker_Setup(ConfigListScreen, Screen):
 		self.setup_title = _("AutoBouquetsMaker Configure")
 		Screen.setTitle(self, self.setup_title)
 
-		self.onChangedEntry = [ ]
+		self.onChangedEntry = []
 		self.list = []
 		ConfigListScreen.__init__(self, self.list, session=self.session, on_change=self.changedEntry)
 

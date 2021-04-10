@@ -51,7 +51,7 @@ class AutoBouquetsMaker_Menu(Screen):
 		print('[ABM-menu][__init__] self.init_schedule',self.init_schedule)
 		print('[ABM-menu][__init__] self.init_scheduletime',self.init_scheduletime)
 
-		self.onChangedEntry = [ ]
+		self.onChangedEntry = []
 		l = []
 
 		self["list"] = List(l)

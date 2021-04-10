@@ -1227,13 +1227,13 @@ class DvbScanner():
 		for key in tmp_services_dict:
 			if len(tmp_services_dict[key]["numbers"]) > 1:
 				if tmp_services_dict[key]["numbers"][0] not in tmp_numbers:
-					tmp_numbers.append (tmp_services_dict[key]["numbers"][0])
+					tmp_numbers.append(tmp_services_dict[key]["numbers"][0])
 				else:
-					tmp_double_numbers.append (tmp_services_dict[key]["numbers"][0])
+					tmp_double_numbers.append(tmp_services_dict[key]["numbers"][0])
 				if tmp_services_dict[key]["numbers"][1] not in tmp_numbers:
-					tmp_numbers.append (tmp_services_dict[key]["numbers"][1])
+					tmp_numbers.append(tmp_services_dict[key]["numbers"][1])
 				else:
-					tmp_double_numbers.append (tmp_services_dict[key]["numbers"][1])
+					tmp_double_numbers.append(tmp_services_dict[key]["numbers"][1])
 		for key in tmp_services_dict:
 			if len(tmp_services_dict[key]["numbers"]) > 1:
 				if tmp_services_dict[key]["numbers"][0] in tmp_double_numbers:
