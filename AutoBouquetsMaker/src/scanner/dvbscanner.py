@@ -944,7 +944,7 @@ class DvbScanner():
 				continue
 
 			if service["service_type"] == 0x05:
-				service["service_type"] = 0x01;		# enigma2 doesn't like 0x05 VOD
+				service["service_type"] = 0x01		# enigma2 doesn't like 0x05 VOD
 
 			service["free_ca"] = 1
 			service["service_name"] = "Unknown"
@@ -1211,7 +1211,7 @@ class DvbScanner():
 				continue
 
 			if service["service_type"] == 0x05:
-				service["service_type"] = 0x01;		# enigma2 doesn't like 0x05 VOD
+				service["service_type"] = 0x01		# enigma2 doesn't like 0x05 VOD
 
 			key = "%x:%x:%x" % (service["transport_stream_id"], service["original_network_id"], service["service_id"])
 			if key in tmp_services_dict:

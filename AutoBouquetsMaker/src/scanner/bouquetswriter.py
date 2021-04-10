@@ -731,7 +731,7 @@ class BouquetsWriter():
 				for key in sorted(list(sections.keys())):
 					if key_found:
 						higher_number = key - 1
-						break;
+						break
 
 					if key == section_number:
 						key_found = True

@@ -251,8 +251,8 @@ class AutoBouquetsMaker(Screen):
 			except AttributeError:
 				try:
 					if (nim.config_mode not in ("loopthrough", "satposdepends", "nothing")) and \
-						((self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.isCompatible("DVB-S")) or \
-						(self.providers[self.currentAction]["streamtype"] == "dvbc" and (nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")))) or \
+						((self.providers[self.currentAction]["streamtype"] == "dvbs" and nim.isCompatible("DVB-S")) or
+						(self.providers[self.currentAction]["streamtype"] == "dvbc" and (nim.isCompatible("DVB-C") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-C")))) or
 						(self.providers[self.currentAction]["streamtype"] == "dvbt" and (nim.isCompatible("DVB-T") or (nim.isCompatible("DVB-S") and nim.canBeCompatible("DVB-T"))))):
 						if self.validNIM(nim.slot):
 							nimList.append(nim.slot)
