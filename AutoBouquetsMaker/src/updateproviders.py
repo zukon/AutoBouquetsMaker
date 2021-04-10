@@ -302,4 +302,3 @@ class ShowResult(Screen):
 
 	def pageDown(self):
 		self["config"].pageDown()
-

@@ -1,4 +1,4 @@
-# This is work in progress. The aim of this file is to create a common template 
+# This is work in progress. The aim of this file is to create a common template
 # so the look and feel of all ABM embedded screens is uniform
 
 # screen has always been 600 x 500 so stick with that.
@@ -36,8 +36,8 @@ configItemHeightMainMenu = 40
 windowHeight = (configListLength * configItemHeight) + marginTop + buttonHeight + (buttonMarginBottom * 2)  # 500 based on configListLength = 15
 widgetWidth = windowWidth - (marginLeft * 2)
 
-# These button colours have been selected specially so anti-aliasing around the button 
-# text will be done to the correct shade. This is necessary even though the button text 
+# These button colours have been selected specially so anti-aliasing around the button
+# text will be done to the correct shade. This is necessary even though the button text
 # widget is transparent, to avoid a black halo around the button text.
 colours = {"red": 0x9f1313, "green": 0x1f771f, "yellow": 0xa08500, "blue": 0x18188b}
 

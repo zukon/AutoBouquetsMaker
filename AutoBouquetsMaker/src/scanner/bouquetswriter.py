@@ -61,18 +61,18 @@ class BouquetsWriter():
 					t2mi = ''
 					if "t2mi_plp_id" in transponder and "t2mi_pid" in transponder:
 						t2mi = ':%d:%d' % (
-							transponder["t2mi_plp_id"], 
+							transponder["t2mi_plp_id"],
 							transponder["t2mi_pid"])
 					if "is_id" in transponder and "pls_code" in transponder and "pls_mode" in transponder:
 						multistream = ':%d:%d:%d' % (
-							transponder["is_id"], 
-							transponder["pls_code"], 
+							transponder["is_id"],
+							transponder["pls_code"],
 							transponder["pls_mode"])
 					if t2mi and not multistream: # this is to pad t2mi values if necessary.
 						try: # some images are still not multistream aware after all this time
 							multistream = ':%d:%d:%d' % (
-								eDVBFrontendParametersSatellite.No_Stream_Id_Filter, 
-								eDVBFrontendParametersSatellite.PLS_Gold, 
+								eDVBFrontendParametersSatellite.No_Stream_Id_Filter,
+								eDVBFrontendParametersSatellite.PLS_Gold,
 								eDVBFrontendParametersSatellite.PLS_Default_Gold_Code)
 						except AttributeError as err:
 							print("[ABM-BouquetsWriter] some images are still not multistream aware after all this time", err, file=log)
@@ -217,8 +217,8 @@ class BouquetsWriter():
 							# don't write default values
 							if not (transponder["is_id"] == eDVBFrontendParametersSatellite.No_Stream_Id_Filter and transponder["pls_code"] == eDVBFrontendParametersSatellite.PLS_Gold and transponder["pls_mode"] == eDVBFrontendParametersSatellite.PLS_Default_Gold_Code):
 								multistream = ',MIS/PLS:%d:%d:%d' % (
-									transponder["is_id"], 
-									transponder["pls_code"], 
+									transponder["is_id"],
+									transponder["pls_code"],
 									transponder["pls_mode"])
 						except AttributeError as err:
 							print("[ABM-BouquetsWriter] some images are still not multistream aware after all this time", err, file=log)

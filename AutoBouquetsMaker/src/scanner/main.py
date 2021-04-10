@@ -524,7 +524,7 @@ class AutoBouquetsMaker(Screen):
 		if self.postScanService:
 			self.session.nav.playService(self.postScanService)
 			self.postScanService = None
-	
+
 	def isRotorSat(self, slot, orb_pos):
 		rotorSatsForNim = nimmanager.getRotorSatListForNim(slot)
 		if len(rotorSatsForNim) > 0:
@@ -595,7 +595,7 @@ def Scheduleautostart(reason, session=None, **kwargs):
 	#
 	schedulename = "ABM-Scheduler"
 	configname = config.autobouquetsmaker
-	
+
 	print("[%s][Scheduleautostart] reason(%d), session" % (schedulename, reason), session, file=log)
 	if reason == 0 and session is None:
 		return

@@ -800,7 +800,7 @@ class DvbScanner():
 			service["number"] = logical_channel_number_dict[servicekey]["logical_channel_number"]
 
 			service["orbital_position"] = service["namespace"] // (16**4)
-			
+
 			if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and (service["service_name"][-2:] == 'HD' or ' HD ' in service["service_name"]):
 				service["service_type"] = 25
 

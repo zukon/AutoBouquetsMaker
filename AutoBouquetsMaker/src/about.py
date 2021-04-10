@@ -53,4 +53,3 @@ class AutoBouquetsMaker_About(Screen):
 
 	def quit(self):
 		self.close()
-

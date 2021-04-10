@@ -125,4 +125,3 @@ class ProviderConfig():
 
 	def serialize(self):
 		return "%s:%s:%d:%s" % (self.provider, self.area, self.flags, self.customfilename)
-
