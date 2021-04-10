@@ -2,7 +2,9 @@ from __future__ import print_function
 from __future__ import absolute_import
 
 from .. import log
-import os, codecs, re
+import os
+import codecs
+import re
 import xml.dom.minidom
 from Components.config import config
 from .dvbscanner import DvbScanner

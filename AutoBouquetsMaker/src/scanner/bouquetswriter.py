@@ -10,7 +10,9 @@ from .. import log
 from Components.config import config
 from .tools import Tools
 from .dvbscanner import DvbScanner
-import os, codecs, re
+import os
+import codecs
+import re
 import six
 
 from enigma import eDVBFrontendParametersSatellite

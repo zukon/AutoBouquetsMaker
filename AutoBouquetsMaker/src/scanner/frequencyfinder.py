@@ -18,7 +18,8 @@ import dvbreader
 #from scanner.main import AutoBouquetsMaker
 from Plugins.SystemPlugins.AutoBouquetsMaker.skin_templates import skin_downloadBar
 
-import os, errno
+import os
+import errno
 import sys
 import re
 

@@ -31,7 +31,8 @@ from Tools.LoadPixmap import LoadPixmap
 from .skin_templates import skin_mainmenu, skin_log
 
 from time import localtime, time, strftime
-import os, sys
+import os
+import sys
 from . import log
 
 class AutoBouquetsMaker_Menu(Screen):

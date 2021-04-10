@@ -4,7 +4,8 @@ from .. import log
 
 import dvbreader
 import datetime
-import time, os
+import time
+import os
 from Components.config import config
 
 class DvbScanner():
