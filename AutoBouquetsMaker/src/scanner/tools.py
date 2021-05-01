@@ -80,7 +80,7 @@ class Tools():
 					if node.tagName == "include":
 						node.normalize()
 						if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE:
-							if node.childNodes[0].data.encode("utf-8") == 'no':
+							if str(node.childNodes[0].data.encode("utf-8")) == 'no':
 								skipextrachannels = 1
 					if node.tagName == "lcnlist":
 						for node2 in node.childNodes:
@@ -372,11 +372,11 @@ class Tools():
 					for node2 in node.childNodes:
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "main":
 							node2.normalize()
-							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and node2.childNodes[0].data.encode("utf-8") != "1":
+							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and int(node2.childNodes[0].data.encode("utf8")) == 0:
 								bouquets["main"] = 0
 						elif node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "sections":
 							node2.normalize()
-							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and node2.childNodes[0].data.encode("utf-8") != "1":
+							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and int(node2.childNodes[0].data.encode("utf8")) == 0:
 								bouquets["sections"] = 0
 
 				elif node.tagName == "placement":
