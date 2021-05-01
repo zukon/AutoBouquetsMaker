@@ -27,6 +27,7 @@ try:
 	is_assigned
 except:
 	is_assigned = True
+	import six
 	
 	# Where HD is available remove SD channels
 	duplicates = []
@@ -38,7 +39,10 @@ except:
 if service['service_name'] in duplicates:
 	skip = True
 
-service['service_name'] = service['service_name'].decode('utf_8', 'ignore').encode('ASCII', 'ignore')
+if six.PY2:
+	service['service_name'] = service['service_name'].decode('utf_8', 'ignore').encode('ASCII', 'ignore')
+else:
+	service['service_name'] = six.ensure_text(six.ensure_str(service["service_name"], encoding='utf_8'), encoding='ASCII', errors='ignore')
 
 if service['service_name'] in ('', '.'):
 	skip = True
