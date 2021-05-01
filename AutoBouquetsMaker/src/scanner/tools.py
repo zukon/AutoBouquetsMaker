@@ -418,6 +418,8 @@ class Tools():
 			else:
 				print("[ABM-Tools][favourites] Favourites list is zero length.", file=log)
 
+		return services, providers, providerConfigs, bouquetsOrder
+
 	def clearsections(self, services, sections, bouquettype, servicetype):
 		# bouquettype = HD, FTAHD, FTA, ALL
 		# servicetype = video, radio

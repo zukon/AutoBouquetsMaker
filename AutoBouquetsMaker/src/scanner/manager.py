@@ -164,7 +164,7 @@ class Manager():
 						prefix)
 
 		# add a custom favourites list
-		Tools().favourites(self.path, self.services, providers, self.providerConfigs, self.bouquetsOrder)
+		self.services, providers, self.providerConfigs, self.bouquetsOrder = Tools().favourites(self.path, self.services, providers, self.providerConfigs, self.bouquetsOrder)
 
 		writer.buildLastScannedBouquet(self.path, self.services)
 
