@@ -23,7 +23,7 @@
 	<servicehacks>
 <![CDATA[
 # Skip test service and non-HD+ encrypted services.
-if service["service_name"] == "SES Demo" or service["service_name"][-11:] == " HD Austria":
+if service["service_name"] in (".", "SES Demo",) or service["service_name"][-11:] == " HD Austria":
 	skip = True
 ]]>
 	</servicehacks>
