@@ -29,7 +29,7 @@
 		<configuration key="hd_freesat_110_8" bouquet="0x110" region="0x8">BBC N West/ITV BorderEng</configuration>
 		<configuration key="hd_freesat_110_9" bouquet="0x110" region="0x9">BBC EYrks&amp;Lin/ITV Yorkshire E</configuration>
 		<configuration key="hd_freesat_110_a" bouquet="0x110" region="0xa">BBC Yorkshire/ITV Yorkshire W</configuration>
-		<configuration key="hd_freesat_110_b" bouquet="0x110" region="0xb">BBC Yorkshire/ITV Yorkshire W</configuration>
+		<configuration key="hd_freesat_110_b" bouquet="0x110" region="0xb">BBC Yorkshire/ITV Yorkshire E</configuration>
 		<configuration key="hd_freesat_110_c" bouquet="0x110" region="0xc">BBC Yorkshire/ITV Tyne Tees S</configuration>
 		<configuration key="hd_freesat_110_d" bouquet="0x110" region="0xd">BBC E Midlands/ITV Central E</configuration>
 		<configuration key="hd_freesat_110_e" bouquet="0x110" region="0xe">BBC E Midlands/ITV Central W</configuration>
@@ -38,10 +38,10 @@
 		<configuration key="hd_freesat_110_11" bouquet="0x110" region="0x11">BBC East (E)/ITV Anglia S</configuration>
 		<configuration key="hd_freesat_110_12" bouquet="0x110" region="0x12">BBC East (E)/ITV London</configuration>
 		<configuration key="hd_freesat_110_13" bouquet="0x110" region="0x13">BBC East (E)/ITV Anglia E</configuration>
-		<configuration key="hd_freesat_110_14" bouquet="0x110" region="0x14">BBC West/ITV West</configuration>
-		<configuration key="hd_freesat_110_15" bouquet="0x110" region="0x15">BBC West/ITV Central S</configuration>
-		<configuration key="hd_freesat_110_16" bouquet="0x110" region="0x16">BBC West/ITV Meridian N</configuration>
-		<configuration key="hd_freesat_110_17" bouquet="0x110" region="0x17">BBC West/ITV Meridian N</configuration>
+		<configuration key="hd_freesat_110_14" bouquet="0x110" region="0x14">BBC West/Westcountry W</configuration>
+		<configuration key="hd_freesat_110_15" bouquet="0x110" region="0x15">BBC West/ITV Westcountry W</configuration>
+		<configuration key="hd_freesat_110_16" bouquet="0x110" region="0x16">BBC West/ITV Meridian Thames Valley</configuration>
+		<configuration key="hd_freesat_110_17" bouquet="0x110" region="0x17">BBC West/ITV Meridian Thames Valley</configuration>
 		<configuration key="hd_freesat_110_18" bouquet="0x110" region="0x18">BBC S East/ITV Meridian S</configuration>
 		<configuration key="hd_freesat_110_19" bouquet="0x110" region="0x19">BBC S East/ITV Meridian SE</configuration>
 		<configuration key="hd_freesat_110_1a" bouquet="0x110" region="0x1a">BBC S East/ITV Meridian E</configuration>
@@ -60,13 +60,13 @@
 		<configuration key="hd_freesat_110_27" bouquet="0x110" region="0x27">BBC N West/ITV Granada</configuration>
 		<configuration key="hd_freesat_110_28" bouquet="0x110" region="0x28">BBC Yorkshire/ITV Yorkshire W</configuration>
 		<configuration key="hd_freesat_110_29" bouquet="0x110" region="0x29">BBC Channel Is/ITV Channel Is</configuration>
-		<configuration key="hd_freesat_110_2a" bouquet="0x110" region="0x2a">BBC Yorkshire/ITV Yorkshire E</configuration>
+		<configuration key="hd_freesat_110_2a" bouquet="0x110" region="0x2a">BBC Yorkshire/ITV Yorkshire W</configuration><!-- West -->
 		<configuration key="hd_freesat_110_2b" bouquet="0x110" region="0x2b">BBC Isle of Man</configuration>
-		<configuration key="hd_freesat_111_3c" bouquet="0x111" region="0x3c">BBC Scotland/ITV Grampian</configuration>
-		<configuration key="hd_freesat_111_3d" bouquet="0x111" region="0x3d">BBC Scotland/ITV Grampian</configuration>
-		<configuration key="hd_freesat_111_3e" bouquet="0x111" region="0x3e">BBC Scotland/ITV BorderSco</configuration>
-		<configuration key="hd_freesat_111_3f" bouquet="0x111" region="0x3f">BBC Scotland/ITV Scot (Glasgow)</configuration>
-		<configuration key="hd_freesat_111_40" bouquet="0x111" region="0x40">BBC Scotland/ITV Scot (Edinburgh)</configuration>
+		<configuration key="hd_freesat_111_3c" bouquet="0x111" region="0x3c">BBC Scotland/STV North</configuration>
+		<configuration key="hd_freesat_111_3d" bouquet="0x111" region="0x3d">BBC Scotland/STV Tayside</configuration>
+		<configuration key="hd_freesat_111_3e" bouquet="0x111" region="0x3e">BBC Scotland/STV BorderSco</configuration>
+		<configuration key="hd_freesat_111_3f" bouquet="0x111" region="0x3f">BBC Scotland/STV Scot (Glasgow)</configuration>
+		<configuration key="hd_freesat_111_40" bouquet="0x111" region="0x40">BBC Scotland/STV Scot (Edinburgh)</configuration>
 		<configuration key="hd_freesat_112_50" bouquet="0x112" region="0x50">BBC Wales</configuration>
 		<configuration key="hd_freesat_113_5a" bouquet="0x113" region="0x5a">BBC Northern Ireland</configuration>
 	</dvbsconfigs>
@@ -103,7 +103,7 @@ except:
 		# ITV regions
 		33771: "ITV Border",
 		33772: "ITV Border Scotland",
-		33776: "ITV Central",
+		33776: "ITV Central West",
 		33777: "ITV Channel Isles",
 		33778: "ITV Granada",
 		33779: "ITV London",
@@ -113,13 +113,13 @@ except:
 		33786: "ITV West Country",
 		33788: "ITV West",
 		33790: "ITV Yorkshire West",
-		33791: "STV Grampian",
-		33792: "STV Scotland West",
-		33793: "STV Scotland East",
+		33791: "STV North",
+		33792: "STV West",
+		33793: "STV East",
 		33794: "UTV",
-		33795: "ITV +1 Meridian",
+		33795: "ITV +1 Meridian East",
 		33796: "ITV +1 Granada",
-		33797: "ITV +1 Central",
+		33797: "ITV +1 Central West",
 		33798: "ITV +1 London",
 		33800: "ITV +1 West Country",
 		33801: "ITV +1 Tyne Tees",
@@ -129,21 +129,27 @@ except:
 		33805: "ITV +1 West",
 		33806: "ITV Central East",
 		33808: "UTV HD",
+		33810: "ITV Central East HD",
+		33811: "ITV Yorkshire East HD",
+		33812: "ITV Meridian South Coast HD",
+		33813: "ITV Meridian Thames Valley HD",
+		33814: "ITV Anglia West HD",
+		33876: "STV Tayside",
 		33878: "ITV Yorkshire East",
 		33879: "ITV Anglia West",
 		33880: "ITV Meridian North",
-		33882: "ITV Anglia HD",
+		33882: "ITV Anglia East HD",
 		33883: "ITV Tyne Tees HD",
-		33884: "ITV Yorkshire HD",
+		33884: "ITV Yorkshire West HD",
 		42773: "ITV London HD",
 		42775: "ITV Granada HD",
-		42779: "ITV Meridian South HD",
+		42779: "ITV Meridian East HD",
 		42780: "ITV Central West HD",
 		42781: "ITV Wales HD",
 		42784: "ITV Border England HD",
-		42785: "ITV Westcountry SW HD",
-		42786: "ITV Westcountry West HD",
-		52777: "STV HD",
+		42785: "ITV Westcountry West HD",
+		42786: "ITV Westcountry South West HD",
+		52777: "STV West HD",
 	}
 
 	rename = { # channel_id: service_name,
