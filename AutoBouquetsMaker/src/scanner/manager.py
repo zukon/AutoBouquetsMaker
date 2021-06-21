@@ -185,7 +185,7 @@ class Manager():
 			print("[ABM-Manager][read] Reading %s..." % provider_key, file=log)
 
 		# read custom transponder
-		customtransponders = {}
+		customtransponders = []
 		if provider_key in providers and providers[provider_key]["streamtype"] == 'dvbt' and bouquet_key is not None and len(bouquet_key) > 0: # custom transponder is only for dvbt
 			customtransponders = Tools().customtransponder(provider_key, bouquet_key)
 
