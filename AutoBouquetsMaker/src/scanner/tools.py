@@ -274,7 +274,10 @@ class Tools():
 							customtransponder["plpid"] = 0
 							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "key":
-									customtransponder["key"] = node2.attributes.item(i).value.encode("utf-8")
+									if six.PY3:
+										customtransponder["key"] = six.ensure_str(node2.attributes.item(i).value)
+									else:
+										customtransponder["key"] = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "transport_stream_id":
 									customtransponder["transport_stream_id"] = int(node2.attributes.item(i).value, 16)
 								elif node2.attributes.item(i).name == "frequency":
