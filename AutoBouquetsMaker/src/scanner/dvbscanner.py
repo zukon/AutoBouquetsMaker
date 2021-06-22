@@ -1071,7 +1071,7 @@ class DvbScanner():
 		service_extra_count = 0
 
 		tmp_services_dict, LCNs_in_use = self.extrasHelper(tmp_services_dict, extras, True)
-		
+
 		skip = skipper()
 
 		for key in self.LCN_order(tmp_services_dict):
@@ -1082,7 +1082,7 @@ class DvbScanner():
 
 			if len(servicehacks) > 0:
 				skip.skip = False
-				exec(servicehacks)				
+				exec(servicehacks)
 
 				if skip.skip:
 					continue
@@ -1340,7 +1340,7 @@ class DvbScanner():
 			if len(servicehacks) > 0:
 				skip.skip = False
 				exec(servicehacks)
-				
+
 				if skip.skip:
 					continue
 
