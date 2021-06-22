@@ -25,7 +25,7 @@
 <![CDATA[
 # Skip encrypted services, test services and VoD services.
 if service["free_ca"] == 1 or service["service_name"] in ("ATVsmart", "Service 13231", "Service 13232", "Service 13233"):
-	skip = True
+	skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

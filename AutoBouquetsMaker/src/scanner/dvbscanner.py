@@ -683,6 +683,8 @@ class DvbScanner():
 
 		add_audio_channels_to_video_bouquet = False
 
+		skip = skipper()
+
 		for key in self.LCN_order(tmp_services_dict):
 			service = tmp_services_dict[key]
 
@@ -690,10 +692,10 @@ class DvbScanner():
 				print("[ABM-DvbScanner] Service", service)
 
 			if len(servicehacks) > 0:
-				skip = False
+				skip.skip = False
 				exec(servicehacks)
 
-				if skip:
+				if skip.skip:
 					continue
 
 			tpkey = "%x:%x:%x" % (service["namespace"], service["transport_stream_id"], service["original_network_id"])
@@ -824,6 +826,8 @@ class DvbScanner():
 		service_extra_count = 0
 		services_without_transponders = 0
 
+		skip = skipper()
+
 		for key in self.LCN_order(tmp_services_dict):
 			service = tmp_services_dict[key]
 
@@ -834,10 +838,10 @@ class DvbScanner():
 				print("[ABM-DvbScanner] Service", service)
 
 			if len(servicehacks) > 0:
-				skip = False
+				skip.skip = False
 				exec(servicehacks)
 
-				if skip:
+				if skip.skip:
 					continue
 
 			tpkey = "%x:%x:%x" % (service["namespace"], service["transport_stream_id"], service["original_network_id"])
@@ -1067,6 +1071,8 @@ class DvbScanner():
 		service_extra_count = 0
 
 		tmp_services_dict, LCNs_in_use = self.extrasHelper(tmp_services_dict, extras, True)
+		
+		skip = skipper()
 
 		for key in self.LCN_order(tmp_services_dict):
 			service = tmp_services_dict[key]
@@ -1075,10 +1081,10 @@ class DvbScanner():
 				print("[ABM-DvbScanner] Service", service)
 
 			if len(servicehacks) > 0:
-				skip = False
-				exec(servicehacks)
+				skip.skip = False
+				exec(servicehacks)				
 
-				if skip:
+				if skip.skip:
 					continue
 
 			tpkey = "%x:%x:%x" % (service["namespace"], service["transport_stream_id"], service["original_network_id"])
@@ -1323,6 +1329,8 @@ class DvbScanner():
 
 		add_audio_channels_to_video_bouquet = False
 
+		skip = skipper()
+
 		for key in self.LCN_order(tmp_services_dict):
 			service = tmp_services_dict[key]
 
@@ -1330,10 +1338,10 @@ class DvbScanner():
 				print("[ABM-DvbScanner] Service", service)
 
 			if len(servicehacks) > 0:
-				skip = False
+				skip.skip = False
 				exec(servicehacks)
-
-				if skip:
+				
+				if skip.skip:
 					continue
 
 			tpkey = "%x:%x:%x" % (service["namespace"], service["transport_stream_id"], service["original_network_id"])
@@ -1471,3 +1479,15 @@ class DvbScanner():
 		if cat_f in cat_f_dict:
 			return cat_f_dict[cat_f]
 		return "Unknown"
+
+class skipper():
+	def __init__(self):
+		self.x = False
+
+	def setSkip(self, skip):
+		self.x = skip
+
+	def getSkip(self):
+		return self.x
+
+	skip = property(getSkip, setSkip)

@@ -28,7 +28,7 @@ blacklist = (
             )
 
 if service["service_name"] in blacklist or "Test" in service["service_name"]:
-	skip = True
+	skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

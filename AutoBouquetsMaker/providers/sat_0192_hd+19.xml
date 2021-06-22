@@ -24,7 +24,7 @@
 <![CDATA[
 # Skip encrypted services, interactive services and chat spam.
 if service["free_ca"] == 1 or service["service_name"] in ("4MEDIATHEK", "VISIT-X.tv"):
-	skip = True
+	skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

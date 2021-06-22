@@ -24,7 +24,7 @@
 <![CDATA[
 # Skip test service.
 if service["service_name"] == "INSIGHT TV HD INT":
-	skip = True
+	skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

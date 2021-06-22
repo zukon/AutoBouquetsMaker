@@ -54,7 +54,7 @@ if service["service_name"] in channels_to_add and service["service_type"] in Dvb
 if service["number"] >= 1000 and service["number"] <= 1450: # not indexed channels
 	pass
 elif service["number"] > 999 or service["number"] < 100:
-	skip = True
+	skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

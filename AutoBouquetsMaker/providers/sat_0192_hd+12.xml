@@ -25,7 +25,7 @@
 <![CDATA[
 # Skip encrypted services.
 if service["free_ca"] == 1:
-	skip = True
+	skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

@@ -27,7 +27,7 @@
 	<servicehacks>
 <![CDATA[
 if service["number"] > 999 or service["number"] < 1:
-	skip = True
+	skip.skip = True
 if service["service_name"][-5:] == " (28)" or service["service_name"][-5:] == " (13)":
 	service["service_name"] = service["service_name"][:len(service["service_name"])-5]
 ]]>

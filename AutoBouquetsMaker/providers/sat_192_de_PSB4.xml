@@ -37,7 +37,7 @@ except:
 			duplicates.append(''.join(tmp_services_dict[sid]["service_name"].split(findme)))
 			
 if service['service_name'] in duplicates:
-	skip = True
+	skip.skip = True
 
 if six.PY2:
 	service['service_name'] = service['service_name'].decode('utf_8', 'ignore').encode('ASCII', 'ignore')
@@ -45,10 +45,10 @@ else:
 	service['service_name'] = six.ensure_text(six.ensure_str(service["service_name"], encoding='utf_8'), encoding='ASCII', errors='ignore')
 
 if 'provider_name' in service and service['provider_name'] == 'SKY':
-	skip = True
+	skip.skip = True
 
 if service['service_name'] in ('', '.'):
-	skip = True
+	skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

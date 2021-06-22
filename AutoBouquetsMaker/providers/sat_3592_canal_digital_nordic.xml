@@ -50,9 +50,9 @@ if first_loop:
 				
 if service['service_type'] in (1,25):
 	if bouquet_key.startswith('sd') and service['service_type'] == 25 and service['number'] in SD_channels:
-		skip = True
+		skip.skip = True
 	elif bouquet_key.startswith('hd') and service['service_type'] == 1 and service['number'] in HD_channels:
-		skip = True
+		skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

@@ -184,13 +184,13 @@ if "service_info" in service and "HD" in service["service_info"] and service["se
 	service["service_type"] = 25
 
 if (service["namespace"] >> 16) != 282:
-	skip = True
+	skip.skip = True
 elif service["number"] in range(984, 987): # BBC RB 4/5/6
 	service["interactive_name"] = "BBC RB " + str(service["number"] - 980)
 elif service["number"] == 999: # Freesat info
 	service["interactive_name"] = "Freesat Info"
 elif service["number"] > 999 or service["number"] < 101:
-	skip = True
+	skip.skip = True
 
 #radio channels
 if service["number"] >= 700 and service["number"] < 800:

@@ -24,7 +24,7 @@
 <![CDATA[
 # Skip test services.
 if service["service_name"] in ("ARD-TEST-1", "Test-R", "WDR Test A"):
-	skip = True
+	skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

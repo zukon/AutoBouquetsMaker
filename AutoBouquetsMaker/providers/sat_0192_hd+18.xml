@@ -24,7 +24,7 @@
 <![CDATA[
 # Skip test services and Sky services.
 if service["service_name"] == "." or ("provider_name" in service and service["provider_name"] == "SKY"):
-	skip = True
+	skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

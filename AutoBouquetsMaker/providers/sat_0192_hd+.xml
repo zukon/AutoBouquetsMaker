@@ -35,7 +35,7 @@
 <![CDATA[
 # Skip test service and non-HD+ encrypted services.
 if service["service_name"] == "SES 75" or service["service_name"][-11:] == " HD Austria" or service["service_name"][-6:] == " HD AT":
-	skip = True
+	skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

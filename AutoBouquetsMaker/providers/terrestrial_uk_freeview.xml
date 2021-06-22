@@ -303,24 +303,24 @@ service["provider_name"] = provider
 
 for number in service["numbers"]:
 	if number in blacklist:
-		skip = True
+		skip.skip = True
 
 if service["service_name"] in blacklist or service["service_type"] == 0xc:
-	skip = True
+	skip.skip = True
 
 if service["number"] in range(751, 800):
-	skip = True
+	skip.skip = True
 
 if "winter_hill" in bouquet_key and service["transport_stream_id"] in (0x8008, 0x800b, 0x800d):
 	if "lancs" in bouquet_key and service["transport_stream_id"] in (0x8008, 0x800b):
-		skip = True
+		skip.skip = True
 	elif "liver" in bouquet_key and service["transport_stream_id"] in (0x800b, 0x800d):
-		skip = True
+		skip.skip = True
 	elif "manch" in bouquet_key and service["transport_stream_id"] in (0x8008, 0x800d):
-		skip = True
+		skip.skip = True
 
 if "crystal_palace" in bouquet_key and service["transport_stream_id"] in (0x801f,):
-	skip = True
+	skip.skip = True
 
 	]]>
 	</servicehacks>

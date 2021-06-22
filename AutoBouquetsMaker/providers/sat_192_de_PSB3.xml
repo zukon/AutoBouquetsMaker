@@ -36,10 +36,10 @@ except:
 			duplicates.append(''.join(tmp_services_dict[sid]["service_name"].split(findme)))
 			
 if service['service_name'] in duplicates:
-	skip = True
+	skip.skip = True
 
 if service['service_name'] in ('', '.'):
-	skip = True
+	skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

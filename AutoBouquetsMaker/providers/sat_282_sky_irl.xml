@@ -389,7 +389,7 @@ if service["channel_id"] in fta_by_id:
 if custom and service["service_type"] != 2 and service["transport_stream_id"] in broken_TSIDS and service["free_ca"] != 0:
 	while service["number"] in LCNs_in_use:
 		LCNs_in_use.remove(service["number"])
-	skip = True
+	skip.skip = True
 
 # Add channels by name
 if custom and service["service_name"] in channels_to_add and service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and channels_to_add[service["service_name"]] not in LCNs_in_use:
@@ -409,11 +409,11 @@ if service["service_type"] == 0x02 and service["number"] > 3000:
 if service["service_type"] != 2 and (service["number"] in whitelist or service["service_name"] in whitelist or ("channel_id" in service and service["channel_id"] in whitelist_by_id)):
 	pass
 elif custom and service["service_type"] != 2 and (service["number"] in blacklist or service["service_name"] in blacklist):
-	skip = True
+	skip.skip = True
 elif custom and service["service_type"] in DvbScanner.HD_ALLOWED_TYPES and service["free_ca"] != 0:
-	skip = True
+	skip.skip = True
 elif custom and ("channel_id" in service and service["channel_id"] in blacklist_by_id):
-	skip = True
+	skip.skip = True
 
 new_numbers = []
 for number in service["numbers"]:
@@ -434,13 +434,13 @@ for number in service["numbers"]:
 			#service["flags"] = dxNoSDT | dxHoldName
 			#service["service_name"] = "Sky UK EPG data channel"
 			service["free_ca"] = 0
-			skip = True
+			skip.skip = True
 			for i in range(994, 1000):
 				if i not in LCNs_in_use:
 					LCNs_in_use.append(i)
 					new_numbers.append(i)
 					service["number"] = i
-					skip = False
+					skip.skip = False
 					break
 		else:
 			if extraservices:
@@ -450,10 +450,10 @@ for number in service["numbers"]:
 				LCNs_in_use.append(i+1)
 				new_numbers.append(i+1)
 			else:
-				skip = True
+				skip.skip = True
 		break
 	elif service["service_name"] in ('Sky Intro') and number < 998: # Sky Intro
-		skip = True
+		skip.skip = True
 	else:
 		new_numbers.append(number)
 service["numbers"] = new_numbers

@@ -37,10 +37,10 @@ blacklist = ["."] # channel names have quotes. Channel numbers do not. Example: 
 
 for number in service["numbers"]:
 	if number in blacklist:
-		skip = True		
+		skip.skip = True		
 
 if service["service_name"] in blacklist:
-	skip = True
+	skip.skip = True
 	
 ]]>
 	</servicehacks>

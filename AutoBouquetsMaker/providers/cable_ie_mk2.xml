@@ -106,10 +106,10 @@ except:
 service["interactive_name"] = service["service_name"] = service["provider_name"]
 
 if service["number"] in valid_services and valid_services[service["number"]] != key:
-	skip = True
+	skip.skip = True
 
 if (service["number"] in blacklist or service["interactive_name"] in blacklist):
-	skip = True
+	skip.skip = True
 
 if "number" in service and service["number"] in rename:
 	service["interactive_name"] = rename[service["number"]]

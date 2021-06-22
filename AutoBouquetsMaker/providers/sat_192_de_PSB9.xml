@@ -23,7 +23,7 @@
 	<servicehacks>
 <![CDATA[
 if service['service_name'] in ('', '.'):
-	skip = True
+	skip.skip = True
 ]]>
 	</servicehacks>
 </provider>

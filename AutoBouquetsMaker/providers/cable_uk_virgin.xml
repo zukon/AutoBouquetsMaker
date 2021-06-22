@@ -229,7 +229,7 @@ except:
 	selective_blacklist = [501, 502, 503, 504, 505, 506, 507, 508, 511, 512, 513, 514, 515, 516, 517, 518, 527, 528, 529, 530]
 
 if (service["service_name"] in selective_blacklist or service["number"]  in selective_blacklist) and netID not in netID_whitelist:
-	skip = True
+	skip.skip = True
 
 # Correct service type of HD channels not marked as such
 if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["service_type"] not in DvbScanner.HD_ALLOWED_TYPES and service["service_name"][-2:] == 'HD':
@@ -237,7 +237,7 @@ if service["service_type"] in DvbScanner.VIDEO_ALLOWED_TYPES and service["servic
 
 for number in service["numbers"]:
 	if number in blacklist:
-		skip = True
+		skip.skip = True
 		break
 	elif number >= 50 and number <= 60:
 		service["numbers"] = [number + 952]
@@ -250,10 +250,10 @@ for number in service["numbers"]:
 		break
 
 if service["service_name"] in blacklist:
-	skip = True
+	skip.skip = True
 
 if service["service_name"].startswith("DL_") or service["service_name"].startswith("Hidden"):
-	skip = True
+	skip.skip = True
 
 if service["service_name"].startswith("SptsETV"):
 	service["free_ca"] = 1
