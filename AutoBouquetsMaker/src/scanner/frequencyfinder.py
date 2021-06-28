@@ -600,7 +600,7 @@ class AutoBouquetsMaker_FrequencyFinder(Screen):
 		customProviderList.append('tsidonidkey = "%x:%x" % (service["transport_stream_id"], service["original_network_id"])\n')
 		customProviderList.append('if tsidonidkey not in tsidonidlist:\n')
 		customProviderList.append('\tadd_audio_channels_to_video_bouquet=True\n\n')
-		customProviderList.append('\tskip = True\n\n')
+		customProviderList.append('\tskip.skip = True\n\n')
 		customProviderList.append('\t]]>\n')
 		customProviderList.append('\t</servicehacks>\n')
 		customProviderList.append('</provider>\n')
