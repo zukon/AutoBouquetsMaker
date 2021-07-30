@@ -191,7 +191,7 @@ class Tools():
 									name = node2.attributes.item(i).value.encode("utf-8")
 								elif node2.attributes.item(i).name == "url":
 									url = node2.attributes.item(i).value.encode("utf-8")
-									if "%" not in url[:10]: # url not encoded
+									if b"%" not in url[:10]: # url not encoded
 										url = quote(url) # single encode url
 								elif node2.attributes.item(i).name == "target":
 									target = int(node2.attributes.item(i).value)
