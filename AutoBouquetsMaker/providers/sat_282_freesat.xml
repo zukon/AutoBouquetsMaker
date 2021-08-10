@@ -160,7 +160,7 @@ except:
 		52575: "Freesports HD",
 	}
 
-	add_audio_channels_to_video_bouquet=True
+	servicehack_variable_cache["add_audio_channels_to_video_bouquet"] = True
 
 # Rename channels
 if "channel_id" in service and service["channel_id"] in rename:
