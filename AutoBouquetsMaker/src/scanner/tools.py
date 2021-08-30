@@ -15,6 +15,11 @@ from six.moves.urllib.parse import quote
 class Tools():
 	SERVICEREF_ALLOWED_TYPES = [1, 4097, 5001, 5002]
 
+	def encodeNODE(self, data):
+		if six.PY2:
+			return data.encode("utf-8")
+		return six.ensure_str(data, encoding='utf-8', errors='ignore')
+
 	def parseXML(self, filename):
 		try:
 			tool = open(filename, "r")
@@ -80,7 +85,7 @@ class Tools():
 					if node.tagName == "include":
 						node.normalize()
 						if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE:
-							if str(node.childNodes[0].data.encode("utf-8")) == 'no':
+							if self.encodeNODE(node.childNodes[0].data) == 'no':
 								skipextrachannels = 1
 					if node.tagName == "lcnlist":
 						for node2 in node.childNodes:
@@ -170,7 +175,7 @@ class Tools():
 							target = ''
 							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "provider":
-									provider = node2.attributes.item(i).value.encode("utf-8")
+									provider = self.encodeNODE(node2.attributes.item(i).value)
 								elif node2.attributes.item(i).name == "source":
 									source = int(node2.attributes.item(i).value)
 								elif node2.attributes.item(i).name == "target":
@@ -188,10 +193,10 @@ class Tools():
 							servicereftype = ''
 							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "name":
-									name = node2.attributes.item(i).value.encode("utf-8")
+									name = self.encodeNODE(node2.attributes.item(i).value)
 								elif node2.attributes.item(i).name == "url":
-									url = node2.attributes.item(i).value.encode("utf-8")
-									if b"%" not in url[:10]: # url not encoded
+									url = self.encodeNODE(node2.attributes.item(i).value)
+									if "%" not in url[:10]: # url not encoded
 										url = quote(url) # single encode url
 								elif node2.attributes.item(i).name == "target":
 									target = int(node2.attributes.item(i).value)
@@ -225,13 +230,13 @@ class Tools():
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
-									sections[number] = node2.childNodes[0].data.encode("utf-8")
+									sections[number] = self.encodeNODE(node2.childNodes[0].data)
 
 				elif node.tagName == "hacks":
 					node.normalize()
 					for i in list(range(0, len(node.childNodes))):
 						if node.childNodes[i].nodeType == node.CDATA_SECTION_NODE:
-							hacks = node.childNodes[i].data.encode("utf-8").strip()
+							hacks = self.encodeNODE(node.childNodes[i].data).strip()
 
 			if len(hacks) > 0:
 				exec(hacks)
@@ -277,7 +282,7 @@ class Tools():
 									if six.PY3:
 										customtransponder["key"] = six.ensure_str(node2.attributes.item(i).value)
 									else:
-										customtransponder["key"] = node2.attributes.item(i).value.encode("utf-8")
+										customtransponder["key"] = self.encodeNODE(node2.attributes.item(i).value)
 								elif node2.attributes.item(i).name == "transport_stream_id":
 									customtransponder["transport_stream_id"] = int(node2.attributes.item(i).value, 16)
 								elif node2.attributes.item(i).name == "frequency":
@@ -338,7 +343,7 @@ class Tools():
 				if node.tagName == "name":
 					node.normalize()
 					if len(node.childNodes) == 1 and node.childNodes[0].nodeType == node.TEXT_NODE:
-						name = node.childNodes[0].data.encode("utf-8")
+						name = self.encodeNODE(node.childNodes[0].data)
 
 				elif node.tagName == "sections":
 					sections = {}
@@ -353,7 +358,7 @@ class Tools():
 
 								node2.normalize()
 								if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE:
-									sections[number] = node2.childNodes[0].data.encode("utf-8")
+									sections[number] = self.encodeNODE(node2.childNodes[0].data)
 
 				elif node.tagName == "inserts":
 					for node2 in node.childNodes:
@@ -363,7 +368,7 @@ class Tools():
 							target = ''
 							for i in list(range(0, node2.attributes.length)):
 								if node2.attributes.item(i).name == "provider":
-									provider = node2.attributes.item(i).value.encode("utf-8")
+									provider = self.encodeNODE(node2.attributes.item(i).value)
 								elif node2.attributes.item(i).name == "source":
 									source = int(node2.attributes.item(i).value)
 								elif node2.attributes.item(i).name == "target":
@@ -375,11 +380,11 @@ class Tools():
 					for node2 in node.childNodes:
 						if node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "main":
 							node2.normalize()
-							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and int(node2.childNodes[0].data.encode("utf8")) == 0:
+							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and int(self.encodeNODE(node2.childNodes[0].data)) == 0:
 								bouquets["main"] = 0
 						elif node2.nodeType == node2.ELEMENT_NODE and node2.tagName == "sections":
 							node2.normalize()
-							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and int(node2.childNodes[0].data.encode("utf8")) == 0:
+							if len(node2.childNodes) == 1 and node2.childNodes[0].nodeType == node2.TEXT_NODE and int(self.encodeNODE(node2.childNodes[0].data)) == 0:
 								bouquets["sections"] = 0
 
 				elif node.tagName == "placement":
@@ -393,7 +398,7 @@ class Tools():
 					node.normalize()
 					for i in list(range(0, len(node.childNodes))):
 						if node.childNodes[i].nodeType == node.CDATA_SECTION_NODE:
-							hacks = node.childNodes[i].data.encode("utf-8").strip()
+							hacks = self.encodeNODE(node.childNodes[i].data).strip()
 
 			if len(hacks) > 0:
 				exec(hacks)
