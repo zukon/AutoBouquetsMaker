@@ -333,9 +333,9 @@ class Tools():
 		# Read favourites file
 		dom = self.parseXML(custom_dir + "/favourites.xml")
 		if dom is None:
-			print("[ABM-Tools][favourites] No favorite.xml file", file=log)
+			print("[ABM-Tools][favourites] No favourites.xml file", file=log)
 		elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "favourites":
-			print("[ABM-Tools][favourites] Reading favorite.xml file", file=log)
+			print("[ABM-Tools][favourites] Reading favourites.xml file", file=log)
 			for node in dom.documentElement.childNodes:
 				if node.nodeType != node.ELEMENT_NODE:
 					continue
