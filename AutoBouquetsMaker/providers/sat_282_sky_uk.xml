@@ -241,7 +241,7 @@
 		<channel number="104" with="138" conditional="'Channel 4' in service_sd['service_name'] and 'Channel 4' in service_hd['service_name']"/> <!-- Channel 4 HD -->
 		<channel number="104" with="804"/> <!-- Channel 4 HD -->
 		<channel number="105" with="805"/> <!-- Channel 5 HD -->
-		<channel number="106" with="806"/> <!-- Sky One HD -->
+		<channel number="106" with="806"/> <!-- Sky Sky Showcase HD -->
 		<channel number="107" with="807"/> <!-- Sky Witness -->
 		<channel number="108" with="808"/> <!-- Sky Atlantic HD -->
 		<channel number="108" with="138" conditional="'Channel 4' in service_sd['service_name'] and 'Channel 4' in service_hd['service_name']"/> <!-- Channel 4 HD -->
@@ -249,15 +249,16 @@
 		<channel number="110" with="810"/> <!-- GOLD HD -->
 		<channel number="111" with="811"/> <!-- Dave HD -->
 		<channel number="112" with="812"/> <!-- Comedy Central HD -->
-		<channel number="113" with="813"/> <!-- Sky Comedy HD -->
-		<channel number="114" with="814"/> <!-- SkyDocumntrs -->
+		<channel number="113" with="813"/> <!-- Sky Max HD -->
+		<channel number="114" with="814"/> <!-- Sky Comedy HD -->
 		<channel number="115" with="876" conditional="'BBC Scotland' in service_sd['service_name'] and 'BBCScotlandHD' in service_hd['service_name']"/> <!-- BBC Scotland HD -->
 		<channel number="116" with="815"/> <!-- BBC Four HD -->
 		<channel number="117" with="138" conditional="'Channel 4' in service_sd['service_name'] and 'Channel 4' in service_hd['service_name']"/> <!-- Channel 4 HD -->
 		<channel number="118" with="816"/> <!-- ITV2 HD -->
 		<channel number="119" with="817"/> <!-- ITV3 HD -->
 		<channel number="120" with="818"/> <!-- ITV4 HD -->
-		<channel number="121" with="819"/> <!-- Sky Crime HD -->
+		<channel number="121" with="819"/> <!-- SkyDocmntrsHD -->
+		<channel number="122" with="820"/> <!-- Sky Crime HD -->
 		<channel number="123" with="821"/> <!-- Sky History HD -->
 		<channel number="124" with="822"/> <!-- Sky Nature HD -->
 		<channel number="125" with="823"/> <!-- Discovery HD -->
