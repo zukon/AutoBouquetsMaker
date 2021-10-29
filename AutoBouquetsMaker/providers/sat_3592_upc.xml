@@ -25,6 +25,7 @@
 		<configuration key="hd_CZE" bouquet="0x2012" region="0x81" namespace="0xe080000">Czech Republic</configuration>
 		<configuration key="hd_SVK" bouquet="0x2013" region="0x81" namespace="0xe080000">Slovakia</configuration>
 		<configuration key="hd_ROU" bouquet="0x2014" region="0x81" namespace="0xe080000">Romania</configuration>
+		<configuration key="hd_MDA" bouquet="0x220d" region="0x81" namespace="0xe080000">Moldavia</configuration>
 	</dvbsconfigs>
 	<servicehacks>
 <![CDATA[
