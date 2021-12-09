@@ -224,7 +224,6 @@
 		<customtransponder key="sudbury____________" frequency="770000000" transport_stream_id="3006" system="0"/>
 		<customtransponder key="sudbury____________" frequency="786000000" transport_stream_id="5040" system="0"/>
 		<customtransponder key="sutton_coldfield___" frequency="626000000" transport_stream_id="4085" system="1"/>
-		<customtransponder key="sutton_coldfield___" frequency="570000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="the_wrekin_________" frequency="514000000" transport_stream_id="1045" system="0"/>
 		<customtransponder key="the_wrekin_________" frequency="490000000" transport_stream_id="2006" system="0"/>
 		<customtransponder key="the_wrekin_________" frequency="634000000" transport_stream_id="3006" system="0"/>
