@@ -12,49 +12,49 @@ Contents:
 10) Freesat, special config for people outside the footprint of the home transponder.
 11) DVB-T frequency finder
 
----------------------------------------------------------------------------------------------- 
+----------------------------------------------------------------------------------------------
 
 CustomMix or CustomLCN?
 -----------------------
 
 What is the difference between CustomMix and CustomLCN?
 
-CustomLCN is for allocating LCNs (logical channel numbers) to channels that don't have them. 
-It should be considered a system file and not be used to move channels around that already 
-have LCNs allocated to them. Once a channel has an LCN allocated this is persistent for the 
-entire duration of the current ABM run. So that channel can later be used in a CustomMix file 
+CustomLCN is for allocating LCNs (logical channel numbers) to channels that don't have them.
+It should be considered a system file and not be used to move channels around that already
+have LCNs allocated to them. Once a channel has an LCN allocated this is persistent for the
+entire duration of the current ABM run. So that channel can later be used in a CustomMix file
 refered to by the allocated LCN.
 
-CustomMix on the other hand, is for moving channels around, either within one provider or 
-from one provider to another. It only affects what is written in the bouquets of the current 
-provider and is not persistent. i.e.. if you move a channel in one provider from say 101 to 
-105 you would still use its original number if accessing it from a CustomMix file of another 
+CustomMix on the other hand, is for moving channels around, either within one provider or
+from one provider to another. It only affects what is written in the bouquets of the current
+provider and is not persistent. i.e.. if you move a channel in one provider from say 101 to
+105 you would still use its original number if accessing it from a CustomMix file of another
 provider.
 
 So to sum up, only use a CustomLCN file for allocating LCNs. For everything else use CustomMix.
 
----------------------------------------------------------------------------------------------- 
+----------------------------------------------------------------------------------------------
 
 CustomLCN
 ---------
 
-CustomLCN allows channels to be moved around within one single provider. CustomLCN is  
+CustomLCN allows channels to be moved around within one single provider. CustomLCN is
 for providers that don't transmit logical channel numbers (e.g. Sky DE). Its purpose is
-to insert logical channel numbers. The CustomLCN list can be complete or partial. 
-It doesn't have to be in any particular order but having it sequential will make it 
+to insert logical channel numbers. The CustomLCN list can be complete or partial.
+It doesn't have to be in any particular order but having it sequential will make it
 easier to avoid making errors.
 
-Each time ABM runs it makes an example CustomLCN xml file for each provider that is scanned, 
+Each time ABM runs it makes an example CustomLCN xml file for each provider that is scanned,
 e.g. 'EXAMPLE_hd_sat_freesat_CustomLCN.xml'. These files are archived in:
 /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom
-To make your own custom LCN file just delete 'EXAMPLE_' from the filename, 
-i.e. hd_sat_freesat_CustomLCN.xml. Configurations in the provider xml file, such as channel swap, 
+To make your own custom LCN file just delete 'EXAMPLE_' from the filename,
+i.e. hd_sat_freesat_CustomLCN.xml. Configurations in the provider xml file, such as channel swap,
 etc, are done after CustomLCN has been processed.
 
-The following is how to edit the file. Just cut and paste the lines into the order you want. 
+The following is how to edit the file. Just cut and paste the lines into the order you want.
 DO NOT add any channels into more than one place in the list.
 
-Also don't forget to include the ABM custom folder in your backups otherwise your newly 
+Also don't forget to include the ABM custom folder in your backups otherwise your newly
 created file may be lost during image updates.
 
 This is an example of the original 'EXAMPLE_" file:
@@ -72,7 +72,7 @@ This is an example of the original 'EXAMPLE_" file:
 		<configuration lcn="109" channelnumber="109" description="BBC Two Eng"></configuration>
 		<configuration lcn="110" channelnumber="110" description="BBC ALBA"></configuration>
 
-This is how to swap channels.		
+This is how to swap channels.
 If you want to swap ITV (103) with BBC Three HD (106) cut and paste both lines.
 <custom>
 	<include>yes</include>
@@ -104,10 +104,10 @@ Now change the lcn numbers. lcn numbers should be in order to avoid errors!!
 		<configuration lcn="110" channelnumber="110" description="BBC ALBA"></configuration>
 
 Removing channels.
-Channel removal only applies to unsorted lists, i.e. non-LCN providers where the list has not been 
-sorted in any way. To remove a channel, just delete the line. NOTE: When <include>is set to 'yes', 
-all channels not configured in the custom xml will be added at the end of the main bouquet. This way 
-also new services from the provider will be added at the end of the channel list. Any new channels 
+Channel removal only applies to unsorted lists, i.e. non-LCN providers where the list has not been
+sorted in any way. To remove a channel, just delete the line. NOTE: When <include>is set to 'yes',
+all channels not configured in the custom xml will be added at the end of the main bouquet. This way
+also new services from the provider will be added at the end of the channel list. Any new channels
 will be shown in the ABM log.
 
 Changing 'channel numbers'.
@@ -156,26 +156,26 @@ Your lcn numbering should match sections. In this example you can add a custom s
 		<section number="950">Regional</section>
 	</sections>
 
----------------------------------------------------------------------------------------------- 
+----------------------------------------------------------------------------------------------
 
 CustomMix
 ---------
 
-CustomMiX allows TV channels from one provider to be added to the bouquets of another provider. 
-This is great if you mainly use one provider but want to add a few channels from other providers 
-but don't want to create a complete list for the other provider. All providers that you want to 
-receive channels from must be included in every ABM scan but if you don't want complete bouquets 
+CustomMiX allows TV channels from one provider to be added to the bouquets of another provider.
+This is great if you mainly use one provider but want to add a few channels from other providers
+but don't want to create a complete list for the other provider. All providers that you want to
+receive channels from must be included in every ABM scan but if you don't want complete bouquets
 from that provider just set all the bouquet creation options to no.
 
 CustomMix can also be used to move channels around interanally within one single provider.
 
 For each provider you wish to add channels to, you need to add an xml configuration file. The xml
-configuration files reside in /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom 
-and filenames are made up as follows... "provider_key_CustomMix.xml", e.g. for Sky UK the filename 
-would be "sat_282_sky_uk_CustomMix.xml". For other providers please consult the list of provider 
+configuration files reside in /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom
+and filenames are made up as follows... "provider_key_CustomMix.xml", e.g. for Sky UK the filename
+would be "sat_282_sky_uk_CustomMix.xml". For other providers please consult the list of provider
 keys below.
 
-This is an example xml configuration file for Sky UK. Filename as above. 
+This is an example xml configuration file for Sky UK. Filename as above.
 
 <custommix>
 	<inserts>
@@ -199,17 +199,17 @@ Each channel that is to be moved requires an "insert" line.
 "Delete" lines allow you to remove individual channels from the provider you are customising. Just
 set "target" to the number of the channel you want to remove and it will disappear on the next scan.
 
----------------------------------------------------------------------------------------------- 
+----------------------------------------------------------------------------------------------
 
 Favourites
 ----------
 
-Favourites allows the creation of a complete favourites list that will preceed all other ABM bouquets. 
-Please note, favourites lists are static. ABM will keep your favourites list up to date if there are 
-changes to service references and transponder parameters but obviously it is not going to be updated 
+Favourites allows the creation of a complete favourites list that will preceed all other ABM bouquets.
+Please note, favourites lists are static. ABM will keep your favourites list up to date if there are
+changes to service references and transponder parameters but obviously it is not going to be updated
 if new channels start broadcasting, so any new channels you want in the list must be added manually.
 
-Channels selected for the favourites list can come from any providers that are being scanned, and these 
+Channels selected for the favourites list can come from any providers that are being scanned, and these
 providers must be scanned on every ABM run. The filename of the configuration file is "favourites.xml"
 It must be placed in: /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom/
 
@@ -237,21 +237,21 @@ Here is an example favourites.xml file.
 	</bouquets>
 </favourites>
 
-"name" is the prefix of you favourites bouquets if you have "prefix" enabled in the ABM menu. "sections" 
-is used for writing the section markers to your bouquets. You must have at least one section, and only 
-channels with a greater channel number than the first section number will be added to your favourites 
-bouquets. The "insert" lines have 3 attributes, "provider", "source", and "target". "provider" is the 
-key of provider from which the channel is being imported. See below for a list of provider keys. "source" 
-is the channel number being imported. And "target" is the slot in the favourites into which that channel 
-will be inserted. Each channel that is to be moved requires an "insert" line. 
+"name" is the prefix of you favourites bouquets if you have "prefix" enabled in the ABM menu. "sections"
+is used for writing the section markers to your bouquets. You must have at least one section, and only
+channels with a greater channel number than the first section number will be added to your favourites
+bouquets. The "insert" lines have 3 attributes, "provider", "source", and "target". "provider" is the
+key of provider from which the channel is being imported. See below for a list of provider keys. "source"
+is the channel number being imported. And "target" is the slot in the favourites into which that channel
+will be inserted. Each channel that is to be moved requires an "insert" line.
 
-"bouquets" -> "main" has a value of 0 or 1. "0" means no main bouquet will be created and "1" that one 
-will. Same for "bouquets" -> "sections". If "bouquets" -> "sections" is enabled the favourites list will 
-be divided up into sections bouquets as per the section numbers above. 
+"bouquets" -> "main" has a value of 0 or 1. "0" means no main bouquet will be created and "1" that one
+will. Same for "bouquets" -> "sections". If "bouquets" -> "sections" is enabled the favourites list will
+be divided up into sections bouquets as per the section numbers above.
 
 All tags in the above example are necessary to get this working.
 
-By default the favourites bouquet preceeds all other ABM bouquets, but it is also possible to place it after 
+By default the favourites bouquet preceeds all other ABM bouquets, but it is also possible to place it after
 another provider. Use a placement tag to do this and just add the number of the provider you want it to follow.
 
 <favourites>
@@ -267,9 +267,9 @@ another provider. Use a placement tag to do this and just add the number of the 
 Hacks
 -----
 
-"Hacks" is available in "Favourites" and "CustomMix". "Hacks" allows Python code to be use to 
-modify the channel list and sections markers, sort channels by name, make a "+1" bouquet, etc, etc, 
-and that this can be done dynamically rather than just creating static lists. With "Hacks" the sky 
+"Hacks" is available in "Favourites" and "CustomMix". "Hacks" allows Python code to be use to
+modify the channel list and sections markers, sort channels by name, make a "+1" bouquet, etc, etc,
+and that this can be done dynamically rather than just creating static lists. With "Hacks" the sky
 really is the limit in what bouquets can be created by ABM. Here's how "Hacks" looks in a CustomMix
 file.
 
@@ -283,7 +283,7 @@ file.
 	</hacks>
 </custommix>
 
-"Hacks" is provided for those with the ability to use it and there will only be basic support 
+"Hacks" is provided for those with the ability to use it and there will only be basic support
 for this feature.
 
 ----------------------------------------------------------------------------------------------
@@ -292,7 +292,7 @@ Streams
 -------
 
 "Streams" is available in "CustomMix". Sometimes a channel may not be available to you, e.g. you might be
-outside the satellite footprint, but you can access it via a stream. In these cases use a "stream" tag. 
+outside the satellite footprint, but you can access it via a stream. In these cases use a "stream" tag.
 
 "url" may be an encoded or non encoded url.
 "target" is the number of the channel you wish to attach the url stream to.
@@ -439,6 +439,9 @@ Provider key: sat_192_tvvlaanderen
 Provider name: TV Vlaanderen
 Provider key: sat_235_tvvlaanderen
 
+Provider name: Viasat
+Provider key: sat_0048_viasat.xml
+
 Provider name: Virgin IE
 Provider key: cable_ie_mk2
 
@@ -497,7 +500,7 @@ Lamedb format:
 Header Line:
 	The file starts with a line eDVB services /%d/, where %d is format version.
 	eDVB services /4/
-	
+
 Transponders section:
 	Section starts with a line transponders.
 	Followed by a DVB line and transponder data line tuples. The DVB data line starts at col 0, the transponder data line immediately follows and starts with a <TAB>.
@@ -592,7 +595,7 @@ c:10xxxx = cached volume level ???
 
 c:11xxxx = audio pid (AAC)
 
----------------------------------------------------------------------------------------------- 
+----------------------------------------------------------------------------------------------
 
 lamedb service flags
 --------------------
@@ -612,9 +615,9 @@ dxCenterDVBSubs=2048, // Centre DVB subtitles
 swapchannels (in providers.xml)
 -------------------------------
 
-swapchannels always forces the channel order in the HD bouquets, and optionally forces the 
-channel order main and sections bouquets. "number" is the SD channel. "with" is the HD channel. 
-Swap will only occur if the source channel is not HD and the target channel is HD, and both ends 
+swapchannels always forces the channel order in the HD bouquets, and optionally forces the
+channel order main and sections bouquets. "number" is the SD channel. "with" is the HD channel.
+Swap will only occur if the source channel is not HD and the target channel is HD, and both ends
 of the swap exist.
 
 Example:
@@ -624,14 +627,14 @@ This moves "BBC One HD" to slot 101, and BBC One London to slot 801.
 There is also a "conditional" attribute.
 Example:
 <channel number="102" with="802" conditonal="service_hd['channel_id'] == 2075"/> <!-- BBC Two HD -->
-If the statement in the conditional attribute evaluates to True the swap will occur, if not it 
+If the statement in the conditional attribute evaluates to True the swap will occur, if not it
 will fail.
 
 It is also possible to create compound statements.
 Example:
 <channel number="102" with="802" conditonal="service_sd['service_name'] == 'BBC Two Eng" and service_hd['channel_id'] == 2075"/>
 
-The following is a non-exhaustive list of variables that could be used in a conditional attribute, 
+The following is a non-exhaustive list of variables that could be used in a conditional attribute,
 although not all will be available for all providers.
 
 service_sd['service_name']
@@ -655,17 +658,17 @@ service_hd['bouquet_id']
 service_hd['bouquet_key']
 
 
----------------------------------------------------------------------------------------------- 
+----------------------------------------------------------------------------------------------
 
 Freesat, special config for people outside the footprint of the home transponder
 --------------------------------------------------------------------------------
 
-For people that are outside the footprint of the freesat home transponder an alternative 
-configuration is needed. This is much slower than using the standard configuration but 
-at least it allows the scan to collect the relevant data, which would not be possible 
+For people that are outside the footprint of the freesat home transponder an alternative
+configuration is needed. This is much slower than using the standard configuration but
+at least it allows the scan to collect the relevant data, which would not be possible
 otherwise.
 
-In the Freesat provider file, in the transponder section, 
+In the Freesat provider file, in the transponder section,
 delete:
     sdt_pid="0xbba"
     bat_pid="0xbba"
@@ -673,37 +676,37 @@ delete:
 add:
     bat_pid="0xf01"
 
-Convert the rest of the transponder parameters to those of a transponder known to be 
+Convert the rest of the transponder parameters to those of a transponder known to be
 available on your dish. e.g. Sky News transponder (12207 V 27500 2/3).
 
 Basically the above just reverts this commit:
 https://github.com/oe-alliance/oe-alliance-plugins/commit/7b5d72d44523d4047b51156e3f421bd456d9f131#diff-16e2769b1de3a403922eee457aba7895
 
----------------------------------------------------------------------------------------------- 
+----------------------------------------------------------------------------------------------
 
 DVB-T frequency finder
 ----------------------
 
-This tool enables the creation of a provider file for UK terrestrial for users that live 
-in areas where the data contained in the supplied system file or SI tables may be incomplete 
-or wrong. This will be the case if you are receiving from a repeater or when there have been 
-modifications to the active frequencies on your mast that the ABM developers are not yet aware 
+This tool enables the creation of a provider file for UK terrestrial for users that live
+in areas where the data contained in the supplied system file or SI tables may be incomplete
+or wrong. This will be the case if you are receiving from a repeater or when there have been
+modifications to the active frequencies on your mast that the ABM developers are not yet aware
 of.
 
 To enable the tool go into the configure menu, select "Expert" mode, and then select
 "Show DVB-T frequency finder".
 
-Then in the main ABM menu select "DVB-T frequency finder". The tool automatically steps through 
-all known UHF TV frequencies and works out where ABM needs to look for services. This process 
-takes a few minutes to complete. Once it is complete the tool creates a new provider file and 
-advises you of the name. Now it is just a question of going into the Providers menu and de-selecting 
-"FreeView (UK)" and then selecting the newly created provider, and doing a scan. You only need 
-to run the tool one time and from then on just let ABM scan in the normal way. If at a later 
-stage there seams to be something wrong with the channels you are receiving, such as a block of 
+Then in the main ABM menu select "DVB-T frequency finder". The tool automatically steps through
+all known UHF TV frequencies and works out where ABM needs to look for services. This process
+takes a few minutes to complete. Once it is complete the tool creates a new provider file and
+advises you of the name. Now it is just a question of going into the Providers menu and de-selecting
+"FreeView (UK)" and then selecting the newly created provider, and doing a scan. You only need
+to run the tool one time and from then on just let ABM scan in the normal way. If at a later
+stage there seams to be something wrong with the channels you are receiving, such as a block of
 channels with no signal just run the tool again.
 
-And dont forget to push the created file back to the developers on OpenViX forum along with your 
+And dont forget to push the created file back to the developers on OpenViX forum along with your
 location and opinion of which mast you are receiving from.
 
 
----------------------------------------------------------------------------------------------- 
+----------------------------------------------------------------------------------------------
