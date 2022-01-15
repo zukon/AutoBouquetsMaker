@@ -16,11 +16,11 @@ class BouquetsReader():
 			filename = result.group(1)
 
 			try:
-				bouquet = open(path + "/" + filename, "r")
+				bouquet = open(path + "/" + filename, "rb")
 			except Exception as e:
 				continue
 
-			firstline = bouquet.read().split("\n")[0]
+			firstline = bouquet.read().split(b"\n")[0].decode(errors="ignore")
 			bouquet.close()
 
 			if firstline[:6] == "#NAME ":
