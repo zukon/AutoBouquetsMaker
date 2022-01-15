@@ -1,6 +1,9 @@
 from __future__ import absolute_import
 from Screens.Screen import Screen
 
+# for localized messages
+from . import _
+
 from Components.Label import Label
 from Components.Button import Button
 from Components.Pixmap import Pixmap
