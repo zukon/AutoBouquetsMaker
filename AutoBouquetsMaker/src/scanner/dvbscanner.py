@@ -1205,6 +1205,8 @@ class DvbScanner():
 			key = "%x:%x:%x" % (service["transport_stream_id"], service["original_network_id"], service["service_id"])
 			if key in tmp_services_dict:
 				tmp_services_dict[key]["numbers"].append(service["number"])
+				if service["region_id"] == region_id:
+					tmp_services_dict[key]["region_id"] = service["region_id"] # Overwrite the region if this is not the generic region. Makes the table order irrelevant.
 			else:
 				service["numbers"] = [service["number"]]
 				tmp_services_dict[key] = service
@@ -1234,19 +1236,18 @@ class DvbScanner():
 		tmp_double_numbers = []
 		for key in tmp_services_dict:
 			if len(tmp_services_dict[key]["numbers"]) > 1:
-				if tmp_services_dict[key]["numbers"][0] not in tmp_numbers:
-					tmp_numbers.append(tmp_services_dict[key]["numbers"][0])
-				else:
-					tmp_double_numbers.append(tmp_services_dict[key]["numbers"][0])
-				if tmp_services_dict[key]["numbers"][1] not in tmp_numbers:
-					tmp_numbers.append(tmp_services_dict[key]["numbers"][1])
-				else:
-					tmp_double_numbers.append(tmp_services_dict[key]["numbers"][1])
+				for n in tmp_services_dict[key]["numbers"]:
+					if n not in tmp_numbers:
+						tmp_numbers.append(n)
+					else:
+						tmp_double_numbers.append(n)
 		for key in tmp_services_dict:
-			if len(tmp_services_dict[key]["numbers"]) > 1:
-				if tmp_services_dict[key]["numbers"][0] in tmp_double_numbers:
-					print("[ABM-DvbScanner] Deleted double LCN: %d" % (tmp_services_dict[key]["numbers"][0]), file=log)
-					del tmp_services_dict[key]["numbers"][0]
+			if tmp_double_numbers and len(tmp_services_dict[key]["numbers"]) > 1:
+				for n in tmp_services_dict[key]["numbers"]:
+					if n in tmp_double_numbers and tmp_services_dict[key]["region_id"] != region_id: # only delete duplicate if this is not the user defined region.
+						print("[ABM-DvbScanner] Deleted double LCN: %d" % (tmp_services_dict[key]["numbers"][0]))
+						tmp_services_dict[key]["numbers"].remove(n)
+						tmp_double_numbers.remove(n)
 
 		if self.sdt_other_table_id == 0x00:
 			mask = 0xff
