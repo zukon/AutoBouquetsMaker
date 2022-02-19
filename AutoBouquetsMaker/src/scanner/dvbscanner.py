@@ -1245,7 +1245,7 @@ class DvbScanner():
 			if tmp_double_numbers and len(tmp_services_dict[key]["numbers"]) > 1:
 				for n in tmp_services_dict[key]["numbers"]:
 					if n in tmp_double_numbers and tmp_services_dict[key]["region_id"] != region_id: # only delete duplicate if this is not the user defined region.
-						print("[ABM-DvbScanner] Deleted double LCN: %d" % (tmp_services_dict[key]["numbers"][0]))
+						print("[ABM-DvbScanner] Deleted double LCN: %d" % (tmp_services_dict[key]["numbers"][0]), file=log)
 						tmp_services_dict[key]["numbers"].remove(n)
 						tmp_double_numbers.remove(n)
 
