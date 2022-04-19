@@ -193,9 +193,8 @@
 		<customtransponder key="oxford_____________" frequency="682000000" transport_stream_id="4083" system="1"/>
 		<customtransponder key="oxford_____________" frequency="746000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="oxford_____________" frequency="754000000" transport_stream_id="b000" system="1"/>
-		<customtransponder key="pontop_pike________" frequency="570000000" transport_stream_id="a000" system="1"/>
-		<customtransponder key="pontop_pike________" frequency="578000000" transport_stream_id="b000" system="1"/>
-		<customtransponder key="pontop_pike________" frequency="698000000" transport_stream_id="4089" system="1"/>
+		<customtransponder key="pontop_pike________" frequency="666000000" transport_stream_id="4089" system="1"/>
+		<customtransponder key="pontop_pike________" frequency="746000000" transport_stream_id="a000" system="1"/>
 		<customtransponder key="ridge_hill_________" frequency="474200000" transport_stream_id="3006" system="0"/>
 		<customtransponder key="ridge_hill_________" frequency="482200000" transport_stream_id="4085" system="1"/>
 		<customtransponder key="ridge_hill_________" frequency="498000000" transport_stream_id="5040" system="0"/>
@@ -320,7 +319,7 @@ if "winter_hill" in bouquet_key and service["transport_stream_id"] in (0x8008, 0
 
 if "crystal_palace" in bouquet_key and service["transport_stream_id"] in (0x801f,):
 	skip.skip = True
-	
+
 if "rowridge" in bouquet_key and service["transport_stream_id"] in (0x8007, 0x802a, 0x104c):
 	skip.skip = True
 
