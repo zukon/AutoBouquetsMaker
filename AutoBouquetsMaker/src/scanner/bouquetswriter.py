@@ -495,9 +495,13 @@ class BouquetsWriter():
 					bouquets_tv_list.append("#SERVICE 1:519:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s%s.%s.tv\" ORDER BY bouquet\n" % (self.ABM_BOUQUET_PREFIX, section_identifier, section_type))
 				bouquetsToKeep2["tv"].append("%s%s.%s.tv" % (self.ABM_BOUQUET_PREFIX, section_identifier, section_type))
 
-			if config.autobouquetsmaker.markersinindex.value:
+			containsLines = self.containServicesLines(path, "%s%s.main.radio" % (self.ABM_BOUQUET_PREFIX, section_identifier))
+			if config.autobouquetsmaker.markersinindex.value and containsLines:
 				bouquets_radio_list.append(self.styledBouquetMarker(providers[section_identifier]["name"], "index"))
-			bouquets_radio_list.append("#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s%s.main.radio\" ORDER BY bouquet\n" % (self.ABM_BOUQUET_PREFIX, section_identifier))
+			if containsLines:
+				bouquets_radio_list.append("#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s%s.main.radio\" ORDER BY bouquet\n" % (self.ABM_BOUQUET_PREFIX, section_identifier))
+			else:
+				bouquets_radio_list.append("#SERVICE 1:519:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s%s.main.radio\" ORDER BY bouquet\n" % (self.ABM_BOUQUET_PREFIX, section_identifier))
 			bouquetsToKeep2["radio"].append("%s%s.main.radio" % (self.ABM_BOUQUET_PREFIX, section_identifier))
 
 		if config.autobouquetsmaker.placement.getValue() == 'top':
