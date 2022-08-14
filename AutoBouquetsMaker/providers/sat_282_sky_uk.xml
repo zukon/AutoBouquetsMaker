@@ -433,11 +433,11 @@ except:
 	rename = {
 		# BT Interactive
 		5381: "BT Sport Mosaic 2",
-		5382: "BT Sport Extra 2",
-		5383: "BT Sport Extra 3",
-		5384: "BT Sport Extra 4",
-		5385: "BT Sport Extra 5",
-		5386: "BT Sport Extra 6",
+		5382: "BT Sport 6",
+		5383: "BT Sport 7",
+		5384: "BT Sport 8",
+		5385: "BT Sport 9",
+		5386: "BT Sport 10",
 	}
 
 	rename_by_id_conditional = { # channel ID: ("old name", "new name")
