@@ -79,7 +79,8 @@
 		<channel number="136" with="831"/> <!-- More4 HD -->
 		<channel number="144" with="834"/> <!-- Quest HD -->
 		<channel number="151" with="835"/> <!-- E! HD -->
-		<channel number="152" with="836"/> <!-- Syfy HD -->
+		<channel number="152" with="836"/> <!-- Sky Sci-Fi HD -->
+		<channel number="155" with="846"/> <!-- YESTERDAY HD -->
 		<channel number="156" with="837"/> <!-- Crime+Inv HD -->
 		<channel number="163" with="840"/> <!-- Sky History 2 HD -->
 		<channel number="165" with="841"/> <!-- Nat Geo Wild HD -->
@@ -110,7 +111,7 @@
 		<channel number="416" with="873"/> <!-- SkySp Mix HD -->
 		<channel number="417" with="874"/> <!-- BT Sport3 HD -->
 		<channel number="418" with="875"/> <!-- MUTV HD -->
-		<channel number="423" with="876"/> <!-- BTSpt ESPN HD -->
+		<channel number="423" with="876"/> <!-- BT Sport4 HD -->
 		<channel number="426" with="877"/> <!-- Racing TV HD -->
 		<channel number="501" with="881"/> <!-- Sky News HD -->
 		<channel number="503" with="882"/> <!-- BBC News HD -->
@@ -297,7 +298,7 @@ except:
 
 	rename_by_sid = {
 		53710: "NBC News NOW HD",
-	} 
+	}
 
 	whitelist = ['ITV HD',752,]
 
