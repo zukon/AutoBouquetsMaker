@@ -271,12 +271,14 @@
 		<channel number="134" with="829"/> <!-- S4C HD -->
 		<channel number="135" with="830"/> <!-- E4 HD -->
 		<channel number="136" with="831"/> <!-- More4 HD -->
+		<channel number="139" with="836"/> <!-- Sky Sci-Fi HD -->
 		<channel number="141" with="845" conditional="'BBC Three' in service_sd['service_name']"/> <!-- BBC Three HD -->
 		<channel number="144" with="834"/> <!-- Quest HD -->
 		<channel number="151" with="835"/> <!-- E! HD -->
 		<channel number="152" with="836"/> <!-- Sky Sci-Fi HD -->
 		<channel number="155" with="846"/> <!-- YESTERDAY HD -->
 		<channel number="156" with="837"/> <!-- Crime+Inv HD -->
+		<channel number="159" with="835"/> <!-- E! HD -->
 		<channel number="163" with="840"/> <!-- Sky History 2 HD -->
 		<channel number="165" with="841"/> <!-- Nat Geo Wild HD -->
 		<channel number="171" with="843"/> <!-- Smithsonian HD -->
