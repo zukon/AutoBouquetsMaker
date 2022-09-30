@@ -7,10 +7,11 @@ Contents:
 5) Hacks
 6) Streams
 7) Provider keys
-8) lamedb format explained
-9) swapchannels (in providers.xml)
-10) Freesat, special config for people outside the footprint of the home transponder.
-11) DVB-T frequency finder
+8) Make your own provider files
+9) lamedb format explained
+10) swapchannels (in providers.xml)
+11) Freesat, special config for people outside the footprint of the home transponder.
+12) DVB-T frequency finder
 
 ----------------------------------------------------------------------------------------------
 
@@ -46,7 +47,7 @@ easier to avoid making errors.
 
 Each time ABM runs it makes an example CustomLCN xml file for each provider that is scanned,
 e.g. 'EXAMPLE_hd_sat_freesat_CustomLCN.xml'. These files are archived in:
-/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom
+/etc/enigma2/AutoBouquetsMaker/custom
 To make your own custom LCN file just delete 'EXAMPLE_' from the filename,
 i.e. hd_sat_freesat_CustomLCN.xml. Configurations in the provider xml file, such as channel swap,
 etc, are done after CustomLCN has been processed.
@@ -170,7 +171,7 @@ from that provider just set all the bouquet creation options to no.
 CustomMix can also be used to move channels around interanally within one single provider.
 
 For each provider you wish to add channels to, you need to add an xml configuration file. The xml
-configuration files reside in /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom
+configuration files reside in /etc/enigma2/AutoBouquetsMaker/custom
 and filenames are made up as follows... "provider_key_CustomMix.xml", e.g. for Sky UK the filename
 would be "sat_282_sky_uk_CustomMix.xml". For other providers please consult the list of provider
 keys below.
@@ -211,7 +212,7 @@ if new channels start broadcasting, so any new channels you want in the list mus
 
 Channels selected for the favourites list can come from any providers that are being scanned, and these
 providers must be scanned on every ABM run. The filename of the configuration file is "favourites.xml"
-It must be placed in: /usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom/
+It must be placed in: /etc/enigma2/AutoBouquetsMaker/custom/
 
 Here is an example favourites.xml file.
 
@@ -484,6 +485,15 @@ modulation
 
 | 1 | QPSK |
 | 2 | 8PSK |
+
+----------------------------------------------------------------------------------------------
+
+Make your own provider files
+----------------------------
+
+You can make your own providers files or modify existing ones. Place these in /etc/enigma2/AutoBouquetsMaker/providers.
+These will take priority over the ones shipped with the plugin and as they are in /etc/enigma2 they should be 
+automatically included in settings backups.
 
 ----------------------------------------------------------------------------------------------
 

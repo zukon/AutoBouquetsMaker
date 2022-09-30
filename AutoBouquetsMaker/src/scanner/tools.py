@@ -7,7 +7,9 @@ import codecs
 import re
 import xml.dom.minidom
 from Components.config import config
+from Tools.Directories import resolveFilename, SCOPE_CONFIG
 from .dvbscanner import DvbScanner
+from .providers import Providers
 import six
 from six.moves.urllib.parse import quote
 
@@ -38,7 +40,7 @@ class Tools():
 		return dom
 
 	def customLCN(self, services, section_identifier, current_bouquet_key):
-		custom_dir = os.path.dirname(__file__) + "/../custom"
+		user_custom_dir = os.path.realpath(resolveFilename(SCOPE_CONFIG)) + "/AutoBouquetsMaker/custom"
 		is_sorted = False
 
 		for number in services["video"]:
@@ -65,13 +67,13 @@ class Tools():
 					servicename.replace("&", "+")
 					))
 			xml_out_list.append("\t</lcnlist>\n</custom>\n")
-			xmlout = open(custom_dir + "/EXAMPLE_" + ("sd" if current_bouquet_key.startswith('sd') else "hd") + "_" + section_identifier + "_Custom" + ("radio" if type == "radio" else "") + "LCN.xml", "w")
+			xmlout = open(user_custom_dir + "/EXAMPLE_" + ("sd" if current_bouquet_key.startswith('sd') else "hd") + "_" + section_identifier + "_Custom" + ("radio" if type == "radio" else "") + "LCN.xml", "w")
 			xmlout.write(''.join(xml_out_list))
 			xmlout.close()
 			del xml_out_list
 
 			# Read CustomLCN file
-			customfile = custom_dir + "/" + ("sd" if current_bouquet_key.startswith('sd') else "hd") + "_" + section_identifier + "_Custom" + ("radio" if type == "radio" else "") + "LCN.xml"
+			customfile = self.getCustomPath(("sd" if current_bouquet_key.startswith('sd') else "hd") + "_" + section_identifier + "_Custom" + ("radio" if type == "radio" else "") + "LCN.xml")
 			dom = self.parseXML(customfile)
 			if dom is None:
 				print("[ABM-Tools][customLCN] No custom " + type + " LCN file for " + section_identifier + ".", file=log)
@@ -152,8 +154,7 @@ class Tools():
 
 	def customMix(self, services, section_identifier, providers, providerConfig):
 		sections = providers[section_identifier]["sections"]
-		custom_dir = os.path.dirname(__file__) + "/../custom"
-		customfile = custom_dir + "/" + section_identifier + "_CustomMix.xml"
+		customfile = self.getCustomPath(section_identifier + "_CustomMix.xml")
 		customised = {"video": {}, "radio": {}}
 		for type in ["video", "radio"]:
 			for number in services[section_identifier][type]:
@@ -245,11 +246,10 @@ class Tools():
 
 	def customtransponder(self, provider_key, bouquet_key):
 		customtransponders = []
-		providers_dir = os.path.dirname(__file__) + "/../providers"
 
 		# Read custom file
 		print("[ABM-Tools][customtransponder] Transponder provider name", provider_key, file=log)
-		providerfile = providers_dir + "/" + provider_key + ".xml"
+		providerfile = Providers().getProviderPaths()[provider_key + ".xml"]
 		dom = self.parseXML(providerfile)
 		if dom is None:
 			print("[ABM-Tools][customtransponder] Cannot read custom transponders from provider file.", file=log)
@@ -316,7 +316,6 @@ class Tools():
 		return customtransponders
 
 	def favourites(self, path, services, providers, providerConfigs, bouquetsOrder):
-		custom_dir = os.path.dirname(__file__) + "/../custom"
 		provider_key = "favourites"
 		customised = {"video": {}, "radio": {}}
 		name = ""
@@ -331,7 +330,7 @@ class Tools():
 		hacks = ""
 
 		# Read favourites file
-		dom = self.parseXML(custom_dir + "/favourites.xml")
+		dom = self.parseXML(self.getCustomPath("favourites.xml"))
 		if dom is None:
 			print("[ABM-Tools][favourites] No favourites.xml file", file=log)
 		elif dom.documentElement.nodeType == dom.documentElement.ELEMENT_NODE and dom.documentElement.tagName == "favourites":
@@ -427,6 +426,11 @@ class Tools():
 				print("[ABM-Tools][favourites] Favourites list is zero length.", file=log)
 
 		return services, providers, providerConfigs, bouquetsOrder
+
+	def getCustomPath(self, filename):
+		user_custom_dir = os.path.realpath(resolveFilename(SCOPE_CONFIG)) + "/AutoBouquetsMaker/custom"
+		custom_dir = os.path.dirname(__file__) + "/../custom"
+		return os.path.exists(user_custom_dir + "/" + filename) and user_custom_dir + "/" + filename or custom_dir + "/" + filename
 
 	def clearsections(self, services, sections, bouquettype, servicetype):
 		# bouquettype = HD, FTAHD, FTA, ALL

@@ -3,9 +3,11 @@ from __future__ import absolute_import
 
 # for localized messages
 from . import _
+import os
 
 from Plugins.Plugin import PluginDescriptor
 from Components.NimManager import nimmanager
+from Tools.Directories import resolveFilename, SCOPE_CONFIG
 
 from .menu import AutoBouquetsMaker_Menu
 from .scanner.main import Scheduleautostart, AutoBouquetsMaker
@@ -72,6 +74,13 @@ config.autobouquetsmaker.showextraservices = ConfigYesNo(default=False)
 config.autobouquetsmaker.extra_debug = ConfigYesNo(default=False)
 config.autobouquetsmaker.frequencyfinder = ConfigYesNo(default=False)
 config.autobouquetsmaker.FTA_only = ConfigText("", False)
+
+user_providers_dir = os.path.realpath(resolveFilename(SCOPE_CONFIG)) + "/AutoBouquetsMaker/providers"
+user_custom_dir = os.path.realpath(resolveFilename(SCOPE_CONFIG)) + "/AutoBouquetsMaker/custom"
+if not os.path.exists(user_providers_dir):
+	os.makedirs(user_providers_dir, mode=0o755)
+if not os.path.exists(user_custom_dir):
+	os.makedirs(user_custom_dir, mode=0o755)
 
 
 def main(session, **kwargs):

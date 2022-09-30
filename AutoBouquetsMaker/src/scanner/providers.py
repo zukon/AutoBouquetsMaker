@@ -10,6 +10,8 @@ except:
 	import pickle
 from enigma import eDVBFrontendParametersSatellite, eDVBFrontendParametersTerrestrial, eDVBFrontendParametersCable
 
+from Tools.Directories import resolveFilename, SCOPE_CONFIG
+
 
 class Providers():
 	VALID_PROTOCOLS = ("fastscan", "freesat", "lcn", "lcn2", "lcnbat", "lcnbat2", "nolcn", "sky", "vmuk", "vmuk2")
@@ -37,27 +39,38 @@ class Providers():
 		provider.close()
 		return dom
 
+	def getProviderPaths(self):
+		user_providers_dir = os.path.realpath(resolveFilename(SCOPE_CONFIG)) + "/AutoBouquetsMaker/providers"
+		paths_dict = {}
+		for filename in os.listdir(self.PROVIDERS_DIR):
+			if filename[-4:] != ".xml":
+				continue
+			paths_dict[filename] = self.PROVIDERS_DIR + "/" + filename
+		for filename in os.listdir(user_providers_dir): # user files take priority
+			if filename[-4:] != ".xml":
+				continue
+			paths_dict[filename] = user_providers_dir + "/" + filename
+		return paths_dict
+
 	def providerFileExists(self, name):
-		providers_dir = self.PROVIDERS_DIR
+		paths_dict = self.getProviderPaths()
 		filename = name + ".xml"
-		return os.path.exists(providers_dir + "/" + filename)
+		return filename in paths_dict
 
 	def read(self):
-		providers_dir = self.PROVIDERS_DIR
-		cachefile = "providers.cache" # cache file
+		paths_dict = self.getProviderPaths()
+		cachefile = self.PROVIDERS_DIR + "/" + "providers.cache"
 		providers = {}
 
 		# check if providers cache exists and data is fresh
 		newest = 0
-		for filename in os.listdir(providers_dir):
-			if filename[-4:] != ".xml":
-				continue
-			filetime = os.path.getmtime(providers_dir + "/" + filename)
+		for filename in paths_dict:
+			filetime = os.path.getmtime(paths_dict[filename])
 			if filetime > newest:
 				newest = filetime
 		try:
-			if os.path.exists(providers_dir + "/" + cachefile) and os.path.getmtime(providers_dir + "/" + cachefile) > newest:
-				with open(providers_dir + "/" + cachefile, 'rb') as cache_input:
+			if os.path.exists(cachefile) and os.path.getmtime(cachefile) > newest:
+				with open(cachefile, 'rb') as cache_input:
 					providers = pickle.load(cache_input)
 					cache_input.close()
 					return providers
@@ -65,11 +78,8 @@ class Providers():
 			pass
 
 		# cache file does not exist or data is stale
-		for filename in os.listdir(providers_dir):
-			if filename[-4:] != ".xml":
-				continue
-
-			dom = self.parseXML(providers_dir + "/" + filename)
+		for filename in paths_dict:
+			dom = self.parseXML(paths_dict[filename])
 			if dom is None:
 				continue
 
@@ -394,7 +404,7 @@ class Providers():
 
 			providers[provider["key"]] = provider
 		try:
-			with open(providers_dir + "/" + cachefile, 'wb') as cache_output:
+			with open(cachefile, 'wb') as cache_output:
 				pickle.dump(providers, cache_output, pickle.HIGHEST_PROTOCOL)
 				cache_output.close()
 		except:
