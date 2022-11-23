@@ -217,7 +217,7 @@ except:
 		6000: "ITV London",
 #		6010: "ITV Central South",
 #		6015: "ITV Central SW",
-		6020: "ITV Wales",
+#		6020: "ITV Wales",	#This is correct on stream, no need for rename.
 #		6110: "ITV Border",
 		6130: "ITV Granada",
 		6142: "ITV Meridian East",
@@ -260,7 +260,7 @@ except:
 		1217: "ITV Anglia West HD",
 		1219: "ITV Central East HD",
 		4055: "STV Scotland West HD",
-		6501: "ITV Wales HD",
+#		6501: "ITV Wales HD",	#This is correct on stream, no need for rename.
 		6502: "ITV Meridian East HD",
 		6503: "ITV Central West HD",
 		6504: "ITV London HD",
